@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "recorded_date": "2026-11-12",
+  "purpose": "Recheck current v11 tagged source without converting historical v10 evidence into current claims",
+  "execution_status": "source_read_only_not_compiled_not_run",
+  "checks": [
+    {
+      "repository": "dotnet/efcore",
+      "tag": "v11.0.0",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "tag_ref_url": "https://api.github.com/repos/dotnet/efcore/git/ref/tags/v11.0.0",
+      "files": [
+        {
+          "path": "src/EFCore/Query/Internal/QueryCompiler.cs",
+          "blob_sha": "7d59e4786702c632ff72f781ae88104c271265f2",
+          "scope": "complete",
+          "url": "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/Query/Internal/QueryCompiler.cs"
+        }
+      ],
+      "observations": [
+        "ExecuteCore still gates new query compilation with RuntimeFeature.IsDynamicCodeSupported and throws QueryNotPrecompiled otherwise.",
+        "PrecompileQuery still has Experimental(EFDiagnostics.PrecompiledQueryExperimental).",
+        "Compared with previously read v10 source, ExtractParameters no longer exposes the optional generateContextAccessors bool parameter."
+      ],
+      "limits": [
+        "No complete v11 Native AOT feature/provider/support review.",
+        "No current provider integration or compiled model tests run.",
+        "A tag existence is not by itself a production support claim."
+      ]
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "tag": "v11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "tag_ref_url": "https://api.github.com/repos/dotnet/aspnetcore/git/ref/tags/v11.0.0",
+      "files": [
+        {
+          "path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs",
+          "blob_sha": "5e5078e05cc54865f02abfbed7a6396894f12e9d",
+          "scope": "complete",
+          "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+        },
+        {
+          "path": "src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs",
+          "blob_sha": "8fb8cb261d0ae8eefeecc5471d9e79ab537fc2e3",
+          "scope": "complete",
+          "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs"
+        }
+      ],
+      "observations": [
+        "Both implementation and scoped test file have identical blob SHAs to the v10 reference files.",
+        "Open/Closed/Aborted states and tests rejecting writes after StopAcceptingWrites remain present in v11."
+      ],
+      "limits": [
+        "No conclusion about all Kestrel v11 files, all middleware or full AOT compatibility.",
+        "No concurrency/backpressure/end-to-end test execution."
+      ]
+    }
+  ]
+}

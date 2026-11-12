@@ -1,0 +1,110 @@
+{
+  "scope": "Independent synthetic evidence validator follow-up; corrected fixture uses current stdout/stderr log schema, not actual AOT execution.",
+  "validator_sha256": "d3ce977aa46f838a2c3ec47147e3e148f78b30e17bfcf7d46d383a1fbdbfdfc0",
+  "total": 13,
+  "passed": 13,
+  "cases": [
+    {
+      "case": "synthetic native evidence positive control with current log schema",
+      "passed": true,
+      "expected_error": null,
+      "actual_codes": []
+    },
+    {
+      "case": "AOT not executed rejected",
+      "passed": true,
+      "expected_error": "AOT_NOT_EXECUTED",
+      "actual_codes": [
+        "AOT_NOT_EXECUTED"
+      ]
+    },
+    {
+      "case": "JIT mislabeled as native AOT rejected",
+      "passed": true,
+      "expected_error": "AOT_NOT_EXECUTED",
+      "actual_codes": [
+        "AOT_NOT_EXECUTED"
+      ]
+    },
+    {
+      "case": "failed checks rejected",
+      "passed": true,
+      "expected_error": "RUN_CHECKS_INCOMPLETE",
+      "actual_codes": [
+        "RUN_CHECKS_INCOMPLETE"
+      ]
+    },
+    {
+      "case": "timed out checks rejected",
+      "passed": true,
+      "expected_error": "RUN_CHECKS_INCOMPLETE",
+      "actual_codes": [
+        "RUN_CHECKS_INCOMPLETE"
+      ]
+    },
+    {
+      "case": "stale source commit rejected",
+      "passed": true,
+      "expected_error": "RUN_COMMIT_STALE",
+      "actual_codes": [
+        "RUN_COMMIT_STALE"
+      ]
+    },
+    {
+      "case": "wrong target RID rejected",
+      "passed": true,
+      "expected_error": "AOT_TARGET",
+      "actual_codes": [
+        "AOT_TARGET"
+      ]
+    },
+    {
+      "case": "missing native binary rejected",
+      "passed": true,
+      "expected_error": "FILE_MISSING",
+      "actual_codes": [
+        "FILE_MISSING"
+      ]
+    },
+    {
+      "case": "null producer rejected",
+      "passed": true,
+      "expected_error": "EVIDENCE_PRODUCER",
+      "actual_codes": [
+        "EVIDENCE_PRODUCER"
+      ]
+    },
+    {
+      "case": "missing raw logs rejected",
+      "passed": true,
+      "expected_error": "RUN_LOGS",
+      "actual_codes": [
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "stale raw log hash rejected",
+      "passed": true,
+      "expected_error": "HASH_MISMATCH",
+      "actual_codes": [
+        "HASH_MISMATCH"
+      ]
+    },
+    {
+      "case": "invalid interval rejected",
+      "passed": true,
+      "expected_error": "RUN_TIMES",
+      "actual_codes": [
+        "RUN_TIMES"
+      ]
+    },
+    {
+      "case": "missing start time rejected",
+      "passed": true,
+      "expected_error": "RUN_TIMES",
+      "actual_codes": [
+        "RUN_TIMES"
+      ]
+    }
+  ]
+}
