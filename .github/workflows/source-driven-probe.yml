@@ -19,8 +19,25 @@ jobs:
       - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
         with:
           dotnet-version: '11.0.100'
+      - name: Apply explicit SQLx 0.9 compatibility correction
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('experiments/source-driven/probe.py');s=p.read_text()
+          changes={
+            'sqlx::query_with(&sql,values)':'sqlx::query_with(sqlx::AssertSqlSafe(sql.as_str()),values)',
+            'sqlx::query_with(&s,v)':'sqlx::query_with(sqlx::AssertSqlSafe(s.as_str()),v)',
+            "sqlx::sqlite::SqliteArguments<'_>":'sqlx::sqlite::SqliteArguments'
+          }
+          for old,new in changes.items():
+              if old not in s:raise RuntimeError('Probe input drift: '+old)
+              s=s.replace(old,new)
+          # Only SeaQuery-generated parameterized statements receive AssertSqlSafe.
+          # Preserve both initial and resolved source, including its recorded hash.
+          p.with_name('probe-resolved.py').write_text(s)
+          PY
       - name: Run isolated research prototype
-        run: python3 experiments/source-driven/probe.py
+        run: python3 experiments/source-driven/probe-resolved.py
       - name: Preserve actual results and generated source
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -29,6 +46,7 @@ jobs:
           retention-days: 14
           path: |
             experiments/source-driven/evidence/
+            experiments/source-driven/probe*.py
             experiments/source-driven/work/native/Cargo.toml
             experiments/source-driven/work/native/Cargo.lock
             experiments/source-driven/work/native/src/
@@ -43,8 +61,6 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Collect canonical SQLx and package-specific Actix tags
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           python3 - <<'PY'
           import hashlib, io, json, os, pathlib, tarfile, urllib.request
@@ -64,7 +80,7 @@ jobs:
                       except UnicodeDecodeError:continue
                       p=dest/str(rel);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
               records.append({'repository':repo,'tag':tag,'commit':sha,'archive_url':url,'archive_sha256':hashlib.sha256(data).hexdigest()})
-          (root/'corrected-pins.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'correction':'Initial latest-release collector selected unrelated monorepo tags for Actix and did not resolve SQLx repository move. These exact package tags supersede those observations; no claim of reading all downloaded files.','sources':records},indent=2)+'\n')
+          (root/'corrected-pins.json').write_text(json.dumps({'run_id':os.environ['GITHUB_RUN_ID'],'correction':'Initial latest-release collector selected unrelated monorepo tags for Actix and did not resolve SQLx repository move. These exact package tags supersede those observations; downloaded does not mean reviewed.','sources':records},indent=2)+'\n')
           PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
