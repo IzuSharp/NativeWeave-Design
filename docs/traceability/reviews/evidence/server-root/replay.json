@@ -1,0 +1,55 @@
+[
+  {
+    "task": "R29",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design/docs/research/topics/R29/credit_model.py"
+    ],
+    "started_at": "2026-11-12T13:38:22.027013+00:00",
+    "finished_at": "2026-11-12T13:38:22.119319+00:00",
+    "exit_code": 0,
+    "script_sha256": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519",
+    "stdout_sha256": "2b2a1c6cf9462501262a30434e41843623e496ac3a8b1ca58154c866069ed625",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "summary": {
+      "status": "passed",
+      "states": 282,
+      "transitions": 895,
+      "checks": 0,
+      "limitations": [
+        "Finite abstract logical-byte state space only",
+        "Not a memory allocator, RSS or runtime scheduling model",
+        "No Tokio or .NET execution; no AOT verification",
+        "Existence of finish path does not prove fairness/liveness under arbitrary stalls",
+        "Native-copy double-credit and callback retirement need separate product tests"
+      ]
+    }
+  },
+  {
+    "task": "R31",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design/docs/research/topics/R31/idempotency_experiment.py"
+    ],
+    "started_at": "2026-11-12T13:38:22.120061+00:00",
+    "finished_at": "2026-11-12T13:38:22.412878+00:00",
+    "exit_code": 0,
+    "script_sha256": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157",
+    "stdout_sha256": "f32d20583dc84f7c6b03256459612dcd0be4dc4de3d0db43302de6dc634481e7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "summary": {
+      "status": "passed",
+      "states": null,
+      "transitions": null,
+      "checks": 5,
+      "limitations": [
+        "Not NativeWeave product implementation",
+        "No C# or Rust execution",
+        "No Native AOT proof",
+        "No PostgreSQL concurrency execution",
+        "Response loss simulated after actual COMMIT, not a network proxy fault",
+        "Process exit is not OS power-loss/fsync hardware verification"
+      ]
+    }
+  }
+]

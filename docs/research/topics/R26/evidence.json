@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R26",
+  "observed_date": "2026-11-12",
+  "status": "partially_evidenced",
+  "input_baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "packet_revision": "0.1.1",
+    "packet_sha256": "655685a2f330da38f28fc79fb230840684fd0960037fb86b7df6fb52dafb8b8f"
+  },
+  "claims": [
+    {
+      "claim_id": "R26-E001",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "ref": "v11.0.0",
+      "path": "src/Servers/Kestrel/Core/src/Internal/KestrelServerImpl.cs",
+      "blob_sha": "ab03c06fcaaf6c7fd68b0e41f297a74f92cf7292",
+      "symbol": "StopAsync / Dispose",
+      "locator": "240-291",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/KestrelServerImpl.cs",
+      "supported_claim": "StopAsync has an interlocked stopping gate, stops heartbeat, waits transport stop and reports shared completion; Dispose calls stop with a canceled token.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R26-E002",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "ref": "v11.0.0",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs",
+      "blob_sha": "8e2585e75d7474d7d8cf10d2e917bcf99fefdb66",
+      "symbol": "StopTransportsAsync / ActiveTransport.UnbindAsync",
+      "locator": "119-193",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs",
+      "supported_claim": "Transport stop first unbinds and waits accept loops, then closes connections, falls back to abort, then disposes listeners.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R26-E003",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "ref": "v11.0.0",
+      "path": "src/Servers/Kestrel/Core/src/KestrelServerLimits.cs",
+      "blob_sha": "270d4ed38e794db5a218f5726990f705bba4e9ca",
+      "symbol": "limit fields and setters",
+      "locator": "12-93;146-172;210-232",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/KestrelServerLimits.cs",
+      "supported_claim": "The fixed source defaults connections to unlimited, request buffer 1MiB, response buffer 64KiB, headers32KiB and body30000000; these are distinct limits, not RSS bounds.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R26-E004",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "ref": "v11.0.0",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs",
+      "blob_sha": "5e5078e05cc54865f02abfbed7a6396894f12e9d",
+      "symbol": "ValidateState / StopAcceptingWritesAsync / Abort",
+      "locator": "1-119",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs",
+      "supported_claim": "Open/Aborted/Closed writer state differs from request cancellation; closed operations throw; abort does not immediately change all writes into ObjectDisposedException.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R26-E005",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "ref": "v11.0.0",
+      "path": "src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs",
+      "blob_sha": "8fb8cb261d0ae8eefeecc5471d9e79ab537fc2e3",
+      "symbol": "Advance/GetMemory/GetSpan/Complete/FlushAsync/WriteAsync after stop tests",
+      "locator": "1-78",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs",
+      "supported_claim": "Upstream tests explicitly assert access after stop fails.",
+      "limitations": "Test source read only; not executed in this session.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R26-E006",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "ref": "v11.0.0",
+      "path": "src/Http/Http.Extensions/gen/Microsoft.AspNetCore.Http.RequestDelegateGenerator/RequestDelegateGenerator.cs",
+      "blob_sha": "c7ed5cf3d09f98aa31acc6690b8558a57150eb34",
+      "symbol": "Initialize",
+      "locator": "1-63",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Extensions/gen/Microsoft.AspNetCore.Http.RequestDelegateGenerator/RequestDelegateGenerator.cs",
+      "supported_claim": "Incremental generator models endpoint invocations, reports diagnostics and generates interceptors/helpers only for endpoint models without diagnostics.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R26-E007",
+      "evidence_kind": "official_documentation",
+      "repository": "https://learn.microsoft.com",
+      "commit": null,
+      "path": "aspnet/core/fundamentals/native-aot",
+      "symbol": "Native AOT feature compatibility",
+      "locator": "Native AOT feature compatibility",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/native-aot?view=aspnetcore-10.0",
+      "supported_claim": "Official ASP.NET Core guidance describes Minimal API and gRPC Native AOT paths with feature-specific limits.",
+      "limitations": "The accessible documentation view is 10.0; .NET11 source was independently pinned; this is not a .NET11 application execution record.",
+      "observed_date": "2026-11-12",
+      "run_manifest": null
+    }
+  ],
+  "selected_design": {
+    "decision": "Kestrel/.NET11 is the managed default; static endpoints/JSON, no mandatory native runtime; Rust remains independently optional.",
+    "design_research_status": "resolved_pending_independent_review",
+    "contract_acceptance": "proposed_not_self_accepted",
+    "question_closure_recommendations": [
+      "Q15"
+    ],
+    "documentation_tasks": [
+      "D18"
+    ],
+    "verification_delivery_tasks": [
+      "B15",
+      "B16",
+      "B22",
+      "B23",
+      "B24"
+    ]
+  },
+  "execution": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "none"
+  },
+  "independent_review": "required_by_other_author_not_claimed_here"
+}

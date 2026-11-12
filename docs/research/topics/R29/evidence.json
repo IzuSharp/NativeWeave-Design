@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R29",
+  "observed_date": "2026-11-12",
+  "status": "partially_evidenced",
+  "input_baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "packet_revision": "0.1.1",
+    "packet_sha256": "9e5b592c768f4990071a5010c24b420050eccecb5e38b08cda78dc1d720a4cea"
+  },
+  "claims": [
+    {
+      "claim_id": "R29-E001",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "ref": "tokio-1.54.1",
+      "path": "tokio/src/sync/mpsc/bounded.rs",
+      "blob_sha": "273e5ae433c35e314dd758a616a0585786e6f147",
+      "symbol": "Sender.send / reserve",
+      "locator": "765-825;1070-1126",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/mpsc/bounded.rs",
+      "supported_claim": "A bounded message queue does not bound bytes held by producers waiting inside send; reserve must precede materialization for a credit design.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R29-E002",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "ref": "v11.0.0",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Http/Http1Connection.cs",
+      "blob_sha": "cadb0e6ba5fa9e72bd962268e639ebac526aa2e9",
+      "symbol": "OnInputOrOutputCompleted / Abort",
+      "locator": "110-155",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/Http1Connection.cs",
+      "supported_claim": "HTTP1 transport completion triggers request-aborted cancellation; explicit abort also poisons request body. Body EOF cannot be generalized to every transport completion event.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R29-E003",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "ref": "v11.0.0",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs",
+      "blob_sha": "8e2585e75d7474d7d8cf10d2e917bcf99fefdb66",
+      "symbol": "StopTransportsAsync",
+      "locator": "119-193",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs",
+      "supported_claim": "Unbind, graceful connection close, abort fallback and listener disposal are distinct phases.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R29-E004",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/hyperium/hyper",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "ref": "v1.12.0",
+      "path": "src/server/conn/http1.rs",
+      "blob_sha": "8dc83ab586fcfd0eb22d0f9e9971ce9dea58ec79",
+      "symbol": "graceful_shutdown",
+      "locator": "125-149",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/server/conn/http1.rs",
+      "supported_claim": "Graceful shutdown needs continued connection polling; dropping a future is not evidence of completed drain.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R29-E005",
+      "evidence_kind": "executed_research_experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/research/topics/R29/credit_model.py",
+      "symbol": "main",
+      "locator": "sha256:3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519",
+      "supported_claim": "The finite model enumerated282 states/895 transitions; all reachable states obeyed logical credit and queue invariants and had some finishing path; queue-only counterexample retained16 units against4 nominal queue units.",
+      "limitations": [
+        "Finite abstract logical-byte state space only",
+        "Not a memory allocator, RSS or runtime scheduling model",
+        "No Tokio or .NET execution; no AOT verification",
+        "Existence of finish path does not prove fairness/liveness under arbitrary stalls",
+        "Native-copy double-credit and callback retirement need separate product tests"
+      ],
+      "run_manifest": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "docs/research/topics/R29/credit_model.py"
+        ],
+        "reproduce_shell_equivalent": "python docs/research/topics/R29/credit_model.py > docs/research/topics/R29/experiment-result.json",
+        "working_directory": "NativeWeave-Design",
+        "exit_code": 0,
+        "script": "docs/research/topics/R29/credit_model.py",
+        "script_sha256": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519",
+        "stdout": "docs/research/topics/R29/experiment-result.json",
+        "stdout_sha256": "2b2a1c6cf9462501262a30434e41843623e496ac3a8b1ca58154c866069ed625",
+        "stderr": "docs/research/topics/R29/experiment.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "started_at": "2026-11-12T13:38:56.510107+00:00",
+        "finished_at": "2026-11-12T13:38:56.601636+00:00",
+        "timed_out": false,
+        "raw_manifest": "docs/research/topics/R29/run-manifest.json",
+        "raw_manifest_sha256": "722c4ea99bcc9aed1ae098d235076f243989a475a23c658a1ac67b01693e4b30",
+        "observed_date": "2026-11-12",
+        "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+        "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "result_summary": {
+          "status": "passed",
+          "states": 282,
+          "transitions": 895
+        },
+        "native_aot": "not_run",
+        "upstream_runtime_tests": "not_run"
+      }
+    }
+  ],
+  "selected_design": {
+    "decision": "Request slots plus byte credits before allocation, bounded waiters, one owner release, monotonic drain deadline and quiescence-before-free.",
+    "design_research_status": "resolved_pending_independent_review",
+    "contract_acceptance": "proposed_not_self_accepted",
+    "question_closure_recommendations": [
+      "Q16"
+    ],
+    "documentation_tasks": [
+      "D18"
+    ],
+    "verification_delivery_tasks": [
+      "B16",
+      "B17",
+      "B20",
+      "B22"
+    ]
+  },
+  "execution": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "executed_see_manifest"
+  },
+  "independent_review": "required_by_other_author_not_claimed_here"
+}

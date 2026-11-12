@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R26",
+  "observed_date": "2026-11-12",
+  "coverage_statement": "Only listed scopes were read; repository enumeration or retrieval alone is not source coverage.",
+  "paths": [
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Extensions/gen/Microsoft.AspNetCore.Http.RequestDelegateGenerator/RequestDelegateGenerator.cs",
+      "blob_sha": "c7ed5cf3d09f98aa31acc6690b8558a57150eb34",
+      "scope": "1-63",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Extensions/gen/Microsoft.AspNetCore.Http.RequestDelegateGenerator/RequestDelegateGenerator.cs"
+    },
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs",
+      "blob_sha": "5e5078e05cc54865f02abfbed7a6396894f12e9d",
+      "scope": "1-119",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+    },
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs",
+      "blob_sha": "8e2585e75d7474d7d8cf10d2e917bcf99fefdb66",
+      "scope": "110-197",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs"
+    },
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/Internal/KestrelServerImpl.cs",
+      "blob_sha": "ab03c06fcaaf6c7fd68b0e41f297a74f92cf7292",
+      "scope": "240-291",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/KestrelServerImpl.cs"
+    },
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/KestrelServerLimits.cs",
+      "blob_sha": "270d4ed38e794db5a218f5726990f705bba4e9ca",
+      "scope": "12-93;146-172;210-232",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/KestrelServerLimits.cs"
+    },
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs",
+      "blob_sha": "8fb8cb261d0ae8eefeecc5471d9e79ab537fc2e3",
+      "scope": "1-78",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs"
+    },
+    {
+      "repository": "https://learn.microsoft.com",
+      "commit": null,
+      "path": "aspnet/core/fundamentals/native-aot",
+      "scope": "Native AOT feature compatibility",
+      "read_state": "official_documentation_read_as_scoped",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/native-aot?view=aspnetcore-10.0"
+    },
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs",
+      "blob_sha": "804a7b99daed8e07ee777e85913527c976ed8663",
+      "scope": null,
+      "read_state": "retrieved_not_read",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs"
+    }
+  ],
+  "explicit_remaining_coverage": [
+    "Full Kestrel HTTP2/TLS/socket transport internals and all RDG diagnostics/tests were not read.",
+    "No real net11 HTTP application was published or run."
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "LICENSE.txt",
+      "blob_sha": "984713a49622a96da110443c15477613bc12656b",
+      "license_observation": "MIT",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    }
+  ],
+  "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
+  "test_state": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "none"
+  }
+}

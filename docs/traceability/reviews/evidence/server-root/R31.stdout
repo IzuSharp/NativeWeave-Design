@@ -1,0 +1,47 @@
+{
+  "experiment": "R31 SQLite idempotency and transaction boundary prototype",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "same_key_same_hash_replays_original",
+      "passed": true
+    },
+    {
+      "name": "same_key_changed_hash_no_new_effect",
+      "passed": true
+    },
+    {
+      "name": "four_connections_same_key_one_transaction_effect",
+      "passed": true
+    },
+    {
+      "name": "actual_commit_then_simulated_lost_response_recovery",
+      "passed": true
+    },
+    {
+      "name": "child_process_exit_before_commit_atomic_rollback_then_retry",
+      "passed": true,
+      "child_exit_code": 17
+    }
+  ],
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "architecture": "x86_64",
+  "journal_mode": "WAL",
+  "synchronous": "FULL",
+  "final_counts": {
+    "operations": 4,
+    "items": 4,
+    "outbox": 4
+  },
+  "duration_seconds": 0.17426125800011505,
+  "limitations": [
+    "Not NativeWeave product implementation",
+    "No C# or Rust execution",
+    "No Native AOT proof",
+    "No PostgreSQL concurrency execution",
+    "Response loss simulated after actual COMMIT, not a network proxy fault",
+    "Process exit is not OS power-loss/fsync hardware verification"
+  ]
+}
