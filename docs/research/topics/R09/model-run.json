@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "kind": "research_model_run",
+  "status": "passed",
+  "producer": "interop_design",
+  "started_at": "2026-11-12T13:24:07.759820+00:00",
+  "finished_at": "2026-11-12T13:24:07.911811+00:00",
+  "source_commit": null,
+  "source_identity": {
+    "baseline_design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "working_tree_model_sha256": "016760cddb78698827bccc472a2d653cba55e20ba15c61c3480a3faea559cd1f",
+    "note": "New research model executed before its first Git commit; exact bytes identified by SHA256. This is not a product acceptance manifest."
+  },
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "docs/research/topics/R09/retirement_model.py"
+  ],
+  "exit_code": 0,
+  "platform": {
+    "os": "Linux",
+    "arch": "x86_64"
+  },
+  "toolchain": {
+    "python": "3.12.14"
+  },
+  "logs": {
+    "stdout": {
+      "path": "NativeWeave-Design:docs/research/topics/R09/model-stdout.txt",
+      "sha256": "fbe1c73b06f659e20225cdfde89701e5eb110cdc4eb8bfe1bda5cfebbfd3e698"
+    },
+    "stderr": {
+      "path": "NativeWeave-Design:docs/research/topics/R09/model-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "result": {
+    "path": "NativeWeave-Design:docs/research/topics/R09/retirement-result.json",
+    "sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649"
+  },
+  "limitations": "Finite Python model only; no C#/Rust/FFI/Native AOT execution."
+}

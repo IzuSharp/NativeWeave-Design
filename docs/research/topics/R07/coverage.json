@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R07",
+  "date": "2026-11-12",
+  "input_pin": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "task_revision": "0.1.1"
+  },
+  "status": "scoped_read_with_explicit_gaps",
+  "paths": [
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "blob_sha": "2d1f9313b485c57afab1f187e00a180df7fad3ba",
+      "locator": "27-263",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R07-S01"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime/tests/System.Runtime.Handles.Tests/SafeHandle.cs",
+      "blob_sha": "794cb6f7b167488eb497db28f537e554922e6da0",
+      "locator": "36-145",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Runtime/tests/System.Runtime.Handles.Tests/SafeHandle.cs",
+      "read_state": "read_test_source_not_run",
+      "role": [
+        "R07-T01"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/YahaSafeHandles.cs",
+      "blob_sha": "e6df6995e35efc1081683ca15bd6aaa17b9efe54",
+      "locator": "1-112",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/YahaSafeHandles.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R07-S02"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/RequestContext.cs",
+      "blob_sha": "e2292be3b333f87ce58a4e3b5c4c51e40db21c79",
+      "locator": "1-130;250-378",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/RequestContext.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R07-S03"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs",
+      "blob_sha": "08aea77e84c7d5a4920170bec1aa30190292d8ea",
+      "locator": "20-245",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R07-S04"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/runtime_interop.cpp",
+      "blob_sha": "bbe6da1e60918e7629ab594db87ee1cec331841f",
+      "locator": "125-230",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/runtime_interop.cpp",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R07-S05"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "blob_sha": "56227b89434f67f66fbd46e33515330b548d2c04",
+      "locator": "13-71",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R07-S06"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/signal_awaiter_utils.cpp",
+      "blob_sha": "e3f855bac28d887460fc6fe823bd12d180fccb42",
+      "locator": "36-128",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/signal_awaiter_utils.cpp",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R07-S07"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/managed_callable.cpp",
+      "blob_sha": "7c48110199662869c04a3482bb2b3cfac0415ab9",
+      "locator": "42-134",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/managed_callable.cpp",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R07-S08"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs",
+      "blob_sha": "860510396841175de4a3efff9b16d05e8b144100",
+      "locator": "1-175",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs",
+      "read_state": "read_test_source_not_run",
+      "role": [
+        "R07-T02"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/qt/qtforpython",
+      "commit": null,
+      "path": "libshiboken (candidate search area)",
+      "read_state": "not_read",
+      "role": "Additional ownership comparison",
+      "reason": "Not needed to select the scoped C# v1 lifetime protocol; interpreter ownership comparison remains a concrete follow-up, not completed evidence."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/csharp_script.cpp",
+      "read_state": "target_not_read",
+      "role": "CSharpInstance disposal helper internals",
+      "reason": "Adapter calls located but deeper implementation not read."
+    }
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "LICENSE.TXT",
+      "spdx": "MIT",
+      "blob_sha": "984713a49622a96da110443c15477613bc12656b",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/LICENSE.TXT",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "LICENSE",
+      "spdx": "MIT",
+      "blob_sha": "c6869d3f4d441a2c7752bf0569246b6d49e49b2e",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/LICENSE",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "LICENSE.txt",
+      "spdx": "MIT",
+      "blob_sha": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/LICENSE.txt",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    }
+  ],
+  "executed_experiments": [],
+  "cross_task_model_reference": "docs/research/topics/R09/model-run.json",
+  "not_executed": [
+    "Upstream tests",
+    "C# or Rust compilation",
+    "Native AOT Windows/Linux",
+    "Product implementation tests",
+    "Performance or production acceptance"
+  ],
+  "path_corrections": [
+    {
+      "attempted": "src/libraries/System.Runtime/tests/System/Runtime/InteropServices/SafeHandleTests.cs",
+      "outcome": "not_found",
+      "resolved": "src/libraries/System.Runtime/tests/System.Runtime.Handles.Tests/SafeHandle.cs"
+    }
+  ]
+}

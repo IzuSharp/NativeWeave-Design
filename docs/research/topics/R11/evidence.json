@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R11",
+  "observed_date": "2026-11-12",
+  "author": "interop_design",
+  "status": "partially_evidenced_design_decision_recorded",
+  "input_pin": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "task_revision": "0.1.1",
+    "packet_sha256": "4450ce8ebaea49e3040dcfec110453d2deca4958c633ef16269259d019e1fdd5",
+    "packet_hash_verified": true
+  },
+  "independent_review": {
+    "status": "pending",
+    "reviewer": null
+  },
+  "upstream_tests_executed": false,
+  "product_implementation_verified": false,
+  "production_acceptance_complete": false,
+  "claims": [
+    {
+      "claim_id": "R11-S01",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "library/std/src/panic.rs",
+      "blob_sha": "a07a5fb6290ca87c5ed72d605042ff46081b3a96",
+      "locator": "290-360",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/src/panic.rs",
+      "symbol": "std::panic::catch_unwind documentation and signature",
+      "supported_claim": "catch_unwind handles unwinding panic only; ordinary failures use Result; panic hooks precede catch; dropping a caught payload can panic; foreign exception behavior is not a portable recovery contract.",
+      "limitations": [
+        "panic=abort and fatal faults not recoverable by catch.",
+        "Documentation in fixed source, not an executed test."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-S02",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "library/std/src/panicking.rs",
+      "blob_sha": "7db6e93e8bd02ef3f5832eb8eee1f17984d737fb",
+      "locator": "495-600",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/src/panicking.rs",
+      "symbol": "std::panicking::catch_unwind; do_call; do_catch",
+      "supported_claim": "Runtime catch boundary uses guarded ownership transfer of closure/result/panic payload around an intrinsic.",
+      "limitations": [
+        "Not a reusable template for arbitrary custom ABI or proof of Engine state consistency."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-S03",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "blob_sha": "56227b89434f67f66fbd46e33515330b548d2c04",
+      "locator": "13-71",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "symbol": "SignalAwaiter.SignalCallback",
+      "supported_claim": "Godot UCO callback catches ordinary managed exceptions locally.",
+      "limitations": [
+        "Logging/fatal runtime conditions are not universally recoverable.",
+        "GCHandleBridge separately recorded below."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-S04",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "blob_sha": "c32c04f8bcc5a72166b4d4ad81f9d28a1f7756de",
+      "locator": "300-435;440-625",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "symbol": "OnServerCertificateVerification; OnReceive/CompleteTask; OnComplete",
+      "supported_claim": "YAHA provides concrete ordinary callback failure-to-decision/status propagation and native error-detail release paths.",
+      "limitations": [
+        "No full audit of every throwing operation before or after the inner handler catch."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-S05",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/GCHandleBridge.cs",
+      "blob_sha": "8217572648bc04becbc6f6bc3e67cb62f5be83ac",
+      "locator": "9-41",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/GCHandleBridge.cs",
+      "symbol": "GCHandleBridge.FreeGCHandle",
+      "supported_claim": "Godot free boundary catches ordinary exceptions.",
+      "limitations": [
+        "Cannot turn stale pointer/handle access into a generally safe operation."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-T01",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "tests/ui/panics/panic-in-ffi.rs",
+      "blob_sha": "ef40a3b6f7d6f853430e07d3dacbf0db5496abf7",
+      "locator": "complete",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-ffi.rs",
+      "symbol": "run-crash panic-in-ffi",
+      "supported_claim": "Test source exercises panic at a non-unwinding extern C boundary.",
+      "limitations": [
+        "Not run."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-T02",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "tests/ui/panics/panic-in-cleanup.rs",
+      "blob_sha": "23430d1f496e5b7b1c8c29574b4e1a5c9e218e58",
+      "locator": "complete",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-cleanup.rs",
+      "symbol": "run-crash panic-in-cleanup",
+      "supported_claim": "Test source exercises panic during cleanup while unwinding and contains an MSVC-specific ignore.",
+      "limitations": [
+        "Not run; target-specific behavior must not be inferred from one expected error text."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-T03",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "tests/ui/panics/panic-in-hook.rs",
+      "blob_sha": "db4d8a4dd1e0f57e0a08692d9c0262263430bdc6",
+      "locator": "complete",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-hook.rs",
+      "symbol": "run-crash panic-in-hook",
+      "supported_claim": "Test source exercises a panic hook that itself panics.",
+      "limitations": [
+        "Not run."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-T04",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "library/std/tests/panic.rs",
+      "blob_sha": "f13b931dd222e5859214e1edfad076b53829eefb",
+      "locator": "complete",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/tests/panic.rs",
+      "symbol": "panic_safety_traits",
+      "supported_claim": "Test source checks UnwindSafe and RefUnwindSafe trait relations.",
+      "limitations": [
+        "Not run and not an FFI containment proof."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-O01",
+      "evidence_kind": "official_doc_confirmed",
+      "repository": null,
+      "commit": null,
+      "path": null,
+      "url": "https://doc.rust-lang.org/stable/std/panic/fn.catch_unwind.html",
+      "symbol": "catch_unwind Notes",
+      "locator": "catch_unwind Notes",
+      "supported_claim": "Official stable documentation distinguishes unwind capture, panic hook behavior, payload drop hazards and abort.",
+      "limitations": [
+        "Web source observed on date; fixed source equivalent R11-S01 provides immutable code snapshot."
+      ],
+      "observed_at": "2026-11-12",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-O02",
+      "evidence_kind": "official_doc_confirmed",
+      "repository": null,
+      "commit": null,
+      "path": null,
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/interop",
+      "symbol": "UnmanagedCallersOnly; .NET 11 non-blittable parameter behavior",
+      "locator": "UnmanagedCallersOnly; .NET 11 non-blittable parameter behavior",
+      "supported_claim": "Official .NET11 interop guidance identifies invalid non-blittable UCO signatures as fail-fast behavior when runtime marshalling is enabled.",
+      "limitations": [
+        "Official documentation confirmation, not runtime source audit or executed Native AOT negative test."
+      ],
+      "observed_at": "2026-11-12",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R11-D01",
+      "evidence_kind": "design_inference",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/contracts/error-v0.1.md",
+      "symbol": "NativeWeave v1 design recommendation",
+      "locator": "named contract sections in this working revision",
+      "supported_claim": "Use regular Result/status; explicit unwind-or-fatal profile; catch at export and actual async-work boundary, poison Engine, stop new business and retain cleanup access; quarantine unknown panic payload rather than dropping it on the FFI error path.",
+      "limitations": [
+        "Independent review pending; no Rust execution.",
+        "Quarantine can retain arbitrary payload resources and is bounded only through accepted-work/Engine admission and host restart policy, not guaranteed exact byte accounting."
+      ],
+      "run_manifest": null,
+      "status": "design_decision_recorded_independent_review_pending"
+    },
+    {
+      "claim_id": "R11-D02",
+      "evidence_kind": "design_inference",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/contracts/error-v0.1.md",
+      "symbol": "NativeWeave v1 design recommendation",
+      "locator": "named contract sections in this working revision",
+      "supported_claim": "Use u32 status and a fixed ErrorRecord, with typed owned optional detail; avoid TLS last-error pointer lifetime and unknown-status retries.",
+      "limitations": [
+        "Expected x64 layout delegated to R03; cross-language/AOT tests still required.",
+        "No benchmark claim for cost."
+      ],
+      "run_manifest": null,
+      "status": "design_decision_recorded_independent_review_pending"
+    }
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "LICENSE-MIT",
+      "spdx": "MIT OR Apache-2.0",
+      "blob_sha": "a2070c4be7acd5316f8d0357ca3c12419a2f3c62",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/LICENSE-MIT",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "LICENSE-APACHE",
+      "spdx": "Apache-2.0",
+      "blob_sha": "1b5ec8b78e237b5c3b3d812a7c0a6589d0f7161d",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/LICENSE-APACHE",
+      "read_state": "read_complete"
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "LICENSE.txt",
+      "spdx": "MIT",
+      "blob_sha": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/LICENSE.txt",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "LICENSE",
+      "spdx": "MIT",
+      "blob_sha": "c6869d3f4d441a2c7752bf0569246b6d49e49b2e",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/LICENSE",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    }
+  ]
+}

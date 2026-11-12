@@ -1,0 +1,50 @@
+{
+  "reviewer": "/root/database_design",
+  "source_sha256": "016760cddb78698827bccc472a2d653cba55e20ba15c61c3480a3faea559cd1f",
+  "command": [
+    "python3",
+    "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design/docs/research/topics/R09/retirement_model.py",
+    "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/interop-review-model-result.json"
+  ],
+  "started_at": "2026-11-12T13:36:03.724377+00:00",
+  "finished_at": "2026-11-12T13:36:04.390360+00:00",
+  "exit_code": 0,
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux",
+    "architecture": "x86_64"
+  },
+  "summary": {
+    "candidate_all_guards": {
+      "states": 541,
+      "transitions": 1552,
+      "counterexamples": []
+    },
+    "negative_omit_start_return": {
+      "states": 549,
+      "transitions": 1560,
+      "counterexamples": [
+        "access_after_free"
+      ]
+    },
+    "negative_omit_control_lease": {
+      "states": 553,
+      "transitions": 1568,
+      "counterexamples": [
+        "access_after_free"
+      ]
+    },
+    "negative_omit_registration_drain": {
+      "states": 565,
+      "transitions": 1576,
+      "counterexamples": [
+        "cleanup_success_without_managed_registration_drain"
+      ]
+    }
+  },
+  "artifact_sha256": {
+    "interop-review-model-result.json": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+    "interop-review-model-stdout.txt": "fbe1c73b06f659e20225cdfde89701e5eb110cdc4eb8bfe1bda5cfebbfd3e698",
+    "interop-review-model-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
