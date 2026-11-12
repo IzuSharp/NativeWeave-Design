@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R31",
+  "observed_date": "2026-11-12",
+  "coverage_statement": "Only listed scopes were read; repository enumeration or retrieval alone is not source coverage.",
+  "paths": [
+    {
+      "repository": "https://www.postgresql.org",
+      "commit": null,
+      "path": "docs/18/sql-insert.html",
+      "scope": "Description / RETURNING / ON CONFLICT",
+      "read_state": "official_documentation_read_as_scoped",
+      "url": "https://www.postgresql.org/docs/18/sql-insert.html"
+    },
+    {
+      "repository": "https://www.postgresql.org",
+      "commit": null,
+      "path": "docs/18/transaction-iso.html",
+      "scope": "§13.2.1 Read Committed",
+      "read_state": "official_documentation_read_as_scoped",
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html"
+    },
+    {
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/research/topics/R31/idempotency_experiment.py",
+      "scope": "complete",
+      "read_state": "authored_and_executed_research_only",
+      "sha256": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157"
+    }
+  ],
+  "explicit_remaining_coverage": [
+    "PostgreSQL idempotency concurrency was studied from official semantics, not executed.",
+    "Production C#/Rust APIs, networking, NativeAOT, physical power loss and long-run/load were not executed.",
+    "Mandatory Rust DB execution engine correctness and integration must be established by R18-R21/D14-D15 and product B01-B06; this R31 SQLite prototype does not execute or validate SQLx/Rust."
+  ],
+  "licenses": [],
+  "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
+  "test_state": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "executed_see_manifest"
+  }
+}

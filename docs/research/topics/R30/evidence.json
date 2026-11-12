@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R30",
+  "observed_date": "2026-11-12",
+  "status": "partially_evidenced",
+  "input_baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "packet_revision": "0.1.1",
+    "packet_sha256": "ffa4dd8840a5e2f68a1a6c2eea01fa1e83b07f241410985274068db97170779d"
+  },
+  "claims": [
+    {
+      "claim_id": "R30-E001",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "ref": "v11.0.0",
+      "path": "src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "blob_sha": "f5ca608d2ae9762cd69b5a09d39b7e5045d5895e",
+      "symbol": "HasListeners / CreateActivity",
+      "locator": "121-141;234-256",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "supported_claim": "No-listener fast paths avoid Activity creation; expensive argument/tag preparation should be deferred by callers.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R30-E002",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/open-telemetry/opentelemetry-dotnet",
+      "commit": "51c6db11dadde6ed5019af4f42332860f1a5d8da",
+      "ref": "core-1.21.0",
+      "path": "src/OpenTelemetry/BatchExportProcessor.cs",
+      "blob_sha": "fd08250c8f6f9d18aff70385be435e3fb0b43f3a",
+      "symbol": "TryEnterOnEnd / TryExport / OnShutdown",
+      "locator": "99-203",
+      "url": "https://github.com/open-telemetry/opentelemetry-dotnet/blob/51c6db11dadde6ed5019af4f42332860f1a5d8da/src/OpenTelemetry/BatchExportProcessor.cs",
+      "supported_claim": "Processor registers in-flight OnEnd against shutdown, attempts bounded queue add, drops on saturation/spin exhaustion, and forwards remaining timeout through shutdown.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R30-E003",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/open-telemetry/opentelemetry-dotnet",
+      "commit": "51c6db11dadde6ed5019af4f42332860f1a5d8da",
+      "ref": "core-1.21.0",
+      "path": "test/OpenTelemetry.Tests/Trace/BatchExportActivityProcessorTests.cs",
+      "blob_sha": "48ef77dd6d39fd0b9dc31c534564d12c9e0051b3",
+      "symbol": "CheckIfBatchIsExportingOnQueueLimit / CheckShutdownWaitsForInFlightOnEndCalls / timeout / racing-shutdown tests",
+      "locator": "28-53;117-252",
+      "url": "https://github.com/open-telemetry/opentelemetry-dotnet/blob/51c6db11dadde6ed5019af4f42332860f1a5d8da/test/OpenTelemetry.Tests/Trace/BatchExportActivityProcessorTests.cs",
+      "supported_claim": "Upstream tests explicitly cover queue-triggered export, waiting for accepted OnEnd, timeout and racing admission against shutdown.",
+      "limitations": "Only source definitions read; no test execution or NativeWeave exporter verification.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R30-E004",
+      "evidence_kind": "official_documentation",
+      "repository": "https://www.w3.org",
+      "commit": null,
+      "path": "TR/2021/REC-trace-context-1-20211123/",
+      "symbol": "§3.2.2 traceparent fields; §3.2.4 versioning",
+      "locator": "§3.2.2 traceparent fields; §3.2.4 versioning",
+      "url": "https://www.w3.org/TR/2021/REC-trace-context-1-20211123/",
+      "supported_claim": "W3C trace context uses16-byte trace_id and8-byte parent_id, excludes all-zero IDs, and specifies trace flags and version processing.",
+      "limitations": "The32-byte NativeWeave adapter layout is an original design choice, not a W3C-defined binary ABI; no layout compilation was performed.",
+      "observed_date": "2026-11-12",
+      "run_manifest": null
+    }
+  ],
+  "selected_design": {
+    "decision": "Activity/Meter default; optional bounded exporter; typed small trace context across FFI and correlation distinct from identity; bounded shutdown.",
+    "design_research_status": "resolved_pending_independent_review",
+    "contract_acceptance": "proposed_not_self_accepted",
+    "question_closure_recommendations": [
+      "Q17"
+    ],
+    "documentation_tasks": [
+      "D19"
+    ],
+    "verification_delivery_tasks": [
+      "B20",
+      "B22",
+      "B23",
+      "B24"
+    ]
+  },
+  "execution": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "none"
+  },
+  "independent_review": "required_by_other_author_not_claimed_here"
+}

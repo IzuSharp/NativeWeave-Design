@@ -1,0 +1,33 @@
+{
+  "experiment": "R29 finite credit and cancellation model",
+  "status": "passed",
+  "states": 282,
+  "transitions": 895,
+  "terminal_states": 8,
+  "all_states_have_finishing_path": true,
+  "global_credit": 3,
+  "max_allocated_bytes": 3,
+  "producer_sizes": [
+    1,
+    2,
+    2
+  ],
+  "queue_capacity": 1,
+  "queue_only_counterexample": {
+    "queue_capacity": 1,
+    "chunk_size": 4,
+    "queued_items": 1,
+    "producers_waiting_with_materialized_payload": 3,
+    "retained_payload_bytes": 16,
+    "queue_capacity_times_chunk_size": 4
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "limitations": [
+    "Finite abstract logical-byte state space only",
+    "Not a memory allocator, RSS or runtime scheduling model",
+    "No Tokio or .NET execution; no AOT verification",
+    "Existence of finish path does not prove fairness/liveness under arbitrary stalls",
+    "Native-copy double-credit and callback retirement need separate product tests"
+  ]
+}

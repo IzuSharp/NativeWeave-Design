@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R29",
+  "observed_date": "2026-11-12",
+  "coverage_statement": "Only listed scopes were read; repository enumeration or retrieval alone is not source coverage.",
+  "paths": [
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Http/Http1Connection.cs",
+      "blob_sha": "cadb0e6ba5fa9e72bd962268e639ebac526aa2e9",
+      "scope": "110-155",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/Http1Connection.cs"
+    },
+    {
+      "repo": "dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs",
+      "blob_sha": "8e2585e75d7474d7d8cf10d2e917bcf99fefdb66",
+      "scope": "110-197",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs"
+    },
+    {
+      "repo": "hyperium/hyper",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "path": "src/server/conn/http1.rs",
+      "blob_sha": "8dc83ab586fcfd0eb22d0f9e9971ce9dea58ec79",
+      "scope": "125-149",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/server/conn/http1.rs"
+    },
+    {
+      "repo": "tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/sync/mpsc/bounded.rs",
+      "blob_sha": "273e5ae433c35e314dd758a616a0585786e6f147",
+      "scope": "765-825;1070-1126",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/mpsc/bounded.rs"
+    },
+    {
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/research/topics/R29/credit_model.py",
+      "scope": "complete",
+      "read_state": "authored_and_executed_research_only",
+      "sha256": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519"
+    }
+  ],
+  "explicit_remaining_coverage": [
+    "Finite abstract model excludes real scheduler, allocator fragmentation, protocol buffers and RSS.",
+    "HTTP2/3, actual socket half-close, native double-credit copy and callback races require product verification."
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/dotnet/aspnetcore",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "LICENSE.txt",
+      "blob_sha": "984713a49622a96da110443c15477613bc12656b",
+      "license_observation": "MIT",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    },
+    {
+      "repository": "https://github.com/hyperium/hyper",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "path": "LICENSE",
+      "blob_sha": "f7ae3a7107420217f1d1f993163103a68daacb71",
+      "license_observation": "MIT",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "LICENSE",
+      "blob_sha": "f0dbcf4b45d6acca6f7f5d88dc86683c6f360d76",
+      "license_observation": "MIT",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    }
+  ],
+  "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
+  "test_state": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "executed_see_manifest"
+  }
+}

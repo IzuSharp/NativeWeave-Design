@@ -1,0 +1,57 @@
+{
+  "scope": "R26-R31,D18-D20",
+  "json_parsed": 16,
+  "broken_local_links": [],
+  "experiment_hashes_verified": true,
+  "files": {
+    "docs/server/hosting-and-streaming.md": "45ce40549a61ffba0f76586212aafb751f63572c6aeb8343d75603a234e9a3db",
+    "docs/server/protocols-and-observability.md": "36fec912e6e9511fc28dddb03c06888f07c9c2286e761074c90ffdc09d24c6d9",
+    "docs/verification/reference-application.md": "9e492a316792bad9ec79995c8572f8749cadb35b5b8e1297477dc53e86dfa7b8",
+    "docs/research/topics/R26/coverage.json": "cf142929f96138761e4d36dcc8e65feca6b8431247448ba5a2a9eccb0f4c5be7",
+    "docs/research/topics/R26/evidence.json": "91c2e3851d138ff43d0ee5b632e9a0715455780d440fb7509e44baa2735825fb",
+    "docs/research/topics/R26/report.md": "b0d94647ec9ec84cff4667604026e3aa8aec2eac0935fb9e0a7f19721b5c8388",
+    "docs/research/topics/R27/coverage.json": "17e2fa622cbdb961499c1277e6bc82b8fd2f420f5dcd6c28c2fe1a0cb541c906",
+    "docs/research/topics/R27/evidence.json": "fb16e3a58c1a97fb06fc863fce892b6b9cf5951c08bb04471253198f53e3fe6a",
+    "docs/research/topics/R27/report.md": "90d202684085e31ab9f8a673c75ef5af35a18f945ec8b7e91af25cdae17670d6",
+    "docs/research/topics/R28/coverage.json": "1cfe15fcc808d15e0fbdc3a31f9f7a1e210a369d6e4924f748423af6a8e870d0",
+    "docs/research/topics/R28/evidence.json": "0ed32ad3d1cdec8cc57b12fc8a6d4c89542bc442e251baa15b920194ce4b5b0a",
+    "docs/research/topics/R28/report.md": "51c163dda1d0b60bfdd842a360861cdacb0fbdb7443de4ffba873ff6914afb27",
+    "docs/research/topics/R29/coverage.json": "ce3c31f1cd26e4523104123f5955b691785ca56bff03ea2d4f4dd59efa674ba9",
+    "docs/research/topics/R29/credit_model.py": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519",
+    "docs/research/topics/R29/evidence.json": "01c963c84c227e0e51cc0578d8cbb910447aade48da1a61e245be03e30bbe690",
+    "docs/research/topics/R29/experiment-result.json": "2b2a1c6cf9462501262a30434e41843623e496ac3a8b1ca58154c866069ed625",
+    "docs/research/topics/R29/experiment.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/research/topics/R29/report.md": "3890e5c32a79a6f27414e8d20c10267c7fe0ec2f718a9bc4c1db335cda536e7b",
+    "docs/research/topics/R29/run-manifest.json": "722c4ea99bcc9aed1ae098d235076f243989a475a23c658a1ac67b01693e4b30",
+    "docs/research/topics/R30/coverage.json": "98f4616e46dc20e0ef70222a298b2a4f19ed174a02b58d81027e834a3649c864",
+    "docs/research/topics/R30/evidence.json": "dcbcf230ef6d7f5c61cb19ef1896908c6f75bc7cd4957edbb58d9b40538782e3",
+    "docs/research/topics/R30/report.md": "50c893bf06a68043f32d4babfffcc13999da0bc08b10cb26f1b38350d2f8d13f",
+    "docs/research/topics/R31/coverage.json": "d633f3a7435a82de8c5ce93d0f14ee53f4f31dcd3cb2dba2c51297319af8ffe1",
+    "docs/research/topics/R31/evidence.json": "e80783645d9bea2501b137918a9d9a3bbeff3bbda2c534ddccd7ad314c758ad5",
+    "docs/research/topics/R31/experiment-result.json": "f8229afeea1f3bf582d43ba4cfbbcfb6ebfdd9efbc4ba60bffc421e9024e27be",
+    "docs/research/topics/R31/experiment.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/research/topics/R31/idempotency_experiment.py": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157",
+    "docs/research/topics/R31/report.md": "0c9ce9fd1d997e760ba3282bf5acd7a2939fbb9c836c6a0f352778917c7e7b4e",
+    "docs/research/topics/R31/run-manifest.json": "3d86e642e1910ef1310762bc6758b808feb6c33b68d5bc8a998ba04c95c14afb"
+  },
+  "review_corrections": [
+    {
+      "reviewer": "/root",
+      "path": "docs/server/hosting-and-streaming.md",
+      "finding": "Server request owner must follow opaque pointer/SafeHandle/lease; Core does not manage a global generation table",
+      "old_sha256": "922f9020b36702bf63f8b1721d3fce1c4979f0c91c85889dd1306e7b02a4aaf1",
+      "new_sha256": "304d22ac97f8ec632259d5f72a10facfe104684fb9c1db7329528bd480908ea2"
+    },
+    {
+      "reviewer": "/root",
+      "description": "D20 removed hot-unload/Core-global-generation implications; D18/D19/D20 contract0.1.0 review-ready; research instrumented rerun manifests include real UTC start/end and stream hashes; corrected R21 transaction review routing."
+    },
+    {
+      "reviewer": "/root",
+      "description": "Final spec headers bind acceptance to registry matching content hash and independent review; Rust DB/ORM hard constraint synchronized in D20/R31; no product or AOT claim inferred from unchanged research experiments."
+    }
+  ],
+  "independent_review": "Author does not claim independent review of these files; root is reviewing.",
+  "experiment_hash_pairs_verified": 8,
+  "scope_update": "User-required Rust Database + SeaORM: C# syntax/IR/DTO only; mandatory Rust query/ORM/driver/pool/transaction, schema-specific single-module Engine; historical managed default superseded; independent server-only managed path retained."
+}

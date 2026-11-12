@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R27",
+  "observed_date": "2026-11-12",
+  "status": "partially_evidenced",
+  "input_baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "packet_revision": "0.1.1",
+    "packet_sha256": "62de63775d25bf11e444b934ecd97353faa97de288fba6f54e3ef3342ee07868"
+  },
+  "claims": [
+    {
+      "claim_id": "R27-E001",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/hyperium/hyper",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "ref": "v1.12.0",
+      "path": "src/server/conn/http1.rs",
+      "blob_sha": "8dc83ab586fcfd0eb22d0f9e9971ce9dea58ec79",
+      "symbol": "Connection.graceful_shutdown",
+      "locator": "125-149",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/server/conn/http1.rs",
+      "supported_claim": "HTTP1 graceful shutdown disables keep-alive and requires the connection future to continue being polled.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R27-E002",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/hyperium/hyper",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "ref": "v1.12.0",
+      "path": "Cargo.toml",
+      "blob_sha": "f7f7f1e6c4709aa20056f6d1a7043b1aae01fce6",
+      "symbol": "features.ffi",
+      "locator": "71-92",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/Cargo.toml",
+      "supported_claim": "Hyper describes its C-API feature as currently unstable and without semver guarantees; NativeWeave should isolate it behind its own adapter.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R27-E003",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/tokio-rs/axum",
+      "commit": "c59208c86fded335cd85e388030ad59347b0e5ae",
+      "ref": "axum-v0.8.9",
+      "path": "axum/src/serve/mod.rs",
+      "blob_sha": "3f2a39fa7d36a4acb8ea624c183a64045e016896",
+      "symbol": "WithGracefulShutdown.run / handle_connection",
+      "locator": "258-305;383-421",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/axum/src/serve/mod.rs",
+      "supported_claim": "Axum stops accepting on signal, asks each connection for graceful shutdown and waits connection tasks via watch channel ownership.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R27-E004",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "ref": "tokio-1.54.1",
+      "path": "tokio/src/sync/mpsc/bounded.rs",
+      "blob_sha": "273e5ae433c35e314dd758a616a0585786e6f147",
+      "symbol": "Sender.send / reserve",
+      "locator": "765-825;1070-1126",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/mpsc/bounded.rs",
+      "supported_claim": "Sender.send owns value while awaiting reserve; canceling send can drop it, while reservation precedes actual send and dropping unused Permit restores capacity.",
+      "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
+      "run_manifest": null
+    }
+  ],
+  "selected_design": {
+    "decision": "Optional Rust Server uses an owned runtime and versioned Core adapter with a limited portable handler surface; no arbitrary ASP.NET middleware portability; workload evidence gates promotion.",
+    "design_research_status": "resolved_pending_independent_review",
+    "contract_acceptance": "proposed_not_self_accepted",
+    "question_closure_recommendations": [
+      "Q15"
+    ],
+    "documentation_tasks": [
+      "D18"
+    ],
+    "verification_delivery_tasks": [
+      "B17",
+      "B20",
+      "B23",
+      "B24"
+    ]
+  },
+  "execution": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "none"
+  },
+  "independent_review": "required_by_other_author_not_claimed_here"
+}

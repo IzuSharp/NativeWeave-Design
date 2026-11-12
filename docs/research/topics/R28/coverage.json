@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R28",
+  "observed_date": "2026-11-12",
+  "coverage_statement": "Only listed scopes were read; repository enumeration or retrieval alone is not source coverage.",
+  "paths": [
+    {
+      "repo": "grpc/grpc-dotnet",
+      "commit": "a7767e28a2c2f4e89a17e9efb95f75e8a82637d0",
+      "path": "src/Grpc.AspNetCore.Server/Internal/HttpContextServerCallContext.cs",
+      "blob_sha": "7f26bc0466f83fa7e03805a3ae7f4f099e66ca29",
+      "scope": "220-231;469-520",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/grpc/grpc-dotnet/blob/a7767e28a2c2f4e89a17e9efb95f75e8a82637d0/src/Grpc.AspNetCore.Server/Internal/HttpContextServerCallContext.cs"
+    },
+    {
+      "repo": "grpc/grpc-dotnet",
+      "commit": "a7767e28a2c2f4e89a17e9efb95f75e8a82637d0",
+      "path": "src/Grpc.AspNetCore.Server/Internal/HttpContextStreamWriter.cs",
+      "blob_sha": "d69b8e7e6174ea49420a1b5d5ccd9e55d9ae3784",
+      "scope": "1-149",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/grpc/grpc-dotnet/blob/a7767e28a2c2f4e89a17e9efb95f75e8a82637d0/src/Grpc.AspNetCore.Server/Internal/HttpContextStreamWriter.cs"
+    },
+    {
+      "repo": "grpc/grpc-dotnet",
+      "commit": "a7767e28a2c2f4e89a17e9efb95f75e8a82637d0",
+      "path": "src/Grpc.AspNetCore.Server/Internal/PipeExtensions.cs",
+      "blob_sha": "afe4192c257ea49aaf67984d065571d1e4699be0",
+      "scope": "370-464",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/grpc/grpc-dotnet/blob/a7767e28a2c2f4e89a17e9efb95f75e8a82637d0/src/Grpc.AspNetCore.Server/Internal/PipeExtensions.cs"
+    },
+    {
+      "repo": "grpc/grpc-dotnet",
+      "commit": "a7767e28a2c2f4e89a17e9efb95f75e8a82637d0",
+      "path": "src/Shared/CommonGrpcProtocolHelpers.cs",
+      "blob_sha": "2914e5f30ccb03560f2c749502e5e4b1e965a920",
+      "scope": "20-60;70-157",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/grpc/grpc-dotnet/blob/a7767e28a2c2f4e89a17e9efb95f75e8a82637d0/src/Shared/CommonGrpcProtocolHelpers.cs"
+    },
+    {
+      "repo": "grpc/grpc-dotnet",
+      "commit": "a7767e28a2c2f4e89a17e9efb95f75e8a82637d0",
+      "path": "test/Grpc.AspNetCore.Server.Tests/HttpContextStreamWriterTests.cs",
+      "blob_sha": "172e044e7dd02f271bf3e7f41504b7f5005b96ad",
+      "scope": "1-142",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/grpc/grpc-dotnet/blob/a7767e28a2c2f4e89a17e9efb95f75e8a82637d0/test/Grpc.AspNetCore.Server.Tests/HttpContextStreamWriterTests.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "src/Common/McpProtocolVersions.cs",
+      "blob_sha": "09b1f5b3de3f336363c9a3298dfcd33717ca635c",
+      "scope": "1-114",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/src/Common/McpProtocolVersions.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "src/ModelContextProtocol.AspNetCore/HttpServerSessionMode.cs",
+      "blob_sha": "829b7e83b70fc6b712edcef3ec4c6302dd6a46b8",
+      "scope": "1-65",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/src/ModelContextProtocol.AspNetCore/HttpServerSessionMode.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "src/ModelContextProtocol.AspNetCore/StreamableHttpHandler.cs",
+      "blob_sha": "3808a43fae9f05d291d14b000fe5f9503e4a6829",
+      "scope": "98-148;198-225;320-345",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/src/ModelContextProtocol.AspNetCore/StreamableHttpHandler.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "src/ModelContextProtocol.Core/Server/McpServerTool.cs",
+      "blob_sha": "e2a9a34e0059fca0094ff20ed7a5527fd87f1ab3",
+      "scope": "149-175",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/src/ModelContextProtocol.Core/Server/McpServerTool.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "src/ModelContextProtocol/McpServerBuilderExtensions.cs",
+      "blob_sha": "7e24bc5c0a70691371e58de99e7b76c6e9802686",
+      "scope": "12-47;100-143",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/src/ModelContextProtocol/McpServerBuilderExtensions.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "tests/ModelContextProtocol.AotCompatibility.TestApp/ModelContextProtocol.AotCompatibility.TestApp.csproj",
+      "blob_sha": "c4f737fdba8b04caffadb21d17a28ecb1c903619",
+      "scope": "complete",
+      "read_state": "read_complete",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/tests/ModelContextProtocol.AotCompatibility.TestApp/ModelContextProtocol.AotCompatibility.TestApp.csproj"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "tests/ModelContextProtocol.AotCompatibility.TestApp/Program.cs",
+      "blob_sha": "260bd320417c7242ffc6d0ba747ee014566928e1",
+      "scope": "1-203",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/tests/ModelContextProtocol.AotCompatibility.TestApp/Program.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "tests/ModelContextProtocol.AspNetCore.Tests/July2026ProtocolHybridSessionModeTests.cs",
+      "blob_sha": "c4b398f959f0dc135eeb448d7cbad1c81b5d77ed",
+      "scope": "61-180",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/tests/ModelContextProtocol.AspNetCore.Tests/July2026ProtocolHybridSessionModeTests.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "tests/ModelContextProtocol.AspNetCore.Tests/StreamableHttpServerConformanceTests.cs",
+      "blob_sha": "8fbaa91b884b95f6695fcb22369601c962f250d9",
+      "scope": "995-1066",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/tests/ModelContextProtocol.AspNetCore.Tests/StreamableHttpServerConformanceTests.cs"
+    },
+    {
+      "repo": "modelcontextprotocol/modelcontextprotocol",
+      "commit": "5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "path": "docs/specification/2026-07-28/basic/patterns/cancellation.mdx",
+      "blob_sha": "b8db4c83d989bfe662eb47d74539c1cc19e4bf97",
+      "scope": "1-123",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/docs/specification/2026-07-28/basic/patterns/cancellation.mdx"
+    },
+    {
+      "repo": "modelcontextprotocol/modelcontextprotocol",
+      "commit": "5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "path": "docs/specification/2026-07-28/basic/transports/streamable-http.mdx",
+      "blob_sha": "7b9813d67a9d8b90a496a6c251193a70ce79c657",
+      "scope": "232-297;650-689",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/docs/specification/2026-07-28/basic/transports/streamable-http.mdx"
+    },
+    {
+      "repo": "modelcontextprotocol/modelcontextprotocol",
+      "commit": "5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "path": "docs/specification/2026-07-28/basic/versioning.mdx",
+      "blob_sha": "fcfea9f0a150923ffd6637ff53fadc8240eefedf",
+      "scope": "29-76",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/docs/specification/2026-07-28/basic/versioning.mdx"
+    }
+  ],
+  "explicit_remaining_coverage": [
+    "Only selected gRPC/MCP source/test scopes were read, not all conformance, authorization, protobuf or serializer internals.",
+    "Legacy profile remains an explicit candidate requiring its own version-conformance and AOT runs."
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/modelcontextprotocol/csharp-sdk",
+      "commit": "4cbf42ef107763f0bc75c358af8cb2dfe47a769a",
+      "path": "LICENSE",
+      "blob_sha": "185054bef9dfb083b7ab2db43908ffa173a0f48e",
+      "license_observation": "Pinned LICENSE declares transition from MIT to Apache-2.0, unconceded contributions remain MIT, non-spec docs CC-BY-4.0",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    },
+    {
+      "repository": "https://github.com/grpc/grpc-dotnet",
+      "commit": "a7767e28a2c2f4e89a17e9efb95f75e8a82637d0",
+      "path": "LICENSE",
+      "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "license_observation": "Apache-2.0",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    },
+    {
+      "repository": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+      "commit": "5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "path": "LICENSE",
+      "blob_sha": "4a93985763241755401a10678395303de4e720ba",
+      "license_observation": "Pinned LICENSE declares transition from MIT to Apache-2.0, unconceded contributions remain MIT, non-spec docs CC-BY-4.0",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    }
+  ],
+  "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
+  "test_state": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "none"
+  }
+}

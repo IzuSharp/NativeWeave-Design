@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R31",
+  "observed_date": "2026-11-12",
+  "status": "partially_evidenced",
+  "input_baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "packet_revision": "0.1.1",
+    "packet_sha256": "ff6ebe45d69e7a3390fa6c029ac7cb4dc499e9807b7132cdb720d2b02fad086c"
+  },
+  "claims": [
+    {
+      "claim_id": "R31-E001",
+      "evidence_kind": "official_documentation",
+      "repository": "https://www.postgresql.org",
+      "commit": null,
+      "path": "docs/18/sql-insert.html",
+      "symbol": "Description / RETURNING / ON CONFLICT",
+      "locator": "Description / RETURNING / ON CONFLICT",
+      "url": "https://www.postgresql.org/docs/18/sql-insert.html",
+      "supported_claim": "INSERT RETURNING reports inserted/updated rows; DO NOTHING cannot be assumed to return an existing row.",
+      "limitations": "Version18 documentation observed2026-11-12; not a pinned server executable or PG runtime experiment.",
+      "observed_date": "2026-11-12",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R31-E002",
+      "evidence_kind": "official_documentation",
+      "repository": "https://www.postgresql.org",
+      "commit": null,
+      "path": "docs/18/transaction-iso.html",
+      "symbol": "§13.2.1 Read Committed",
+      "locator": "§13.2.1 Read Committed",
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html",
+      "supported_claim": "ON CONFLICT DO NOTHING may conflict with a concurrent transaction not visible to the same statement snapshot; a later statement has a new ReadCommitted snapshot.",
+      "limitations": "Does not by itself prove the whole idempotency implementation; retention, recovery and real PG concurrency tests remain required.",
+      "observed_date": "2026-11-12",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R31-E003",
+      "evidence_kind": "executed_research_experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/research/topics/R31/idempotency_experiment.py",
+      "symbol": "main",
+      "locator": "sha256:5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157",
+      "supported_claim": "Five actual SQLite prototype assertions passed: replay, hash conflict,4-connection race with1 effect, actual commit plus simulated response loss, and real precommit process exit17 with atomic rollback then retry.",
+      "limitations": [
+        "Not NativeWeave product implementation",
+        "No C# or Rust execution",
+        "No Native AOT proof",
+        "No PostgreSQL concurrency execution",
+        "Response loss simulated after actual COMMIT, not a network proxy fault",
+        "Process exit is not OS power-loss/fsync hardware verification"
+      ],
+      "run_manifest": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "docs/research/topics/R31/idempotency_experiment.py"
+        ],
+        "reproduce_shell_equivalent": "python docs/research/topics/R31/idempotency_experiment.py > docs/research/topics/R31/experiment-result.json",
+        "working_directory": "NativeWeave-Design",
+        "exit_code": 0,
+        "script": "docs/research/topics/R31/idempotency_experiment.py",
+        "script_sha256": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157",
+        "stdout": "docs/research/topics/R31/experiment-result.json",
+        "stdout_sha256": "f8229afeea1f3bf582d43ba4cfbbcfb6ebfdd9efbc4ba60bffc421e9024e27be",
+        "stderr": "docs/research/topics/R31/experiment.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "started_at": "2026-11-12T13:38:56.604932+00:00",
+        "finished_at": "2026-11-12T13:38:56.888877+00:00",
+        "timed_out": false,
+        "raw_manifest": "docs/research/topics/R31/run-manifest.json",
+        "raw_manifest_sha256": "3d86e642e1910ef1310762bc6758b808feb6c33b68d5bc8a998ba04c95c14afb",
+        "observed_date": "2026-11-12",
+        "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+        "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "result_summary": {
+          "status": "passed",
+          "final_counts": {
+            "operations": 4,
+            "items": 4,
+            "outbox": 4
+          }
+        },
+        "native_aot": "not_run",
+        "upstream_runtime_tests": "not_run",
+        "sqlite": "3.53.1",
+        "architecture": "x86_64",
+        "journal_mode": "WAL",
+        "synchronous": "FULL",
+        "child_process_expected_exit": 17,
+        "checks_passed": 5
+      }
+    }
+  ],
+  "selected_design": {
+    "decision": "Single-transaction scoped idempotency/result/business/outbox and explicit Commit Unknown recovery; C# application/syntax/DTO layer over mandatory Rust ORM and PostgreSQL/SQLite Database Engine, with Kestrel default and optional Rust Server.",
+    "design_research_status": "resolved_pending_independent_review",
+    "contract_acceptance": "proposed_not_self_accepted",
+    "question_closure_recommendations": [],
+    "documentation_tasks": [
+      "D20"
+    ],
+    "verification_delivery_tasks": [
+      "B21",
+      "B22",
+      "B23",
+      "B24"
+    ],
+    "product_scope_constraint": {
+      "source": "Explicit user direction relayed by integrator during this session",
+      "database_execution": "Rust required for query semantics, SQL generation, ORM, drivers, pool and transaction execution; C# supplies syntax capture/diagnostics/versioned IR encoding/static DTO boundary and public generic/LINQ/async/AOT surface",
+      "superseded_draft": "Managed Npgsql/Microsoft.Data.Sqlite default product path and optional-only Rust DB",
+      "external_comparators_only": [
+        "Npgsql",
+        "Microsoft.Data.Sqlite",
+        "EF Core"
+      ],
+      "implementation_verification": "Rust DB and related Core interop/AOT remain required delivery evidence, not satisfied by this Python experiment",
+      "selected_orm_reference": "SeaORM route from D14/D16; schema-specific generated Entity/ActiveModel/dispatcher plus common Rust DB code statically linked in one native module; new model build requires Rust toolchain locally or CI. R31 did not execute this implementation."
+    }
+  },
+  "execution": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "executed_see_manifest"
+  },
+  "independent_review": "required_by_other_author_not_claimed_here"
+}

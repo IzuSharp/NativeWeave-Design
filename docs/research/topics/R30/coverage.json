@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R30",
+  "observed_date": "2026-11-12",
+  "coverage_statement": "Only listed scopes were read; repository enumeration or retrieval alone is not source coverage.",
+  "paths": [
+    {
+      "repo": "dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "blob_sha": "f5ca608d2ae9762cd69b5a09d39b7e5045d5895e",
+      "scope": "121-141;234-256",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs"
+    },
+    {
+      "repo": "open-telemetry/opentelemetry-dotnet",
+      "commit": "51c6db11dadde6ed5019af4f42332860f1a5d8da",
+      "path": "src/OpenTelemetry/BatchExportProcessor.cs",
+      "blob_sha": "fd08250c8f6f9d18aff70385be435e3fb0b43f3a",
+      "scope": "99-203",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/open-telemetry/opentelemetry-dotnet/blob/51c6db11dadde6ed5019af4f42332860f1a5d8da/src/OpenTelemetry/BatchExportProcessor.cs"
+    },
+    {
+      "repo": "open-telemetry/opentelemetry-dotnet",
+      "commit": "51c6db11dadde6ed5019af4f42332860f1a5d8da",
+      "path": "test/OpenTelemetry.Tests/Trace/BatchExportActivityProcessorTests.cs",
+      "blob_sha": "48ef77dd6d39fd0b9dc31c534564d12c9e0051b3",
+      "scope": "28-53;117-260;300-322",
+      "read_state": "read_as_scoped",
+      "url": "https://github.com/open-telemetry/opentelemetry-dotnet/blob/51c6db11dadde6ed5019af4f42332860f1a5d8da/test/OpenTelemetry.Tests/Trace/BatchExportActivityProcessorTests.cs"
+    },
+    {
+      "repository": "https://www.w3.org",
+      "commit": null,
+      "path": "TR/2021/REC-trace-context-1-20211123/",
+      "scope": "§3.2.2 traceparent fields; §3.2.4 versioning",
+      "read_state": "official_documentation_read_as_scoped",
+      "url": "https://www.w3.org/TR/2021/REC-trace-context-1-20211123/"
+    }
+  ],
+  "explicit_remaining_coverage": [
+    "Rust tracing internals and all exporter/network/metric aggregation paths were not read.",
+    "Actual cross-language context/layout and exporter saturation costs require B20/B23 execution."
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/open-telemetry/opentelemetry-dotnet",
+      "commit": "51c6db11dadde6ed5019af4f42332860f1a5d8da",
+      "path": "LICENSE.TXT",
+      "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "license_observation": "Apache-2.0",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "LICENSE.TXT",
+      "blob_sha": "984713a49622a96da110443c15477613bc12656b",
+      "license_observation": "MIT",
+      "read_state": "license_identification_read",
+      "limitations": "Package/transitive license and NOTICE inventory remains B24/R34."
+    }
+  ],
+  "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
+  "test_state": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete",
+    "research_experiments": "none"
+  }
+}

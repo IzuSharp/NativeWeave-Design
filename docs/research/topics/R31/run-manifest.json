@@ -1,0 +1,20 @@
+{
+  "command_args": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "docs/research/topics/R31/idempotency_experiment.py"
+  ],
+  "working_directory": "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design",
+  "started_at": "2026-11-12T13:38:56.604932+00:00",
+  "finished_at": "2026-11-12T13:38:56.888877+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "source_sha256": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157",
+  "stdout": "experiment-result.json",
+  "stdout_sha256": "f8229afeea1f3bf582d43ba4cfbbcfb6ebfdd9efbc4ba60bffc421e9024e27be",
+  "stderr": "experiment.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "architecture": "x86_64",
+  "purpose": "Instrumented rerun of small research experiment to record real timestamps and raw stream hashes; not product verification."
+}
