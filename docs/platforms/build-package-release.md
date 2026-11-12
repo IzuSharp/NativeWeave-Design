@@ -1,0 +1,55 @@
+# D10 — Precompiled Engine packaging and upstream maintenance
+
+Contract: **C-BUILD-001@0.2.0-draft**. Status: proposed, not production verified. Existing R13/R14/R18/D10/A13–A16/A22/A24 and B24 own this work. This is the build/maintenance implementation specification, not an additional task graph.
+
+## 1. Separate maintainer and application builds
+
+NativeWeave maintainers build the native Engine and Adapter, lock Cargo dependencies/features, run per-target ABI/source/behavior tests and publish verified native assets through NuGet. Ordinary C# consumers restore those assets and compile their own C# application. Adding a Student/User/Order type whose columns and operations use already supported native capabilities must not invoke Cargo, create Rust Entity definitions, wait for external CI or download a compiler.
+
+`dotnet build` and `dotnet run` are normal development commands; JIT development is permitted, but formal publication requires Native AOT execution. Packaging must resolve the development host's native asset without requiring an explicit RID on every local command. `dotnet publish -r linux-x64 -p:PublishAot=true` and the Windows equivalent produce the formal targets. **The recovered prototype used explicit RID arguments; RID-free consumption and a truly Rust-free clean machine remain unverified.**
+
+A custom native extension, new Rust codec/operator, GPU shader compiler profile or unsupported platform may legitimately need a separately built maintainer/custom-engine package. That exception must be explicit; it cannot silently become the default for an ordinary entity or predicate value.
+
+## 2. Package boundary and loading
+
+Keep managed facade/generator packages and Engine native asset packages version-coordinated but independently identifiable. NuGet assets use `runtimes/<rid>/native/`; the managed facade uses source-generated/static imports against the agreed C ABI. Select a supported asset through runtime/native loading rules or accepted static linkage, not current-directory search or an arbitrary environment-supplied DLL. Validate engine identity, ABI and capability profile before use.
+
+Windows and Linux native binaries, dependency closures, C runtime requirements and CPU baseline are tested separately. Static-link targets require explicit linker/export/retain-symbol rules and cannot be inferred from desktop dynamic-library success. iOS/Android remain R33/D21 platform research, not automatically supported by a desktop NuGet.
+
+No schema-specific Rust library is emitted in the ordinary database profile. C# metadata and DTO constructors are compiled into the managed application; native tables/columns/values are runtime data. A custom SeaORM static Entity package remains a separate opt-in build product, not a dependency of every application.
+
+## 3. Generator and build ordering
+
+Incremental C# generators emit only deterministic C# metadata, descriptors and DTO code from declared source inputs. They must not run Cargo, contact a database/network, mutate external source trees or require another generator's generated syntax in the same compiler pass. Handwritten static descriptors are a supported fallback for generator-unfriendly situations, **not** a dynamic/reflection fallback. The shared generation schema is versioned and tested independently of SQL translation.
+
+Maintainer builds may invoke Cargo from explicit build targets with pinned inputs and target matrices. Build tools own this orchestration; source generators do not. A generator package's analyzer target and compiler compatibility need separate test fixtures from a net11 application target.
+
+## 4. Upstream-to-Adapter source map
+
+For every published Engine retain: upstream repo URL, version tag and full commit; package version and checksum; Cargo.lock and enabled features; compiler/linker/OS/CPU target; Adapter commit and ABI; patched symbols and patch hashes; upstream tests relied upon; NativeWeave differential fixtures; native artifact hashes; license/NOTICE and dependency inventory. A Git tag and a crates.io package are **different identities** until their relationship is checked. Store both when source research uses one and compilation uses the other.
+
+Private-source dependencies additionally list visibility, source locations and behavior assumptions. `pub(crate)` access cannot be achieved through a separate crate without an upstream change or controlled source integration. No private layout or Rust ABI is a compatibility contract.
+
+## 5. Upgrade process inside existing tasks
+
+R14 researches the next appropriate stable/security revision; A22/B24 test it on an isolated update branch. Do not automatically promote a new release. Compare public signatures, touched internal source paths, feature defaults, minimum compiler/target requirements, transitive dependencies and license/security changes. Run upstream relevant tests and NativeWeave native-versus-adapter differential tests, old/new ABI consumers, query SQL+parameter/result oracles, cancellation/fault/race tests and full-workload performance/memory regressions.
+
+A security update that changes behavior still requires a documented compatibility decision; silently keeping a vulnerable old pin is not a maintenance strategy. For a fork maintain a small ordered patch queue against an exact upstream commit, upstream issue/PR references, a named ownership role, rebasing tests and an exit/retirement condition. Evaluate public-API replacement when upstream adds the missing seam. Preserve upstream license obligations and audit the entire packaged closure; this document does not certify a completed legal/security audit.
+
+Automated release detection may open an update investigation, never publish/merge a production Engine solely because a version number increased. No scheduled watch has been activated in this session.
+
+## 6. Compatibility and differential gates
+
+ABI-major mismatch is rejected. Compatible minor changes add optional capabilities without changing existing layouts or ownership. Expanded native feature profiles do not retroactively make old packages support a new operator. Document SQL dialect and error-semantic changes as observable behavior even when the C ABI is unchanged. C# API stability is managed separately from upstream Rust's generics and minor-version internals.
+
+Fixtures compare direct pinned Rust calls with C# facade calls: SQL text and parameters separately, database results/errors, streaming order, NULL/collation, rollback/unknown-commit outcomes and buffer reclamation. Performance comparisons use the same database/protocol/workload/hardware and record uncertainty; no unexplained percent threshold is invented. Resource bounds and correctness negatives are hard requirements regardless of benchmark speed.
+
+## 7. Acceptance matrix
+
+A13: deterministic maintainer build, no generator side effects, reproducible manifest. A14/A15: real native build/load and AOT consumers on their own OS. A16: NuGet restore/asset selection and dependency provenance. A22: old/new packages, ABI/capability rejection, patched source changes. B24: complete database and selected Server/protocol package combinations.
+
+Required consumer fixtures include a pristine supported machine without Rust, offline restore after a permitted package cache population, RID-free `dotnet build/run`, explicit-RID AOT publish/run, adding an entity/projection/parameterized dynamic predicate with the **same native binary hash**, wrong-entity compile failure, missing asset/wrong arch/ABI/capability failures, trimming diagnostics and source-generator versus handwritten-static parity. Windows and Linux are distinct rows. No real package has been published by this research.
+
+## 8. Recovered evidence and gaps
+
+[Recovered evidence](../research/source-driven-evidence/README.md) supports Linux x64 local NuGet consumption with explicit RID, real Native AOT/SQLite execution and native binary reuse for a second C# entity. It does not validate RID-free restore, Windows, a production generator, production streaming or clean-machine toolchain absence. Keep these obligations in A16/B10/B12/B24; do not convert the research artifact into an accepted release manifest.
