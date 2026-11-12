@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "id": "EXAMPLE-NOT-EVIDENCE",
+  "status": "not_run",
+  "is_template": true,
+  "claim": "",
+  "source_revision": null,
+  "artifact_sha256": null,
+  "commands": [],
+  "environment": {
+    "os": null,
+    "architecture": null,
+    "toolchain": null,
+    "linker": null,
+    "cpu": null,
+    "abi": null,
+    "host": null,
+    "container": null
+  },
+  "result": {
+    "exit_code": null,
+    "tests_passed": null,
+    "tests_failed": null,
+    "tests_skipped": null,
+    "tests_timed_out": null
+  },
+  "logs": [],
+  "aot": {
+    "published": false,
+    "executed": false,
+    "rid": null
+  },
+  "limits": [
+    "此文件为模板，不可作为已执行证据"
+  ],
+  "independent_review": null,
+  "started_at": null,
+  "finished_at": null,
+  "expected": null,
+  "observed": null,
+  "dependency_locks": [],
+  "scope": null,
+  "logs_format": {
+    "path": "",
+    "sha256": null,
+    "stream": "stdout_or_stderr"
+  }
+}

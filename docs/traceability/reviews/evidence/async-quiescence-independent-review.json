@@ -1,0 +1,75 @@
+{
+  "experiment_id": "EXP-ASYNC-QUIESCENCE-001",
+  "status": "model_executed",
+  "model_sha256": "2e05810a13a46959dc301dab8deef69fad49af8435934c62250900820a4178c7",
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux",
+    "machine": "x86_64"
+  },
+  "scope": "one operation, one native callback, one cancel request, one optional call lease",
+  "unsafe_early_reclaim": {
+    "reachable_states": 226,
+    "exploration": "branches are pruned at the first safety violation",
+    "transitions": 516,
+    "reclaim_states": 60,
+    "violating_states": 16,
+    "first_counterexample": {
+      "property": "access_after_free",
+      "trace": [
+        "Dispose/close admission",
+        "Publish cancellation if pending",
+        "Native finishes and queues callback",
+        "Reclaim context",
+        "Enter callback/dereference context"
+      ],
+      "state": {
+        "closing": true,
+        "cancel_seen": true,
+        "native_finished": true,
+        "callback": 2,
+        "native_quiescent": false,
+        "result": "canceled",
+        "publications": 1,
+        "call": 0,
+        "call_used": false,
+        "freed": true,
+        "free_count": 1,
+        "invalid_access": true
+      }
+    },
+    "checked_properties": [
+      "access_after_free",
+      "terminal_publications<=1",
+      "free_count<=1"
+    ]
+  },
+  "candidate_barrier": {
+    "reachable_states": 159,
+    "exploration": "branches are pruned at the first safety violation",
+    "transitions": 372,
+    "reclaim_states": 9,
+    "violating_states": 0,
+    "first_counterexample": null,
+    "checked_properties": [
+      "access_after_free",
+      "terminal_publications<=1",
+      "free_count<=1"
+    ]
+  },
+  "assumptions": [
+    "Transitions are atomic with sequential consistency; no machine memory model.",
+    "Native owns a callback obligation until callback return and acknowledged quiescence.",
+    "No callback is issued after the native quiescence acknowledgement.",
+    "Completion publication abstracts a correct atomic compare/exchange.",
+    "Call admission closes atomically with Dispose; each acquired lease releases at most once."
+  ],
+  "not_proven": [
+    "liveness/fairness, progress under lost notifications, shutdown deadlock",
+    "multiple operations/callbacks, duplicate malicious callbacks, ABA/token overflow",
+    "start-return and cancellation-registration synchronous reentrancy",
+    "managed cancellation callback/context leases and CancellationTokenRegistration disposal",
+    "real SafeHandle/GCHandle implementation, pinning, weak memory, FFI/ABI",
+    "C# or Rust compilation, Windows/Linux AOT, performance or production acceptance"
+  ]
+}

@@ -1,0 +1,625 @@
+{
+  "schema_version": "1.0.0",
+  "state": "coverage_planned_not_accepted",
+  "created_at": "2026-11-12",
+  "requirements": [
+    {
+      "id": "NW-A01",
+      "scope": "ABI、类型布局、版本、目标差异",
+      "research": [
+        "R03",
+        "R04"
+      ],
+      "documentation": [
+        "D02",
+        "D03"
+      ],
+      "delivery_candidates": [
+        "A01",
+        "A02",
+        "A10",
+        "A11",
+        "A22"
+      ],
+      "validation": "源码+三方layout/调用+旧新版本组合",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A02",
+      "scope": "绑定、强类型Adapter、Generator、Analyzer",
+      "research": [
+        "R04",
+        "R05",
+        "R06"
+      ],
+      "documentation": [
+        "D03",
+        "D23"
+      ],
+      "delivery_candidates": [
+        "A09",
+        "A10",
+        "A11",
+        "A12"
+      ],
+      "validation": "生成快照+增量/负例诊断+实际AOT",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A03",
+      "scope": "Ownership、Lifetime、GC、父子资源",
+      "research": [
+        "R07",
+        "R10",
+        "R15"
+      ],
+      "documentation": [
+        "D04",
+        "D22"
+      ],
+      "delivery_candidates": [
+        "A03",
+        "A04",
+        "A19",
+        "A20"
+      ],
+      "validation": "lease模型+释放竞争+真实FFI",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A04",
+      "scope": "Callback、注销、重入、释放竞争",
+      "research": [
+        "R08",
+        "R11",
+        "R12"
+      ],
+      "documentation": [
+        "D05",
+        "D08",
+        "D24"
+      ],
+      "delivery_candidates": [
+        "A06",
+        "A07",
+        "A19",
+        "A20"
+      ],
+      "validation": "注销静默+进程隔离callback负例",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A05",
+      "scope": "Async、Cancellation、恰好一次完成",
+      "research": [
+        "R09",
+        "R12",
+        "R15"
+      ],
+      "documentation": [
+        "D06",
+        "D24"
+      ],
+      "delivery_candidates": [
+        "A07",
+        "A08",
+        "A18",
+        "A19"
+      ],
+      "validation": "终态/静默分离+模型+真实AOT异步",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A06",
+      "scope": "Memory、Buffer、Pinning、传输与批量",
+      "research": [
+        "R10",
+        "R16",
+        "R17"
+      ],
+      "documentation": [
+        "D07",
+        "D13"
+      ],
+      "delivery_candidates": [
+        "A04",
+        "A17",
+        "A18",
+        "A20",
+        "A21"
+      ],
+      "validation": "allocator/alias/溢出+fuzz+复制账本",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A07",
+      "scope": "Error、panic、ABI异常边界",
+      "research": [
+        "R11",
+        "R04"
+      ],
+      "documentation": [
+        "D08",
+        "D03"
+      ],
+      "delivery_candidates": [
+        "A05",
+        "A12",
+        "A20"
+      ],
+      "validation": "unwind/abort/UCO签名+subprocess",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A08",
+      "scope": "Concurrency、线程、Runtime、背压",
+      "research": [
+        "R12",
+        "R09",
+        "R29"
+      ],
+      "documentation": [
+        "D09",
+        "D24"
+      ],
+      "delivery_candidates": [
+        "A08",
+        "A18",
+        "A19",
+        "A23"
+      ],
+      "validation": "有界资源+shutdown+线程亲和",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A09",
+      "scope": "Build、AOT、NuGet/Cargo、发布兼容",
+      "research": [
+        "R01",
+        "R02",
+        "R13",
+        "R14"
+      ],
+      "documentation": [
+        "D01",
+        "D10",
+        "D25"
+      ],
+      "delivery_candidates": [
+        "A13",
+        "A14",
+        "A15",
+        "A16",
+        "A22"
+      ],
+      "validation": "Windows/Linux真目标+clean consumer+SBOM",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-A10",
+      "scope": "标准Engine接入与至少两异质真实模块",
+      "research": [
+        "R18",
+        "R17",
+        "R12"
+      ],
+      "documentation": [
+        "D11",
+        "D26"
+      ],
+      "delivery_candidates": [
+        "A17",
+        "A18",
+        "A23",
+        "A24"
+      ],
+      "validation": "同步与异步真实引擎+无Rust应用成本",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-B01",
+      "scope": "Database、连接池、事务、迁移、恢复",
+      "research": [
+        "R19",
+        "R20",
+        "R21",
+        "R22"
+      ],
+      "documentation": [
+        "D14",
+        "D15",
+        "D27"
+      ],
+      "delivery_candidates": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08"
+      ],
+      "validation": "PG/SQLite实库+AOT+断连/未知提交",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-B02",
+      "scope": "ORM、LINQ、代码生成、SQL语义",
+      "research": [
+        "R23",
+        "R24",
+        "R25",
+        "R06"
+      ],
+      "documentation": [
+        "D16",
+        "D17",
+        "D28"
+      ],
+      "delivery_candidates": [
+        "B09",
+        "B10",
+        "B11",
+        "B12",
+        "B13",
+        "B14"
+      ],
+      "validation": "支持/拒绝语法+SQL差分+静态映射",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-B03",
+      "scope": "Server、HTTP/TLS、gRPC/MCP、流与诊断",
+      "research": [
+        "R26",
+        "R27",
+        "R28",
+        "R29",
+        "R30"
+      ],
+      "documentation": [
+        "D18",
+        "D19",
+        "D29"
+      ],
+      "delivery_candidates": [
+        "B15",
+        "B16",
+        "B17",
+        "B18",
+        "B19",
+        "B20"
+      ],
+      "validation": "Kestrel对照+背压+协议AOT+drain",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-B04",
+      "scope": "DB/Server参考应用、故障长跑、发布",
+      "research": [
+        "R31",
+        "R17",
+        "R16"
+      ],
+      "documentation": [
+        "D20",
+        "D30"
+      ],
+      "delivery_candidates": [
+        "B21",
+        "B22",
+        "B23",
+        "B24"
+      ],
+      "validation": "相同语义三路线+独立真实验收",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-X01",
+      "scope": "GUI/GPU/NSH/线程亲和扩展",
+      "research": [
+        "R32",
+        "R18"
+      ],
+      "documentation": [
+        "D21",
+        "D11"
+      ],
+      "delivery_candidates": [
+        "A23",
+        "A24"
+      ],
+      "validation": "接入约束与探针，不承诺完整GUI",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-X02",
+      "scope": "iOS/Android/静态链接与生命周期",
+      "research": [
+        "R33",
+        "R02"
+      ],
+      "documentation": [
+        "D21",
+        "D01"
+      ],
+      "delivery_candidates": [
+        "A23",
+        "A24"
+      ],
+      "validation": "按目标profile核验，不gate无关桌面",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P01",
+      "scope": "C# First",
+      "research": [
+        "R17",
+        "R19",
+        "R26"
+      ],
+      "documentation": [
+        "D11",
+        "D13",
+        "D14",
+        "D18"
+      ],
+      "delivery_candidates": [
+        "A21",
+        "B02",
+        "B15",
+        "B23"
+      ],
+      "validation": "纯C#原生编译基线与依赖图",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P02",
+      "scope": "Native AOT Required",
+      "research": [
+        "R02",
+        "R13"
+      ],
+      "documentation": [
+        "D01",
+        "D10"
+      ],
+      "delivery_candidates": [
+        "A14",
+        "A15",
+        "B24"
+      ],
+      "validation": "publish与真实运行分别记录",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P03",
+      "scope": "Rust When Justified",
+      "research": [
+        "R17",
+        "R18",
+        "R19",
+        "R27"
+      ],
+      "documentation": [
+        "D11",
+        "D13",
+        "D14",
+        "D18"
+      ],
+      "delivery_candidates": [
+        "A17",
+        "A18",
+        "B04",
+        "B17",
+        "B23"
+      ],
+      "validation": "能力/成本/可靠性或实测采用ADR",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P04",
+      "scope": "框架简洁优雅高效",
+      "research": [
+        "R06",
+        "R12",
+        "R17",
+        "R25"
+      ],
+      "documentation": [
+        "D03",
+        "D09",
+        "D13",
+        "D16"
+      ],
+      "delivery_candidates": [
+        "A21",
+        "B23"
+      ],
+      "validation": "抽象/运行时/依赖/开发体验成本账本",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P05",
+      "scope": "Independent Engines",
+      "research": [
+        "R14",
+        "R18"
+      ],
+      "documentation": [
+        "D10",
+        "D11",
+        "D31"
+      ],
+      "delivery_candidates": [
+        "A16",
+        "A24",
+        "B24"
+      ],
+      "validation": "独立包/契约/发布profile",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P06",
+      "scope": "标准Native-ready接入",
+      "research": [
+        "R18",
+        "R13",
+        "R14"
+      ],
+      "documentation": [
+        "D10",
+        "D11",
+        "D31"
+      ],
+      "delivery_candidates": [
+        "A24",
+        "A16"
+      ],
+      "validation": "端到端conformance及新引擎任务模板",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P07",
+      "scope": "Performance by Evidence",
+      "research": [
+        "R17"
+      ],
+      "documentation": [
+        "D13"
+      ],
+      "delivery_candidates": [
+        "A21",
+        "B23"
+      ],
+      "validation": "可比负载、内存/线程/复制/分布",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P08",
+      "scope": "Research/Documentation/Delivery三种并行",
+      "research": [
+        "R15",
+        "R16"
+      ],
+      "documentation": [
+        "D31",
+        "D32"
+      ],
+      "delivery_candidates": [],
+      "validation": "三图结构、局部依赖、文件所有权检查",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P09",
+      "scope": "两阶段同时深入规划",
+      "research": [
+        "R19",
+        "R20",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R25",
+        "R26",
+        "R27",
+        "R28",
+        "R29",
+        "R30",
+        "R31"
+      ],
+      "documentation": [
+        "D14",
+        "D15",
+        "D16",
+        "D17",
+        "D18",
+        "D19",
+        "D20",
+        "D27",
+        "D28",
+        "D29",
+        "D30"
+      ],
+      "delivery_candidates": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B10",
+        "B11",
+        "B12",
+        "B13",
+        "B14",
+        "B15",
+        "B16",
+        "B17",
+        "B18",
+        "B19",
+        "B20",
+        "B21",
+        "B22",
+        "B23",
+        "B24"
+      ],
+      "validation": "B阶段具体任务/规范覆盖",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P10",
+      "scope": "NativeWeave内容独立；Arc只参考格式",
+      "research": [],
+      "documentation": [
+        "D31",
+        "D32"
+      ],
+      "delivery_candidates": [],
+      "validation": "需求章程、文档和依赖审查",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P11",
+      "scope": "最新稳定技术与预览隔离",
+      "research": [
+        "R01",
+        "R02"
+      ],
+      "documentation": [
+        "D01",
+        "D03"
+      ],
+      "delivery_candidates": [
+        "A12",
+        "A13"
+      ],
+      "validation": "日期化官方事实+功能状态+编译例",
+      "status": "planned_coverage"
+    },
+    {
+      "id": "NW-P12",
+      "scope": "诚实证据与独立Review",
+      "research": [
+        "R15",
+        "R16",
+        "R34"
+      ],
+      "documentation": [
+        "D12",
+        "D32"
+      ],
+      "delivery_candidates": [
+        "A19",
+        "A20",
+        "B22"
+      ],
+      "validation": "状态/hash/来源+不同作者review",
+      "status": "planned_coverage"
+    }
+  ]
+}

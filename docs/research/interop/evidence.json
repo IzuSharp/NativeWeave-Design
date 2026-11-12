@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0.0",
+  "observed_date": "2026-11-12",
+  "status": "limited_source_research",
+  "files": [
+    {
+      "repo": "Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/YahaSafeHandles.cs",
+      "scope": "40-112",
+      "symbols": [
+        "SetParent",
+        "ReleaseHandle"
+      ],
+      "claims": [
+        "INT-E001"
+      ],
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/YahaSafeHandles.cs",
+      "blob_sha": "e6df6995e35efc1081683ca15bd6aaa17b9efe54",
+      "read_status": "read_as_scoped"
+    },
+    {
+      "repo": "Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/RequestContext.cs",
+      "scope": "1-130;250-378",
+      "symbols": [
+        "Allocate",
+        "Release",
+        "TryAbort",
+        "TryReleaseNativeHandles",
+        "Dispose"
+      ],
+      "claims": [
+        "INT-E002",
+        "INT-E003"
+      ],
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/RequestContext.cs",
+      "blob_sha": "e2292be3b333f87ce58a4e3b5c4c51e40db21c79",
+      "read_status": "read_as_scoped"
+    },
+    {
+      "repo": "Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "scope": "300-435;440-625",
+      "symbols": [
+        "OnReceive",
+        "CompleteTask",
+        "OnComplete"
+      ],
+      "claims": [
+        "INT-E002",
+        "INT-E003"
+      ],
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "blob_sha": "c32c04f8bcc5a72166b4d4ad81f9d28a1f7756de",
+      "read_status": "read_as_scoped"
+    },
+    {
+      "repo": "Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "native/yaha_native/src/binding.rs",
+      "scope": "400-725;symbol-context 84-93",
+      "symbols": [
+        "yaha_request_begin",
+        "yaha_request_abort"
+      ],
+      "claims": [
+        "INT-E003"
+      ],
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/native/yaha_native/src/binding.rs",
+      "blob_sha": "ae3845f3f3fa7554e2b21e199c4fe59908d2a5c4",
+      "read_status": "read_as_scoped"
+    },
+    {
+      "repo": "Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "native/yaha_native/src/interop.rs",
+      "scope": "complete",
+      "symbols": [
+        "StringBuffer",
+        "ByteBuffer"
+      ],
+      "claims": [],
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/native/yaha_native/src/interop.rs",
+      "blob_sha": "d7311ca33efc6fb44677241212305a1ed2f69d63",
+      "read_status": "read_as_scoped"
+    },
+    {
+      "repo": "Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "native/yaha_native/src/context.rs",
+      "scope": "1-160",
+      "symbols": [
+        "YahaNativeRuntimeContextInternal",
+        "YahaNativeContextInternal"
+      ],
+      "claims": [],
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/native/yaha_native/src/context.rs",
+      "blob_sha": "446e6896c60f3d36f2cbffcbf373f33c2c45ee3c",
+      "read_status": "read_as_scoped"
+    },
+    {
+      "repo": "Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs",
+      "scope": "1-170",
+      "symbols": [
+        "DisposeDuringTlsHandshake_DoesNotUseAnotherCertificateVerifier"
+      ],
+      "claims": [
+        "INT-E004"
+      ],
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs",
+      "blob_sha": "860510396841175de4a3efff9b16d05e8b144100",
+      "read_status": "read_as_scoped"
+    },
+    {
+      "repo": "Cysharp/csbindgen",
+      "commit": "b9eb1e84bb8185b78a4e8364fd948fee300329a7",
+      "path": "csbindgen/src/emitter.rs",
+      "scope": "145-200;425-448",
+      "symbols": [
+        "DllImport emission",
+        "convert_token_enum_repr"
+      ],
+      "claims": [
+        "INT-E005"
+      ],
+      "url": "https://github.com/Cysharp/csbindgen/blob/b9eb1e84bb8185b78a4e8364fd948fee300329a7/csbindgen/src/emitter.rs",
+      "blob_sha": "5252cfb560d724172d09e39e2326f66f6c211505",
+      "read_status": "read_as_scoped"
+    }
+  ],
+  "claims": [
+    {
+      "id": "INT-E001",
+      "level": "source_confirmed",
+      "claim": "SafeHandle parent references and callback handle release are explicit in selected implementation",
+      "limitations": "No proof of all callers or races."
+    },
+    {
+      "id": "INT-E002",
+      "level": "source_confirmed",
+      "claim": "Completion releases managed context and queues disposal; finalizer contains blocking wait",
+      "limitations": "Unity-specific behavior is not proposed as NativeWeave default."
+    },
+    {
+      "id": "INT-E003",
+      "level": "source_confirmed",
+      "claim": "Native response frame waits for managed completion acknowledgement; upload path contains a copy",
+      "limitations": "Full copy counts, memory bounds and liveness not measured."
+    },
+    {
+      "id": "INT-E004",
+      "level": "source_confirmed",
+      "claim": "TLS-dispose callback reuse regression test exists",
+      "limitations": "Test source only; not executed; not Native AOT proof."
+    },
+    {
+      "id": "INT-E005",
+      "level": "source_confirmed",
+      "claim": "Selected csbindgen emitter uses DllImport and U1 boolean marshalling",
+      "limitations": "Generator type system/tests/AOT compatibility not fully reviewed."
+    }
+  ],
+  "retrieved_not_reviewed": [
+    {
+      "repo": "Cysharp/csbindgen",
+      "commit": "b9eb1e84bb8185b78a4e8364fd948fee300329a7",
+      "path": "csbindgen/src/type_meta.rs"
+    }
+  ],
+  "execution": {
+    "upstream_tests": "not_run",
+    "csharp_compilation": "not_run",
+    "rust_compilation": "not_run",
+    "native_aot": "not_run"
+  },
+  "license_reuse": "No upstream code is copied into NativeWeave. Verify fixed-version licenses before adoption."
+}

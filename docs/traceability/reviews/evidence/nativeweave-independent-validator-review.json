@@ -1,0 +1,288 @@
+{
+  "scope": "Independent synthetic validator regression checks; no real contract accepted, no native binary built or executed.",
+  "validator_sha256": "d3ce977aa46f838a2c3ec47147e3e148f78b30e17bfcf7d46d383a1fbdbfdfc0",
+  "total": 25,
+  "passed": 24,
+  "cases": [
+    {
+      "case": "unchanged bootstrap baseline",
+      "passed": true,
+      "expected_error": null,
+      "actual_codes": [],
+      "ready_counts": {
+        "research": 34,
+        "documentation": 32,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "tampered task packet invalidates evidence target",
+      "passed": true,
+      "expected_error": "HASH_MISMATCH",
+      "actual_codes": [
+        "HASH_MISMATCH"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "output broader than write scope rejected",
+      "passed": true,
+      "expected_error": "OUTPUT_NOT_OWNED",
+      "actual_codes": [
+        "OUTPUT_NOT_OWNED"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "unknown dependency rejected",
+      "passed": true,
+      "expected_error": "MISSING_DEPENDENCY",
+      "actual_codes": [
+        "MISSING_DEPENDENCY"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "start dependency cycle rejected",
+      "passed": true,
+      "expected_error": "DEPENDENCY_CYCLE",
+      "actual_codes": [
+        "DEPENDENCY_CYCLE"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "completion status without evidence rejected",
+      "passed": true,
+      "expected_error": "EVIDENCE_REQUIRED",
+      "actual_codes": [
+        "AUTHOR_REQUIRED",
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED",
+        "TASK_COMMIT"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "internally consistent synthetic contract positive control",
+      "passed": true,
+      "expected_error": null,
+      "actual_codes": [],
+      "ready_counts": {
+        "research": 34,
+        "documentation": 32,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "accepted contract missing specification rejected",
+      "passed": true,
+      "expected_error": "PATH",
+      "actual_codes": [
+        "PATH"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "accepted contract stale specification hash rejected",
+      "passed": true,
+      "expected_error": "HASH_MISMATCH",
+      "actual_codes": [
+        "HASH_MISMATCH"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "accepted contract missing review rejected",
+      "passed": true,
+      "expected_error": "INDEPENDENT_REVIEW_REQUIRED",
+      "actual_codes": [
+        "INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "accepted contract null author rejected",
+      "passed": true,
+      "expected_error": "AUTHOR_REQUIRED",
+      "actual_codes": [
+        "AUTHOR_REQUIRED",
+        "REVIEW_AUTHOR"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "self review rejected",
+      "passed": true,
+      "expected_error": "REVIEW_NOT_INDEPENDENT",
+      "actual_codes": [
+        "REVIEW_NOT_INDEPENDENT"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "review of old subject rejected",
+      "passed": true,
+      "expected_error": "REVIEW_SUBJECT",
+      "actual_codes": [
+        "REVIEW_SUBJECT"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "review with unresolved blocking finding rejected",
+      "passed": true,
+      "expected_error": "REVIEW_BLOCKED",
+      "actual_codes": [
+        "REVIEW_BLOCKED"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "template evidence rejected",
+      "passed": true,
+      "expected_error": "TEMPLATE_EVIDENCE",
+      "actual_codes": [
+        "REVIEW_EVIDENCE_BINDING",
+        "TEMPLATE_EVIDENCE"
+      ],
+      "ready_counts": {
+        "research": 0,
+        "documentation": 0,
+        "delivery": 0
+      }
+    },
+    {
+      "case": "synthetic native evidence positive control",
+      "passed": false,
+      "expected_error": null,
+      "actual_codes": [
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "AOT not executed rejected",
+      "passed": true,
+      "expected_error": "AOT_NOT_EXECUTED",
+      "actual_codes": [
+        "AOT_NOT_EXECUTED",
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "JIT mislabeled as native AOT rejected",
+      "passed": true,
+      "expected_error": "AOT_NOT_EXECUTED",
+      "actual_codes": [
+        "AOT_NOT_EXECUTED",
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "failed checks rejected",
+      "passed": true,
+      "expected_error": "RUN_CHECKS_INCOMPLETE",
+      "actual_codes": [
+        "RUN_CHECKS_INCOMPLETE",
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "timed out checks rejected",
+      "passed": true,
+      "expected_error": "RUN_CHECKS_INCOMPLETE",
+      "actual_codes": [
+        "RUN_CHECKS_INCOMPLETE",
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "stale source commit rejected",
+      "passed": true,
+      "expected_error": "RUN_COMMIT_STALE",
+      "actual_codes": [
+        "RUN_COMMIT_STALE",
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "wrong target RID rejected",
+      "passed": true,
+      "expected_error": "AOT_TARGET",
+      "actual_codes": [
+        "AOT_TARGET",
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "missing native binary rejected",
+      "passed": true,
+      "expected_error": "FILE_MISSING",
+      "actual_codes": [
+        "FILE_MISSING",
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "null producer rejected",
+      "passed": true,
+      "expected_error": "EVIDENCE_PRODUCER",
+      "actual_codes": [
+        "EVIDENCE_PRODUCER",
+        "RUN_LOGS"
+      ]
+    },
+    {
+      "case": "selecting native branch activates acceptance dependency and invalidates snapshot",
+      "passed": true
+    }
+  ]
+}

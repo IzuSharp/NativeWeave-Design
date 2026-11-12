@@ -1,0 +1,482 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "NW-TOOLCHAIN-2026-11-12",
+  "status": "official_documentation_verified_not_runtime_verified",
+  "as_of_utc": "2026-11-12T12:23:11Z",
+  "user_timezone": "America/Los_Angeles",
+  "as_of_local": "2026-11-12T04:23:11-08:00",
+  "author_role": "toolchain_verification",
+  "independent_review_status": "not_reviewed",
+  "version_observations": [
+    {
+      "component": ".NET runtime",
+      "version": "11.0.0",
+      "channel": "stable",
+      "release_date": "2026-11-10",
+      "support_type": "STS",
+      "end_of_support": "2028-11-14",
+      "sources": [
+        "TC-S01",
+        "TC-S02",
+        "TC-S03",
+        "TC-S04"
+      ],
+      "installed_or_executed": false
+    },
+    {
+      "component": ".NET SDK",
+      "version": "11.0.100",
+      "channel": "stable",
+      "release_date": "2026-11-10",
+      "sources": [
+        "TC-S02",
+        "TC-S03"
+      ],
+      "installed_or_executed": false
+    },
+    {
+      "component": "C#",
+      "version": "15.0",
+      "channel": "stable",
+      "release_date": "2026-11-10",
+      "sources": [
+        "TC-S01",
+        "TC-S02",
+        "TC-S05"
+      ],
+      "installed_or_executed": false
+    },
+    {
+      "component": "Rust",
+      "version": "1.99.1",
+      "channel": "stable",
+      "release_date": "2026-10-15",
+      "latest_claim_scope": "Latest visible official announcement at retrieval; stable channel manifest was inaccessible; recheck before execution",
+      "end_of_support": "When superseded by next stable; no fixed date asserted",
+      "sources": [
+        "TC-S07",
+        "TC-S08",
+        "TC-S10"
+      ],
+      "installed_or_executed": false
+    },
+    {
+      "component": "Rust edition",
+      "version": "2024",
+      "channel": "stable",
+      "sources": [
+        "TC-S17",
+        "TC-S18",
+        "TC-S19"
+      ],
+      "installed_or_executed": false
+    }
+  ],
+  "release_metadata_excerpt": {
+    "source": "TC-S03",
+    "excerpt_kind": "selected exact top-level JSON fields, not full document",
+    "fields": {
+      "channel-version": "11.0",
+      "latest-release": "11.0.0",
+      "latest-release-date": "2026-11-10",
+      "latest-runtime": "11.0.0",
+      "latest-sdk": "11.0.100",
+      "support-phase": "active",
+      "release-type": "sts",
+      "eol-date": "2028-11-14"
+    }
+  },
+  "claims": [
+    {
+      "id": "TC-C01",
+      "claim": "C#15 union and closed hierarchy are present as stable features in canonical language documentation.",
+      "evidence_kind": "official_docs",
+      "sources": [
+        "TC-S01",
+        "TC-S02",
+        "TC-S05"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TC-C02",
+      "claim": "Generated union declarations use object storage and box value-type cases; custom non-boxing patterns are documented.",
+      "evidence_kind": "official_docs",
+      "sources": [
+        "TC-S06"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TC-C03",
+      "claim": "Memory safety feature is preview; production core must not implicitly depend on it.",
+      "evidence_kind": "official_docs_and_research_policy",
+      "sources": [
+        "TC-S05"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TC-C04",
+      "claim": "Canonical Runtime Async page labels feature preview despite no EnablePreviewFeatures requirement for net11.0. Keep production dependency decision unresolved.",
+      "evidence_kind": "official_docs_with_status_ambiguity",
+      "sources": [
+        "TC-S13",
+        "TC-S14"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TC-C05",
+      "claim": "Native AOT limitations do not mean expression trees are universally unavailable; interpretation is documented.",
+      "evidence_kind": "official_docs",
+      "sources": [
+        "TC-S11"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TC-C06",
+      "claim": ".NET11 documents built-in Zstandard APIs and span compression APIs; use current .NET baseline in any compression comparison.",
+      "evidence_kind": "official_docs_and_inference",
+      "sources": [
+        "TC-S15"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TC-C07",
+      "claim": "No direct AOT cross-OS support according to official cross-compile documentation.",
+      "evidence_kind": "official_docs",
+      "sources": [
+        "TC-S12"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TC-C08",
+      "claim": "Rust1.99.1 fixes x86_64 FFI bool return ABI regression.",
+      "evidence_kind": "official_docs",
+      "sources": [
+        "TC-S08"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "TC-X01",
+      "topic": ".NET11 GA vs stale search snippets",
+      "observed": "Search aliases described SDK as prerelease / RC2; canonical version pages and release metadata show GA.",
+      "resolution": "Use dated release metadata + canonical pages; preserve stale-snippet observation.",
+      "sources": [
+        "TC-S01",
+        "TC-S02",
+        "TC-S03",
+        "TC-S05",
+        "TC-S14"
+      ]
+    },
+    {
+      "id": "TC-X02",
+      "topic": "Runtime Async stable classification",
+      "observed": "Canonical detailed runtime page labels preview; overview and SDK behavior remove some preview opt-in requirements.",
+      "resolution": "Keep preview/research-only classification until precise GA/compiler evidence and independent review; no unconditional production dependency.",
+      "sources": [
+        "TC-S13",
+        "TC-S14"
+      ]
+    }
+  ],
+  "retrieval_gaps": [
+    {
+      "url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
+      "result": "not_accessible_via_web_tool",
+      "effect": "No manifest-level confirmation; official release announcement verified separately."
+    },
+    {
+      "url": "https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/11.0/releases.json",
+      "result": "not_accessible_via_web_tool",
+      "effect": "Canonical builds.dotnet.microsoft.com metadata succeeded."
+    },
+    {
+      "url": "https://blog.rust-lang.org/releases/1.99.1/",
+      "result": "not_accessible_via_web_tool",
+      "effect": "Release-index link to canonical date URL succeeded."
+    }
+  ],
+  "local_environment_probe": {
+    "status": "executed",
+    "method": "Python shutil.which and subprocess --version, not filesystem-wide search",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "available": {
+      "cc": "GCC 14.2.0 (Debian 14.2.0-19)",
+      "git": "2.52.0",
+      "python3": "3.12.14"
+    },
+    "not_on_path": [
+      "dotnet",
+      "rustc",
+      "cargo",
+      "clang"
+    ]
+  },
+  "experiments": [
+    {
+      "id": "TC-V01",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V02",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V03",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V04",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V05",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V06",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V07",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V08",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V09",
+      "status": "not_run"
+    },
+    {
+      "id": "TC-V10",
+      "status": "not_run"
+    }
+  ],
+  "source_code_review": {
+    "status": "not_performed",
+    "required_next": "Pin release commit SHAs in dotnet/runtime, dotnet/roslyn and rust-lang/rust before claiming source-proven lowering, ABI or execution behavior."
+  },
+  "sources": [
+    {
+      "id": "TC-S01",
+      "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
+      "tool_ref": "turn1view5",
+      "publication_or_update_date": "2026-11-10",
+      "consulted_scope": "GA release announcement and support",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S02",
+      "url": "https://dotnet.microsoft.com/en-us/download/dotnet/11.0",
+      "tool_ref": "turn1view0",
+      "publication_or_update_date": "2026-11-10",
+      "consulted_scope": "SDK 11.0.100; runtime 11.0.0; C# 15.0",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S03",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json",
+      "tool_ref": "turn6view1",
+      "publication_or_update_date": "2026-11-10",
+      "consulted_scope": "Top-level latest-release/latest-sdk/support-phase/release-type/eol-date",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S04",
+      "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+      "tool_ref": "turn1view1",
+      "publication_or_update_date": "2026-11-10",
+      "consulted_scope": "Supported versions and servicing policy",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S05",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15",
+      "tool_ref": "turn1view2",
+      "publication_or_update_date": null,
+      "consulted_scope": "C#15 feature list; closed hierarchy; preview memory safety",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S06",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union",
+      "tool_ref": "turn3view5",
+      "publication_or_update_date": null,
+      "consulted_scope": "Default representation, boxing, nullability, custom union and non-boxing access pattern",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S07",
+      "url": "https://blog.rust-lang.org/releases/",
+      "tool_ref": "turn1view4",
+      "publication_or_update_date": null,
+      "consulted_scope": "Most recent release observed 1.99.1; date 2026-10-15",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S08",
+      "url": "https://blog.rust-lang.org/2026/10/15/Rust-1.99.1/",
+      "tool_ref": "turn3view3",
+      "publication_or_update_date": "2026-10-15",
+      "consulted_scope": "Point release; x86_64 FFI bool return zero-extension fix",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S09",
+      "url": "https://blog.rust-lang.org/2026/10/01/Rust-1.99.0/",
+      "tool_ref": "turn3view4",
+      "publication_or_update_date": "2026-10-01",
+      "consulted_scope": "Stabilized FFI, raw layout and ownership APIs; leak guidance",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S10",
+      "url": "https://doc.rust-lang.org/book/appendix-07-nightly-rust.html",
+      "tool_ref": "turn4view4",
+      "publication_or_update_date": null,
+      "consulted_scope": "Release train; current stable support; feature channels",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S11",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/",
+      "tool_ref": "turn3view0",
+      "publication_or_update_date": "2026-11-05",
+      "consulted_scope": "AOT publish, analysis, limitations and platform matrix",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S12",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/cross-compile",
+      "tool_ref": "turn8view0",
+      "publication_or_update_date": "2025-05-27",
+      "consulted_scope": "Cross-OS unsupported; limited cross-architecture support",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S13",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime",
+      "tool_ref": "turn4view2",
+      "publication_or_update_date": null,
+      "consulted_scope": "Runtime Async preview; NativeAOT support; CPU baseline",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S14",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/overview",
+      "tool_ref": "turn3view8",
+      "publication_or_update_date": null,
+      "consulted_scope": "GA; runtime async feature-summary wording",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S15",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "tool_ref": "turn4view3",
+      "publication_or_update_date": null,
+      "consulted_scope": "System.IO.Compression Zstandard and streamless APIs",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S16",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke-source-generation",
+      "tool_ref": "turn5view0",
+      "publication_or_update_date": null,
+      "consulted_scope": "LibraryImport source generation",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S17",
+      "url": "https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-extern.html",
+      "tool_ref": "turn3view1",
+      "publication_or_update_date": null,
+      "consulted_scope": "Rust2024 unsafe extern blocks",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S18",
+      "url": "https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-attributes.html",
+      "tool_ref": "turn3view2",
+      "publication_or_update_date": null,
+      "consulted_scope": "Rust2024 unsafe no_mangle/export_name/link_section",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S19",
+      "url": "https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html",
+      "tool_ref": "turn5view2",
+      "publication_or_update_date": null,
+      "consulted_scope": "Explicit unsafe blocks and lint",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S20",
+      "url": "https://blog.rust-lang.org/2026/10/02/demoting-i686-windows-targets-to-std-only/",
+      "tool_ref": "turn6search0",
+      "publication_or_update_date": "2026-10-02",
+      "consulted_scope": "Announced future 1.100.0 host-tools change; no claim of 1.100 release",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    },
+    {
+      "id": "TC-S21",
+      "url": "https://doc.rust-lang.org/reference/type-layout.html",
+      "tool_ref": "turn8view1",
+      "publication_or_update_date": null,
+      "consulted_scope": "Default Rust representation vs C representation and function ABI distinction",
+      "retrieved_date": "2026-11-12",
+      "authority": "primary_official",
+      "commit_pinned": false
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "observed_date": "2026-11-12",
+  "timezone": "America/Los_Angeles",
+  "repos": [
+    {
+      "repo": "IzuSharp/NativeWeave",
+      "head": "658ed6a410783de356a7b9b2cd6601336fff5148",
+      "default_branch": "main",
+      "root_files": [
+        "LICENSE"
+      ],
+      "pull": true,
+      "push": true,
+      "mutation": "none"
+    },
+    {
+      "repo": "IzuSharp/NativeWeave-Design",
+      "head": "7034fb54490bb397379787c9b2da3609b393185f",
+      "default_branch": "main",
+      "root_files": [
+        "LICENSE"
+      ],
+      "pull": true,
+      "push": true,
+      "research_branch": "research/bootstrap-2026-11-12",
+      "branch_creation": "succeeded"
+    },
+    {
+      "repo": "IzuSharp/Plan",
+      "head": "ed6e8e8e1203bbe3149cfb49c418da81a9d9749d",
+      "default_branch": "main",
+      "root_files": [
+        "LICENSE"
+      ],
+      "pull": true,
+      "push": true,
+      "research_branch": "research/bootstrap-2026-11-12",
+      "branch_creation": "succeeded"
+    }
+  ],
+  "reference_scope": {
+    "note": "ArcForges Design/Plan are formatting and organization references only. Their substantive rules and architecture have no authority here.",
+    "files": [
+      [
+        "ArcForges/ArcForges-Design",
+        "009bb4009a2cc726b47d4592516107490dba8606",
+        "README.md"
+      ],
+      [
+        "ArcForges/ArcForges-Design",
+        "009bb4009a2cc726b47d4592516107490dba8606",
+        "docs/traceability/model.json"
+      ],
+      [
+        "ArcForges/Plan",
+        "084ac4d376da28fbb3ac74235e70d70a85bd1858",
+        "delivery-graph.json"
+      ]
+    ]
+  },
+  "capabilities": {
+    "github_read": "observed_success",
+    "github_branch_create": "observed_success",
+    "github_commit": "not_yet_executed_at_snapshot",
+    "github_draft_pr": "not_yet_executed_at_snapshot",
+    "local_linux": "available",
+    "dedicated_windows_mcp": "not_discovered",
+    "dedicated_linux_mcp": "not_discovered",
+    "dotnet": "not_in_PATH",
+    "rustc": "not_in_PATH",
+    "cargo": "not_in_PATH"
+  }
+}

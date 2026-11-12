@@ -1,0 +1,452 @@
+{
+  "schema_version": "1.0",
+  "recorded_date": "2026-11-12",
+  "state": "initial_research_not_architecture_acceptance",
+  "projects": [
+    {
+      "id": "SRC-NPGSQL",
+      "repo": "npgsql/npgsql",
+      "tag": "v9.0.4",
+      "commit": "3b6c74c505c4dbc68a39b05e7440153b3bf511f4",
+      "license": "PostgreSQL; pinned LICENSE read",
+      "files": [
+        {
+          "path": "src/Npgsql/NpgsqlDataSourceBuilder.cs",
+          "scope": "lines 130-230",
+          "symbols": [
+            "EnableDynamicJson",
+            "EnableRecordsAsTuples",
+            "EnableUnmappedTypes"
+          ],
+          "blob_sha": "a3b7779083eb682f8efb3778fa5528e8e5ea03a4",
+          "url": "https://github.com/npgsql/npgsql/blob/3b6c74c505c4dbc68a39b05e7440153b3bf511f4/src/Npgsql/NpgsqlDataSourceBuilder.cs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "test/Npgsql.NativeAotTests/Program.cs",
+          "scope": "complete",
+          "symbols": [
+            "NpgsqlSlimDataSourceBuilder",
+            "ExecuteReaderAsync",
+            "GetFieldValue<string>"
+          ],
+          "blob_sha": "098c978296364e9b42f9930957888f2ec992d17d",
+          "url": "https://github.com/npgsql/npgsql/blob/3b6c74c505c4dbc68a39b05e7440153b3bf511f4/test/Npgsql.NativeAotTests/Program.cs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": ".github/workflows/native-aot.yml",
+          "scope": "complete",
+          "symbols": [
+            "AOT_Compat",
+            "full",
+            "trimmed"
+          ],
+          "url": "https://github.com/npgsql/npgsql/blob/3b6c74c505c4dbc68a39b05e7440153b3bf511f4/.github/workflows/native-aot.yml",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "LICENSE",
+          "scope": "complete",
+          "symbols": [],
+          "blob_sha": "c551cb7b0c921b082c2424f213e12fb6b84a864c",
+          "url": "https://github.com/npgsql/npgsql/blob/3b6c74c505c4dbc68a39b05e7440153b3bf511f4/LICENSE",
+          "read_status": "read_as_scoped"
+        }
+      ],
+      "claims": [
+        {
+          "id": "DB-E001",
+          "level": "source_confirmed",
+          "claim": "Dynamic JSON, tuple record, unmapped-type opt-ins are annotated with dynamic-code and trimming constraints. Basic AOT query test and publish/run CI exist.",
+          "limitation": "Existing source and CI definitions are not a successful test run in this session; pool/cancellation/full mapping paths remain unread."
+        }
+      ],
+      "url": "https://github.com/npgsql/npgsql",
+      "state": "partial_source_review",
+      "session_execution": "not_run",
+      "selection_note": "Pinned reference release selected for reproducible focused reading; not claimed latest or selected dependency."
+    },
+    {
+      "id": "SRC-DAPPER-AOT",
+      "repo": "DapperLib/DapperAOT",
+      "tag": "1.0.31",
+      "commit": "3bd350451f840b15a0894f4e8f2ed8a7ce95fb36",
+      "license": "Apache-2.0 plus explicit brand restrictions; pinned License.txt read",
+      "files": [
+        {
+          "path": "src/Dapper.AOT.Analyzers/CodeAnalysis/DapperInterceptorGenerator.cs",
+          "scope": "lines 1-220",
+          "symbols": [
+            "Initialize",
+            "PreFilter",
+            "Parse",
+            "CheckPrerequisites"
+          ],
+          "blob_sha": "a7dca705a5093b9d842ccff331dab28b04528b48",
+          "url": "https://github.com/DapperLib/DapperAOT/blob/3bd350451f840b15a0894f4e8f2ed8a7ce95fb36/src/Dapper.AOT.Analyzers/CodeAnalysis/DapperInterceptorGenerator.cs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "test/Dapper.AOT.Test/Interceptors/Query.input.cs",
+          "scope": "complete",
+          "symbols": [
+            "Query",
+            "QueryAsync",
+            "QueryUnbufferedAsync"
+          ],
+          "blob_sha": "1a1e64f96c01a6831075a420785d570c5157554f",
+          "url": "https://github.com/DapperLib/DapperAOT/blob/3bd350451f840b15a0894f4e8f2ed8a7ce95fb36/test/Dapper.AOT.Test/Interceptors/Query.input.cs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "test/Dapper.AOT.Test/Interceptors/Query.output.cs",
+          "scope": "lines 1-140",
+          "symbols": [
+            "DapperGeneratedInterceptors",
+            "Query0",
+            "QueryAsync5",
+            "QueryBuffered",
+            "RowFactory0"
+          ],
+          "blob_sha": "6e8f3a2623ab81e6171e7fa6457d75ffdf0c24ab",
+          "url": "https://github.com/DapperLib/DapperAOT/blob/3bd350451f840b15a0894f4e8f2ed8a7ce95fb36/test/Dapper.AOT.Test/Interceptors/Query.output.cs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "src/Dapper.AOT/Dapper.AOT.csproj",
+          "scope": "complete",
+          "symbols": [
+            "analyzers/dotnet"
+          ],
+          "blob_sha": "b36a1332eb4fa8f1bedf78390073d4ac86c4910a",
+          "url": "https://github.com/DapperLib/DapperAOT/blob/3bd350451f840b15a0894f4e8f2ed8a7ce95fb36/src/Dapper.AOT/Dapper.AOT.csproj",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "License.txt",
+          "scope": "complete",
+          "symbols": [],
+          "blob_sha": "1bf70a6d24e2e8a41948ec17045359d64ad8fb1f",
+          "url": "https://github.com/DapperLib/DapperAOT/blob/3bd350451f840b15a0894f4e8f2ed8a7ce95fb36/License.txt",
+          "read_status": "read_as_scoped"
+        }
+      ],
+      "claims": [
+        {
+          "id": "ORM-E001",
+          "level": "source_confirmed",
+          "claim": "Incremental syntax/semantic filtering generates intercepted supported Dapper operations and static factories. Unsupported/disabled operations can return null from Parse rather than generating replacements.",
+          "limitation": "No whole API parity or latest release claim. Negative diagnostics, runtime resource paths, and Native AOT publishing remain to validate."
+        }
+      ],
+      "url": "https://github.com/DapperLib/DapperAOT",
+      "state": "partial_source_review",
+      "session_execution": "not_run",
+      "selection_note": "Pinned reference release selected for reproducible focused reading; not claimed latest or selected dependency."
+    },
+    {
+      "id": "SRC-EFCORE",
+      "repo": "dotnet/efcore",
+      "tag": "v10.0.0",
+      "commit": "12b8d44bf691d2e6933a6d1003647cce4f13c3d3",
+      "license": "MIT; read source file license headers; dependency audit pending",
+      "files": [
+        {
+          "path": "src/EFCore/Query/Internal/QueryCompiler.cs",
+          "scope": "complete (requested lines 1-190)",
+          "symbols": [
+            "ExecuteCore",
+            "RuntimeFeature.IsDynamicCodeSupported",
+            "PrecompileQuery"
+          ],
+          "blob_sha": "c4df4b665318745fe39d567d9d4d73c2f09dde64",
+          "url": "https://github.com/dotnet/efcore/blob/12b8d44bf691d2e6933a6d1003647cce4f13c3d3/src/EFCore/Query/Internal/QueryCompiler.cs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "src/EFCore.Design/Query/Internal/PrecompiledQueryCodeGenerator.cs",
+          "scope": "lines 1-100",
+          "symbols": [
+            "GeneratePrecompiledQueries",
+            "QueryLocator",
+            "CSharpToLinqTranslator"
+          ],
+          "blob_sha": "954e7218fea7d7a083b57a5ea95567478ac8d7bc",
+          "url": "https://github.com/dotnet/efcore/blob/12b8d44bf691d2e6933a6d1003647cce4f13c3d3/src/EFCore.Design/Query/Internal/PrecompiledQueryCodeGenerator.cs",
+          "read_status": "read_as_scoped"
+        }
+      ],
+      "claims": [
+        {
+          "id": "ORM-E002",
+          "level": "source_confirmed",
+          "claim": "QueryCompiler cache-miss generation is guarded by IsDynamicCodeSupported and otherwise throws QueryNotPrecompiled. PrecompileQuery is marked Experimental in this pinned version.",
+          "limitation": "The existence of precompilation does not certify all providers, expressions, current releases, or AOT production readiness."
+        }
+      ],
+      "url": "https://github.com/dotnet/efcore",
+      "state": "partial_source_review",
+      "session_execution": "not_run",
+      "selection_note": "Pinned reference release selected for reproducible focused reading; not claimed latest or selected dependency."
+    },
+    {
+      "id": "SRC-SQLX",
+      "repo": "transact-rs/sqlx",
+      "original_repo": "launchbadge/sqlx",
+      "tag": "v0.8.6",
+      "commit": "bab1b022bd56a64f9a08b46b36b97c5cff19d77e",
+      "license": "MIT OR Apache-2.0; pinned Cargo.toml read; both license filenames observed",
+      "files": [
+        {
+          "path": "sqlx-core/src/transaction.rs",
+          "scope": "complete",
+          "symbols": [
+            "Transaction::commit",
+            "Transaction::rollback",
+            "Drop::drop",
+            "start_rollback"
+          ],
+          "blob_sha": "2a84ff65551a4c8042bedf1c99402cfa820fee33",
+          "url": "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-core/src/transaction.rs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "sqlx-postgres/src/transaction.rs",
+          "scope": "complete",
+          "symbols": [
+            "PgTransactionManager",
+            "Rollback::drop",
+            "queue_simple_query"
+          ],
+          "blob_sha": "23352a8dcfcde9b59a9445592ce7b0097c6029bf",
+          "url": "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-postgres/src/transaction.rs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "tests/postgres/postgres.rs",
+          "scope": "retrieved complete; reviewed lines 200-400 and 423-620, remaining file unread",
+          "symbols": [
+            "it_can_work_with_failed_transactions",
+            "it_can_work_with_transactions",
+            "it_can_work_with_nested_transactions",
+            "it_can_drop_multiple_transactions"
+          ],
+          "blob_sha": "f0d453a9a3a9f59b5964e34a8070deaf37d45540",
+          "url": "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/tests/postgres/postgres.rs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "Cargo.toml",
+          "scope": "lines 1-90",
+          "symbols": [
+            "workspace.package.license",
+            "runtime-tokio",
+            "runtime-async-std",
+            "TLS features"
+          ],
+          "blob_sha": "2419b50d974cd40d883a87a5da4534b2e8a24638",
+          "url": "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/Cargo.toml",
+          "read_status": "read_as_scoped"
+        }
+      ],
+      "claims": [
+        {
+          "id": "DB-E002",
+          "level": "source_confirmed",
+          "claim": "Drop initiates rollback; PostgreSQL start_rollback queues SQL and changes local transaction depth. Explicit commit/rollback await the manager before marking the transaction closed.",
+          "limitation": "Queued rollback is not server acknowledgement. Pool drain/shutdown and cancellation races are not fully traced; no test execution."
+        }
+      ],
+      "url": "https://github.com/transact-rs/sqlx",
+      "state": "partial_source_review",
+      "session_execution": "not_run",
+      "selection_note": "Pinned reference release selected for reproducible focused reading; not claimed latest or selected dependency."
+    },
+    {
+      "id": "SRC-KESTREL",
+      "repo": "dotnet/aspnetcore",
+      "tag": "v10.0.0",
+      "commit": "7387de91234d3ef751fa50b3d1bfede4130213ff",
+      "license": "MIT; read source file headers; dependency audit pending",
+      "files": [
+        {
+          "path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs",
+          "scope": "complete",
+          "symbols": [
+            "ValidateState",
+            "StopAcceptingWritesAsync",
+            "Abort",
+            "FlushAsync"
+          ],
+          "blob_sha": "5e5078e05cc54865f02abfbed7a6396894f12e9d",
+          "url": "https://github.com/dotnet/aspnetcore/blob/7387de91234d3ef751fa50b3d1bfede4130213ff/src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs",
+          "scope": "complete",
+          "symbols": [
+            "WriteAsyncAfterStopAcceptingWritesThrowsObjectDisposedException",
+            "FlushAsyncAfterStopAcceptingWritesThrowsObjectDisposedException"
+          ],
+          "blob_sha": "8fb8cb261d0ae8eefeecc5471d9e79ab537fc2e3",
+          "url": "https://github.com/dotnet/aspnetcore/blob/7387de91234d3ef751fa50b3d1bfede4130213ff/src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs",
+          "read_status": "read_as_scoped"
+        }
+      ],
+      "claims": [
+        {
+          "id": "SRV-E001",
+          "level": "source_confirmed",
+          "claim": "Response writing distinguishes Open, Closed and Aborted; calls after StopAcceptingWrites reject with ObjectDisposedException, backed by corresponding test definitions.",
+          "limitation": "Thread safety, backpressure limits and full request lifecycle are not proven by this one class or these unexecuted tests."
+        }
+      ],
+      "url": "https://github.com/dotnet/aspnetcore",
+      "state": "partial_source_review",
+      "session_execution": "not_run",
+      "selection_note": "Pinned reference release selected for reproducible focused reading; not claimed latest or selected dependency."
+    },
+    {
+      "id": "SRC-TOKIO",
+      "repo": "tokio-rs/tokio",
+      "tag": "tokio-1.47.1",
+      "commit": "be8ee45b3fc2d107174e586141b1cb12c93e2ddf",
+      "license": "not inspected in this pass",
+      "files": [
+        {
+          "path": "tokio/src/sync/mpsc/bounded.rs",
+          "scope": "lines 120-170 and 810-880",
+          "symbols": [
+            "channel",
+            "Sender::send",
+            "Sender::closed"
+          ],
+          "blob_sha": "06eeffc3f094d72198ae8d49af03b554b351bb27",
+          "url": "https://github.com/tokio-rs/tokio/blob/be8ee45b3fc2d107174e586141b1cb12c93e2ddf/tokio/src/sync/mpsc/bounded.rs",
+          "read_status": "read_as_scoped"
+        }
+      ],
+      "claims": [
+        {
+          "id": "SRV-E003",
+          "level": "source_confirmed",
+          "claim": "Bounded channel uses a semaphore capacity; send awaits a permit before enqueueing.",
+          "limitation": "Capacity bounds messages, not bytes or tasks already holding messages. Semaphore implementation and cancellation tests not read."
+        }
+      ],
+      "url": "https://github.com/tokio-rs/tokio",
+      "state": "partial_source_review",
+      "session_execution": "not_run",
+      "selection_note": "Pinned reference release selected for reproducible focused reading; not claimed latest or selected dependency."
+    },
+    {
+      "id": "SRC-HYPER",
+      "repo": "hyperium/hyper",
+      "tag": "v1.7.0",
+      "commit": "400bdfdace8b40e3bdb93c5c6647b6b98211d432",
+      "license": "MIT declared in pinned Cargo.toml; full LICENSE not read",
+      "files": [
+        {
+          "path": "src/server/conn/http1.rs",
+          "scope": "lines 120-155",
+          "symbols": [
+            "Connection::graceful_shutdown",
+            "disable_keep_alive"
+          ],
+          "blob_sha": "45d17aef8e5a6cc18888d7dd4289f7f372e252cb",
+          "url": "https://github.com/hyperium/hyper/blob/400bdfdace8b40e3bdb93c5c6647b6b98211d432/src/server/conn/http1.rs",
+          "read_status": "read_as_scoped"
+        },
+        {
+          "path": "Cargo.toml",
+          "scope": "lines 1-100",
+          "symbols": [
+            "features.ffi",
+            "features.capi",
+            "features.default"
+          ],
+          "blob_sha": "83342309370fa7f6744d60aff00268d56b87ebfc",
+          "url": "https://github.com/hyperium/hyper/blob/400bdfdace8b40e3bdb93c5c6647b6b98211d432/Cargo.toml",
+          "read_status": "read_as_scoped"
+        }
+      ],
+      "claims": [
+        {
+          "id": "SRV-E002",
+          "level": "source_confirmed",
+          "claim": "HTTP/1 graceful_shutdown disables keepalive and requires ongoing polling to finish; C API features are explicitly described as unstable/no semver.",
+          "limitation": "No general hyper server C ABI stability or TLS/runtime ownership guarantee follows; no shutdown test executed."
+        }
+      ],
+      "url": "https://github.com/hyperium/hyper",
+      "state": "partial_source_review",
+      "session_execution": "not_run",
+      "selection_note": "Pinned reference release selected for reproducible focused reading; not claimed latest or selected dependency."
+    }
+  ],
+  "documentation": [
+    {
+      "id": "DOC-NPG-AOT",
+      "url": "https://www.npgsql.org/doc/release-notes/8.0.html",
+      "web_ref": "turn2search0",
+      "status": "official_documentation_confirmed"
+    },
+    {
+      "id": "DOC-NPG-COMPAT",
+      "url": "https://www.npgsql.org/doc/compatibility.html",
+      "web_ref": "turn2search4",
+      "status": "official_documentation_confirmed"
+    },
+    {
+      "id": "DOC-EF-AOT",
+      "url": "https://learn.microsoft.com/ef/core/performance/nativeaot-and-precompiled-queries",
+      "web_ref": "turn2search5",
+      "status": "official_documentation_confirmed; retrieved page still experimental; version recency recheck required"
+    },
+    {
+      "id": "DOC-DAPPER-FAQ",
+      "url": "https://aot.dapperlib.dev/faq.html",
+      "web_ref": "turn2search9",
+      "status": "official_documentation_confirmed"
+    },
+    {
+      "id": "DOC-ASPNET-AOT",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/native-aot?view=aspnetcore-10.0",
+      "web_ref": "turn7search0",
+      "status": "official_documentation_confirmed"
+    },
+    {
+      "id": "DOC-GRPC-AOT",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/grpc/native-aot?view=aspnetcore-10.0",
+      "web_ref": "turn7search1",
+      "status": "official_documentation_confirmed"
+    },
+    {
+      "id": "DOC-LINQ2DB-AOT",
+      "url": "https://github.com/linq2db/linq2db/discussions/5389",
+      "web_ref": "turn7search2",
+      "status": "maintainer_discussion_observed; not exhaustive compatibility proof"
+    },
+    {
+      "id": "DOC-SEAQUERY",
+      "url": "https://docs.rs/sea-query/latest/sea_query/",
+      "web_ref": "turn7search4",
+      "status": "official_generated_documentation; unpinned latest page"
+    },
+    {
+      "id": "DOC-SEAORM",
+      "url": "https://docs.rs/sea-orm/latest/sea_orm/query/index.html",
+      "web_ref": "turn7search5",
+      "status": "official_generated_documentation; unpinned latest page"
+    }
+  ],
+  "limitations": [
+    "No project code compiled or executed in this research session.",
+    "No Windows/Linux Native AOT run evidence was produced.",
+    "No end-to-end benchmark was performed.",
+    "Reference versions are not current-version or security-support endorsements.",
+    "No final Database/ORM/Server architecture was selected."
+  ]
+}

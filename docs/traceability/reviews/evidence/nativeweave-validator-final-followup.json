@@ -1,0 +1,27 @@
+{
+  "validator_sha256": "d4e393016bd75de523b78f2df9c989eb417dbc7bdd05ca9f23a1fbefb58888c9",
+  "checks": {
+    "baseline_valid": true,
+    "ready_counts": {
+      "research": 34,
+      "documentation": 32,
+      "delivery": 0
+    },
+    "accepted_contracts": 0,
+    "dependency_source_change_invalidates_subject": true,
+    "dependency_evidence_change_invalidates_subject": true,
+    "selected_branch_invalidates_subject": true,
+    "selected_branch_is_acceptance_dependency": true,
+    "output_parent_not_owned": true,
+    "null_identity_rejected": true,
+    "verification_requirements_exact": true
+  },
+  "dependency_snapshot_example": {
+    "revision": "0.1.0",
+    "content_sha256": "3e0e40094f5a928ed8576220a10c912aa7f744baacbc1fe3a705b0bf373e7bc8",
+    "source_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "acceptance_evidence_sha256": [
+      "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    ]
+  }
+}
