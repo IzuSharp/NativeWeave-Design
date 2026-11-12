@@ -1,0 +1,177 @@
+{
+  "author": "/root/interop_design",
+  "review_status": "awaiting_independent_review",
+  "frozen_at": "2026-11-12",
+  "baseline_design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+  "baseline_plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+  "scope": "D04/D05/D06/D08 and R07/R08/R09/R11; no remote writes",
+  "files": [
+    {
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "sha256": "c21e14010397330ba08f41db91d438c98f190f018130a3429f7f58b07f135bcb",
+      "bytes": 12204
+    },
+    {
+      "path": "docs/contracts/callback-v0.1.md",
+      "sha256": "596679cf7950d4a9146cb7a5d7a51819b2d953bda580a6722da81649af469700",
+      "bytes": 15602
+    },
+    {
+      "path": "docs/contracts/async-v0.1.md",
+      "sha256": "8f09504a07632fe53ca6e5d2861cf70a3c2d7cea9ff1e4e3035a6a8beaec8672",
+      "bytes": 22491
+    },
+    {
+      "path": "docs/contracts/error-v0.1.md",
+      "sha256": "fc665d6ac0328b7c524687191d547bd3792dcb43f36124bc10b9144bb42c4797",
+      "bytes": 13450
+    },
+    {
+      "path": "docs/research/topics/R07/coverage.json",
+      "sha256": "23dbf4ac77428e696d7323b6aa3dfde986d44975e6c0dd9481a4327f30b55d11",
+      "bytes": 9656
+    },
+    {
+      "path": "docs/research/topics/R07/evidence.json",
+      "sha256": "db1cbdcc3c9e82d52d991c61478a7697873cfec736d6ced1b69b1bb67c66eb1e",
+      "bytes": 13705
+    },
+    {
+      "path": "docs/research/topics/R07/report.md",
+      "sha256": "f823e7b7865b7b14349c742ddcf21513defc81dc34a0e79c174b9bd9225943c4",
+      "bytes": 12399
+    },
+    {
+      "path": "docs/research/topics/R08/coverage.json",
+      "sha256": "0feed7c530a11c8cac827c5cfc9f729fb5f9d9206d89726c3d34a09e087aab85",
+      "bytes": 10042
+    },
+    {
+      "path": "docs/research/topics/R08/evidence.json",
+      "sha256": "8effd8aa49db9eeeac3b07e93392958f0a226e491b24b36e19e096255bdcaddf",
+      "bytes": 13949
+    },
+    {
+      "path": "docs/research/topics/R08/report.md",
+      "sha256": "6368243c887cd9eb94532ebc98214a27bf362db4e473829c9b6b6297c0cfa6bb",
+      "bytes": 11650
+    },
+    {
+      "path": "docs/research/topics/R09/coverage.json",
+      "sha256": "8bef3f84051a199ca9dc9753e1365b57c064a252b72875d6ff159f5abc77d6c2",
+      "bytes": 9025
+    },
+    {
+      "path": "docs/research/topics/R09/evidence.json",
+      "sha256": "45b48de8f420504bf3a355ac38bdfee72829df45b803439baaf6445dc48db94f",
+      "bytes": 11854
+    },
+    {
+      "path": "docs/research/topics/R09/model-run.json",
+      "sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+      "bytes": 1549
+    },
+    {
+      "path": "docs/research/topics/R09/model-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/research/topics/R09/model-stdout.txt",
+      "sha256": "fbe1c73b06f659e20225cdfde89701e5eb110cdc4eb8bfe1bda5cfebbfd3e698",
+      "bytes": 438
+    },
+    {
+      "path": "docs/research/topics/R09/report.md",
+      "sha256": "6ec6e55047d4d1ac22ce0488638e05abe974a14aa5b487a52976f3f114121f69",
+      "bytes": 14750
+    },
+    {
+      "path": "docs/research/topics/R09/retirement-result.json",
+      "sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+      "bytes": 7241
+    },
+    {
+      "path": "docs/research/topics/R09/retirement_model.py",
+      "sha256": "016760cddb78698827bccc472a2d653cba55e20ba15c61c3480a3faea559cd1f",
+      "bytes": 9669
+    },
+    {
+      "path": "docs/research/topics/R11/coverage.json",
+      "sha256": "3e5bcdcf5965a8c8aa82244e0b33c37a3d7843a75201bf9a74be92102f056648",
+      "bytes": 8835
+    },
+    {
+      "path": "docs/research/topics/R11/evidence.json",
+      "sha256": "adff839f03208442d7a520e753ed02842850234bcca4435fcacf29a604a98944",
+      "bytes": 13235
+    },
+    {
+      "path": "docs/research/topics/R11/report.md",
+      "sha256": "32ffce293eb9fd8c2d329e1d9fea790050ff7b806d858bb3a57250c7637f8d7b",
+      "bytes": 12121
+    }
+  ],
+  "verification": {
+    "json_parse": true,
+    "local_markdown_targets": true,
+    "model_log_hashes": true,
+    "model_candidate_states": 541,
+    "model_candidate_counterexamples": 0,
+    "negative_controls": [
+      "missing start return: UAF",
+      "missing control lease: UAF",
+      "missing cancellation registration drain: cleanup contract failure"
+    ],
+    "CSharp_Rust_AOT_executed": false,
+    "upstream_tests_executed": false,
+    "product_implementation_verified": false
+  },
+  "revision": 3,
+  "changes_after_independent_findings": [
+    {
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "prior_sha256": "f3654633b9ca86459bdcfce06ecfa662a8980ac35ae7d961be0d0bea09cfd355",
+      "sha256": "c21e14010397330ba08f41db91d438c98f190f018130a3429f7f58b07f135bcb"
+    },
+    {
+      "path": "docs/contracts/callback-v0.1.md",
+      "prior_sha256": "a3816c66116ff7c542b481892edf2bd1238b8076650e41515836b087afe6ce08",
+      "sha256": "596679cf7950d4a9146cb7a5d7a51819b2d953bda580a6722da81649af469700"
+    },
+    {
+      "path": "docs/contracts/async-v0.1.md",
+      "prior_sha256": "0c3fea187983dcd85ce5c45bb0dae433df41c08e7e98bc5ab097d021bd5238de",
+      "sha256": "8f09504a07632fe53ca6e5d2861cf70a3c2d7cea9ff1e4e3035a6a8beaec8672"
+    },
+    {
+      "path": "docs/research/topics/R08/evidence.json",
+      "prior_sha256": "a56705a1362a673589098be870a238d7bd9fb8e8afdc8eaeed4feb982ba3271f",
+      "sha256": "8effd8aa49db9eeeac3b07e93392958f0a226e491b24b36e19e096255bdcaddf"
+    },
+    {
+      "path": "docs/research/topics/R08/report.md",
+      "prior_sha256": "56af207d497253bb422a169d842af2ee6cb59b0cfb8fede93d4a384ff444fcf7",
+      "sha256": "6368243c887cd9eb94532ebc98214a27bf362db4e473829c9b6b6297c0cfa6bb"
+    },
+    {
+      "path": "docs/research/topics/R09/evidence.json",
+      "prior_sha256": "f5363b8e5cad45a62f9cc2853f9a561d78237bfa7f0c35b122217fb0c1d45f31",
+      "sha256": "45b48de8f420504bf3a355ac38bdfee72829df45b803439baaf6445dc48db94f"
+    },
+    {
+      "path": "docs/research/topics/R09/report.md",
+      "prior_sha256": "27e0bebf92758da8b95d8eb4a23114fb03b8d9ddcd717b7adde67b20266f23d0",
+      "sha256": "6ec6e55047d4d1ac22ce0488638e05abe974a14aa5b487a52976f3f114121f69"
+    }
+  ],
+  "pending_recheck_by": "/root/database_design",
+  "findings_addressed": [
+    "Initialization compensation and never-started sentinels",
+    "Managed notification dispatcher pending/active drain",
+    "Terminal callback binding-failure latch preserving native outcome/effect"
+  ],
+  "contract_version": "0.1.0",
+  "contract_state": "review-ready; formal acceptance controlled by registry; implementation not verified",
+  "revision_3_change": "Root-requested version/status header alignment only after revision 2 substantive fixes."
+}

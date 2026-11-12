@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R07",
+  "observed_date": "2026-11-12",
+  "author": "interop_design",
+  "status": "partially_evidenced_design_decision_recorded",
+  "input_pin": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "task_revision": "0.1.1",
+    "packet_sha256": "e983236fed611d62a949927a5d1a14a4189e4338ae5da884df984e7a813015f8",
+    "packet_hash_verified": true
+  },
+  "independent_review": {
+    "status": "pending",
+    "reviewer": null
+  },
+  "upstream_tests_executed": false,
+  "product_implementation_verified": false,
+  "production_acceptance_complete": false,
+  "claims": [
+    {
+      "claim_id": "R07-S01",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "blob_sha": "2d1f9313b485c57afab1f187e00a180df7fad3ba",
+      "locator": "27-263",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "symbol": "SafeHandle constructor; DangerousGetHandle; DangerousAddRef; InternalRelease",
+      "supported_claim": "SafeHandle packs reference count/Closed/Disposed; AddRef rejects Closed rather than treating Disposed as an independent admission gate; physical release occurs after the last reference.",
+      "limitations": [
+        "Does not itself establish NativeWeave logical admission, async retention, native callback quiescence or parent/module lifetime."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-S02",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/YahaSafeHandles.cs",
+      "blob_sha": "e6df6995e35efc1081683ca15bd6aaa17b9efe54",
+      "locator": "1-112",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/YahaSafeHandles.cs",
+      "symbol": "YahaContextSafeHandle.SetParent/ReleaseHandle; YahaRequestContextSafeHandle.SetParent/ReleaseHandle",
+      "supported_claim": "YAHA child handles retain parent SafeHandles; native destroy and matching parent release form a concrete ownership chain; context owns TLS verifier GCHandle.",
+      "limitations": [
+        "YAHA-specific handle graph; not a complete audit of every context creation failure."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-S03",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/RequestContext.cs",
+      "blob_sha": "e2292be3b333f87ce58a4e3b5c4c51e40db21c79",
+      "locator": "1-130;250-378",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/RequestContext.cs",
+      "symbol": "RequestContext constructor; Allocate; Release; TryAbort; TryReleaseNativeHandles; Dispose(bool)",
+      "supported_claim": "YAHA separates managed cookie Release from native handle disposal, protects native abort with AddRef pairs, and has a Unity-related blocking finalizer path.",
+      "limitations": [
+        "Finalizer blocking is an observed host-specific choice, not adopted for NativeWeave.",
+        "Read scopes omit middle body-writing implementation."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-S04",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs",
+      "blob_sha": "08aea77e84c7d5a4920170bec1aa30190292d8ea",
+      "locator": "20-245",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/GodotObject.base.cs",
+      "symbol": "GodotObject.GetPtr; Dispose(bool); native ownership and associated GCHandle fields",
+      "supported_claim": "Godot differentiates owned native memory, reference-counted objects and associated GCHandle identity; disposal checks that the associated target still belongs to this wrapper.",
+      "limitations": [
+        "Godot complete object/reflection model is not proposed for NativeWeave.",
+        "Not a proof of all native deletion races."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-S05",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/runtime_interop.cpp",
+      "blob_sha": "bbe6da1e60918e7629ab594db87ee1cec331841f",
+      "locator": "125-230",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/runtime_interop.cpp",
+      "symbol": "godotsharp_internal_object_disposed; godotsharp_internal_refcounted_disposed; signal connect adapter",
+      "supported_claim": "Native interop routes disposal through CSharpInstance or binding helpers, with different refcounted deletion behavior.",
+      "limitations": [
+        "CSharpInstance helper internals and full object signal dispatch not read."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-S06",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "blob_sha": "56227b89434f67f66fbd46e33515330b548d2c04",
+      "locator": "13-71",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "symbol": "SignalAwaiter constructor; SignalCallback",
+      "supported_claim": "SignalAwaiter allocates a strong handle, passes its cookie to native, copies borrowed signal values, and invokes the stored continuation.",
+      "limitations": [
+        "Companion native ownership shown by R07-S07.",
+        "Inline continuation is not adopted as generic NativeWeave behavior."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-S07",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/signal_awaiter_utils.cpp",
+      "blob_sha": "e3f855bac28d887460fc6fe823bd12d180fccb42",
+      "locator": "36-128",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/signal_awaiter_utils.cpp",
+      "symbol": "godotsharp_internal_signal_awaiter_connect; SignalAwaiterCallable::call; destructor",
+      "supported_claim": "Native one-shot callable owns the awaiter handle and releases it in its destructor.",
+      "limitations": [
+        "Object::connect dispatch and destruction synchronization beyond this adapter not read."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-S08",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/managed_callable.cpp",
+      "blob_sha": "7c48110199662869c04a3482bb2b3cfac0415ab9",
+      "locator": "42-134",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/managed_callable.cpp",
+      "symbol": "ManagedCallable::call; release_delegate_handle; destructor",
+      "supported_claim": "Managed callable checks its delegate handle before invoke and has an explicit release path.",
+      "limitations": [
+        "Hot reload/instance mutex facts are scoped to this class; no general Godot thread-safety assertion."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-T01",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime/tests/System.Runtime.Handles.Tests/SafeHandle.cs",
+      "blob_sha": "794cb6f7b167488eb497db28f537e554922e6da0",
+      "locator": "36-145",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Runtime/tests/System.Runtime.Handles.Tests/SafeHandle.cs",
+      "symbol": "SafeHandle tests for Dispose, SetHandleAsInvalid and LastError",
+      "supported_claim": "Test source exercises invalid/valid/repeated disposal and AddRef/Dispose/Release LastError preservation.",
+      "limitations": [
+        "Upstream tests were not run.",
+        "This is not NativeWeave admission-race validation."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-T02",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs",
+      "blob_sha": "860510396841175de4a3efff9b16d05e8b144100",
+      "locator": "1-175",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs",
+      "symbol": "DisposeDuringTlsHandshake_DoesNotUseAnotherCertificateVerifier; RunHandshakeScenarioAsync",
+      "supported_claim": "Process-isolated TLS test disposes a handler during an active request and attempts callback-handle reuse, asserting the replacement verifier is not used.",
+      "limitations": [
+        "Test source read only; no test execution.",
+        "Some helper tail after line 175 not read."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R07-D01",
+      "evidence_kind": "design_inference",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "symbol": "NativeWeave v1 design recommendation",
+      "locator": "named contract sections in this working revision",
+      "supported_claim": "Select opaque pointer + SafeHandle owner + independent logical admission + explicit leases; use a generation table only for justified reuse profiles.",
+      "limitations": [
+        "Choice inferred from source mechanisms and requirements, not runtime benchmark evidence.",
+        "Independent review and LT-01..06 implementation validation pending."
+      ],
+      "run_manifest": null,
+      "status": "design_decision_recorded_independent_review_pending"
+    },
+    {
+      "claim_id": "R07-D02",
+      "evidence_kind": "design_inference",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "symbol": "NativeWeave v1 design recommendation",
+      "locator": "named contract sections in this working revision",
+      "supported_claim": "Do not block finalizers; retain asynchronous ownership through bounded cleanup and quarantine if safe quiescence cannot be established.",
+      "limitations": [
+        "Liveness and host shutdown policy require R12 and formal implementation tests.",
+        "Conservative retention is not a claim of leak-free recovery after executor failure."
+      ],
+      "run_manifest": null,
+      "status": "design_decision_recorded_independent_review_pending"
+    }
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "LICENSE.TXT",
+      "spdx": "MIT",
+      "blob_sha": "984713a49622a96da110443c15477613bc12656b",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/LICENSE.TXT",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "LICENSE",
+      "spdx": "MIT",
+      "blob_sha": "c6869d3f4d441a2c7752bf0569246b6d49e49b2e",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/LICENSE",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "LICENSE.txt",
+      "spdx": "MIT",
+      "blob_sha": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/LICENSE.txt",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R11",
+  "date": "2026-11-12",
+  "input_pin": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "task_revision": "0.1.1"
+  },
+  "status": "scoped_read_with_explicit_gaps",
+  "paths": [
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "library/std/src/panic.rs",
+      "blob_sha": "a07a5fb6290ca87c5ed72d605042ff46081b3a96",
+      "locator": "290-360",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/src/panic.rs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R11-S01"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "library/std/src/panicking.rs",
+      "blob_sha": "7db6e93e8bd02ef3f5832eb8eee1f17984d737fb",
+      "locator": "495-600",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/src/panicking.rs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R11-S02"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "library/std/tests/panic.rs",
+      "blob_sha": "f13b931dd222e5859214e1edfad076b53829eefb",
+      "locator": "complete",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/tests/panic.rs",
+      "read_state": "read_test_source_not_run",
+      "role": [
+        "R11-T04"
+      ],
+      "unread_remainder": "none within file"
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "tests/ui/panics/panic-in-ffi.rs",
+      "blob_sha": "ef40a3b6f7d6f853430e07d3dacbf0db5496abf7",
+      "locator": "complete",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-ffi.rs",
+      "read_state": "read_test_source_not_run",
+      "role": [
+        "R11-T01"
+      ],
+      "unread_remainder": "none within file"
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "tests/ui/panics/panic-in-cleanup.rs",
+      "blob_sha": "23430d1f496e5b7b1c8c29574b4e1a5c9e218e58",
+      "locator": "complete",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-cleanup.rs",
+      "read_state": "read_test_source_not_run",
+      "role": [
+        "R11-T02"
+      ],
+      "unread_remainder": "none within file"
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "tests/ui/panics/panic-in-hook.rs",
+      "blob_sha": "db4d8a4dd1e0f57e0a08692d9c0262263430bdc6",
+      "locator": "complete",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-hook.rs",
+      "read_state": "read_test_source_not_run",
+      "role": [
+        "R11-T03"
+      ],
+      "unread_remainder": "none within file"
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "blob_sha": "56227b89434f67f66fbd46e33515330b548d2c04",
+      "locator": "13-71",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R11-S03"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/GCHandleBridge.cs",
+      "blob_sha": "8217572648bc04becbc6f6bc3e67cb62f5be83ac",
+      "locator": "9-41",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/GCHandleBridge.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R11-S05"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "blob_sha": "c32c04f8bcc5a72166b4d4ad81f9d28a1f7756de",
+      "locator": "300-435;440-625",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R11-S04"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": null,
+      "path": null,
+      "read_state": "not_read",
+      "role": "Alternative error and panic bridge",
+      "reason": "Rust std and actual C# callback adapters support current design; comparative gap remains."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": null,
+      "read_state": "not_read",
+      "role": "Native AOT runtime UCO transition internals",
+      "reason": "Official .NET11 documentation read, not runtime implementation."
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": null,
+      "read_state": "not_read",
+      "role": "Allocator OOM, all target unwinder internals",
+      "reason": "Fatal boundaries conservatively documented, no all-target recovery claim."
+    }
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "LICENSE-MIT",
+      "spdx": "MIT OR Apache-2.0",
+      "blob_sha": "a2070c4be7acd5316f8d0357ca3c12419a2f3c62",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/LICENSE-MIT",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "LICENSE-APACHE",
+      "spdx": "Apache-2.0",
+      "blob_sha": "1b5ec8b78e237b5c3b3d812a7c0a6589d0f7161d",
+      "url": "https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/LICENSE-APACHE",
+      "read_state": "read_complete"
+    },
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "LICENSE.txt",
+      "spdx": "MIT",
+      "blob_sha": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/LICENSE.txt",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "LICENSE",
+      "spdx": "MIT",
+      "blob_sha": "c6869d3f4d441a2c7752bf0569246b6d49e49b2e",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/LICENSE",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    }
+  ],
+  "executed_experiments": [],
+  "cross_task_model_reference": null,
+  "not_executed": [
+    "Upstream tests",
+    "C# or Rust compilation",
+    "Native AOT Windows/Linux",
+    "Product implementation tests",
+    "Performance or production acceptance"
+  ],
+  "path_corrections": []
+}

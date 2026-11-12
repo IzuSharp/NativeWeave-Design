@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R08",
+  "observed_date": "2026-11-12",
+  "author": "interop_design",
+  "status": "partially_evidenced_design_decision_recorded",
+  "input_pin": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "task_revision": "0.1.1",
+    "packet_sha256": "690b702013f788e3c99144467a6c8157f313b1f5a5bdd398b87fad44c927d36a",
+    "packet_hash_verified": true
+  },
+  "independent_review": {
+    "status": "pending",
+    "reviewer": null
+  },
+  "upstream_tests_executed": false,
+  "product_implementation_verified": false,
+  "production_acceptance_complete": false,
+  "claims": [
+    {
+      "claim_id": "R08-S01",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "blob_sha": "56227b89434f67f66fbd46e33515330b548d2c04",
+      "locator": "13-71",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs",
+      "symbol": "SignalAwaiter constructor; SignalCallback",
+      "supported_claim": "Strong GCHandle binds awaiter lifetime; reverse callback copies borrowed arguments, marks completion and can inline continuation with ordinary exception handling.",
+      "limitations": [
+        "No complete Godot signal-dispatch concurrency proof.",
+        "Inline continuation is not the NativeWeave default."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-S02",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/signal_awaiter_utils.cpp",
+      "blob_sha": "e3f855bac28d887460fc6fe823bd12d180fccb42",
+      "locator": "36-128",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/signal_awaiter_utils.cpp",
+      "symbol": "SignalAwaiterCallable call/destructor; one-shot connect",
+      "supported_claim": "Native one-shot callable holds the awaiter handle and frees it at destruction.",
+      "limitations": [
+        "One-shot alone does not prove NativeWeave-style cross-runtime quiescence."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-S03",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/managed_callable.cpp",
+      "blob_sha": "7c48110199662869c04a3482bb2b3cfac0415ab9",
+      "locator": "42-134",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/managed_callable.cpp",
+      "symbol": "ManagedCallable::call; release_delegate_handle; destructor",
+      "supported_claim": "Managed callable has explicit handle invocation and release.",
+      "limitations": [
+        "Companion managed free boundary is independently recorded R08-S07."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-S04",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "blob_sha": "c32c04f8bcc5a72166b4d4ad81f9d28a1f7756de",
+      "locator": "300-435;440-625",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "symbol": "OnReceive; CompleteTask; OnComplete; OnServerCertificateVerification",
+      "supported_claim": "Managed callbacks propagate backpressure acknowledgements and errors; completion releases the request cookie then queues native disposal to a managed thread; TLS decisions fail closed on ordinary handler exceptions.",
+      "limitations": [
+        "Read source only, not a whole-project safety verdict.",
+        "ResponseContext implementation not fully read."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-S05",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "native/yaha_native/src/binding.rs",
+      "blob_sha": "ae3845f3f3fa7554e2b21e199c4fe59908d2a5c4",
+      "locator": "400-725",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/native/yaha_native/src/binding.rs",
+      "symbol": "yaha_request_begin; frame loop; complete_with_error; yaha_request_abort",
+      "supported_claim": "Rust awaits each body notification's oneshot completion; normal on_complete is followed by a request-state completed write, illustrating that notification is not necessarily the end of native stack access.",
+      "limitations": [
+        "Not a claim YAHA is currently unsafe; other ownership and scheduling must be included.",
+        "Tokio/hyper internals not read in this task."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-S06",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "blob_sha": "345b41a32acff711897868ffce28e6af287c431b",
+      "locator": "32-110",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "symbol": "CancellationTokenRegistration.Unregister; Dispose; DisposeAsync",
+      "supported_claim": "Unregister and drain differ; disposal may wait for executing cancellation callbacks, with special handling when disposing from the same callback.",
+      "limitations": [
+        "Native retirement cannot substitute for managed registration drain.",
+        "Full CTS wait implementation not read here."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-S07",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/GCHandleBridge.cs",
+      "blob_sha": "8217572648bc04becbc6f6bc3e67cb62f5be83ac",
+      "locator": "9-41",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/GCHandleBridge.cs",
+      "symbol": "GCHandleBridge.FreeGCHandle",
+      "supported_claim": "Managed handle free entry catches ordinary exceptions locally.",
+      "limitations": [
+        "Does not establish that invalid or stale handles are safe to probe."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-T01",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs",
+      "blob_sha": "860510396841175de4a3efff9b16d05e8b144100",
+      "locator": "1-175",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs",
+      "symbol": "DisposeDuringTlsHandshake_DoesNotUseAnotherCertificateVerifier",
+      "supported_claim": "Test source constructs an active TLS callback lifetime/reuse scenario under handler disposal and uses a subprocess.",
+      "limitations": [
+        "Not executed."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-T02",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs",
+      "blob_sha": "1adf0851d8a97649fc66f079ce03ce64394f4854",
+      "locator": "1560-1745",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs",
+      "symbol": "DisposeAsync_WhileCallbackRunning_WaitsForCallbackToComplete; related DisposeAsync tests",
+      "supported_claim": "Cancellation tests synchronize an executing callback and require DisposeAsync to remain incomplete until it exits.",
+      "limitations": [
+        "Source read, not executed.",
+        "Tests do not validate NativeWeave native callback retirement."
+      ],
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R08-M01",
+      "evidence_kind": "model_executed",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/research/topics/R09/retirement_model.py",
+      "source_sha256": "016760cddb78698827bccc472a2d653cba55e20ba15c61c3480a3faea559cd1f",
+      "symbol": "State; transitions; violations; explore; main",
+      "locator": "complete model; retirement-result.json exact traces",
+      "supported_claim": "Extended finite model finds use-after-free counterexamples when start-return or ordinary-control-lease guards are omitted; registration omission violates cleanup success semantics.",
+      "limitations": [
+        "Working-tree model executed before its first commit; source_commit intentionally null and exact bytes pinned by SHA256.",
+        "Single-operation, atomic sequentially-consistent model trusting retirement and admission; not an implementation or liveness proof.",
+        "No C#/Rust/FFI/AOT/weak-memory/multioperation/result-transfer/OOM/panic execution.",
+        "Registration omission is a cleanup-contract counterexample, not falsely claimed native use-after-free."
+      ],
+      "run_manifest": "docs/research/topics/R09/model-run.json"
+    },
+    {
+      "claim_id": "R08-D01",
+      "evidence_kind": "design_inference",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/contracts/callback-v0.1.md",
+      "symbol": "NativeWeave v1 design recommendation",
+      "locator": "named contract sections in this working revision",
+      "supported_claim": "Use two-phase create/start, nonblocking stop, independent native retirement, stable cookie and managed leases; queueing alone or generation checks are insufficient.",
+      "limitations": [
+        "Native retirement and admission implementation remain proof obligations.",
+        "AOT callbacks and real scheduler races unexecuted."
+      ],
+      "run_manifest": null,
+      "status": "design_decision_recorded_independent_review_pending"
+    },
+    {
+      "claim_id": "R08-D02",
+      "evidence_kind": "design_inference",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/contracts/callback-v0.1.md",
+      "symbol": "NativeWeave v1 design recommendation",
+      "locator": "named contract sections in this working revision",
+      "supported_claim": "Perform cleanup outside native/cancellation callback scope; synchronous Dispose requests stop. Explicit notification Dispose closes dispatcher admission, discards pending owned payloads, joins active handlers, and successful DisposeAsync requires managed/native/dispatcher drain.",
+      "limitations": [
+        "Thread-affine profile and self-wait diagnostics require concrete implementation tests.",
+        "Cross-review clarified setup compensation, callback binding failure and managed dispatcher drain; these additional paths are design obligations, not covered by the current finite model or runtime tests."
+      ],
+      "run_manifest": null,
+      "status": "design_decision_recorded_independent_review_pending"
+    }
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/godotengine/godot",
+      "commit": "069458825a8e4a01938a176372c0709ab6fd9dc3",
+      "path": "LICENSE.txt",
+      "spdx": "MIT",
+      "blob_sha": "0e3ba08d6b2e8cf435241829c96f10b74e4356fe",
+      "url": "https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/LICENSE.txt",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "LICENSE",
+      "spdx": "MIT",
+      "blob_sha": "c6869d3f4d441a2c7752bf0569246b6d49e49b2e",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/LICENSE",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "LICENSE.TXT",
+      "spdx": "MIT",
+      "blob_sha": "984713a49622a96da110443c15477613bc12656b",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/LICENSE.TXT",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    }
+  ]
+}

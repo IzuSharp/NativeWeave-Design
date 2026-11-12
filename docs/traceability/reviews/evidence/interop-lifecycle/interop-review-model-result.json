@@ -1,0 +1,188 @@
+{
+  "experiment_id": "R09-MODEL-RETIREMENT-002",
+  "status": "model_executed",
+  "model_sha256": "016760cddb78698827bccc472a2d653cba55e20ba15c61c3480a3faea559cd1f",
+  "environment": {
+    "python": "3.12.14",
+    "os": "Linux",
+    "architecture": "x86_64"
+  },
+  "cases": {
+    "candidate_all_guards": {
+      "omitted_guards": [],
+      "exploration": "breadth-first; prune a branch on its first checked violation",
+      "states": 541,
+      "transitions": 1552,
+      "reclaimed_states_without_checked_violation": 8,
+      "counterexamples": {},
+      "checked_properties": [
+        "access_after_free",
+        "multiple_task_publications",
+        "multiple_frees",
+        "cleanup_success_without_managed_registration_drain"
+      ]
+    },
+    "negative_omit_start_return": {
+      "omitted_guards": [
+        "start_return"
+      ],
+      "exploration": "breadth-first; prune a branch on its first checked violation",
+      "states": 549,
+      "transitions": 1560,
+      "reclaimed_states_without_checked_violation": 12,
+      "counterexamples": {
+        "access_after_free": {
+          "trace": [
+            "Begin cancellation registration",
+            "Publish returned registration",
+            "Enter native start frame",
+            "Commit native start",
+            "Native work finishes and queues terminal callback",
+            "Native terminal callback enters and resolves cookie",
+            "Record terminal notice",
+            "Native terminal callback returns",
+            "Managed completion worker publishes Task outcome",
+            "Close ordinary managed admission",
+            "External cleanup unregisters cancellation callback",
+            "External DisposeAsync observes cancellation callback drained",
+            "Native try_retire confirms no future native callback",
+            "Reclaim and publish cleanup success",
+            "Native start frame accesses operation and returns"
+          ],
+          "state": {
+            "setup": 4,
+            "accepted": true,
+            "rejected": false,
+            "registration_live": false,
+            "registration_drained": true,
+            "cancel": 0,
+            "callback": 4,
+            "terminal": true,
+            "publications": 1,
+            "closing": true,
+            "control": 0,
+            "retired": true,
+            "freed": true,
+            "frees": 1,
+            "invalid_access": true
+          }
+        }
+      },
+      "checked_properties": [
+        "access_after_free",
+        "multiple_task_publications",
+        "multiple_frees",
+        "cleanup_success_without_managed_registration_drain"
+      ]
+    },
+    "negative_omit_control_lease": {
+      "omitted_guards": [
+        "control_lease"
+      ],
+      "exploration": "breadth-first; prune a branch on its first checked violation",
+      "states": 553,
+      "transitions": 1568,
+      "reclaimed_states_without_checked_violation": 16,
+      "counterexamples": {
+        "access_after_free": {
+          "trace": [
+            "Begin cancellation registration",
+            "Publish returned registration",
+            "Enter native start frame",
+            "Reject start with no callback obligation",
+            "Acquire an optional ordinary control-call lease",
+            "Close ordinary managed admission",
+            "External cleanup unregisters cancellation callback",
+            "External DisposeAsync observes cancellation callback drained",
+            "Native try_retire confirms no future native callback",
+            "Reclaim and publish cleanup success",
+            "Control call accesses native operation"
+          ],
+          "state": {
+            "setup": 4,
+            "accepted": false,
+            "rejected": true,
+            "registration_live": false,
+            "registration_drained": true,
+            "cancel": 0,
+            "callback": 0,
+            "terminal": true,
+            "publications": 1,
+            "closing": true,
+            "control": 2,
+            "retired": true,
+            "freed": true,
+            "frees": 1,
+            "invalid_access": true
+          }
+        }
+      },
+      "checked_properties": [
+        "access_after_free",
+        "multiple_task_publications",
+        "multiple_frees",
+        "cleanup_success_without_managed_registration_drain"
+      ]
+    },
+    "negative_omit_registration_drain": {
+      "omitted_guards": [
+        "registration"
+      ],
+      "exploration": "breadth-first; prune a branch on its first checked violation",
+      "states": 565,
+      "transitions": 1576,
+      "reclaimed_states_without_checked_violation": 8,
+      "counterexamples": {
+        "cleanup_success_without_managed_registration_drain": {
+          "trace": [
+            "Begin cancellation registration",
+            "Publish returned registration",
+            "Cancellation callback enters (possibly during Register)",
+            "Skip start after observed cancellation",
+            "Close ordinary managed admission",
+            "Native try_retire confirms no future native callback",
+            "Reclaim and publish cleanup success"
+          ],
+          "state": {
+            "setup": 4,
+            "accepted": false,
+            "rejected": true,
+            "registration_live": true,
+            "registration_drained": false,
+            "cancel": 1,
+            "callback": 0,
+            "terminal": true,
+            "publications": 1,
+            "closing": true,
+            "control": 0,
+            "retired": true,
+            "freed": true,
+            "frees": 1,
+            "invalid_access": false
+          }
+        }
+      },
+      "checked_properties": [
+        "access_after_free",
+        "multiple_task_publications",
+        "multiple_frees",
+        "cleanup_success_without_managed_registration_drain"
+      ]
+    }
+  },
+  "assumptions": [
+    "Each transition is atomic and sequentially consistent; this is not a machine-memory model.",
+    "One operation, one native terminal callback, one cancellation registration/invocation, one optional ordinary control call.",
+    "Start rejection has no native callback or work obligation; start commitment and terminal publication are correct atomic protocol actions.",
+    "Native retirement is trusted to prohibit future native work/callback access; library bugs violating that promise are not modeled.",
+    "Ordinary managed admission is atomically closed with lease acquisition; each acquired lease is balanced.",
+    "The cancellation delegate holds a managed state reference; a late callback blocked by admission is not automatically a native use-after-free."
+  ],
+  "not_proven": [
+    "Liveness, scheduling fairness, shutdown deadlock, retry policy or bounded queue implementation.",
+    "Weak memory, C#/Rust atomics, GCHandle implementation, real P/Invoke, thread affinity or AOT.",
+    "Multiple callbacks/operations, duplicate malicious callbacks, pooling/ABA, counter overflow.",
+    "Result ownership transfer, data pinning/copy, allocation failure, panic or fatal runtime behavior.",
+    "Registration drain omission is checked as a DisposeAsync cleanup-contract failure, not falsely labeled native UAF when admission/leases already protect native access."
+  ]
+}

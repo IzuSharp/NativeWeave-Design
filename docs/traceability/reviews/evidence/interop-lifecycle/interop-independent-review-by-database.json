@@ -1,0 +1,401 @@
+{
+  "review_id": "NW-REVIEW-INTEROP-2026-11-12",
+  "reviewer": {
+    "agent": "/root/database_design",
+    "role": "independent AI subagent, not author of reviewed files",
+    "github_approval": false
+  },
+  "author": "/root/interop_design",
+  "review_kind": "independent content/source/model review",
+  "recorded_at": "2026-11-12T13:36:32.680840+00:00",
+  "decision": "pass_for_design_documentation_scope",
+  "initial_reviewed_files": [
+    {
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "sha256": "f3654633b9ca86459bdcfce06ecfa662a8980ac35ae7d961be0d0bea09cfd355",
+      "bytes": 12033
+    },
+    {
+      "path": "docs/contracts/callback-v0.1.md",
+      "sha256": "a3816c66116ff7c542b481892edf2bd1238b8076650e41515836b087afe6ce08",
+      "bytes": 13269
+    },
+    {
+      "path": "docs/contracts/async-v0.1.md",
+      "sha256": "0c3fea187983dcd85ce5c45bb0dae433df41c08e7e98bc5ab097d021bd5238de",
+      "bytes": 17476
+    },
+    {
+      "path": "docs/contracts/error-v0.1.md",
+      "sha256": "abc3e5e6741d93dea76fe402b76527830d7457ff20d93f1b9884310f3a14b944",
+      "bytes": 13426
+    },
+    {
+      "path": "docs/research/topics/R07/coverage.json",
+      "sha256": "23dbf4ac77428e696d7323b6aa3dfde986d44975e6c0dd9481a4327f30b55d11",
+      "bytes": 9656
+    },
+    {
+      "path": "docs/research/topics/R07/evidence.json",
+      "sha256": "db1cbdcc3c9e82d52d991c61478a7697873cfec736d6ced1b69b1bb67c66eb1e",
+      "bytes": 13705
+    },
+    {
+      "path": "docs/research/topics/R07/report.md",
+      "sha256": "f823e7b7865b7b14349c742ddcf21513defc81dc34a0e79c174b9bd9225943c4",
+      "bytes": 12399
+    },
+    {
+      "path": "docs/research/topics/R08/coverage.json",
+      "sha256": "0feed7c530a11c8cac827c5cfc9f729fb5f9d9206d89726c3d34a09e087aab85",
+      "bytes": 10042
+    },
+    {
+      "path": "docs/research/topics/R08/evidence.json",
+      "sha256": "a56705a1362a673589098be870a238d7bd9fb8e8afdc8eaeed4feb982ba3271f",
+      "bytes": 13619
+    },
+    {
+      "path": "docs/research/topics/R08/report.md",
+      "sha256": "56af207d497253bb422a169d842af2ee6cb59b0cfb8fede93d4a384ff444fcf7",
+      "bytes": 11220
+    },
+    {
+      "path": "docs/research/topics/R09/coverage.json",
+      "sha256": "8bef3f84051a199ca9dc9753e1365b57c064a252b72875d6ff159f5abc77d6c2",
+      "bytes": 9025
+    },
+    {
+      "path": "docs/research/topics/R09/evidence.json",
+      "sha256": "f5363b8e5cad45a62f9cc2853f9a561d78237bfa7f0c35b122217fb0c1d45f31",
+      "bytes": 11478
+    },
+    {
+      "path": "docs/research/topics/R09/model-run.json",
+      "sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+      "bytes": 1549
+    },
+    {
+      "path": "docs/research/topics/R09/model-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/research/topics/R09/model-stdout.txt",
+      "sha256": "fbe1c73b06f659e20225cdfde89701e5eb110cdc4eb8bfe1bda5cfebbfd3e698",
+      "bytes": 438
+    },
+    {
+      "path": "docs/research/topics/R09/report.md",
+      "sha256": "27e0bebf92758da8b95d8eb4a23114fb03b8d9ddcd717b7adde67b20266f23d0",
+      "bytes": 14128
+    },
+    {
+      "path": "docs/research/topics/R09/retirement-result.json",
+      "sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+      "bytes": 7241
+    },
+    {
+      "path": "docs/research/topics/R09/retirement_model.py",
+      "sha256": "016760cddb78698827bccc472a2d653cba55e20ba15c61c3480a3faea559cd1f",
+      "bytes": 9669
+    },
+    {
+      "path": "docs/research/topics/R11/coverage.json",
+      "sha256": "3e5bcdcf5965a8c8aa82244e0b33c37a3d7843a75201bf9a74be92102f056648",
+      "bytes": 8835
+    },
+    {
+      "path": "docs/research/topics/R11/evidence.json",
+      "sha256": "adff839f03208442d7a520e753ed02842850234bcca4435fcacf29a604a98944",
+      "bytes": 13235
+    },
+    {
+      "path": "docs/research/topics/R11/report.md",
+      "sha256": "32ffce293eb9fd8c2d329e1d9fea790050ff7b806d858bb3a57250c7637f8d7b",
+      "bytes": 12121
+    }
+  ],
+  "findings": [
+    {
+      "id": "DB-IR-001",
+      "severity": "medium",
+      "files": [
+        "docs/contracts/async-v0.1.md"
+      ],
+      "sections": [
+        "6 启动算法及失败补偿",
+        "9 清理算法"
+      ],
+      "status": "closed_after_author_revision_and_independent_reread",
+      "observation": "清理等待registration_ready与StartReturned，但注册失败、初始化失败和跳过start分支缺少明确的不会再发生事件的哨兵发布规则。模型将skip转换为setup=4，规范应同样明确。",
+      "impact": "按字面实现可让cleanup永久等待未执行的Register/start返回，资源配额无法释放。",
+      "requested_resolution": "补逐阶段失败补偿表；区分无context同步补偿、NoRegistration、StartSkipped/StartRejected；统一setup completion屏障及仅实际注册才drain；AS-02覆盖。",
+      "resolution_location": "D06 sections 5/6/9; R09 report/evidence",
+      "resolution": "Settled distinguishes NoRegistration/Registered and skipped/rejected/accepted-returned startup; explicit compensation table and Indeterminate quarantine prevent waiting on events that will never occur.",
+      "remaining_validation": "Specific implementation, fault injection, C#/Rust/FFI/AOT tests remain pending in existing AS/CB/LT/ER tasks; finite model does not cover newly clarified branches."
+    },
+    {
+      "id": "DB-IR-002",
+      "severity": "medium",
+      "files": [
+        "docs/contracts/callback-v0.1.md",
+        "docs/contracts/lifetime-v0.1.md"
+      ],
+      "sections": [
+        "6 managed回调入口与普通用户代码",
+        "7 重入、关闭与清理调度",
+        "DisposeAsync成功保证"
+      ],
+      "status": "closed_after_author_revision_and_independent_reread",
+      "observation": "native入口回调计数为0及native_retired不涵盖已排入managed dispatcher的notification与执行中handler。",
+      "impact": "若未规定dispatcher关闭与排空，DisposeAsync可能成功后仍开始或继续执行本订阅handler，承诺不完整。",
+      "requested_resolution": "明确关闭dispatcher准入的线性化点、pending通知处置、独立in-flight handler计数及drain；自等待继续拒绝；提供已排队/执行中handler与DisposeAsync交错验收。",
+      "resolution_location": "D05 section 7.1; D04 invariants; R08 report/evidence",
+      "resolution": "Dispatcher admission and active-handler counts are separate; explicit Dispose discards pending and joins active handlers; successful DisposeAsync includes dispatcher drain and rejects self-wait.",
+      "remaining_validation": "Specific implementation, fault injection, C#/Rust/FFI/AOT tests remain pending in existing AS/CB/LT/ER tasks; finite model does not cover newly clarified branches."
+    },
+    {
+      "id": "DB-IR-003",
+      "severity": "medium",
+      "files": [
+        "docs/contracts/async-v0.1.md",
+        "docs/contracts/error-v0.1.md"
+      ],
+      "sections": [
+        "8 结果接管与Task发布",
+        "managed callback普通失败"
+      ],
+      "status": "closed_after_author_revision_and_independent_reread",
+      "observation": "若唯一native终态callback已进入但managed检查/记录普通失败，返回CALLBACK_FAILED时terminal_notice可能尚未被登记；native不能再发第二终态。",
+      "impact": "仅要求native停止/失败仍不能证明TCS会settle；也不能用本地桥接错误抹掉数据库已知/Unknown effect。",
+      "requested_resolution": "明确预分配no-throw终态/桥接错误latch和reserved completion slot；本地interop failure可Faulted，但保留native/domain effect证据；失效cookie/fatal单列隔离，不要求第二native终态。",
+      "resolution_location": "D06 section 8; R09 report/evidence",
+      "resolution": "Preallocated CAS-owned terminal latch always publishes notice_received on ordinary failure, uses reserved completion slot, preserves native status/effect and does not demand a second native terminal callback.",
+      "remaining_validation": "Specific implementation, fault injection, C#/Rust/FFI/AOT tests remain pending in existing AS/CB/LT/ER tasks; finite model does not cover newly clarified branches."
+    }
+  ],
+  "independent_source_spot_checks": [
+    {
+      "repo": "dotnet/runtime",
+      "ref": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "sha": "2d1f9313b485c57afab1f187e00a180df7fad3ba",
+      "ranges": [
+        [
+          130,
+          263
+        ]
+      ]
+    },
+    {
+      "repo": "dotnet/runtime",
+      "ref": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "sha": "345b41a32acff711897868ffce28e6af287c431b",
+      "ranges": [
+        [
+          32,
+          110
+        ]
+      ]
+    },
+    {
+      "repo": "Cysharp/YetAnotherHttpHandler",
+      "ref": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "native/yaha_native/src/binding.rs",
+      "sha": "ae3845f3f3fa7554e2b21e199c4fe59908d2a5c4",
+      "ranges": [
+        [
+          630,
+          725
+        ]
+      ]
+    },
+    {
+      "repo": "rust-lang/rust",
+      "ref": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+      "path": "library/std/src/panic.rs",
+      "sha": "a07a5fb6290ca87c5ed72d605042ff46081b3a96",
+      "ranges": [
+        [
+          290,
+          360
+        ]
+      ]
+    }
+  ],
+  "independent_model_run": {
+    "reviewer": "/root/database_design",
+    "source_sha256": "016760cddb78698827bccc472a2d653cba55e20ba15c61c3480a3faea559cd1f",
+    "command": [
+      "python3",
+      "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design/docs/research/topics/R09/retirement_model.py",
+      "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/interop-review-model-result.json"
+    ],
+    "started_at": "2026-11-12T13:36:03.724377+00:00",
+    "finished_at": "2026-11-12T13:36:04.390360+00:00",
+    "exit_code": 0,
+    "environment": {
+      "python": "3.12.14",
+      "os": "Linux",
+      "architecture": "x86_64"
+    },
+    "summary": {
+      "candidate_all_guards": {
+        "states": 541,
+        "transitions": 1552,
+        "counterexamples": []
+      },
+      "negative_omit_start_return": {
+        "states": 549,
+        "transitions": 1560,
+        "counterexamples": [
+          "access_after_free"
+        ]
+      },
+      "negative_omit_control_lease": {
+        "states": 553,
+        "transitions": 1568,
+        "counterexamples": [
+          "access_after_free"
+        ]
+      },
+      "negative_omit_registration_drain": {
+        "states": 565,
+        "transitions": 1576,
+        "counterexamples": [
+          "cleanup_success_without_managed_registration_drain"
+        ]
+      }
+    },
+    "artifact_sha256": {
+      "interop-review-model-result.json": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+      "interop-review-model-stdout.txt": "fbe1c73b06f659e20225cdfde89701e5eb110cdc4eb8bfe1bda5cfebbfd3e698",
+      "interop-review-model-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "limits": [
+    "No C#/Rust/FFI/Native AOT test execution.",
+    "Finite model assumes correct native retirement/admission, atomic sequential consistency and one operation; it does not establish liveness or weak-memory safety.",
+    "Source spot checks cover four fixed files/ranges; other source evidence read as records, not independently reread wholesale.",
+    "This review is not a GitHub human approval and does not bypass repository rules."
+  ],
+  "final_reviewed_at": "2026-11-12T13:38:55.446557+00:00",
+  "final_reviewed_files": [
+    {
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "sha256": "c21e14010397330ba08f41db91d438c98f190f018130a3429f7f58b07f135bcb",
+      "bytes": 12204
+    },
+    {
+      "path": "docs/contracts/callback-v0.1.md",
+      "sha256": "596679cf7950d4a9146cb7a5d7a51819b2d953bda580a6722da81649af469700",
+      "bytes": 15602
+    },
+    {
+      "path": "docs/contracts/async-v0.1.md",
+      "sha256": "8f09504a07632fe53ca6e5d2861cf70a3c2d7cea9ff1e4e3035a6a8beaec8672",
+      "bytes": 22491
+    },
+    {
+      "path": "docs/contracts/error-v0.1.md",
+      "sha256": "fc665d6ac0328b7c524687191d547bd3792dcb43f36124bc10b9144bb42c4797",
+      "bytes": 13450
+    },
+    {
+      "path": "docs/research/topics/R07/coverage.json",
+      "sha256": "23dbf4ac77428e696d7323b6aa3dfde986d44975e6c0dd9481a4327f30b55d11",
+      "bytes": 9656
+    },
+    {
+      "path": "docs/research/topics/R07/evidence.json",
+      "sha256": "db1cbdcc3c9e82d52d991c61478a7697873cfec736d6ced1b69b1bb67c66eb1e",
+      "bytes": 13705
+    },
+    {
+      "path": "docs/research/topics/R07/report.md",
+      "sha256": "f823e7b7865b7b14349c742ddcf21513defc81dc34a0e79c174b9bd9225943c4",
+      "bytes": 12399
+    },
+    {
+      "path": "docs/research/topics/R08/coverage.json",
+      "sha256": "0feed7c530a11c8cac827c5cfc9f729fb5f9d9206d89726c3d34a09e087aab85",
+      "bytes": 10042
+    },
+    {
+      "path": "docs/research/topics/R08/evidence.json",
+      "sha256": "8effd8aa49db9eeeac3b07e93392958f0a226e491b24b36e19e096255bdcaddf",
+      "bytes": 13949
+    },
+    {
+      "path": "docs/research/topics/R08/report.md",
+      "sha256": "6368243c887cd9eb94532ebc98214a27bf362db4e473829c9b6b6297c0cfa6bb",
+      "bytes": 11650
+    },
+    {
+      "path": "docs/research/topics/R09/coverage.json",
+      "sha256": "8bef3f84051a199ca9dc9753e1365b57c064a252b72875d6ff159f5abc77d6c2",
+      "bytes": 9025
+    },
+    {
+      "path": "docs/research/topics/R09/evidence.json",
+      "sha256": "45b48de8f420504bf3a355ac38bdfee72829df45b803439baaf6445dc48db94f",
+      "bytes": 11854
+    },
+    {
+      "path": "docs/research/topics/R09/model-run.json",
+      "sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+      "bytes": 1549
+    },
+    {
+      "path": "docs/research/topics/R09/model-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/research/topics/R09/model-stdout.txt",
+      "sha256": "fbe1c73b06f659e20225cdfde89701e5eb110cdc4eb8bfe1bda5cfebbfd3e698",
+      "bytes": 438
+    },
+    {
+      "path": "docs/research/topics/R09/report.md",
+      "sha256": "6ec6e55047d4d1ac22ce0488638e05abe974a14aa5b487a52976f3f114121f69",
+      "bytes": 14750
+    },
+    {
+      "path": "docs/research/topics/R09/retirement-result.json",
+      "sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+      "bytes": 7241
+    },
+    {
+      "path": "docs/research/topics/R09/retirement_model.py",
+      "sha256": "016760cddb78698827bccc472a2d653cba55e20ba15c61c3480a3faea559cd1f",
+      "bytes": 9669
+    },
+    {
+      "path": "docs/research/topics/R11/coverage.json",
+      "sha256": "3e5bcdcf5965a8c8aa82244e0b33c37a3d7843a75201bf9a74be92102f056648",
+      "bytes": 8835
+    },
+    {
+      "path": "docs/research/topics/R11/evidence.json",
+      "sha256": "adff839f03208442d7a520e753ed02842850234bcca4435fcacf29a604a98944",
+      "bytes": 13235
+    },
+    {
+      "path": "docs/research/topics/R11/report.md",
+      "sha256": "32ffce293eb9fd8c2d329e1d9fea790050ff7b806d858bb3a57250c7637f8d7b",
+      "bytes": 12121
+    }
+  ],
+  "final_manifest_sha256": "3d138d65be7182aa32d1c3cd171d68c6de6180c65f918037fb3568a6ed62f3d5",
+  "final_revision": 3,
+  "final_checks": {
+    "manifest_matches_actual_bytes": true,
+    "errors": [],
+    "metadata_check": "47 source/model/design claims checked before revisions; final JSON/source coverage checked after revisions",
+    "new_failure_dispatch_latch_branches_executed": false
+  },
+  "conclusion": "Within research/design scope, the fixed source observations, finite-model claims, lifetime/async/error choices and three revisions are internally consistent. Design review passes; no statement of implementation/AOT/production validation and no GitHub approval is made."
+}

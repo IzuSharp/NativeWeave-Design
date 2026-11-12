@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R09",
+  "date": "2026-11-12",
+  "input_pin": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+    "task_revision": "0.1.1"
+  },
+  "status": "scoped_read_with_explicit_gaps",
+  "paths": [
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs",
+      "blob_sha": "cf81e05824d457a8e13b1176a23ed23d52c11c9d",
+      "locator": "586-687",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R09-S01"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "blob_sha": "345b41a32acff711897868ffce28e6af287c431b",
+      "locator": "32-110",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R09-S02"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource_T.cs",
+      "blob_sha": "2a7f76029d1197586703b3966c6e7aed83ab3ec5",
+      "locator": "30-76;190-295",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource_T.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R09-S03"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "blob_sha": "73ef3e5a76eb7b39e5d37298fcd2f14458fc4a64",
+      "locator": "3440-3540;3570-3715",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R09-S04"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs",
+      "blob_sha": "1adf0851d8a97649fc66f079ce03ce64394f4854",
+      "locator": "1560-1745",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs",
+      "read_state": "read_test_source_not_run",
+      "role": [
+        "R09-T01"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/RequestContext.cs",
+      "blob_sha": "e2292be3b333f87ce58a4e3b5c4c51e40db21c79",
+      "locator": "1-130;250-378",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/RequestContext.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R09-S07"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "blob_sha": "c32c04f8bcc5a72166b4d4ad81f9d28a1f7756de",
+      "locator": "300-435;440-625",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R09-S06"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "native/yaha_native/src/binding.rs",
+      "blob_sha": "ae3845f3f3fa7554e2b21e199c4fe59908d2a5c4",
+      "locator": "400-725",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/native/yaha_native/src/binding.rs",
+      "read_state": "read_as_scoped",
+      "role": [
+        "R09-S05"
+      ],
+      "unread_remainder": "Remainder of file not claimed as read; complete project not audited."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Sources/ManualResetValueTaskSourceCore.cs",
+      "read_state": "target_not_read",
+      "role": "Potential future pooled ValueTaskSource design",
+      "reason": "v1 does not pool; no claim to have researched its implementation or measured comparative costs."
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": null,
+      "path": null,
+      "read_state": "not_read",
+      "role": "Future/waker implementation",
+      "reason": "YAHA call sites read; not Tokio internals. R12 can provide executor evidence."
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": null,
+      "path": null,
+      "read_state": "not_read",
+      "role": "Alternative async bridge",
+      "reason": "Further comparison scope remains; current recommendations are explicit but not exhaustive ecosystem coverage."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs",
+      "locator": "1129-1150 symbols located",
+      "read_state": "located_not_read",
+      "role": "WaitForCallbackToComplete internals",
+      "reason": "External DisposeAsync behavior and synchronized test read; this implementation body was not inspected."
+    }
+  ],
+  "licenses": [
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "LICENSE.TXT",
+      "spdx": "MIT",
+      "blob_sha": "984713a49622a96da110443c15477613bc12656b",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/LICENSE.TXT",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    },
+    {
+      "repository": "https://github.com/Cysharp/YetAnotherHttpHandler",
+      "commit": "c386c1cc48d2e56711c15286cf2769353fdccf07",
+      "path": "LICENSE",
+      "spdx": "MIT",
+      "blob_sha": "c6869d3f4d441a2c7752bf0569246b6d49e49b2e",
+      "url": "https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/LICENSE",
+      "read_state": "read_complete",
+      "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
+    }
+  ],
+  "executed_experiments": [
+    {
+      "path": "docs/research/topics/R09/retirement_model.py",
+      "run_manifest": "docs/research/topics/R09/model-run.json",
+      "status": "model_executed_only"
+    }
+  ],
+  "cross_task_model_reference": null,
+  "not_executed": [
+    "Upstream tests",
+    "C# or Rust compilation",
+    "Native AOT Windows/Linux",
+    "Product implementation tests",
+    "Performance or production acceptance"
+  ],
+  "path_corrections": [
+    {
+      "attempted": "src/libraries/System.Threading/tests/CancellationTokenTests.cs",
+      "outcome": "not_found",
+      "resolved": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs"
+    }
+  ]
+}
