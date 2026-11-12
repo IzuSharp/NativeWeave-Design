@@ -1,0 +1,13 @@
+[package]
+name = "nw-source-probe"
+version = "0.0.1"
+edition = "2024"
+[lib]
+name = "nw_source_probe"
+crate-type = ["cdylib", "rlib"]
+[dependencies]
+sea-query = { version = "=1.0.2", default-features = false, features = ["backend-sqlite", "backend-postgres", "thread-safe"] }
+sea-query-sqlx = { version = "=0.9.1", features = ["sqlx-sqlite"] }
+sqlx = { version = "=0.9.0", default-features = false, features = ["runtime-tokio", "sqlite"] }
+tokio = { version = "=1.54.1", features = ["rt", "net", "time"] }
+serde_json = "1.0"

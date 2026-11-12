@@ -1,0 +1,697 @@
+{
+  "scope": "Selected mechanisms used in R25/R27; not full repository audit. Tests read are not tests executed. Git snapshots are not automatically identical to registry crates in Cargo.lock.",
+  "records": [
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/select.rs",
+      "line_ranges": [
+        [
+          40,
+          100
+        ],
+        [
+          2150,
+          2205
+        ],
+        [
+          2500,
+          2570
+        ]
+      ],
+      "file_sha256": "ae717b8975d1d4200b0945012306fe2df5a5d6b27294007be6b86d1c9d577cef",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/select.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/insert.rs",
+      "line_ranges": [
+        [
+          40,
+          80
+        ],
+        [
+          220,
+          275
+        ],
+        [
+          480,
+          530
+        ]
+      ],
+      "file_sha256": "d5880d13db8bf423d540d8831ad8f9d13e7b2deaf3655b76f9aaf3cdaf3622c1",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/insert.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/update.rs",
+      "line_ranges": [
+        [
+          35,
+          75
+        ]
+      ],
+      "file_sha256": "a0a842a17e29be8c8f50303dad6c0aa64ccebdfd6e0f5e29898715c30fad6719",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/update.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/delete.rs",
+      "line_ranges": [
+        [
+          30,
+          74
+        ]
+      ],
+      "file_sha256": "873c71098f00ff214885dd9c63f0d41b415c3e011f58cfd386f5725fde503759",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/delete.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/condition.rs",
+      "line_ranges": [
+        [
+          1,
+          95
+        ],
+        [
+          120,
+          190
+        ]
+      ],
+      "file_sha256": "64171ed2883a95a289560257fee57513d2774c099f3720465ebdca61cd74fa71",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/condition.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/expr/enum.rs",
+      "line_ranges": [
+        [
+          1,
+          56
+        ]
+      ],
+      "file_sha256": "1b52ec58fb0261e87e42a268a8328aa22b25ae9ce3cf6dc5d090b1c69d74da4b",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/expr/enum.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/types/iden/core.rs",
+      "line_ranges": [
+        [
+          1,
+          139
+        ]
+      ],
+      "file_sha256": "2b01e34eef9176000bcc3cfed8450212989dfd0bd079338fa5dd0465993a2e6d",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/types/iden/core.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/backend/sqlite/query.rs",
+      "line_ranges": [
+        [
+          1,
+          101
+        ]
+      ],
+      "file_sha256": "a1135f928422cea703c3caa838ebcc3c413f0adb1124534e52c9c6b0a53ba83e",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/sqlite/query.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "sea-query-sqlx/src/sqlx.rs",
+      "line_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "file_sha256": "a623e8f6f6b15671e0350ad08a9b53835960b3ab2b8725b841fb6ac8608cf66a",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/sea-query-sqlx/src/sqlx.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "sea-query-sqlx/src/sqlx_sqlite.rs",
+      "line_ranges": [
+        [
+          1,
+          65
+        ],
+        [
+          123,
+          155
+        ]
+      ],
+      "file_sha256": "dd1caec9230fff56fd83628b1af17e66b1259c4481004ddb383b4d1a701e0778",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/sea-query-sqlx/src/sqlx_sqlite.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/backend/postgres/query.rs",
+      "line_ranges": [
+        [
+          1,
+          40
+        ],
+        [
+          359,
+          385
+        ]
+      ],
+      "file_sha256": "e1e29f912c736c221a9860a38688af5c956a4f5abfde875d4f38f23129399658",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/postgres/query.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/value.rs",
+      "line_ranges": [
+        [
+          231,
+          320
+        ]
+      ],
+      "file_sha256": "6ecd51945ed9890043bb9a7b4b1b9586d6ae04c3c83576bdb7b20135b6a73502",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/value.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/traits.rs",
+      "line_ranges": [
+        [
+          1,
+          32
+        ],
+        [
+          75,
+          92
+        ]
+      ],
+      "file_sha256": "3d0a3e3d2287ae0259a478a6c3c7bf571be3f9cffeb5b67d6c84d0a6bfdbd6ee",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/traits.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/backend/query_builder.rs",
+      "line_ranges": [
+        [
+          124,
+          233
+        ],
+        [
+          886,
+          945
+        ],
+        [
+          1639,
+          1728
+        ]
+      ],
+      "file_sha256": "a22b233f00cd17ea6769c9dc7516982a4aa20e272afd937142bcc94cb075d56b",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/query_builder.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/window.rs",
+      "line_ranges": [
+        [
+          65,
+          110
+        ]
+      ],
+      "file_sha256": "b5d00eb13897a0fb3976ada80f38233705d7302b4a6c6c5b21718d45bf906f4d",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/window.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/with.rs",
+      "line_ranges": [
+        [
+          439,
+          475
+        ]
+      ],
+      "file_sha256": "343aeb7907c5713fcd16da09325f53b6097971c88fff9a11bbf5dd7b908c4bf1",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/with.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "tests/postgres/query.rs",
+      "line_ranges": [
+        [
+          90,
+          166
+        ],
+        [
+          921,
+          998
+        ],
+        [
+          1052,
+          1115
+        ]
+      ],
+      "file_sha256": "9ad23e8909257bc041a5edec84a0c174b89e4256c325239f1f94e074ee3f661a",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/tests/postgres/query.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "tests/sqlite/query.rs",
+      "line_ranges": [
+        [
+          325,
+          350
+        ],
+        [
+          1013,
+          1067
+        ]
+      ],
+      "file_sha256": "e39ab3596bf8d7550df39153abd12bb16b9d416dfaa8a0f3c692e70bbe7ffd45",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/tests/sqlite/query.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "tests/error.rs",
+      "line_ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "file_sha256": "74e41e09e2aa23902f7e3b14edec9746dd72448b579cdf1a67c7f29ab09faf60",
+      "url": "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/tests/error.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-orm",
+      "tag": "2.0.4",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/base_entity.rs",
+      "line_ranges": [
+        [
+          57,
+          140
+        ]
+      ],
+      "file_sha256": "5a817cf7100b92e50f0549869f15db5753947e1b0e671acee82c2973c18bf119",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/base_entity.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-orm",
+      "tag": "2.0.4",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/active_model.rs",
+      "line_ranges": [
+        [
+          210,
+          238
+        ],
+        [
+          337,
+          402
+        ]
+      ],
+      "file_sha256": "eeeb18d67fffe69a61d18408574e2ccab5b82f58ad242291e15789f48c04d757",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/active_model.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "SeaQL/sea-orm",
+      "tag": "2.0.4",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/database/connection.rs",
+      "line_ranges": [
+        [
+          1,
+          88
+        ],
+        [
+          181,
+          216
+        ]
+      ],
+      "file_sha256": "283b80c946382a03c397c3e4f523489f63554077ce298779989a1fc1bac586e9",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/connection.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "transact-rs/sqlx",
+      "tag": "v0.9.0",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-core/src/transaction.rs",
+      "line_ranges": [
+        [
+          112,
+          138
+        ],
+        [
+          263,
+          284
+        ]
+      ],
+      "file_sha256": "7c0e1b28f1f0b56920d71b3340407abc2eeef9fe442321d25f43d1bf1721dbf7",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-core/src/transaction.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "transact-rs/sqlx",
+      "tag": "v0.9.0",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-core/src/pool/connection.rs",
+      "line_ranges": [
+        [
+          76,
+          115
+        ],
+        [
+          195,
+          215
+        ],
+        [
+          275,
+          330
+        ]
+      ],
+      "file_sha256": "94269a532ef60aaa31321e43af17cba2424f919a36501d862328ed05958a08de",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-core/src/pool/connection.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "hyperium/hyper",
+      "tag": "v1.12.0",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "path": "src/service/service.rs",
+      "line_ranges": [
+        [
+          15,
+          64
+        ]
+      ],
+      "file_sha256": "e08f14d369311406bf34159f4e831d1dadd5be83bc78a21fb3dad78031017df6",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/service/service.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "hyperium/hyper",
+      "tag": "v1.12.0",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "path": "src/ffi/mod.rs",
+      "line_ranges": [
+        [
+          1,
+          99
+        ]
+      ],
+      "file_sha256": "80639b0ff428ff21ebf1e87c7800558002efc5f51424fe21fba6bf57ca8818e6",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/ffi/mod.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "hyperium/hyper",
+      "tag": "v1.12.0",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "path": "src/server/conn/http1.rs",
+      "line_ranges": [
+        [
+          123,
+          145
+        ],
+        [
+          392,
+          409
+        ],
+        [
+          439,
+          458
+        ],
+        [
+          470,
+          523
+        ]
+      ],
+      "file_sha256": "6f84d0e780f49dc8745b9e54125edf1360b1ec54cada21c0a238e5098decf162",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/server/conn/http1.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "hyperium/hyper",
+      "tag": "v1.12.0",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "path": "src/body/incoming.rs",
+      "line_ranges": [
+        [
+          147,
+          208
+        ]
+      ],
+      "file_sha256": "11b8d262650730750721d6f93faf567e9cce6aa2e8a326aeb8f2cad908fdd485",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/body/incoming.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "tower-rs/tower",
+      "tag": "tower-0.5.3",
+      "commit": "4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc",
+      "path": "tower/src/limit/concurrency/service.rs",
+      "line_ranges": [
+        [
+          58,
+          96
+        ]
+      ],
+      "file_sha256": "2ebdeb7337d0bff15f19745e26534ac619f2875d08398b56fe0a6d8eb2bf587a",
+      "url": "https://github.com/tower-rs/tower/blob/4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc/tower/src/limit/concurrency/service.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "tower-rs/tower",
+      "tag": "tower-0.5.3",
+      "commit": "4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc",
+      "path": "tower/src/limit/concurrency/future.rs",
+      "line_ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "file_sha256": "a8b66f9862fd24a1c41b7d3e889a4989a4efd333493e7347dba02f25582208da",
+      "url": "https://github.com/tower-rs/tower/blob/4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc/tower/src/limit/concurrency/future.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "tower-rs/tower",
+      "tag": "tower-0.5.3",
+      "commit": "4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc",
+      "path": "tower/tests/limit/concurrency.rs",
+      "line_ranges": [
+        [
+          152,
+          193
+        ]
+      ],
+      "file_sha256": "65bf865d1c61671af14028d37ffd209ef41ccde3d5ed5b08873b6879a9c8efe5",
+      "url": "https://github.com/tower-rs/tower/blob/4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc/tower/tests/limit/concurrency.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "tokio-rs/axum",
+      "tag": "axum-v0.8.9",
+      "commit": "c59208c86fded335cd85e388030ad59347b0e5ae",
+      "path": "axum/src/serve/mod.rs",
+      "line_ranges": [
+        [
+          267,
+          305
+        ],
+        [
+          353,
+          420
+        ]
+      ],
+      "file_sha256": "063ccc352890e97c82d497b32888cf261921bb99687240120643d1d85c59324a",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/axum/src/serve/mod.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "tokio-rs/tokio",
+      "tag": "tokio-1.54.1",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/runtime/runtime.rs",
+      "line_ranges": [
+        [
+          28,
+          61
+        ],
+        [
+          447,
+          475
+        ]
+      ],
+      "file_sha256": "ed9bff2010d0546c42bceea9ac30a954a70fed8813dbf3378de8846f3ce090c8",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/runtime/runtime.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "actix/actix-net",
+      "tag": "actix-server-v2.10.0",
+      "commit": "f22be1d9731f764707dd3e286900d285c6f60b14",
+      "path": "actix-server/src/worker.rs",
+      "line_ranges": [
+        [
+          71,
+          107
+        ],
+        [
+          143,
+          180
+        ]
+      ],
+      "file_sha256": "511dabb875b641ebfb4bc2446684977ffba58a356b604a204ee093e325efd7bc",
+      "url": "https://github.com/actix/actix-net/blob/f22be1d9731f764707dd3e286900d285c6f60b14/actix-server/src/worker.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "actix/actix-web",
+      "tag": "actix-web-v4.19.0",
+      "commit": "fdb6503d95228f44ba926f6347c11fd523e22193",
+      "path": "actix-web/src/server.rs",
+      "line_ranges": [
+        [
+          149,
+          229
+        ]
+      ],
+      "file_sha256": "3f4c9413fc805658350fff961416786fe5c7fa1a1f08285bc40213d0fed36601",
+      "url": "https://github.com/actix/actix-web/blob/fdb6503d95228f44ba926f6347c11fd523e22193/actix-web/src/server.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "rustls/rustls",
+      "tag": "v/0.23.46",
+      "commit": "f04804fa13341a9b1dc02b5d1dd8a746f2c4b7fb",
+      "path": "rustls/src/conn.rs",
+      "line_ranges": [
+        [
+          443,
+          458
+        ],
+        [
+          510,
+          546
+        ]
+      ],
+      "file_sha256": "60b4bf4186776efe7df71c43be3aef44027cfde06f393e1238efbb9d1cfdfcf9",
+      "url": "https://github.com/rustls/rustls/blob/f04804fa13341a9b1dc02b5d1dd8a746f2c4b7fb/rustls/src/conn.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    },
+    {
+      "repository": "cloudflare/pingora",
+      "tag": "0.9.1",
+      "commit": "f86ffda5d3ae5c3baf5125682138b33b26c01b08",
+      "path": "pingora-proxy/src/proxy_trait.rs",
+      "line_ranges": [
+        [
+          48,
+          118
+        ]
+      ],
+      "file_sha256": "50ed1a48aabeb7c58ed6ecf0e24135edce4589374b88160835ecd6374b8b6c81",
+      "url": "https://github.com/cloudflare/pingora/blob/f86ffda5d3ae5c3baf5125682138b33b26c01b08/pingora-proxy/src/proxy_trait.rs",
+      "review": "recovery-author selected source inspection; not independent review",
+      "upstream_test_execution": "not executed in recovery"
+    }
+  ]
+}

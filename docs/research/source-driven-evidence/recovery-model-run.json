@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "docs/research/topics/R27/body_lease_model.py"
+  ],
+  "exit_code": 0,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "timestamp": "2026-11-12T16:33:25.150491+00:00",
+  "source_sha256": "1a25126749980ecbe2b41994a33d76e8731d1f7954f36f23dc164ecd190670ee",
+  "stdout_sha256": "9fabe5a85ae0b26d9ac528ba108c7402cbf15a1424c71aee440d415245154a24",
+  "stdout": "{\n  \"scope\": \"finite sequentially-consistent two-request admission abstraction\",\n  \"not_proven\": [\n    \"network implementation\",\n    \"native ABI\",\n    \"byte/RSS bounds\",\n    \"fairness/liveness\",\n    \"weak memory\",\n    \"Native AOT\"\n  ],\n  \"negative_control\": {\n    \"policy\": \"head_only\",\n    \"states\": 45,\n    \"transitions\": 96,\n    \"violation_count\": 21,\n    \"first_counterexample\": {\n      \"state\": [\n        [\n          2,\n          true\n        ],\n        [\n          1,\n          true\n        ]\n      ],\n      \"trace\": [\n        \"admit(request=0)\",\n        \"response_head(request=0)\",\n        \"admit(request=1)\"\n      ]\n    },\n    \"both_retired_reachable\": true\n  },\n  \"candidate\": {\n    \"policy\": \"body_and_callback\",\n    \"states\": 24,\n    \"transitions\": 32,\n    \"violation_count\": 0,\n    \"first_counterexample\": null,\n    \"both_retired_reachable\": true\n  }\n}\n",
+  "stderr": "",
+  "execution": "New finite model replay by recovery CI; not an independent review or replay of original AOT probe",
+  "github_run_id": "43259930829"
+}

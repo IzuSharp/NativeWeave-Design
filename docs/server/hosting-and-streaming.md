@@ -2,10 +2,10 @@
 
 | 项目 | 值 |
 | --- | --- |
-| 契约 | C-SERVER-001，0.1.0 |
+| 契约 | C-SERVER-001，0.2.0-draft |
 | 输入任务 | R26、R27、R29；交叉接口 R07/R08/R12/R17/R21、D05/D06/D07/D13/D14/D15 |
 | 基线 | Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5` |
-| 决定状态 | 设计规范 0.1.0；接受状态由 registry 中相同内容哈希与独立 Review 确定；所有代码样例未编译；产品实现、Native AOT 和生产验收尚未完成 |
+| 决定状态 | 设计规范0.2.0-draft；本修订待独立Review；接受状态由 registry 中相同内容哈希与独立 Review 确定；所有代码样例未编译；产品实现、Native AOT 和生产验收尚未完成 |
 | 日期 | 2026-11-12 |
 
 ## 1. 需求与边界
@@ -169,3 +169,11 @@ Windows/Linux 各在真实发布二进制上运行；TLS/证书链、socket clos
 | B22/B23/B24 | 24 小时稳态与 72 小时 release soak 的资源趋势、故障注入、RSS/GC/native/socket 分项、等价性能和平台兼容；阈值基于冻结基线，回归需解释 |
 
 本轮设计已足以决定默认宿主、可选引擎边界、预算算法与关闭协议；真实调度公平、RSS 平台行为和 AOT runtime 仍是上述任务的开放验收项。独立 reviewer 应重点攻击“分配前 credit”“复制时双份记账”“DB Unknown 不被关闭清理改写”“callback quiescence 后才释放”四项，不以尚未运行全产品为由重新打开所有设计决定。
+
+## Source-driven native Server seam — D18 / B17
+
+Reuse Hyper Service/Body/connection drivers, Tower/Axum routing and Tokio scheduling through one compiled ForeignService. C# handler IDs/routes are runtime registrations, not generated Rust per handler. Do not port the HTTP/TLS core into C# or treat Hyper's unstable client C FFI as a stable server ABI. Actix worker-affine and Pingora proxy-specific routes remain alternatives. Kestrel AOT remains the managed baseline; see [R27](../research/topics/R27/source-driven-server.md).
+
+Tower's response-future permit does not cover response-body lifetime. A body/stream lease remains charged until body and callback retirement. Hyper H2 protocol credit does not reclaim Bytes retained by managed consumers; retained-byte accounting is independent. Tokio shutdown_timeout is not quiescence; Pending close retains roots, owners and budget.
+
+Callbacks enqueue bounded dispatcher work, never block native polling on Task.Result or execute arbitrary application handlers synchronously in reverse callbacks. Complete native Future exactly once; ordinary application HTTP errors should become responses rather than unnecessary Service errors that abort a connection. TLS fatal errors stop reads, with separate handshake/TLS/application queue limits. B16/B17/B20/B22 test slow/aborted bodies, trailers, huge chunks, completion/cancel/close races, callback roots and pool-held database streams. The finite R27 model is not a production Server or performance test.

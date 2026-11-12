@@ -8,7 +8,7 @@
 4. 引用源码时记录完整 commit SHA、实际文件、符号、行段和已读/未读覆盖。动态分支 URL 只能用于导航。
 5. 不把候选源码路径写成已读证据，不把测试源码写成已执行测试，不把 JIT 或分析器成功写成 AOT 目标运行成功。
 6. 关键例子区分 draft、static-reviewed、compiled、executed、native-aot-executed、independently-verified。后面的状态需要相应证据，不能凭前一个状态推导。
-7. 不新增默认 Rust runtime，不决定所有数据库或服务器必须使用 Rust，不引入 ArcForges 业务模型。
+7. Core不新增默认全局Rust runtime；Database底层必须Rust，Server按证据选型；ArcForges只参考格式。源码驱动深度复用，普通C#实体不默认要求Rust重编译。
 8. 不修改 LICENSE、仓库权限或保护规则。分支与 Draft PR 可在已获授权范围内创建；重大技术决策保持 proposed 直到独立审查。
 9. 发布证据中不记录凭据、用户私人数据或无关环境变量。基准参数和匿名环境描述应足够复现。
 10. 发现缺陷以发现 ID、影响、证据和处置记录；“以后再补”不能关闭正式验收阻断项。

@@ -2,20 +2,20 @@
 
 | 项目 | 值 |
 | --- | --- |
-| 契约 | C-REFERENCE-001，0.1.0 |
+| 契约 | C-REFERENCE-001，0.2.0-draft |
 | 输入任务 | R31；交叉 R16/R18/R19/R20/R21/R26/R27/R28/R29/R30 |
 | 基线 | Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5` |
-| 状态 | 设计规范 0.1.0；接受状态由 registry 中相同内容哈希与独立 Review 确定；SQLite 研究原型五项检查已运行；C#/Rust代码样例未编译、产品/AOT/跨平台/压力验收未验证 |
+| 状态 | 设计规范0.2.0-draft；本修订待独立Review；接受状态由 registry 中相同内容哈希与独立 Review 确定；SQLite 研究原型五项检查已运行；C#/Rust代码样例未编译、产品/AOT/跨平台/压力验收未验证 |
 
 ## 1. 目标与非目标
 
 参考服务提供租户内工作项、分页查询、附件流和事务 outbox；它验证 Server、Database、ORM、生成器、诊断、Packaging 作为完整工作负载时是否正确、简洁且有价值。它是 NativeWeave 的通用工程样例，不含 ArcForges 业务模型/依赖，不作为生产应用模板强迫下游采用某种业务 schema。
 
-REST 是最小必需入口。可选 gRPC 与 MCP 调用同一 typed C# application service，分别接受 D19 协议验收；不复制三套事务逻辑。默认产品组合是 C# Kestrel + C# 最上层 LINQ/泛型/async/AOT 语法与 DTO 边界 + **必需的 Rust ORM / Database Engine**，分别提供 PostgreSQL 和 SQLite profile。C# Source Generator 捕获受支持语法、给出编译期诊断并编码版本化查询 IR；Rust 负责查询语义、SQL 生成、ORM、驱动、连接池、事务执行与数据库资源管理。具体 ORM 选型和查询权威遵循 [D14](../database/drivers.md)、[D15](../database/transactions-and-pooling.md) 与 [D16](../database/query-semantics.md)，本应用不再设一套 ORM。应用开发者不需要编写 Rust。可选 Rust Server 只替换网络宿主，并继续使用同一 C# application service 与 Rust DB 契约。
+REST 是最小必需入口。可选 gRPC 与 MCP 调用同一 typed C# application service，分别接受 D19 协议验收；不复制三套事务逻辑。默认产品组合是 C# Kestrel + C# 最上层Fluent/泛型/async/AOT 语法与 DTO 边界 + **必需的 Rust ORM / Database Engine**，分别提供 PostgreSQL 和 SQLite profile。C#使用普通typed Fluent，SG可选生成static metadata/DTO与诊断；Rust 负责查询语义、SQL 生成、ORM、驱动、连接池、事务执行与数据库资源管理。具体 ORM 选型和查询权威遵循 [D14](../database/drivers.md)、[D15](../database/transactions-and-pooling.md) 与 [D16](../database/query-semantics.md)，本应用不再设一套 ORM。应用开发者不需要编写 Rust。可选 Rust Server 只替换网络宿主，并继续使用同一 C# application service 与 Rust DB 契约。
 
 数据库底层必须 Rust 是产品范围约束。此前草稿的 Npgsql / Microsoft.Data.Sqlite 默认运行时路线已被替代；这些项目与 EF Core 仍可作为源码研究或独立等价基准，不能装入 NativeWeave 默认数据库执行路径。Kestrel 的独立无数据库示例可以不加载 native library，但本文件含数据库的参考应用不能声称 pure managed。所有数据库组合都必须通过阶段 A 的相关 ABI、ownership、callback/async、buffer、构建与实际 AOT 门禁；性能证据用来优化 Rust 路线并量化成本，不能凭一项基准静默改回托管数据库实现。
 
-数据库规范选用 Rust SeaORM 路线；本应用服从其固定版本与能力子集。每个 schema-specific model Engine 把生成的 SeaORM `Entity` / `ActiveModel` / 静态 dispatcher 与 common Rust DB code 静态链接为一个 native module，跨模块只使用 NativeWeave C ABI，不能传递 Rust 内部 trait object、pool、transaction 或 allocator owner。定义新 schema 需要构建期 Rust toolchain，可由 CI 执行；C# Source Generator 不自行启动 Cargo。普通应用开发者仍只写 C# 模型/查询/业务代码，生成与构建负责 Rust 文件；消费已发布 native 资产或运行应用不需要 Rust toolchain。模型/IR/Engine 版本匹配和生成结果参与 B21/B24 验收。
+数据库普通路径使用维护者预编译SeaQuery + SQLx Rust Engine。普通C#实体/投影/查询使用runtime metadata与static DTO，不生成Rust Entity、不需Cargo或CI才能本地运行。专用SeaORM模型包是另行构建的可选profile。应用metadata/schema、Engine ABI/capability、native hash分别验证；B21/B24验证Windows/Linux AOT、无Rust干净环境及无显式RID本地build/run。
 
 ## 2. 业务协议与数据模型
 
@@ -68,7 +68,7 @@ RETURNING operation_id;
 
 该二次 SELECT 必须是下一条 statement。官方 [INSERT](https://www.postgresql.org/docs/18/sql-insert.html) 与 [Read Committed](https://www.postgresql.org/docs/18/transaction-iso.html#XACT-READ-COMMITTED) 明确：DO NOTHING 可因当前 INSERT snapshot 尚不可见的并发事务而不插入；RETURNING 仅返回实际插入/更新的行。故不能把“一个 CTE INSERT DO NOTHING UNION SELECT”当作总能读到冲突行的证明。下一条 statement 得到新snapshot；若因异常清理/删除/期限到达仍无行，保持未决或执行有界协议重试，不从无行推断旧事务回滚。本版 retention窗口内不删除operation，避免此竞态；一旦采用别的隔离级别，需要对应重试/快照规则并重新验收。
 
-SQLite 用短 `BEGIN IMMEDIATE` writer admission 串行化先查再写；busy等待计入总deadline，并且writer等待者有界。它不声称与PostgreSQL并发锁粒度相同。上述 SQL 是 Rust ORM / engine 必须保持的语义 recipe；C# 最上层编码 typed query IR 与参数，Rust 完成语义验证、SQL 生成和执行，不能让 C# Source Generator 成为 SQL/ORM 的第二权威。原型不作为最终 API，也不证明 Rust driver 的真实执行。所有事务中不等待HTTP客户端读取，不调用外部service，不执行可能长期阻塞的blob传输。
+SQLite 用短 `BEGIN IMMEDIATE` writer admission 串行化先查再写；busy等待计入总deadline，并且writer等待者有界。它不声称与PostgreSQL并发锁粒度相同。上述 SQL 是 Rust ORM / engine 必须保持的语义 recipe；C#最上层调用typed native-backed Fluent并绑定参数，Rust 完成语义验证、SQL 生成和执行，不能让 C# Source Generator 成为 SQL/ORM 的第二权威。原型不作为最终 API，也不证明 Rust driver 的真实执行。所有事务中不等待HTTP客户端读取，不调用外部service，不执行可能长期阻塞的blob传输。
 
 Retention参考值为7天，客户端契约明确保证窗口；超窗重复提交不保证仍可重放。清理不得删除仍在恢复处理的记录，且要与outbox审计/恢复引用协调。不能以有限存储承诺永久exactly-once；若产品以后要求永久防重复，要增加持久墓碑/业务唯一键等明确成本和规则。
 
@@ -77,7 +77,7 @@ Retention参考值为7天，客户端契约明确保证窗口；超窗重复提�
 公共名称遵循 [数据库事务规范](../database/transactions-and-pooling.md)：`WeaveDataSource.OpenSessionAsync`、`DataSession.BeginTransactionAsync`、`DataTransaction.CommitAsync`。本文件不建立第二种事务权威。
 
 ```csharp
-// 设计草案，尚未编译；ExecuteCreateAsync编码typed IR，Rust ORM生成并执行参数化SQL。
+// 设计草案，尚未编译；ExecuteCreateAsync调用typed native operations，Rust ORM生成并执行参数化SQL。
 // 返回已拥有的managed DTO；cleanupDeadline为事先配置的monotonic关闭期限。
 var session = await dataSource.OpenSessionAsync(requestAborted);
 try
@@ -137,7 +137,7 @@ Outbox payload 与item/result同事务。worker在有界batch中租约claim，�
 
 ## 6. 查询、资源与应用体验
 
-常用列表要求调用者自然使用 C# 泛型/受支持 LINQ 风格组合；C# 生成器只负责语法捕获、诊断、查询 IR 编码与静态 DTO 边界，Rust ORM 负责查询语义、关系/工作单元、SQL 生成及物化所需的数据库操作。C# DTO 解码不能重新实现一套 ORM 语义。应用不写 Rust 或手工 FFI。动态过滤仅允许版本化模型/IR 声明的列与运算符，Rust 再次校验其能力并参数化值；不拼接任意 SQL。分页键 `(created_at,id)` 含确定tie-breaker；分页之间默认ReadCommitted，不承诺跨页全局快照。需要一致导出时使用独立snapshot/transaction profile、严格最长时限及stream租约，不让慢客户端永久占有pool。
+常用列表使用自然typed C# Fluent；SG可选提供static metadata/DTO，SeaQuery负责native构建/方言，SQLx执行，显式关系/CAS政策留在Rust。动态过滤只能用已登记列/操作，native再次检查capability并参数化。分页`(created_at,id)`含唯一tie-breaker；独立ReadCommitted不承诺跨页snapshot。需要一致导出时使用明确snapshot/transaction profile、最长时限及stream lease，慢客户端不能永久占池。
 
 Server profile沿用D18：256活动request、128 metadata waiter、应用stream buffers64MiB、chunk32KiB；数据库pool与upload/outbox并发分别设上限。默认连接pool不可大于数据库实际允许的应用预算；slow response先释放不再使用的DB lease。JSON固定DTO最多1MiB，分页最多100，附件64MiB以stream处理。所有数字是初始参考配置，性能验收冻结后才作为可复现实验输入，不作为通用推荐容量。
 
@@ -162,7 +162,7 @@ Server profile沿用D18：256活动request、128 metadata waiter、应用stream 
 | 安全 | tenant隔离、query injection、scope伪造、trace污染、超大压缩/JSON、认证遗漏、敏感日志/堆转储处理策略 |
 | 长跑 | 初始30min稳态、24h回归、release72h soak；负载波动/连接 churn/取消与故障；资源返回稳定平台且无随请求数线性增长 |
 
-模型/属性验证检查“一scope+key最多一个业务效果”“item/result/outbox原子存在”“所有owner最终释放或明确故障隔离”“同一操作终态不可逆”。模型需要明确调度公平、故障假设和有限边界；不将有限模型当所有真实线程调度证明。fuzz涵盖ABI长度、SQL/queryIR、HTTP/MCP输入；handle generation仅在领域确有可复用ID时验证，不假设Core有全局代际表。竞态测试采用可控barrier与真实多线程，不能仅sleep等待。锁/时间压力、long-run与Sanitizer/平台工具按组件能力分别运行，不能伪称跨语言统一工具已经捕获全部问题。
+模型/属性验证检查“一scope+key最多一个业务效果”“item/result/outbox原子存在”“所有owner最终释放或明确故障隔离”“同一操作终态不可逆”。模型需要明确调度公平、故障假设和有限边界；不将有限模型当所有真实线程调度证明。fuzz涵盖ABI长度、SQL/查询操作描述、HTTP/MCP输入；handle generation仅在领域确有可复用ID时验证，不假设Core有全局代际表。竞态测试采用可控barrier与真实多线程，不能仅sleep等待。锁/时间压力、long-run与Sanitizer/平台工具按组件能力分别运行，不能伪称跨语言统一工具已经捕获全部问题。
 
 性能矩阵区分产品与外部对照：必需产品基线为 Kestrel + C# application/语法/DTO 边界 + Rust ORM / PostgreSQL 或 SQLite Engine；可选产品分支为 Rust Server + 相同 C# application service + 同一 Rust ORM / DB Engine。Kestrel + Npgsql / Microsoft.Data.Sqlite（及适用的 EF Core）是独立非产品托管对照，纯 Rust 参考实现是生态/跨语言成本对照；二者都不成为 NativeWeave 托管数据库后端。只有实际存在的组合才测，未实现格子写 not-run；所选产品组合必须先满足相同正确性标准。TLS/HTTP版本、DB版本/schema/index/isolation/pool、payload/数据量/cache命中、错误/取消比例、CPU限额、部署节点、日志采样与durability条件完全对齐。
 

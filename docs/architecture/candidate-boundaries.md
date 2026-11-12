@@ -1,6 +1,6 @@
 # 候选边界、实现难题与决策输入
 
-状态：design-draft；版本 0.1.0。以下是待研究的设计空间，不是 accepted API/ABI。关联契约见 [registry.json](../contracts/registry.json)。
+状态：design-draft；版本 0.2.0-draft。以下是待研究的设计空间，不是 accepted API/ABI。关联契约见 [registry.json](../contracts/registry.json)。
 
 ## 1. 最小机制与领域语义分离
 
@@ -66,22 +66,11 @@ Task、ValueTask、IValueTaskSource 的候选需要比较：后两者不是无�
 
 普通失败返回 Result/status。panic containment 要区分 unwind 与 abort，catch_unwind 不能恢复 abort、OOM abort 或任意外部异常；panic hook、payload析构也需研究。C# reverse callback 必须在托管入口捕获可处理异常，转换成契约规定的错误/完成信号；不允许托管异常越过 FFI 边界，也不能宣称 catch 能恢复进程致命故障。损坏状态是否允许继续使用必须明示，不能只把错误转 Exception 就宣布引擎恢复。
 
-## 6. Database 与 ORM 候选边界
+## 6. Database / ORM revised candidate boundaries
 
-先分离：provider protocol/driver、connection/pool/transaction、row representation/materialization、query model/SQL generation、migration tooling。
+Database lower layers must be Rust; managed providers are comparisons only. The ordinary candidate uses precompiled dynamic SeaQuery AST/identifiers/values with SQLx execution. C# owns typed Fluent and static metadata/DTOs, not a SQL AST/dialect or full LINQ translator. Static SeaORM Entity remains a specialized profile; its native model-build coupling does not imply all Rust database integrations require per-entity compilation.
 
-比较路线必须包含：纯 C# AOT driver+静态映射；生成式 SQL 或 Dapper AOT；受限的 LINQ 编译期翻译；强类型 Fluent/typed AST；必要时的 Rust SQLx engine。EF Core、linq2db、SeaQuery、SeaORM 是研究来源与候选，不预设全盘采用。
-
-关键约束：
-
-- Expression Tree 的构造、遍历、SQL 翻译不等于动态编译；AOT 支持必须逐条功能证明。
-- 编译期翻译必须定义 closure 捕获、参数求值时机、方法调用和不支持语法诊断。不能静默退回客户端过滤或无界枚举。
-- SQL NULL 的三值逻辑、outer join、decimal、时区、collation、分页稳定性不能用 C# 对象行为想当然替换。
-- 动态查询可考虑受限 typed AST，仍必须参数化，identifier 走 allowlist；必须列语义与功能上限。类型检查、provider能力、SQL语义、生成器实际接管和不支持语法诊断分别验收；typed名称不自动保证这些性质。
-- Cancellation/timeout 不证明数据库事务没有发生。提交时断线可能意味着提交结果未知，重试需幂等键或上层恢复策略。幂等键检查、业务写入和结果记录需在明确的原子性边界内完成，定义唯一约束、重放一致性、过期与外部副作用；单独携带一个key不保证业务幂等。
-- SQLx Drop 启动回滚不等于 rollback 确认；C# Dispose/DisposeAsync 的承诺需与 provider 真实语义一致。详见领域初步证据。
-
-ORM 自然性由小型真实用例评估：关联查询、投影/聚合、批量修改、事务、分页、动态过滤及迁移。记录应用代码量、诊断、调试、编译时间和升级成本，而非仅 API 展示。
+See ADR-0002, D14, D16/D17 and R25's source study. Direct native builder is the reference route; batching requires measurements, not a preselected universal IR. Explicit SQL null/collation/join/pagination and codec semantics remain mandatory. Reject SQLite silently omitted clauses and use fallible native binding. Unknown transaction effect, protocol reuse and local retirement remain independent.
 
 ## 7. Server 候选边界
 
@@ -103,10 +92,14 @@ accounted_work_bytes ≤ Σ(connection_budget) + active_requests×request_budget
 
 ## 9. 现在可并行编写与必须等待的部分
 
-可并行：ABI布局候选、状态机、生成器设计、database语义、ORM查询IR、server边界、打包矩阵、性能方法、各领域任务片段。
+可并行：ABI布局候选、状态机、生成器设计、database语义、native查询绑定、server边界、打包矩阵、性能方法、各领域任务片段。
 
 真正要等待：某任务正式实现依赖的精确契约版本被接受、针对该路径的证据具备、公共变更经局部审查。不存在“全体研究完成”这一普遍前置条件，也不存在跳过契约验收的捷径。
 
 ## 10. 尚未证明
 
-上述不变量是证明义务，候选接口不是编译结果。本轮没有 C#/Rust 编译器和 Windows 实验结果。无需为证明“简洁”预先造公共 runtime；需要根据源码研究、模型、最小原型、真实AOT和工作负载证据逐步缩小候选。
+上述不变量是证明义务，候选接口不是编译结果。恢复的Actions已有有限Linux/SQLite C#/Rust Native AOT实验；当前本地无相应编译器且无Windows结果，见source-driven evidence。无需为证明“简洁”预先造公共 runtime；需要根据源码研究、模型、最小原型、真实AOT和工作负载证据逐步缩小候选。
+
+## 11. Source-driven Engine maintenance
+
+[D11](../extension/engine-integration.md) defines public/source-informed/extension/fork integration. [D10](../platforms/build-package-release.md) separates maintainer native builds from ordinary C# consumption and specifies source/closure pins and upgrade differential gates. Core owns no domain SQL or Server state. These amended contracts remain proposed; previous reviews do not approve new hashes.

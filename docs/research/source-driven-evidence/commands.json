@@ -1,0 +1,226 @@
+[
+  {
+    "name": "environment",
+    "command": [
+      "bash",
+      "-c",
+      "rustc --version; cargo --version; dotnet --info; uname -a"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 4.939060926437378,
+    "log": "environment.log"
+  },
+  {
+    "name": "cargo-lock",
+    "command": [
+      "cargo",
+      "generate-lockfile"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 1.2139012813568115,
+    "log": "cargo-lock.log"
+  },
+  {
+    "name": "rust-tests",
+    "command": [
+      "cargo",
+      "test",
+      "--locked"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 42.51334738731384,
+    "log": "rust-tests.log"
+  },
+  {
+    "name": "native-release",
+    "command": [
+      "cargo",
+      "build",
+      "--release",
+      "--locked"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 69.17810130119324,
+    "log": "native-release.log"
+  },
+  {
+    "name": "cargo-metadata",
+    "command": [
+      "cargo",
+      "metadata",
+      "--locked",
+      "--format-version",
+      "1"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 0.25597071647644043,
+    "log": "cargo-metadata.log"
+  },
+  {
+    "name": "pack",
+    "command": [
+      "dotnet",
+      "pack",
+      "managed/NativeWeave.SourceProbe.csproj",
+      "-c",
+      "Release",
+      "-o",
+      "feed"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 15.289740085601807,
+    "log": "pack.log"
+  },
+  {
+    "name": "consumer-build",
+    "command": [
+      "dotnet",
+      "build",
+      "app/App.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 3.092785120010376,
+    "log": "consumer-build.log"
+  },
+  {
+    "name": "consumer-run",
+    "command": [
+      "dotnet",
+      "run",
+      "--project",
+      "app/App.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "--no-build",
+      "--",
+      "sqlite:/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/fixture.db"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 1.911299467086792,
+    "log": "consumer-run.log"
+  },
+  {
+    "name": "consumer-aot-publish",
+    "command": [
+      "dotnet",
+      "publish",
+      "app/App.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-o",
+      "publish-v1"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 5.019047498703003,
+    "log": "consumer-aot-publish.log"
+  },
+  {
+    "name": "consumer-aot-run",
+    "command": [
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/publish-v1/App",
+      "sqlite:/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/fixture.db"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 0.0049784183502197266,
+    "log": "consumer-aot-run.log"
+  },
+  {
+    "name": "new-entity-build",
+    "command": [
+      "dotnet",
+      "build",
+      "app/App.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 1.4139065742492676,
+    "log": "new-entity-build.log"
+  },
+  {
+    "name": "new-entity-run",
+    "command": [
+      "dotnet",
+      "run",
+      "--project",
+      "app/App.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "--no-build",
+      "--",
+      "sqlite:/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/fixture.db"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 1.80812406539917,
+    "log": "new-entity-run.log"
+  },
+  {
+    "name": "new-entity-aot-publish",
+    "command": [
+      "dotnet",
+      "publish",
+      "app/App.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-o",
+      "publish-v2"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 3.815819263458252,
+    "log": "new-entity-aot-publish.log"
+  },
+  {
+    "name": "new-entity-aot-run",
+    "command": [
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/publish-v2/App",
+      "sqlite:/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/fixture.db"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "elapsed_seconds": 0.0050394535064697266,
+    "log": "new-entity-aot-run.log"
+  },
+  {
+    "name": "wrong-entity-compile-negative",
+    "command": [
+      "dotnet",
+      "build",
+      "app/App.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64"
+    ],
+    "exit_code": 1,
+    "expected_exit": 1,
+    "elapsed_seconds": 1.1724739074707031,
+    "log": "wrong-entity-compile-negative.log"
+  }
+]

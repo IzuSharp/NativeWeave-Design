@@ -1,10 +1,12 @@
 # 事务、连接池与不确定结果恢复
 
-- Task：D15；契约：C-TX-001@0.1.0；作者：database_design；2026-11-12。
+- Task：D15；契约：C-TX-001@0.2.0-draft；作者：database_design；2026-11-12。
 - 输入packet：revision0.1.1，SHA-256 `cce4d00e3cc7983c2808cf7a5d47e4a08707885973c497ba5a929a78c5bd554c`，已与Plan图匹配。
 - 基线：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
-- 状态：**review-ready**；接受状态以registry中相同内容hash及独立Review为准。代码样例仍design-draft、未编译；实际C#/Rust/数据库故障与AOT验证尚未完成。
+- 状态：**proposed；本修订待独立Review**；接受状态以registry中相同内容hash及独立Review为准。代码样例仍design-draft、未编译；实际C#/Rust/数据库故障与AOT验证尚未完成。
 - 输入：[R19](../research/topics/R19/report.md)、[R20](../research/topics/R20/report.md)、[R21](../research/topics/R21/report.md)；与[驱动规范](drivers.md)共享WeaveDataSource/DataSession命名。
+
+> 旧packet与Review仅为原版本历史溯源，不能接受本次新内容hash。
 
 ## 1. 设计决定
 
@@ -20,15 +22,13 @@ TX-D004：默认不自动重试业务写入或整个事务。可证明未发送�
 
 ## 2. 源码证据与 Rust 适配边界
 
-选定SeaORM2.0.4 `db40a19a7bde7be8e1c4b346b1b70d72e87f0245`，SQLx0.9 `75bc0487eb661da811bb7a3c5d158f1bd463fef4`。SeaORM `ConnectionTrait` 1–65允许Entity/ActiveModel查询针对自有执行器；`TransactionTrait` 167–249要求事务也实现ConnectionTrait和固定点事务类型。默认DatabaseConnection的PG/SQLite driver每次操作acquire，不能满足DataSession固定连接承诺；默认DatabaseTransaction内部连接私有、commit/rollback consumes self，Drop的try_lock/expect及SQLx start_rollback不是NativeWeave非阻塞FFI关闭协议。
+普通路径是预编译SeaQuery + SQLx Rust Engine；SQLx研究pin为v0.9.0 `75bc0487eb661da811bb7a3c5d158f1bd463fef4`。SeaORM固定源码保留为专用静态Entity profile证据，其trait/model编译耦合不是普通应用前置。
 
-因此选择Rust `SessionExecutor` 持有SQLx PoolConnection，实现SeaORM公开ConnectionTrait/StreamTrait和需要的TransactionTrait。B04给出driver trait，B02/B03实现SQLx参数/row转换，B05实现事务协调。公开From<PgRow/SqliteRow>及From<query result>、sea_query_sqlx::SqlxValues路径已读，支持这一设计的可行性分析，**尚未编译证明完整trait/lifetime/Send组合**；必须由B04/B05的最小真实adapter fixture关闭。底层TransactionManager在SQLx源码注明面向Connection实现，限制其使用于此适配层，固定版本升级复核；不暴露给C#或让应用直接调用。
-
-SeaORM ActiveModel/Entity/Relation与Rust SQL生成仍是真实ORM主链；该小适配层只补会话/事务所有权、期限、pool剔除和清理观测，不在C#重建ORM。普通model crate、host/driver/transaction crates静态链接到同一schema-specific native module，跨模块边界只有D02稳定C ABI，不传Rust trait/Arc/Model。
+Rust SessionExecutor持有物理connection lease；B04定义可注入driver接口，B02/B03执行，B05协调事务/cleanup。SeaQuery构建SQL，fallible binder传播参数编码错误。借用transaction/stream局限在拥有连接的native async任务，不transmute越过生命周期。新增普通C#实体是runtime metadata；不跨动态库传SQLx pool/trait object/allocator owner。真实编译、PG/SQLite故障与并发门禁仍须执行。
 
 SQLx PoolConnection::close保留池permit到关闭结束；close_on_drop只安排关闭，Drop可能spawn返池；返池执行after_release与ping并在失败时close_hard。PG TransactionManager通过命令与ReadyForQuery推进事务深度；commit调用后错误不证明未提交。SQLite worker将BEGIN成功但失去ack与COMMIT成功但失去ack区别处理；start_rollback/shutdown可同步等待bounded channel，不能进入SafeHandle ReleaseHandle或非阻塞control函数。详细固定文件/行段与真实reader身份在R20/R21 evidence。
 
-Npgsql v10.0.3的受控延迟reset、坏连接剔除、取消请求不等于终态保留为**对照证据**，不是新产品依赖。PostgreSQL18 [协议流](https://www.postgresql.org/docs/18/protocol-flow.html)定义Sync/ReadyForQuery边界。上游测试源码只读未执行；本轮没有Rust adapter、实库故障或AOT运行证据。
+Npgsql v10.0.3的受控延迟reset、坏连接剔除、取消请求不等于终态保留为**对照证据**，不是新产品依赖。PostgreSQL18 [协议流](https://www.postgresql.org/docs/18/protocol-flow.html)定义Sync/ReadyForQuery边界。上游测试源码只读未执行；本事务规范未取得生产adapter、PG故障及完整AOT证据；PR5有限Linux/SQLite查询原型不能替代这些验证。
 
 ## 3. 四个状态维度
 

@@ -37,3 +37,8 @@ python3 tools/validate_graphs.py
 ```
 
 具体参数以 Plan 工具帮助为准。该检查仅验证计划数据与证据门槛，不证明 NativeWeave 实现安全或平台兼容。研究模型与验证记录在各专题中单独标明。
+
+
+## Source-driven integration continuation
+
+Existing PR #5 continues the interrupted research. Read [ADR-0002](docs/decisions/ADR-0002-source-driven-native-integration.md), [SeaQuery](docs/research/topics/R25/source-driven-seaquery.md), [Server](docs/research/topics/R27/source-driven-server.md), [Engine integration](docs/extension/engine-integration.md), [precompiled build/maintenance](docs/platforms/build-package-release.md), and [impact/recovery](docs/traceability/source-driven-impact.md). The finite Linux SQLite AOT probe was recovered, not rerun or promoted to production. Database is mandatory Rust; supported ordinary entity changes reuse precompiled native assets. Lifecycle, transaction safety and independent review remain mandatory.

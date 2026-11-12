@@ -1,0 +1,43 @@
+{
+  "scope": "finite sequentially-consistent two-request admission abstraction",
+  "not_proven": [
+    "network implementation",
+    "native ABI",
+    "byte/RSS bounds",
+    "fairness/liveness",
+    "weak memory",
+    "Native AOT"
+  ],
+  "negative_control": {
+    "policy": "head_only",
+    "states": 45,
+    "transitions": 96,
+    "violation_count": 21,
+    "first_counterexample": {
+      "state": [
+        [
+          2,
+          true
+        ],
+        [
+          1,
+          true
+        ]
+      ],
+      "trace": [
+        "admit(request=0)",
+        "response_head(request=0)",
+        "admit(request=1)"
+      ]
+    },
+    "both_retired_reachable": true
+  },
+  "candidate": {
+    "policy": "body_and_callback",
+    "states": 24,
+    "transitions": 32,
+    "violation_count": 0,
+    "first_counterexample": null,
+    "both_retired_reachable": true
+  }
+}
