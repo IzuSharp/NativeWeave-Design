@@ -121,7 +121,8 @@
       ],
       "implementation_verification": "Rust DB and related Core interop/AOT remain required delivery evidence, not satisfied by this Python experiment",
       "selected_orm_reference": "SeaORM route from D14/D16; schema-specific generated Entity/ActiveModel/dispatcher plus common Rust DB code statically linked in one native module; new model build requires Rust toolchain locally or CI. R31 did not execute this implementation."
-    }
+    },
+    "bounded_http_cleanup": "D14/D15 DataSession.CloseAsync(deadline) permits Pending/Quarantined wait completion with Engine-held parent leases/roots/budgets; DisposeAsync success still joins true local safety. B21/B22 must test finite response waiting and no request-scope escape. Not validated by the SQLite prototype."
   },
   "execution": {
     "upstream_tests": "not_run",

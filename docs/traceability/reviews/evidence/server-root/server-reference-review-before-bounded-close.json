@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "NW-SERVER-REFERENCE-2026-11-12",
+  "reviewer": "/root",
+  "author": "/root/bootstrap_audit",
+  "review_kind": "independent scoped design/source/experiment review",
+  "reviewed_at": "2026-11-12T13:57:36.104559+00:00",
+  "verdict": "pass_for_design_documentation_scope",
+  "blocking_findings": [],
+  "reviewed_files": [
+    {
+      "path": "docs/server/hosting-and-streaming.md",
+      "sha256": "45ce40549a61ffba0f76586212aafb751f63572c6aeb8343d75603a234e9a3db"
+    },
+    {
+      "path": "docs/server/protocols-and-observability.md",
+      "sha256": "36fec912e6e9511fc28dddb03c06888f07c9c2286e761074c90ffdc09d24c6d9"
+    },
+    {
+      "path": "docs/verification/reference-application.md",
+      "sha256": "9e492a316792bad9ec79995c8572f8749cadb35b5b8e1297477dc53e86dfa7b8"
+    },
+    {
+      "path": "docs/research/topics/R26/coverage.json",
+      "sha256": "cf142929f96138761e4d36dcc8e65feca6b8431247448ba5a2a9eccb0f4c5be7"
+    },
+    {
+      "path": "docs/research/topics/R26/evidence.json",
+      "sha256": "91c2e3851d138ff43d0ee5b632e9a0715455780d440fb7509e44baa2735825fb"
+    },
+    {
+      "path": "docs/research/topics/R26/report.md",
+      "sha256": "b0d94647ec9ec84cff4667604026e3aa8aec2eac0935fb9e0a7f19721b5c8388"
+    },
+    {
+      "path": "docs/research/topics/R27/coverage.json",
+      "sha256": "17e2fa622cbdb961499c1277e6bc82b8fd2f420f5dcd6c28c2fe1a0cb541c906"
+    },
+    {
+      "path": "docs/research/topics/R27/evidence.json",
+      "sha256": "fb16e3a58c1a97fb06fc863fce892b6b9cf5951c08bb04471253198f53e3fe6a"
+    },
+    {
+      "path": "docs/research/topics/R27/report.md",
+      "sha256": "90d202684085e31ab9f8a673c75ef5af35a18f945ec8b7e91af25cdae17670d6"
+    },
+    {
+      "path": "docs/research/topics/R28/coverage.json",
+      "sha256": "1cfe15fcc808d15e0fbdc3a31f9f7a1e210a369d6e4924f748423af6a8e870d0"
+    },
+    {
+      "path": "docs/research/topics/R28/evidence.json",
+      "sha256": "0ed32ad3d1cdec8cc57b12fc8a6d4c89542bc442e251baa15b920194ce4b5b0a"
+    },
+    {
+      "path": "docs/research/topics/R28/report.md",
+      "sha256": "51c163dda1d0b60bfdd842a360861cdacb0fbdb7443de4ffba873ff6914afb27"
+    },
+    {
+      "path": "docs/research/topics/R29/coverage.json",
+      "sha256": "ce3c31f1cd26e4523104123f5955b691785ca56bff03ea2d4f4dd59efa674ba9"
+    },
+    {
+      "path": "docs/research/topics/R29/credit_model.py",
+      "sha256": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519"
+    },
+    {
+      "path": "docs/research/topics/R29/evidence.json",
+      "sha256": "01c963c84c227e0e51cc0578d8cbb910447aade48da1a61e245be03e30bbe690"
+    },
+    {
+      "path": "docs/research/topics/R29/experiment-result.json",
+      "sha256": "2b2a1c6cf9462501262a30434e41843623e496ac3a8b1ca58154c866069ed625"
+    },
+    {
+      "path": "docs/research/topics/R29/experiment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R29/report.md",
+      "sha256": "3890e5c32a79a6f27414e8d20c10267c7fe0ec2f718a9bc4c1db335cda536e7b"
+    },
+    {
+      "path": "docs/research/topics/R29/run-manifest.json",
+      "sha256": "722c4ea99bcc9aed1ae098d235076f243989a475a23c658a1ac67b01693e4b30"
+    },
+    {
+      "path": "docs/research/topics/R30/coverage.json",
+      "sha256": "98f4616e46dc20e0ef70222a298b2a4f19ed174a02b58d81027e834a3649c864"
+    },
+    {
+      "path": "docs/research/topics/R30/evidence.json",
+      "sha256": "dcbcf230ef6d7f5c61cb19ef1896908c6f75bc7cd4957edbb58d9b40538782e3"
+    },
+    {
+      "path": "docs/research/topics/R30/report.md",
+      "sha256": "50c893bf06a68043f32d4babfffcc13999da0bc08b10cb26f1b38350d2f8d13f"
+    },
+    {
+      "path": "docs/research/topics/R31/coverage.json",
+      "sha256": "d633f3a7435a82de8c5ce93d0f14ee53f4f31dcd3cb2dba2c51297319af8ffe1"
+    },
+    {
+      "path": "docs/research/topics/R31/evidence.json",
+      "sha256": "e80783645d9bea2501b137918a9d9a3bbeff3bbda2c534ddccd7ad314c758ad5"
+    },
+    {
+      "path": "docs/research/topics/R31/experiment-result.json",
+      "sha256": "f8229afeea1f3bf582d43ba4cfbbcfb6ebfdd9efbc4ba60bffc421e9024e27be"
+    },
+    {
+      "path": "docs/research/topics/R31/experiment.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R31/idempotency_experiment.py",
+      "sha256": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157"
+    },
+    {
+      "path": "docs/research/topics/R31/report.md",
+      "sha256": "0c9ce9fd1d997e760ba3282bf5acd7a2939fbb9c836c6a0f352778917c7e7b4e"
+    },
+    {
+      "path": "docs/research/topics/R31/run-manifest.json",
+      "sha256": "3d86e642e1910ef1310762bc6758b808feb6c33b68d5bc8a998ba04c95c14afb"
+    }
+  ],
+  "scope_read": [
+    "D18/D19/D20 complete specifications",
+    "R26-R31 reports and all 40 evidence claim records, exact pins, execution limits and raw-log hash checks",
+    "R29/R31 research scripts and independent actual replay recorded in evidence/server-root/replay.json"
+  ],
+  "source_spot_checks": [
+    {
+      "url": "https://github.com/grpc/grpc-dotnet/blob/a7767e28a2c2f4e89a17e9efb95f75e8a82637d0/src/Grpc.AspNetCore.Server/Internal/HttpContextStreamWriter.cs",
+      "blob_sha": "d69b8e7e6174ea49420a1b5d5ccd9e55d9ae3784",
+      "read_range": "60-130",
+      "status": "source_read_only_not_executed"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Infrastructure/TransportManager.cs",
+      "blob_sha": "8e2585e75d7474d7d8cf10d2e917bcf99fefdb66",
+      "read_range": "119-195",
+      "status": "source_read_only_not_executed"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/blob/4cbf42ef107763f0bc75c358af8cb2dfe47a769a/tests/ModelContextProtocol.AotCompatibility.TestApp/ModelContextProtocol.AotCompatibility.TestApp.csproj",
+      "blob_sha": "c4f737fdba8b04caffadb21d17a28ecb1c903619",
+      "read_range": "complete_file",
+      "status": "source_read_only_not_executed"
+    }
+  ],
+  "official_documentation_checked": [
+    {
+      "url": "https://www.postgresql.org/docs/18/transaction-iso.html",
+      "section": "Read Committed / concurrent ON CONFLICT DO NOTHING invisible row",
+      "scope": "independently read in this session; no PostgreSQL execution"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/18/sql-insert.html",
+      "section": "RETURNING / ON CONFLICT",
+      "scope": "independently read in this session; no PostgreSQL execution"
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+      "section": "per-request metadata, cancellation, version/method/name and legacy boundary",
+      "scope": "official page independently read; no conformance test execution"
+    }
+  ],
+  "assessments": [
+    "Kestrel-only Server package remains independent; every Database composition requires Rust ORM/driver/pool/transaction engine, C# syntax/DTO only. No product managed DB fallback.",
+    "SeaORM model Engine is one native module with generated static models; new schema requires controlled native build and source generators never invoke Cargo.",
+    "Credit precedes allocation, copy double-credit, waiter bounds, no-return-before-owner-release and shutdown/quiescence are explicit; finite model does not prove RSS or real scheduler liveness.",
+    "MCP 2026-07-28 and 2025-11-25 profiles are separated; annotated generic reflection is not mislabeled zero-reflection; upstream rooted net10 AOT fixture is not product net11 proof.",
+    "PG next-statement ReadCommitted snapshot requirement, Unknown semantics, protected idempotent recovery, outbox at-least-once and durable-blob-before-reference are explicit.",
+    "C#/Rust examples are uncompiled, Python SQLite response loss is simulated after real COMMIT, precommit process exit is real but not OS power loss."
+  ],
+  "independent_experiments": [
+    {
+      "task": "R29",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design/docs/research/topics/R29/credit_model.py"
+      ],
+      "started_at": "2026-11-12T13:38:22.027013+00:00",
+      "finished_at": "2026-11-12T13:38:22.119319+00:00",
+      "exit_code": 0,
+      "script_sha256": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519",
+      "stdout_sha256": "2b2a1c6cf9462501262a30434e41843623e496ac3a8b1ca58154c866069ed625",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "summary": {
+        "status": "passed",
+        "states": 282,
+        "transitions": 895,
+        "checks": 0,
+        "limitations": [
+          "Finite abstract logical-byte state space only",
+          "Not a memory allocator, RSS or runtime scheduling model",
+          "No Tokio or .NET execution; no AOT verification",
+          "Existence of finish path does not prove fairness/liveness under arbitrary stalls",
+          "Native-copy double-credit and callback retirement need separate product tests"
+        ]
+      }
+    },
+    {
+      "task": "R31",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design/docs/research/topics/R31/idempotency_experiment.py"
+      ],
+      "started_at": "2026-11-12T13:38:22.120061+00:00",
+      "finished_at": "2026-11-12T13:38:22.412878+00:00",
+      "exit_code": 0,
+      "script_sha256": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157",
+      "stdout_sha256": "f32d20583dc84f7c6b03256459612dcd0be4dc4de3d0db43302de6dc634481e7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "summary": {
+        "status": "passed",
+        "states": null,
+        "transitions": null,
+        "checks": 5,
+        "limitations": [
+          "Not NativeWeave product implementation",
+          "No C# or Rust execution",
+          "No Native AOT proof",
+          "No PostgreSQL concurrency execution",
+          "Response loss simulated after actual COMMIT, not a network proxy fault",
+          "Process exit is not OS power-loss/fsync hardware verification"
+        ]
+      }
+    }
+  ],
+  "remaining_verification": [
+    "B15-B24 real C#/Rust/Native AOT, both initial OS profiles, selected protocol conformance, PG faults, long-load and production release gates",
+    "Actual SeaORM generated model and custom Rust SessionExecutor feasibility/behavior is owned by D14-D17/B04/B05/B12, not verified by this server review.",
+    "Final cross-contract API/pin consistency will be rechecked after database author freezes corrected specs."
+  ],
+  "limitations": [
+    "AI subagent content independence; not a separate GitHub human approval.",
+    "Source spot checks cover the listed ranges only, not all upstream libraries.",
+    "This review accepts design scope only, never product implementation or production validation."
+  ]
+}

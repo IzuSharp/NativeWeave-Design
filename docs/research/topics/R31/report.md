@@ -25,6 +25,8 @@
 
 事务效果状态由数据库D15/`transactions-and-pooling.md`定义，公共名称与数据库作者对齐：WeaveDataSource→DataSession→DataTransaction；CommitAsync的requesttoken只影响发送前admission；入线后独立commitdeadline；Unknown异常保留RecoveryKey/CorrelationId，Dispose不改写Unknown。TransactionOptions.Isolation默认null，采用provider声明默认；PG为ReadCommitted，SQLite普通Serializable语义，BEGIN模式由SQLite profile选择，不能将RecoveryKey-only示例强迫为PG隔离级别。
 
+有界 HTTP 响应使用 D14/D15 的显式 `DataSession.CloseAsync(deadline)`：Session关闭新业务准入并请求/加入已有transaction/cursor清理，Pending/Quarantined时可以停止等待，但Engine保留全部parent lease、roots与预算，不能声明本地已释放或改写Unknown。后台仅既有终结/cleanup，不携带结束的HttpContext/请求DI scope或新增业务。`DisposeAsync`成功必须实际本地安全；native未静默时继续join，因此不能用await using表达有限HTTP等待。此接口细化是设计决定，本轮SQLite原型没有验证该C#/Rust关闭实现。
+
 ## 3. PostgreSQL官方语义与具体反例
 
 已读官方v18 [INSERT](https://www.postgresql.org/docs/18/sql-insert.html)与[TransactionIsolation](https://www.postgresql.org/docs/18/transaction-iso.html)§13.2.1。证据是版本化官方文档而非固定serverexecutable；本轮未运行PG。

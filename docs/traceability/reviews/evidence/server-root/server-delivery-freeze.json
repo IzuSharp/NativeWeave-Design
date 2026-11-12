@@ -6,7 +6,7 @@
   "files": {
     "docs/server/hosting-and-streaming.md": "45ce40549a61ffba0f76586212aafb751f63572c6aeb8343d75603a234e9a3db",
     "docs/server/protocols-and-observability.md": "36fec912e6e9511fc28dddb03c06888f07c9c2286e761074c90ffdc09d24c6d9",
-    "docs/verification/reference-application.md": "9e492a316792bad9ec79995c8572f8749cadb35b5b8e1297477dc53e86dfa7b8",
+    "docs/verification/reference-application.md": "31f3386b4ce32face65c2df91f868cfbbfd1b6399b5c95c23837d5432282d77d",
     "docs/research/topics/R26/coverage.json": "cf142929f96138761e4d36dcc8e65feca6b8431247448ba5a2a9eccb0f4c5be7",
     "docs/research/topics/R26/evidence.json": "91c2e3851d138ff43d0ee5b632e9a0715455780d440fb7509e44baa2735825fb",
     "docs/research/topics/R26/report.md": "b0d94647ec9ec84cff4667604026e3aa8aec2eac0935fb9e0a7f19721b5c8388",
@@ -27,11 +27,11 @@
     "docs/research/topics/R30/evidence.json": "dcbcf230ef6d7f5c61cb19ef1896908c6f75bc7cd4957edbb58d9b40538782e3",
     "docs/research/topics/R30/report.md": "50c893bf06a68043f32d4babfffcc13999da0bc08b10cb26f1b38350d2f8d13f",
     "docs/research/topics/R31/coverage.json": "d633f3a7435a82de8c5ce93d0f14ee53f4f31dcd3cb2dba2c51297319af8ffe1",
-    "docs/research/topics/R31/evidence.json": "e80783645d9bea2501b137918a9d9a3bbeff3bbda2c534ddccd7ad314c758ad5",
+    "docs/research/topics/R31/evidence.json": "667158eb032937dc2d7a76b6e309467ee47791fd2c00daa39eb9fac2c361c4e2",
     "docs/research/topics/R31/experiment-result.json": "f8229afeea1f3bf582d43ba4cfbbcfb6ebfdd9efbc4ba60bffc421e9024e27be",
     "docs/research/topics/R31/experiment.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "docs/research/topics/R31/idempotency_experiment.py": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157",
-    "docs/research/topics/R31/report.md": "0c9ce9fd1d997e760ba3282bf5acd7a2939fbb9c836c6a0f352778917c7e7b4e",
+    "docs/research/topics/R31/report.md": "0a49dbdf31b83fae2156ec9ce4fd2abc76d9b3d8164872ecd2332e606d7952c0",
     "docs/research/topics/R31/run-manifest.json": "3d86e642e1910ef1310762bc6758b808feb6c33b68d5bc8a998ba04c95c14afb"
   },
   "review_corrections": [
@@ -53,5 +53,26 @@
   ],
   "independent_review": "Author does not claim independent review of these files; root is reviewing.",
   "experiment_hash_pairs_verified": 8,
-  "scope_update": "User-required Rust Database + SeaORM: C# syntax/IR/DTO only; mandatory Rust query/ORM/driver/pool/transaction, schema-specific single-module Engine; historical managed default superseded; independent server-only managed path retained."
+  "scope_update": "User-required Rust Database + SeaORM: C# syntax/IR/DTO only; mandatory Rust query/ORM/driver/pool/transaction, schema-specific single-module Engine; historical managed default superseded; independent server-only managed path retained.",
+  "latest_delta": {
+    "reason": "Cross-contract D14/D15 bounded CloseAsync versus joining DisposeAsync, preserving Rust ownership and Commit Unknown",
+    "changed_files": [
+      {
+        "path": "docs/verification/reference-application.md",
+        "old_sha256": "9e492a316792bad9ec79995c8572f8749cadb35b5b8e1297477dc53e86dfa7b8",
+        "new_sha256": "31f3386b4ce32face65c2df91f868cfbbfd1b6399b5c95c23837d5432282d77d"
+      },
+      {
+        "path": "docs/research/topics/R31/evidence.json",
+        "old_sha256": "e80783645d9bea2501b137918a9d9a3bbeff3bbda2c534ddccd7ad314c758ad5",
+        "new_sha256": "667158eb032937dc2d7a76b6e309467ee47791fd2c00daa39eb9fac2c361c4e2"
+      },
+      {
+        "path": "docs/research/topics/R31/report.md",
+        "old_sha256": "0c9ce9fd1d997e760ba3282bf5acd7a2939fbb9c836c6a0f352778917c7e7b4e",
+        "new_sha256": "0a49dbdf31b83fae2156ec9ce4fd2abc76d9b3d8164872ecd2332e606d7952c0"
+      }
+    ],
+    "independent_review": "Root spot-review of new bytes required; prior Server review remains historical for preceding hashes."
+  }
 }

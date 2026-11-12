@@ -4,7 +4,7 @@
   "reviewer": "/root",
   "author": "/root/bootstrap_audit",
   "review_kind": "independent scoped design/source/experiment review",
-  "reviewed_at": "2026-11-12T13:57:36.104559+00:00",
+  "reviewed_at": "2026-11-12T14:07:16.961147+00:00",
   "verdict": "pass_for_design_documentation_scope",
   "blocking_findings": [],
   "reviewed_files": [
@@ -18,7 +18,7 @@
     },
     {
       "path": "docs/verification/reference-application.md",
-      "sha256": "9e492a316792bad9ec79995c8572f8749cadb35b5b8e1297477dc53e86dfa7b8"
+      "sha256": "31f3386b4ce32face65c2df91f868cfbbfd1b6399b5c95c23837d5432282d77d"
     },
     {
       "path": "docs/research/topics/R26/coverage.json",
@@ -102,7 +102,7 @@
     },
     {
       "path": "docs/research/topics/R31/evidence.json",
-      "sha256": "e80783645d9bea2501b137918a9d9a3bbeff3bbda2c534ddccd7ad314c758ad5"
+      "sha256": "667158eb032937dc2d7a76b6e309467ee47791fd2c00daa39eb9fac2c361c4e2"
     },
     {
       "path": "docs/research/topics/R31/experiment-result.json",
@@ -118,7 +118,7 @@
     },
     {
       "path": "docs/research/topics/R31/report.md",
-      "sha256": "0c9ce9fd1d997e760ba3282bf5acd7a2939fbb9c836c6a0f352778917c7e7b4e"
+      "sha256": "0a49dbdf31b83fae2156ec9ce4fd2abc76d9b3d8164872ecd2332e606d7952c0"
     },
     {
       "path": "docs/research/topics/R31/run-manifest.json",
@@ -128,7 +128,8 @@
   "scope_read": [
     "D18/D19/D20 complete specifications",
     "R26-R31 reports and all 40 evidence claim records, exact pins, execution limits and raw-log hash checks",
-    "R29/R31 research scripts and independent actual replay recorded in evidence/server-root/replay.json"
+    "R29/R31 research scripts and independent actual replay recorded in evidence/server-root/replay.json",
+    "Final D20 section 4/8 and R31 CloseAsync delta reread; D14-D17 fixed Rust ORM APIs crosschecked, especially D15 bounded CloseAsync versus joining DisposeAsync."
   ],
   "source_spot_checks": [
     {
@@ -173,7 +174,8 @@
     "Credit precedes allocation, copy double-credit, waiter bounds, no-return-before-owner-release and shutdown/quiescence are explicit; finite model does not prove RSS or real scheduler liveness.",
     "MCP 2026-07-28 and 2025-11-25 profiles are separated; annotated generic reflection is not mislabeled zero-reflection; upstream rooted net10 AOT fixture is not product net11 proof.",
     "PG next-statement ReadCommitted snapshot requirement, Unknown semantics, protected idempotent recovery, outbox at-least-once and durable-blob-before-reference are explicit.",
-    "C#/Rust examples are uncompiled, Python SQLite response loss is simulated after real COMMIT, precommit process exit is real but not OS power loss."
+    "C#/Rust examples are uncompiled, Python SQLite response loss is simulated after real COMMIT, precommit process exit is real but not OS power loss.",
+    "Explicit DataSession.CloseAsync(deadline) releases HTTP waiting only; Pending retains parent leases/roots/budget, preserves Unknown, does not capture request scope or introduce extra await-using join. Actual C#/Rust behavior is B21/B22 verification, not proved by SQLite prototype."
   ],
   "independent_experiments": [
     {
@@ -232,12 +234,15 @@
   ],
   "remaining_verification": [
     "B15-B24 real C#/Rust/Native AOT, both initial OS profiles, selected protocol conformance, PG faults, long-load and production release gates",
-    "Actual SeaORM generated model and custom Rust SessionExecutor feasibility/behavior is owned by D14-D17/B04/B05/B12, not verified by this server review.",
-    "Final cross-contract API/pin consistency will be rechecked after database author freezes corrected specs."
+    "Actual SeaORM generated model and custom Rust SessionExecutor trait/lifetime/Send fixed-point feasibility is B04/B05/B11/B12 actual compilation and execution; only source-supported design is reviewed."
   ],
   "limitations": [
     "AI subagent content independence; not a separate GitHub human approval.",
     "Source spot checks cover the listed ranges only, not all upstream libraries.",
     "This review accepts design scope only, never product implementation or production validation."
-  ]
+  ],
+  "freeze": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/evidence/server-root/server-delivery-freeze.json",
+    "sha256": "5a569486940202e079407e6caab90af3315af1ab842a7afc13b489bb7ea54b5e"
+  }
 }

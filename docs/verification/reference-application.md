@@ -78,25 +78,36 @@ Retention参考值为7天，客户端契约明确保证窗口；超窗重复提�
 
 ```csharp
 // 设计草案，尚未编译；ExecuteCreateAsync编码typed IR，Rust ORM生成并执行参数化SQL。
-await using var session = await dataSource.OpenSessionAsync(requestAborted);
-await using var tx = await session.BeginTransactionAsync(
-    new TransactionOptions { RecoveryKey = operationId }, requestAborted);
-var result = await ExecuteCreateAsync(session, tx, command, requestAborted);
+// 返回已拥有的managed DTO；cleanupDeadline为事先配置的monotonic关闭期限。
+var session = await dataSource.OpenSessionAsync(requestAborted);
 try
 {
-    // token只决定COMMIT发送前的admission；入线后等待独立commit deadline。
-    await tx.CommitAsync(requestAborted);
-    return result;
+    var tx = await session.BeginTransactionAsync(
+        new TransactionOptions { RecoveryKey = operationId }, requestAborted);
+    var result = await ExecuteCreateAsync(session, tx, command, requestAborted);
+    try
+    {
+        // token只决定COMMIT发送前的admission；入线后等待独立commit deadline。
+        await tx.CommitAsync(requestAborted);
+        return result;
+    }
+    catch (CommitOutcomeUnknownException error)
+    {
+        return CreateOutcomeUnknown(operationId, command.IdempotencyKey,
+            error.CorrelationId);
+    }
 }
-catch (CommitOutcomeUnknownException error)
+finally
 {
-    // Dispose只清理本地资源，不能把Unknown改写成RolledBack。
-    return CreateOutcomeUnknown(operationId, command.IdempotencyKey,
-        error.CorrelationId);
+    // Session关闭准入并收拢已有tx/cursor；Pending时Engine继续持有所有lease/root/预算。
+    CleanupResult cleanup = await session.CloseAsync(cleanupDeadline);
+    RecordCleanupSnapshotNoThrow(cleanup); // 有界、非阻塞、不得覆盖业务/CommitUnknown结果。
 }
 ```
 
 `TransactionOptions.RecoveryKey` 是应用提供的opaque string，不触发框架自动建幂等表。`tx.Outcome` 在Dispose后仍可读；`InProgress/Committed/RolledBack/Unknown` 与协议响应状态区分。HTTP/gRPC/MCP请求取消不抢先覆盖COMMIT已入线后的Unknown结果。提交前明确未发出的取消，可回滚并向调用者报告取消；提交入线且未收到最终确认，只能报告Unknown。
+
+参考 HTTP profile 采用上述显式有限等待关闭。`DataSession.CloseAsync(deadline)` 关闭新业务准入，并请求/加入已有 transaction/cursor 的终结与清理；返回 `CleanupResult(Status=Pending, ConnectionDisposition=Quarantined, LocalResourcesReleased=false)` 时可以结束响应等待，但不能声称资源已经释放。Engine/Session 的 native parent leases、managed roots 与预算继续保留，后台只完成已经准入的业务终态与 cleanup，不新开业务，不持有已结束的 `HttpContext` 或请求 DI scope。后续 `DisposeAsync` join 同一清理任务，不重新 rollback。需要确认本地安全的调用者可选择 `await using` / `DisposeAsync`；该 joining profile 在 native 不静默时不会因 deadline 假成功，因而不能用于承诺有限 HTTP 响应时间。本例不能在 `CloseAsync` 返回 Pending 后又隐式执行一个 `await using` join。DataSource 的有限关闭同样只有全子项 retire 后才允许实际销毁 runtime。
 
 若HTTP连接尚可用，Unknown返回503、稳定错误码 `outcome_unknown`、operation_id和同scope授权的恢复URI，附有界重试提示；不返回“创建成功”，也不返回暗示任务已可靠入队的202。连接已断则客户端可能只知道原Idempotency-Key，仍可用相同key/hash重新请求。恢复先查询确认记录；未查到不证明原操作未提交，也不直接重放无保护写。相同key/hash走上述唯一键保护事务，原事务若仍在进行则由数据库唯一约束等待/裁定；最终只有一个业务效果。任何hash不一致立即拒绝。
 
@@ -146,7 +157,7 @@ Server profile沿用D18：256活动request、128 metadata waiter、应用stream 
 | DB故障 | 连接断开于BEGIN/写/COMMIT发送前/发送后/确认丢失；PG重启、SQLite busy/磁盘满、pool reset失败；结果必须Confirmed/RolledBack/Unknown准确 |
 | HTTP/协议 | 慢上传/下载、body超限、header已提交后错误、HTTP1半关闭/HTTP2reset、gRPCdecompression、MCP profile mismatch、SSE取消 |
 | 资源 | 等待者满、managed/native byte cap、复制双份存活、pool等待、附件磁盘配额、exporter阻塞；无无界队列或最终泄漏 |
-| 生命周期 | 启动部分失败、drain deadline、callback与Dispose竞争、COMMIT中宿主停止、outbox发布后崩溃、附件rename与DBcommit间崩溃 |
+| 生命周期 | 启动部分失败、drain deadline、callback与Dispose竞争、COMMIT中宿主停止；CloseAsync Pending可结束响应等待但owner/预算仍保留，DisposeAsync只有本地安全才成功；outbox发布后崩溃、附件rename与DBcommit间崩溃 |
 | AOT/平台 | net11 Windows/Linux 实际发布二进制；每个 DB profile 都加载必需的 Rust DB Engine，检查 ABI/版本拒绝、native 依赖、实例关闭与干净机器启动；可选 Rust Server 独立加入矩阵；native 模块保持至进程退出，不热卸载；无 native 加载仅是独立无 DB Server 包的验收项 |
 | 安全 | tenant隔离、query injection、scope伪造、trace污染、超大压缩/JSON、认证遗漏、敏感日志/堆转储处理策略 |
 | 长跑 | 初始30min稳态、24h回归、release72h soak；负载波动/连接 churn/取消与故障；资源返回稳定平台且无随请求数线性增长 |
