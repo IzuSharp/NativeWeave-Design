@@ -133,5 +133,39 @@
 
 至此 DR-001 至 DR-005 的 bootstrap 文本歧义均已关闭。关闭仅说明候选文档准确划清义务；事务恢复、连接回收、异步静默与 AOT 产品技术契约仍未被接受，具体实现和真实验证仍需按照对应研究/文档/交付任务完成。
 
+## DP-004：自包含任务的 bootstrap 分支入口修复复核
+
+- 日期：2026-11-12。
+- 作者：`/root/parallel_plan`。
+- 独立复核者：`/root/domain_research`。
+- 原问题：默认分支尚无启动包时，自包含提示词未指定真实研究分支，新的会话可能从仅有初始化文件的 main 开始，无法定位输入。
+- 范围：只复核入口文本、任务版本引用、packet 字节哈希及状态未提升；没有扩展源码或架构研究，也没有核验此次修订是否已经同步远端。
+- disposition：**closed_bootstrap_plan（本地交付版本）**；远端同步及分支/PR实际结果由主协调者记录。
+
+### 实际检查结果
+
+已逐一读取 **114 份**提示词/packet，并核对三图所有节点：
+
+1. 每份均包含 Design 和 Plan 两仓库的 `research/bootstrap-2026-11-12` 分支入口与各自 Draft PR #1 链接。
+2. 每份要求分别解析并记录 `design_commit`、`plan_commit` 的当前完整 SHA，再从固定快照读取；明确两个仓库不能假定相同 SHA 或原子更新。
+3. 每份要求核对 Task ID、revision、正文实际字节的 `packet_sha256`，不允许直接改 hash 掩盖不一致；写入分支从相应已记录快照建立。
+4. 114 个节点的任务版本均为 `0.1.1`，正文版本一致；114 个实际文件哈希全部匹配图记录。
+5. dependency pins、条件依赖版本及发布 scope 组件版本与对应任务 revision 一致。
+6. 状态保持为 34 个研究 `planned`、32 个文档 `draft_ready`、48 个产品交付 `planned_candidate`；48 个交付节点仍 `not_authorized` 且无验收证据。
+7. 21 个技术契约仍为 `0.1.0-draft` / `proposed`，没有因入口修复升级为 accepted。
+
+限定检查结果：**0 个入口/哈希/版本/状态一致性错误**。
+
+### 复核图快照
+
+| 图 | SHA-256 |
+| --- | --- |
+| research-graph.json | `5aa0143bb1b386b0b05c0a004af23fc7336bf26b21daa8ad4264a7a376fedb2c` |
+| documentation-graph.json | `d7584042f2bee3544a234d48af1542f285ba9b21aab83807c562305b9ded4881` |
+| delivery-graph.json | `60e4cc3c1ded31280f13e7f25052fc7d7dfba228f88d09d70e17e807f6965d96` |
+
+本次关闭的是新会话定位启动输入的缺口，不是技术契约接受、实现授权或产品验收。
+
+
 
 

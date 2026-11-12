@@ -6,6 +6,8 @@
 
 Design 包含需求章程、28条需求映射、源码目录、固定版本的初步研究、候选边界、21项 proposed 契约登记、验证义务、模板、有限模型及审查记录。Plan 包含34个Research任务、32个Documentation任务、48个Delivery候选任务，以及三张独立图和114份可独立使用的任务说明。
 
+首次Draft PR发布后，任务说明统一修订至0.1.1，补齐未合并阶段的输入定位。契约版本仍为0.1.0-draft，所有研究/文档/产品状态及路线选择保持不变。
+
 ArcForges Design/Plan仅作为格式和组织参考。本启动包的内容、依赖、研究义务及验收机制来自本次NativeWeave目标；没有将ArcForges技术选择或执行规则作为继承依据。
 
 ## 2. 实际独立审查
@@ -13,7 +15,7 @@ ArcForges Design/Plan仅作为格式和组织参考。本启动包的内容、�
 | 审查记录 | 作者关系与范围 | 当前处置 |
 | --- | --- | --- |
 | [toolchain-review.md](reviews/toolchain-review.md) | toolchain_verification审查root候选设计、证据政策和模型，并以合成夹具审查parallel_plan的三图/门禁；其自编工具链报告不算独立接受 | RV-TC-001～009已完成所述范围的修复与对应复查 |
-| [domain-review.md](reviews/domain-review.md) | domain_research审查root候选领域边界及Plan的局部领域依赖；不将自己的领域报告当作独立接受 | DR-001～005文本歧义及DP-001～003局部计划依赖已关闭；具体历史和复查hash保留 |
+| [domain-review.md](reviews/domain-review.md) | domain_research审查root候选领域边界及Plan的局部领域依赖；不将自己的领域报告当作独立接受 | DR-001～005文本歧义及DP-001～004局部计划依赖/启动入口已关闭；具体历史和复查hash保留 |
 
 最终候选边界内容SHA256为`432fa9cb1863485e928b6a5dc5ecf3752afa5465cbf9b4c519b3247216122264`。toolchain审查快照先于最后的DR-003精确定义补充；domain审查已对该增量实际复核。旧审查快照没有被重写成新文件的审查记录。
 
@@ -33,7 +35,7 @@ ArcForges Design/Plan仅作为格式和组织参考。本启动包的内容、�
 | Plan图与门禁 | 114节点；0结构错误；无已发现依赖环、独占写范围冲突；Research ready 34、Documentation ready 32、Delivery ready 0；accepted contracts 0 | Plan:verification/graph-validation.json；整合者使用最终文件重新运行 |
 | 作者错误注入 | 14项均达到预期；错误输入使ready集合为空 | Plan:verification/mutation-checks.json；整合者重新运行 |
 | Schema | 两份Schema自检和三图Draft2020-12校验通过 | Plan:verification/schema-validation.json；parallel_plan实际执行记录 |
-| 整合文件一致性 | 28条需求覆盖全部114个节点且无未知ID；22份JSON可解析；175个本地Markdown链接目标均存在 | 整合者对两个最终目录实际检查；不包含远端网页可用性或链接锚点验证 |
+| 整合文件一致性 | 28条需求覆盖全部114个节点且无未知ID；22份JSON可解析；177个本地Markdown链接目标均存在 | 整合者对两个最终目录实际检查；不包含远端网页可用性或链接锚点验证 |
 | 独立门禁反例 | 缺规范、错hash、旧review、自审、空身份、越界输出、任务正文改变及依赖变化等按预期拒绝 | [原始结构检查](reviews/evidence/nativeweave-independent-validator-review.json)、[最终复查](reviews/evidence/nativeweave-validator-final-followup.json) |
 | 独立运行证据检查 | 修正日志格式夹具后的13组正负控制均符合预期 | [follow-up原始结果](reviews/evidence/nativeweave-independent-evidence-followup.json)；为合成数据，不是实际AOT运行 |
 | 有限异步状态模型 | 负控制找到释放后访问；候选在159个探索状态内无所检查的违反，9个已回收状态 | [模型及作者结果](../../experiments/async-quiescence/README.md)、[独立复跑结果](reviews/evidence/async-quiescence-independent-review.json) |
@@ -55,4 +57,6 @@ ArcForges Design/Plan仅作为格式和组织参考。本启动包的内容、�
 Design和Plan分别使用`research/bootstrap-2026-11-12`分支及Draft PR承载本批内容。通过Git树以上游main为父提交保留现有LICENSE；仅增加本批文件。产品仓库不在本批写入范围内。主分支、仓库权限及保护规则不在本批修改范围。
 
 后续worker使用自己的task分支和Draft PR；整合者处理共享图、registry及根索引。开始草稿与接受规范分别判断，不设置“所有研究结束”或“阶段A全部完成”这一普遍前置条件。最新远端提交与PR状态以实际GitHub记录为准。
+
+整合者在首次Draft发布后发现：默认main尚未包含启动文件，自包含提示词需要明确输入入口。全部114份任务说明及README、任务索引、独立Review入口现已补充两文档仓库的研究分支和PR位置，要求开始时分别解析、记录完整commit SHA，核对graph revision与packet hash，再从各自快照创建任务分支。分支仅用于导航，不替代不可变证据；两仓库不被假定原子更新。同步更新全部任务revision、依赖版本和packet hash，并重新执行图与Schema检查。该限定补充的独立复查见domain-review中的DP-004，历史审查快照保留。
 
