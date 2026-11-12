@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R23",
+  "recorded_at": "2026-11-12",
+  "baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+  },
+  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "paths": [
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/Query/Internal/QueryCompiler.cs",
+      "blob_sha": "7d59e4786702c632ff72f781ae88104c271265f2",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          60,
+          115
+        ],
+        [
+          134,
+          156
+        ]
+      ],
+      "purpose": "ExecuteCore / CompileQueryCore",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/DapperLib/DapperAOT",
+      "commit": "0e071bf05e54caecfa98c885b075fa3e247f3ecc",
+      "path": "src/Dapper.AOT.Analyzers/CodeAnalysis/DapperInterceptorGenerator.cs",
+      "blob_sha": "8dc3687a187479c625ac6e8fc9efa1d6bdbe66d1",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          53,
+          74
+        ],
+        [
+          207,
+          236
+        ],
+        [
+          515,
+          543
+        ]
+      ],
+      "purpose": "Initialize / operation classification / skip branches",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/DapperLib/DapperAOT",
+      "commit": "0e071bf05e54caecfa98c885b075fa3e247f3ecc",
+      "path": "src/Dapper.AOT/Internal/AsyncQueryState.cs",
+      "blob_sha": "bbfe5a9f3af58cd1713c2441f022d12d2f42f97e",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          15,
+          54
+        ],
+        [
+          76,
+          116
+        ]
+      ],
+      "purpose": "ExecuteReaderAsync / DisposeAsync",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/DapperLib/DapperAOT",
+      "commit": "0e071bf05e54caecfa98c885b075fa3e247f3ecc",
+      "path": "License.txt",
+      "blob_sha": "1bf70a6d24e2e8a41948ec17045359d64ad8fb1f",
+      "read_state": "read_complete",
+      "line_ranges": [
+        [
+          1,
+          10
+        ]
+      ],
+      "purpose": "license notice",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore.Design/Query/Internal/PrecompiledQueryCodeGenerator.cs",
+      "blob_sha": "d291e0a6bb26bcdaaa59135ee0f671770a1b2307",
+      "read_state": "directory_only",
+      "line_ranges": [],
+      "purpose": "未读完整EF预编译生成，不据局部QueryCompiler评判全部能力",
+      "limitation": "已在固定tree确认路径，内容未读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "b907b90240f9f22873227aa510794dd280d61f57",
+      "path": "docs/features/incremental-generators.cookbook.md",
+      "read_state": "cross_task_reference_only",
+      "purpose": "R06 generator约束",
+      "limitation": "本专题作者未独立复读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/base_entity.rs",
+      "blob_sha": "abcd7cf5c9ecc870bc95a99bd542b7b75a192a9f",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          65,
+          135
+        ]
+      ],
+      "purpose": "Static entity associated types",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "sea-orm-codegen/src/entity/writer/compact.rs",
+      "blob_sha": "c6aa085d68f241659f6c4709065d945460d5d08c",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          159
+        ]
+      ],
+      "purpose": "Real static entity/relation generation",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "sea-orm-codegen/tests/compact/fruit.rs",
+      "blob_sha": "4898a0f8910e4c0c5f65e3c2a0010605704a4f51",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "purpose": "Generated entity/relation fixture not executed",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    }
+  ],
+  "other_candidates_not_read": [],
+  "decision_revision": "rust-orm-required-2026-11-12",
+  "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+  "not_executed": [
+    "NativeWeave generated SeaORM model build",
+    "SQLx PG/SQLite target execution",
+    "C# Native AOT calling Rust ORM"
+  ],
+  "remaining_source_work": [
+    "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R22",
+  "recorded_at": "2026-11-12",
+  "baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+  },
+  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "paths": [
+    {
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/Internal/Converters/Temporal/PgTimestamp.cs",
+      "blob_sha": "6a44ccbdc9e282c6baa778e6a2249e4fb9718275",
+      "read_state": "read_complete",
+      "line_ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "purpose": "Encode / Decode",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/Internal/Converters/Temporal/DateTimeConverterResolver.cs",
+      "blob_sha": "6ae5a783a1eeb901ae5dc43e56ab31f2cba395e8",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          120
+        ]
+      ],
+      "purpose": "Get / CreateResolver",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/Internal/Converters/Primitive/GuidUuidConverter.cs",
+      "blob_sha": "18e6b0edc52010af3f4fecc4c5f1195c29ce7042",
+      "read_state": "read_complete",
+      "line_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "purpose": "ReadCore / WriteCore",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "test/Npgsql.Tests/Types/DateTimeTests.cs",
+      "blob_sha": "f62a832ff30003b15d1d587907f1023a89f02143",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          245,
+          281
+        ]
+      ],
+      "purpose": "Timestamptz_as_DateTime / Timestamptz_cannot_write_non_utc_DateTime",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/NpgsqlDataReader.cs",
+      "blob_sha": "55753dc7f6c7500fe61fbf23e913a61e84fa287c",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          238,
+          259
+        ],
+        [
+          357,
+          378
+        ],
+        [
+          500,
+          521
+        ],
+        [
+          593,
+          614
+        ],
+        [
+          952,
+          973
+        ],
+        [
+          1033,
+          1054
+        ],
+        [
+          1077,
+          1227
+        ]
+      ],
+      "purpose": "Close / Cleanup",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/DapperLib/DapperAOT",
+      "commit": "0e071bf05e54caecfa98c885b075fa3e247f3ecc",
+      "path": "src/Dapper.AOT/Internal/AsyncQueryState.cs",
+      "blob_sha": "bbfe5a9f3af58cd1713c2441f022d12d2f42f97e",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          15,
+          54
+        ],
+        [
+          76,
+          116
+        ]
+      ],
+      "purpose": "ReadAsync / DisposeAsync",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/NpgsqlDataSourceBuilder.cs",
+      "blob_sha": "bc4b65d7f6bd236754f9b34165c053b3d40698ef",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          140,
+          225
+        ]
+      ],
+      "purpose": "EnableDynamicJson",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/Internal/Converters/Primitive/NumericConverters.cs",
+      "blob_sha": "79a82a1bfab698fe43f48cb3edf1f15fa6eb6e25",
+      "read_state": "directory_only",
+      "line_ranges": [],
+      "purpose": "decimal完整codec及测试未读；本轮只限定设计与SQLite反例",
+      "limitation": "已在固定tree确认路径，内容未读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore.Relational/Migrations/Internal/Migrator.cs",
+      "blob_sha": "bff9059356cca37e74928a3425a959df73a3724c",
+      "read_state": "directory_only",
+      "line_ranges": [],
+      "purpose": "完整migration恢复实现未读；B08须补真实事务与非事务DDL证据",
+      "limitation": "已在固定tree确认路径，内容未读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/executor/select.rs",
+      "blob_sha": "bb44d5a8769af628ad928a2ff6de42568ba10566",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          266,
+          324
+        ],
+        [
+          869,
+          925
+        ]
+      ],
+      "purpose": "Projection and stream mapping",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/driver/sqlx_postgres.rs",
+      "blob_sha": "938a59edebf9ebd341ed2cafd1cd1aa318a334b5",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          180,
+          275
+        ],
+        [
+          828,
+          898
+        ],
+        [
+          328,
+          354
+        ]
+      ],
+      "purpose": "Public DB row/result conversion",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/driver/sqlx_sqlite.rs",
+      "blob_sha": "0df465c977b6ed46200d59022ea29ba9cb506caf",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          155,
+          254
+        ],
+        [
+          311,
+          337
+        ]
+      ],
+      "purpose": "Public DB row/result conversion",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/types/uuid.rs",
+      "blob_sha": "a7e5d64c8d33afe28f83de640a968b12d3fa3644",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "purpose": "PG UUID encode/decode",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/types/uuid.rs",
+      "blob_sha": "718ca5fb5d213533a622ec284ea39105105cd2ee",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          86
+        ]
+      ],
+      "purpose": "SQLite UUID BLOB encode/decode",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/types/chrono/datetime.rs",
+      "blob_sha": "77f900d42afa9e824645083bfff4a823f16417f1",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          112
+        ]
+      ],
+      "purpose": "PG microseconds/UTC encode and decode range risk",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    }
+  ],
+  "other_candidates_not_read": [],
+  "decision_revision": "rust-orm-required-2026-11-12",
+  "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+  "not_executed": [
+    "NativeWeave generated SeaORM model build",
+    "SQLx PG/SQLite target execution",
+    "C# Native AOT calling Rust ORM"
+  ],
+  "remaining_source_work": [
+    "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
+  ]
+}

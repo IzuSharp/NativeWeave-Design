@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R24",
+  "recorded_at": "2026-11-12",
+  "baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+  },
+  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "paths": [
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore.Relational/Query/SqlNullabilityProcessor.cs",
+      "blob_sha": "b87a0fa402e0fb9753d32811af8d754e2ab1ae77",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          38,
+          79
+        ],
+        [
+          728,
+          751
+        ],
+        [
+          856,
+          879
+        ],
+        [
+          1118,
+          1141
+        ],
+        [
+          1398,
+          1421
+        ],
+        [
+          1875,
+          2015
+        ]
+      ],
+      "purpose": "RewriteNullSemantics / IN processing",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "test/EFCore.Relational.Specification.Tests/Query/NullSemanticsQueryTestBase.cs",
+      "blob_sha": "2dca76fc835e54043fff6fbe459595319d08a7c8",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1628,
+          1656
+        ],
+        [
+          2081,
+          2113
+        ]
+      ],
+      "purpose": "negated nullable comparison / Contains tests",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/prepare.rs",
+      "blob_sha": "a13bd7cabd9aeba166740f8aa25b992fa6c2f243",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          196
+        ]
+      ],
+      "purpose": "SqlWriterValues / inject_parameters",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/traits.rs",
+      "blob_sha": "7527dab633c156e6918bc4404b7d98b923760452",
+      "read_state": "read_complete",
+      "line_ranges": [
+        [
+          1,
+          131
+        ]
+      ],
+      "purpose": "QueryStatementBuilder::build / to_string",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/backend/query_builder.rs",
+      "blob_sha": "b51b6569ce98c6505d58c2263d4798125547258d",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          678,
+          701
+        ],
+        [
+          715,
+          738
+        ],
+        [
+          825,
+          848
+        ],
+        [
+          1070,
+          1101
+        ],
+        [
+          1108,
+          1131
+        ],
+        [
+          1909,
+          1932
+        ]
+      ],
+      "purpose": "prepare_value / prepare_bin_oper / query conditions",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/backend/sqlite/query.rs",
+      "blob_sha": "0e545675d46eef578331e2a295fe5731a4c0645f",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          21,
+          47
+        ],
+        [
+          65,
+          86
+        ]
+      ],
+      "purpose": "prepare_search_clause / prepare_cycle_clause / prepare_value",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "tests/postgres/query.rs",
+      "blob_sha": "9bdf8fc8f23fc3c3bc42eff603f0dc2368539d86",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          5,
+          48
+        ],
+        [
+          166,
+          184
+        ]
+      ],
+      "purpose": "SELECT/JOIN string tests",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "LICENSE-MIT",
+      "blob_sha": "14bf0d7d5d86d4e75f6590a6d93d5bb396710b7a",
+      "read_state": "read_complete",
+      "line_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "purpose": "license notice",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "LICENSE-APACHE",
+      "blob_sha": "f8e5e5ea03400291957779488f5e542e6964c39d",
+      "read_state": "directory_only",
+      "line_ranges": [],
+      "purpose": "目录已见、内容未读；本轮没有复制Apache来源实现",
+      "limitation": "已在固定tree确认路径，内容未读。"
+    },
+    {
+      "repository": null,
+      "commit": null,
+      "path": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types",
+      "read_state": "read_document_sections",
+      "locator": "129–166 observed page lines",
+      "purpose": "lifted operators",
+      "limitation": "网页可变，记录访问日期；非完整项目源码。"
+    },
+    {
+      "repository": null,
+      "commit": null,
+      "path": "https://www.sqlite.org/lang_expr.html",
+      "read_state": "read_document_sections",
+      "locator": "§2 Operators",
+      "purpose": "operators / IS / integer arithmetic",
+      "limitation": "网页可变，记录访问日期；非完整项目源码。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/query/helper.rs",
+      "blob_sha": "fbf81a7313a3d73340e4a95d7f7112c08fb241dd",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          625,
+          810
+        ],
+        [
+          811,
+          838
+        ]
+      ],
+      "purpose": "Runtime Condition and actual filter body",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/relation.rs",
+      "blob_sha": "b9a109f2d723b3236ef951a115cc1ff353a277a2",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          145
+        ],
+        [
+          301,
+          326
+        ]
+      ],
+      "purpose": "Typed relations and ON predicate",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/executor/select.rs",
+      "blob_sha": "bb44d5a8769af628ad928a2ff6de42568ba10566",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          266,
+          324
+        ],
+        [
+          869,
+          925
+        ]
+      ],
+      "purpose": "Typed projection and stream",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    }
+  ],
+  "other_candidates_not_read": [
+    "linq2db/linq2db",
+    "postgres/postgres engine implementation",
+    "sqlite/sqlite engine implementation"
+  ],
+  "decision_revision": "rust-orm-required-2026-11-12",
+  "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+  "not_executed": [
+    "NativeWeave generated SeaORM model build",
+    "SQLx PG/SQLite target execution",
+    "C# Native AOT calling Rust ORM"
+  ],
+  "remaining_source_work": [
+    "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
+  ]
+}

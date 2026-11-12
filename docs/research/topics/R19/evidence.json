@@ -1,0 +1,388 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R19",
+  "recorded_at": "2026-11-12",
+  "status": "partially_evidenced",
+  "baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+  },
+  "task_packet": {
+    "revision": "0.1.1",
+    "path": "research-tasks/R19.md",
+    "packet_sha256": "ff0d0303b2b0a58d8d9b7e07b89eecc807af79dd62c3c057a2ff50a504f5e019"
+  },
+  "claim_status_policy": "设计结论可独立审查后解决；本记录不自授accepted，实现验证另列Delivery任务。",
+  "claims": [
+    {
+      "claim_id": "R19-C01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/PoolingDataSource.cs",
+      "blob_sha": "18ddc1e63f2d2316bd2715b756bf3ef4324f295c",
+      "symbol": "PoolingDataSource.Get/Rent/Return",
+      "locator": {
+        "line_ranges": [
+          [
+            100,
+            356
+          ],
+          [
+            445,
+            455
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/PoolingDataSource.cs#L100-L356",
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/PoolingDataSource.cs#L445-L455"
+        ]
+      },
+      "supported_claim": "连接池区分idle取得、容量扩展、异步等待；失败/取消恢复计数，broken/旧generation不可正常复用。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R19-C02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/Internal/NpgsqlConnector.cs",
+      "blob_sha": "663577ea1a89fbf818fd92cf81429a2e069ec186",
+      "symbol": "Reset / PerformPostgresCancellation",
+      "locator": {
+        "line_ranges": [
+          [
+            2075,
+            2258
+          ],
+          [
+            2706,
+            2810
+          ],
+          [
+            2936,
+            2993
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/NpgsqlConnector.cs#L2075-L2258",
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/NpgsqlConnector.cs#L2706-L2810",
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/NpgsqlConnector.cs#L2936-L2993"
+        ]
+      },
+      "supported_claim": "Reset可预置下一次发送的清理消息；取消请求的发送成功不等于最终取消结果。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R19-C03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "src/Npgsql/NpgsqlDataSourceBuilder.cs",
+      "blob_sha": "bc4b65d7f6bd236754f9b34165c053b3d40698ef",
+      "symbol": "EnableDynamicJson / EnableRecordsAsTuples / EnableUnmappedTypes",
+      "locator": {
+        "line_ranges": [
+          [
+            140,
+            225
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/NpgsqlDataSourceBuilder.cs#L140-L225"
+        ]
+      },
+      "supported_claim": "已读动态映射扩展有动态代码或裁剪限制，AOT profile需显式选择。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R19-C04",
+      "evidence_kind": "test-source-observed",
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "test/Npgsql.NativeAotTests/Program.cs",
+      "blob_sha": "098c978296364e9b42f9930957888f2ec992d17d",
+      "symbol": "native AOT smoke sample",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            20
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/test/Npgsql.NativeAotTests/Program.cs#L1-L20"
+        ]
+      },
+      "supported_claim": "上游有SlimDataSourceBuilder、SELECT、typed读取的小型AOT样例；仅阅读未运行。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R19-C05",
+      "evidence_kind": "test-source-observed",
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "test/Npgsql.Tests/PoolTests.cs",
+      "blob_sha": "af0fc270961820487df10664f47b8e3f79072c06",
+      "symbol": "pool exhaustion / cancellation / reset tests",
+      "locator": {
+        "line_ranges": [
+          [
+            47,
+            143
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/test/Npgsql.Tests/PoolTests.cs#L47-L143"
+        ]
+      },
+      "supported_claim": "测试源码覆盖耗尽超时、显式取消测试和会话reset；未执行。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R19-C06",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "bab1b022bd56a64f9a08b46b36b97c5cff19d77e",
+      "path": "sqlx-core/src/pool/connection.rs",
+      "blob_sha": "c029fec6eb361314cc6ce8b1f78aaddbcea73faa",
+      "symbol": "PoolConnection::drop / Floating::return_to_pool",
+      "locator": {
+        "line_ranges": [
+          [
+            130,
+            163
+          ],
+          [
+            195,
+            225
+          ],
+          [
+            271,
+            369
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-core/src/pool/connection.rs#L130-L163",
+          "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-core/src/pool/connection.rs#L195-L225",
+          "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-core/src/pool/connection.rs#L271-L369"
+        ]
+      },
+      "supported_claim": "SQLx池回收涉及异步清理、ping和失败关闭，不是跨FFI免费替代。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R19-C07",
+      "evidence_kind": "license-text-observed",
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "LICENSE",
+      "blob_sha": "c551cb7b0c921b082c2424f213e12fb6b84a864c",
+      "symbol": "license notice",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            18
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/LICENSE#L1-L18"
+        ]
+      },
+      "supported_claim": "已读Npgsql许可保留copyright/permission notice条件；本交付仅原创分析。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R19-C08",
+      "evidence_kind": "license-text-observed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "bab1b022bd56a64f9a08b46b36b97c5cff19d77e",
+      "path": "LICENSE-MIT",
+      "blob_sha": "861bf60855b35fa5a4815321c63b6c44fa469320",
+      "symbol": "MIT license notice",
+      "locator": {
+        "url": "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/LICENSE-MIT"
+      },
+      "supported_claim": "已读MIT许可要求保留copyright与permission notice；本交付不复制实现。",
+      "limitations": "不替代未来依赖发布的全部第三方许可证/资产审查。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R19-V1",
+      "evidence_kind": "release-tag-metadata-observed",
+      "repository": "https://github.com/npgsql/npgsql",
+      "commit": "d3768398c17877b3a916c3c4d87e8e11698991fc",
+      "path": "refs/tags/v10.0.3",
+      "symbol": "release/tag resolution",
+      "locator": {
+        "tag_url": "https://api.github.com/repos/npgsql/npgsql/git/refs/tags/v10.0.3",
+        "release_url": "https://github.com/npgsql/npgsql/releases/tag/v10.0.3",
+        "observed_at": "2026-11-12",
+        "latest_endpoint_tag": "v10.0.3",
+        "published_at": "2026-05-27T15:35:59Z"
+      },
+      "supported_claim": "所用tag v10.0.3已解析完整commit；latest release端点当前返回v10.0.3。",
+      "limitations": "只证明版本定位；EF11 tag与latest端点v10.0.15不同，不能以endpoint顺序证明最新稳定。SQLitePCL仅metadata，不证明源码、资产或许可审查。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R19-RU01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "Cargo.toml",
+      "blob_sha": "bdf4c6016efe3e0038f7f886b90f7328e5401678",
+      "symbol": "Dependency/feature selection",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            195
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/Cargo.toml#L1-L195"
+        ]
+      },
+      "supported_claim": "SeaORM2.0.4声明edition2024/MSRV1.94、SQLx0.9/sea-query-sqlx0.9/SeaQuery~1.0.0及可选feature；这是源码依赖范围，不是已解析Cargo.lock。",
+      "source_reader": "/root/database_design",
+      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R19-RU02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/database/connection.rs",
+      "blob_sha": "4934a50f7ada657ebd2774a2bfa03ae4a94920c4",
+      "symbol": "Public ConnectionTrait/StreamTrait/TransactionTrait",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            88
+          ],
+          [
+            167,
+            251
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/connection.rs#L1-L88",
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/connection.rs#L167-L251"
+        ]
+      },
+      "supported_claim": "公开非sealed ConnectionTrait/StreamTrait允许自有executor；TransactionTrait关联Transaction要求固定点及TransactionSession，nested能力必须显式实现或拒绝。",
+      "source_reader": "/root/database_design",
+      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R19-RU03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/driver/sqlx_postgres.rs",
+      "blob_sha": "938a59edebf9ebd341ed2cafd1cd1aa318a334b5",
+      "symbol": "Per-query pool acquire and public row/result conversions",
+      "locator": {
+        "line_ranges": [
+          [
+            180,
+            275
+          ],
+          [
+            828,
+            898
+          ],
+          [
+            328,
+            354
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_postgres.rs#L180-L275",
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_postgres.rs#L828-L898",
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_postgres.rs#L328-L354"
+        ]
+      },
+      "supported_claim": "SeaORM PG默认每query acquire；公开PgRow→QueryResult、PgQueryResult→ExecResult；内部binder使用公开SqlxValues+AssertSqlSafe。公开trait适配可行性是设计分析，不是已编译证明。",
+      "source_reader": "/root/database_design",
+      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R19-RU04",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/transaction.rs",
+      "blob_sha": "3f4122ea8281d1d5f1ba66c51deddc47a6324d90",
+      "symbol": "Actual PG transaction manager",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            102
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/transaction.rs#L1-L102"
+        ]
+      },
+      "supported_claim": "PG TransactionManager通过queue/execute及ready同步维护depth；commit错误不证明未发生提交；start_rollback只安排命令。",
+      "source_reader": "/root/database_design",
+      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "run_manifest": null
+    }
+  ],
+  "decision_revision": "rust-orm-required-2026-11-12",
+  "requirement_correction": {
+    "authority": "current user instruction relayed by root",
+    "database_backend": "Rust required",
+    "orm": "SeaORM 2.0.4 selected; SQLx alone is not ORM",
+    "csharp_scope": "syntax capture, request encoding, public API, boundary DTO only",
+    "prior_managed_default": "superseded; prior source observations/experiments retained"
+  },
+  "design_decisions": {
+    "status": "design_decided_pending_independent_acceptance",
+    "choice": "SeaORM Rust ORM + generated schema-specific native module; C# topmost only",
+    "implementation_verified": false,
+    "production_accepted": false,
+    "remaining_delivery": [
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B09",
+      "B10",
+      "B11",
+      "B12",
+      "B13",
+      "B14",
+      "B22",
+      "B23",
+      "B24"
+    ]
+  }
+}

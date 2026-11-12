@@ -1,0 +1,389 @@
+{
+  "experiment_id": "R24-SQLITE-SEMANTICS-001",
+  "kind": "sqlite_reference_execution",
+  "started_at": "2026-11-12T13:16:17.903463+00:00",
+  "finished_at": "2026-11-12T13:16:17.924428+00:00",
+  "script_sha256": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+  "environment": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "os": "Linux",
+    "arch": "x86_64"
+  },
+  "cases": [
+    {
+      "name": "null_safe_equal_0",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_0",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_0",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_0",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_equal_1",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_1",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_1",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_1",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_equal_2",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_2",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_2",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_2",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_equal_3",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_3",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_3",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_3",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_equal_4",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_4",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_4",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_4",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_equal_5",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_5",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_5",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_5",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_equal_6",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_6",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_6",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_6",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_equal_7",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_7",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_7",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_7",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "null_safe_equal_8",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "null_safe_not_equal_8",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "nullable_greater_8",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "negated_nullable_greater_8",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "equality_where",
+      "expected": [
+        0,
+        4,
+        8
+      ],
+      "observed": [
+        0,
+        4,
+        8
+      ],
+      "passed": true
+    },
+    {
+      "name": "contains_empty",
+      "expected": [],
+      "observed": [],
+      "passed": true
+    },
+    {
+      "name": "contains_null_and_one",
+      "expected": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8
+      ],
+      "observed": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8
+      ],
+      "passed": true
+    },
+    {
+      "name": "not_contains_null_and_one",
+      "expected": [
+        3,
+        4,
+        5
+      ],
+      "observed": [
+        3,
+        4,
+        5
+      ],
+      "passed": true
+    },
+    {
+      "name": "negative_control_raw_not_differs",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "outer_join_on_retains_rows",
+      "expected": 2,
+      "observed": 2,
+      "passed": true
+    },
+    {
+      "name": "outer_join_where_changes_rows",
+      "expected": 0,
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "empty_aggregate",
+      "expected": [
+        0,
+        null,
+        0
+      ],
+      "observed": [
+        0,
+        null,
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "bound_value_roundtrip",
+      "expected": "x'); DROP TABLE vals; --",
+      "observed": "x'); DROP TABLE vals; --",
+      "passed": true
+    },
+    {
+      "name": "bound_value_does_not_drop_table",
+      "expected": 9,
+      "observed": 9,
+      "passed": true
+    },
+    {
+      "name": "keyset_no_duplicates_or_omissions",
+      "expected": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "observed": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "name": "decimal_text_order_counterexample",
+      "expected": 1,
+      "observed": 1,
+      "passed": true
+    },
+    {
+      "name": "scaled_integer_order",
+      "expected": 0,
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "sqlite_integer_overflow_changes_storage_class",
+      "expected": "real",
+      "observed": "real",
+      "passed": true
+    }
+  ],
+  "checks_total": 50,
+  "checks_failed": 0,
+  "negative_control": {
+    "raw_not_ids": [
+      4,
+      5,
+      8
+    ],
+    "normalized_not_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ]
+  },
+  "limitations": [
+    "Python sqlite3 invokes the local SQLite library; no NativeWeave implementation exists here.",
+    "No C# or Rust compilation; no PostgreSQL server; no Windows or Native AOT execution.",
+    "Finite integer/null dataset; no proof for all data types, collations, optimizer rewrites or concurrent workloads."
+  ]
+}

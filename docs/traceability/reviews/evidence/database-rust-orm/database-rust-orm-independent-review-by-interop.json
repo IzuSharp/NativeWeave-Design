@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/interop_design",
+  "author": "/root/database_design",
+  "review_kind": "independent_AI_design_review_not_GitHub_approval",
+  "status": "completed",
+  "decision": "passed_scoped_research_and_design_review",
+  "review_record_started_at": "2026-11-12T13:59:54Z",
+  "review_record_finished_at": "2026-11-12T14:05:35.176476+00:00",
+  "timing_note": "Record time is not a claim that all source analysis began at that instant; independently read source files and earlier review exchanges preceded record creation.",
+  "supersedes_review_path": "database-independent-review-by-interop.json",
+  "superseded_record_sha256": "d9c31bf007cb7d99c7a7407646f38bfa83836c718680380c4b5b4dc8344fffdd",
+  "scope": "Exact revision3 D14-D17 and R19-R25 freeze: four specifications, seven reports, all evidence/coverage metadata, reference experiment and logs; 29 files. No approval inherited from the obsolete managed-database/managed-ORM draft.",
+  "excluded_from_this_verdict": [
+    "D27/D28 Plan fragments: independent root review and final integration remain separate.",
+    "Unfrozen future edits and whole-project final acceptance.",
+    "GitHub human approval, branch protection, Required Checks and merge authorization enforcement."
+  ],
+  "input_manifest": {
+    "path": "database-review-input.json",
+    "revision": 3,
+    "sha256": "c41ac8d3f67de77d780eb5c5befc7b473c802088cedf197ec39f110eb7905a04"
+  },
+  "input_hashes_at_review": {
+    "docs/database/drivers.md": "b21ac219b8ba130483dcae994bfaea055f29125f1a6b250a61846889c4541c7d",
+    "docs/database/transactions-and-pooling.md": "1366084d2e8f351e966c26f4ffda9659452c1388c72e09cdb35f78d385b3b0b6",
+    "docs/database/query-semantics.md": "3a2dc13d104a3179336424bb9e6e9ebc403f10d3201634011ccbed57ae3930df",
+    "docs/generators/query-generation.md": "98312c856f407df77455665d1116eb13644c33e59630b019050e9aace56ad8a8",
+    "docs/research/topics/R19/coverage.json": "07a68cc437b4958d050d36899492874c9951c85bbd1d388bf6109bf6b46d1e93",
+    "docs/research/topics/R19/evidence.json": "0168e2e6baaa6a4683119ad854c2403cbc489f548a886a64389cbb8505880c19",
+    "docs/research/topics/R19/report.md": "cf45f06983a21d83e082029a31e43389fb4edd6e6846be10e4224d698112d8e2",
+    "docs/research/topics/R20/coverage.json": "92d3ccd1242a6fdcaa7f7c18d80ad249aa61b9d993ace503401b8a80ce0bfd58",
+    "docs/research/topics/R20/evidence.json": "c0cfa922797987acf7deb740bc261fdd458c5dda98a74df9d4ab27144024ea8b",
+    "docs/research/topics/R20/report.md": "089231e3cb57744ed7cf97ca3bb941f0bf703eca64a230012d6674a1928a7b93",
+    "docs/research/topics/R21/coverage.json": "ee90d1c86e5e5a1f8823ef6b6ac18667aa9dcd595caf91a3db0078ce6c3b6a0b",
+    "docs/research/topics/R21/evidence.json": "1f8fa6fa6fdcd905c006b155d6625df2cb32936675dce4def99a70626e5319f8",
+    "docs/research/topics/R21/report.md": "7ebc9f3c642f8942b42a4f0a3f21ea38fff688ab390cb900052fe2ca0ac24f5e",
+    "docs/research/topics/R22/coverage.json": "1f7c6102be7d5c6d5e36e5d8ec76c831d9824396b0141dae610e529c2804d0a3",
+    "docs/research/topics/R22/evidence.json": "56d520b40df464bbef0b12206bd9bb75453ca7f06deb9cd7e79b61f1b83163c6",
+    "docs/research/topics/R22/report.md": "c5fb82d43689b453064c96724f07d910e35d25a0e99ae833ef281e85807130cc",
+    "docs/research/topics/R23/coverage.json": "4c5fef74a31f96dad9e1994aa037fdae6c40c4e2d219025c2e367298800ed9dc",
+    "docs/research/topics/R23/evidence.json": "d817eeb121440d6a65ef2d7eb632d4dac2b3efa103f0589c186a5d98b6a93be5",
+    "docs/research/topics/R23/report.md": "7f978180b5ef37952baa7acffc470875b17cb0a603b67278a81e030a7491277a",
+    "docs/research/topics/R24/coverage.json": "597fe98de9ec05fb5ee5392f4541cb65d6a45164491f9a1c501c7550efcdd5c5",
+    "docs/research/topics/R24/evidence.json": "43f59744c93f9fbbd498e006369a6845f2f294d2bcd3a35c4d863410ad793b41",
+    "docs/research/topics/R24/report.md": "a09a093f54085c04d713b0a27e9e2b40a57fc79eae1d3e5dc9c4e403017d5754",
+    "docs/research/topics/R24/sqlite-semantics-result.json": "575aca00d84aa3c86016ea8fc9587ff217dc8ccb049174cfb271d5f823a53ea2",
+    "docs/research/topics/R24/sqlite-semantics-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/research/topics/R24/sqlite-semantics-stdout.log": "151015dc234612d9d716801dfd7523836cd3edba5390d8e8f0109e2b2f813b05",
+    "docs/research/topics/R24/sqlite_semantics_probe.py": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+    "docs/research/topics/R25/coverage.json": "8054d64c7edfe40083e0c42482e7dd076d9611a63290fddba7acb62a6238cccd",
+    "docs/research/topics/R25/evidence.json": "fadcd70237ab6c763afaab12452d80d7ada82d9b5b1fefeb23e676fbfd445081",
+    "docs/research/topics/R25/report.md": "3e4710218054346b44848d11073b7a8cfb34de20a7709d060e5fdbc6e763e977"
+  },
+  "read_scope": {
+    "specifications": "All four new Rust-ORM specification bodies read, with final revision3 deltas reread: wire formulas/non-overlap, Session/DataSource bounded CloseAsync, lifetime/Unknown/cleanup, default hook/effect policy, query-extractor boundary and DllImport bootstrap/function-table binding.",
+    "reports": "All seven revised R19-R25 reports read. All 109 evidence and 114 coverage entry metadata checked; source-body independent reading was a scoped sample, not a claim of all upstream call chains.",
+    "cross_contracts": "Compared ownership, create/start/terminal/take/retire, cancellation, quarantine and shutdown to frozen D04/D05/D06/D08 and current D02/D03/D07 boundaries."
+  },
+  "structural_checks": {
+    "path": "database-rust-review-structural-check.json",
+    "sha256": "31b95ebaee8df2de4d9125563c3be8f3eed395586c96933a5d3e0c9f5b37a479",
+    "stats": {
+      "files": 29,
+      "claims": 109,
+      "coverage_paths": 114,
+      "fixed_source_claims": 98,
+      "cross_task_claims": 17,
+      "local_markdown_links": 47,
+      "direct_source_claims": 81
+    },
+    "errors": []
+  },
+  "source_spot_checks": [
+    {
+      "path": "seaorm-review-source-checks-by-interop.json",
+      "sha256": "23a5376f7d8f2c149e2a4156442e37d39bcd2d04a38455618aa4ba4860e0c5d3",
+      "scope": "9 independently read claim records covering exact SeaORM2.0.4 dependency constraints, public traits/private wrapper ownership, row conversions, bounded-result concerns, ActiveModel hooks and selected upstream tests."
+    },
+    {
+      "path": "sqlx09-sqlite-evidence-by-interop.json",
+      "sha256": "96ce522b5c5569a91ace2604b9e5811cd0357ee8d83cc084c653aeec4eee9bca",
+      "scope": "9 independently read claim records for SQLx0.9.0 SQLite worker, transaction acknowledgement, blocking control sends, progress handler, iteration/reset/drop, close and test-source behavior."
+    }
+  ],
+  "retained_reference_experiment": {
+    "reuse_reason": "The exact Python SQLite probe and its semantics are unchanged by the Rust-ORM product-boundary correction. Its earlier independent rerun is retained with explicit limits rather than represented as a new Rust product test.",
+    "rerun_started_at": "2026-11-12T13:39:47.060496+00:00",
+    "rerun_finished_at": "2026-11-12T13:39:47.062425+00:00",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design/docs/research/topics/R24/sqlite_semantics_probe.py",
+      "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/database-review-by-interop/sqlite-semantics-result.json"
+    ],
+    "exit_code": 0,
+    "checks": 50,
+    "failed": 0,
+    "case_results_match_original": true,
+    "script_sha256": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+    "artifacts": {
+      "sqlite-semantics-result.json": "89d0926cb0291f5b23edbd104a1abe9ca2669486fd0695de91183a001ea25d82",
+      "stdout.log": "650db6bddd1bda134263da7cd937863498a05a0b5f5aa352ceb9bcc395cb79fc",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "limitations": [
+      "Python sqlite3 invokes the local SQLite library; no NativeWeave implementation exists here.",
+      "No C# or Rust compilation; no PostgreSQL server; no Windows or Native AOT execution.",
+      "Finite integer/null dataset; no proof for all data types, collations, optimizer rewrites or concurrent workloads."
+    ],
+    "artifact_base": "database-review-by-interop",
+    "final_bytes_and_case_results_rechecked": true
+  },
+  "findings": [
+    {
+      "id": "DB-CR01",
+      "severity": "medium",
+      "path": "docs/database/transactions-and-pooling.md",
+      "section": "4,5,11",
+      "status": "closed_after_revision3_reread_and_exact_hash_check",
+      "observation": "Unconfirmed rollback had no defined knowledge/lifecycle transition or cleanup oracle.",
+      "resolution": "Closed/InProgress with CommitAttempted=false and RollbackUnconfirmed now distinguishes lack of confirmation from an attempted commit. Earlier Unknown is preserved. DisposeAsync success requires local safety; pending native work retains ownership/budget. TX-V02 explicitly checks these paths."
+    },
+    {
+      "id": "DB-R2-F01",
+      "severity": "medium",
+      "path": "docs/database/drivers.md",
+      "section": "4.1",
+      "status": "closed_after_revision3_reread_and_exact_hash_check",
+      "observation": "db-wire/1 did not uniquely locate the cell table.",
+      "resolution": "Exact checked descriptor/cell/payload formulas define the byte layout; row/count/offset arithmetic, non-overlap, zero-length/null cases, schema/shape and 8-byte table alignment are specified."
+    },
+    {
+      "id": "DB-R2-F02",
+      "severity": "medium",
+      "path": "docs/database/drivers.md; docs/database/transactions-and-pooling.md",
+      "section": "4;6",
+      "status": "closed_after_revision3_reread_and_exact_hash_check",
+      "observation": "Database shutdown wording implied native module unload, conflicting with D02 v1.",
+      "resolution": "Instance/pool/runtime close is separated from process-lifetime module loading; parent/child leases remain until retire. No hot unload is promised."
+    },
+    {
+      "id": "DB-R2-F03",
+      "severity": "low",
+      "path": "docs/database/query-semantics.md",
+      "section": "8",
+      "status": "closed_after_revision3_reread_and_exact_hash_check",
+      "observation": "DataChangeSet SaveChanges within an outer transaction lacked an acceptance/commit boundary.",
+      "resolution": "v1 rejects an already Active outer transaction. Rust owns the single transaction and accepts changes only on ConfirmedCommitted; Unknown freezes the change set."
+    },
+    {
+      "id": "DB-R2-F04",
+      "severity": "medium",
+      "path": "docs/generators/query-generation.md",
+      "section": "6",
+      "status": "closed_after_revision3_reread_and_exact_hash_check",
+      "observation": "A prebuild extractor cannot demand error-free whole-program binding before its later SG creates façade symbols.",
+      "resolution": "Pre-extraction validates discovered query/schema declarations and their dependencies. Unrelated execution sites referencing forthcoming generated symbols are left to strict final CoreCompile; genuine declaration errors remain failures."
+    },
+    {
+      "id": "DB-R2-F05",
+      "severity": "low",
+      "path": "docs/database/transactions-and-pooling.md",
+      "section": "5",
+      "status": "closed_after_revision3_reread_and_exact_hash_check",
+      "observation": "CloseAsync example used Quarantined as Cleanup.Status although it was absent from that enum.",
+      "resolution": "Pending is Cleanup.Status; Quarantined is ConnectionDisposition. LocalResourcesReleased=false and retained roots/budget make the finite-wait snapshot distinct from successful disposal."
+    },
+    {
+      "id": "DB-R2-F06",
+      "severity": "low",
+      "path": "docs/research/topics/R19/report.md; docs/research/topics/R20/report.md; docs/research/topics/R23/report.md; docs/research/topics/R24/report.md",
+      "section": "evidence tables",
+      "status": "closed_after_revision3_reread_and_exact_hash_check",
+      "observation": "Generated report URLs treated tag metadata and local experiments as GitHub source paths; R23-C05 displayed the wrong source reader.",
+      "resolution": "Tag metadata uses its actual API URL. The executed R24 experiment uses a relative script link and exact SHA-256. R23-C05 names /root and R06. Final local-link and invalid-blob-pattern checks pass."
+    }
+  ],
+  "open_blocking_findings": [],
+  "design_conclusions": [
+    "Rust SeaORM is the actual ORM authority: generated Entity/Model/ActiveModel/Relation/Projection and request lowering execute through SeaORM/SeaQuery/SQLx. C# is syntax/capture/IR/ABI/DTO surface; managed libraries are comparative references only.",
+    "A custom SQLx-owning SessionExecutor is a plausible implementation of public SeaORM2.0.4 ConnectionTrait/StreamTrait/TransactionTrait. The associated transaction fixed-point trait is real; private DatabaseTransaction internals are not exposed or relied on. A compiled trait/lifetime/Send fixture is still mandatory in B04/B05.",
+    "Commit cancellation is admission-only; after entry, native/domain outcome is preserved, including Unknown. Cleanup and local retire do not establish a remote rollback or commit outcome.",
+    "Streams/cursors, transactions and operations hold parent leases and admission/byte budgets. Bounded CloseAsync can report pending without releasing resources; DisposeAsync success requires local safety. SQLite synchronous channel sends and potentially blocking cleanup stay off nonblocking FFI controls/finalizers.",
+    "Finite query IR and schema-specific Rust generation are defined sufficiently for the planned implementation gates. Build dependencies avoid source-generator ordering assumptions. AOT, actual database execution, budget bounds and semantic profiles still require the declared delivery tests."
+  ],
+  "acceptance_limits": [
+    "This is a scoped content/research review supporting registry acceptance of corresponding design decisions at the frozen content hash. It does not self-update registry or mark all Documentation/Research tasks complete.",
+    "R19-R25 remain partially_evidenced. Source/test code read is not executed test evidence.",
+    "Four specification code snippets are design drafts, uncompiled. Only the retained Python SQLite reference experiment was executed in this review chain.",
+    "Selected API/library versions are supported by fixed source inspection, but actual product Cargo.lock/features/RID/SQLite build and native artifact hashes must be captured during implementation."
+  ],
+  "not_verified": [
+    "C#/Rust product code or complete proposed adapter compilation",
+    "Actual SeaORM/SQLx runtime fixtures, real PostgreSQL fault cases and SQLite worker shutdown races",
+    "Windows/Linux Native AOT or supported RID execution",
+    "Concurrency stress, weak-memory/model completeness, fuzz/property tests for the new wire/query pipeline",
+    "Production security, platform, long-load, performance, compatibility and publishing acceptance"
+  ]
+}

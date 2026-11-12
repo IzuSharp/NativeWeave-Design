@@ -1,0 +1,441 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R20",
+  "recorded_at": "2026-11-12",
+  "status": "partially_evidenced",
+  "baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+  },
+  "task_packet": {
+    "revision": "0.1.1",
+    "path": "research-tasks/R20.md",
+    "packet_sha256": "8064d704f2e3b2e07e4d1fbf1922a97b01ce2a93ce4f4f4ff4bc151b6d8b853f"
+  },
+  "claim_status_policy": "设计结论可独立审查后解决；本记录不自授accepted，实现验证另列Delivery任务。",
+  "claims": [
+    {
+      "claim_id": "R20-C01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/Microsoft.Data.Sqlite.Core/SqliteCommand.cs",
+      "blob_sha": "8cc2bd2c9e8a9b6ca54f0f182a448d8e80b7bd05",
+      "symbol": "ExecuteReaderAsync / Cancel / PrepareAndEnumerateStatements",
+      "locator": {
+        "line_ranges": [
+          [
+            357,
+            439
+          ],
+          [
+            458,
+            543
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteCommand.cs#L357-L439",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteCommand.cs#L458-L543"
+        ]
+      },
+      "supported_claim": "ExecuteReaderAsync预检查token后同步ExecuteReader；Cancel为空；busy准备路径重试/超时。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R20-C02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/Microsoft.Data.Sqlite.Core/SqliteDataReader.cs",
+      "blob_sha": "84a56529d04745bd516c010fae612a23301b2780",
+      "symbol": "Read / NextResult / Dispose",
+      "locator": {
+        "line_ranges": [
+          [
+            118,
+            144
+          ],
+          [
+            154,
+            180
+          ],
+          [
+            182,
+            208
+          ],
+          [
+            243,
+            301
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteDataReader.cs#L118-L144",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteDataReader.cs#L154-L180",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteDataReader.cs#L182-L208",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteDataReader.cs#L243-L301"
+        ]
+      },
+      "supported_claim": "reader stepping与reset/Dispose路径为同步接口，有限已读行段记录清理行为。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R20-C03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/Microsoft.Data.Sqlite.Core/SqliteTransaction.cs",
+      "blob_sha": "11dd2c8bd41780cd3c657a546f3eebaff932cf01",
+      "symbol": "Commit / Rollback / Dispose / Complete",
+      "locator": {
+        "line_ranges": [
+          [
+            70,
+            243
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteTransaction.cs#L70-L243"
+        ]
+      },
+      "supported_claim": "Commit可能失败；事务完成与rollback/Dispose分开，不从单语句错误推断整事务已结束。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R20-C04",
+      "evidence_kind": "test-source-observed",
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "test/Microsoft.Data.Sqlite.Tests/SqliteTransactionTest.cs",
+      "blob_sha": "dc4deaa40f6dfbf9611191c5a6bfbff43b99c88a",
+      "symbol": "commit / rollback / dispose tests",
+      "locator": {
+        "line_ranges": [
+          [
+            14,
+            32
+          ],
+          [
+            310,
+            328
+          ],
+          [
+            359,
+            377
+          ],
+          [
+            379,
+            397
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/Microsoft.Data.Sqlite.Tests/SqliteTransactionTest.cs#L14-L32",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/Microsoft.Data.Sqlite.Tests/SqliteTransactionTest.cs#L310-L328",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/Microsoft.Data.Sqlite.Tests/SqliteTransactionTest.cs#L359-L377",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/Microsoft.Data.Sqlite.Tests/SqliteTransactionTest.cs#L379-L397"
+        ]
+      },
+      "supported_claim": "上游事务测试源码存在，未运行。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R20-C05",
+      "evidence_kind": "license-text-observed",
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "LICENSE.txt",
+      "blob_sha": "a616ed188dfce68ee308f674350ad242d8588c2b",
+      "symbol": "license notice",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            23
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/LICENSE.txt#L1-L23"
+        ]
+      },
+      "supported_claim": "EFCore仓库MIT许可已读，本文未复制实现。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R20-C06",
+      "evidence_kind": "official-documentation-observed",
+      "repository": null,
+      "commit": null,
+      "path": "https://www.sqlite.org/c3ref/interrupt.html",
+      "symbol": "sqlite3_interrupt contract",
+      "locator": {
+        "url": "https://www.sqlite.org/c3ref/interrupt.html",
+        "section_or_observed_lines": "28–35",
+        "accessed_at": "2026-11-12"
+      },
+      "supported_claim": "可从其他线程请求interrupt，但必须保持connection存活；接近完成时可能不取消，作用持续到当前running statements清零。",
+      "limitations": "官方网页非固定Git commit；这里只记录所读明确规则，不声明本产品实现已验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R20-V1",
+      "evidence_kind": "release-tag-metadata-observed",
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "refs/tags/v11.0.0",
+      "symbol": "release/tag resolution",
+      "locator": {
+        "tag_url": "https://api.github.com/repos/dotnet/efcore/git/refs/tags/v11.0.0",
+        "release_url": "https://github.com/dotnet/efcore/releases/tag/v10.0.15",
+        "observed_at": "2026-11-12",
+        "latest_endpoint_tag": "v10.0.15",
+        "published_at": "2026-11-10T17:15:35Z"
+      },
+      "supported_claim": "所用tag v11.0.0已解析完整commit；latest release端点当前返回v10.0.15。",
+      "limitations": "只证明版本定位；EF11 tag与latest端点v10.0.15不同，不能以endpoint顺序证明最新稳定。SQLitePCL仅metadata，不证明源码、资产或许可审查。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R20-V2",
+      "evidence_kind": "release-tag-metadata-observed",
+      "repository": "https://github.com/ericsink/SQLitePCL.raw",
+      "commit": "ed046114d5a30534e13294d94d78eb73de896ad4",
+      "path": "refs/tags/v3.0.5",
+      "symbol": "release/tag resolution",
+      "locator": {
+        "tag_url": "https://api.github.com/repos/ericsink/SQLitePCL.raw/git/refs/tags/v3.0.5",
+        "release_url": "https://github.com/ericsink/SQLitePCL.raw/releases/tag/v3.0.5",
+        "observed_at": "2026-11-12",
+        "latest_endpoint_tag": "v3.0.5",
+        "published_at": "2026-07-27T14:09:36Z"
+      },
+      "supported_claim": "所用tag v3.0.5已解析完整commit；latest release端点当前返回v3.0.5。",
+      "limitations": "只证明版本定位；EF11 tag与latest端点v10.0.15不同，不能以endpoint顺序证明最新稳定。SQLitePCL仅metadata，不证明源码、资产或许可审查。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R20-RU01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/driver/sqlx_sqlite.rs",
+      "blob_sha": "0df465c977b6ed46200d59022ea29ba9cb506caf",
+      "symbol": "SeaORM SQLite executor/conversions",
+      "locator": {
+        "line_ranges": [
+          [
+            155,
+            254
+          ],
+          [
+            311,
+            337
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_sqlite.rs#L155-L254",
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_sqlite.rs#L311-L337"
+        ]
+      },
+      "supported_claim": "SeaORM SQLite默认每query acquire，query_all用fetch_all；公开SqliteRow/QueryResult与result转换。NW须自己有界collect并保留固定Session lease。",
+      "source_reader": "/root/database_design",
+      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-01",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "symbol": "ConnectionWorker::establish; Command::Execute; execute",
+      "locator": "25-138;163-212;364-389",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs",
+      "supported_claim": "Each connection starts its own OS thread with bounded command channel. Execute has bounded row channel. Row send failure stops iteration; this does not preempt sqlite3_step already executing.",
+      "limitations": "['A bounded row/item channel does not prove retained bytes bounded; NativeWeave must bound connection threads, accepted work, row bytes, and waiting payloads.'] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-02",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "symbol": "Command::Begin/Commit/Rollback; rendezvous_oneshot",
+      "locator": "213-313;538-574",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs",
+      "supported_claim": "Begin success with lost acknowledgement triggers immediate rollback; rollback failure exits the worker. Successful Commit/Rollback with lost ack sets ignore_next_start_rollback to avoid rolling back a completed transaction when the Transaction later drops.",
+      "limitations": "['Worker acknowledgement is not the C# application result, and lost acknowledgement must not be translated into a false rollback conclusion. Custom BEGIN validation moved into worker in 0.9.'] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-03",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "symbol": "start_rollback; shutdown; Command::Shutdown",
+      "locator": "390-412;490-505;335-344",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs",
+      "supported_claim": "start_rollback and shutdown synchronously send into the bounded command channel. Shutdown handling drops connection references before ack and then exits its loop.",
+      "limitations": "['These send calls can block. They must not run directly in NativeWeave nonblocking request_stop/try_retire/ReleaseHandle/reverse callback. Ack occurs before closure return; it is not an OS JoinHandle proof.'] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-04",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/mod.rs",
+      "blob_sha": "218c747143fe80b344bca3405d4b0b38da2bd932",
+      "symbol": "Connection::close; close_hard; flush",
+      "locator": "214-287",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/mod.rs",
+      "supported_claim": "Graceful close may execute PRAGMA optimize, then requests worker shutdown, drops self and awaits confirmation. close_hard drops self and immediately returns; flush is no-op.",
+      "limitations": "['close_hard/Drop/flush are not proof of worker completion or NativeWeave quiescence. Run potentially blocking cleanup from a controlled native blocking lane/supervisor, keep ownership until confirmed.'] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-05",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/mod.rs",
+      "blob_sha": "218c747143fe80b344bca3405d4b0b38da2bd932",
+      "symbol": "progress_callback; set_progress_handler; remove_progress_handler; ConnectionState::drop",
+      "locator": "128-137;291-305;386-422;524-527;550-560",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/mod.rs",
+      "supported_claim": "Progress handler uses owned boxed closure, only one handler per connection; false interrupts, replacement removes/frees old handler. C shim catch_unwind maps ordinary panic to interrupt. ConnectionState clears statements before hook removal and handle drop.",
+      "limitations": "['Handler must not modify the connection; avoid arbitrary managed user callbacks or allocations per VM poll. Its catch/unwrap_or_default does not imply universal panic-payload destructor safety.'] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-06",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/execute.rs",
+      "blob_sha": "733a1abbe66be36ddc4227c9cba8fbf46ad6b115",
+      "symbol": "ExecuteIter::next; Drop",
+      "locator": "1-133",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/execute.rs",
+      "supported_claim": "Statement reset/clear_bindings precede bind. step yields row/result/error; dropping iterator calls statement.reset().ok().",
+      "limitations": "[\"Drop swallows reset failure; NativeWeave needs an explicit reuse proof or conservative discard, not 'Drop means clean'. StatementHandle::reset internals not read in this task.\"] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-07",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/transaction.rs",
+      "blob_sha": "1c57d0163f3505dc048be18c5d47bfee4360cf96",
+      "symbol": "SqliteTransactionManager",
+      "locator": "complete",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/transaction.rs",
+      "supported_claim": "begin/commit/rollback delegate to worker; start_rollback only enqueues and ignores the enqueue error at manager boundary; depth is separately observed.",
+      "limitations": "['No executed transaction/cancellation test in this research.'] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-08",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "tests/sqlite/sqlite.rs",
+      "blob_sha": "5355cf7c9756897366375c5e52709c121ec1b47c",
+      "symbol": "test_query_with_progress_handler; test_multiple_set_progress_handler_calls_drop_old_handler",
+      "locator": "740-809",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/tests/sqlite/sqlite.rs",
+      "supported_claim": "Tests assert progress-triggered interrupted database error and correct closure-state identity; repeated handler replacement preserves expected Arc strong count and removal frees the captured owner.",
+      "limitations": "['Test source read, not executed; does not cover all cancellation/close/next-operation races.'] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    },
+    {
+      "claim_id": "R20-SQ09-SQLITE-09",
+      "evidence_kind": "cross-task-source-evidence",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/executor.rs",
+      "blob_sha": "a62d3349a5590c726c44e9898b319b19ea507e48",
+      "symbol": "Executor fetch_many/fetch_optional",
+      "locator": "1-102",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/executor.rs",
+      "supported_claim": "Executor passes query arguments and SqlStr to worker, exposes result receiver as stream; optional fetch limits rows.",
+      "limitations": "['0.9 SQL and argument ownership/signatures changed. SqlSafeStr/AssertSqlSafe requirements must be respected; not equivalent to SQL semantic validation or ORM.'] Reader is interop_design; not independently reread by database_design.",
+      "run_manifest": null,
+      "source_reader": "/root/interop_design",
+      "handoff_origin": "sqlx09-sqlite-evidence-by-interop.json"
+    }
+  ],
+  "decision_revision": "rust-orm-required-2026-11-12",
+  "requirement_correction": {
+    "authority": "current user instruction relayed by root",
+    "database_backend": "Rust required",
+    "orm": "SeaORM 2.0.4 selected; SQLx alone is not ORM",
+    "csharp_scope": "syntax capture, request encoding, public API, boundary DTO only",
+    "prior_managed_default": "superseded; prior source observations/experiments retained"
+  },
+  "design_decisions": {
+    "status": "design_decided_pending_independent_acceptance",
+    "choice": "SeaORM Rust ORM + generated schema-specific native module; C# topmost only",
+    "implementation_verified": false,
+    "production_accepted": false,
+    "remaining_delivery": [
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B09",
+      "B10",
+      "B11",
+      "B12",
+      "B13",
+      "B14",
+      "B22",
+      "B23",
+      "B24"
+    ]
+  }
+}

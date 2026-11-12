@@ -1,0 +1,174 @@
+{
+  "checked_at": "2026-11-12T14:04:46.231391+00:00",
+  "reviewer": "/root/interop_design",
+  "input_manifest_revision": 3,
+  "input_manifest_sha256": "c41ac8d3f67de77d780eb5c5befc7b473c802088cedf197ec39f110eb7905a04",
+  "stats": {
+    "files": 29,
+    "claims": 109,
+    "coverage_paths": 114,
+    "fixed_source_claims": 98,
+    "cross_task_claims": 17,
+    "local_markdown_links": 47,
+    "direct_source_claims": 81
+  },
+  "claim_kinds": {
+    "source-observed": 63,
+    "test-source-observed": 12,
+    "license-text-observed": 6,
+    "release-tag-metadata-observed": 5,
+    "official-documentation-observed": 5,
+    "cross-task-source-evidence": 17,
+    "executed-reference-experiment": 1
+  },
+  "files": [
+    {
+      "path": "docs/database/drivers.md",
+      "sha256": "b21ac219b8ba130483dcae994bfaea055f29125f1a6b250a61846889c4541c7d",
+      "bytes": 22451
+    },
+    {
+      "path": "docs/database/transactions-and-pooling.md",
+      "sha256": "1366084d2e8f351e966c26f4ffda9659452c1388c72e09cdb35f78d385b3b0b6",
+      "bytes": 21475
+    },
+    {
+      "path": "docs/database/query-semantics.md",
+      "sha256": "3a2dc13d104a3179336424bb9e6e9ebc403f10d3201634011ccbed57ae3930df",
+      "bytes": 22077
+    },
+    {
+      "path": "docs/generators/query-generation.md",
+      "sha256": "98312c856f407df77455665d1116eb13644c33e59630b019050e9aace56ad8a8",
+      "bytes": 20749
+    },
+    {
+      "path": "docs/research/topics/R19/coverage.json",
+      "sha256": "07a68cc437b4958d050d36899492874c9951c85bbd1d388bf6109bf6b46d1e93",
+      "bytes": 8082
+    },
+    {
+      "path": "docs/research/topics/R19/evidence.json",
+      "sha256": "0168e2e6baaa6a4683119ad854c2403cbc489f548a886a64389cbb8505880c19",
+      "bytes": 16123
+    },
+    {
+      "path": "docs/research/topics/R19/report.md",
+      "sha256": "cf45f06983a21d83e082029a31e43389fb4edd6e6846be10e4224d698112d8e2",
+      "bytes": 7554
+    },
+    {
+      "path": "docs/research/topics/R20/coverage.json",
+      "sha256": "92d3ccd1242a6fdcaa7f7c18d80ad249aa61b9d993ace503401b8a80ce0bfd58",
+      "bytes": 10176
+    },
+    {
+      "path": "docs/research/topics/R20/evidence.json",
+      "sha256": "c0cfa922797987acf7deb740bc261fdd458c5dda98a74df9d4ab27144024ea8b",
+      "bytes": 22979
+    },
+    {
+      "path": "docs/research/topics/R20/report.md",
+      "sha256": "089231e3cb57744ed7cf97ca3bb941f0bf703eca64a230012d6674a1928a7b93",
+      "bytes": 9152
+    },
+    {
+      "path": "docs/research/topics/R21/coverage.json",
+      "sha256": "ee90d1c86e5e5a1f8823ef6b6ac18667aa9dcd595caf91a3db0078ce6c3b6a0b",
+      "bytes": 12102
+    },
+    {
+      "path": "docs/research/topics/R21/evidence.json",
+      "sha256": "1f8fa6fa6fdcd905c006b155d6625df2cb32936675dce4def99a70626e5319f8",
+      "bytes": 26196
+    },
+    {
+      "path": "docs/research/topics/R21/report.md",
+      "sha256": "7ebc9f3c642f8942b42a4f0a3f21ea38fff688ab390cb900052fe2ca0ac24f5e",
+      "bytes": 9824
+    },
+    {
+      "path": "docs/research/topics/R22/coverage.json",
+      "sha256": "1f7c6102be7d5c6d5e36e5d8ec76c831d9824396b0141dae610e529c2804d0a3",
+      "bytes": 9029
+    },
+    {
+      "path": "docs/research/topics/R22/evidence.json",
+      "sha256": "56d520b40df464bbef0b12206bd9bb75453ca7f06deb9cd7e79b61f1b83163c6",
+      "bytes": 17155
+    },
+    {
+      "path": "docs/research/topics/R22/report.md",
+      "sha256": "c5fb82d43689b453064c96724f07d910e35d25a0e99ae833ef281e85807130cc",
+      "bytes": 7809
+    },
+    {
+      "path": "docs/research/topics/R23/coverage.json",
+      "sha256": "4c5fef74a31f96dad9e1994aa037fdae6c40c4e2d219025c2e367298800ed9dc",
+      "bytes": 5538
+    },
+    {
+      "path": "docs/research/topics/R23/evidence.json",
+      "sha256": "d817eeb121440d6a65ef2d7eb632d4dac2b3efa103f0589c186a5d98b6a93be5",
+      "bytes": 11711
+    },
+    {
+      "path": "docs/research/topics/R23/report.md",
+      "sha256": "7f978180b5ef37952baa7acffc470875b17cb0a603b67278a81e030a7491277a",
+      "bytes": 6602
+    },
+    {
+      "path": "docs/research/topics/R24/coverage.json",
+      "sha256": "597fe98de9ec05fb5ee5392f4541cb65d6a45164491f9a1c501c7550efcdd5c5",
+      "bytes": 8481
+    },
+    {
+      "path": "docs/research/topics/R24/evidence.json",
+      "sha256": "43f59744c93f9fbbd498e006369a6845f2f294d2bcd3a35c4d863410ad793b41",
+      "bytes": 20078
+    },
+    {
+      "path": "docs/research/topics/R24/report.md",
+      "sha256": "a09a093f54085c04d713b0a27e9e2b40a57fc79eae1d3e5dc9c4e403017d5754",
+      "bytes": 7735
+    },
+    {
+      "path": "docs/research/topics/R24/sqlite-semantics-result.json",
+      "sha256": "575aca00d84aa3c86016ea8fc9587ff217dc8ccb049174cfb271d5f823a53ea2",
+      "bytes": 7612
+    },
+    {
+      "path": "docs/research/topics/R24/sqlite-semantics-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/research/topics/R24/sqlite-semantics-stdout.log",
+      "sha256": "151015dc234612d9d716801dfd7523836cd3edba5390d8e8f0109e2b2f813b05",
+      "bytes": 90
+    },
+    {
+      "path": "docs/research/topics/R24/sqlite_semantics_probe.py",
+      "sha256": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+      "bytes": 5054
+    },
+    {
+      "path": "docs/research/topics/R25/coverage.json",
+      "sha256": "8054d64c7edfe40083e0c42482e7dd076d9611a63290fddba7acb62a6238cccd",
+      "bytes": 14529
+    },
+    {
+      "path": "docs/research/topics/R25/evidence.json",
+      "sha256": "fadcd70237ab6c763afaab12452d80d7ada82d9b5b1fefeb23e676fbfd445081",
+      "bytes": 27117
+    },
+    {
+      "path": "docs/research/topics/R25/report.md",
+      "sha256": "3e4710218054346b44848d11073b7a8cfb34de20a7709d060e5fdbc6e763e977",
+      "bytes": 11062
+    }
+  ],
+  "errors": [],
+  "note": "Exact final bytes, JSON/claim/source metadata and local links checked. Earlier revision inspection helper failed on heterogeneous locator strings; corrected reader made no evidence-file changes. No new product code executed.",
+  "count_note": "fixed_source_claims includes 81 direct source/test/license entries plus 17 explicitly attributed cross-task source entries; all 109 metadata records inspected, not all source bodies independently reread."
+}

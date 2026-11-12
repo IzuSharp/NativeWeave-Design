@@ -1,0 +1,272 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R20",
+  "recorded_at": "2026-11-12",
+  "baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+  },
+  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "paths": [
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/Microsoft.Data.Sqlite.Core/SqliteCommand.cs",
+      "blob_sha": "8cc2bd2c9e8a9b6ca54f0f182a448d8e80b7bd05",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          357,
+          439
+        ],
+        [
+          458,
+          543
+        ]
+      ],
+      "purpose": "ExecuteReaderAsync / Cancel / PrepareAndEnumerateStatements",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/Microsoft.Data.Sqlite.Core/SqliteDataReader.cs",
+      "blob_sha": "84a56529d04745bd516c010fae612a23301b2780",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          118,
+          144
+        ],
+        [
+          154,
+          180
+        ],
+        [
+          182,
+          208
+        ],
+        [
+          243,
+          301
+        ]
+      ],
+      "purpose": "Read / NextResult / Dispose",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/Microsoft.Data.Sqlite.Core/SqliteTransaction.cs",
+      "blob_sha": "11dd2c8bd41780cd3c657a546f3eebaff932cf01",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          70,
+          243
+        ]
+      ],
+      "purpose": "Commit / Rollback / Dispose / Complete",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "test/Microsoft.Data.Sqlite.Tests/SqliteTransactionTest.cs",
+      "blob_sha": "dc4deaa40f6dfbf9611191c5a6bfbff43b99c88a",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          14,
+          32
+        ],
+        [
+          310,
+          328
+        ],
+        [
+          359,
+          377
+        ],
+        [
+          379,
+          397
+        ]
+      ],
+      "purpose": "commit / rollback / dispose tests",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "LICENSE.txt",
+      "blob_sha": "a616ed188dfce68ee308f674350ad242d8588c2b",
+      "read_state": "read_complete",
+      "line_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "purpose": "license notice",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/Microsoft.Data.Sqlite.Core/SqliteConnection.cs",
+      "blob_sha": "b24e67840c8e6209413009a3958022eb14905140",
+      "read_state": "directory_only",
+      "line_ranges": [],
+      "purpose": "native provider资产/连接配置未完整追踪",
+      "limitation": "已在固定tree确认路径，内容未读。"
+    },
+    {
+      "repository": null,
+      "commit": null,
+      "path": "https://www.sqlite.org/c3ref/interrupt.html",
+      "read_state": "read_document_sections",
+      "locator": "28–35",
+      "purpose": "sqlite3_interrupt contract",
+      "limitation": "网页可变，记录访问日期；非完整项目源码。"
+    },
+    {
+      "repository": "https://github.com/ericsink/SQLitePCL.raw",
+      "commit": "ed046114d5a30534e13294d94d78eb73de896ad4",
+      "path": "refs/tags/v3.0.5",
+      "read_state": "metadata_only",
+      "purpose": "版本定位",
+      "limitation": "实现、native bundle、许可证链均未完整阅读/验证。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/driver/sqlx_sqlite.rs",
+      "blob_sha": "0df465c977b6ed46200d59022ea29ba9cb506caf",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          155,
+          254
+        ],
+        [
+          311,
+          337
+        ]
+      ],
+      "purpose": "SeaORM SQLite executor/conversions",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "read_state": "cross_task_source_read",
+      "locator": "25-138;163-212;364-389",
+      "source_reader": "/root/interop_design",
+      "purpose": "ConnectionWorker::establish; Command::Execute; execute",
+      "limitation": "Actual collaborator source read, not this author execution."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "read_state": "cross_task_source_read",
+      "locator": "213-313;538-574",
+      "source_reader": "/root/interop_design",
+      "purpose": "Command::Begin/Commit/Rollback; rendezvous_oneshot",
+      "limitation": "Actual collaborator source read, not this author execution."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "read_state": "cross_task_source_read",
+      "locator": "390-412;490-505;335-344",
+      "source_reader": "/root/interop_design",
+      "purpose": "start_rollback; shutdown; Command::Shutdown",
+      "limitation": "Actual collaborator source read, not this author execution."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/connection/mod.rs",
+      "blob_sha": "218c747143fe80b344bca3405d4b0b38da2bd932",
+      "read_state": "cross_task_source_read",
+      "locator": "214-287",
+      "source_reader": "/root/interop_design",
+      "purpose": "Connection::close; close_hard; flush",
+      "limitation": "Actual collaborator source read, not this author execution."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/connection/mod.rs",
+      "blob_sha": "218c747143fe80b344bca3405d4b0b38da2bd932",
+      "read_state": "cross_task_source_read",
+      "locator": "128-137;291-305;386-422;524-527;550-560",
+      "source_reader": "/root/interop_design",
+      "purpose": "progress_callback; set_progress_handler; remove_progress_handler; ConnectionState::drop",
+      "limitation": "Actual collaborator source read, not this author execution."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/connection/execute.rs",
+      "blob_sha": "733a1abbe66be36ddc4227c9cba8fbf46ad6b115",
+      "read_state": "cross_task_source_read",
+      "locator": "1-133",
+      "source_reader": "/root/interop_design",
+      "purpose": "ExecuteIter::next; Drop",
+      "limitation": "Actual collaborator source read, not this author execution."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/transaction.rs",
+      "blob_sha": "1c57d0163f3505dc048be18c5d47bfee4360cf96",
+      "read_state": "cross_task_source_read",
+      "locator": "complete",
+      "source_reader": "/root/interop_design",
+      "purpose": "SqliteTransactionManager",
+      "limitation": "Actual collaborator source read, not this author execution."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "tests/sqlite/sqlite.rs",
+      "blob_sha": "5355cf7c9756897366375c5e52709c121ec1b47c",
+      "read_state": "cross_task_source_read",
+      "locator": "740-809",
+      "source_reader": "/root/interop_design",
+      "purpose": "test_query_with_progress_handler; test_multiple_set_progress_handler_calls_drop_old_handler",
+      "limitation": "Actual collaborator source read, not this author execution."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-sqlite/src/connection/executor.rs",
+      "blob_sha": "a62d3349a5590c726c44e9898b319b19ea507e48",
+      "read_state": "cross_task_source_read",
+      "locator": "1-102",
+      "source_reader": "/root/interop_design",
+      "purpose": "Executor fetch_many/fetch_optional",
+      "limitation": "Actual collaborator source read, not this author execution."
+    }
+  ],
+  "other_candidates_not_read": [],
+  "decision_revision": "rust-orm-required-2026-11-12",
+  "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+  "not_executed": [
+    "NativeWeave generated SeaORM model build",
+    "SQLx PG/SQLite target execution",
+    "C# Native AOT calling Rust ORM"
+  ],
+  "remaining_source_work": [
+    "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
+  ]
+}

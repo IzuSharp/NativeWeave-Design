@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/interop_design",
+  "date": "2026-11-12",
+  "purpose": "Independent primary-source spot checks for revised Rust ORM database design; not product verification or GitHub user approval.",
+  "tag_resolution": {
+    "tag": "2.0.4",
+    "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+    "endpoint": "https://api.github.com/repos/SeaQL/sea-orm/git/ref/tags/2.0.4",
+    "observed_object_type": "commit"
+  },
+  "claims": [
+    {
+      "id": "DB-REVIEW-SEA-01",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "Cargo.toml",
+      "blob_sha": "bdf4c6016efe3e0038f7f886b90f7328e5401678",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/Cargo.toml",
+      "read_scope": "1-249 (complete)",
+      "claim": "2.0.4 pins Rust edition 2024, rust-version 1.94.0; optional sqlx/sqlx-core 0.9.0, sea-query ~1.0.0, sea-query-sqlx 0.9. Crate constraints still require actual Cargo.lock for product reproducibility.",
+      "limits": "Source dependency declarations only; no lock resolution/build executed.",
+      "tests_executed": false
+    },
+    {
+      "id": "DB-REVIEW-SEA-02",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/active_model.rs",
+      "blob_sha": "085935f94e21efa3686347f20dd05ffac1c2b0db",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/active_model.rs",
+      "read_scope": "1-75;225-239;342-403",
+      "claim": "ActiveValue represents Set/Unchanged/NotSet; try_set returns type error whereas set may panic. insert/update execute DB before after_save. save selects insert/update based on primary-key presence.",
+      "limits": "Other ActiveModel relationships and full update implementation not read here; no guarantee hooks are transactionally atomic by themselves.",
+      "tests_executed": false
+    },
+    {
+      "id": "DB-REVIEW-SEA-03",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/database/transaction.rs",
+      "blob_sha": "3faff49ffd75a88b3b964e7edb28938360a6671c",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/transaction.rs",
+      "read_scope": "1-140;160-219;238-406;660-690",
+      "claim": "DatabaseTransaction owns private Arc<Mutex<InnerConnection>>. Consuming commit/rollback clear open only after success; Drop queues rollback and expects start_rollback success. Busy connection lock makes start_rollback error; stream holds lock guard. Built-in wrapper does not directly expose per-connection discard/progress ownership to external FFI host.",
+      "limits": "Remaining transaction execution methods not independently reread; source inference is reason to use public traits with own SessionExecutor, not a defect claim against safe SeaORM callers.",
+      "tests_executed": false
+    },
+    {
+      "id": "DB-REVIEW-SEA-04",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/database/connection.rs",
+      "blob_sha": "4934a50f7ada657ebd2774a2bfa03ae4a94920c4",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/connection.rs",
+      "read_scope": "1-110;185-251",
+      "claim": "Public unsealed ConnectionTrait/StreamTrait permit owned SessionExecutor adapter. TransactionTrait's associated transaction recursively implements TransactionTrait plus TransactionSession; savepoint/nested semantics must be explicit.",
+      "limits": "Proposed NativeWeave implementation not compiled; trait compatibility still requires real build tests.",
+      "tests_executed": false
+    },
+    {
+      "id": "DB-REVIEW-SEA-05",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/driver/sqlx_sqlite.rs",
+      "blob_sha": "0df465c977b6ed46200d59022ea29ba9cb506caf",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_sqlite.rs",
+      "read_scope": "155-235;288-339",
+      "claim": "Public From<SqliteRow> for QueryResult and From<SqliteQueryResult> for ExecResult support external adapter output. Driver builds query from SqlxValues with AssertSqlSafe. Default query_all uses fetch_all and cannot alone guarantee NativeWeave byte/row bound.",
+      "limits": "Driver connection configuration/remaining methods not read here; NW must implement bounded collection using provider primitives.",
+      "tests_executed": false
+    },
+    {
+      "id": "DB-REVIEW-SEA-06",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/query/select.rs",
+      "blob_sha": "e226238dd4647baf3ba5e42023ef613855853d4b",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/query/select.rs",
+      "read_scope": "1-150",
+      "claim": "Select<Entity> owns SeaQuery SelectStatement plus entity marker; joined select variants distinguish optional outer rows and grouped collections.",
+      "limits": "Builder/executor implementations not read in this reviewer sample; not a complete ORM call-chain coverage claim.",
+      "tests_executed": false
+    },
+    {
+      "id": "DB-REVIEW-SEA-07",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "tests/stream_tests.rs",
+      "blob_sha": "5cefb96428de7a926db19cb7326e71d7a11140b5",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/tests/stream_tests.rs",
+      "read_scope": "1-44 (complete)",
+      "claim": "Test inserts a model and streams one returned entity successfully.",
+      "limits": "Test source read, not run; does not establish cancellation/drain/deadline behavior.",
+      "tests_executed": false
+    },
+    {
+      "id": "DB-REVIEW-SEA-08",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "tests/transaction_tests.rs",
+      "blob_sha": "c72bfc1d69d0496e5124f01a540107ff26a0bb7b",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/tests/transaction_tests.rs",
+      "read_scope": "142-169;206-234;272-300;373-455;678-755",
+      "claim": "Tests distinguish drop rollback, explicit commit/rollback, nested rollback/commit. before_save error leaves row count 0; after_save error leaves row present inside transaction until transaction cleanup.",
+      "limits": "Tests read, not run; nested test scope partial; no packet-loss/Unknown/cancellation production proof.",
+      "tests_executed": false
+    },
+    {
+      "id": "DB-REVIEW-SEA-09",
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "tests/active_model_ex_tests.rs",
+      "blob_sha": "29415ecf7d25e3645f4e413e520fa1f2ceb6db28",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/tests/active_model_ex_tests.rs",
+      "read_scope": "1-115;849-894",
+      "claim": "Source tests exercise Rust relation-aware ActiveModel builder and HasOne replacement/clear. Replacement deletes old record; clearing removes it.",
+      "limits": "Tests read, not run; remainder not inspected. NativeWeave must specify own relationship mutation admission and transaction policy.",
+      "tests_executed": false
+    }
+  ],
+  "notes": [
+    "SQLx SQLite 0.9.0 source handoff is sqlx09-sqlite-evidence-by-interop.json; the Cargo constraint now matches this source version family, while final product lock/feature/target must still be captured.",
+    "No new SeaORM/C#/Rust code was compiled or executed. Other upstream files fetched for location were not counted as read when not inspected."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "scope": "Immutable copies of actual independent review/source-read/replay artifacts; relative names in originals resolve within this archive. Old managed design review is historical/superseded, never acceptance of new Rust ORM design.",
+  "files": [
+    {
+      "name": "database-independent-review-by-interop.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/database-independent-review-by-interop.json",
+      "sha256": "d9c31bf007cb7d99c7a7407646f38bfa83836c718680380c4b5b4dc8344fffdd"
+    },
+    {
+      "name": "database-review-by-interop/sqlite-semantics-result.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/database-review-by-interop/sqlite-semantics-result.json",
+      "sha256": "89d0926cb0291f5b23edbd104a1abe9ca2669486fd0695de91183a001ea25d82"
+    },
+    {
+      "name": "database-review-by-interop/stderr.log",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/database-review-by-interop/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "database-review-by-interop/stdout.log",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/database-review-by-interop/stdout.log",
+      "sha256": "650db6bddd1bda134263da7cd937863498a05a0b5f5aa352ceb9bcc395cb79fc"
+    },
+    {
+      "name": "database-review-input-superseded-managed.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/database-review-input-superseded-managed.json",
+      "sha256": "d571cd42b2167bdbe922c31be9cdaa808d4304c7741cb0b63ebd84898ad1d358"
+    },
+    {
+      "name": "database-review-input.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/database-review-input.json",
+      "sha256": "c41ac8d3f67de77d780eb5c5befc7b473c802088cedf197ec39f110eb7905a04"
+    },
+    {
+      "name": "database-rust-orm-independent-review-by-interop.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/database-rust-orm-independent-review-by-interop.json",
+      "sha256": "e6a461e933de80c98e104cabf77c15b6b16306bef7e4211471abd05e9d2f100c"
+    },
+    {
+      "name": "database-rust-review-structural-check.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/database-rust-review-structural-check.json",
+      "sha256": "31b95ebaee8df2de4d9125563c3be8f3eed395586c96933a5d3e0c9f5b37a479"
+    },
+    {
+      "name": "orm-root-source-handoff.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/orm-root-source-handoff.json",
+      "sha256": "f1c783f6362a78a5b81f004eb91e20a46740db3ce7f9b51b0cfef624e6eba7a5"
+    },
+    {
+      "name": "seaorm-review-source-checks-by-interop.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/seaorm-review-source-checks-by-interop.json",
+      "sha256": "23a5376f7d8f2c149e2a4156442e37d39bcd2d04a38455618aa4ba4860e0c5d3"
+    },
+    {
+      "name": "sqlx09-sqlite-evidence-by-interop.json",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/database-rust-orm/sqlx09-sqlite-evidence-by-interop.json",
+      "sha256": "96ce522b5c5569a91ace2604b9e5811cd0357ee8d83cc084c653aeec4eee9bca"
+    }
+  ]
+}
