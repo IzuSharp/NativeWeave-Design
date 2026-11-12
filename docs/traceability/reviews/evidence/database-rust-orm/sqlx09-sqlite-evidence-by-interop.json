@@ -1,0 +1,192 @@
+{
+  "kind": "cross_task_primary_source_handoff",
+  "date": "2026-11-12",
+  "source_reader": "/root/interop_design",
+  "recipient": "/root/database_design",
+  "claims": [
+    {
+      "claim_id": "SQ09-SQLITE-01",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "symbol": "ConnectionWorker::establish; Command::Execute; execute",
+      "locator": "25-138;163-212;364-389",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs",
+      "supported_claim": "Each connection starts its own OS thread with bounded command channel. Execute has bounded row channel. Row send failure stops iteration; this does not preempt sqlite3_step already executing.",
+      "limitations": [
+        "A bounded row/item channel does not prove retained bytes bounded; NativeWeave must bound connection threads, accepted work, row bytes, and waiting payloads."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    },
+    {
+      "claim_id": "SQ09-SQLITE-02",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "symbol": "Command::Begin/Commit/Rollback; rendezvous_oneshot",
+      "locator": "213-313;538-574",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs",
+      "supported_claim": "Begin success with lost acknowledgement triggers immediate rollback; rollback failure exits the worker. Successful Commit/Rollback with lost ack sets ignore_next_start_rollback to avoid rolling back a completed transaction when the Transaction later drops.",
+      "limitations": [
+        "Worker acknowledgement is not the C# application result, and lost acknowledgement must not be translated into a false rollback conclusion. Custom BEGIN validation moved into worker in 0.9."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    },
+    {
+      "claim_id": "SQ09-SQLITE-03",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "symbol": "start_rollback; shutdown; Command::Shutdown",
+      "locator": "390-412;490-505;335-344",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs",
+      "supported_claim": "start_rollback and shutdown synchronously send into the bounded command channel. Shutdown handling drops connection references before ack and then exits its loop.",
+      "limitations": [
+        "These send calls can block. They must not run directly in NativeWeave nonblocking request_stop/try_retire/ReleaseHandle/reverse callback. Ack occurs before closure return; it is not an OS JoinHandle proof."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    },
+    {
+      "claim_id": "SQ09-SQLITE-04",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/mod.rs",
+      "blob_sha": "218c747143fe80b344bca3405d4b0b38da2bd932",
+      "symbol": "Connection::close; close_hard; flush",
+      "locator": "214-287",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/mod.rs",
+      "supported_claim": "Graceful close may execute PRAGMA optimize, then requests worker shutdown, drops self and awaits confirmation. close_hard drops self and immediately returns; flush is no-op.",
+      "limitations": [
+        "close_hard/Drop/flush are not proof of worker completion or NativeWeave quiescence. Run potentially blocking cleanup from a controlled native blocking lane/supervisor, keep ownership until confirmed."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    },
+    {
+      "claim_id": "SQ09-SQLITE-05",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/mod.rs",
+      "blob_sha": "218c747143fe80b344bca3405d4b0b38da2bd932",
+      "symbol": "progress_callback; set_progress_handler; remove_progress_handler; ConnectionState::drop",
+      "locator": "128-137;291-305;386-422;524-527;550-560",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/mod.rs",
+      "supported_claim": "Progress handler uses owned boxed closure, only one handler per connection; false interrupts, replacement removes/frees old handler. C shim catch_unwind maps ordinary panic to interrupt. ConnectionState clears statements before hook removal and handle drop.",
+      "limitations": [
+        "Handler must not modify the connection; avoid arbitrary managed user callbacks or allocations per VM poll. Its catch/unwrap_or_default does not imply universal panic-payload destructor safety."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    },
+    {
+      "claim_id": "SQ09-SQLITE-06",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/execute.rs",
+      "blob_sha": "733a1abbe66be36ddc4227c9cba8fbf46ad6b115",
+      "symbol": "ExecuteIter::next; Drop",
+      "locator": "1-133",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/execute.rs",
+      "supported_claim": "Statement reset/clear_bindings precede bind. step yields row/result/error; dropping iterator calls statement.reset().ok().",
+      "limitations": [
+        "Drop swallows reset failure; NativeWeave needs an explicit reuse proof or conservative discard, not 'Drop means clean'. StatementHandle::reset internals not read in this task."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    },
+    {
+      "claim_id": "SQ09-SQLITE-07",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/transaction.rs",
+      "blob_sha": "1c57d0163f3505dc048be18c5d47bfee4360cf96",
+      "symbol": "SqliteTransactionManager",
+      "locator": "complete",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/transaction.rs",
+      "supported_claim": "begin/commit/rollback delegate to worker; start_rollback only enqueues and ignores the enqueue error at manager boundary; depth is separately observed.",
+      "limitations": [
+        "No executed transaction/cancellation test in this research."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    },
+    {
+      "claim_id": "SQ09-SQLITE-08",
+      "evidence_kind": "source_test_read_not_run",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "tests/sqlite/sqlite.rs",
+      "blob_sha": "5355cf7c9756897366375c5e52709c121ec1b47c",
+      "symbol": "test_query_with_progress_handler; test_multiple_set_progress_handler_calls_drop_old_handler",
+      "locator": "740-809",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/tests/sqlite/sqlite.rs",
+      "supported_claim": "Tests assert progress-triggered interrupted database error and correct closure-state identity; repeated handler replacement preserves expected Arc strong count and removal frees the captured owner.",
+      "limitations": [
+        "Test source read, not executed; does not cover all cancellation/close/next-operation races."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    },
+    {
+      "claim_id": "SQ09-SQLITE-09",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "tag": "v0.9.0",
+      "path": "sqlx-sqlite/src/connection/executor.rs",
+      "blob_sha": "a62d3349a5590c726c44e9898b319b19ea507e48",
+      "symbol": "Executor fetch_many/fetch_optional",
+      "locator": "1-102",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/executor.rs",
+      "supported_claim": "Executor passes query arguments and SqlStr to worker, exposes result receiver as stream; optional fetch limits rows.",
+      "limitations": [
+        "0.9 SQL and argument ownership/signatures changed. SqlSafeStr/AssertSqlSafe requirements must be respected; not equivalent to SQL semantic validation or ORM."
+      ],
+      "run_manifest": null,
+      "source_reader": "/root/interop_design"
+    }
+  ],
+  "suggested_nativeweave_policy": [
+    "Use SQLx SQLite's existing per-connection worker, bound connections and queue/row bytes; do not add an unbounded second worker layer.",
+    "Install the native-only progress handler before query execution while holding LockedSqliteHandle; capture a distinct operation cancellation state. request_cancel merely sets that state's atomic flag without calling lock_handle or waiting for worker capacity.",
+    "After statement/receiver completion and reset or discard, remove the operation handler under the same serialized connection discipline before returning the connection. Late managed cancellation must not affect the next operation; operation state/registration must drain first.",
+    "Cancellation is cooperative and not a universal hard deadline: SQLite busy/extension/filesystem paths may not poll the progress callback promptly. Keep worker, parent leases, budget and cleanup obligations while work remains.",
+    "Drop/reset .ok() or close_hard cannot serve as provider-ready oracle. Use explicit coordinator completion and connection-specific safety checks, otherwise discard; never report successful DisposeAsync before NativeWeave-local drain.",
+    "SQLx driver mechanisms do not satisfy the user-required Rust ORM by themselves. ORM version and transitive SQLx feature versions must be selected coherently; this 0.9 source study does not force an incompatible upgrade."
+  ],
+  "not_read": [
+    "StatementHandle reset/finalize internals",
+    "SqliteRow value-clone internals",
+    "All pool release paths in 0.9",
+    "All SQLite transaction tests",
+    "SQLite VM and busy-handler internals"
+  ],
+  "not_executed": [
+    "Rust compile/test",
+    "SQLite via SQLx",
+    "C#",
+    "Native AOT",
+    "Actual worker cancellation/close races"
+  ]
+}

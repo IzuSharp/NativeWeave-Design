@@ -1,0 +1,451 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R25",
+  "recorded_at": "2026-11-12",
+  "baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+  },
+  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "paths": [
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/ChangeTracking/Internal/StateManager.cs",
+      "blob_sha": "b39114f9ec8d5640a1a46cc26040dff24846978c",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          324,
+          365
+        ],
+        [
+          1423,
+          1490
+        ]
+      ],
+      "purpose": "StartTrackingFromQuery / SaveChangesAsync / AcceptAllChanges",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/ChangeTracking/Internal/ChangeDetector.cs",
+      "blob_sha": "cc56a5cff7eba2bf4c71cb4689999036feb5924e",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          130,
+          179
+        ],
+        [
+          242,
+          317
+        ]
+      ],
+      "purpose": "DetectChanges / LocalDetectChanges",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore.Relational/Update/AffectedCountModificationCommandBatch.cs",
+      "blob_sha": "92ecc7c556d3138ce5b86f30335d7bb26fa7c97b",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          410,
+          437
+        ],
+        [
+          526,
+          590
+        ]
+      ],
+      "purpose": "ConsumeResultSetWithRowsAffectedOnly / ThrowAggregateUpdateConcurrencyException",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "test/EFCore.Specification.Tests/OptimisticConcurrencyTestBase.cs",
+      "blob_sha": "3f5f0359cf859e518c3a5237a3b4c4e9793ad54d",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          28,
+          63
+        ],
+        [
+          351,
+          407
+        ]
+      ],
+      "purpose": "Nullable_client_side_concurrency_token_can_be_used / conflicting update/delete tests",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/Query/Internal/QueryCompiler.cs",
+      "blob_sha": "7d59e4786702c632ff72f781ae88104c271265f2",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          60,
+          115
+        ],
+        [
+          134,
+          156
+        ]
+      ],
+      "purpose": "ExecuteCore",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/DapperLib/DapperAOT",
+      "commit": "0e071bf05e54caecfa98c885b075fa3e247f3ecc",
+      "path": "src/Dapper.AOT.Analyzers/CodeAnalysis/DapperInterceptorGenerator.cs",
+      "blob_sha": "8dc3687a187479c625ac6e8fc9efa1d6bdbe66d1",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          53,
+          74
+        ],
+        [
+          207,
+          236
+        ],
+        [
+          515,
+          543
+        ]
+      ],
+      "purpose": "incremental generator / skip branches",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/DapperLib/DapperAOT",
+      "commit": "0e071bf05e54caecfa98c885b075fa3e247f3ecc",
+      "path": "src/Dapper.AOT/Internal/AsyncQueryState.cs",
+      "blob_sha": "bbfe5a9f3af58cd1713c2441f022d12d2f42f97e",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          15,
+          54
+        ],
+        [
+          76,
+          116
+        ]
+      ],
+      "purpose": "DisposeAsync",
+      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/Query/Internal/StructuralTypeMaterializerSource.cs",
+      "blob_sha": "56f3e0594edc6d20b38e2f4a221d8ea1b04d60dd",
+      "read_state": "directory_only",
+      "line_ranges": [],
+      "purpose": "未完整读EF materializer，不声称覆盖全部构造/拦截机制",
+      "limitation": "已在固定tree确认路径，内容未读。"
+    },
+    {
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/ChangeTracking/Internal/NavigationFixer.cs",
+      "blob_sha": "638435ddd3e3060fa96847c3f1e804c03d86820f",
+      "read_state": "directory_only",
+      "line_ranges": [],
+      "purpose": "关系fixup完整链未读；v1采用显式有限关系，不声称功能等价",
+      "limitation": "已在固定tree确认路径，内容未读。"
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "Cargo.toml",
+      "blob_sha": "bdf4c6016efe3e0038f7f886b90f7328e5401678",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          195
+        ]
+      ],
+      "purpose": "Coherent SeaORM/SQLx/SeaQuery features and version",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/base_entity.rs",
+      "blob_sha": "abcd7cf5c9ecc870bc95a99bd542b7b75a192a9f",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          65,
+          135
+        ]
+      ],
+      "purpose": "Entity associated types / ActiveModelEx caveat",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/active_model.rs",
+      "blob_sha": "085935f94e21efa3686347f20dd05ffac1c2b0db",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          100
+        ],
+        [
+          215,
+          240
+        ],
+        [
+          340,
+          405
+        ],
+        [
+          440,
+          465
+        ]
+      ],
+      "purpose": "Real ActiveModel/partial updates/hooks",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/relation.rs",
+      "blob_sha": "b9a109f2d723b3236ef951a115cc1ff353a277a2",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          145
+        ],
+        [
+          301,
+          326
+        ]
+      ],
+      "purpose": "Relation/Related metadata and join",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/executor/update.rs",
+      "blob_sha": "2c93e4068cac6149203203003587959eb2d03081",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          220
+        ]
+      ],
+      "purpose": "Update affected count / RETURNING branches",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/executor/select.rs",
+      "blob_sha": "bb44d5a8769af628ad928a2ff6de42568ba10566",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          266,
+          324
+        ],
+        [
+          869,
+          925
+        ]
+      ],
+      "purpose": "Model/Projection execution",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "tests/relational_tests.rs",
+      "blob_sha": "6ea87bb39db5e37d81d9444801a7b4a92f363729",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          619,
+          710
+        ],
+        [
+          711,
+          784
+        ]
+      ],
+      "purpose": "Actual relational test source",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "tests/transaction_tests.rs",
+      "blob_sha": "c72bfc1d69d0496e5124f01a540107ff26a0bb7b",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          142,
+          169
+        ],
+        [
+          206,
+          235
+        ],
+        [
+          272,
+          300
+        ],
+        [
+          994,
+          1027
+        ],
+        [
+          373,
+          455
+        ]
+      ],
+      "purpose": "Transaction/hook failure test source",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "sea-orm-codegen/src/entity/writer/compact.rs",
+      "blob_sha": "c6aa085d68f241659f6c4709065d945460d5d08c",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          159
+        ]
+      ],
+      "purpose": "Entity/relation code generation",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "sea-orm-codegen/tests/compact/fruit.rs",
+      "blob_sha": "4898a0f8910e4c0c5f65e3c2a0010605704a4f51",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "purpose": "Code generation expected fixture",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "LICENSE-MIT",
+      "blob_sha": "719424ff8eca9a16296d9e2bb29b705298741071",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "purpose": "License text read; not full dependency audit",
+      "source_reader": "/root/database_design",
+      "limitation": "Only listed ranges read; no compile/run."
+    },
+    {
+      "repository": "https://github.com/diesel-rs/diesel",
+      "commit": "4007d771b1e808839f771a693f6bae9f821f0e64",
+      "path": "diesel_dynamic_schema/src/lib.rs",
+      "blob_sha": "f298869b397a92bab54a73ae8b96e11ebb71bd8c",
+      "read_state": "cross_task_source_read",
+      "locator": {
+        "read_ranges": "whole_file",
+        "permalink": "https://github.com/diesel-rs/diesel/blob/4007d771b1e808839f771a693f6bae9f821f0e64/diesel_dynamic_schema/src/lib.rs"
+      },
+      "source_reader": "/root",
+      "purpose": "Diesel dynamic-schema / boxed query comparison",
+      "limitation": "source_read_only_no_Rust_execution; source read by root, not independently reread by database_design."
+    },
+    {
+      "repository": "https://github.com/diesel-rs/diesel",
+      "commit": "4007d771b1e808839f771a693f6bae9f821f0e64",
+      "path": "diesel/src/query_builder/select_statement/boxed.rs",
+      "blob_sha": "63e003ae754137c99d76e52b77d0b67688ab9411",
+      "read_state": "cross_task_source_read",
+      "locator": {
+        "read_ranges": [
+          [
+            1,
+            190
+          ]
+        ],
+        "permalink": "https://github.com/diesel-rs/diesel/blob/4007d771b1e808839f771a693f6bae9f821f0e64/diesel/src/query_builder/select_statement/boxed.rs"
+      },
+      "source_reader": "/root",
+      "purpose": "Diesel dynamic-schema / boxed query comparison",
+      "limitation": "source_read_only_no_Rust_execution; source read by root, not independently reread by database_design."
+    },
+    {
+      "repository": "https://github.com/diesel-rs/diesel",
+      "commit": "4007d771b1e808839f771a693f6bae9f821f0e64",
+      "path": "diesel_dynamic_schema/tests/dynamic_values.rs",
+      "blob_sha": "19156a1bd90f7f4d4fc1a080c787343d5949b745",
+      "read_state": "cross_task_source_read",
+      "locator": {
+        "read_ranges": [
+          [
+            1,
+            140
+          ]
+        ],
+        "permalink": "https://github.com/diesel-rs/diesel/blob/4007d771b1e808839f771a693f6bae9f821f0e64/diesel_dynamic_schema/tests/dynamic_values.rs"
+      },
+      "source_reader": "/root",
+      "purpose": "Diesel dynamic-schema / boxed query comparison",
+      "limitation": "source_read_only_no_Rust_execution; source read by root, not independently reread by database_design."
+    }
+  ],
+  "other_candidates_not_read": [
+    "DapperLib/Dapper",
+    "linq2db/linq2db"
+  ],
+  "decision_revision": "rust-orm-required-2026-11-12",
+  "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+  "not_executed": [
+    "NativeWeave generated SeaORM model build",
+    "SQLx PG/SQLite target execution",
+    "C# Native AOT calling Rust ORM"
+  ],
+  "remaining_source_work": [
+    "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
+  ]
+}

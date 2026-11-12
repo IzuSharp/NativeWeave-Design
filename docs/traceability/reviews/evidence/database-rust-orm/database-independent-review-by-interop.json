@@ -1,0 +1,90 @@
+{
+  "reviewer": "/root/interop_design",
+  "author": "/root/database_design",
+  "review_kind": "independent_AI_design_review_not_GitHub_approval",
+  "started_at": "2026-11-12T13:39:46.978308+00:00",
+  "finished_at": "2026-11-12T13:39:47.071167+00:00",
+  "scope": "D14-D17 + R19-R25; read four specs and seven reports; all claim/coverage metadata; primary source spot checks; reran finite SQLite reference probe",
+  "input_hashes_at_review": {
+    "docs/database/drivers.md": "8c835f78ae431f8efea1f7c2cdf9a285abd6424e2ab4f784aa6f8ac5d030a10e",
+    "docs/database/query-semantics.md": "2e4b1b30353e153cd9c4e590900f95e40c6e9cb2fa134077289f718396d4e5fa",
+    "docs/database/transactions-and-pooling.md": "46e82ecb15f8480c52a311a67b11bba98153d2e4f2bfa37babe904ee156aa16f",
+    "docs/generators/query-generation.md": "130e383404903efe66ef32a7c432d3b42ecd3c1d78afd238fe6fe751811a1e92",
+    "docs/research/topics/R19/coverage.json": "8179ad698e267750562e56f25607b1cd61926bb5666517bc6955cbbe7e0d42c5",
+    "docs/research/topics/R19/evidence.json": "b5d76daa1ea704fafe5f8673d7a727b3ba716ef64503fa0b71bdc75b62acaf7e",
+    "docs/research/topics/R19/report.md": "907d63c7d824586c8cf37ca65aff24087b8fd3c69b7cc521ea9b46b67a3b8ac3",
+    "docs/research/topics/R20/coverage.json": "c0b9fc84a476f8cb5c40b15d244deaa4020063358f993cdfca42f69f0674680a",
+    "docs/research/topics/R20/evidence.json": "186fde307f1f1bb0c2aef216b57d3a8bc19e18511400d31cfeb85c407bb7a6d9",
+    "docs/research/topics/R20/report.md": "660eb7d868a9320588529e9c09f1da4bd3ee8d8b9fbd92fa10e0adf6594e6ff7",
+    "docs/research/topics/R21/coverage.json": "58bbc5f9a2efb548807ac35b36161c3c7c721ad6d8f92967aeb474a9262f8fe5",
+    "docs/research/topics/R21/evidence.json": "7ff7f95669121e7734267495d09b5379d51f3fd3e842bae071940f690135dfc9",
+    "docs/research/topics/R21/report.md": "2fcaf4072c0d5c4ba2ffe14d61fe39c8179a2d6742d62fa4e6195855deeef710",
+    "docs/research/topics/R22/coverage.json": "fde97dcee36b01d40a8cf33740f3230b995f45de44b39739240ade74dda369f4",
+    "docs/research/topics/R22/evidence.json": "aac8b0f3766340a752d2a0d60a2967c541effc8eb40b2d0e4aae77fda371c91a",
+    "docs/research/topics/R22/report.md": "dc5dc23611e886ccb1f7bb4a864ca32c4112dd57d04ae9cb6d7f1023052e5c32",
+    "docs/research/topics/R23/coverage.json": "2096db55acac3c87a50e9cbbed537d1cd5e44d02ee98f37d9087305d3570aa94",
+    "docs/research/topics/R23/evidence.json": "c7429ebd8d644e3073ddb1e3acb40e439273060dd81d42b123bad018d829704f",
+    "docs/research/topics/R23/report.md": "5bbbd1424b340dd71764cdf05ebacda2cc51d9d664575b4a62c5fd44610beae4",
+    "docs/research/topics/R24/coverage.json": "6b3f88deb71ad263d5179a3975b5d98fb483bf3263a1520e9ab0d500a4f68dfe",
+    "docs/research/topics/R24/evidence.json": "5482824843d6e88e34a3bccb1157cab9faf3b1a3dcd66830a1b10eb08e692727",
+    "docs/research/topics/R24/report.md": "298a0f5016390648f4266074680a8cbc24cf9447cba919fbf317efa80ccc9ced",
+    "docs/research/topics/R24/sqlite-semantics-result.json": "575aca00d84aa3c86016ea8fc9587ff217dc8ccb049174cfb271d5f823a53ea2",
+    "docs/research/topics/R24/sqlite-semantics-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/research/topics/R24/sqlite-semantics-stdout.log": "151015dc234612d9d716801dfd7523836cd3edba5390d8e8f0109e2b2f813b05",
+    "docs/research/topics/R24/sqlite_semantics_probe.py": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+    "docs/research/topics/R25/coverage.json": "0f64eae5444f712ed2da7078cbac174c777fe8d75cf678e201d835201231fc27",
+    "docs/research/topics/R25/evidence.json": "9547a00c597778d162ec93491345ff2de7b7efb28d51c6aec505262c94d3dca7",
+    "docs/research/topics/R25/report.md": "bd482971cee02048f91d37e0ce38890aaf0272b7b45e69716202a0de218f074d"
+  },
+  "structural_checks": {
+    "files": 29,
+    "claims": 60,
+    "problems": []
+  },
+  "experiment_rerun": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/NativeWeave-Design/docs/research/topics/R24/sqlite_semantics_probe.py",
+      "/workspace/scratch/853d33e40b86/nativeweave-bootstrap/database-review-by-interop/sqlite-semantics-result.json"
+    ],
+    "exit_code": 0,
+    "checks": 50,
+    "failed": 0,
+    "case_results_match_original": true,
+    "script_sha256": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+    "artifacts": {
+      "sqlite-semantics-result.json": "89d0926cb0291f5b23edbd104a1abe9ca2669486fd0695de91183a001ea25d82",
+      "stdout.log": "650db6bddd1bda134263da7cd937863498a05a0b5f5aa352ceb9bcc395cb79fc",
+      "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "limitations": [
+      "Python sqlite3 invokes the local SQLite library; no NativeWeave implementation exists here.",
+      "No C# or Rust compilation; no PostgreSQL server; no Windows or Native AOT execution.",
+      "Finite integer/null dataset; no proof for all data types, collations, optimizer rewrites or concurrent workloads."
+    ]
+  },
+  "findings": [
+    {
+      "id": "DB-CR01",
+      "severity": "medium",
+      "path": "docs/database/transactions-and-pooling.md",
+      "section": "4/5/11",
+      "status": "sent_to_author_pending_revision",
+      "observation": "RollbackInFlight error/deadline/uncertain cleanup lacks an explicit state/Outcome transition and CleanupResult oracle although CommitInFlight failures are specified.",
+      "required_resolution": "Specify unconfirmed rollback Outcome/lifecycle, strict no-commit knowledge, independent retained local obligations, and nonmasking observable CleanupResult with tests."
+    }
+  ],
+  "decision": "superseded_needs_rereview_after_user_required_Rust_database_boundary",
+  "not_verified": [
+    "Product implementation",
+    "C#/Rust compilation",
+    "PostgreSQL server behaviors",
+    "Windows/Linux Native AOT",
+    "Production performance/security/reliability"
+  ],
+  "superseded_at": "2026-11-12T13:41:57.967593+00:00",
+  "scope_change": "Root relayed explicit user requirement: database lower layer must be Rust. Prior managed-driver-default scope cannot be approved; pure C# query/SG upper layer and prior reference experiment remain evidence only.",
+  "finding_history_note": "DB-CR01 rollback-state finding remains relevant, but all approvals await revised native-driver/pool/transaction/cursor/ownership boundary review.",
+  "additional_scope_change": "Root later relayed explicit user requirement that Rust also owns the real ORM, query semantics, SQL generation, relation/state handling and execution; C# is syntax/AOT capture, IR encoding and DTO surface only. The old C# ORM/SQL-emitter boundary is superseded too. No approval from this historical record applies to the new SeaORM design.",
+  "new_review_required": "Fresh exact-hash review of Rust SeaORM + SQLx SessionExecutor, query IR and C# capture/build/DTO boundary; preserve DB-CR01 finding and reference probe as historical evidence only."
+}

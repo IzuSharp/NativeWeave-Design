@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "reader": "/root",
+  "status": "scoped_source_read",
+  "decision": "Select SeaORM 2.0.4 for Rust ORM using generated static models and dispatcher; Diesel 2.3.14 compared, no performance ranking.",
+  "entries": [
+    {
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "Cargo.toml",
+      "blob": "bdf4c6016efe3e0038f7f886b90f7328e5401678",
+      "read_ranges": [
+        [
+          1,
+          190
+        ]
+      ],
+      "reader": "/root",
+      "claim": "Version, feature graph, SeaQuery/SQLx dependencies, MSRV and license.",
+      "source_url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/Cargo.toml",
+      "verification": "source_read_only_no_Rust_execution"
+    },
+    {
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/base_entity.rs",
+      "blob": "abcd7cf5c9ecc870bc95a99bd542b7b75a192a9f",
+      "read_ranges": [
+        [
+          1,
+          170
+        ]
+      ],
+      "reader": "/root",
+      "claim": "EntityTrait static Model/ActiveModel/Column/Relation/PK; ActiveModelEx minor stability caveat.",
+      "source_url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/base_entity.rs",
+      "verification": "source_read_only_no_Rust_execution"
+    },
+    {
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/query/select.rs",
+      "blob": "e226238dd4647baf3ba5e42023ef613855853d4b",
+      "read_ranges": [
+        [
+          1,
+          160
+        ]
+      ],
+      "reader": "/root",
+      "claim": "Select<E> keeps typed Entity via PhantomData plus SeaQuery SelectStatement.",
+      "source_url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/query/select.rs",
+      "verification": "source_read_only_no_Rust_execution"
+    },
+    {
+      "repository": "SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/query/helper.rs",
+      "blob": "fbf81a7313a3d73340e4a95d7f7112c08fb241dd",
+      "read_ranges": [
+        [
+          625,
+          810
+        ]
+      ],
+      "reader": "/root",
+      "claim": "Runtime Condition examples; this range alone does not establish filter body.",
+      "source_url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/query/helper.rs",
+      "verification": "source_read_only_no_Rust_execution"
+    },
+    {
+      "repository": "diesel-rs/diesel",
+      "commit": "4007d771b1e808839f771a693f6bae9f821f0e64",
+      "path": "diesel_dynamic_schema/src/lib.rs",
+      "blob": "f298869b397a92bab54a73ae8b96e11ebb71bd8c",
+      "read_ranges": "whole_file",
+      "reader": "/root",
+      "claim": "Dynamic schema loses existence/type compile guarantees; explicit select.",
+      "source_url": "https://github.com/diesel-rs/diesel/blob/4007d771b1e808839f771a693f6bae9f821f0e64/diesel_dynamic_schema/src/lib.rs",
+      "verification": "source_read_only_no_Rust_execution"
+    },
+    {
+      "repository": "diesel-rs/diesel",
+      "commit": "4007d771b1e808839f771a693f6bae9f821f0e64",
+      "path": "diesel/src/query_builder/select_statement/boxed.rs",
+      "blob": "63e003ae754137c99d76e52b77d0b67688ab9411",
+      "read_ranges": [
+        [
+          1,
+          190
+        ]
+      ],
+      "reader": "/root",
+      "claim": "Boxed query retains type/backend generics and trait-object fragments.",
+      "source_url": "https://github.com/diesel-rs/diesel/blob/4007d771b1e808839f771a693f6bae9f821f0e64/diesel/src/query_builder/select_statement/boxed.rs",
+      "verification": "source_read_only_no_Rust_execution"
+    },
+    {
+      "repository": "diesel-rs/diesel",
+      "commit": "4007d771b1e808839f771a693f6bae9f821f0e64",
+      "path": "diesel_dynamic_schema/tests/dynamic_values.rs",
+      "blob": "19156a1bd90f7f4d4fc1a080c787343d5949b745",
+      "read_ranges": [
+        [
+          1,
+          140
+        ]
+      ],
+      "reader": "/root",
+      "claim": "Backend-specific dynamic decode test source; not executed.",
+      "source_url": "https://github.com/diesel-rs/diesel/blob/4007d771b1e808839f771a693f6bae9f821f0e64/diesel_dynamic_schema/tests/dynamic_values.rs",
+      "verification": "source_read_only_no_Rust_execution"
+    }
+  ],
+  "limits": [
+    "No Rust/C#/NativeAOT build or upstream tests executed",
+    "No assertion that SQLx alone is ORM",
+    "Generated model build must compile Rust; static Entity types cannot be invented at runtime",
+    "SeaORM QueryFilter body not included in the first 625-810 range"
+  ]
+}

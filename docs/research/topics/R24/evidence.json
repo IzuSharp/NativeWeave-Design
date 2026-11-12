@@ -1,0 +1,482 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R24",
+  "recorded_at": "2026-11-12",
+  "status": "partially_evidenced",
+  "baseline": {
+    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+  },
+  "task_packet": {
+    "revision": "0.1.1",
+    "path": "research-tasks/R24.md",
+    "packet_sha256": "eb8ca392ff71d128ca7a373e4dcdacc261d2cb280389f02450c692cb9d2dede0"
+  },
+  "claim_status_policy": "设计结论可独立审查后解决；本记录不自授accepted，实现验证另列Delivery任务。",
+  "claims": [
+    {
+      "claim_id": "R24-C01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore.Relational/Query/SqlNullabilityProcessor.cs",
+      "blob_sha": "b87a0fa402e0fb9753d32811af8d754e2ab1ae77",
+      "symbol": "RewriteNullSemantics / IN processing",
+      "locator": {
+        "line_ranges": [
+          [
+            38,
+            79
+          ],
+          [
+            728,
+            751
+          ],
+          [
+            856,
+            879
+          ],
+          [
+            1118,
+            1141
+          ],
+          [
+            1398,
+            1421
+          ],
+          [
+            1875,
+            2015
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Query/SqlNullabilityProcessor.cs#L38-L79",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Query/SqlNullabilityProcessor.cs#L728-L751",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Query/SqlNullabilityProcessor.cs#L856-L879",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Query/SqlNullabilityProcessor.cs#L1118-L1141",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Query/SqlNullabilityProcessor.cs#L1398-L1421",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Query/SqlNullabilityProcessor.cs#L1875-L2015"
+        ]
+      },
+      "supported_claim": "完整null compensation与过滤优化不同；IN的empty/null需专项处理。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R24-C02",
+      "evidence_kind": "test-source-observed",
+      "repository": "https://github.com/dotnet/efcore",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "test/EFCore.Relational.Specification.Tests/Query/NullSemanticsQueryTestBase.cs",
+      "blob_sha": "2dca76fc835e54043fff6fbe459595319d08a7c8",
+      "symbol": "negated nullable comparison / Contains tests",
+      "locator": {
+        "line_ranges": [
+          [
+            1628,
+            1656
+          ],
+          [
+            2081,
+            2113
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/EFCore.Relational.Specification.Tests/Query/NullSemanticsQueryTestBase.cs#L1628-L1656",
+          "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/EFCore.Relational.Specification.Tests/Query/NullSemanticsQueryTestBase.cs#L2081-L2113"
+        ]
+      },
+      "supported_claim": "测试源码明确nullable比较取反与Contains/NULL组合；未执行。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null,
+      "current_product_role": "comparative_reference_only"
+    },
+    {
+      "claim_id": "R24-C03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/prepare.rs",
+      "blob_sha": "a13bd7cabd9aeba166740f8aa25b992fa6c2f243",
+      "symbol": "SqlWriterValues / inject_parameters",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            196
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/prepare.rs#L1-L196"
+        ]
+      },
+      "supported_claim": "参数化writer分离占位符与Values；用于显示的inject/inlined SQL不是参数绑定。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-C04",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/query/traits.rs",
+      "blob_sha": "7527dab633c156e6918bc4404b7d98b923760452",
+      "symbol": "QueryStatementBuilder::build / to_string",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            131
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/traits.rs#L1-L131"
+        ]
+      },
+      "supported_claim": "build返回SQL及Values，to_string使用inline路径。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-C05",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/backend/query_builder.rs",
+      "blob_sha": "b51b6569ce98c6505d58c2263d4798125547258d",
+      "symbol": "prepare_value / prepare_bin_oper / query conditions",
+      "locator": {
+        "line_ranges": [
+          [
+            678,
+            701
+          ],
+          [
+            715,
+            738
+          ],
+          [
+            825,
+            848
+          ],
+          [
+            1070,
+            1101
+          ],
+          [
+            1108,
+            1131
+          ],
+          [
+            1909,
+            1932
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/query_builder.rs#L678-L701",
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/query_builder.rs#L715-L738",
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/query_builder.rs#L825-L848",
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/query_builder.rs#L1070-L1101",
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/query_builder.rs#L1108-L1131",
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/query_builder.rs#L1909-L1932"
+        ]
+      },
+      "supported_claim": "方言SQL发射与value参数通路分开；只读所列范围。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-C06",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "src/backend/sqlite/query.rs",
+      "blob_sha": "0e545675d46eef578331e2a295fe5731a4c0645f",
+      "symbol": "prepare_search_clause / prepare_cycle_clause / prepare_value",
+      "locator": {
+        "line_ranges": [
+          [
+            21,
+            47
+          ],
+          [
+            65,
+            86
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/sqlite/query.rs#L21-L47",
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/sqlite/query.rs#L65-L86"
+        ]
+      },
+      "supported_claim": "已读SQLite后端SEARCH/CYCLE为空实现；NativeWeave必须用capability拒绝未支持。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-C07",
+      "evidence_kind": "test-source-observed",
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "tests/postgres/query.rs",
+      "blob_sha": "9bdf8fc8f23fc3c3bc42eff603f0dc2368539d86",
+      "symbol": "SELECT/JOIN string tests",
+      "locator": {
+        "line_ranges": [
+          [
+            5,
+            48
+          ],
+          [
+            166,
+            184
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/tests/postgres/query.rs#L5-L48",
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/tests/postgres/query.rs#L166-L184"
+        ]
+      },
+      "supported_claim": "SQL golden可验证字符串，不是活数据库语义证明。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-C08",
+      "evidence_kind": "license-text-observed",
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "LICENSE-MIT",
+      "blob_sha": "14bf0d7d5d86d4e75f6590a6d93d5bb396710b7a",
+      "symbol": "license notice",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            25
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/LICENSE-MIT#L1-L25"
+        ]
+      },
+      "supported_claim": "MIT许可全文已读；Apache文件仅目录已见未读。",
+      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-C09",
+      "evidence_kind": "official-documentation-observed",
+      "repository": null,
+      "commit": null,
+      "path": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types",
+      "symbol": "lifted operators",
+      "locator": {
+        "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types",
+        "section_or_observed_lines": "129–166 observed page lines",
+        "accessed_at": "2026-11-12"
+      },
+      "supported_claim": "nullable关系比较任一null为false；==/!=有明确null规则，与SQL UNKNOWN不同。",
+      "limitations": "官方网页非固定Git commit；这里只记录所读明确规则，不声明本产品实现已验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-C10",
+      "evidence_kind": "official-documentation-observed",
+      "repository": null,
+      "commit": null,
+      "path": "https://www.sqlite.org/lang_expr.html",
+      "symbol": "operators / IS / integer arithmetic",
+      "locator": {
+        "url": "https://www.sqlite.org/lang_expr.html",
+        "section_or_observed_lines": "§2 Operators",
+        "accessed_at": "2026-11-12"
+      },
+      "supported_claim": "IS/IS NOT的null规则与普通比较不同；整数溢出可进入浮点运算。",
+      "limitations": "官方网页非固定Git commit；这里只记录所读明确规则，不声明本产品实现已验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-C11",
+      "evidence_kind": "executed-reference-experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": null,
+      "path": "docs/research/topics/R24/sqlite_semantics_probe.py",
+      "symbol": "main / explicit Python oracle",
+      "locator": {
+        "script_sha256": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+        "result": "sqlite-semantics-result.json"
+      },
+      "supported_claim": "50个有限SQLite参考检查全部通过，包含NULL取反negative control、join、绑定值、keyset、decimal TEXT排序和溢出反例。",
+      "limitations": "此轮新文件在根agent提交后固定Git commit；当前脚本hash固定。不是NativeWeave/C#/Rust/generator/PostgreSQL/AOT/跨平台/生产证据。",
+      "run_manifest": {
+        "experiment_id": "R24-SQLITE-SEMANTICS-001",
+        "command": "python3 sqlite_semantics_probe.py sqlite-semantics-result.json > sqlite-semantics-stdout.log 2> sqlite-semantics-stderr.log",
+        "working_directory": "docs/research/topics/R24",
+        "exit_code": 0,
+        "started_at": "2026-11-12T13:16:17.903463+00:00",
+        "finished_at": "2026-11-12T13:16:17.924428+00:00",
+        "environment": {
+          "python": "3.12.14",
+          "sqlite": "3.53.1",
+          "os": "Linux",
+          "arch": "x86_64"
+        },
+        "script_sha256": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+        "artifacts": {
+          "sqlite-semantics-result.json": "575aca00d84aa3c86016ea8fc9587ff217dc8ccb049174cfb271d5f823a53ea2",
+          "sqlite-semantics-stdout.log": "151015dc234612d9d716801dfd7523836cd3edba5390d8e8f0109e2b2f813b05",
+          "sqlite_semantics_probe.py": "f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455",
+          "sqlite-semantics-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "result": {
+          "checks": 50,
+          "failed": 0
+        },
+        "missing_tools": {
+          "dotnet": null,
+          "psql": null
+        }
+      }
+    },
+    {
+      "claim_id": "R24-V1",
+      "evidence_kind": "release-tag-metadata-observed",
+      "repository": "https://github.com/SeaQL/sea-query",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "path": "refs/tags/1.0.2",
+      "symbol": "release/tag resolution",
+      "locator": {
+        "tag_url": "https://api.github.com/repos/SeaQL/sea-query/git/refs/tags/1.0.2",
+        "release_url": "https://github.com/SeaQL/sea-query/releases/tag/1.0.2",
+        "observed_at": "2026-11-12",
+        "latest_endpoint_tag": "1.0.2",
+        "published_at": "2026-08-12T22:48:52Z"
+      },
+      "supported_claim": "所用tag 1.0.2已解析完整commit；latest release端点当前返回1.0.2。",
+      "limitations": "只证明版本定位；EF11 tag与latest端点v10.0.15不同，不能以endpoint顺序证明最新稳定。SQLitePCL仅metadata，不证明源码、资产或许可审查。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-RU01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/query/helper.rs",
+      "blob_sha": "fbf81a7313a3d73340e4a95d7f7112c08fb241dd",
+      "symbol": "Runtime Condition and actual filter body",
+      "locator": {
+        "line_ranges": [
+          [
+            625,
+            810
+          ],
+          [
+            811,
+            838
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/query/helper.rs#L625-L810",
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/query/helper.rs#L811-L838"
+        ]
+      },
+      "supported_claim": "QueryFilter runtime Condition例子与filter/filter_mut本体将条件传入SeaQuery cond_where；排序支持显式null ordering。",
+      "source_reader": "/root/database_design",
+      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-RU02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/entity/relation.rs",
+      "blob_sha": "b9a109f2d723b3236ef951a115cc1ff353a277a2",
+      "symbol": "Typed relations and ON predicate",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            145
+          ],
+          [
+            301,
+            326
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/relation.rs#L1-L145",
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/relation.rs#L301-L326"
+        ]
+      },
+      "supported_claim": "RelationTrait/Related/RelationDef表达关系方向、keys、junction via和ON condition；这些真实ORM机制可由生成实体复用。",
+      "source_reader": "/root/database_design",
+      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R24-RU03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/executor/select.rs",
+      "blob_sha": "bb44d5a8769af628ad928a2ff6de42568ba10566",
+      "symbol": "Typed projection and stream",
+      "locator": {
+        "line_ranges": [
+          [
+            266,
+            324
+          ],
+          [
+            869,
+            925
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/executor/select.rs#L266-L324",
+          "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/executor/select.rs#L869-L925"
+        ]
+      },
+      "supported_claim": "SeaORM Select可into_model/into_partial_model；one/all/stream通过ConnectionTrait/StreamTrait取得QueryResult并调用静态FromQueryResult，Rust ORM执行链是真实的。",
+      "source_reader": "/root/database_design",
+      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "run_manifest": null
+    }
+  ],
+  "decision_revision": "rust-orm-required-2026-11-12",
+  "requirement_correction": {
+    "authority": "current user instruction relayed by root",
+    "database_backend": "Rust required",
+    "orm": "SeaORM 2.0.4 selected; SQLx alone is not ORM",
+    "csharp_scope": "syntax capture, request encoding, public API, boundary DTO only",
+    "prior_managed_default": "superseded; prior source observations/experiments retained"
+  },
+  "design_decisions": {
+    "status": "design_decided_pending_independent_acceptance",
+    "choice": "SeaORM Rust ORM + generated schema-specific native module; C# topmost only",
+    "implementation_verified": false,
+    "production_accepted": false,
+    "remaining_delivery": [
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B09",
+      "B10",
+      "B11",
+      "B12",
+      "B13",
+      "B14",
+      "B22",
+      "B23",
+      "B24"
+    ]
+  }
+}
