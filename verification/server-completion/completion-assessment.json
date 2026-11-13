@@ -1,0 +1,518 @@
+{
+  "schema_version": "1.0.0",
+  "author": "server_extensions agent",
+  "scope": "8 Research and 3 Documentation tasks; not a fourth plan graph",
+  "baseline_design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+  "baseline_plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+  "author_does_not_self_accept": true,
+  "records": [
+    {
+      "task_id": "R26",
+      "baseline_graph_status": "planned",
+      "baseline_packet_revision": "0.2.1",
+      "audit": "Existing detailed report/evidence/coverage with 7 scoped source claims; graph planned understated authored work; no real comparator app execution existed.",
+      "current_author_assessment": "research_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "outputs": [
+        {
+          "path": "docs/research/topics/R26/report.md",
+          "sha256": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77"
+        },
+        {
+          "path": "docs/research/topics/R26/evidence.json",
+          "sha256": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8"
+        },
+        {
+          "path": "docs/research/topics/R26/coverage.json",
+          "sha256": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45"
+        }
+      ],
+      "actual_run_evidence": [
+        {
+          "path": "verification/server-completion/kestrel-local-2/run.json",
+          "sha256": "0a9b78cc2aa5108adef0f696f902f0cc6e22aef781f076d7db0529c7f7f1a94b",
+          "success": true,
+          "scope": [
+            "No NativeWeave product implementation.",
+            "Protocol Rust tests do not execute a C# FFI Handler.",
+            "Kestrel is solely the managed comparator.",
+            "Finite tests do not establish long-load performance or platform certification."
+          ]
+        },
+        {
+          "path": "verification/server-completion/ci-verification.json",
+          "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+          "success": true,
+          "scope": [
+            "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+          ]
+        }
+      ],
+      "future_product_obligations": [
+        "Full equivalent-load and 24h/72h comparisons belong to B23 after the native product bridge exists.",
+        "Windows/Linux scoped comparator execution is complete; HTTP2/TLS equivalence and production profiles still require B23."
+      ]
+    },
+    {
+      "task_id": "R27",
+      "baseline_graph_status": "partially_evidenced",
+      "baseline_packet_revision": "0.2.4",
+      "audit": "Existing source report, native Service/Body slices, retained-byte experiments and CI already substantial; optional-Rust/dual-host decision was wrong.",
+      "current_author_assessment": "research_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "outputs": [
+        {
+          "path": "docs/research/topics/R27/report.md",
+          "sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9"
+        },
+        {
+          "path": "docs/research/topics/R27/evidence.json",
+          "sha256": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95"
+        },
+        {
+          "path": "docs/research/topics/R27/coverage.json",
+          "sha256": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e"
+        },
+        {
+          "path": "docs/research/topics/R27/source-driven-server.md",
+          "sha256": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113"
+        },
+        {
+          "path": "docs/research/topics/R27/native-slice-validation.md",
+          "sha256": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5"
+        }
+      ],
+      "actual_run_evidence": [
+        {
+          "path": "verification/server-completion/protocol-local-4/run.json",
+          "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+          "success": true,
+          "scope": [
+            "No NativeWeave product implementation.",
+            "Protocol Rust tests do not execute a C# FFI Handler.",
+            "Kestrel is solely the managed comparator.",
+            "Finite tests do not establish long-load performance or platform certification."
+          ]
+        },
+        {
+          "path": "verification/server-completion/ci-verification.json",
+          "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+          "success": true,
+          "scope": [
+            "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+          ]
+        },
+        {
+          "path": "verification/server-completion/protocol-reviewed-local/run.json",
+          "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+          "success": true,
+          "scope": [
+            "19 actual Linux protocol cases; old 13-case two-OS CI remains distinct.",
+            "Review correction adds cardinality default counterexample, strict unary/server-streaming, zero versus empty, per-request counter reset and client-stream mode.",
+            "No C# product bridge or full protocol/TLS end-to-end certification."
+          ]
+        }
+      ],
+      "future_product_obligations": [
+        "Integrate established Core Native AOT callback/retirement protocol with the real native Server in B15/B17.",
+        "Execute complete TLS+network+Handler streaming, reset/half-close, shutdown and long-load product acceptance."
+      ]
+    },
+    {
+      "task_id": "R28",
+      "baseline_graph_status": "planned",
+      "baseline_packet_revision": "0.2.0",
+      "audit": "Existing 17-claim managed protocol report was hidden by planned state but selected the wrong production transport; native source/seam experiments were missing.",
+      "current_author_assessment": "research_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "outputs": [
+        {
+          "path": "docs/research/topics/R28/report.md",
+          "sha256": "c2e1831f6d6d99d4c5e5517cccdc932abded58591bbafb007344f0d9ce34d255"
+        },
+        {
+          "path": "docs/research/topics/R28/evidence.json",
+          "sha256": "6e59124bef8f5d7ff812cd1a9778ce164ed46c0d0e4771269140852f7c58c07e"
+        },
+        {
+          "path": "docs/research/topics/R28/coverage.json",
+          "sha256": "5cf95839aff87a0bf188623b73471b47893835391221d95185e04d5d5e986892"
+        }
+      ],
+      "actual_run_evidence": [
+        {
+          "path": "verification/server-completion/protocol-local-4/run.json",
+          "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+          "success": true,
+          "scope": [
+            "No NativeWeave product implementation.",
+            "Protocol Rust tests do not execute a C# FFI Handler.",
+            "Kestrel is solely the managed comparator.",
+            "Finite tests do not establish long-load performance or platform certification."
+          ]
+        },
+        {
+          "path": "verification/server-completion/ci-verification.json",
+          "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+          "success": true,
+          "scope": [
+            "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+          ]
+        },
+        {
+          "path": "verification/server-completion/protocol-reviewed-local/run.json",
+          "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+          "success": true,
+          "scope": [
+            "19 actual Linux protocol cases; old 13-case two-OS CI remains distinct.",
+            "Review correction adds cardinality default counterexample, strict unary/server-streaming, zero versus empty, per-request counter reset and client-stream mode.",
+            "No C# product bridge or full protocol/TLS end-to-end certification."
+          ]
+        }
+      ],
+      "future_product_obligations": [
+        "B18 integrates all gRPC method kinds with generated C# protobuf DTOs, deadlines and ownership on Windows/Linux AOT.",
+        "B19 integrates typed C# mapping/authz and fixed rmcp profile; arbitrary JSON Schema support needs explicit native validator selection if added.",
+        "Full protocol+TLS+real-network+C# bridge conformance remains future implementation acceptance."
+      ]
+    },
+    {
+      "task_id": "R29",
+      "baseline_graph_status": "partially_evidenced",
+      "baseline_packet_revision": "0.2.3",
+      "audit": "Existing 282-state/895-transition credit model, native Body/Bytes/permit tests and Windows/Linux CI were real prior work; review and current host alignment remained.",
+      "current_author_assessment": "research_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "outputs": [
+        {
+          "path": "docs/research/topics/R29/report.md",
+          "sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe"
+        },
+        {
+          "path": "docs/research/topics/R29/evidence.json",
+          "sha256": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d"
+        },
+        {
+          "path": "docs/research/topics/R29/coverage.json",
+          "sha256": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131"
+        }
+      ],
+      "actual_run_evidence": [
+        {
+          "path": "verification/server-completion/protocol-local-4/run.json",
+          "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+          "success": true,
+          "scope": [
+            "No NativeWeave product implementation.",
+            "Protocol Rust tests do not execute a C# FFI Handler.",
+            "Kestrel is solely the managed comparator.",
+            "Finite tests do not establish long-load performance or platform certification."
+          ]
+        },
+        {
+          "path": "verification/server-completion/ci-verification.json",
+          "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+          "success": true,
+          "scope": [
+            "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+          ]
+        },
+        {
+          "path": "verification/server-completion/protocol-reviewed-local/run.json",
+          "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+          "success": true,
+          "scope": [
+            "19 actual Linux protocol cases; old 13-case two-OS CI remains distinct.",
+            "Review correction adds cardinality default counterexample, strict unary/server-streaming, zero versus empty, per-request counter reset and client-stream mode.",
+            "No C# product bridge or full protocol/TLS end-to-end certification."
+          ]
+        }
+      ],
+      "future_product_obligations": [
+        "Run actual generated Server budget coordinator, socket half-close/reset/cancel races and process resource trends in B16/B17/B22.",
+        "Finite models and retained-byte probes do not certify scheduler fairness, weak memory or RSS."
+      ]
+    },
+    {
+      "task_id": "R30",
+      "baseline_graph_status": "planned",
+      "baseline_packet_revision": "0.2.0",
+      "audit": "Existing Activity/OpenTelemetry source/test reading and detailed D19 existed under planned; Rust tracing and actual no-observer cost/layout probes were missing.",
+      "current_author_assessment": "research_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "outputs": [
+        {
+          "path": "docs/research/topics/R30/report.md",
+          "sha256": "fc2e8ccf04b5299b24c6650efec7355d677783ab968d2f3ce4ced1fd4a4c4858"
+        },
+        {
+          "path": "docs/research/topics/R30/evidence.json",
+          "sha256": "ddb0eb14d937fdd0cdd0cdc2313d29c2566449e23283342dc2cee6a1c0c0c7a8"
+        },
+        {
+          "path": "docs/research/topics/R30/coverage.json",
+          "sha256": "fb44bc8a8b41093b92adb07be1291e8570b8c7f2178330a7e3d9afe1b71dec4c"
+        }
+      ],
+      "actual_run_evidence": [
+        {
+          "path": "verification/server-completion/diagnostics-local-2/run.json",
+          "sha256": "a2081f7fe288071b45e0426a8671a302ec5eb5906e891e04e631980e89151f15",
+          "success": true,
+          "scope": [
+            "Not a cross-language propagation test.",
+            "Single-process no-observer timing is not a production benchmark.",
+            "Current-thread allocation counter excludes native memory."
+          ]
+        },
+        {
+          "path": "verification/server-completion/diagnostics-rust-layout/run.json",
+          "sha256": "53948800bfb19521a7b3209e92d24603114e86093b8ef4e2f074db2454ba6a8e",
+          "success": true,
+          "scope": [
+            "Individual compiled layouts match; no FFI transport/serialization golden executed by this layout witness."
+          ]
+        },
+        {
+          "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+          "sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf",
+          "success": true,
+          "scope": [
+            "Corrected warmed-clock/counter measurement, allocation window contains only StartActivity loop.",
+            "200000 null Activity returns, zero current-thread bytes and 12.437ns/call observed on this Linux AOT run; not cross-platform timing/zero-allocation promise."
+          ]
+        }
+      ],
+      "future_product_obligations": [
+        "B20 executes actual FFI context golden bytes, malformed fields and callback parent restoration.",
+        "B20/B23 validate exporter saturation/fault/shutdown and disabled/sampled/full costs under product load."
+      ]
+    },
+    {
+      "task_id": "R32",
+      "baseline_graph_status": "planned",
+      "baseline_packet_revision": "0.2.0",
+      "audit": "No report/evidence/coverage existed; now bounded source-derived extension contract and counterexamples completed.",
+      "current_author_assessment": "research_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "outputs": [
+        {
+          "path": "docs/research/topics/R32/report.md",
+          "sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f"
+        },
+        {
+          "path": "docs/research/topics/R32/evidence.json",
+          "sha256": "324df31b893b3a7cd547f7d8a8a99ba0d68f1cf8a68b5714ae45c679e7fb0caa"
+        },
+        {
+          "path": "docs/research/topics/R32/coverage.json",
+          "sha256": "db4645b539ca0e93faf4afbc870551d3a1e6c2d0b22d9ea68ab58c4a0aed48f9"
+        }
+      ],
+      "actual_run_evidence": [],
+      "future_product_obligations": [
+        "Future GUI/GPU engine requires actual backend/device execution for affinity, device/window loss, mapping/fence and loop-closure scenarios."
+      ]
+    },
+    {
+      "task_id": "R33",
+      "baseline_graph_status": "planned",
+      "baseline_packet_revision": "0.2.0",
+      "audit": "No report/evidence/coverage existed; now fixed official support/source identities and lifecycle/linkage requirements completed.",
+      "current_author_assessment": "research_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "outputs": [
+        {
+          "path": "docs/research/topics/R33/report.md",
+          "sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49"
+        },
+        {
+          "path": "docs/research/topics/R33/evidence.json",
+          "sha256": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be"
+        },
+        {
+          "path": "docs/research/topics/R33/coverage.json",
+          "sha256": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53"
+        }
+      ],
+      "actual_run_evidence": [],
+      "future_product_obligations": [
+        "iOS needs macOS/Xcode/signing plus separate physical-device and simulator execution.",
+        "Android Native AOT requires explicit experimental target/JNI/NDK validation; no current product support claim."
+      ]
+    },
+    {
+      "task_id": "R34",
+      "baseline_graph_status": "planned",
+      "baseline_packet_revision": "0.2.0",
+      "audit": "No report/evidence/coverage existed; now explicit threat-boundary analysis plus real native malformed-input/TLS rejection evidence completed.",
+      "current_author_assessment": "research_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "outputs": [
+        {
+          "path": "docs/research/topics/R34/report.md",
+          "sha256": "1d1f043b863e9b33483d3e9f88b00a88396c330c5cf1dfc4eed9bc08a5a2f0a9"
+        },
+        {
+          "path": "docs/research/topics/R34/evidence.json",
+          "sha256": "470aa544a5309db79714fdcaedf49c08962c5522c8c045a918799e7bc62b54be"
+        },
+        {
+          "path": "docs/research/topics/R34/coverage.json",
+          "sha256": "780ed9f8ce4f5ffc47356c3ee18c02a2b868999cb2284d10016f14811d9e8960"
+        }
+      ],
+      "actual_run_evidence": [
+        {
+          "path": "verification/server-completion/protocol-local-4/run.json",
+          "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+          "success": true,
+          "scope": [
+            "No NativeWeave product implementation.",
+            "Protocol Rust tests do not execute a C# FFI Handler.",
+            "Kestrel is solely the managed comparator.",
+            "Finite tests do not establish long-load performance or platform certification."
+          ]
+        },
+        {
+          "path": "verification/server-completion/ci-verification.json",
+          "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+          "success": true,
+          "scope": [
+            "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+          ]
+        },
+        {
+          "path": "verification/server-completion/protocol-reviewed-local/run.json",
+          "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+          "success": true,
+          "scope": [
+            "19 actual Linux protocol cases; old 13-case two-OS CI remains distinct.",
+            "Review correction adds cardinality default counterexample, strict unary/server-streaming, zero versus empty, per-request counter reset and client-stream mode.",
+            "No C# product bridge or full protocol/TLS end-to-end certification."
+          ]
+        }
+      ],
+      "future_product_obligations": [
+        "Fuzz/sanitize actual generated ABI and full protocol stack after implementation; finite negatives are not broad security certification.",
+        "Release-specific dependency/crypto/OS SBOM, license/NOTICE and current advisory review remain B24."
+      ]
+    },
+    {
+      "task_id": "D18",
+      "baseline_graph_status": "draft_ready",
+      "baseline_packet_revision": "0.2.4",
+      "audit": "Substantial lifecycle specification already existed but dual-host/optional-Rust architecture conflicted with user mission.",
+      "current_author_assessment": "design_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "contract_id": "C-SERVER-001",
+      "proposed_design_revision": "0.3.0",
+      "outputs": [
+        {
+          "path": "docs/server/hosting-and-streaming.md",
+          "sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d"
+        }
+      ],
+      "future_product_obligations": "Explicitly enumerated by existing Delivery task in the specification; not research/design acceptance prerequisites."
+    },
+    {
+      "task_id": "D19",
+      "baseline_graph_status": "draft_ready",
+      "baseline_packet_revision": "0.2.1",
+      "audit": "Substantial managed-only protocol/diagnostics specification existed; native protocol seam and valid host mapping were missing.",
+      "current_author_assessment": "design_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "contract_id": "C-PROTOCOL-001",
+      "proposed_design_revision": "0.3.0",
+      "outputs": [
+        {
+          "path": "docs/server/protocols-and-observability.md",
+          "sha256": "cf5fca2afc9aa6b7e81186ad2c67b0e6345bc53c73b20e8ba80a4f0896a77be1"
+        }
+      ],
+      "future_product_obligations": "Explicitly enumerated by existing Delivery task in the specification; not research/design acceptance prerequisites."
+    },
+    {
+      "task_id": "D21",
+      "baseline_graph_status": "draft_ready",
+      "baseline_packet_revision": "0.2.1",
+      "audit": "Graph said draft_ready but no corresponding specification existed.",
+      "current_author_assessment": "design_complete_pending_independent_review",
+      "research_blockers": [],
+      "acceptance_blockers": [
+        "Independent review of exact content and root graph/registry integration."
+      ],
+      "contract_id": "C-EXTENSION-001",
+      "proposed_design_revision": "0.3.0",
+      "outputs": [
+        {
+          "path": "docs/extension/future-platforms.md",
+          "sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54"
+        }
+      ],
+      "future_product_obligations": "Explicitly enumerated by existing Delivery task in the specification; not research/design acceptance prerequisites."
+    }
+  ],
+  "supporting_manifests": [
+    {
+      "path": "verification/server-completion/source-inspection.json",
+      "sha256": "1766ac37da17bf36e9da9eb11b4b1ae302455166c2d03b68d6ce1c4ca03d44d9"
+    },
+    {
+      "path": "verification/server-completion/package-identities.json",
+      "sha256": "84d56243e23b22d04838e019c0c1b2ecc14ca95a8b5652a164635866721c7125"
+    },
+    {
+      "path": "verification/server-completion/dependency-inventory.json",
+      "sha256": "9a6dafc9b2fe898b5409855487ab5d7b9b8914cf925ff4047852735ce1fbc3d8"
+    },
+    {
+      "path": "verification/server-completion/historical-input-omissions.json",
+      "sha256": "f7074c69122820d0d912a1492d3b12494ba7f00f2163de706267047e7588b958"
+    },
+    {
+      "path": "verification/server-completion/ci-verification.json",
+      "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb"
+    },
+    {
+      "path": "verification/server-completion/review-corrections.json",
+      "sha256": "d4d3ad4ca165a0fd9c0af8688ecfd70f1891aa1622d698b832af6c9514fdeb52"
+    }
+  ],
+  "research_execution_order": [
+    "Reuse and audit existing R26-R30 source/model/native-slice/CI evidence.",
+    "Close required native host + protocol seams and execute pinned protocol/network/TLS probes while documenting lifecycle.",
+    "Complete future GPU/mobile source constraints and R34 boundaries in parallel; no product implementation gate.",
+    "Execute comparator Native AOT and no-observer/layout probes; complete source identities, per-task coverage and independent review inputs."
+  ]
+}

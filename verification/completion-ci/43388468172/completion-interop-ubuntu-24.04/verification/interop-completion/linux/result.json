@@ -1,0 +1,31 @@
+{
+  "scope": "R02/R04/R07/R08/R09/R10/R11: bounded research fixture, not product or performance acceptance",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "independent_review": false,
+  "success": true,
+  "source_commit": null,
+  "baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "github_run_id": "43388468172",
+  "aot_requested": true,
+  "normal_executed": true,
+  "native_sha256": "e77fd69af5ffd5751e835abc452decd0936f92ba9f2d18630188f7f208db3026",
+  "aot_executed": true,
+  "aot_publish_exit_code": 0,
+  "aot_executable_sha256": "40ac986ab9f7f645ff19c5f56f5ff3609fa8d4cd2bbea13d8d33fce7a074b415",
+  "restrictions_aot_sha256": "799bb863958f56bfd1cfe695f753ca9cfeaca1a1bac851609c5e39c1a8f53dc7",
+  "source_files": {
+    "experiments/interop-completion/native/Cargo.toml": "07ec7ce7fdb33a13ea447ca0b60e331872a4e8d27fe0c93e8ad5a3978b3c2fc5",
+    "experiments/interop-completion/native/Cargo.lock": "717a26f10088028a99af7fae8874f9dee75486fcdf53eaac17f82fcc104ab642",
+    "experiments/interop-completion/native/src/lib.rs": "d544148adc2784bea52d854a9077145b147f43e4f311f75d86fb33763af4dd69",
+    "experiments/interop-completion/Completion.csproj": "151b2876c5cba1800b654d8cd4215a381feb758ffacf57145eb99098d42847a3",
+    "experiments/interop-completion/Program.cs": "f07c1a1f70340171bf58ede484b199405197c8acf79093cb4deb2c9bff98d786",
+    "experiments/interop-completion/global.json": "177ca4cd7ebe5dedc790036a165afc2c7d8ffff5a8a09a6679a93b3b0ceb3c0e",
+    "experiments/interop-completion/rust-toolchain.toml": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+    "experiments/interop-completion/run.py": "63f13767f62747bfe8aef2797ec63b18fae875eda8497305eb86999b9776d90c",
+    "experiments/interop-completion/GeneratorProbe.csproj": "e48b11bfa82b1210d8450ebddd83e7d984b0adb83176ff65afb1cea3835eeb4c",
+    "experiments/interop-completion/GeneratorProbe.cs": "339033be553ce7b25e45eac541e0a12ac928bfe763066dce5ac43bef64ab803d",
+    "experiments/interop-completion/AotRestrictions.csproj": "da5c22071e79bca5aca697d497f8e8bb18e25f01fcf19e1df1ef6209975df257",
+    "experiments/interop-completion/AotRestrictions.cs": "f27e1d2fdca73ac16d16dca03d627f4ecf3a1382314184c2d33e344d56883d7e",
+    "experiments/interop-completion/Directory.Build.props": "c1b371ad88fb8e78e8fb2ae36f0eac2519aeab353609f75e5ca98ebee3be419e"
+  }
+}

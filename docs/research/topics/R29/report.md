@@ -1,6 +1,6 @@
 # R29 — 字节预算、背压、取消与 graceful shutdown
 
-日期：2026-11-12。packet0.1.1及固定输入hash见[evidence.json](evidence.json)。研究状态partially_evidenced；有限Python模型实际运行，真实.NET/Tokio/native/NativeAOT未运行。设计已写[D18](../../../server/hosting-and-streaming.md)，Q16建议在独立审查后按设计已解决关闭。
+历史研究始于 2026-11-12，本次补证至 2026-11-13。当前 packet 及固定输入 hash 见 [evidence.json](evidence.json)。有限 Python 模型、真实 Bytes/Tokio/Body/permit Windows/Linux 实验和新增 native 协议/network/TLS 探针分别有实际记录；完整产品桥与长期负载未实施。研究设计待独立审查。设计已写[D18](../../../server/hosting-and-streaming.md)，Q16建议在独立审查后按设计已解决关闭。
 
 ## 1. 要建立的保证
 
@@ -58,4 +58,39 @@ pull提供背压：消费者只请求已有credit的最大字节数；read最多
 | B20 | admissionclose与completionrace、drain/abort/retire、COMMITUnknown、exporter故障；monotonicdeadline不重置 |
 | B22/B23 | Windows/Linux AOT真流量；24h/72h连接churn、取消风暴、资源趋势；logicalbytes/RSS/CPU/尾延迟分项 |
 
-交叉Review：R12核对pin/owner与bytecredit；R07/R08检查retire；R26/R27验证transport完成语义；数据库R21核对Unknown。实现状态保持not-run，设计选择无需等待全部产品测试才成立。
+交叉Review：R12核对pin/owner与bytecredit；R07/R08检查retire；R26/R27验证transport完成语义；数据库R21核对Unknown。产品实现状态保持 not-run；已执行研究探针保持其实际范围。设计选择无需等待全部产品测试才成立。
+
+
+## Current completion and architecture correction (2026-11-12)
+
+The latest user mission requires a Rust Server engine. Kestrel is solely the comparator.
+The selected initial design is Tokio + Hyper/hyper-util + Tower, with Axum available
+for native routing and composition where needed. Actix remains a worker-affine
+alternative and Pingora a proxy-specific engine; neither is copied into C#. Public
+Service/Body APIs suffice for the current Adapter; no fork is justified by this study.
+Prior passages describing optional Rust or a Kestrel product host are superseded as
+architecture decisions, while their scoped source/evidence identities remain historical.
+
+D18 now defines the native Handler/Body bridge and retirement protocol; D19 binds
+Tonic/rmcp/rustls to that same host. New actual protocol/network/TLS evidence is in
+`verification/server-completion/`, with exact commands/source hashes and retained prior
+attempts. Native HTTP1/HTTP2 loopback and bounded TLS tests are real executions, but
+not a C# Server product, equivalent-load benchmark or production soak. The existing
+Body/Bytes/permit and finite credit models are reused without inflating their coverage.
+
+Research-design closure is proposed for this bounded source/lifecycle study; future
+B16/B17/B20/B22/B23 implementation, complete cross-language transport and long-load
+acceptance remain explicit obligations. Independent review and graph integration
+must bind this exact revised content before acceptance.
+
+
+### Verified Windows/Linux research CI
+
+CI run [43388468172](https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43388468172)
+tested source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`. Protocol13/13 and
+Kestrel Native AOT5/5 passed on both Windows2022 and Ubuntu24.04. Their actual
+run manifests, stdout/stderr and source snapshots are retained under
+`verification/completion-ci/43388468172/`; author checks of each raw log/input hash and
+exact Windows LF-to-CRLF conversion are recorded in
+`verification/server-completion/ci-verification.json`. This extends platform coverage
+for these same distinct cases, not their product/FFI/soak scope or independent review.

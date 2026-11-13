@@ -1,0 +1,14 @@
+
+running 4 tests
+test native_join_aggregate_matches_independent_sql_oracle ... ok
+test native_cas_preserves_tenant_and_not_set_null_distinction ... ok
+test sqlite_foreign_key_and_savepoint_recovery_are_explicit ... ok
+test seaorm_public_dynamic_projection_needs_no_static_entity ... FAILED
+
+failures:
+
+failures:
+    seaorm_public_dynamic_projection_needs_no_static_entity
+
+test result: FAILED. 3 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

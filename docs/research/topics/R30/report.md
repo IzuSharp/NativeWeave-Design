@@ -1,6 +1,6 @@
 # R30 — 跨语言诊断、低开销路径与有界 exporter
 
-日期：2026-11-12；packet0.1.1、输入baseline/hash见[evidence.json](evidence.json)。状态partially_evidenced：已读.NET与OpenTelemetry关键生命周期及测试；未读全部Rusttracing/metric/exporter实现，也未运行产品性能/AOT。设计已同步[D19](../../../server/protocols-and-observability.md)。
+历史研究始于 2026-11-12，本次补证至 2026-11-13；当前 packet、输入 baseline/hash 见[evidence.json](evidence.json)。本次已补读 tracing 0.1.44 的异步 span/subscriber 边界，并实际运行独立诊断 Native AOT 探针；研究/设计接受仍待独立审查。未读全部 metric/exporter 实现，未执行未来产品性能验收。设计已同步[D19](../../../server/protocols-and-observability.md)。
 
 ## 1. 已选择的边界
 
@@ -55,7 +55,7 @@ metriclabels限定routetemplate、protocolprofile、provider、规范化errorcat
 
 ## 6. API/ABI、平台与验证
 
-32-byteTraceContextV1字段/offset在D19，内容为size/version/flags/reserved/16-bytetraceid/8-byteparentspanid。C#与Rust布局断言、非法size/version/zeroID、unknownflags、tracestate超长与跨线程context恢复必须由B20实际编译/运行；当前布局未编译。FFI可选metadata不支持时忽略，不改变业务语义；畸形外部traceparent开启新root，非法ABI内存访问仍是契约错误。
+32-byteTraceContextV1字段/offset在D19，内容为size/version/flags/reserved/16-bytetraceid/8-byteparentspanid。C# Native AOT 与 Rust 布局已分别编译执行，size=32、trace_id offset=8、parent_span_id offset=24。非法 size/version/zeroID、unknownflags、tracestate 超长与实际 FFI 跨线程 context 恢复仍由 B20 集成验证；单边布局成功不等于跨语言传输已执行。FFI可选metadata不支持时忽略，不改变业务语义；畸形外部traceparent开启新root，非法ABI内存访问仍是契约错误。
 
 | Task | 可执行验收 |
 | --- | --- |
@@ -65,3 +65,77 @@ metriclabels限定routetemplate、protocolprofile、provider、规范化errorcat
 | B24 | 独立exporter包、cleanmachineAOT、Windows/Linuxtimer/thread差异、SBOM与升级兼容 |
 
 Q17中的diagnostics边界有可审查设计决定；真正低开销、无泄漏、跨平台AOT属于这些实现义务。独立Review接口：R08检查callback热路径与寿命；R29检查budget不是只看count；R34检查输入trace不能变成身份/secret泄露；R28检查协议error/Unknown与trace映射。
+
+
+## Current completion and architecture correction (2026-11-12)
+
+The latest user mission requires a Rust Server engine. Kestrel is solely the comparator.
+The selected initial design is Tokio + Hyper/hyper-util + Tower, with Axum available
+for native routing and composition where needed. Actix remains a worker-affine
+alternative and Pingora a proxy-specific engine; neither is copied into C#. Public
+Service/Body APIs suffice for the current Adapter; no fork is justified by this study.
+Prior passages describing optional Rust or a Kestrel product host are superseded as
+architecture decisions, while their scoped source/evidence identities remain historical.
+
+D18 now defines the native Handler/Body bridge and retirement protocol; D19 binds
+Tonic/rmcp/rustls to that same host. New actual protocol/network/TLS evidence is in
+`verification/server-completion/`, with exact commands/source hashes and retained prior
+attempts. Native HTTP1/HTTP2 loopback and bounded TLS tests are real executions, but
+not a C# Server product, equivalent-load benchmark or production soak. The existing
+Body/Bytes/permit and finite credit models are reused without inflating their coverage.
+
+Research-design closure is proposed for this bounded source/lifecycle study; future
+B16/B17/B20/B22/B23 implementation, complete cross-language transport and long-load
+acceptance remain explicit obligations. Independent review and graph integration
+must bind this exact revised content before acceptance.
+
+
+## 7. Completed tracing source and actual Native AOT diagnostics probe
+
+New source identity: tracing0.1.44, crate VCS commit
+`2d55f6faf9be83e7e4634129fb96813241aac2b8` in `tokio-rs/tracing`.
+Read `tracing/src/span.rs:596–641,780–790`, `instrument.rs:176–231,277–324,378–389`
+and `subscriber.rs:1–63`; source hashes and crate provenance are in
+[source-inspection.json](../../../../verification/server-completion/source-inspection.json).
+`Instrumented<Future>::poll` enters/exits the span per poll; `WithDispatch::poll`
+sets the captured dispatcher per poll. A Span::enter guard held across await leaves
+unrelated work inside the wrong span. A thread-local subscriber is not automatically
+propagated to another worker; library code must not seize the process-global subscriber.
+The Server adapter uses an explicitly owned dispatcher plus instrumented futures,
+with value context carried in operations; callback scheduling restores managed context.
+
+[DiagnosticsProbe](../../../../experiments/server-completion/diagnostics/Program.cs)
+was published and executed as Linux x64 .NET11 Native AOT with warnings as errors.
+The exact run is `verification/server-completion/diagnostics-local-2/run.json`.
+Eleven assertions cover the 32-byte C# layout, disabled listener state, null Activity
+creation, no steady-loop current-thread allocation, avoiding tag construction,
+explicit remote parent, managed await/Task parent propagation and listener disposal.
+The 200000-call observation was 13.589 ns/call and 0 allocated bytes on this run;
+this single-process observation is not a transferable throughput claim or native-memory
+measurement. It is the required disabled-observer cost witness. The initial failed
+compile attempt is retained separately; no failed run is presented as success.
+
+A separate Rust1.100 layout witness also executed successfully in
+`verification/server-completion/diagnostics-rust-layout/run.json`. These probes do not
+include native callback-to-managed trace propagation, exporter saturation or arbitrary
+OS targets. They close the bounded design questions and leave concrete integration/
+load obligations with B20/B22/B23, not a blanket requirement to redo the architecture.
+
+## Windows observation failure and corrected measurement boundary
+
+The first Windows diagnostics CI at run43390177287 passed the layout/listener/null
+checks but failed its zero-allocation assertion. Its raw stdout/stderr and run manifest
+remain under `verification/completion-ci/43390177287/diagnostics-windows-2022/`.
+That version included the first clock calls inside the allocation measurement and
+printed the numerical observation only after the assertion, so the failed run does
+not preserve an allocation count and cannot attribute the extra allocation to
+ActivitySource alone. It is not reported as a successful Windows observation.
+
+The corrected source warms clock/counter setup outside the measurement and places
+only the `StartActivity` loop inside the allocation counter window; its numerical
+observation is printed before either assertion. The Linux NativeAOT rerun at
+`verification/server-completion/diagnostics-reviewed-local/run.json` passed all eleven
+checks and observed 200000 null returns, zero current-thread allocated bytes and
+12.437 ns/call. This is another scoped observation, not a promise of a universal
+zero-allocation or timing result. Windows must supply its own corrected run before
+that observation is claimed; the threshold was not raised to mask its failure.

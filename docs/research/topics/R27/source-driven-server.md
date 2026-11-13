@@ -62,6 +62,29 @@ This is an abstract sequentially-consistent admission check with finite requests
 
 ## 7. Decision and verification obligations
 
-Public Hyper/Tower/Axum adaptation is the leading **research candidate** for a generic native HTTP Engine because the service/body seam allows native protocol ownership without per-handler Rust compilation. Actix remains a worker-affine alternative, Pingora a domain-specific comparator. Kestrel remains the modern C# Native AOT baseline; no selection of Rust Server as production default is made without benefit evidence.
+Public Hyper/Tower/Axum adaptation is the selected initial **design composition** for a generic native HTTP Engine because the service/body seam allows native protocol ownership without per-handler Rust compilation. Actix remains a worker-affine alternative, Pingora a domain-specific comparator. Kestrel remains the modern C# Native AOT baseline; Rust is the required product Server engine; benefit measurements remain independent performance obligations.
 
 D18/B17 must specify callback registration/generation, exactly-once completion, body/stream/byte leases, TLS/connection drain and runtime ownership. B16/B20/B22 retain slow-consumer, disconnect, cancel/close races, oversized chunk/header/queue limits, aborted body/trailers, callback reentrancy, unknown database commit and observability-budget tests. R17/B23 compare same protocol/TLS/serialization/DB workload and hardware across pure native, native+C# AOT and Kestrel AOT; include idle/peak RSS, threads, CPU, throughput, P95/P99 and long soak. No numeric winner or production memory budget is invented.
+
+
+## Current completion and architecture correction (2026-11-12)
+
+The latest user mission requires a Rust Server engine. Kestrel is solely the comparator.
+The selected initial design is Tokio + Hyper/hyper-util + Tower, with Axum available
+for native routing and composition where needed. Actix remains a worker-affine
+alternative and Pingora a proxy-specific engine; neither is copied into C#. Public
+Service/Body APIs suffice for the current Adapter; no fork is justified by this study.
+Prior passages describing optional Rust or a Kestrel product host are superseded as
+architecture decisions, while their scoped source/evidence identities remain historical.
+
+D18 now defines the native Handler/Body bridge and retirement protocol; D19 binds
+Tonic/rmcp/rustls to that same host. New actual protocol/network/TLS evidence is in
+`verification/server-completion/`, with exact commands/source hashes and retained prior
+attempts. Native HTTP1/HTTP2 loopback and bounded TLS tests are real executions, but
+not a C# Server product, equivalent-load benchmark or production soak. The existing
+Body/Bytes/permit and finite credit models are reused without inflating their coverage.
+
+Research-design closure is proposed for this bounded source/lifecycle study; future
+B16/B17/B20/B22/B23 implementation, complete cross-language transport and long-load
+acceptance remain explicit obligations. Independent review and graph integration
+must bind this exact revised content before acceptance.

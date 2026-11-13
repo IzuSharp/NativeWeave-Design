@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "task_id": "R30",
-  "observed_date": "2026-11-12",
-  "coverage_statement": "Only listed scopes were read; repository enumeration or retrieval alone is not source coverage.",
+  "observed_date": "2026-11-13",
+  "coverage_statement": "Exact scoped source reads and separately identified actual research executions; historical source and execution identities retained.",
   "paths": [
     {
       "repo": "dotnet/runtime",
@@ -38,11 +38,37 @@
       "scope": "§3.2.2 traceparent fields; §3.2.4 versioning",
       "read_state": "official_documentation_read_as_scoped",
       "url": "https://www.w3.org/TR/2021/REC-trace-context-1-20211123/"
+    },
+    {
+      "repo": "tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/span.rs",
+      "scope": "596-641;780-790",
+      "sha256": "b87686c0ff6b55193a9377f3a0c978e0368edb6f46cd4d5a5b395c169df2f658",
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/span.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "TRACING-SPAN"
+    },
+    {
+      "repo": "tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/instrument.rs",
+      "scope": "176-231;277-324;378-389",
+      "sha256": "9266d792bd9b6678baa49728704c5f38003bbc24755eac16a9e0bffcb2728010",
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/instrument.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "TRACING-INSTRUMENT"
+    },
+    {
+      "repo": "tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/subscriber.rs",
+      "scope": "1-63",
+      "sha256": "51d9e23098b81cab911d2e7c2e4590bce75c61337c83d73b0a0af3dedc0fe7a7",
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/subscriber.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "TRACING-SUBSCRIBER"
     }
-  ],
-  "explicit_remaining_coverage": [
-    "Rust tracing internals and all exporter/network/metric aggregation paths were not read.",
-    "Actual cross-language context/layout and exporter saturation costs require B20/B23 execution."
   ],
   "licenses": [
     {
@@ -66,12 +92,51 @@
   ],
   "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
   "test_state": {
-    "upstream_tests": "not_run",
-    "csharp_compilation": "not_run",
-    "rust_compilation": "not_run",
-    "native_aot": "not_run",
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [
+      {
+        "path": "verification/server-completion/diagnostics-local-2/run.json",
+        "sha256": "a2081f7fe288071b45e0426a8671a302ec5eb5906e891e04e631980e89151f15",
+        "success": true,
+        "scope": [
+          "Not a cross-language propagation test.",
+          "Single-process no-observer timing is not a production benchmark.",
+          "Current-thread allocation counter excludes native memory."
+        ]
+      },
+      {
+        "path": "verification/server-completion/diagnostics-rust-layout/run.json",
+        "sha256": "53948800bfb19521a7b3209e92d24603114e86093b8ef4e2f074db2454ba6a8e",
+        "success": true,
+        "scope": [
+          "Individual compiled layouts match; no FFI transport/serialization golden executed by this layout witness."
+        ]
+      },
+      {
+        "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+        "sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf",
+        "success": true,
+        "scope": [
+          "Corrected warmed-clock/counter measurement, allocation window contains only StartActivity loop.",
+          "200000 null Activity returns, zero current-thread bytes and 12.437ns/call observed on this Linux AOT run; not cross-platform timing/zero-allocation promise."
+        ]
+      }
+    ],
+    "rust_protocol_fixture": "not_claimed_for_this_task",
+    "csharp_native_aot": "executed_linux_diagnostics",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
     "product_runtime": "not_implemented",
-    "production_acceptance": "not_complete",
-    "research_experiments": "none"
-  }
+    "production_acceptance": "not_complete"
+  },
+  "historical_explicit_remaining_coverage": [
+    "Rust tracing internals and all exporter/network/metric aggregation paths were not read.",
+    "Actual cross-language context/layout and exporter saturation costs require B20/B23 execution."
+  ],
+  "explicit_remaining_coverage": [
+    "B20 executes actual FFI context golden bytes, malformed fields and callback parent restoration.",
+    "B20/B23 validate exporter saturation/fault/shutdown and disabled/sampled/full costs under product load."
+  ],
+  "scope_completion": "Research questions and design counterexamples resolved for declared scope; independent acceptance pending; product validation remains separate.",
+  "package_inventory": "verification/server-completion/dependency-inventory.json",
+  "package_identity_checks": "verification/server-completion/package-identities.json"
 }

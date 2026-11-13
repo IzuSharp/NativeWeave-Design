@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R18",
+  "recorded_at": "2026-11-13T08:23:00.240929+00:00",
+  "author": "/root",
+  "scope": "research/design; independent acceptance tracked separately",
+  "entries": [
+    {
+      "claim_id": "R18-SRC-01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/Frommi/miniz_oxide",
+      "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+      "path": "miniz_oxide/src/deflate/mod.rs",
+      "file_sha256": "adedff53960b3fbef46cc83d907131c69b379e72668a116d1cc090fec4276504",
+      "locator": {
+        "line_ranges": [
+          [
+            130,
+            205
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/deflate/mod.rs#L130-L205"
+        ]
+      },
+      "supported_claim": "native compression growth and panic path",
+      "limitations": "Source read from locked registry crate; VCS metadata is declared crate source identity, not independently signature verified."
+    },
+    {
+      "claim_id": "R18-SRC-02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/Frommi/miniz_oxide",
+      "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+      "path": "miniz_oxide/src/inflate/mod.rs",
+      "file_sha256": "24a041eeb9404079395fd8ac5a51b8e2494fdf46a511681bb727e0b2b7017b57",
+      "locator": {
+        "line_ranges": [
+          [
+            135,
+            251
+          ],
+          [
+            332,
+            365
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/inflate/mod.rs#L135-L251",
+          "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/inflate/mod.rs#L332-L365"
+        ]
+      },
+      "supported_claim": "bounded/unbounded decompression and partial-output error ownership",
+      "limitations": "Source read from locked registry crate; VCS metadata is declared crate source identity, not independently signature verified."
+    },
+    {
+      "claim_id": "R18-EXEC-01",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/engine-completion/linux/result.json",
+      "sha256": "6b925d9b5eb1f0b9d05984732137b08939717e60f4f4e30b14bd63c5c0089727",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    },
+    {
+      "claim_id": "R18-EXEC-02",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/engine-completion/linux-reviewed/result.json",
+      "sha256": "5e7f11d0f6609fa8d37251235deda5570462c6ddceaaa2590ab01e76cab0f082",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    }
+  ],
+  "reused_evidence": [
+    {
+      "path": "docs/research/topics/R05/report.md",
+      "sha256": "5f0aadd52dcd8c060397d749752744d9046443d13d6ed1f27860b357532bed16"
+    },
+    {
+      "path": "docs/research/topics/R27/report.md",
+      "sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9"
+    },
+    {
+      "path": "docs/research/topics/R29/report.md",
+      "sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe"
+    },
+    {
+      "path": "docs/research/topics/R32/report.md",
+      "sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f"
+    },
+    {
+      "path": "docs/research/topics/R33/report.md",
+      "sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49"
+    }
+  ],
+  "ci_artifacts": [
+    {
+      "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/archive-manifest.json",
+      "sha256": "cd49b2874a327b61d3b7ea37cfa852a31337981e0d6f66b4b7bb88da2b084293",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "artifact_id": 14019812346,
+      "zip_sha256": "4c2ad966682ef18e0fabcc5224223377e6b505f3c81bf171a9d1b91f15c5f57e"
+    },
+    {
+      "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/archive-manifest.json",
+      "sha256": "6328b1d0eccc2c987cccc6b689410eca34c2e7db817b933b005f3fdccc9cd4e7",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "artifact_id": 14019571659,
+      "zip_sha256": "f6ec172c3978ec34e880c068bef5326567ff9261d254df7436bd64e6a5bf38c8"
+    }
+  ],
+  "product_obligations": [
+    "A17/A18 final two-engine conformance through product facade",
+    "A24 template and exact generated-binding tests",
+    "B15/B17 actual managed handler bridge and shutdown soak"
+  ],
+  "unresolved_research_blockers": []
+}

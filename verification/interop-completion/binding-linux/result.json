@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "source_commit": null,
+  "baseline_commit": "1bc9164e79b1e35eb3ed8e8995bf0137f4880538",
+  "upstream": {
+    "repository": "https://github.com/Cysharp/csbindgen",
+    "commit": "b9eb1e84bb8185b78a4e8364fd948fee300329a7",
+    "files": [
+      {
+        "path": "csbindgen/Cargo.toml",
+        "blob_sha": "406fcc4b9cd340735e76657cce1556dea607aafe",
+        "size": 607
+      },
+      {
+        "path": "csbindgen/src/emitter.rs",
+        "blob_sha": "5252cfb560d724172d09e39e2326f66f6c211505",
+        "size": 13905
+      },
+      {
+        "path": "csbindgen/src/field_map.rs",
+        "blob_sha": "94647494c503e3f5aa5945f1ba826afc020b6beb",
+        "size": 1488
+      },
+      {
+        "path": "csbindgen/src/parser.rs",
+        "blob_sha": "8ea6c16b83743fac07ade565630739e699213da1",
+        "size": 28179
+      },
+      {
+        "path": "csbindgen/src/alias_map.rs",
+        "blob_sha": "2e27c60ebd08fa55b53855e79580c41f6b2cc722",
+        "size": 3479
+      },
+      {
+        "path": "csbindgen/src/util.rs",
+        "blob_sha": "0d5cb33b1512d6a0b7e5b0825889b3b2f99973c5",
+        "size": 553
+      },
+      {
+        "path": "csbindgen/src/type_meta.rs",
+        "blob_sha": "1b53ec44e07622020afc5103d90d85df534659f8",
+        "size": 18629
+      },
+      {
+        "path": "csbindgen/src/lib.rs",
+        "blob_sha": "3a7cef55b3c29286c430927fae4d572ac6fb66e4",
+        "size": 7509
+      },
+      {
+        "path": "csbindgen/src/doc_comment.rs",
+        "blob_sha": "b1452a96aa4ed5cca98d1fd2f7f75b7d479cd267",
+        "size": 1090
+      },
+      {
+        "path": "csbindgen/src/builder.rs",
+        "blob_sha": "7a062d4f50d9b2a2052aa35852e664753a5c857b",
+        "size": 12032
+      }
+    ]
+  },
+  "generated_sha256": "9d0d383d2ce50ccdd5e61bbbd1a61b59f6088ae1fbfc2c3e4d7f935251099185",
+  "native_sha256": "d9f8632fd87436c24fed26f33aac89b0d2d4f97d851076d73d4c276fa88e83ec",
+  "aot_sha256": "ab5397a09e0f3d7e7ae8eef71844091a6bd373f8aba0535aaea722e96670e3d0",
+  "normal_cases": 60,
+  "aot_cases": 60,
+  "unsupported_export_missing": [
+    "unsupported_tuple"
+  ],
+  "independent_review": false,
+  "source_files": {
+    "experiments/interop-completion/binding_probe.py": "1f99b3e05b151ff269f219243f8ba999ffdbe59c6331f9d1ac8f50547a13af5b",
+    "experiments/interop-completion/binding-api.rs": "8925092221c05374567ca3d05e4ccd8fc9e14a6febe9c39e406e7b56b6d0010b",
+    "experiments/interop-completion/BindingConsumer.cs": "8b820a7de25f7b1be27b21c7584b8512ac7f91d3d9ceabd5638af4f74ef08889",
+    "experiments/interop-completion/BindingConsumer.csproj": "d0c4a37db0ca58fca6ff74b675d766121147d64ac6792f7b355d74fafb840af0",
+    "experiments/interop-completion/Directory.Build.props": "c1b371ad88fb8e78e8fb2ae36f0eac2519aeab353609f75e5ca98ebee3be419e",
+    "experiments/interop-completion/native/src/lib.rs": "d544148adc2784bea52d854a9077145b147f43e4f311f75d86fb33763af4dd69"
+  }
+}

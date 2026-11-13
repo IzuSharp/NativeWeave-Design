@@ -1,0 +1,153 @@
+    Updating crates.io index
+     Locking 114 packages to highest Rust 1.100 compatible versions
+ Downloading crates ...
+  Downloaded tower-service v0.3.3
+  Downloaded httpdate v1.0.3
+  Downloaded ref-cast v1.0.27
+  Downloaded dyn-clone v1.0.20
+  Downloaded httparse v1.10.1
+  Downloaded tower-layer v0.3.3
+  Downloaded try-lock v0.2.5
+  Downloaded sync_wrapper v1.0.2
+  Downloaded want v0.3.2
+  Downloaded atomic-waker v1.1.2
+  Downloaded pastey v0.2.3
+  Downloaded ref-cast-impl v1.0.27
+  Downloaded serde_derive_internals v0.30.0
+  Downloaded pin-project-internal v1.1.13
+  Downloaded sse-stream v0.2.6
+  Downloaded schemars_derive v1.2.3
+  Downloaded http-body-util v0.1.5
+  Downloaded futures v0.3.34
+  Downloaded pin-project v1.1.13
+  Downloaded const-oid v0.10.3
+  Downloaded tokio-util v0.7.20
+  Downloaded uuid v1.29.2
+  Downloaded base64 v0.23.1
+  Downloaded tower v0.5.3
+  Downloaded schemars v1.2.3
+  Downloaded hyper-util v0.1.21
+  Downloaded tonic v0.14.9
+  Downloaded h2 v0.4.20
+  Downloaded chrono v0.4.45
+  Downloaded rmcp v3.10.0
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling libc v0.2.191
+   Compiling pin-project-lite v0.2.17
+   Compiling futures-core v0.3.34
+   Compiling futures-sink v0.3.34
+   Compiling bytes v1.12.1
+   Compiling itoa v1.0.19
+   Compiling serde_core v1.0.229
+   Compiling slab v0.4.12
+   Compiling futures-channel v0.3.34
+   Compiling memchr v2.8.3
+   Compiling once_cell v1.21.4
+   Compiling futures-task v0.3.34
+   Compiling autocfg v1.5.1
+   Compiling futures-io v0.3.34
+   Compiling cfg-if v1.0.5
+   Compiling typenum v1.20.1
+   Compiling tracing-core v0.1.36
+   Compiling rand_core v0.10.1
+   Compiling serde v1.0.229
+   Compiling num-traits v0.2.19
+   Compiling http v1.5.0
+   Compiling zmij v1.0.23
+   Compiling equivalent v1.0.3
+   Compiling getrandom v0.4.3
+   Compiling syn v3.0.10
+   Compiling syn v2.0.119
+   Compiling hashbrown v0.17.1
+   Compiling cpufeatures v0.3.1
+   Compiling ref-cast v1.0.27
+   Compiling httparse v1.10.1
+   Compiling hybrid-array v0.4.15
+   Compiling serde_json v1.0.154
+   Compiling mio v1.2.4
+   Compiling socket2 v0.6.5
+   Compiling http-body v1.1.0
+   Compiling crypto-common v0.2.2
+   Compiling http-body-util v0.1.5
+   Compiling block-buffer v0.12.1
+   Compiling const-oid v0.10.3
+   Compiling try-lock v0.2.5
+   Compiling thiserror v2.0.21
+   Compiling tower-service v0.3.3
+   Compiling atomic-waker v1.1.2
+   Compiling fnv v1.0.7
+   Compiling want v0.3.2
+   Compiling chacha20 v0.10.2
+   Compiling tower-layer v0.3.3
+   Compiling httpdate v1.0.3
+   Compiling sync_wrapper v1.0.2
+   Compiling rmcp v3.10.0
+   Compiling smallvec v1.16.5
+   Compiling dyn-clone v1.0.20
+   Compiling digest v0.11.3
+   Compiling rand v0.10.3
+   Compiling uuid v1.29.2
+   Compiling pastey v0.2.3
+   Compiling percent-encoding v2.3.2
+   Compiling indexmap v2.14.2
+   Compiling sha2 v0.11.1
+   Compiling base64 v0.22.1
+   Compiling base64 v0.23.1
+   Compiling serde_derive_internals v0.30.0
+   Compiling tokio-macros v2.7.2
+   Compiling futures-macro v0.3.34
+   Compiling serde_derive v1.0.229
+   Compiling ref-cast-impl v1.0.27
+   Compiling async-trait v0.1.92
+   Compiling thiserror-impl v2.0.21
+   Compiling tokio v1.54.1
+   Compiling futures-util v0.3.34
+   Compiling schemars_derive v1.2.3
+   Compiling tracing-attributes v0.1.31
+   Compiling pin-project-internal v1.1.13
+   Compiling pin-project v1.1.13
+   Compiling tracing v0.1.44
+   Compiling chrono v0.4.45
+   Compiling futures-executor v0.3.34
+   Compiling sse-stream v0.2.6
+   Compiling tower v0.5.3
+   Compiling futures v0.3.34
+   Compiling schemars v1.2.3
+   Compiling tokio-util v0.7.20
+   Compiling tokio-stream v0.1.19
+   Compiling h2 v0.4.20
+   Compiling tonic v0.14.9
+   Compiling hyper v1.12.0
+   Compiling hyper-util v0.1.21
+   Compiling nw-server-protocol-research v0.0.1 (/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/server-completion/protocol)
+warning: unused dependency `hyper-util`
+  --> Cargo.toml:13:1
+   |
+13 | hyper-util = { version = "=0.1.21", features = ["tokio"] }
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `cargo::unused_dependencies` is set to `warn` by default
+help: consider removing the dependency on `hyper-util`
+help: to still use for development builds, move to `dev-dependencies`
+warning: unused dependency `rmcp`
+  --> Cargo.toml:18:1
+   |
+18 | rmcp = { version = "=3.10.0", default-features = false, features = ["server", "transport-streamable-http-server"] }
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: consider removing the dependency on `rmcp`
+help: to still use for development builds, move to `dev-dependencies`
+warning: unused dependency `tower`
+  --> Cargo.toml:17:1
+   |
+17 | tower = { version = "=0.5.3", features = ["util"] }
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: consider removing the dependency on `tower`
+help: to still use for development builds, move to `dev-dependencies`
+warning: `nw-server-protocol-research` (manifest) generated 3 warnings
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 12s
+     Running unittests src/lib.rs (/workspace/scratch/1b611a39541d/server-target/debug/build/nw-server-protocol-research/e3f8ed05717bf613/out/nw_server_protocol_research-e3f8ed05717bf613)
+   Doc-tests nw_server_protocol_research

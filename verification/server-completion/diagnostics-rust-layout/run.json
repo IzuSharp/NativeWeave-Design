@@ -1,0 +1,49 @@
+{
+  "kind": "research_only",
+  "source_sha256": "ede0dcacf3efa86490f765d0297c41410d4c4885fdd48ecf52b6e12a392ed46e",
+  "os": "Linux",
+  "arch": "x86_64",
+  "commands": [
+    {
+      "name": "rustc-version",
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.043,
+      "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "rustc",
+        "--edition",
+        "2024",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/server-completion/diagnostics/layout.rs",
+        "-o",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/server-completion/diagnostics-rust-layout/layout"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.225,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "run",
+      "command": [
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/server-completion/diagnostics-rust-layout/layout"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.02,
+      "stdout_sha256": "a276ac4ab545b1ff18cf97a74095a52f7a6578a50dd97f7c8a3e5ceec0105a75",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limitations": [
+    "Individual compiled layouts match; no FFI transport/serialization golden executed by this layout witness."
+  ],
+  "success": true,
+  "binary_sha256": "6fcc082bf97b69adbc4165fe16ade802c184c2bc638306078e35c4103beefed7"
+}

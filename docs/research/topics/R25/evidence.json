@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "task_id": "R25",
   "recorded_at": "2026-11-12",
-  "status": "partially_evidenced",
+  "status": "research_complete_independent_review_pending",
   "baseline": {
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
@@ -596,39 +596,196 @@
       "source_reader": "/root",
       "limitations": "source_read_only_no_Rust_execution; source read by root, not independently reread by database_design.",
       "run_manifest": null
+    },
+    {
+      "claim_id": "R25-COMP-01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/dynamic/model.rs",
+      "blob_sha": "874caaa3750d7da253856beb680ef04c3e5c2f42",
+      "file_sha256": "11ab43f1ae89b08bf273180d476424ea0d22439369efbb842ea3a9440e8dacf8",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            204
+          ]
+        ]
+      },
+      "source_reader": "/root/database_research",
+      "supported_claim": "Public FieldType and ModelType support runtime projection without a static Entity; unsupported char errors and Option mapping matter.",
+      "limitations": "Only listed ranges read. Executed registry identities and Git-file equality recorded in verification/database-completion/source-inspection.json; no whole-repository or whole-package equivalence claim."
+    },
+    {
+      "claim_id": "R25-COMP-02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/executor/query.rs",
+      "blob_sha": "ad6bf057d0ad34728c73903a2ee917cf145ec5c7",
+      "file_sha256": "b32674ba65c1915d0f6320ce893ee652f14d3252cea9cfb0d1277c09955eea56",
+      "locator": {
+        "line_ranges": [
+          [
+            195,
+            225
+          ],
+          [
+            306,
+            328
+          ]
+        ]
+      },
+      "source_reader": "/root/database_research",
+      "supported_claim": "column_names exposes shape; Option<T> maps ColumnNotFound to None, so shape validation must precede nullable decode.",
+      "limitations": "Only listed ranges read. Executed registry identities and Git-file equality recorded in verification/database-completion/source-inspection.json; no whole-repository or whole-package equivalence claim."
+    },
+    {
+      "claim_id": "R25-COMP-03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/query/loader.rs",
+      "blob_sha": "29e2d814968a348214a027d4f8f7ae1784851b95",
+      "file_sha256": "8a09b8d48c2f670cb1d7120a0e8d2d900f67d407ddfb93c856de75d80c972b45",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            123
+          ],
+          [
+            1184,
+            1323
+          ],
+          [
+            1385,
+            1443
+          ],
+          [
+            1740,
+            1797
+          ]
+        ]
+      },
+      "source_reader": "/root/database_research",
+      "supported_claim": "Batch relation loading reuses native keys/joins/grouping but static ModelTrait/EntityTrait bounds remain; all() collects rows.",
+      "limitations": "Only listed ranges read. Executed registry identities and Git-file equality recorded in verification/database-completion/source-inspection.json; no whole-repository or whole-package equivalence claim."
+    },
+    {
+      "claim_id": "R25-COMP-EXEC",
+      "evidence_kind": "executed_native_research",
+      "supported_claim": "Only the enumerated Rust research cases executed; per-suite raw streams and exact input hashes identify observations. Existing C# AOT evidence remains at its prior exact snapshot.",
+      "cases": [
+        "seaorm_public_dynamic_projection_needs_no_static_entity",
+        "native_join_aggregate_matches_independent_sql_oracle",
+        "native_cas_preserves_tenant_and_not_set_null_distinction"
+      ],
+      "run_manifests": [
+        "verification/database-completion/linux-metadata-current/manifest.json",
+        "verification/database-completion/linux-postgres-final/manifest.json"
+      ],
+      "limitations": "No product implementation, new C# AOT execution, TLS/auth test, performance or soak claim."
     }
   ],
-  "decision_revision": "rust-orm-required-2026-11-12",
+  "decision_revision": "precompiled-native-database-completion-2026-11-12",
   "requirement_correction": {
-    "authority": "current user instruction relayed by root",
+    "authority": "current user mandate",
     "database_backend": "Rust required",
-    "orm": "SeaORM 2.0.4 selected; SQLx alone is not ORM",
-    "csharp_scope": "syntax capture, request encoding, public API, boundary DTO only",
-    "prior_managed_default": "superseded; prior source observations/experiments retained"
+    "orm": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
+    "server": "Rust required; Kestrel comparator only",
+    "csharp_scope": "business, typed Fluent API, static metadata/binding/DTO; no SQL AST/dialect/complex LINQ provider",
+    "ordinary_entity_rebuild": "No Rust recompilation for new entity using existing native capabilities"
   },
   "design_decisions": {
-    "status": "design_decided_pending_independent_acceptance",
-    "choice": "SeaORM Rust ORM + generated schema-specific native module; C# topmost only",
-    "implementation_verified": false,
+    "status": "ready_for_independent_research_design_review",
+    "choice": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
+    "product_implementation_verified": false,
     "production_accepted": false,
-    "remaining_delivery": [
-      "B01",
-      "B02",
-      "B03",
-      "B04",
-      "B05",
-      "B06",
-      "B07",
-      "B08",
-      "B09",
-      "B10",
-      "B11",
-      "B12",
-      "B13",
-      "B14",
-      "B22",
-      "B23",
-      "B24"
+    "future_delivery_obligations": [
+      "B04/B09–B14: implement chosen native reuse profile and static managed facade",
+      "If adding eager-loading beyond explicit joins: first validate a controlled dynamic extraction of native SeaORM loader; no required baseline fork"
     ]
-  }
+  },
+  "superseded_architecture_decisions": {
+    "baseline": {
+      "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+      "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+    },
+    "values": {
+      "decision_revision": "rust-orm-required-2026-11-12",
+      "requirement_correction": {
+        "authority": "current user instruction relayed by root",
+        "database_backend": "Rust required",
+        "orm": "SeaORM 2.0.4 selected; SQLx alone is not ORM",
+        "csharp_scope": "syntax capture, request encoding, public API, boundary DTO only",
+        "prior_managed_default": "superseded; prior source observations/experiments retained"
+      },
+      "design_decisions": {
+        "status": "design_decided_pending_independent_acceptance",
+        "choice": "SeaORM Rust ORM + generated schema-specific native module; C# topmost only",
+        "implementation_verified": false,
+        "production_accepted": false,
+        "remaining_delivery": [
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07",
+          "B08",
+          "B09",
+          "B10",
+          "B11",
+          "B12",
+          "B13",
+          "B14",
+          "B22",
+          "B23",
+          "B24"
+        ]
+      }
+    },
+    "superseded_by": "2026-11-12 current user mandate and database completion research; retained only as history"
+  },
+  "completion_research": {
+    "baseline": {
+      "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+      "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299"
+    },
+    "task_packet": {
+      "revision": "0.2.3",
+      "sha256": "0a1b9ff7601d025874216f6aee84821c9250b9d516b67f53423727e07cb75367"
+    },
+    "author": "/root/database_research",
+    "source_manifest": "verification/database-completion/source-inspection.json",
+    "experiment_cases": [
+      "seaorm_public_dynamic_projection_needs_no_static_entity",
+      "native_join_aggregate_matches_independent_sql_oracle",
+      "native_cas_preserves_tenant_and_not_set_null_distinction"
+    ],
+    "actual_linux_manifests": [
+      "verification/database-completion/linux-metadata-current/manifest.json",
+      "verification/database-completion/linux-postgres-final/manifest.json"
+    ],
+    "failed_hypothesis_retained": "verification/database-completion/linux-attempt-1/manifest.json",
+    "status": "research_findings_and_design_ready_for_independent_review",
+    "independent_review": "not_claimed_by_author",
+    "future_stage_obligations": [
+      "B04/B09–B14: implement chosen native reuse profile and static managed facade",
+      "If adding eager-loading beyond explicit joins: first validate a controlled dynamic extraction of native SeaORM loader; no required baseline fork"
+    ],
+    "no_product_code_written": true,
+    "ci_confirmation": {
+      "manifest": "verification/database-completion/ci-confirmation.json",
+      "run_id": 43388468172,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "metadata": "Windows and Linux: 5/5 each",
+      "postgres": "Linux PostgreSQL18.0: 6/6",
+      "scope": "Use only the task-specific cases already listed; repeated platforms are not additional unique cases. No C# or product acceptance claim."
+    }
+  },
+  "historical_status": "partially_evidenced"
 }

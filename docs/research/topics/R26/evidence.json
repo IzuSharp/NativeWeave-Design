@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
   "task_id": "R26",
-  "observed_date": "2026-11-12",
-  "status": "partially_evidenced",
+  "observed_date": "2026-11-13",
+  "status": "evidenced_pending_independent_review",
   "input_baseline": {
-    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
-    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
-    "packet_revision": "0.1.1",
-    "packet_sha256": "655685a2f330da38f28fc79fb230840684fd0960037fb86b7df6fb52dafb8b8f"
+    "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "packet_revision": "0.2.1",
+    "packet_sha256": "3728a4a38aa0899dde1b4c22919f5c479e95f89c9c9f5fd07a58795ecd644691"
   },
   "claims": [
     {
@@ -113,34 +113,123 @@
       "limitations": "The accessible documentation view is 10.0; .NET11 source was independently pinned; this is not a .NET11 application execution record.",
       "observed_date": "2026-11-12",
       "run_manifest": null
+    },
+    {
+      "claim_id": "R26-COMPLETE-RUN1",
+      "evidence_kind": "executed_research_experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/kestrel-local-2/run.json",
+      "sha256": "0a9b78cc2aa5108adef0f696f902f0cc6e22aef781f076d7db0529c7f7f1a94b",
+      "supported_claim": "Actual Linux .NET11 Native AOT Kestrel comparator: health, binary echo, body cap, streaming cancel and bounded shutdown.",
+      "limitations": [
+        "No NativeWeave product implementation.",
+        "Protocol Rust tests do not execute a C# FFI Handler.",
+        "Kestrel is solely the managed comparator.",
+        "Finite tests do not establish long-load performance or platform certification."
+      ],
+      "run_manifest": "verification/server-completion/kestrel-local-2/run.json"
+    },
+    {
+      "claim_id": "R26-COMPLETE-CI",
+      "evidence_kind": "executed_research_ci",
+      "path": "verification/server-completion/ci-verification.json",
+      "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "github_run_id": 43388468172,
+      "supported_claim": "Protocol13/13 and Kestrel Native AOT5/5 pass Windows2022 and Ubuntu24.04; same distinct cases, extra actual platform coverage.",
+      "limitations": "No product Handler bridge, full protocol+TLS integration, soak or independent architecture review."
     }
   ],
   "selected_design": {
-    "decision": "Kestrel/.NET11 is the managed default; static endpoints/JSON, no mandatory native runtime; Rust remains independently optional.",
-    "design_research_status": "resolved_pending_independent_review",
-    "contract_acceptance": "proposed_not_self_accepted",
-    "question_closure_recommendations": [
-      "Q15"
-    ],
+    "decision": "Kestrel is the managed behavioral/cost comparator only; required NativeWeave Server remains native Rust.",
+    "design_research_status": "complete_for_declared_scope_pending_independent_review",
+    "contract_acceptance": "not_self_accepted",
     "documentation_tasks": [
       "D18"
     ],
     "verification_delivery_tasks": [
       "B15",
-      "B16",
+      "B17",
       "B22",
       "B23",
       "B24"
     ]
   },
   "execution": {
-    "upstream_tests": "not_run",
-    "csharp_compilation": "not_run",
-    "rust_compilation": "not_run",
-    "native_aot": "not_run",
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [
+      {
+        "path": "verification/server-completion/kestrel-local-2/run.json",
+        "sha256": "0a9b78cc2aa5108adef0f696f902f0cc6e22aef781f076d7db0529c7f7f1a94b",
+        "success": true,
+        "scope": [
+          "No NativeWeave product implementation.",
+          "Protocol Rust tests do not execute a C# FFI Handler.",
+          "Kestrel is solely the managed comparator.",
+          "Finite tests do not establish long-load performance or platform certification."
+        ]
+      },
+      {
+        "path": "verification/server-completion/ci-verification.json",
+        "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+        "success": true,
+        "scope": [
+          "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+        ]
+      }
+    ],
+    "rust_protocol_fixture": "not_claimed_for_this_task",
+    "csharp_native_aot": "executed_windows_linux_comparator",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
     "product_runtime": "not_implemented",
-    "production_acceptance": "not_complete",
-    "research_experiments": "none"
+    "production_acceptance": "not_complete"
   },
-  "independent_review": "required_by_other_author_not_claimed_here"
+  "independent_review": {
+    "status": "pending",
+    "required_scope": "Exact revised report/evidence/coverage and linked D18/D19/D21 content; author self-check is not independent review."
+  },
+  "historical_baseline": {
+    "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "prior_status": "partially_evidenced",
+    "prior_input_baseline": {
+      "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+      "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+      "packet_revision": "0.1.1",
+      "packet_sha256": "655685a2f330da38f28fc79fb230840684fd0960037fb86b7df6fb52dafb8b8f"
+    },
+    "prior_selected_design": {
+      "decision": "Kestrel/.NET11 is the managed default; static endpoints/JSON, no mandatory native runtime; Rust remains independently optional.",
+      "design_research_status": "resolved_pending_independent_review",
+      "contract_acceptance": "proposed_not_self_accepted",
+      "question_closure_recommendations": [
+        "Q15"
+      ],
+      "documentation_tasks": [
+        "D18"
+      ],
+      "verification_delivery_tasks": [
+        "B15",
+        "B16",
+        "B22",
+        "B23",
+        "B24"
+      ]
+    },
+    "prior_execution": {
+      "upstream_tests": "not_run",
+      "csharp_compilation": "not_run",
+      "rust_compilation": "not_run",
+      "native_aot": "not_run",
+      "product_runtime": "not_implemented",
+      "production_acceptance": "not_complete",
+      "research_experiments": "none"
+    },
+    "interpretation": "Preserved prior source findings. Architectural choices conflicting with the current user mission are superseded by selected_design below; managed-host sources serve as comparators only."
+  },
+  "research_blockers": [],
+  "future_product_obligations": [
+    "Full equivalent-load and 24h/72h comparisons belong to B23 after the native product bridge exists.",
+    "Windows/Linux scoped comparator execution is complete; HTTP2/TLS equivalence and production profiles still require B23."
+  ],
+  "baseline_audit": "Existing detailed report/evidence/coverage with 7 scoped source claims; graph planned understated authored work; no real comparator app execution existed."
 }

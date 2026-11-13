@@ -1,10 +1,10 @@
 # C-LIFETIME-001：所有权、资源租约与回收协议
 
-版本：0.1.0。任务：D04；研究：R07、R08、R09，Buffer与证明任务提供后续增量。作者：interop_design。状态：**review-ready；正式接受以registry为准；产品实施与生产验收未验证**。本文件选择v1协议；代码实施、真实并发、Windows/Linux Native AOT和生产验收仍分别待验证。只由整合者在独立审查后更新registry，不由作者自行接受。
+版本：0.3.0。任务：D04；研究：R07–R12、R15/R16的完成证据。作者：interop_design。状态：**研究/设计候选已完成；registry记录精确审查版本、内容hash与接受状态；产品验证保留在Delivery阶段**。本文件选择v1协议；研究切片已有明确真实并发与Windows/Linux Native AOT证据，完整产品实施/平台/生产验收仍单独记录。只由整合者在独立审查后更新registry，不由作者自行接受。
 
 ## 1. 目标与非目标
 
-应用层获得自然的C#资源对象、确定性Dispose/DisposeAsync和取消行为；内部按每个Engine的真实需要管理native所有权。纯C#路径不装载native运行时。资源管理不能依靠调用者记住裸指针有效期，也不能让一个同步压缩函数承担异步服务器的全套调度成本。
+应用层获得自然的C#资源对象、确定性Dispose/DisposeAsync和取消行为；内部按每个Engine的真实需要管理native所有权。Database / ORM / Server核心底层必须Rust；不需要异步调度的Engine不启动native runtime。资源管理不能依靠调用者记住裸指针有效期，也不能让一个同步压缩函数承担异步服务器的全套调度成本。
 
 本契约定义身份、拥有/借用、调用准入、父子引用、跨异步租约、回收条件和关闭责任。它不定义数据库事务已经提交/回滚，也不将native内存静默等同于连接可返池。进程内native代码是同一信任域；本协议不承诺隔离恶意native代码或修复任意内存破坏。
 
@@ -145,3 +145,16 @@ Q04的资源安全设计部分可以在独立审查本文件、D05与D06后记�
 This non-normative update does not change the v0.1.0 admission protocol or accept the contract. The earlier uncompiled skeleton is now complemented by an equivalent synchronous research facade in `experiments/logical-admission/Program.cs`, tested at Design28f6cf7e6e4e80b9f32a92ad587a528d82911bd0/run43373306474. Both Windows/Linux passed normal and actual AOT runs with653 assertions and64 controlled gate/Dispose rounds each. The original SafeHandle-only facade admitted a new call while an old lease remained; the explicit Open/Closing gate rejected it while allowing the old call to complete. An injected managed failure returned its acquired reference.
 
 See [R07 detailed study](../research/topics/R07/logical-admission.md) for exact source, traces, operation ordering, mutation-lock separation and future Codex test cases. The compiled fixture has no RequestStopIfApplicable, async callback, parent/child, finalizer or module-unload implementation, so those parts of this contract remain unverified by it. Keep native query mutation guards separate, avoid callbacks/await under them, and do not rely on Mutex poisoning for unsafe memory soundness. Research experiment success is not formal A03/A07/B11/B17 implementation or independent acceptance.
+
+## 15. 本次完成复核与实现义务分层（2026-11-13）
+
+保留既有 [logical-admission 证据](../../verification/logical-admission/primary-results.json)：它真实覆盖 Windows/Linux 普通与 Native AOT 的同步准入反例。新增 [interop-completion](../../verification/interop-completion/linux/result.json) 在 Linux 普通与 Native AOT 下控制 native worker 回调持续在途，验证 GCHandle 强根、native quiet 前不回收、一次 take、operation release 后独立 result owner 仍可读，以及 managed 转换抛出时 result release。研究 fixture 的私有状态码与部分手写协调代码不能充当产品 D08 ABI 或完整生成 wrapper。
+
+物理 lease、逻辑准入、可变对象单 writer、结果 ownership、Engine/module ownership 仍分别成立。不能用延迟 free 的 SafeHandle 代替 Open→Closing 准入锁，也不能仅凭 Arc 引用计数声称 worker OS thread 已 join。常规模块进程期常驻；特殊 thread-affine owner 采用 [D09](concurrency-v0.1.md) 专用释放调度，finalizer 不同步等待。
+
+R07 已给出完整研究决策和 scope；非选中 Qt/Python 所有权机制不构成当前 C#/Rust 设计的无期限前置。经独立审查可接受本设计；A03/A04/A20/B01 的完整 parent-child、失配 owner、长期竞争、弱内存、资源归零与产品 package 测试仍是独立义务。
+
+
+### Committed target evidence
+
+The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.

@@ -1,0 +1,16 @@
+
+running 5 tests
+test tests::guarded_server_streaming_rejects_second_before_handler ... ok
+NEGATIVE: two framed messages accepted by raw Tonic unary; handler called once with first message
+test tests::missing_message_is_rejected_before_handler ... ok
+test tests::guarded_unary_rejects_second_before_handler ... ok
+test tests::guarded_single_binary_and_empty_messages_remain_valid ... ok
+test tests::unguarded_unary_accepts_first_and_discards_second ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

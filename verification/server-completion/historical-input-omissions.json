@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "server-completion historical input snapshots only",
+  "records": [
+    {
+      "path": "verification/server-completion/protocol-local-2/inputs/protocol/fixtures/test-cert.der",
+      "sha256": "77b4e8247967ed5fdaf077dfb8a23fb290fddfc1db0a52b0ffa99ba889bae495",
+      "reason": "Historical test credential bytes intentionally omitted from published inputs; superseded by runtime-generated ephemeral identity in protocol-local-4. Original run manifest and logs remain unchanged.",
+      "historical_input_snapshot_complete": false
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/inputs/protocol/fixtures/test-key.der",
+      "sha256": "4a0fcbd47ff9f8c9fca93a5ca96f65b69f301ea897a924a1d930a43681cefa9d",
+      "reason": "Historical test credential bytes intentionally omitted from published inputs; superseded by runtime-generated ephemeral identity in protocol-local-4. Original run manifest and logs remain unchanged.",
+      "historical_input_snapshot_complete": false
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/inputs/protocol/fixtures/test-cert.der",
+      "sha256": "77b4e8247967ed5fdaf077dfb8a23fb290fddfc1db0a52b0ffa99ba889bae495",
+      "reason": "Historical test credential bytes intentionally omitted from published inputs; superseded by runtime-generated ephemeral identity in protocol-local-4. Original run manifest and logs remain unchanged.",
+      "historical_input_snapshot_complete": false
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/inputs/protocol/fixtures/test-key.der",
+      "sha256": "4a0fcbd47ff9f8c9fca93a5ca96f65b69f301ea897a924a1d930a43681cefa9d",
+      "reason": "Historical test credential bytes intentionally omitted from published inputs; superseded by runtime-generated ephemeral identity in protocol-local-4. Original run manifest and logs remain unchanged.",
+      "historical_input_snapshot_complete": false
+    }
+  ],
+  "current_reproduction": "experiments/server-completion/protocol generates ephemeral localhost identity in memory; protocol-local-4 is fully reproducible from published source and lockfile without stored keys."
+}

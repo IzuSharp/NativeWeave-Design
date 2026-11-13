@@ -275,14 +275,67 @@
     }
   ],
   "other_candidates_not_read": [],
-  "decision_revision": "rust-orm-required-2026-11-12",
-  "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+  "decision_revision": "precompiled-native-database-completion-2026-11-12",
+  "selected_orm": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
   "not_executed": [
-    "NativeWeave generated SeaORM model build",
-    "SQLx PG/SQLite target execution",
-    "C# Native AOT calling Rust ORM"
+    "B06/B07/B12: full supported-codec and malformed-wire/large-value/mapping cleanup tests in real C# AOT wrapper",
+    "B08: dedicated admin connection and migration locking implementation/recovery validation"
   ],
   "remaining_source_work": [
-    "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
-  ]
+    "No claim of reading full upstream repositories. Listed ranges resolve the selected research/design questions; source/feature changes require scoped re-review."
+  ],
+  "historical_integration_metadata": {
+    "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+    "decision_revision": "rust-orm-required-2026-11-12",
+    "not_executed": [
+      "NativeWeave generated SeaORM model build",
+      "SQLx PG/SQLite target execution",
+      "C# Native AOT calling Rust ORM"
+    ],
+    "remaining_source_work": [
+      "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
+    ]
+  },
+  "completion_coverage": {
+    "source_manifest": "verification/database-completion/source-inspection.json",
+    "source_ids": [
+      "seaorm-dynamic-model",
+      "seaorm-row",
+      "sqlx-pg-numeric",
+      "sqlx-migrate",
+      "pg-migrate",
+      "sqlite-migrate"
+    ],
+    "actual_cases": [
+      "seaorm_public_dynamic_projection_needs_no_static_entity",
+      "codec_roundtrip_and_loss_are_observed",
+      "sqlx_migration_checksum_and_failed_ddl_are_native",
+      "migration_error_keeps_session_lock_until_dedicated_connection_closes"
+    ],
+    "normal_error_boundary_coverage": "See current report and exact test names; original negative-control failure retained.",
+    "unsupported_scope": "Complete NativeWeave production wrappers, every upstream feature, both-OS new C# AOT, TLS/auth, performance and long-load are not established.",
+    "research_blockers": [],
+    "independent_review_pending": true,
+    "future_delivery_obligations": [
+      "B06/B07/B12: full supported-codec and malformed-wire/large-value/mapping cleanup tests in real C# AOT wrapper",
+      "B08: dedicated admin connection and migration locking implementation/recovery validation"
+    ],
+    "ci_confirmation": {
+      "manifest": "verification/database-completion/ci-confirmation.json",
+      "run_id": 43388468172,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "metadata": "Windows and Linux: 5/5 each",
+      "postgres": "Linux PostgreSQL18.0: 6/6",
+      "scope": "Use only the task-specific cases already listed; repeated platforms are not additional unique cases. No C# or product acceptance claim."
+    },
+    "independent_migration_regression": {
+      "manifest": "verification/interop-completion/db-review-migration/result.json",
+      "actual_cases": [
+        "raw_begin_negative_fails_nested_migrator_begin",
+        "tracked_begin_with_keeps_migrator_nested_and_outer_atomic",
+        "failed_nested_migration_rolls_back_whole_outer_batch"
+      ],
+      "limitations": "No Windows/C#/AOT/concurrent-process/crash test in this independent three-case probe."
+    }
+  }
 }

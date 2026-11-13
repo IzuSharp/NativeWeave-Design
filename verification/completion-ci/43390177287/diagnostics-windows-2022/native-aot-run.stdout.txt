@@ -1,0 +1,5 @@
+PASS trace_context_size_32
+PASS trace_id_offset_8
+PASS parent_span_offset_24
+PASS no_observer_before_registration
+PASS no_observer_returns_null

@@ -1,0 +1,12 @@
+
+running 6 tests
+test codec_roundtrip_and_loss_are_observed ... ok
+test conflict_cte_old_snapshot_needs_separate_recovery_statement ... ok
+test early_row_stream_drop_drains_before_next_query ... ok
+test lost_commit_response_is_error_with_durable_effect ... ok
+test migration_error_keeps_session_lock_until_dedicated_connection_closes ... ok
+test statement_timeout_needs_rollback_before_same_connection_reuse ... PostgreSQL server: PostgreSQL 18.0 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.48s
+

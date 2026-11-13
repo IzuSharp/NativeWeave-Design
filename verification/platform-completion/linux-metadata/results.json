@@ -1,0 +1,125 @@
+{
+  "scope": "R01 modern C# finite research; no product or benchmark acceptance",
+  "platform": {
+    "os": "Linux",
+    "arch": "x86_64"
+  },
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "source_snapshot": [
+    {
+      "path": "experiments/platform-completion/run.py",
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Negative.cs.txt",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "path": "experiments/platform-completion/inspect/Inspect.csproj",
+      "sha256": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c"
+    },
+    {
+      "path": "experiments/platform-completion/inspect/Program.cs",
+      "sha256": "d2dfcd4011b82da03b6c5dabc54dffd15523cfad2244f841932da8d9e6ffeecb"
+    }
+  ],
+  "commands": [
+    {
+      "name": "sdk-info",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:57:40.306039+00:00",
+      "finished_at": "2026-11-13T07:57:40.374206+00:00",
+      "stdout_sha256": "a8616d4615f1c2010416f073c5b0e21c81d11a4b9610dd358bc81bd7caf5246d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ordinary",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "run",
+        "--project",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/platform-completion/modern/Modern.csproj",
+        "-c",
+        "Release",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:57:40.374287+00:00",
+      "finished_at": "2026-11-13T07:57:43.192359+00:00",
+      "stdout_sha256": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "external-closed-negative",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "build",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/negative/External.csproj",
+        "--disable-build-servers"
+      ],
+      "exit_code": 1,
+      "started_at": "2026-11-13T07:57:43.193073+00:00",
+      "finished_at": "2026-11-13T07:57:47.146261+00:00",
+      "stdout_sha256": "4edbffc45fc17cb50e37b0e3e78ae5e72f4450fe2219c96e5dca57205d0c5fee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish-default",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "publish",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/.work/default/Modern.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "--disable-build-servers",
+        "-v:normal",
+        "-o",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/publish-default"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:57:47.147342+00:00",
+      "finished_at": "2026-11-13T07:58:03.706488+00:00",
+      "stdout_sha256": "8b78a8543419e2dabd8546aa2c911a9bf3575a4199665811694380f2393d93c6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "metadata-default",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "run",
+        "--project",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/platform-completion/inspect/Inspect.csproj",
+        "-c",
+        "Release",
+        "--",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/.work/default/bin/Release/net11.0/linux-x64/Modern.dll",
+        "default"
+      ],
+      "exit_code": 2,
+      "started_at": "2026-11-13T07:58:03.708224+00:00",
+      "finished_at": "2026-11-13T07:58:28.391796+00:00",
+      "stdout_sha256": "84260f2b523cd974f278360a999b0f6445cae76514d269326cefdada72d4ffab",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "started_at": "2026-11-13T07:57:40.303249+00:00",
+  "passed": false,
+  "closed_external_negative": true,
+  "aot_executions": [],
+  "finished_at": "2026-11-13T07:58:28.391921+00:00"
+}

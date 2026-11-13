@@ -1,0 +1,78 @@
+[
+  {
+    "label": "rust-build",
+    "argv": [
+      "rustc",
+      "--edition=2024",
+      "--crate-type=cdylib",
+      "uco_invalid.rs",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/uco-invalid/libnw_uco_invalid.so"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:51:42.111148+00:00",
+    "ended_utc": "2026-11-13T07:51:42.240612+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "normal-build",
+    "argv": [
+      "dotnet",
+      "publish",
+      "UcoInvalid.csproj",
+      "-c",
+      "Release",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/uco-invalid/normal",
+      "--disable-build-servers"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:51:42.240970+00:00",
+    "ended_utc": "2026-11-13T07:51:47.447023+00:00",
+    "stdout_sha256": "379b1cdef056e6213b5434c9f29eae77858798ab7c3d3c75648d26aaf4762e75",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "normal-execute",
+    "argv": [
+      "dotnet",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/uco-invalid/normal/UcoInvalid.dll"
+    ],
+    "exit_code": -6,
+    "started_utc": "2026-11-13T07:51:47.449114+00:00",
+    "ended_utc": "2026-11-13T07:51:47.511183+00:00",
+    "stdout_sha256": "5ed1410edcff258e99ac20b84f7151ca8ee143f52201761f462761027c36fd47",
+    "stderr_sha256": "bc439048f5cacb3b424d548f0e14f17ccde9ca58dd514573cd7f7d9411718841"
+  },
+  {
+    "label": "aot-build",
+    "argv": [
+      "dotnet",
+      "publish",
+      "UcoInvalid.csproj",
+      "-c",
+      "Release",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/uco-invalid/aot",
+      "--disable-build-servers",
+      "-p:PublishAot=true"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:51:47.511573+00:00",
+    "ended_utc": "2026-11-13T07:51:56.534248+00:00",
+    "stdout_sha256": "27562eb14a1b68c80769bd9047eba879e489e8734e21832500cac8c0f25ab1f3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "aot-execute",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/uco-invalid/aot/UcoInvalid"
+    ],
+    "exit_code": -6,
+    "started_utc": "2026-11-13T07:51:56.535564+00:00",
+    "ended_utc": "2026-11-13T07:51:56.543309+00:00",
+    "stdout_sha256": "5ed1410edcff258e99ac20b84f7151ca8ee143f52201761f462761027c36fd47",
+    "stderr_sha256": "0b71e1af65e64d4c20ee4863e6e561c644a23691a24d71254232ae5cf55b610a"
+  }
+]

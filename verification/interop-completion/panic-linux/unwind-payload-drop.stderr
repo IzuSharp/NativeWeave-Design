@@ -1,0 +1,7 @@
+
+thread 'main' (42) panicked at /workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/panic_probe.rs:10:56:
+Box<dyn Any>
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (42) panicked at /workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/panic_probe.rs:4:46:
+payload-or-cleanup-drop

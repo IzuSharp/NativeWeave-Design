@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "author_self_check_not_independent_review",
+  "scope": "8 Research / 3 Documentation server-extension tasks",
+  "checks": {
+    "completion_assessment_output_hashes": "pass",
+    "owned_json_parse": "pass",
+    "owned_markdown_relative_links": "pass",
+    "direct_upstream_blob_match_count": 18,
+    "total_source_inspection_records": 26,
+    "cargo_source_comparisons": "all_recorded_matches_true",
+    "current_and_historical_published_der_files": 0,
+    "ci_input_and_log_hashes": "all_four_protocol_kestrel_platform_runs_verified_with_exact_Windows_CRLF_relationship",
+    "actual_tests": "Historical protocol13 x2 OS and KestrelAOT5 x2 OS; corrected protocol19 Linux; independent reviewer5 cardinality Linux; corrected diagnostics11 Linux; previous failed Windows measurement explicitly retained; Rust layout witness.",
+    "review_corrections": "DB-SERVER-01..04 implemented; root CI measurement boundary corrected; independent recheck pending.",
+    "current_source_inputs": "protocol efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96; diagnostic 147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe"
+  },
+  "independent_review": "pending",
+  "product_delivery_executed": false,
+  "limitations": "Checks verify recorded inputs and bounded research scope, not production or whole-upstream correctness."
+}

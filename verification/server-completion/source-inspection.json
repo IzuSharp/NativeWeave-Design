@@ -1,0 +1,517 @@
+{
+  "schema_version": "1.0.0",
+  "baseline_design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+  "author": "/root/server_extensions",
+  "sources": [
+    {
+      "id": "TONIC-CODEC",
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/mod.rs",
+      "read_ranges": "128-184",
+      "tasks": [
+        "R28",
+        "R34"
+      ],
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/codec/mod.rs",
+      "github_blob_sha": "d28aef5a255096b5f8ba4e007e107800bafc4745",
+      "read_state": "read_as_scoped",
+      "sha256": "9ddbf6d9b944736b9c47f2c031ac055d29c6169de2be10a69ae37c3810819e64",
+      "local_git_blob_sha": "d28aef5a255096b5f8ba4e007e107800bafc4745",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "TONIC-SERVER",
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/server/grpc.rs",
+      "read_ranges": "49-83;186-240;260-338;360-430",
+      "tasks": [
+        "R28"
+      ],
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/server/grpc.rs",
+      "github_blob_sha": "ed3c291c8b456eb8b79f8991fa2fd6e4d7c3f6ec",
+      "read_state": "read_as_scoped",
+      "sha256": "c5f6e6a1d34f3b4e2214d080c0a53de59dea7718293fb60308627581daf117cb",
+      "local_git_blob_sha": "ed3c291c8b456eb8b79f8991fa2fd6e4d7c3f6ec",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "TONIC-SERVICE",
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/server/service.rs",
+      "read_ranges": "25-145",
+      "tasks": [
+        "R28"
+      ],
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/server/service.rs",
+      "github_blob_sha": "0c4d8fd5c2d79e1d783609b2fb6f8b61c61c4ecf",
+      "read_state": "read_as_scoped",
+      "sha256": "6419d3490769db525eed2a4e1020c2722b9ddc51e1ebbe2bdc401379587ab261",
+      "local_git_blob_sha": "0c4d8fd5c2d79e1d783609b2fb6f8b61c61c4ecf",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "TONIC-DECODE",
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/decode.rs",
+      "read_ranges": "190-274;365-410",
+      "tasks": [
+        "R28",
+        "R34"
+      ],
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/codec/decode.rs",
+      "github_blob_sha": "f6de23669a219e43b95cfa051ec0b00115427bfa",
+      "read_state": "read_as_scoped",
+      "sha256": "46688c06b3becce361716c10559e70ba8fe2423e8d0fae93ca575c1fcc5e5173",
+      "local_git_blob_sha": "f6de23669a219e43b95cfa051ec0b00115427bfa",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "RMCP-HANDLER",
+      "repo": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/handler/server.rs",
+      "read_ranges": "81-96;213-255;382-414;550-618;664-686;737-746",
+      "tasks": [
+        "R28",
+        "R34"
+      ],
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/handler/server.rs",
+      "github_blob_sha": "c28d663121b457305af51c2858d1e656a28a78dd",
+      "read_state": "read_as_scoped",
+      "sha256": "def2157d3e702aaa256bc5fa304dbd71faec0a624c55aac83edb4d7b195f958d",
+      "local_git_blob_sha": "c28d663121b457305af51c2858d1e656a28a78dd",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "RMCP-TOWER",
+      "repo": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/transport/streamable_http_server/tower.rs",
+      "read_ranges": "219-350;357-425;1473-1574;1734-1778;1955-1985;2050-2105;2220-2255;2398-2412;2571-2612",
+      "tasks": [
+        "R28",
+        "R34"
+      ],
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/transport/streamable_http_server/tower.rs",
+      "github_blob_sha": "35f0ecf134603ed69bb2696898bf7decf97364b9",
+      "read_state": "read_as_scoped",
+      "sha256": "8a01370513389994bc675d5bd58dbae3dadf5383c916a7f122a9f2a37ff4fdb0",
+      "local_git_blob_sha": "35f0ecf134603ed69bb2696898bf7decf97364b9",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "WINIT-LOOP",
+      "repo": "rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/event_loop.rs",
+      "read_ranges": "28-47;80-122;238-273;549-572",
+      "tasks": [
+        "R32",
+        "R33"
+      ],
+      "url": "https://github.com/rust-windowing/winit/blob/e9809ef54b18499bb4f2cac945719ecc2a61061b/src/event_loop.rs",
+      "github_blob_sha": "233374beec642718a1714d89b598cdd110147371",
+      "read_state": "read_as_scoped",
+      "sha256": "f84209476849188122139926697f1fe97e17409a41ef0e8dfadf9bd4718108c7",
+      "local_git_blob_sha": "233374beec642718a1714d89b598cdd110147371",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "WINIT-LIFECYCLE",
+      "repo": "rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/application.rs",
+      "read_ranges": "19-83;125-187;193-219",
+      "tasks": [
+        "R32",
+        "R33"
+      ],
+      "url": "https://github.com/rust-windowing/winit/blob/e9809ef54b18499bb4f2cac945719ecc2a61061b/src/application.rs",
+      "github_blob_sha": "977a7c79f2d6c2760ddf20955715fe233c4605b6",
+      "read_state": "read_as_scoped",
+      "sha256": "993ddc2bbffca969224b2045dfd6cefd6cadd923df83f8ba24da8da8e5ab3fb4",
+      "local_git_blob_sha": "977a7c79f2d6c2760ddf20955715fe233c4605b6",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "WGPU-SURFACE",
+      "repo": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/surface.rs",
+      "read_ranges": "28-52;90-124;130-228",
+      "tasks": [
+        "R32"
+      ],
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/surface.rs",
+      "github_blob_sha": "176d26f4669a64499dfa157fafa5e02ce056b958",
+      "read_state": "read_as_scoped",
+      "sha256": "13df4577966d4bcc10aba4b8950023ec17a7cd3933019df1cf1f7f139e92b9a3",
+      "local_git_blob_sha": "176d26f4669a64499dfa157fafa5e02ce056b958",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "WGPU-BUFFER",
+      "repo": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/buffer.rs",
+      "read_ranges": "300-337;356-410;547-632",
+      "tasks": [
+        "R32"
+      ],
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/buffer.rs",
+      "github_blob_sha": "57cf5f731690b35b50e435a42a80fd1020f7027a",
+      "read_state": "read_as_scoped",
+      "sha256": "a304040166251cb1f1e60d6e1407b2e951dc3836144b40b95852749005095042",
+      "local_git_blob_sha": "57cf5f731690b35b50e435a42a80fd1020f7027a",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "WGPU-POLL",
+      "repo": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/device.rs",
+      "read_ranges": "70-115",
+      "tasks": [
+        "R32"
+      ],
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/device.rs",
+      "github_blob_sha": "276b1c01bd5dfc3c993dc99da36ab08a68a9264c",
+      "read_state": "read_as_scoped",
+      "sha256": "6adbd3b5bb966fb20601cd55f0cf1b0cffd48fc615c72029dfe3c116b9c88e8f",
+      "local_git_blob_sha": "276b1c01bd5dfc3c993dc99da36ab08a68a9264c",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "NATIVEAOT-TARGETS",
+      "repo": "dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "read_ranges": "20;32;64-90;209-213;377-442 (selected linker/property lines only)",
+      "tasks": [
+        "R33"
+      ],
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "github_blob_sha": "3124302b5dfe5e1bbb6d8f2ed2f3eb16e647d24e",
+      "read_state": "read_as_scoped",
+      "sha256": "afc83bf8f87de77200d0bede93aadc7341ff7d7127a44f5131cc129bbf7cf887",
+      "local_git_blob_sha": "3124302b5dfe5e1bbb6d8f2ed2f3eb16e647d24e",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "NATIVEAOT-COMPILE",
+      "repo": "dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/coreclr/nativeaot/docs/compiling.md",
+      "read_ranges": "1-130",
+      "tasks": [
+        "R33"
+      ],
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/coreclr/nativeaot/docs/compiling.md",
+      "github_blob_sha": "6d9252e71d6d0bfb5d2a3d82435be8c017063caf",
+      "read_state": "read_as_scoped",
+      "sha256": "58f685092bfc27911b2f9c72c9aec3279852e1ee6104b49f8c0c840f3b7acc0e",
+      "local_git_blob_sha": "6d9252e71d6d0bfb5d2a3d82435be8c017063caf",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "DOTNET-AOT-PLATFORMS",
+      "repo": "dotnet/docs",
+      "commit": "c3377f5f732f604c8f9bffc14d814dd35c99f3c0",
+      "path": "docs/core/deploying/native-aot/index.md",
+      "read_ranges": "20-72;98-165;177-231",
+      "tasks": [
+        "R33"
+      ],
+      "url": "https://github.com/dotnet/docs/blob/c3377f5f732f604c8f9bffc14d814dd35c99f3c0/docs/core/deploying/native-aot/index.md",
+      "github_blob_sha": "cfd3e1ba22b4d26aff4b00320e8fc4e5b40a7447",
+      "read_state": "read_as_scoped",
+      "sha256": "d4ebc75350055c421aa6dfafb02221ad1bc2cc7a06f13ece632aad832db73bee",
+      "local_git_blob_sha": "cfd3e1ba22b4d26aff4b00320e8fc4e5b40a7447",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "DOTNET-MOBILE11",
+      "repo": "dotnet/docs",
+      "commit": "c3377f5f732f604c8f9bffc14d814dd35c99f3c0",
+      "path": "docs/core/compatibility/maui/11/mobile-code-generation.md",
+      "read_ranges": "1-91",
+      "tasks": [
+        "R33"
+      ],
+      "url": "https://github.com/dotnet/docs/blob/c3377f5f732f604c8f9bffc14d814dd35c99f3c0/docs/core/compatibility/maui/11/mobile-code-generation.md",
+      "github_blob_sha": "2b3c7c3ddf811ea9e91339f64811d6b1943ab6ea",
+      "read_state": "read_as_scoped",
+      "sha256": "59fce432afbcc375b04babf6384d8162944077aa182570643e608b85c43ad3a2",
+      "local_git_blob_sha": "2b3c7c3ddf811ea9e91339f64811d6b1943ab6ea",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "RUST-IOS",
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "src/doc/rustc/src/platform-support/apple-ios.md",
+      "read_ranges": "1-100",
+      "tasks": [
+        "R33"
+      ],
+      "url": "https://github.com/rust-lang/rust/blob/0ef1bc386059596dada8fb65b50425aab2ea637a/src/doc/rustc/src/platform-support/apple-ios.md",
+      "github_blob_sha": "5de87dc349eb57ec5f94806c037706c576c33888",
+      "read_state": "read_as_scoped",
+      "sha256": "aa4469775d8b1a02ccd2acfa671f8c25f1c362e76ac0168d5abed90097a8375e",
+      "local_git_blob_sha": "5de87dc349eb57ec5f94806c037706c576c33888",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "RUST-ANDROID",
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "src/doc/rustc/src/platform-support/android.md",
+      "read_ranges": "1-72",
+      "tasks": [
+        "R33"
+      ],
+      "url": "https://github.com/rust-lang/rust/blob/0ef1bc386059596dada8fb65b50425aab2ea637a/src/doc/rustc/src/platform-support/android.md",
+      "github_blob_sha": "570379e1572484280561d31007a55ff066476423",
+      "read_state": "read_as_scoped",
+      "sha256": "443c9744c8711492e006238dd4dd32ff490d401cee4725efbdd2c5f5e89be8c9",
+      "local_git_blob_sha": "570379e1572484280561d31007a55ff066476423",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "RUST-SLICE",
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/core/src/slice/raw.rs",
+      "read_ranges": "1-35;108-140;145-170",
+      "tasks": [
+        "R34"
+      ],
+      "url": "https://github.com/rust-lang/rust/blob/0ef1bc386059596dada8fb65b50425aab2ea637a/library/core/src/slice/raw.rs",
+      "github_blob_sha": "80b2176933dab215bef525076ceb9089c04389cb",
+      "read_state": "read_as_scoped",
+      "sha256": "0914968067f7e2bc798680c1edd72bcb032a9fd44ebb2b6fbc082a3a2b16941f",
+      "local_git_blob_sha": "80b2176933dab215bef525076ceb9089c04389cb",
+      "github_blob_matches": true,
+      "read_claim": "Only declared line ranges or explicitly selected lines read; full-file hash does not imply full-file reading.",
+      "local_acquisition_note": "Removed exactly one patch-transport-added terminal LF; now byte-exact to GitHub blob SHA."
+    },
+    {
+      "id": "TONIC-TIMEOUT",
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/transport/service/grpc_timeout.rs",
+      "read_ranges": "1-179;181-261",
+      "tasks": [
+        "R28",
+        "R29",
+        "R34"
+      ],
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/transport/service/grpc_timeout.rs",
+      "source_acquisition": "Cargo registry source used by actual locked protocol experiment",
+      "crate": "tonic-0.14.9",
+      "vcs_info_sha256": "924efe7a96604819dc466ab95627fcee13a0a21c5196e2a750ea75476e9cb759",
+      "sha256": "ce83ea986f8c2ff6d52291a0cf821aa6561fb9b2bd69a2b4c2ebd4f2edaf8449",
+      "local_git_blob_sha": "b6356bf76acd5a55be869ddb9fe03d7de2113604",
+      "github_blob_sha": null,
+      "github_blob_matches": null,
+      "read_state": "read_as_scoped",
+      "read_claim": "Only declared line ranges read; crate VCS metadata provides commit provenance; no separate GitHub blob comparison asserted."
+    },
+    {
+      "id": "TONIC-TRANSPORT",
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/transport/server/mod.rs",
+      "read_ranges": "1075-1124",
+      "tasks": [
+        "R28"
+      ],
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/transport/server/mod.rs",
+      "source_acquisition": "Cargo registry source used by actual locked protocol experiment",
+      "crate": "tonic-0.14.9",
+      "vcs_info_sha256": "924efe7a96604819dc466ab95627fcee13a0a21c5196e2a750ea75476e9cb759",
+      "sha256": "32417ecbba9d995499b1020ac24411366f74ed6763a58f482ff965e52c2554a5",
+      "local_git_blob_sha": "73e334e4e15ef181be83c53806e876371fb63881",
+      "github_blob_sha": null,
+      "github_blob_matches": null,
+      "read_state": "read_as_scoped",
+      "read_claim": "Only declared line ranges read; crate VCS metadata provides commit provenance; no separate GitHub blob comparison asserted."
+    },
+    {
+      "id": "RMCP-TOOL",
+      "repo": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/model/tool.rs",
+      "read_ranges": "1-54;145-195;225-259",
+      "tasks": [
+        "R28"
+      ],
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/model/tool.rs",
+      "source_acquisition": "Cargo registry source used by actual locked protocol experiment",
+      "crate": "rmcp-3.10.0",
+      "vcs_info_sha256": "f1d753b67f46e680acbbceb3d0f60d7efacca81fb0dc585377ab8106aa83ee1a",
+      "sha256": "5251faf9065961e2a8521ef5e91eb8466885c609e1c5d2ea716604b51392f47e",
+      "local_git_blob_sha": "be7cbbd0a715b0f68c1f0eebbc905b8aa71eb9de",
+      "github_blob_sha": null,
+      "github_blob_matches": null,
+      "read_state": "read_as_scoped",
+      "read_claim": "Only declared line ranges read; crate VCS metadata provides commit provenance; no separate GitHub blob comparison asserted."
+    },
+    {
+      "id": "RMCP-MODEL",
+      "repo": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/model.rs",
+      "read_ranges": "1288-1375;3460-3518;4380-4415",
+      "tasks": [
+        "R28"
+      ],
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/model.rs",
+      "source_acquisition": "Cargo registry source used by actual locked protocol experiment",
+      "crate": "rmcp-3.10.0",
+      "vcs_info_sha256": "f1d753b67f46e680acbbceb3d0f60d7efacca81fb0dc585377ab8106aa83ee1a",
+      "sha256": "ac438543401b6b9d60021fc044dcf27b446df9539e837c6fecdf16a670091b9a",
+      "local_git_blob_sha": "5a493d45e4a7e95f3ce2a477cb4d7f5180342f6e",
+      "github_blob_sha": null,
+      "github_blob_matches": null,
+      "read_state": "read_as_scoped",
+      "read_claim": "Only declared line ranges read; crate VCS metadata provides commit provenance; no separate GitHub blob comparison asserted."
+    },
+    {
+      "id": "RMCP-META",
+      "repo": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/model/meta.rs",
+      "read_ranges": "390-440;565-608",
+      "tasks": [
+        "R28",
+        "R34"
+      ],
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/model/meta.rs",
+      "source_acquisition": "Cargo registry source used by actual locked protocol experiment",
+      "crate": "rmcp-3.10.0",
+      "vcs_info_sha256": "f1d753b67f46e680acbbceb3d0f60d7efacca81fb0dc585377ab8106aa83ee1a",
+      "sha256": "66cdccb21870babfe4c5c8bf952d6ed019d0ec909080c28335d12dcfd7ee8ec4",
+      "local_git_blob_sha": "6a63784ec2ca8ce2f5ee9f8ef7c51703e3ddcfbc",
+      "github_blob_sha": null,
+      "github_blob_matches": null,
+      "read_state": "read_as_scoped",
+      "read_claim": "Only declared line ranges read; crate VCS metadata provides commit provenance; no separate GitHub blob comparison asserted."
+    },
+    {
+      "id": "TRACING-SPAN",
+      "repo": "tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/span.rs",
+      "read_ranges": "596-641;780-790",
+      "tasks": [
+        "R30"
+      ],
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/span.rs",
+      "source_acquisition": "Cargo registry source used by actual locked protocol experiment",
+      "crate": "tracing-0.1.44",
+      "vcs_info_sha256": "e3812fbb3fb259f00c279faa9a044355113802daac267ab6e8dffcfd659cdc8e",
+      "sha256": "b87686c0ff6b55193a9377f3a0c978e0368edb6f46cd4d5a5b395c169df2f658",
+      "local_git_blob_sha": "8a4b50f94610de5fecf29c3a8d5b8f74bb161f51",
+      "github_blob_sha": null,
+      "github_blob_matches": null,
+      "read_state": "read_as_scoped",
+      "read_claim": "Only declared line ranges read; crate VCS metadata provides commit provenance; no separate GitHub blob comparison asserted."
+    },
+    {
+      "id": "TRACING-INSTRUMENT",
+      "repo": "tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/instrument.rs",
+      "read_ranges": "176-231;277-324;378-389",
+      "tasks": [
+        "R30"
+      ],
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/instrument.rs",
+      "source_acquisition": "Cargo registry source used by actual locked protocol experiment",
+      "crate": "tracing-0.1.44",
+      "vcs_info_sha256": "e3812fbb3fb259f00c279faa9a044355113802daac267ab6e8dffcfd659cdc8e",
+      "sha256": "9266d792bd9b6678baa49728704c5f38003bbc24755eac16a9e0bffcb2728010",
+      "local_git_blob_sha": "19ff5e153823f9362451266ba66eff6c117327b6",
+      "github_blob_sha": null,
+      "github_blob_matches": null,
+      "read_state": "read_as_scoped",
+      "read_claim": "Only declared line ranges read; crate VCS metadata provides commit provenance; no separate GitHub blob comparison asserted."
+    },
+    {
+      "id": "TRACING-SUBSCRIBER",
+      "repo": "tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/subscriber.rs",
+      "read_ranges": "1-63",
+      "tasks": [
+        "R30"
+      ],
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/subscriber.rs",
+      "source_acquisition": "Cargo registry source used by actual locked protocol experiment",
+      "crate": "tracing-0.1.44",
+      "vcs_info_sha256": "e3812fbb3fb259f00c279faa9a044355113802daac267ab6e8dffcfd659cdc8e",
+      "sha256": "51d9e23098b81cab911d2e7c2e4590bce75c61337c83d73b0a0af3dedc0fe7a7",
+      "local_git_blob_sha": "3d84056d8c93bb5fa29b0eba51c40438b3fc6bbf",
+      "github_blob_sha": null,
+      "github_blob_matches": null,
+      "read_state": "read_as_scoped",
+      "read_claim": "Only declared line ranges read; crate VCS metadata provides commit provenance; no separate GitHub blob comparison asserted."
+    }
+  ],
+  "reused_source_evidence": [
+    "docs/research/source-driven-evidence/source-inspection.json",
+    "docs/research/topics/R26/evidence.json",
+    "docs/research/topics/R27/evidence.json",
+    "docs/research/topics/R29/evidence.json",
+    "docs/research/topics/R30/evidence.json"
+  ],
+  "limitations": [
+    "Not a whole-upstream audit.",
+    "Source reads are not execution of upstream tests.",
+    "GPU/mobile source study does not claim device execution."
+  ],
+  "acquisition_notes": [
+    "hyperium/tonic redirected to canonical grpc/grpc-rust; pinned tonic package tag, not latest tonic-web tag.",
+    "Tonic tag and all new tag refs dereferenced to full commit identities.",
+    "A guessed runtime docs/design/coreclr/botr/nativeaot.md path returned 404 and was not counted as read."
+  ]
+}

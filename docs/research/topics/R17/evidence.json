@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R17",
+  "recorded_at": "2026-11-13T08:23:00.214179+00:00",
+  "author": "/root",
+  "scope": "research/design; independent acceptance tracked separately",
+  "entries": [
+    {
+      "claim_id": "R17-SRC-01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/BenchmarkDotNet",
+      "commit": "ecdd5717fc237db869956c4e200883fb58634f7d",
+      "path": "src/BenchmarkDotNet/Toolchains/NativeAot/CsProjNativeAotBuilder.cs",
+      "file_sha256": "a74e14fa9f21c6780b2f4ede17051ac1cbb2dd2394a94007c5d227b2adebd208",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            170
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/BenchmarkDotNet/blob/ecdd5717fc237db869956c4e200883fb58634f7d/src/BenchmarkDotNet/Toolchains/NativeAot/CsProjNativeAotBuilder.cs#L1-L170"
+        ]
+      },
+      "supported_claim": "NativeAOT build properties and host-native instruction set default",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R17-SRC-02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/BenchmarkDotNet",
+      "commit": "ecdd5717fc237db869956c4e200883fb58634f7d",
+      "path": "tests/BenchmarkDotNet.IntegrationTests/NativeAotTests.cs",
+      "file_sha256": "89d7f86543555a05490332122275adba86c0cf3c6aebd217aff78d7ce7b1762a",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            114
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/BenchmarkDotNet/blob/ecdd5717fc237db869956c4e200883fb58634f7d/tests/BenchmarkDotNet.IntegrationTests/NativeAotTests.cs#L1-L114"
+        ]
+      },
+      "supported_claim": "upstream test coverage, platform skips and harness warning policy; read not executed",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R17-SRC-03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/HdrHistogram/HdrHistogram",
+      "commit": "de84b0a7de2378abfc405da503bf4898e84ea98e",
+      "path": "src/main/java/org/HdrHistogram/AbstractHistogram.java",
+      "file_sha256": "40020b2a9a19e826d3eae13c18a69b38d96ccb3fbc1ecdc9eb6d749f8e6a0e69",
+      "locator": {
+        "line_ranges": [
+          [
+            475,
+            515
+          ],
+          [
+            585,
+            615
+          ],
+          [
+            1430,
+            1460
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/HdrHistogram/HdrHistogram/blob/de84b0a7de2378abfc405da503bf4898e84ea98e/src/main/java/org/HdrHistogram/AbstractHistogram.java#L475-L515",
+          "https://github.com/HdrHistogram/HdrHistogram/blob/de84b0a7de2378abfc405da503bf4898e84ea98e/src/main/java/org/HdrHistogram/AbstractHistogram.java#L585-L615",
+          "https://github.com/HdrHistogram/HdrHistogram/blob/de84b0a7de2378abfc405da503bf4898e84ea98e/src/main/java/org/HdrHistogram/AbstractHistogram.java#L1430-L1460"
+        ]
+      },
+      "supported_claim": "expected interval correction and percentile quantization",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R17-SRC-04",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/bheisler/criterion.rs",
+      "commit": "3dbc6c618acb48885066422d81d50729aa17b2b7",
+      "path": "src/routine.rs",
+      "file_sha256": "5a9434c3e4242bf0166f287338576038e5c8f7c9db916ddd4e130721b26884d7",
+      "locator": {
+        "line_ranges": [
+          [
+            85,
+            180
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/bheisler/criterion.rs/blob/3dbc6c618acb48885066422d81d50729aa17b2b7/src/routine.rs#L85-L180"
+        ]
+      },
+      "supported_claim": "Criterion quick/warmup sampling; not arrival latency",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R17-SRC-05",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/diagnostics",
+      "commit": "dde6f56c8701d40b93b191e2c840e26f535c09d5",
+      "path": "src/Tools/dotnet-counters/CounterMonitor.cs",
+      "file_sha256": "9e288eb2fdddf6ed451a63a9000226361d6d8834bbb80396e8bb2bdce7a60f99",
+      "locator": {
+        "line_ranges": [
+          [
+            50,
+            112
+          ],
+          [
+            201,
+            233
+          ],
+          [
+            350,
+            440
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/diagnostics/blob/dde6f56c8701d40b93b191e2c840e26f535c09d5/src/Tools/dotnet-counters/CounterMonitor.cs#L50-L112",
+          "https://github.com/dotnet/diagnostics/blob/dde6f56c8701d40b93b191e2c840e26f535c09d5/src/Tools/dotnet-counters/CounterMonitor.cs#L201-L233",
+          "https://github.com/dotnet/diagnostics/blob/dde6f56c8701d40b93b191e2c840e26f535c09d5/src/Tools/dotnet-counters/CounterMonitor.cs#L350-L440"
+        ]
+      },
+      "supported_claim": "EventCounter/Meter best-effort deduplication, sample interval and provider parsing",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R17-EXEC-01",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/performance-completion/omission.stdout",
+      "sha256": "32a8d8864ee4ce98aecd4d0ad99192edd860aeaf06225554f64f79d478d55954",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    }
+  ],
+  "reused_evidence": [
+    {
+      "path": "docs/research/topics/R10/report.md",
+      "sha256": "bce20015ca5ce00e74aee6c5f542591918b89e971367ba2bde5c4edf131dc59e"
+    }
+  ],
+  "ci_artifacts": [],
+  "product_obligations": [
+    "A21 real external benchmark harness",
+    "B22 fault/soak correctness oracle",
+    "B23 full workload measurements and uncertainty"
+  ],
+  "unresolved_research_blockers": []
+}

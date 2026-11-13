@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "source_commit": null,
+  "baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "success": true,
+  "cases": [
+    {
+      "profile": "normal",
+      "observed": "process_rejection",
+      "exit_code": -6,
+      "body_entered": false,
+      "binary_sha256": "5702c2be04a69fe1dc75d2e456df778eda3f340b53538323149c7b551d295767"
+    },
+    {
+      "profile": "aot",
+      "observed": "process_rejection",
+      "exit_code": -6,
+      "body_entered": false,
+      "binary_sha256": "4b03272bef9dd3b7306c0d4b4fc48ad15e647467823216661d9d264333fa2bfe"
+    }
+  ],
+  "source_files": {
+    "experiments/interop-completion/uco_invalid_probe.py": "852ed153cd44f4b5cc6ebf908c2bf20845118a41b0f2606633d4bc8a61a2df30",
+    "experiments/interop-completion/UcoInvalid.cs": "6b4aee944bd445f16d4f9a3e7263c4f07a87d4e9a23f485670640b8c16a7139b",
+    "experiments/interop-completion/UcoInvalid.csproj": "986aab2c985375b051495612efe01c91c479fcae42a0f0a94ab43c18705f5a2f",
+    "experiments/interop-completion/uco_invalid.rs": "dbc7edcc96edbad714a557dd307332fe8b4a7f03bff6b5ba99849a56e20450f6",
+    "experiments/interop-completion/Directory.Build.props": "c1b371ad88fb8e78e8fb2ae36f0eac2519aeab353609f75e5ca98ebee3be419e",
+    "experiments/interop-completion/global.json": "177ca4cd7ebe5dedc790036a165afc2c7d8ffff5a8a09a6679a93b3b0ceb3c0e",
+    "experiments/interop-completion/rust-toolchain.toml": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+  },
+  "independent_review": false,
+  "scope": "Deliberately invalid bool/char UCO with runtime marshalling enabled; isolated research child processes only."
+}

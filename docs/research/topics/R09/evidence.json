@@ -3,7 +3,7 @@
   "task_id": "R09",
   "observed_date": "2026-11-12",
   "author": "interop_design",
-  "status": "partially_evidenced_design_decision_recorded",
+  "status": "research_complete_independent_review_pending",
   "input_pin": {
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
@@ -206,5 +206,118 @@
       "read_state": "read_complete",
       "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
     }
-  ]
+  ],
+  "completion_2026_11_13": {
+    "observed_date": "2026-11-13",
+    "author": "/root/interop_research",
+    "input_pin": {
+      "design_baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+      "task_revision": "0.2.2",
+      "packet_path": "research-tasks/R09.md",
+      "packet_sha256": "4acbdbf36b2cd4a11d224e11f78112ed9a65a592db5ce3362e59ee640c0ba1ae",
+      "graph_packet_sha256": "4acbdbf36b2cd4a11d224e11f78112ed9a65a592db5ce3362e59ee640c0ba1ae",
+      "graph_packet_hash_matches": true
+    },
+    "status": "research_complete_independent_review_pending",
+    "decision": "Create/start/cancel/terminal/take/retire/release split, one irreversible terminal, independent result transfer; Task completion and cancellation request are not reclamation; Task baseline without speculative pooling.",
+    "source_manifest": {
+      "path": "verification/interop-completion/source-inspection.json",
+      "sha256": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096"
+    },
+    "sources": [
+      {
+        "repository": "https://github.com/dotnet/runtime",
+        "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+        "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Sources/ManualResetValueTaskSourceCore.cs",
+        "blob_sha": "f7434075c95d6b873945a373d0958d0b9c77b8c7",
+        "read_ranges": "1-230",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Reset increments short version; caller must prevent access across reset; single continuation/version checks do not prove native context quiescence.",
+        "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Sources/ManualResetValueTaskSourceCore.cs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "ManualResetValueTaskSourceCore.Reset/OnCompleted"
+      },
+      {
+        "repository": "https://github.com/mozilla/uniffi-rs",
+        "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+        "path": "uniffi_core/src/ffi/rustfuture/tests.rs",
+        "blob_sha": "78aaadb56152c423bedd11d98881745451449897",
+        "read_ranges": "1-268",
+        "evidence_kind": "test_source_read_not_executed",
+        "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+        "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/tests.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "RustFuture test module"
+      },
+      {
+        "repository": "https://github.com/mozilla/uniffi-rs",
+        "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+        "path": "uniffi_core/src/ffi/rustfuture/future.rs",
+        "blob_sha": "95a9c6c0fddb201580a6f0533aa14ec4b43ce712",
+        "read_ranges": "1-310",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+        "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/future.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "RustFuture / wrapped future / poll/complete/free"
+      },
+      {
+        "repository": "https://github.com/mozilla/uniffi-rs",
+        "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+        "path": "uniffi_core/src/ffi/rustfuture/scheduler.rs",
+        "blob_sha": "eaf00042ef7d80dacdb396f057e22adbdee1537d",
+        "read_ranges": "1-154",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+        "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/scheduler.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "Scheduler::store/wake/cancel"
+      }
+    ],
+    "executed_experiments": [
+      {
+        "manifest": "verification/interop-completion/linux/result.json",
+        "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "evidence_kind": "research_fixture_executed",
+        "supported_claim": "Actual Linux x64 .NET11/Rust1.100 native-thread callback, cancellation-registration drain, unique terminal/take and independent result-owner fixture: normal 10528 and Native AOT 10529 assertions; incremental Roslyn probe 9, static metadata restrictions 4 normal/6 AOT. Scope is research harness, not the complete product protocol."
+      },
+      {
+        "manifest": "verification/interop-completion/mailbox-run.json",
+        "sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "evidence_kind": "bounded_model_executed",
+        "supported_claim": "Explicit bounded SC model: stale-check negative finds lost-wake trace in 17 reachable states; atomic candidate explores 11 without violation. One worker/one extra wake; not weak-memory or general liveness proof."
+      }
+    ],
+    "inherited_evidence": [
+      {
+        "path": "docs/research/topics/R09/model-run.json",
+        "sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "status": "existing_evidence_reused_not_reexecuted"
+      },
+      {
+        "path": "docs/research/topics/R09/retirement-result.json",
+        "sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "status": "existing_evidence_reused_not_reexecuted"
+      }
+    ],
+    "independent_review": {
+      "status": "pending",
+      "reviewer": null
+    },
+    "research_blockers": [],
+    "future_implementation_obligations": [
+      "Every setup failure/control lease/take/quarantine interleaving mapped to implementation in A07/A19/A20; no progress under permanently stopped executor is promised."
+    ],
+    "upstream_tests_executed": false,
+    "product_implementation_verified": false,
+    "production_acceptance_complete": false,
+    "ci_executed_evidence": {
+      "path": "verification/interop-completion/ci-evidence-read.json",
+      "sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+      "scope": "Main interop, generator and AOT restrictions fixture actually normal/AOT executed on Windows x64 MSVC and Linux x64 GNU, source commit 7ea84e11ee19e6dad4503a5872eb27c6c7f44e80."
+    }
+  },
+  "historical_status": "partially_evidenced_design_decision_recorded",
+  "historical_claim_scope": "Original claims retain their observed_date/input_pin and unexecuted statements; completion_2026_11_13 records new evidence without rewriting history."
 }

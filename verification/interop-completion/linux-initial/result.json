@@ -1,0 +1,25 @@
+{
+  "scope": "R02/R04/R07/R08/R09/R10/R11: bounded research fixture, not product or performance acceptance",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "independent_review": false,
+  "success": true,
+  "source_commit": null,
+  "baseline_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+  "github_run_id": null,
+  "aot_requested": true,
+  "normal_executed": true,
+  "native_sha256": "ba0281c8d8d1f70d8729f5ab5602ad6e335dacc5758ca1c6523237785a831b22",
+  "aot_executed": true,
+  "aot_publish_exit_code": 0,
+  "aot_executable_sha256": "61a4315defadbca87ff1691c963533eec9cb70d3be8ad8e92bdaa64539f4a279",
+  "source_files": {
+    "experiments/interop-completion/native/Cargo.toml": "2c4e195d554a425897bdb25d9ea2914691a6593b5b326c366326be363b25498f",
+    "experiments/interop-completion/native/Cargo.lock": "717a26f10088028a99af7fae8874f9dee75486fcdf53eaac17f82fcc104ab642",
+    "experiments/interop-completion/native/src/lib.rs": "eb3ce3d1385fbe5f76f7a598ce8b1501a140de0b95d1b1d15f4366699bf6c273",
+    "experiments/interop-completion/Completion.csproj": "151b2876c5cba1800b654d8cd4215a381feb758ffacf57145eb99098d42847a3",
+    "experiments/interop-completion/Program.cs": "0204a40248f6707beafbca3208853c726307bb6afcf46053fee93b76d3011f4c",
+    "experiments/interop-completion/global.json": "177ca4cd7ebe5dedc790036a165afc2c7d8ffff5a8a09a6679a93b3b0ceb3c0e",
+    "experiments/interop-completion/rust-toolchain.toml": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+    "experiments/interop-completion/run.py": "60934b8a731ffc839f913a631146098e4553788ddb1d28e4c822924ee07a33c0"
+  }
+}

@@ -240,14 +240,54 @@
     }
   ],
   "other_candidates_not_read": [],
-  "decision_revision": "rust-orm-required-2026-11-12",
-  "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+  "decision_revision": "precompiled-native-database-completion-2026-11-12",
+  "selected_orm": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
   "not_executed": [
-    "NativeWeave generated SeaORM model build",
-    "SQLx PG/SQLite target execution",
-    "C# Native AOT calling Rust ORM"
+    "B02: product TLS/auth/real Windows/Linux C# Native AOT provider integration",
+    "B23/R17: matched full-workload managed/native/FFI measurement; no performance superiority claimed"
   ],
   "remaining_source_work": [
-    "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
-  ]
+    "No claim of reading full upstream repositories. Listed ranges resolve the selected research/design questions; source/feature changes require scoped re-review."
+  ],
+  "historical_integration_metadata": {
+    "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+    "decision_revision": "rust-orm-required-2026-11-12",
+    "not_executed": [
+      "NativeWeave generated SeaORM model build",
+      "SQLx PG/SQLite target execution",
+      "C# Native AOT calling Rust ORM"
+    ],
+    "remaining_source_work": [
+      "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
+    ]
+  },
+  "completion_coverage": {
+    "source_manifest": "verification/database-completion/source-inspection.json",
+    "source_ids": [
+      "sqlx-pg-executor",
+      "sqlx-pg-connection",
+      "pg-tls"
+    ],
+    "actual_cases": [
+      "statement_timeout_needs_rollback_before_same_connection_reuse",
+      "early_row_stream_drop_drains_before_next_query",
+      "lost_commit_response_is_error_with_durable_effect"
+    ],
+    "normal_error_boundary_coverage": "See current report and exact test names; original negative-control failure retained.",
+    "unsupported_scope": "Complete NativeWeave production wrappers, every upstream feature, both-OS new C# AOT, TLS/auth, performance and long-load are not established.",
+    "research_blockers": [],
+    "independent_review_pending": true,
+    "future_delivery_obligations": [
+      "B02: product TLS/auth/real Windows/Linux C# Native AOT provider integration",
+      "B23/R17: matched full-workload managed/native/FFI measurement; no performance superiority claimed"
+    ],
+    "ci_confirmation": {
+      "manifest": "verification/database-completion/ci-confirmation.json",
+      "run_id": 43388468172,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "metadata": "Windows and Linux: 5/5 each",
+      "postgres": "Linux PostgreSQL18.0: 6/6",
+      "scope": "Use only the task-specific cases already listed; repeated platforms are not additional unique cases. No C# or product acceptance claim."
+    }
+  }
 }

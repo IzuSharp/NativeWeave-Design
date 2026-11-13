@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0",
+  "scope": "Metadata-only actual-source-range correction; all9 normative specs, 13 report texts and experiment sources/logs unchanged.",
+  "old_source_manifest_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+  "new_source_manifest_sha256": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096",
+  "old_assessment_sha256": "49893dbeff42033b4867efeb53e8ca1f0aaeec2ba29bc9efdff5fb5c67d59f08",
+  "new_assessment_sha256": "45adb169e8fd912ce935883facbd05d3ec72b74663e4d77251237ec844e8b078",
+  "files": [
+    {
+      "path": "verification/interop-completion/source-inspection.json",
+      "old_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+      "new_sha256": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096",
+      "changes": [
+        {
+          "path": "crates/backend_csharp/src/pass/model/common/fns/originals.rs",
+          "from": "1-89",
+          "to": "1-87"
+        },
+        {
+          "path": "README.md",
+          "from": "1-115",
+          "to": "1-99"
+        },
+        {
+          "path": "README.md",
+          "from": "1-90",
+          "to": "1-89"
+        },
+        {
+          "path": "docs/src/tutorial-loop-unwinding.md",
+          "from": "1-170",
+          "to": "1-148"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/topics/R02/evidence.json",
+      "old_sha256": "bf9cb53ba57e5a752e78c10496317834dd76ff0b9249449207dade5b6c85401b",
+      "new_sha256": "8fbd5d93f24acc977cd0635e2f3e3520efc520f43d39409ad71b15dea1b78870",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R03/evidence.json",
+      "old_sha256": "65dd957c58220cd2070640f67abd46eb2a27ee2cd5bc7d0ed5e633fa9f4e2cd7",
+      "new_sha256": "0bc5c9070e16c077844229c0239775856bcc0056e0057efeb96da8ddd6305cb1",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R04/evidence.json",
+      "old_sha256": "666168e9999e541a07170b4a9558344e732d8dcfc9d8d5ac1c316f51bfc19a79",
+      "new_sha256": "77418e68c91a584eb1c310e54c8be58e836e073a2a2a0bb7d6ab503ec378b7a8",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R05/evidence.json",
+      "old_sha256": "da41a6fe7d1a6c8d2a860dcf9ac784d05e1b0041c31d825c64f8eb10f2c246db",
+      "new_sha256": "2b32c40f00e8a8a87d30a494f7972ec82e7fe70867d125c88eddd4d7eb9522da",
+      "changes": [
+        {
+          "path": "crates/backend_csharp/src/pass/model/common/fns/originals.rs",
+          "from": "1-89",
+          "to": "1-87"
+        },
+        {
+          "path": "README.md",
+          "from": "1-115",
+          "to": "1-99"
+        },
+        {
+          "path": "README.md",
+          "from": "1-90",
+          "to": "1-89"
+        }
+      ],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R05/coverage.json",
+      "old_sha256": "f842b8b7b8ae54c33cfb783992a25e24f7362efa4d2ae0236dacfaf0f5c8a791",
+      "new_sha256": "2771aae925be7521fd0a3fcfd4ec72e74c06197b0d761089e7823596c74b29ee",
+      "changes": [
+        {
+          "path": "crates/backend_csharp/src/pass/model/common/fns/originals.rs",
+          "from": "1-89",
+          "to": "1-87"
+        },
+        {
+          "path": "README.md",
+          "from": "1-115",
+          "to": "1-99"
+        },
+        {
+          "path": "README.md",
+          "from": "1-90",
+          "to": "1-89"
+        }
+      ],
+      "source_manifest_hash_updated": false
+    },
+    {
+      "path": "docs/research/topics/R06/evidence.json",
+      "old_sha256": "cf849f36922563caf82863551789e91d8cbb16f778a0708a19da108ba0ddb452",
+      "new_sha256": "47e3e9f9508eb8d4b1b633d4936a27796d7af24ba2ff77dc1e9fc1bb855c0d88",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R07/evidence.json",
+      "old_sha256": "fde3ab20a65bec93343e4bc655754fed910405a1ff616f9535cf1568e31b5365",
+      "new_sha256": "b2212e3dfd2fda25defec84fa899c3bb7ca5f876aeaa730045b46075bae2cc55",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R08/evidence.json",
+      "old_sha256": "44df97a6dcd4ae51fb106df4d1ff94a2753eb099d47d8fc9d784e3033d922907",
+      "new_sha256": "1119ad6ddeae6b94af8c5b03feab7cd4b8eaa7f8a1fc198e3e6df520a811fec3",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R09/evidence.json",
+      "old_sha256": "d000e017857bd58f4de530ac60e635120c14c33715e36e173cadc6d0edb3b971",
+      "new_sha256": "ddbc929268a78737a7814a7818b33fa39ef04d5afe5c13fa4b563309367f4b63",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R10/evidence.json",
+      "old_sha256": "3f933c72d4c9a7631488592b097df776a20d659a83b4532fa462468e4d3e78e5",
+      "new_sha256": "1dccc6fe89eb91c3bebbb38f4b7ee9339875bff8f31365e5c56d7d1e3f83fc77",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R11/evidence.json",
+      "old_sha256": "7b6127f985a2726c66d3528c2b9a7808a0ce52541e317e60536d76393614dda1",
+      "new_sha256": "b9e2457c32b7c73b034c1fe88a0050c3ca35a52562686a726fd65e90d7c52fb6",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R12/evidence.json",
+      "old_sha256": "b59bfa5dfd4db9311045a4b9b411c43255089382b8adae3bd2b34b729f13fde4",
+      "new_sha256": "fd016f23d0088bd7cd527fae9011d6405e4a4d316eafd883bf4aa46237911a57",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R15/evidence.json",
+      "old_sha256": "4b5357abae74001b41a67350eb88d3f6841eccbb52039ac7391c15730b932ecf",
+      "new_sha256": "c15d1c7ab5e09af224c3f0109af6b4db0ebb5054a042065a7eae111d24c41146",
+      "changes": [
+        {
+          "path": "docs/src/tutorial-loop-unwinding.md",
+          "from": "1-170",
+          "to": "1-148"
+        }
+      ],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "docs/research/topics/R15/coverage.json",
+      "old_sha256": "f6c44ec7e9d54a7603f929804e52d968b4e87d7126d794b145d4f214ead4c484",
+      "new_sha256": "269b6eb7141d47fce15081b8763ee4111afa239c5cb3fdd8aad7eb6dfcb414f6",
+      "changes": [
+        {
+          "path": "docs/src/tutorial-loop-unwinding.md",
+          "from": "1-170",
+          "to": "1-148"
+        }
+      ],
+      "source_manifest_hash_updated": false
+    },
+    {
+      "path": "docs/research/topics/R16/evidence.json",
+      "old_sha256": "4a3f048987794eef9b625ee61d6919be860ee21b349f6b8c4c446ee6c20936da",
+      "new_sha256": "e29c76262a7ba9b68ca2159121f64abdbdefe86ec4f1230c6d767cc03115dc12",
+      "changes": [],
+      "source_manifest_hash_updated": true
+    },
+    {
+      "path": "verification/interop-completion/task-assessment.json",
+      "old_sha256": "49893dbeff42033b4867efeb53e8ca1f0aaeec2ba29bc9efdff5fb5c67d59f08",
+      "new_sha256": "45adb169e8fd912ce935883facbd05d3ec72b74663e4d77251237ec844e8b078",
+      "changes": "Derived source/output hashes and source-range audit reference only."
+    }
+  ]
+}

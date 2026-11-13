@@ -1,6 +1,6 @@
 # D02 — Stable C boundary and layout contract
 
-**C-ABI-001@0.1.0-draft**. Status: proposed; source-informed and partially fixture-verified, not formally accepted. Existing R03/R04, D02, A01/A02/A09–A12 remain the work IDs. Consumes [D01](../platforms/support-and-aot.md), [D04](lifetime-v0.1.md), [D08](error-v0.1.md) and [D07](buffer-v0.1.md). D08 is the sole authority for status values; this document does not invent a competing error enum.
+**C-ABI-001@0.3.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Existing R03/R04, D02, A01/A02/A09–A12 remain the work IDs. Consumes [D01](../platforms/support-and-aot.md), [D04](lifetime-v0.1.md), [D08](error-v0.1.md) and [D07](buffer-v0.1.md). D08 is the sole authority for status values; this document does not invent a competing error enum.
 
 ## 1. Scope and evidence
 
@@ -75,3 +75,16 @@ Rust1.100 `!`, Allocator, DropGuard, Box/Arc map and Vec::from_fn are internal i
 A01 must deliver target-specific generated C/Rust/C# size/align/offset tests for every published struct, fixed status/Boolean/tag negatives, size-prefix no-write/sentinel tests, unknown ABI/capability tests and symbol/signature inventory. A03/A04/A05 verify owner transfer, buffers and errors; A06/A07 callbacks and async retirement. A10/A11/A12 generation/analyzers forbid unsupported types and layout drift. A14/A15 perform actual two-platform AOT import/export executions, not only native unit tests. A22 verifies old/new binaries and feature profiles.
 
 Malformed-but-valid-memory tests belong in ordinary fuzzing; deliberately invalid memory/UCO ABI cases require isolated fatal tests. Race/model/sanitizer evidence remains scoped to the properties checked. Current test exports (`nw_probe_*` etc.) are research fixtures and must not be published as a stable Core API. Formal contract acceptance remains separate from this authored draft and finite execution evidence.
+
+## 9. Completion evidence and research acceptance boundary (2026-11-13)
+
+R03 now has a canonical [report](../research/topics/R03/report.md), evidence and coverage. Existing two-OS layout/AOT samples are retained. The new [interop completion manifest](../../verification/interop-completion/linux/result.json) actually runs the static C boundary and 10,000 independently checked extent cases; the [binding comparison](../../verification/interop-completion/binding-linux/result.json) executes csbindgen DllImport and framework LibraryImport against one native export in normal and Native AOT modes. `uint64_t` lengths still require `isize::MAX`/budget checks before constructing a Rust slice; arithmetic checks never validate an arbitrary address.
+
+The isolated [invalid UCO experiment](../../verification/interop-completion/uco-invalid-linux/result.json) publishes a char/bool callback but terminates both normal and AOT children with unhandled `InvalidProgramException` before the callback body executes. This scoped observation supports rejecting such public signatures; it does not establish how an outer managed catch behaves or every ABI failure mode. No `catch` inside the callback can repair a body that was never entered.
+
+[D03](../generators/binding-pipeline.md) fixes generation authority and completeness diagnostics; [D09](concurrency-v0.1.md) fixes Engine scheduling and shutdown; [D12](../verification/models-and-matrix.md) records product test obligations separately. The declaration/ownership/version decisions are eligible for independent design acceptance now. A01/A02/A12 must still implement and execute the complete generated golden matrix before product release; that future matrix is not a prerequisite for accepting its design.
+
+
+### Committed target evidence
+
+The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.

@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0.0",
+  "github_run_id": 43388468172,
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "reviewer": "server_extensions author evidence check; not independent architecture review",
+  "records": [
+    {
+      "suite": "protocol",
+      "platform": "windows-2022",
+      "run_manifest": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/run.json",
+      "run_manifest_sha256": "d230ce88e61165aed31b0138f191b6c6b662e325f014eccade4e6c86c72cf15d",
+      "success": true,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "commands_exit_zero": true,
+      "input_identities": [
+        {
+          "path": "experiments/server-completion/protocol/Cargo.lock",
+          "repository_worktree_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+          "executed_checkout_sha256": "0974affb37393e609b85d3b90102a7be7be569510affff1dcd6d7ee20264436c",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/protocol/Cargo.toml",
+          "repository_worktree_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+          "executed_checkout_sha256": "36116de5e455e23813a8f0d6b77408d1503774e5af6a1fa8398804b9f23b341d",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/protocol/src/lib.rs",
+          "repository_worktree_sha256": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+          "executed_checkout_sha256": "b9d3d32db2a36aa69e6478259fd9acb3016c3e1bc781a59ec5f6a73dfe3ce021",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/run.py",
+          "repository_worktree_sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+          "executed_checkout_sha256": "c5820b29c249958fc2a5109bf5f306a71973955825fbd80ca8a8cbe2fa595eac",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion",
+          "input_snapshot_present": false
+        }
+      ],
+      "log_hashes_verified": true,
+      "tests_observed": 13
+    },
+    {
+      "suite": "protocol",
+      "platform": "ubuntu-24.04",
+      "run_manifest": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/run.json",
+      "run_manifest_sha256": "5d2eef1b68e05ea130334c8733046ac0f802d92b1d570cd54c485396cf4f8332",
+      "success": true,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "commands_exit_zero": true,
+      "input_identities": [
+        {
+          "path": "experiments/server-completion/protocol/Cargo.lock",
+          "repository_worktree_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+          "executed_checkout_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+          "relationship": "byte_exact",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/protocol/Cargo.toml",
+          "repository_worktree_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+          "executed_checkout_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+          "relationship": "byte_exact",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/protocol/src/lib.rs",
+          "repository_worktree_sha256": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+          "executed_checkout_sha256": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+          "relationship": "byte_exact",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/run.py",
+          "repository_worktree_sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+          "executed_checkout_sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+          "relationship": "byte_exact",
+          "input_snapshot_present": false
+        }
+      ],
+      "log_hashes_verified": true,
+      "tests_observed": 13
+    },
+    {
+      "suite": "kestrel",
+      "platform": "windows-2022",
+      "run_manifest": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/run.json",
+      "run_manifest_sha256": "b86ae545f625319bcfc3c53ac964cfb2047c0548db7720a19ce130679e4d1c36",
+      "success": true,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "commands_exit_zero": true,
+      "input_identities": [
+        {
+          "path": "experiments/server-completion/kestrel/KestrelComparator.csproj",
+          "repository_worktree_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+          "executed_checkout_sha256": "a6ad2fe3b3531fbb3f3a0d9b5954a5a4ed973739054b95b3608d71dd9317ce2c",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/kestrel/Program.cs",
+          "repository_worktree_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+          "executed_checkout_sha256": "8d5089166c1ff720c32b278e21b1a5fcb2157bd3cc07d5126a04a941c8d0d8b8",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/run.py",
+          "repository_worktree_sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+          "executed_checkout_sha256": "c5820b29c249958fc2a5109bf5f306a71973955825fbd80ca8a8cbe2fa595eac",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion",
+          "input_snapshot_present": false
+        }
+      ],
+      "log_hashes_verified": true,
+      "tests_observed": 5
+    },
+    {
+      "suite": "kestrel",
+      "platform": "ubuntu-24.04",
+      "run_manifest": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/run.json",
+      "run_manifest_sha256": "3dbec23de2270a4487767c254c6f04fb1ff93269d860f0c4c6f83e8f3bd1f86a",
+      "success": true,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "commands_exit_zero": true,
+      "input_identities": [
+        {
+          "path": "experiments/server-completion/kestrel/KestrelComparator.csproj",
+          "repository_worktree_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+          "executed_checkout_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+          "relationship": "byte_exact",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/kestrel/Program.cs",
+          "repository_worktree_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+          "executed_checkout_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+          "relationship": "byte_exact",
+          "input_snapshot_present": true
+        },
+        {
+          "path": "experiments/server-completion/run.py",
+          "repository_worktree_sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+          "executed_checkout_sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+          "relationship": "byte_exact",
+          "input_snapshot_present": false
+        }
+      ],
+      "log_hashes_verified": true,
+      "tests_observed": 5
+    }
+  ],
+  "limitations": [
+    "Runner run.py itself was hashed but not copied by this runner version; compared checkout hash with frozen local source and exact LF-to-CRLF on Windows.",
+    "Scoped research tests only; no C# protocol/product Handler, long-load or production acceptance."
+  ]
+}

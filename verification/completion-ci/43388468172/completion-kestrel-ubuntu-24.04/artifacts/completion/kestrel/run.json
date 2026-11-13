@@ -1,0 +1,65 @@
+{
+  "suite": "kestrel",
+  "os": "Linux",
+  "arch": "x86_64",
+  "inputs_sha256": {
+    "kestrel/KestrelComparator.csproj": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+    "kestrel/Program.cs": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+    "run.py": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f"
+  },
+  "commands": [
+    {
+      "name": "dotnet-info",
+      "command": [
+        "dotnet",
+        "--info"
+      ],
+      "timeout_seconds": 30,
+      "exit_code": 0,
+      "elapsed_seconds": 0.114,
+      "stdout_sha256": "973f18d799788ce1112ecd851d575905dafcc00f0486fa5e471a12ab5b603015",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish",
+      "command": [
+        "dotnet",
+        "publish",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/server-completion/kestrel/KestrelComparator.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "-o",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/artifacts/completion/kestrel/publish"
+      ],
+      "timeout_seconds": 600,
+      "exit_code": 0,
+      "elapsed_seconds": 25.402,
+      "stdout_sha256": "4e22e325a3d06ffdf350846c6caa1460919b17d513c1738ab825c84443d84755",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native-aot-run",
+      "command": [
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/artifacts/completion/kestrel/publish/KestrelComparator"
+      ],
+      "timeout_seconds": 40,
+      "exit_code": 0,
+      "elapsed_seconds": 2.069,
+      "stdout_sha256": "38050539a8767479c78b416f569eb0dcd0f073ff0b2edd16cd31c03f7cf7aea0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "kind": "research_only",
+  "limitations": [
+    "No NativeWeave product implementation.",
+    "Protocol Rust tests do not execute a C# FFI Handler.",
+    "Kestrel is solely the managed comparator.",
+    "Finite tests do not establish long-load performance or platform certification."
+  ],
+  "git_head": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "binary_sha256": "69a7c96337d6eac7b875cd10090aabe45b65655f7fdc1309ce8a060bd243646a",
+  "success": true
+}

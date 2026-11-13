@@ -1,5 +1,7 @@
 # R09：异步结果、取消、回调与资源退休
 
+**Current completion (2026-11-13):** source-driven research/design is ready for exact-content independent review. The original dated report below is preserved as a historical increment; its unexecuted statements describe that increment. Current evidence/coverage contain `completion_2026_11_13` and immutable later execution records.
+
 日期：2026-11-12。作者：interop_design。状态：**partially_evidenced；design decision recorded；finite model executed；independent review pending**。研究输出为[D06](../../../contracts/async-v0.1.md)，同时约束D04/D05。普通Task完成、native静默、实际实现验证与生产验收是不同事实。
 
 ## 1. 输入、目标与非目标
@@ -117,3 +119,18 @@ D06 AS-01～08分别覆盖注册同步取消、start拒绝/同步完成、终态
 Q05已有明确Task与不默认池化选择；Q04已有资源退休偏序与可复现实验，可经独立审查关闭设计研究问题。R12执行器、R10 Buffer和R15弱内存进一步补证保持各自范围；不要求此轮先实现所有平台才能记录设计已解决。Tokio/UniFFI及ValueTaskSource内部未读，因此整体研究任务仍partially_evidenced，不能标全部async生态调查完成。
 
 独立审查特别检查：Owner先关门后terminal/take、Task永不await、registration回调先于赋值、PENDING通知合并丢唤醒、永久不静默时配额和诊断，以及效果未知的数据库取消。dotnet/runtime和YAHA固定许可证均已读，为MIT；本报告不复制大段源码。
+
+## Current completion review — source alternatives, real take-once and notification progress
+
+The existing retirement model and its541-state result remain historical evidence. This increment actually executes synchronous/native-worker terminals, precancel and late cancel, duplicate completion rejection, once-only result take, result survival after operation release and DTO-conversion cleanup. Thirty-two controlled callback/GC rounds plus managed registration barriers execute normally and as Linux Native AOT. It is a bounded research operation, not the full future A07 coordinator. Exact evidence is `verification/interop-completion/linux/result.json`.
+
+Previously unread alternative mechanisms are now inspected. .NET11 ManualResetValueTaskSourceCore has a short version and requires the outer owner to prevent access across Reset; version checks and single-continuation enforcement do not make a native cookie safely reusable. UniFFI's actual WrappedFuture separates poll, complete and free; its scheduler handles wake-before-store and calls callbacks outside the internal mutex. Its Arc-backed RawWaker retains future state. These mechanisms support keeping ordinary Task/TCS as the simple initial C# contract and deferring pooling until workload evidence justifies the additional ABA/reset/await rules.
+
+The new finite mailbox model supplies a concrete lost-notification counterexample: worker reads no dirty work, notification marks dirty while scheduled remains true, worker clears scheduled using the stale read. Atomic dirty recheck/unschedule removes that counterexample in the declared finite SC model; exact negative17/candidate11 states and source hash are preserved. D09 specifies the matching bounded mailbox and pending-retirement retry rule; it does not claim a weak-memory proof.
+
+The old preview-only Runtime Async statement is historical and superseded by R01/D01's current .NET11 check. This bridge uses ordinary Task and does not require a runtime-async-specific ABI. Current source/design questions are resolved with the above evidence. Independent review remains required; full setup-allocation compensation, poisoned-worker recovery, multi-operation saturation, every target and production weak-memory/load behavior remain explicit A07/A08/A19/A20/B22 obligations.
+
+
+## Committed Windows/Linux completion execution
+
+[CI evidence readback](../../../../verification/interop-completion/ci-evidence-read.json) verifies actual GitHub run `43388468172` at source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`: Windows x64 MSVC and Linux x64 GNU each executed normal 10,528 assertions and Native AOT 10,529, 32 controlled callback rounds per mode, nine Roslyn checks and static metadata/AOT restriction checks. All command exits and source hashes were verified; Windows checkout CRLF accounts for its distinct input hashes. This extends the main fixture only. Linux-only generator-comparison/panic/invalid-UCO supplemental studies are not mislabeled as Windows results. Deliberate reflection fallback negative cases retain their IL2026/IL3050 diagnostics. Product package/full-protocol/long-load obligations remain separate.

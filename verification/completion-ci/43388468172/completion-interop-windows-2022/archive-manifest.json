@@ -1,0 +1,178 @@
+{
+  "artifact_id": 14020260538,
+  "name": "completion-interop-windows-2022",
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "run_id": 43388468172,
+  "zip_sha256": "2ca2b165a9b5f178aa66adf327196eb741bb99a0dc9cfc4018de89807d35233d",
+  "zip_bytes": 10905,
+  "files": [
+    {
+      "path": "verification/interop-completion/windows/aot-publish.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/aot-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/aot-publish.stdout",
+      "sha256": "6f5f1108b0a541baa9ce69c6f1de3c1994d30153669d92ebb4b959cfd196309c",
+      "bytes": 440,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/aot-run.stdout",
+      "sha256": "36ba9bbf537f71ae9fae984f554ebf1ace1bff7b2e4d84f947f1fb183f825f23",
+      "bytes": 73,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/commands.json",
+      "sha256": "178a93bc1a28b7df258581c6d23329e71ff4ab49595e6e546b47cec985667c42",
+      "bytes": 6815,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/dotnet-info.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/generator-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/dotnet-info.stdout",
+      "sha256": "570787210d4817f36ce08790c190e51e408a14c2c3d03af9675bfa8400994eca",
+      "bytes": 6177,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/generator-run.stdout",
+      "sha256": "c74c37b015d996b5bdcdae05937499a0961772a6cd597a97853b3cfa548f8fd8",
+      "bytes": 56,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/native-build.stderr",
+      "sha256": "9910e097800892b69023c5adffc9b67c3899af3e8eac8027b96986732995e06f",
+      "bytes": 195,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/native-build.stdout",
+      "sha256": "a0d586d39431176b22bebbd9449315fd093566b33d4aa0676cc04a87e5ca3360",
+      "bytes": 1475,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/native-test.stderr",
+      "sha256": "fdede5ce154541e97670ead5835aa9d011d7e255852b7468372acee9f41bbb5c",
+      "bytes": 415,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/native-test.stdout",
+      "sha256": "21c42fbd19aac791b858fc92cd88f518bd3fa7ddfc710e0de181e3ca2e4ad615",
+      "bytes": 314,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/normal-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/normal-run.stdout",
+      "sha256": "6a5d2a59add4b5150ec7df3eb921174154cef578a32bd04f0c3fc252b8035603",
+      "bytes": 74,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/restrictions-aot-publish.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/restrictions-aot-publish.stdout",
+      "sha256": "2a0cb5d23e45ce87bfd4ab231f38c80aa9f604c0967f613c3375c8ca987051c8",
+      "bytes": 3021,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/restrictions-aot-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/restrictions-aot-run.stdout",
+      "sha256": "10c5280dc3fc923b11af489500c38e5b6803758d6b3063b1a62d9b17ee970fab",
+      "bytes": 48,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/restrictions-normal.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/restrictions-normal.stdout",
+      "sha256": "167a9a8c73eeee5aff58f8a7d7808d67e46e96e4891e9036b56fbb39bfb25c5a",
+      "bytes": 49,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/result.json",
+      "sha256": "9f00fed67217b38ce98b4c46aee0fbedfd3ccb86669292f24529b376d3901c1f",
+      "bytes": 2409,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/rust-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/windows/rust-version.stdout",
+      "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+      "bytes": 203,
+      "preserved": true
+    }
+  ],
+  "results": [
+    {
+      "path": "verification/interop-completion/windows/result.json",
+      "passed": null,
+      "source_commit": null,
+      "keys": [
+        "scope",
+        "platform",
+        "independent_review",
+        "success",
+        "source_commit",
+        "baseline_commit",
+        "github_run_id",
+        "aot_requested",
+        "normal_executed",
+        "native_sha256",
+        "aot_executed",
+        "aot_publish_exit_code",
+        "aot_executable_sha256",
+        "restrictions_aot_sha256",
+        "source_files"
+      ]
+    }
+  ]
+}

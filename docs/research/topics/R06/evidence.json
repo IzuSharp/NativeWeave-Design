@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R06",
+  "observed_date": "2026-11-13",
+  "author": "/root/interop_research",
+  "input_pin": {
+    "design_baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "task_revision": "0.2.0",
+    "packet_path": "research-tasks/R06.md",
+    "packet_sha256": "7346f63ebd7a6099a335d0cecf5aeaac9aec4b97cecc1316b482fc2bae2b6805",
+    "graph_packet_sha256": "7346f63ebd7a6099a335d0cecf5aeaac9aec4b97cecc1316b482fc2bae2b6805",
+    "graph_packet_hash_matches": true
+  },
+  "status": "research_complete_independent_review_pending",
+  "decision": "Value-equatable incremental inputs, deterministic source and stable diagnostics; static raw imports are produced before Roslyn rather than depending on peer generator chaining; ordinary entities only change managed metadata.",
+  "source_manifest": {
+    "path": "verification/interop-completion/source-inspection.json",
+    "sha256": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096"
+  },
+  "sources": [
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/Core/Portable/SourceGeneration/GeneratorDriver.cs",
+      "blob_sha": "1da3d4e378f5ab0082fa6b6ddbd330c7805b5082",
+      "read_ranges": "1-180",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Generated syntax trees are added after generation; driver state is immutable and cached.",
+      "url": "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/Core/Portable/SourceGeneration/GeneratorDriver.cs",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "GeneratorDriver.RunGeneratorsAndUpdateCompilation"
+    },
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "docs/features/incremental-generators.cookbook.md",
+      "blob_sha": "1057e8a56ec3900e5caaf65c324726eff28fd809",
+      "read_ranges": "1-170",
+      "evidence_kind": "upstream_documentation_read",
+      "supported_claim": "Value-equatable models, explicit attribute discovery and no dependency on peer generator output in the same pass.",
+      "url": "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/docs/features/incremental-generators.cookbook.md",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "Incremental generator value equality and pipeline guidance"
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "blob_sha": "e0a8747d9081ba724b063c72e11e22c53f4ebb79",
+      "read_ranges": "1-170",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Reuse framework incremental static import generator; validation and marshalling remain explicit.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "LibraryImportGenerator.Initialize"
+    }
+  ],
+  "executed_experiments": [
+    {
+      "manifest": "verification/interop-completion/linux/result.json",
+      "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+      "evidence_kind": "research_fixture_executed",
+      "supported_claim": "Actual Linux x64 .NET11/Rust1.100 native-thread callback, cancellation-registration drain, unique terminal/take and independent result-owner fixture: normal 10528 and Native AOT 10529 assertions; incremental Roslyn probe 9, static metadata restrictions 4 normal/6 AOT. Scope is research harness, not the complete product protocol."
+    }
+  ],
+  "inherited_evidence": [],
+  "independent_review": {
+    "status": "pending",
+    "reviewer": null
+  },
+  "research_blockers": [],
+  "future_implementation_obligations": [
+    "Production IDE/CLI/multi-target snapshot, diagnostic span, incremental performance and package consumption tests in A10-A12/B10/B12."
+  ],
+  "upstream_tests_executed": false,
+  "product_implementation_verified": false,
+  "production_acceptance_complete": false,
+  "ci_executed_evidence": {
+    "path": "verification/interop-completion/ci-evidence-read.json",
+    "sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+    "scope": "Main interop, generator and AOT restrictions fixture actually normal/AOT executed on Windows x64 MSVC and Linux x64 GNU, source commit 7ea84e11ee19e6dad4503a5872eb27c6c7f44e80."
+  }
+}

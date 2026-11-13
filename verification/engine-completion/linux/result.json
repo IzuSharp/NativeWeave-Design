@@ -1,0 +1,207 @@
+{
+  "scope": "R13/R14/R18 finite integration research, not production support or performance acceptance",
+  "source_commit": "1bc9164e79b1e35eb3ed8e8995bf0137f4880538",
+  "platform": "Linux",
+  "rid": "linux-x64",
+  "commands": [
+    {
+      "name": "rustc",
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:40.410428+00:00",
+      "finished_at": "2026-11-13T07:35:40.466911+00:00",
+      "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sdk",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:40.467489+00:00",
+      "finished_at": "2026-11-13T07:35:40.519899+00:00",
+      "stdout_sha256": "a8616d4615f1c2010416f073c5b0e21c81d11a4b9610dd358bc81bd7caf5246d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native-test",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--manifest-path",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/engine-completion/native/Cargo.toml"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:40.521477+00:00",
+      "finished_at": "2026-11-13T07:35:45.789894+00:00",
+      "stdout_sha256": "934be9d341059489dc2271c2db6b1e3c4e4b295a7f49b978f6362842b659f814",
+      "stderr_sha256": "3cfd2225a21d66617f8abbbcd13e90f5451f3480ba924c0d1f96b1e951c7b86f"
+    },
+    {
+      "name": "cargo-metadata",
+      "command": [
+        "cargo",
+        "metadata",
+        "--locked",
+        "--format-version",
+        "1",
+        "--manifest-path",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/engine-completion/native/Cargo.toml"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:45.791556+00:00",
+      "finished_at": "2026-11-13T07:35:45.808869+00:00",
+      "stdout_sha256": "291eba6e2d9eb814ba2ab384fb42c5c0014bc406fd81b8f29304492a4b7f9dd8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native-build",
+      "command": [
+        "cargo",
+        "build",
+        "--release",
+        "--locked",
+        "--manifest-path",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/engine-completion/native/Cargo.toml",
+        "--message-format=json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:45.810958+00:00",
+      "finished_at": "2026-11-13T07:35:47.385929+00:00",
+      "stdout_sha256": "8a4ef8a26b1c6b0d2a2938fa80cc4c4d158e055115211a1d20a8c08aac806b46",
+      "stderr_sha256": "e5261597c9557061a060e76ed4dcd793d153dbbda59ec28f04f7abae61c45492"
+    },
+    {
+      "name": "pack",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "pack",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/engine-completion/managed/Codec.csproj",
+        "-c",
+        "Release",
+        "-o",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/engine-completion/.work/feed",
+        "-p:NativeAsset=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/engine-completion/.work/target/release/libnw_codec_research.so",
+        "-p:NativeRid=linux-x64",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:47.387971+00:00",
+      "finished_at": "2026-11-13T07:35:53.075695+00:00",
+      "stdout_sha256": "14d7bb930a54d73a96bb7b503484298a8dba56d9dcb570d157004bdf1671b333",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "consumer-build-no-rid-no-rust",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "build",
+        "-c",
+        "Release",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:53.084174+00:00",
+      "finished_at": "2026-11-13T07:35:57.363750+00:00",
+      "stdout_sha256": "a3beae923b4740ddfdbf76121d55f1543c7329776c2023e2096e341eebcb3270",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "consumer-run-no-rid-no-rust",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "run",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:57.364821+00:00",
+      "finished_at": "2026-11-13T07:35:58.345840+00:00",
+      "stdout_sha256": "442aacb1788435ed654567d4e4697ecd920218fb4fba0740ea90f6f74bd0772e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "consumer-change-offline",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "build",
+        "-c",
+        "Release",
+        "--no-restore",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:35:58.346915+00:00",
+      "finished_at": "2026-11-13T07:36:01.529516+00:00",
+      "stdout_sha256": "7e8af3bd555c40faf195da06d83e0505874cd2040b0c5a7c53853ff6e4f25483",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "aot-publish-no-rust",
+      "command": [
+        "/workspace/scratch/a64c8260e732/nativeweave/toolchains/dotnet/dotnet",
+        "publish",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "-o",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/engine-completion/linux/publish",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:36:01.532034+00:00",
+      "finished_at": "2026-11-13T07:36:11.561025+00:00",
+      "stdout_sha256": "e5c71dc3a3e7bfa2644fdbb74d1f0059d6b887329c623112bfdefeb808413aeb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "actual-aot",
+      "command": [
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/engine-completion/linux/publish/Consumer",
+        "--aot"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T07:36:11.564101+00:00",
+      "finished_at": "2026-11-13T07:36:11.666452+00:00",
+      "stdout_sha256": "88dd00f25a04bf4ff4388554c1cbf3b263771955fe1e69cfb31d9f9e6beca9eb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_files": {
+    "native/Cargo.lock": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6",
+    "native/Cargo.toml": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060",
+    "native/src/lib.rs": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9",
+    "managed/Codec.csproj": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9",
+    "managed/Codec.cs": "594a504f8422d8ab598179b3940c4d31b717c407448dfb0af6293faf9f4b088c",
+    "consumer/Program.cs": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a",
+    "consumer/Consumer.csproj": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076",
+    "run.py": "31121daccf8f0a5e0df2a0e1b35de798bb2ec579d56763561915e9b8de6b8fa5"
+  },
+  "passed": true,
+  "clean_operating_system": false,
+  "consumer_rust_toolchain_discoverable": false,
+  "package_entries": [
+    "_rels/.rels",
+    "NativeWeave.Research.Codec.nuspec",
+    "lib/net11.0/Codec.dll",
+    "runtimes/linux-x64/native/libnw_codec_research.so",
+    "[Content_Types].xml",
+    "package/services/metadata/core-properties/nuget.psmdcp"
+  ],
+  "native_sha256": "981efa587ec0ec9f19d8bece547dcfe3a36439faf2efcae3d2371c87154695ee",
+  "package_sha256": "e6b40e006bbc7b4c11eed07bca6192116fe6a0a90c6c8225d0eb13157d0fd7ba",
+  "rid_free_consumer": true,
+  "application_change_reuses_native": true,
+  "aot_executed": true,
+  "aot_binary_sha256": "865e94708b4f2b619a20e6b8fdb24c1989f5c3f15da915cd9647978ca7d45377",
+  "finished_at": "2026-11-13T07:36:11.673983+00:00"
+}

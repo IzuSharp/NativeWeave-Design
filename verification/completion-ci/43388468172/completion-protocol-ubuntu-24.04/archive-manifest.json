@@ -1,0 +1,83 @@
+{
+  "artifact_id": 14018929813,
+  "name": "completion-protocol-ubuntu-24.04",
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "run_id": 43388468172,
+  "zip_sha256": "10e8723474c2e9b0a8b87e25e906158dd8f25111dbfbf4ccee8d5765b6434322",
+  "zip_bytes": 21365,
+  "files": [
+    {
+      "path": "artifacts/completion/protocol/cargo-version.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/cargo-version.stdout.txt",
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "bytes": 37,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/dependency-tree.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/dependency-tree.stdout.txt",
+      "sha256": "95eacead555e2c2b4cb7ec38a763189cc01233e72e5318c8cbc60244620803bc",
+      "bytes": 10534,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/inputs/protocol/Cargo.lock",
+      "sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "bytes": 38057,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/inputs/protocol/Cargo.toml",
+      "sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "bytes": 911,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/inputs/protocol/src/lib.rs",
+      "sha256": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+      "bytes": 14768,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/run.json",
+      "sha256": "5d2eef1b68e05ea130334c8733046ac0f802d92b1d570cd54c485396cf4f8332",
+      "bytes": 2671,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/rustc-version.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/rustc-version.stdout.txt",
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "bytes": 198,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/test.stderr.txt",
+      "sha256": "46574434d52884c4c1f162d3c113d80e40238eae8aa70c4a5b7ba0626783241d",
+      "bytes": 7709,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/protocol/test.stdout.txt",
+      "sha256": "1a1713f8d08239eeac9d2096c6f46ffffadefc1bdb38bfe3562a727cd891910c",
+      "bytes": 1099,
+      "preserved": true
+    }
+  ],
+  "results": []
+}

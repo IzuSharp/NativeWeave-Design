@@ -1,0 +1,89 @@
+{
+  "artifact_id": 14019626601,
+  "name": "completion-postgres-ubuntu-24.04",
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "run_id": 43388468172,
+  "zip_sha256": "87d4869f4db4d39825ab79105cfa6bf23c5ad0d8ea7285cb66b243848f8c21d5",
+  "zip_bytes": 32367,
+  "files": [
+    {
+      "path": "postgres/inputs/experiments/database-completion/Cargo.lock",
+      "sha256": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+      "bytes": 57336,
+      "preserved": true
+    },
+    {
+      "path": "postgres/inputs/experiments/database-completion/run.py",
+      "sha256": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+      "bytes": 3277,
+      "preserved": true
+    },
+    {
+      "path": "postgres/inputs/experiments/database-completion/Cargo.toml",
+      "sha256": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+      "bytes": 831,
+      "preserved": true
+    },
+    {
+      "path": "postgres/inputs/experiments/database-completion/tests/postgres.rs",
+      "sha256": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+      "bytes": 12660,
+      "preserved": true
+    },
+    {
+      "path": "postgres/inputs/experiments/database-completion/tests/runtime_metadata.rs",
+      "sha256": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+      "bytes": 9092,
+      "preserved": true
+    },
+    {
+      "path": "postgres/inputs/experiments/native-slices/database/Cargo.toml",
+      "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+      "bytes": 537,
+      "preserved": true
+    },
+    {
+      "path": "postgres/inputs/experiments/native-slices/database/src/lib.rs",
+      "sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+      "bytes": 9918,
+      "preserved": true
+    },
+    {
+      "path": "postgres/manifest.json",
+      "sha256": "2657a79ccf8c11b351fafe23bd3f928c7b597d23cad7d22d89caa4a88cbf239e",
+      "bytes": 2199,
+      "preserved": true
+    },
+    {
+      "path": "postgres/stderr.log",
+      "sha256": "234fa9f920527ff7f5d31e97a3469af4db154b0a89570c6c3548e609e9f2af97",
+      "bytes": 12438,
+      "preserved": true
+    },
+    {
+      "path": "postgres/stdout.log",
+      "sha256": "c88f13af32e481fee2f8214a6e1bb68ab84cdc744522ed99704fdf7c227fd1c7",
+      "bytes": 645,
+      "preserved": true
+    },
+    {
+      "path": "postgres-environment/image-digests.json",
+      "sha256": "4a2c3d2aa701b9f8fc7df150993296da1d0459be27c5203079c701b5c368398e",
+      "bytes": 85,
+      "preserved": true
+    },
+    {
+      "path": "postgres-environment/image-id.txt",
+      "sha256": "3edfd2dd8089f0439d3763edc2219e5b3904758b67fc1f3748f0685d9e8500bd",
+      "bytes": 72,
+      "preserved": true
+    },
+    {
+      "path": "postgres-environment/server-version.txt",
+      "sha256": "54f9bde921e8a5e3860cfa78252e0c5aba8e20e3f68fe9c500870d22ffb3e703",
+      "bytes": 359,
+      "preserved": true
+    }
+  ],
+  "results": []
+}

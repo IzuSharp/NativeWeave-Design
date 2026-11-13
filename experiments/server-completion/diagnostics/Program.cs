@@ -15,21 +15,27 @@ Check(Marshal.OffsetOf<TraceContextV1>(nameof(TraceContextV1.ParentSpanId)).ToIn
 
 using var source = new ActivitySource("NativeWeave.Research.Diagnostics");
 Check(!source.HasListeners(), "no_observer_before_registration");
+// Warm platform clock/counter initialization outside the allocation window.
+var warmClock = Stopwatch.GetTimestamp();
+_ = Stopwatch.GetElapsedTime(warmClock);
+_ = GC.GetAllocatedBytesForCurrentThread();
 for (var i = 0; i < 10_000; i++) source.StartActivity("request")?.Dispose();
 const int samples = 200_000;
 var nullCount = 0;
-var startAllocated = GC.GetAllocatedBytesForCurrentThread();
 var start = Stopwatch.GetTimestamp();
+var startAllocated = GC.GetAllocatedBytesForCurrentThread();
 for (var i = 0; i < samples; i++)
 {
     using var span = source.StartActivity("request");
     if (span is null) nullCount++;
 }
-var elapsed = Stopwatch.GetElapsedTime(start);
 var allocated = GC.GetAllocatedBytesForCurrentThread() - startAllocated;
+var end = Stopwatch.GetTimestamp();
+var elapsed = Stopwatch.GetElapsedTime(start, end);
+// Preserve the observation even if an assertion rejects the hypothesized zero-allocation path.
+Console.WriteLine($"OBSERVATION samples={samples} elapsed_ns={elapsed.TotalNanoseconds:F0} ns_per_call={elapsed.TotalNanoseconds / samples:F3} allocated_bytes={allocated} null_count={nullCount} allocation_scope=StartActivity_loop_only");
 Check(nullCount == samples, "no_observer_returns_null");
 Check(allocated == 0, "no_observer_steady_loop_zero_thread_allocations");
-Console.WriteLine($"OBSERVATION samples={samples} elapsed_ns={elapsed.TotalNanoseconds:F0} ns_per_call={elapsed.TotalNanoseconds / samples:F3} allocated_bytes={allocated}");
 
 var lazyTagCalls = 0;
 if (source.HasListeners())

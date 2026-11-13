@@ -23,7 +23,10 @@ public static partial class Codec
         uint status;
         fixed (byte* p = input) status = Run(p, (nuint)input.Length, mode, out output);
         if (status != 0) throw new InvalidDataException($"Native codec rejected input: {status}");
-        using var owner = new Owner(output.Owner);
+        Owner owner;
+        try { owner = new Owner(output.Owner); }
+        catch { Release(output.Owner); throw; }
+        using var owned = owner;
         bool leased = false;
         try
         {

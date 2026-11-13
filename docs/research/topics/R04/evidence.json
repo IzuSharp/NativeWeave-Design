@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R04",
+  "observed_date": "2026-11-13",
+  "author": "/root/interop_research",
+  "input_pin": {
+    "design_baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "task_revision": "0.2.3",
+    "packet_path": "research-tasks/R04.md",
+    "packet_sha256": "f88b6e68c30948ab479997789da5f95f98582f93f5f9b778609ed7cc1364161f",
+    "graph_packet_sha256": "f88b6e68c30948ab479997789da5f95f98582f93f5f9b778609ed7cc1364161f",
+    "graph_packet_hash_matches": true
+  },
+  "status": "research_complete_independent_review_pending",
+  "decision": "Static LibraryImport and blittable UnmanagedCallersOnly pointer default; no default SuppressGCTransition; short bounded notification callbacks and measured coarse calls/batching.",
+  "source_manifest": {
+    "path": "verification/interop-completion/source-inspection.json",
+    "sha256": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096"
+  },
+  "sources": [
+    {
+      "repository": "https://github.com/Cysharp/csbindgen",
+      "commit": "b9eb1e84bb8185b78a4e8364fd948fee300329a7",
+      "path": "csbindgen/src/parser.rs",
+      "blob_sha": "8ea6c16b83743fac07ade565630739e699213da1",
+      "read_ranges": "1-180",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Rust syntax/ABI parser; unsupported parameter/return can skip generation, requiring exported-symbol inventory validation.",
+      "url": "https://github.com/Cysharp/csbindgen/blob/b9eb1e84bb8185b78a4e8364fd948fee300329a7/csbindgen/src/parser.rs",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "Parser function declaration/type lowering"
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "blob_sha": "e0a8747d9081ba724b063c72e11e22c53f4ebb79",
+      "read_ranges": "1-170",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Reuse framework incremental static import generator; validation and marshalling remain explicit.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "LibraryImportGenerator.Initialize"
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+      "path": "uniffi_core/src/ffi/rustfuture/scheduler.rs",
+      "blob_sha": "eaf00042ef7d80dacdb396f057e22adbdee1537d",
+      "read_ranges": "1-154",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+      "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/scheduler.rs",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "Scheduler::store/wake/cancel"
+    }
+  ],
+  "executed_experiments": [
+    {
+      "manifest": "verification/interop-completion/linux/result.json",
+      "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+      "evidence_kind": "research_fixture_executed",
+      "supported_claim": "Actual Linux x64 .NET11/Rust1.100 native-thread callback, cancellation-registration drain, unique terminal/take and independent result-owner fixture: normal 10528 and Native AOT 10529 assertions; incremental Roslyn probe 9, static metadata restrictions 4 normal/6 AOT. Scope is research harness, not the complete product protocol."
+    },
+    {
+      "manifest": "verification/interop-completion/binding-linux/result.json",
+      "sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+      "evidence_kind": "research_fixture_executed",
+      "supported_claim": "Exact csbindgen source compiled offline; generated DllImport and LibraryImport call the same checked native extent API, 60 normal and 60 AOT cases agree. Unsupported tuple export is omitted despite exit zero; completeness gate must reject such input."
+    },
+    {
+      "manifest": "verification/interop-completion/uco-invalid-linux/result.json",
+      "sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+      "evidence_kind": "research_fixture_executed",
+      "supported_claim": "With runtime marshalling enabled, char/bool UCO publishes both normal and AOT, then native callback invocation terminates each isolated child (exit -6, unhandled InvalidProgramException) before callback body marker. Does not establish recovery by an outer managed catch or all invalid signatures."
+    }
+  ],
+  "inherited_evidence": [
+    {
+      "path": "verification/native-slices/original-pr1/manifest.json",
+      "sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+      "status": "existing_evidence_reused_not_reexecuted"
+    },
+    {
+      "path": "docs/research/topics/R08/evidence.json",
+      "sha256": "44df97a6dcd4ae51fb106df4d1ff94a2753eb099d47d8fc9d784e3033d922907",
+      "status": "existing_evidence_reused_not_reexecuted"
+    }
+  ],
+  "independent_review": {
+    "status": "pending",
+    "reviewer": null
+  },
+  "research_blockers": [],
+  "future_implementation_obligations": [
+    "Measured transition/copy/allocation costs on product kernels in R30/A21; Direct P/Invoke loader paths and whole callback signature diagnostic suite in A12/A14/A15."
+  ],
+  "upstream_tests_executed": false,
+  "product_implementation_verified": false,
+  "production_acceptance_complete": false,
+  "ci_executed_evidence": {
+    "path": "verification/interop-completion/ci-evidence-read.json",
+    "sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+    "scope": "Main interop, generator and AOT restrictions fixture actually normal/AOT executed on Windows x64 MSVC and Linux x64 GNU, source commit 7ea84e11ee19e6dad4503a5872eb27c6c7f44e80."
+  }
+}

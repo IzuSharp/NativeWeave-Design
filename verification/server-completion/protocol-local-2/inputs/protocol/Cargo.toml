@@ -1,0 +1,24 @@
+[package]
+name = "nw-server-protocol-research"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.100"
+publish = false
+
+[dependencies]
+bytes = "=1.12.1"
+tonic = { version = "=0.14.9", default-features = false, features = ["codegen"] }
+
+[dev-dependencies]
+http = "=1.5.0"
+http-body-util = "=0.1.5"
+hyper = { version = "=1.12.0", features = ["server", "client", "http1", "http2"] }
+hyper-util = { version = "=0.1.21", features = ["tokio"] }
+tokio = { version = "=1.54.1", features = ["rt", "macros", "sync", "io-util", "net", "time"] }
+tokio-stream = "=0.1.19"
+tower = { version = "=0.5.3", features = ["util"] }
+rmcp = { version = "=3.10.0", default-features = false, features = ["server", "transport-streamable-http-server"] }
+rustls = { version = "=0.23.46", default-features = false, features = ["std", "ring", "tls12"] }
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"

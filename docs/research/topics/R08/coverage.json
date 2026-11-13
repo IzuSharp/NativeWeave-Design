@@ -206,5 +206,70 @@
     "Product implementation tests",
     "Performance or production acceptance"
   ],
-  "path_corrections": []
+  "path_corrections": [],
+  "completion_2026_11_13": {
+    "sources": [
+      {
+        "repository": "https://github.com/mozilla/uniffi-rs",
+        "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+        "path": "uniffi_core/src/ffi/rustfuture/tests.rs",
+        "blob_sha": "78aaadb56152c423bedd11d98881745451449897",
+        "read_ranges": "1-268",
+        "evidence_kind": "test_source_read_not_executed",
+        "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+        "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/tests.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "RustFuture test module"
+      },
+      {
+        "repository": "https://github.com/mozilla/uniffi-rs",
+        "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+        "path": "uniffi_core/src/ffi/rustfuture/future.rs",
+        "blob_sha": "95a9c6c0fddb201580a6f0533aa14ec4b43ce712",
+        "read_ranges": "1-310",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+        "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/future.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "RustFuture / wrapped future / poll/complete/free"
+      },
+      {
+        "repository": "https://github.com/mozilla/uniffi-rs",
+        "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+        "path": "uniffi_core/src/ffi/rustfuture/scheduler.rs",
+        "blob_sha": "eaf00042ef7d80dacdb396f057e22adbdee1537d",
+        "read_ranges": "1-154",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+        "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/scheduler.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "Scheduler::store/wake/cancel"
+      }
+    ],
+    "executed_experiments": [
+      {
+        "manifest": "verification/interop-completion/linux/result.json",
+        "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "evidence_kind": "research_fixture_executed",
+        "supported_claim": "Actual Linux x64 .NET11/Rust1.100 native-thread callback, cancellation-registration drain, unique terminal/take and independent result-owner fixture: normal 10528 and Native AOT 10529 assertions; incremental Roslyn probe 9, static metadata restrictions 4 normal/6 AOT. Scope is research harness, not the complete product protocol."
+      }
+    ],
+    "inherited_evidence": [
+      {
+        "path": "verification/logical-admission/primary-results.json",
+        "sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "status": "existing_evidence_reused_not_reexecuted"
+      }
+    ],
+    "remaining_scope": "Product implementation/production validation, optional nonselected framework internals, independent review.",
+    "future_implementation_obligations": [
+      "Full product registration generations, dispatcher saturation/reentrancy and long concurrent unregister matrix in A06/A20/B14; prototype is not the product scheduler."
+    ],
+    "ci_executed_evidence": {
+      "path": "verification/interop-completion/ci-evidence-read.json",
+      "sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+      "scope": "Main interop, generator and AOT restrictions fixture actually normal/AOT executed on Windows x64 MSVC and Linux x64 GNU, source commit 7ea84e11ee19e6dad4503a5872eb27c6c7f44e80."
+    }
+  },
+  "historical_coverage_scope": "Top-level paths/not_executed reflect the original observation date; current executed supplements are below."
 }

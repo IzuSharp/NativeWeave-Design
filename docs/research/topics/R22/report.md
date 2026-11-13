@@ -1,39 +1,37 @@
-# R22 — Rust类型映射、wire与Schema演进
+# R22 — Typed native codecs, row shape, bounded results and migrations
 
-- 日期：2026-11-12；执行者：database_design（真实协作子代理）。
-- 状态：**partially_evidenced**；设计决定已有明确建议，正式接受需独立Review；产品实现与生产验收未完成。
-- 输入：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
-- Task packet：revision0.1.1，SHA-256 `4d1a2391ad586e528cc898985824bc3c3f27381685de53ffe3c5a8263b564b9a`；不伪造后续packet修订为本次原始输入。
-- 当前需求：Rust Database + Rust ORM必须；C#只上层语法/请求/API/DTO。旧managed默认决策明确superseded，已有源码观察和实际实验保留。
-- 逐结论：[evidence.json](evidence.json)；实际/未读范围与真实reader：[coverage.json](coverage.json)。完整fetch不等于完整阅读。
+Research consolidation: 2026-11-12 (America/Los_Angeles); author `/root/database_research`. Baselines Design `ba21ecb5c2299b303584b120f2e6bd1c6d74783a`, Plan `5b346ebb5acdb387077d0faae16b00bbc77cb299`. **Independent acceptance review pending; no product implementation or performance acceptance claimed.** Current evidence and explicit stage obligations are in [evidence.json](evidence.json), [coverage.json](coverage.json), and [completion record](../../../../verification/database-completion/task-status.json).
 
-## 1. 现在的类型边界
 
-C#只负责CLR值↔db-wire/1以及DTO构造；Rust的schema、SeaORM Model/Projection和SQLxcodec负责数据库类型与rowmapping。原“Npgsql默认静态mapper”决定superseded，但原精度/UUID/资源研究保留为比较。DB-D004与D14固定wire字段，D16控制可用比较语义，不用object/string默认猜类型。
+## Current ownership
 
-## 2. 新读Rust真实路径
+Rust metadata and SQLx codecs own database values; C# maps owned wire values into statically known CLR DTOs. The ordinary profile uses runtime metadata and precompiled codecs, not Rust Model/Projection code generated for each C# entity. Metadata content hashes describe table/column/key/codec/projection declarations and cache identity; they are not a per-schema native ABI version.
 
-SQLx0.9 PG Uuid encode使用as_bytes，binary decode from_slice、text parse；SQLite Uuid编码BLOB，Hyphenated/Simple是独立TEXT映射。NW声明16字节RFC4122 wire与SQLiteBLOB，不复制CLR Guid内部混合端序，不混用schema。SeaORM公开row→QueryResult转换后，Select into_model/into_partial_model/stream调用FromQueryResult，由Rust生成的闭合Projection完成DB映射。
+The preserved UUID/time/native binder and Python SQL counterexamples remain valid. This continuation adds fixed PG numeric source, concrete SeaORM dynamic mapping behavior, real Rust native migration tests and PG codec boundary probes. [The source manifest](../../../../verification/database-completion/source-inspection.json) distinguishes the executed crate checksum/VCS from older source-tag pins; selected files were compared by Git blob identity instead of assuming the entire package is identical.
 
-PG chrono时间codec以相对PG epoch微秒编码、DateTime转换naive_utc。源码没有替NW实现“拒绝sub-microsecond损失”的规则；NW须在schema/codec前检查。binary decode中的时间加法极端值是额外负例，需验证范围/受控错误，不以trait Result推断不会panic。Rust typed codec、wireUTCmicroseconds与CLR值之间的完整支持域必须在B07逐项往返证明。
+## A new correctness failure: missing is not NULL
 
-## 3. 语义与预算
+SeaORM2.0.4 exposes public ModelType/FieldType and can map unrelated runtime schemas with the same compiled native binary. The first experiment incorrectly expected a missing nullable field to fail. It failed: `TryGetable for Option<T>` maps SQLx ColumnNotFound to None. Original failing source/logs are preserved under `verification/database-completion/linux-attempt-1`; the corrected test contains this actual negative control.
 
-decimalPG numeric(p,s)明确范围/舍入；SQLiteexact TEXT只承诺往返，不能默认数值排序/SUM；跨库money用固定scale checkedInt64。NULL、空值、missing mutation field分开；C# NRT不能替代runtimeNULL检查。JSON按wiretext/bytes与显式静态JsonTypeInfo，不启动managed动态provider；自定义/开放类型未注册即拒绝。
+Therefore validate the complete result shape before nullable decoding: exact expected count/unique alias or ordinal/type identity, no duplicate/missing/reordered fields, and codec compatibility. A nullable SQL NULL is allowed only for an existing declared column. The fixture uses public QueryResult.column_names and catches missing/duplicate metadata before dynamic projection. Direct SQLx `try_get` also retains type errors; no unchecked decode because the C# descriptor is typed.
 
-D14定义96byte header、16byte列描述和24byte cell、checkedoffset与owningbuffer。Rust每fetch有row/bytes双上限，C#decode持有batchowner直到完结；异常/早停释放一次，不逐cell过FFI、不将当前行borrow跨MoveNext。超inline batch大BLOB走独立chunkstream，不隐式突破预算。
+## Numeric, time and streaming rules
 
-SeaORM默认all/fetch_all可能一次收集全部，NW SessionExecutor用stream有界collect，RustModel/wire/C#DTO共存成本计费，allocator/providerbuffer/线程栈另测。logicalbudget不冒充RSS硬上限。
+UUID wire uses RFC4122 byte order and SQLite16-byte BLOB. Signed narrowing is checked. PostgreSQL numeric precision/scale and CLR decimal domain are explicit; SQLx rust_decimal rejects unrepresentable magnitudes and NaN but does not by itself implement every NativeWeave loss policy. A SQLx PG roundtrip fixture covers decimal, UUID, nullable integer and UTC microseconds; it observes loss for sub-microsecond input so the boundary must reject such values before encode when exactness is promised. SQLite exact decimal TEXT is roundtrip-only, not automatic numeric sorting/SUM; fixed-scale Int64 is a separate capability.
 
-## 4. 原对照仍可追溯
+Native result batches have row and byte limits, checked multiplication/addition, exact tags/lengths and a creating-engine owner. A cursor retains its session until completion/retirement; taken batch owners outlive an operation notification independently. DTO constructor exceptions release exactly the owned batch and start normal cursor cleanup, preserving transaction outcome. Huge values can already be allocated inside an upstream row before export; advertised logical budgets are not whole-process or server-RSS limits. Provider large-field limits and measured peak memory remain necessary.
 
-Npgsql PgTimestamp ticks/10、DateTime Kind/Infinity、Guid big-endian实现及测试源码均保留；DapperAOT AsyncQueryState数组和reader释放、NpgsqlReader消费/发送协调也保留。它们不证明SQLx所有codec相同，且本轮这些测试未执行。R24实际SQLiteprobe的decimal TEXT/整数溢出是参考语义反例，不是Rustcodec实测。
+## Native migrations, not a second migration engine
 
-## 5. schema与迁移
+Reuse SQLx Migrator's content checksum, dirty/applied-version validation and transactional apply/ledger operations through an explicit Rust administrative entry point. The executed SQLite fixture proves repeat idempotency, VersionMismatch after content drift, and rollback of DDL plus ledger on a failing migration. Metadata and production schema never change merely because an application opened a DataSource.
 
-schemahash含逻辑/存储类型、precision/scale、nullability、key/relations/codec；modelbuildhash另含generatedquery与依赖/target。Rust迁移ledger有ID/hash/from/to/provider/transactionmode；并发迁移互斥，DDL与ledger同事务或明确不可事务恢复步骤。SeaORMschema-sync能力不自动授权生产改变liveDB，普通连接打开不得隐式迁移。
+Source inspection finds PG migration errors may retain its session advisory lock; dedicated connection close is mandatory on error. SQLite's migration lock is a no-op, so the adapter must obtain write serialization before ledger inspection, with a dedicated connection/BEGIN IMMEDIATE transactional profile. Nontransactional DDL/maintenance requires a declared restart/repair protocol. Trusted ledger/schema identifiers must not accept raw external names because the native migrator renders these names into SQL.
 
-B07类型property/differential、恶意长度/UTF8/NULL/日期极值/decimal/Guid；B06stream/COPY/partialbatch/constructor error/consumerbreak；B08hash漂移/半迁移/权限/互斥；B12完整RustProjection→wire→C#AOTDTO。SQLxnumeric/所有datetimefeatures/SQLiteVM/迁移实现仍未全读，研究partial，不伪造全矩阵验证。
+B06/B07/B08/B12 now have concrete shape, range, cleanup and administrative oracles. Broad codecs, malformed wire fuzzing and product Windows/Linux AOT remain future implementation tests, not a reason to recreate native codecs in managed code.
+
+## Historical source citations retained
+
+The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
 ## 固定源码入口与实际阅读
 
@@ -53,4 +51,9 @@ B07类型property/differential、恶意长度/UTF8/NULL/日期极值/decimal/Gui
 | R22-RU05 | [sqlx-sqlite/src/types/uuid.rs](https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/types/uuid.rs#L1-L86) | [[1, 86]]; source-observed; reader=/root/database_design |
 | R22-RU06 | [sqlx-postgres/src/types/chrono/datetime.rs](https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/types/chrono/datetime.rs#L1-L112) | [[1, 112]]; source-observed; reader=/root/database_design |
 
-所有新C#/Rust接口均design-draft、未编译；source/test-source与跨任务源码证据不是执行结果。此前R24的Python/SQLite实验范围及原始hash不变。精确缺口转入现有B任务，不新增元规划体系。
+## CI confirmation at the published fixture commit
+
+GitHub run `43388468172`, source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, independently executed the same five metadata/SQLite cases on Windows and Linux and all six PostgreSQL cases on Linux PostgreSQL 18.0. The author read raw suite logs and verified every archived file, input snapshot and stream hash; the [confirmation](../../../../verification/database-completion/ci-confirmation.json) records exact artifact identities, image digest and CRLF/LF differences. These are 11 unique native research cases with 16 CI executions, not new product/AOT tests or a second technical reviewer. This task claims only its mapped cases above.
+
+
+Independent review reproduced the exact public API chain in three real Linux Rust tests: `Connection::begin_with("BEGIN IMMEDIATE")` yields a depth-tracked `Transaction`; `Migrator::run(&mut *tx)` uses nested savepoints and preserves that outer transaction; explicit outer rollback undoes both schema and ledger, including a failing second migration. Reject every `m.no_tx` before acquiring the transaction. Raw `query("BEGIN IMMEDIATE")` is prohibited here: it leaves SQLx `is_in_transaction()` false and causes Migrator to fail with a nested-BEGIN error. Commit only on successful migration; rollback on error, and quarantine/close on cleanup failure. The [independent source and results](../../../../verification/interop-completion/db-review-migration/result.json) prove this finite public path, not cross-process crash/recovery or the future C# product.

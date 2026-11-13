@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R12",
+  "date": "2026-11-13",
+  "input_pin": {
+    "design_baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "task_revision": "0.2.1",
+    "packet_path": "research-tasks/R12.md",
+    "packet_sha256": "d0f0d24418cb2c39184da4b33257ba416868eecbadae8c2d7ab6f6f99474013b",
+    "graph_packet_sha256": "d0f0d24418cb2c39184da4b33257ba416868eecbadae8c2d7ab6f6f99474013b",
+    "graph_packet_hash_matches": true
+  },
+  "status": "scoped_source_and_executed_research_design_ready",
+  "paths": [
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+      "path": "uniffi_core/src/ffi/rustfuture/scheduler.rs",
+      "blob_sha": "eaf00042ef7d80dacdb396f057e22adbdee1537d",
+      "read_ranges": "1-154",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+      "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/scheduler.rs",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "Scheduler::store/wake/cancel"
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/runtime/runtime.rs",
+      "blob_sha": "52c06e53a34c1acfb0b1de499d32acf012a684c3",
+      "read_ranges": "1-110;420-525",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Runtime/Handle ownership; blocking work continues until return; timeout/background do not prove joins or reclamation.",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/runtime/runtime.rs",
+      "not_claimed": "Complete Tokio scheduler audit or upstream runtime-suite execution.",
+      "symbol": "Runtime ownership / shutdown_timeout / shutdown_background"
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/sync/mpsc/bounded.rs",
+      "blob_sha": "273e5ae433c35e314dd758a616a0585786e6f147",
+      "read_ranges": "443-480",
+      "symbol": "Receiver::close",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Receiver close forwards to channel; outstanding permits must retire before recv returns None.",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/mpsc/bounded.rs",
+      "not_claimed": "Other source ranges or upstream test execution.",
+      "local_blob_verified": true
+    }
+  ],
+  "executed_experiments": [
+    {
+      "manifest": "verification/interop-completion/mailbox-run.json",
+      "sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+      "evidence_kind": "bounded_model_executed",
+      "supported_claim": "Explicit bounded SC model: stale-check negative finds lost-wake trace in 17 reachable states; atomic candidate explores 11 without violation. One worker/one extra wake; not weak-memory or general liveness proof."
+    },
+    {
+      "manifest": "verification/interop-completion/linux/result.json",
+      "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+      "evidence_kind": "research_fixture_executed",
+      "supported_claim": "Actual Linux x64 .NET11/Rust1.100 native-thread callback, cancellation-registration drain, unique terminal/take and independent result-owner fixture: normal 10528 and Native AOT 10529 assertions; incremental Roslyn probe 9, static metadata restrictions 4 normal/6 AOT. Scope is research harness, not the complete product protocol."
+    }
+  ],
+  "inherited_evidence": [
+    {
+      "path": "verification/source-lifecycle/results.json",
+      "sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+      "status": "existing_evidence_reused_not_reexecuted"
+    }
+  ],
+  "research_blockers": [],
+  "scope_resolution": "Source target lists are candidate entry points, not a requirement to audit every candidate repository. Selected decisions have concrete sources and experiments; nonselected engine internals need no product acceptance claim.",
+  "not_executed": [
+    "Full upstream test suites",
+    "Full product implementation/production tests",
+    "Coverage-guided fuzz, sanitizer, Loom, Kani or Miri executions unless a linked manifest expressly states otherwise"
+  ],
+  "future_implementation_obligations": [
+    "Product waiter/permit/cleanup budget and weak-memory lost-wake tests; engine close OS-thread join, fairness and long shutdown loads in A08/A18/B22."
+  ],
+  "independent_review": "pending",
+  "ci_executed_evidence": {
+    "path": "verification/interop-completion/ci-evidence-read.json",
+    "sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+    "scope": "Main interop, generator and AOT restrictions fixture actually normal/AOT executed on Windows x64 MSVC and Linux x64 GNU, source commit 7ea84e11ee19e6dad4503a5872eb27c6c7f44e80."
+  }
+}

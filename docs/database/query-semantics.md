@@ -1,6 +1,6 @@
 # D16 — Native query semantics and typed Fluent contract
 
-Contract: **C-QUERY-001@0.2.1-draft**; proposed, independent review pending. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered AOT probe](../research/source-driven-evidence/README.md), existing R22/R24/R25 reports. This replaces full declaration-only LINQ capture, generic C# predicate compensation and required schema-specific SeaORM generation as the ordinary route. Historical SQL counterexamples remain valid; no arbitrary IQueryable compatibility is promised.
+Contract: **C-QUERY-001@0.3.0**; design candidate. The registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered AOT probe](../research/source-driven-evidence/README.md), existing R22/R24/R25 reports. This replaces full declaration-only LINQ capture, generic C# predicate compensation and required schema-specific SeaORM generation as the ordinary route. Historical SQL counterexamples remain valid; no arbitrary IQueryable compatibility is promised.
 
 ## 1. Semantic owner and scope
 
@@ -74,3 +74,37 @@ Expert parameterized SQL is explicitly named and audited, requires declared stat
 Compare direct native methods versus batched native commands and generated static fast paths. Count FFI/UTF-8/value copies, native AST/condition clones, descriptor/shape cache memory, body allocations, result bytes and DTO allocations. Cache keys include Engine ABI/profile, metadata content and query shape; eviction bounds bytes as well as entries and keeps in-use owners alive. No zero-allocation or throughput claim is made.
 
 B09/B11 require direct-Rust versus C# differential SQL+parameters and real PG/SQLite result/error oracles. B10/B12 require generated and handwritten static descriptor/DTO parity plus actual Windows/Linux AOT. B13 requires dynamic typed composition without expression compilation, wrong-entity/value negatives, advanced-clause coverage and unsupported-backend rejection. B14 requires tenant/relationship/CAS tests and no accidental full ORM scope. B05/B06/B22 retain unknown commit, cancellation, early stream stop, decoder exception, race/fuzz/soak and bounded-resource obligations. The recovered probe is only the documented feasibility slice, not acceptance of this full contract.
+
+## 10. Source-inspected native ORM capability boundary and concrete relation cases
+
+The chosen ordinary native route is SeaQuery + SQLx with runtime metadata. SeaORM
+public dynamic ModelType/FieldType decoding is a valid optional native capability;
+it has an actual unchanged-code runtime-schema fixture, not merely an inference
+from the library name. It does **not** automatically expose static EntityTrait,
+ActiveModel hooks or LoaderTrait relationships for unknown schemas.
+
+The inspected SeaORM loader extracts keys, builds native relation queries, collects
+results and groups them by ValueTuple while preserving parent order. Its outer APIs
+remain bounded by ModelTrait/EntityTrait associated types. For future bounded eager
+loading, prefer generalizing those native algorithms through a controlled upstream
+metadata extension; do not build a C# relationship engine. The initial ordinary
+surface supports explicit native joins/projections and CAS changesets, with no
+transparent lazy loading, hidden tracking or arbitrary graph persistence.
+
+`native_join_aggregate_matches_independent_sql_oracle` checks actual LEFT JOIN,
+COUNT and SUM behavior against separately authored SQL. The changeset fixture
+checks NotSet versus explicit NULL, tenant isolation and expected-version affected
+rows. Existing R24 truth tables and native-slices negative controls remain separate
+coverage. Every additional bound SeaQuery operation gets paired native-versus-ABI
+SQL+ordered-values and PG/SQLite result/error tests; no complete upstream capability
+coverage is claimed solely from these finite cases.
+
+A native projection must validate exact shape before nullable decode. Missing or
+duplicate columns are errors even when an upstream Option<T> decoder returns None.
+This includes expert SQL, alias collisions, joined result nullability and descriptor
+upgrade drift. Any poison/error cleanup follows the creating engine's owner rules;
+transaction Unknown remains unchanged.
+
+### Published research CI evidence
+
+The [database CI confirmation](../../verification/database-completion/ci-confirmation.json) binds source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80` and run `43388468172` to actual Windows/Linux metadata/SQLite results (5/5 on each) and Linux PostgreSQL 18.0 results (6/6). Archived inputs/logs were checked byte-for-byte; Windows CRLF inputs remain separately identified. This confirms the finite native research oracles and leaves the specified C# product, TLS, concurrency, long-load and independent design-review obligations distinct.

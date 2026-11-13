@@ -1,0 +1,85 @@
+{
+  "artifact_id": 14020412580,
+  "name": "diagnostics-ubuntu-24.04",
+  "source_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec",
+  "run_id": 43390177287,
+  "zip_sha256": "b9f3f57055e3e6595db7712071cb1f217bc8209d1256d750ee927e0e1490f380",
+  "zip_bytes": 2762804,
+  "files": [
+    {
+      "path": "dotnet-info.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "dotnet-info.stdout.txt",
+      "sha256": "c69203d1c919596ba84f61ab2b82fc2e61805f7434451463f7b328903fc14924",
+      "bytes": 3187,
+      "preserved": true
+    },
+    {
+      "path": "inputs/diagnostics/DiagnosticsProbe.csproj",
+      "sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "bytes": 434,
+      "preserved": true
+    },
+    {
+      "path": "inputs/diagnostics/Program.cs",
+      "sha256": "858f64868785d1843417b604f5cfcb05deda2588015daa1e21f07e34775ffc9b",
+      "bytes": 3204,
+      "preserved": true
+    },
+    {
+      "path": "inputs/run_diagnostics.py",
+      "sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "bytes": 3265,
+      "preserved": true
+    },
+    {
+      "path": "native-aot-run.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "native-aot-run.stdout.txt",
+      "sha256": "645b9f66ba476836216109aae8c5662589bd13cc7d552576bb26b4e6d0845cc6",
+      "bytes": 643,
+      "preserved": true
+    },
+    {
+      "path": "publish/DiagnosticsProbe",
+      "sha256": "e7e79d693b6deacfe563c2778c239bf8704674aec5a6ef0a6b36a1264812d7c4",
+      "bytes": 1705592,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "publish/DiagnosticsProbe.dbg",
+      "sha256": "dd7db6a803dae2cbf1fc209d5de8b0d425163f44e8148433b80ca806350a574f",
+      "bytes": 2888576,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "publish.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "publish.stdout.txt",
+      "sha256": "61b6f4b4e55a9842a44824ae091bafb3d19a2977b28421bda26b81175b80872c",
+      "bytes": 489,
+      "preserved": true
+    },
+    {
+      "path": "run.json",
+      "sha256": "59a2b233570d268cf978a9068e4b3763e59b930d6bd3f00932079c633987b860",
+      "bytes": 2256,
+      "preserved": true
+    }
+  ],
+  "results": []
+}

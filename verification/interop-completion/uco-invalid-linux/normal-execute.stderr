@@ -1,0 +1,4 @@
+Unhandled exception. System.InvalidProgramException: Non-blittable parameter types are invalid for UnmanagedCallersOnly methods.
+   at Program.Invoke(IntPtr callback)
+   at Program.Invoke(IntPtr callback)
+   at Program.Main() in /workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/UcoInvalid.cs:line 21

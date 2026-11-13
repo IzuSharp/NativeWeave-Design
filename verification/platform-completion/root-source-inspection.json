@@ -1,0 +1,388 @@
+[
+  {
+    "repository": "https://github.com/dotnet/sdk",
+    "commit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+    "path": "src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs",
+    "file_sha256": "bf4e7fcd034ed8206fd8eaff42d5f1217f9d0c8f24a0bbf5700da628bf6d7c0b",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        1340,
+        1370
+      ],
+      [
+        1695,
+        1735
+      ]
+    ],
+    "purpose": "native assets and RID runtime target copy metadata",
+    "permalinks": [
+      "https://github.com/dotnet/sdk/blob/b8600c8854f5d1ac1442d717211d968f69a53acd/src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs#L1340-L1370",
+      "https://github.com/dotnet/sdk/blob/b8600c8854f5d1ac1442d717211d968f69a53acd/src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs#L1695-L1735"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/dotnet/sdk",
+    "commit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+    "path": "src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets",
+    "file_sha256": "7a54e00724d8afe42e72482878de7b152369441e76eac7c543b35e83aa11ce09",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        43,
+        90
+      ],
+      [
+        170,
+        220
+      ]
+    ],
+    "purpose": "PublishAot/self-contained and architecture/RID inference",
+    "permalinks": [
+      "https://github.com/dotnet/sdk/blob/b8600c8854f5d1ac1442d717211d968f69a53acd/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets#L43-L90",
+      "https://github.com/dotnet/sdk/blob/b8600c8854f5d1ac1442d717211d968f69a53acd/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets#L170-L220"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/rust-lang/cargo",
+    "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+    "path": "doc/book/src/reference/external-tools.md",
+    "file_sha256": "67a22a8ca329d223483a7a6056ed4877ba9e4bfa46f8fa6f945743edd4dcdd78",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        95,
+        205
+      ]
+    ],
+    "purpose": "compiler-artifact identity/profile/features/filenames/fresh fields",
+    "permalinks": [
+      "https://github.com/rust-lang/cargo/blob/3acc79c0c841844675bc53a605922dbfc441e750/doc/book/src/reference/external-tools.md#L95-L205"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/rust-lang/cargo",
+    "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+    "path": "doc/book/src/reference/specifying-dependencies.md",
+    "file_sha256": "c59e3a7489d1f28208648a36e44698a48b695d40051b92e88b463af73a35404e",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        300,
+        360
+      ]
+    ],
+    "purpose": "git/registry/path and publication/submodule constraints",
+    "permalinks": [
+      "https://github.com/rust-lang/cargo/blob/3acc79c0c841844675bc53a605922dbfc441e750/doc/book/src/reference/specifying-dependencies.md#L300-L360"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/dotnet/BenchmarkDotNet",
+    "commit": "ecdd5717fc237db869956c4e200883fb58634f7d",
+    "path": "src/BenchmarkDotNet/Toolchains/NativeAot/CsProjNativeAotBuilder.cs",
+    "file_sha256": "a74e14fa9f21c6780b2f4ede17051ac1cbb2dd2394a94007c5d227b2adebd208",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        1,
+        170
+      ]
+    ],
+    "purpose": "NativeAOT build properties and host-native instruction set default",
+    "permalinks": [
+      "https://github.com/dotnet/BenchmarkDotNet/blob/ecdd5717fc237db869956c4e200883fb58634f7d/src/BenchmarkDotNet/Toolchains/NativeAot/CsProjNativeAotBuilder.cs#L1-L170"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/dotnet/BenchmarkDotNet",
+    "commit": "ecdd5717fc237db869956c4e200883fb58634f7d",
+    "path": "tests/BenchmarkDotNet.IntegrationTests/NativeAotTests.cs",
+    "file_sha256": "89d7f86543555a05490332122275adba86c0cf3c6aebd217aff78d7ce7b1762a",
+    "read_state": "read_complete",
+    "line_ranges": [
+      [
+        1,
+        114
+      ]
+    ],
+    "purpose": "upstream test coverage, platform skips and harness warning policy; read not executed",
+    "permalinks": [
+      "https://github.com/dotnet/BenchmarkDotNet/blob/ecdd5717fc237db869956c4e200883fb58634f7d/tests/BenchmarkDotNet.IntegrationTests/NativeAotTests.cs#L1-L114"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/HdrHistogram/HdrHistogram",
+    "commit": "de84b0a7de2378abfc405da503bf4898e84ea98e",
+    "path": "src/main/java/org/HdrHistogram/AbstractHistogram.java",
+    "file_sha256": "40020b2a9a19e826d3eae13c18a69b38d96ccb3fbc1ecdc9eb6d749f8e6a0e69",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        475,
+        515
+      ],
+      [
+        585,
+        615
+      ],
+      [
+        1430,
+        1460
+      ]
+    ],
+    "purpose": "expected interval correction and percentile quantization",
+    "permalinks": [
+      "https://github.com/HdrHistogram/HdrHistogram/blob/de84b0a7de2378abfc405da503bf4898e84ea98e/src/main/java/org/HdrHistogram/AbstractHistogram.java#L475-L515",
+      "https://github.com/HdrHistogram/HdrHistogram/blob/de84b0a7de2378abfc405da503bf4898e84ea98e/src/main/java/org/HdrHistogram/AbstractHistogram.java#L585-L615",
+      "https://github.com/HdrHistogram/HdrHistogram/blob/de84b0a7de2378abfc405da503bf4898e84ea98e/src/main/java/org/HdrHistogram/AbstractHistogram.java#L1430-L1460"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/NuGet/NuGet.Client",
+    "commit": "7e935f9c72b287adc13b9f42fd7b3bdcaa1500e7",
+    "path": "src/NuGet.Core/NuGet.Packaging/PackageArchiveReader.cs",
+    "file_sha256": "310c27e2c1119143f7f18e9d75dee335a214b66cc7088afc84e8e6787ebbd7fd",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        80,
+        175
+      ]
+    ],
+    "purpose": "archive stream ownership/error and file enumeration",
+    "permalinks": [
+      "https://github.com/NuGet/NuGet.Client/blob/7e935f9c72b287adc13b9f42fd7b3bdcaa1500e7/src/NuGet.Core/NuGet.Packaging/PackageArchiveReader.cs#L80-L175"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/sigstore/cosign",
+    "commit": "6181e75677cc4719e845fa23d0ef8a936e883aa0",
+    "path": "cmd/cosign/cli/verify/verify.go",
+    "file_sha256": "0745f57e5e012d66a3c7c4417e22718257b23ad328576f2e6bbf92c2980dc612",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        90,
+        230
+      ]
+    ],
+    "purpose": "signature/identity/trust material/claim/offline/transparency policy separation",
+    "permalinks": [
+      "https://github.com/sigstore/cosign/blob/6181e75677cc4719e845fa23d0ef8a936e883aa0/cmd/cosign/cli/verify/verify.go#L90-L230"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/anchore/syft",
+    "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+    "path": "README.md",
+    "file_sha256": "b072fd6c75f6ba759933b4f035bb9e263309f535e2128f13e6ed50860c328aef",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        30,
+        100
+      ]
+    ],
+    "purpose": "Syft optional SBOM commands and formats; documentation, not tool execution",
+    "permalinks": [
+      "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/README.md#L30-L100"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/bheisler/criterion.rs",
+    "commit": "3dbc6c618acb48885066422d81d50729aa17b2b7",
+    "path": "src/routine.rs",
+    "file_sha256": "5a9434c3e4242bf0166f287338576038e5c8f7c9db916ddd4e130721b26884d7",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        85,
+        180
+      ]
+    ],
+    "purpose": "Criterion quick/warmup sampling; not arrival latency",
+    "permalinks": [
+      "https://github.com/bheisler/criterion.rs/blob/3dbc6c618acb48885066422d81d50729aa17b2b7/src/routine.rs#L85-L180"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/anchore/syft",
+    "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+    "path": "syft/pkg/cataloger/rust/cataloger.go",
+    "file_sha256": "3ba5d63aa79674a428a27cd91530e014e5995129c0fa22eed423813fec8cb39d",
+    "read_state": "read_complete",
+    "line_ranges": [
+      [
+        1,
+        23
+      ]
+    ],
+    "purpose": "Cargo.lock versus auditable binary cataloger",
+    "permalinks": [
+      "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/syft/pkg/cataloger/rust/cataloger.go#L1-L23"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/anchore/syft",
+    "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+    "path": "syft/pkg/cataloger/rust/parse_cargo_lock.go",
+    "file_sha256": "bc5008609a49b8326b54d87e57f80c62297e46b73cf42762bee311d74e2ff0d1",
+    "read_state": "read_complete",
+    "line_ranges": [
+      [
+        1,
+        90
+      ]
+    ],
+    "purpose": "Cargo package identity and dependency-string graph resolution",
+    "permalinks": [
+      "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/syft/pkg/cataloger/rust/parse_cargo_lock.go#L1-L90"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/dotnet/diagnostics",
+    "commit": "dde6f56c8701d40b93b191e2c840e26f535c09d5",
+    "path": "src/Tools/dotnet-counters/CounterMonitor.cs",
+    "file_sha256": "9e288eb2fdddf6ed451a63a9000226361d6d8834bbb80396e8bb2bdce7a60f99",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        50,
+        112
+      ],
+      [
+        201,
+        233
+      ],
+      [
+        350,
+        440
+      ]
+    ],
+    "purpose": "EventCounter/Meter best-effort deduplication, sample interval and provider parsing",
+    "permalinks": [
+      "https://github.com/dotnet/diagnostics/blob/dde6f56c8701d40b93b191e2c840e26f535c09d5/src/Tools/dotnet-counters/CounterMonitor.cs#L50-L112",
+      "https://github.com/dotnet/diagnostics/blob/dde6f56c8701d40b93b191e2c840e26f535c09d5/src/Tools/dotnet-counters/CounterMonitor.cs#L201-L233",
+      "https://github.com/dotnet/diagnostics/blob/dde6f56c8701d40b93b191e2c840e26f535c09d5/src/Tools/dotnet-counters/CounterMonitor.cs#L350-L440"
+    ],
+    "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+  },
+  {
+    "repository": "https://github.com/dotnet/roslyn",
+    "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+    "path": "src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs",
+    "file_sha256": "a7021e42f48c5dfa1e2d8d90a121e02301cdf5d21b333e06148af4430c74b079",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        1,
+        100
+      ],
+      [
+        3068,
+        3108
+      ],
+      [
+        4915,
+        5007
+      ]
+    ],
+    "purpose": "union syntax/custom generic boxing/compiler diagnostics; upstream tests read not executed",
+    "permalinks": [
+      "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L1-L100",
+      "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L3068-L3108",
+      "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L4915-L5007"
+    ]
+  },
+  {
+    "repository": "https://github.com/dotnet/roslyn",
+    "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+    "path": "src/Compilers/CSharp/Portable/Compiler/MethodCompiler.cs",
+    "file_sha256": "34ebfc009ffe2dae607f4026eebc1967d32f45d11186a39ba8f9c4d61fbf5f7e",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        766,
+        795
+      ]
+    ],
+    "purpose": "RuntimeAsyncRewriter versus generated state-machine branch",
+    "permalinks": [
+      "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Portable/Compiler/MethodCompiler.cs#L766-L795"
+    ]
+  },
+  {
+    "repository": "https://github.com/dotnet/roslyn",
+    "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+    "path": "src/Compilers/CSharp/Portable/Symbols/Source/SourceMethodSymbol.cs",
+    "file_sha256": "33795f806655eed0d97e592fd3f00f952c4b86c5af50882008a90eb26a6c5141",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        198,
+        230
+      ]
+    ],
+    "purpose": "runtime async lacks generated state machine and DebuggerStepThrough",
+    "permalinks": [
+      "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Portable/Symbols/Source/SourceMethodSymbol.cs#L198-L230"
+    ]
+  },
+  {
+    "repository": "https://github.com/Frommi/miniz_oxide",
+    "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+    "crate": "miniz_oxide@0.9.1",
+    "path": "miniz_oxide/src/deflate/mod.rs",
+    "file_sha256": "adedff53960b3fbef46cc83d907131c69b379e72668a116d1cc090fec4276504",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        130,
+        205
+      ]
+    ],
+    "purpose": "native compression growth and panic path",
+    "identity_scope": "Source read from locked registry crate; VCS metadata is declared crate source identity, not independently signature verified.",
+    "permalinks": [
+      "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/deflate/mod.rs#L130-L205"
+    ]
+  },
+  {
+    "repository": "https://github.com/Frommi/miniz_oxide",
+    "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+    "crate": "miniz_oxide@0.9.1",
+    "path": "miniz_oxide/src/inflate/mod.rs",
+    "file_sha256": "24a041eeb9404079395fd8ac5a51b8e2494fdf46a511681bb727e0b2b7017b57",
+    "read_state": "read_partial",
+    "line_ranges": [
+      [
+        135,
+        251
+      ],
+      [
+        332,
+        365
+      ]
+    ],
+    "purpose": "bounded/unbounded decompression and partial-output error ownership",
+    "identity_scope": "Source read from locked registry crate; VCS metadata is declared crate source identity, not independently signature verified.",
+    "permalinks": [
+      "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/inflate/mod.rs#L135-L251",
+      "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/inflate/mod.rs#L332-L365"
+    ]
+  }
+]

@@ -1,3 +1,5 @@
+> Historical scoped investigation retained. Current selection, new SeaORM execution and shape/migration findings are consolidated in [report.md](report.md) and the [completion record](../../../../verification/database-completion/task-status.json). Historical statements of what was not yet executed refer to that original snapshot.
+
 # R25 addendum — SeaORM's real dynamic boundary
 
 Date: 2026-11-12. Author: recovery continuation. Status: source-inspected design analysis; independent review pending. This supplements [the existing SeaQuery comparison](source-driven-seaquery.md), not a second research plan or a replacement ADR. The precompiled ordinary-entity profile remains the product requirement; SeaQuery + SQLx remains a proposed recommendation, not an accepted production result.

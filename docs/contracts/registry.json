@@ -1,362 +1,620 @@
 {
   "schema_version": "1.0.0",
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "authority": "IzuSharp/NativeWeave-Design",
-  "status": "bootstrap",
-  "note": "Existing IDs retained. Source-driven amendments are proposed; old reviews do not accept new bytes. Implementation and production validation remain separate.",
+  "status": "complete_specs_pending_independent_acceptance",
+  "note": "21 concrete specifications at0.3.0. Exact content review/evidence governs design acceptance; product validation is separate. No optional Rust DB/ORM/Server route.",
   "contracts": [
     {
       "id": "C-PLATFORM-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "平台、工具链与AOT支持",
-      "evidence": [
-        "docs/research/topics/R03/native-slice-validation.md",
-        "docs/traceability/native-slices-recovery.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_partial_execution",
-      "content_sha256": "7b65c9516a0a5ffbd013a14875e7c883fdbc5a567bfd78477d75aa8999e75587",
-      "author": "recovery_native_slices_author",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "author": "/root",
       "spec_path": "docs/platforms/support-and-aot.md",
       "dependencies": [],
-      "reviews": []
+      "reviews": [],
+      "documentation_task_id": "D01",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-ABI-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "C ABI类型布局和版本",
-      "evidence": [
-        "docs/research/topics/R03/native-slice-validation.md",
-        "docs/traceability/native-slices-recovery.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_partial_execution",
-      "content_sha256": "e3451642062c1e8f9489fbb24fc85323735ad3189035762cbbf6330264e5de02",
-      "author": "recovery_native_slices_author",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "author": "/root/interop_research",
       "spec_path": "docs/contracts/abi-v0.1.md",
-      "dependencies": [],
-      "reviews": []
+      "dependencies": [
+        {
+          "id": "C-PLATFORM-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D02",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-BINDING-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "绑定与静态生成",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
-      "dependencies": [],
-      "reviews": []
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "469f7d6f03f1ea49c54807742d99a6bd5bc69fe6ef88bc89435c3607d2c33f8d",
+      "author": "/root/interop_research",
+      "spec_path": "docs/generators/binding-pipeline.md",
+      "dependencies": [
+        {
+          "id": "C-ABI-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D03",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-LIFETIME-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "资源所有权与释放",
-      "evidence": [
-        "docs/research/topics/R07/logical-admission.md",
-        "verification/logical-admission/primary-results.json"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "existing_review_ready_text_registered_as_proposed",
-      "content_sha256": "d527369dfd97a2d97ecd0930e25effc523791eb5e22586b1d9e18ac6f4aa31c9",
-      "author": "interop_design",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "03c9262018f9ab9f2b66f32ccddc4010d89565b2dbff6d108221b5b4d9542558",
+      "author": "/root/interop_research",
       "spec_path": "docs/contracts/lifetime-v0.1.md",
-      "dependencies": [],
+      "dependencies": [
+        {
+          "id": "C-ABI-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
       "reviews": [],
-      "version_note": "0.1.0-draft protocol unchanged; non-normative finite execution addendum updates exact content hash. Old reviews do not approve these new bytes. Independent and full contract acceptance remain pending."
+      "documentation_task_id": "D04",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-CALLBACK-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "回调注册注销与重入",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "existing_review_ready_text_registered_as_proposed",
-      "content_sha256": "596679cf7950d4a9146cb7a5d7a51819b2d953bda580a6722da81649af469700",
-      "author": "interop_design",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "author": "/root/interop_research",
       "spec_path": "docs/contracts/callback-v0.1.md",
-      "dependencies": [],
+      "dependencies": [
+        {
+          "id": "C-LIFETIME-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
       "reviews": [],
-      "version_note": "Registry draft label retained; document v0.1.0 text is review-ready, not formally accepted. Original independent review applies only to its original bytes."
+      "documentation_task_id": "D05",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-ASYNC-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "异步完成取消与静默",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "existing_review_ready_text_registered_as_proposed",
-      "content_sha256": "8f09504a07632fe53ca6e5d2861cf70a3c2d7cea9ff1e4e3035a6a8beaec8672",
-      "author": "interop_design",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "author": "/root/interop_research",
       "spec_path": "docs/contracts/async-v0.1.md",
-      "dependencies": [],
+      "dependencies": [
+        {
+          "id": "C-CALLBACK-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BUFFER-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
       "reviews": [],
-      "version_note": "Registry draft label retained; document v0.1.0 text is review-ready, not formally accepted. Original independent review applies only to its original bytes."
+      "documentation_task_id": "D06",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-BUFFER-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "缓冲区与传输",
-      "evidence": [
-        "docs/research/topics/R03/native-slice-validation.md",
-        "docs/traceability/native-slices-recovery.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_partial_execution",
-      "content_sha256": "007751a802554f0e75760bef2d3103e93e01c5f51245325939de64cdac18e5d4",
-      "author": "recovery_native_slices_author",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "author": "/root/interop_research",
       "spec_path": "docs/contracts/buffer-v0.1.md",
-      "dependencies": [],
-      "reviews": []
+      "dependencies": [
+        {
+          "id": "C-LIFETIME-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D07",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-ERROR-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "错误与panic边界",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "existing_review_ready_text_registered_as_proposed",
-      "content_sha256": "fc665d6ac0328b7c524687191d547bd3792dcb43f36124bc10b9144bb42c4797",
-      "author": "interop_design",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "author": "/root/interop_research",
       "spec_path": "docs/contracts/error-v0.1.md",
-      "dependencies": [],
+      "dependencies": [
+        {
+          "id": "C-ABI-001",
+          "version": "0.3.0"
+        }
+      ],
       "reviews": [],
-      "version_note": "Registry draft label retained; document v0.1.0 text is review-ready, not formally accepted. Original independent review applies only to its original bytes."
+      "documentation_task_id": "D08",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-CONCURRENCY-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "线程、runtime、背压",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
-      "dependencies": [],
-      "reviews": []
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "author": "/root/interop_research",
+      "spec_path": "docs/contracts/concurrency-v0.1.md",
+      "dependencies": [
+        {
+          "id": "C-ASYNC-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-LIFETIME-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D09",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-BUILD-001",
-      "version": "0.2.1-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "构建打包发布",
-      "evidence": [
-        "docs/research/topics/R25/source-driven-seaquery.md",
-        "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md",
-        "docs/research/topics/R01/rust-1.100.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "5f94867c4eac70ac2bffb410b7a1c7bc7595c42d774e4180ab914e5b79b6087a",
-      "author": "rust1100-integration-author",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "5e109ca696476c852e516c76380222699ee30827d49beefc96daa3a872fe1a69",
+      "author": "/root",
       "spec_path": "docs/platforms/build-package-release.md",
-      "dependencies": [],
-      "reviews": []
+      "dependencies": [
+        {
+          "id": "C-PLATFORM-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ABI-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BINDING-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D10",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-ENGINE-001",
-      "version": "0.2.1-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "独立Engine接入",
-      "evidence": [
-        "docs/research/topics/R25/source-driven-seaquery.md",
-        "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md",
-        "docs/research/topics/R01/rust-1.100.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "eb6f2dd8249c43687b95a11f5064cc47c9d3b23ad3adcd1cbd9326b297b3bd6d",
-      "author": "rust1100-integration-author",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "author": "/root",
       "spec_path": "docs/extension/engine-integration.md",
-      "dependencies": [],
-      "reviews": []
+      "dependencies": [
+        {
+          "id": "C-ABI-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-LIFETIME-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BUFFER-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D11",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-VERIFY-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "验证与证明义务",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
-      "dependencies": [],
-      "reviews": []
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+      "author": "/root/interop_research",
+      "spec_path": "docs/verification/models-and-matrix.md",
+      "dependencies": [
+        {
+          "id": "C-LIFETIME-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-CALLBACK-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ASYNC-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BUFFER-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D12",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-PERF-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "性能与开发体验基准",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
-      "dependencies": [],
-      "reviews": []
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+      "author": "/root",
+      "spec_path": "docs/performance/methodology.md",
+      "dependencies": [
+        {
+          "id": "C-BUFFER-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-CONCURRENCY-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D13",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-DB-001",
-      "version": "0.2.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "驱动与连接",
-      "evidence": [
-        "docs/research/topics/R25/source-driven-seaquery.md",
-        "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "add9153b6afb711be7e408c9439c39553e9eed15373df882a83425e6c9102ce4",
-      "author": "recovery_session",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "author": "/root/database_research",
       "spec_path": "docs/database/drivers.md",
-      "dependencies": [],
-      "reviews": []
+      "dependencies": [
+        {
+          "id": "C-ENGINE-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ASYNC-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BUFFER-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D14",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-TX-001",
-      "version": "0.2.1-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "事务与迁移语义",
-      "evidence": [
-        "docs/research/topics/R25/source-driven-seaquery.md",
-        "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md",
-        "docs/database/sqlx-retirement-study.md",
-        "experiments/database-retirement/README.md",
-        "docs/traceability/reviews/source-lifecycle/database/DATABASE-LIFECYCLE-REVIEW.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "34788328a967205b6d139aa4d613fdb224cde1bf3dca5f4784acc4eb18c09cce",
-      "author": "recovery_session",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "author": "/root/database_research",
       "spec_path": "docs/database/transactions-and-pooling.md",
-      "dependencies": [],
+      "dependencies": [
+        {
+          "id": "C-DB-001",
+          "version": "0.3.0"
+        }
+      ],
       "reviews": [],
-      "version_note": "Source-lifecycle continuation; previous content hashes/reviews remain historical and cannot accept these bytes. Status stays proposed."
+      "documentation_task_id": "D15",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-QUERY-001",
-      "version": "0.2.1-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "查询IR与SQL语义",
-      "evidence": [
-        "docs/research/topics/R25/source-driven-seaquery.md",
-        "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md",
-        "docs/research/topics/R01/rust-1.100.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "d5afd6b8c7d169fb5388ad61db37626a7f926fdcf012d82fdf0383abbbb16710",
-      "author": "rust1100-integration-author",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "author": "/root/database_research",
       "spec_path": "docs/database/query-semantics.md",
-      "dependencies": [],
-      "reviews": []
+      "dependencies": [
+        {
+          "id": "C-DB-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ERROR-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D16",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-QUERYGEN-001",
-      "version": "0.2.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "AOT查询与映射生成",
-      "evidence": [
-        "docs/research/topics/R25/source-driven-seaquery.md",
-        "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "999857e297850784058c526f5a6c0d27036022891e2a139eedc55173521b6b91",
-      "author": "recovery_session",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "author": "/root/database_research",
       "spec_path": "docs/generators/query-generation.md",
-      "dependencies": [],
-      "reviews": []
+      "dependencies": [
+        {
+          "id": "C-QUERY-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BINDING-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D17",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-SERVER-001",
-      "version": "0.2.1-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "服务端请求与生命周期",
-      "evidence": [
-        "docs/research/topics/R25/source-driven-seaquery.md",
-        "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md",
-        "docs/server/body-retirement-protocol.md",
-        "experiments/server-retained-bytes/README.md",
-        "docs/traceability/reviews/source-lifecycle/server/report.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "9acf2b3bd464815ac0bb66700ee0c5c8791fa3772f7b0fbe54736e59e2f47358",
-      "author": "recovery_session",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "author": "/root/server_extensions",
       "spec_path": "docs/server/hosting-and-streaming.md",
-      "dependencies": [],
+      "dependencies": [
+        {
+          "id": "C-ENGINE-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-ASYNC-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BUFFER-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-CONCURRENCY-001",
+          "version": "0.3.0"
+        }
+      ],
       "reviews": [],
-      "version_note": "Source-lifecycle continuation; previous content hashes/reviews remain historical and cannot accept these bytes. Status stays proposed."
+      "documentation_task_id": "D18",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-PROTOCOL-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "gRPC/MCP等协议适配",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
-      "dependencies": [],
-      "reviews": []
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "cf5fca2afc9aa6b7e81186ad2c67b0e6345bc53c73b20e8ba80a4f0896a77be1",
+      "author": "/root/server_extensions",
+      "spec_path": "docs/server/protocols-and-observability.md",
+      "dependencies": [
+        {
+          "id": "C-SERVER-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BINDING-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D19",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-REFERENCE-001",
-      "version": "0.2.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "端到端参考应用",
-      "evidence": [
-        "docs/research/topics/R25/source-driven-seaquery.md",
-        "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md"
-      ],
+      "evidence": [],
       "reviewers": [],
-      "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "257ef6112e4ce05d618f0f212cbbaa572a9a33b0014605b7040ed3c1b049aa76",
-      "author": "recovery_session",
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "7001fc3c44f68b4e6b44b1a8c03143bba0a659a1b7a31f27513b71b66930bfcf",
+      "author": "/root/database_research",
       "spec_path": "docs/verification/reference-application.md",
-      "dependencies": [],
-      "reviews": []
+      "dependencies": [
+        {
+          "id": "C-DB-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-TX-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-QUERY-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-QUERYGEN-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-SERVER-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-PROTOCOL-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D20",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     },
     {
       "id": "C-EXTENSION-001",
-      "version": "0.1.0-draft",
+      "version": "0.3.0",
       "status": "proposed",
       "title": "未来GUI/GPU/移动扩展",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
-      "dependencies": [],
-      "reviews": []
+      "specification_status": "complete_design_pending_independent_acceptance",
+      "content_sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "author": "/root/server_extensions",
+      "spec_path": "docs/extension/future-platforms.md",
+      "dependencies": [
+        {
+          "id": "C-ENGINE-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-CONCURRENCY-001",
+          "version": "0.3.0"
+        },
+        {
+          "id": "C-BUILD-001",
+          "version": "0.3.0"
+        }
+      ],
+      "reviews": [],
+      "documentation_task_id": "D21",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "product_verification": "future Delivery; no product implementation or release accepted",
+      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review."
     }
-  ]
+  ],
+  "dependency_semantics": "Normative design prerequisite DAG. Informational cross-references are not scheduling edges; optional Engine capabilities do not create a mandatory Core runtime."
 }

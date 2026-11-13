@@ -1,0 +1,644 @@
+{
+  "schema_version": "1.0.0",
+  "freeze_date": "2026-11-13",
+  "author": "/root/interop_research",
+  "source_base_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "scope": "13 Research tasks and 9 Documentation tasks; no Plan/registry/product/remote writes",
+  "review_status": "independent_review_pending",
+  "research": [
+    {
+      "id": "R02",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "canonical_triplet_absent",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Static imports, explicit serializer/model metadata and closed generics permit ordinary .NET build/run/AOT; no Cargo for ordinary entities; dynamic code is excluded from required paths. Native linking policy is D01/D10/D11, not global managed runtime emulation.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R02/report.md",
+          "sha256": "a7843818835bb8d0c760b8db7aa1f527ac347fc5e5ba65b663d28d6c08ac77e2"
+        },
+        {
+          "path": "docs/research/topics/R02/evidence.json",
+          "sha256": "8fbd5d93f24acc977cd0635e2f3e3520efc520f43d39409ad71b15dea1b78870"
+        },
+        {
+          "path": "docs/research/topics/R02/coverage.json",
+          "sha256": "e792f4386fa45895634d3c6c0d6ffd3433c6c25083f443392d86c1a289052f82"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Clean Rust-free NuGet consumer and complete supported RID matrix in A14/A15/A21; linker and metadata negative gates in real packages."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R03",
+      "initial_graph_status": "partially_evidenced",
+      "initial_artifact_classification": "existing_native_slice_report_only",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Fixed-width repr(C)/Sequential structures and explicit size/capabilities; opaque Engine-owned handles; D08 sole status authority; no private Rust AST/Vec/Future layout across ABI.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R03/report.md",
+          "sha256": "23d2c9e1e615772482db4a67c5ffa9e860f4968092e0bb7406306c1259f53845"
+        },
+        {
+          "path": "docs/research/topics/R03/evidence.json",
+          "sha256": "0bc5c9070e16c077844229c0239775856bcc0056e0057efeb96da8ddd6305cb1"
+        },
+        {
+          "path": "docs/research/topics/R03/coverage.json",
+          "sha256": "f9f41cad606353ad21a9ec7b46d18bf6c2178bdd161ede550df08a8793d57fcb"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Complete generated C/Rust/C# size/offset/version/unknown-capability golden matrix in A01/A02/A12; unsupported RID remains unsupported until executed."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R04",
+      "initial_graph_status": "partially_evidenced",
+      "initial_artifact_classification": "canonical_triplet_absent",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Static LibraryImport and blittable UnmanagedCallersOnly pointer default; no default SuppressGCTransition; short bounded notification callbacks and measured coarse calls/batching.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R04/report.md",
+          "sha256": "f4269b31a55b74522e50f290519be930d0a34db3e58cccb3364a2ace5f330b56"
+        },
+        {
+          "path": "docs/research/topics/R04/evidence.json",
+          "sha256": "77418e68c91a584eb1c310e54c8be58e836e073a2a2a0bb7d6ab503ec378b7a8"
+        },
+        {
+          "path": "docs/research/topics/R04/coverage.json",
+          "sha256": "415232db624ce555e3ea40263ea923a72055e78c68cfa6abd1efedcbc02b2d7a"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Measured transition/copy/allocation costs on product kernels in R30/A21; Direct P/Invoke loader paths and whole callback signature diagnostic suite in A12/A14/A15."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R05",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "canonical_triplet_absent",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Maintainer-side native export inventory plus narrow checked ownership/thread/async sidecar; framework LibraryImport and evaluated csbindgen reuse; no second ORM/network IR or per-entity Rust generator.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R05/report.md",
+          "sha256": "5f0aadd52dcd8c060397d749752744d9046443d13d6ed1f27860b357532bed16"
+        },
+        {
+          "path": "docs/research/topics/R05/evidence.json",
+          "sha256": "2b32c40f00e8a8a87d30a494f7972ec82e7fe70867d125c88eddd4d7eb9522da"
+        },
+        {
+          "path": "docs/research/topics/R05/coverage.json",
+          "sha256": "2771aae925be7521fd0a3fcfd4ec72e74c06197b0d761089e7823596c74b29ee"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Production generator inventory/hash gate, package reproducibility and all unsupported signatures in A09-A12; alternative repositories are scoped comparisons, not adopted product dependencies."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R06",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "canonical_triplet_absent",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Value-equatable incremental inputs, deterministic source and stable diagnostics; static raw imports are produced before Roslyn rather than depending on peer generator chaining; ordinary entities only change managed metadata.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R06/report.md",
+          "sha256": "eb0c840f0ebb5d4f3eae2c0839af473dba9b7117fe0ea123fe60bf1d17aa4bb7"
+        },
+        {
+          "path": "docs/research/topics/R06/evidence.json",
+          "sha256": "47e3e9f9508eb8d4b1b633d4936a27796d7af24ba2ff77dc1e9fc1bb855c0d88"
+        },
+        {
+          "path": "docs/research/topics/R06/coverage.json",
+          "sha256": "e63788b0742f73f46e388d05be284055ab8b89084b808f9081bdb0bcd0addd81"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Production IDE/CLI/multi-target snapshot, diagnostic span, incremental performance and package consumption tests in A10-A12/B10/B12."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R07",
+      "initial_graph_status": "partially_evidenced",
+      "initial_artifact_classification": "substantive_existing_report_evidence_coverage",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Opaque owner + SafeHandle physical lease + separate atomic logical admission; explicit parent/module ownership and independent transferred result; no global generation table or blocking finalizer.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R07/report.md",
+          "sha256": "cc301c5150289575bed36514fee1252632e358f6e6ca3510ca6d61cbff29a615"
+        },
+        {
+          "path": "docs/research/topics/R07/evidence.json",
+          "sha256": "b2212e3dfd2fda25defec84fa899c3bb7ca5f876aeaa730045b46075bae2cc55"
+        },
+        {
+          "path": "docs/research/topics/R07/coverage.json",
+          "sha256": "ad4dafdaebb9c828fea953ea8e60145a4dcc6c03f8579d28c9a3444beb78dc5d"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Complete product parent/child transfer, mutable builder writer, finalizer and worker-affine cleanup matrices in A03/A04/A20/B01; weak-memory proof at actual atomics."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R08",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "substantive_existing_report_evidence_coverage",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Unregister/stop differs from callback quiescence; callback only copies bounded data/notifies and catches ordinary managed exceptions; free cookie only after native retire plus managed drain/control-call completion.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R08/report.md",
+          "sha256": "a96b580cb861ab4bea9b7e10370ead61992ea57cd98f7c10901a7eba6670c1c8"
+        },
+        {
+          "path": "docs/research/topics/R08/evidence.json",
+          "sha256": "1119ad6ddeae6b94af8c5b03feab7cd4b8eaa7f8a1fc198e3e6df520a811fec3"
+        },
+        {
+          "path": "docs/research/topics/R08/coverage.json",
+          "sha256": "25354de73b1b98bc5920a18109703226b427fc5f28fa6b1621f68fb65f127607"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Full product registration generations, dispatcher saturation/reentrancy and long concurrent unregister matrix in A06/A20/B14; prototype is not the product scheduler."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R09",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "substantive_existing_report_evidence_coverage",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Create/start/cancel/terminal/take/retire/release split, one irreversible terminal, independent result transfer; Task completion and cancellation request are not reclamation; Task baseline without speculative pooling.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R09/report.md",
+          "sha256": "89ad565e1dd2ab0c3c1a7824d86d9b39adb0b2ee270a7483c1c56ff49870866c"
+        },
+        {
+          "path": "docs/research/topics/R09/evidence.json",
+          "sha256": "ddbc929268a78737a7814a7818b33fa39ef04d5afe5c13fa4b563309367f4b63"
+        },
+        {
+          "path": "docs/research/topics/R09/coverage.json",
+          "sha256": "d557fb45c113a4048b6c2fde421bc2402a5341bfbb006d56b783c5234de83a48"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Every setup failure/control lease/take/quarantine interleaving mapped to implementation in A07/A19/A20; no progress under permanently stopped executor is promised."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R10",
+      "initial_graph_status": "partially_evidenced",
+      "initial_artifact_classification": "canonical_triplet_absent",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Borrowed synchronous view, native-owned immutable buffer, copied managed output and explicitly pinned retained input are distinct profiles; last backing-owner drop controls bytes, not stream EOS or result transfer alone.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R10/report.md",
+          "sha256": "bce20015ca5ce00e74aee6c5f542591918b89e971367ba2bde5c4edf131dc59e"
+        },
+        {
+          "path": "docs/research/topics/R10/evidence.json",
+          "sha256": "1dccc6fe89eb91c3bebbb38f4b7ee9339875bff8f31365e5c56d7d1e3f83fc77"
+        },
+        {
+          "path": "docs/research/topics/R10/coverage.json",
+          "sha256": "74080381ee38da43014f1a4b7c11b6aa578a8774ddc521df5fb94fe953ffd658"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Product backing-byte/pin/held-result budget accounting, zero-copy eligibility and retained-buffer memory load in A04/A20/B15/B22; no whole-RSS bound inferred."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R11",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "substantive_existing_report_evidence_coverage",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Fixed status + fixed ErrorRecord + owned rich domain data; captured unwind poisons Engine, unknown panic payload quarantined; abort/hook/drop/unhandled invalid UCO may terminate process; no cross-language exception contract.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R11/report.md",
+          "sha256": "c3788b3fe9f0e698e862b7d43b53a03be1f789c4a9ea39d87a1cf934c9db7902"
+        },
+        {
+          "path": "docs/research/topics/R11/evidence.json",
+          "sha256": "b9e2457c32b7c73b034c1fe88a0050c3ca35a52562686a726fd65e90d7c52fb6"
+        },
+        {
+          "path": "docs/research/topics/R11/coverage.json",
+          "sha256": "0bac265d6d0ad11529f40d1ae6df298fd77d4782e29626e1ad8db221c6f9241c"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Complete Engine poison/supervisor/error mapping/allocator failure tests and Windows fatal fixtures in A05/A14/A15/A20; unknown damaged resources stay quarantined."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R12",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "canonical_triplet_absent",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Engine-local scheduling profiles and explicit resource budgets; no global Core runtime; callback dirty mailbox and one bounded retry source; close admission, drain permits/operations, prove callback quiet, then join owned workers.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R12/report.md",
+          "sha256": "8567a860b17da594c63845cb0f627ad2517222cf4032f50aba25e58f94f4b2c0"
+        },
+        {
+          "path": "docs/research/topics/R12/evidence.json",
+          "sha256": "fd016f23d0088bd7cd527fae9011d6405e4a4d316eafd883bf4aa46237911a57"
+        },
+        {
+          "path": "docs/research/topics/R12/coverage.json",
+          "sha256": "65e1e2e17d60a44a00e8d3655af43866a2f6df6e406cd39a0fd6fe20c3573af3"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Product waiter/permit/cleanup budget and weak-memory lost-wake tests; engine close OS-thread join, fairness and long shutdown loads in A08/A18/B22."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R15",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "canonical_triplet_absent",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Small negative-control finite models for protocol ordering, Loom for applicable Rust memory ordering, Kani for bounded pure properties, Miri for executed Rust unsafe paths; no whole-system proof claim.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R15/report.md",
+          "sha256": "9647f4658cd32c1d66ef3138ff27a42d5bde68223bc64a5729b8838e6b872de6"
+        },
+        {
+          "path": "docs/research/topics/R15/evidence.json",
+          "sha256": "c15d1c7ab5e09af224c3f0109af6b4db0ebb5054a042065a7eae111d24c41146"
+        },
+        {
+          "path": "docs/research/topics/R15/coverage.json",
+          "sha256": "269b6eb7141d47fce15081b8763ee4111afa239c5cb3fdd8aad7eb6dfcb414f6"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Loom/Kani/Miri execution only when actual product code is mapped to stated properties; report exact bound/coverage/fairness and negative control in A19/A20."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    },
+    {
+      "id": "R16",
+      "initial_graph_status": "planned",
+      "initial_artifact_classification": "canonical_triplet_absent",
+      "current_status": "research_complete_independent_review_pending",
+      "resolved_decision": "Independent arithmetic/direct-native/domain oracles, deterministic seed/artifact replay, valid-memory fuzz input, fatal child-process tests, real AOT and platform-specific sanitizer applicability; never relabel unsupported tooling as pass.",
+      "outputs": [
+        {
+          "path": "docs/research/topics/R16/report.md",
+          "sha256": "fb220a379dfd8ade2716da031981cf4aa1860c50d57b941a2457f7a532840502"
+        },
+        {
+          "path": "docs/research/topics/R16/evidence.json",
+          "sha256": "e29c76262a7ba9b68ca2159121f64abdbdefe86ec4f1230c6d767cc03115dc12"
+        },
+        {
+          "path": "docs/research/topics/R16/coverage.json",
+          "sha256": "d0b9231eb1f726c4e756312750b31585046b00f244efc2fddc3bd9de513b2d97"
+        }
+      ],
+      "research_blockers": [],
+      "future_implementation_obligations": [
+        "Product coverage-guided fuzz corpus, applicable sanitizer builds, all-RID artifact replay, real DB/network differential and sustained failure stress in A20/B22."
+      ],
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      }
+    }
+  ],
+  "documentation": [
+    {
+      "id": "D02",
+      "initial_graph_status": "partially_evidenced",
+      "initial_artifact_classification": "substantive_existing_specification",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/contracts/abi-v0.1.md",
+          "sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    },
+    {
+      "id": "D03",
+      "initial_graph_status": "draft_ready",
+      "initial_artifact_classification": "absent",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/generators/binding-pipeline.md",
+          "sha256": "469f7d6f03f1ea49c54807742d99a6bd5bc69fe6ef88bc89435c3607d2c33f8d"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    },
+    {
+      "id": "D04",
+      "initial_graph_status": "partially_evidenced",
+      "initial_artifact_classification": "substantive_existing_specification",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/contracts/lifetime-v0.1.md",
+          "sha256": "03c9262018f9ab9f2b66f32ccddc4010d89565b2dbff6d108221b5b4d9542558"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    },
+    {
+      "id": "D05",
+      "initial_graph_status": "draft_ready",
+      "initial_artifact_classification": "substantive_existing_specification",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/contracts/callback-v0.1.md",
+          "sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    },
+    {
+      "id": "D06",
+      "initial_graph_status": "draft_ready",
+      "initial_artifact_classification": "substantive_existing_specification",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/contracts/async-v0.1.md",
+          "sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    },
+    {
+      "id": "D07",
+      "initial_graph_status": "partially_evidenced",
+      "initial_artifact_classification": "substantive_existing_specification",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/contracts/buffer-v0.1.md",
+          "sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    },
+    {
+      "id": "D08",
+      "initial_graph_status": "draft_ready",
+      "initial_artifact_classification": "substantive_existing_specification",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/contracts/error-v0.1.md",
+          "sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    },
+    {
+      "id": "D09",
+      "initial_graph_status": "draft_ready",
+      "initial_artifact_classification": "absent",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/contracts/concurrency-v0.1.md",
+          "sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    },
+    {
+      "id": "D12",
+      "initial_graph_status": "draft_ready",
+      "initial_artifact_classification": "absent",
+      "current_status": "design_complete_independent_review_pending",
+      "outputs": [
+        {
+          "path": "docs/verification/models-and-matrix.md",
+          "sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef"
+        }
+      ],
+      "acceptance_authority": "registry and task graphs updated only by root after independent review",
+      "independent_review": {
+        "status": "pending",
+        "reviewer": null
+      },
+      "product_implementation_verified": false,
+      "contract_version": "0.3.0"
+    }
+  ],
+  "experiment_manifests": [
+    {
+      "path": "verification/interop-completion/linux/result.json",
+      "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+      "success": true
+    },
+    {
+      "path": "verification/interop-completion/binding-linux/result.json",
+      "sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+      "success": true
+    },
+    {
+      "path": "verification/interop-completion/panic-linux/result.json",
+      "sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+      "success": true
+    },
+    {
+      "path": "verification/interop-completion/uco-invalid-linux/result.json",
+      "sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+      "success": true
+    }
+  ],
+  "ci_evidence": {
+    "path": "verification/interop-completion/ci-evidence-read.json",
+    "sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52"
+  },
+  "source_inspection": {
+    "path": "verification/interop-completion/source-inspection.json",
+    "sha256": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096"
+  },
+  "self_validation": {
+    "json_parse": "pass",
+    "local_links": "pass",
+    "recorded_source_and_inherited_hashes": "pass",
+    "issues": []
+  },
+  "known_boundaries": [
+    "Research prototypes are not product Core implementation; native probe statuses are private, D08 is sole product status authority.",
+    "New main fixture genuinely runs Windows/Linux normal and Native AOT; supplemental csbindgen, panic and invalid-UCO experiments only ran Linux.",
+    "Finite mailbox and retirement models are bounded sequentially consistent abstractions, not weak-memory proofs or unlimited liveness guarantees.",
+    "Source target candidate lists are not whole-repository audit claims; exact ranges and not-read/unexecuted scope retained.",
+    "Unknown allocator/unsafe damage and permanently nonprogressing native workers cannot be made safe by fabricated quiet; isolation retains ownership.",
+    "Independent agents are technical reviewers, not a distinct GitHub account approval."
+  ],
+  "reproduction": [
+    "python experiments/interop-completion/run.py --aot",
+    "python experiments/interop-completion/mailbox_model.py",
+    "From experiments/interop-completion: python panic_probe.py",
+    "From experiments/interop-completion: python uco_invalid_probe.py",
+    "From experiments/interop-completion: python binding_probe.py <exact csbindgen checkout root with source-identity.json>"
+  ],
+  "environment_rule": "DOTNET_CLI_TELEMETRY_OPTOUT=1 and DOTNET_NOLOGO=1 explicitly for .NET execution; SDK11.0.100/Rust1.100.0 pinned.",
+  "independent_review_corrections": [
+    {
+      "finding": "DB-CORE-01",
+      "reviewer": "/root/database_research",
+      "change": "D08 defines complete-v1 ErrorRecord capacity/write/original-status algorithm and explicit canary test oracle.",
+      "status": "author_fixed_pending_recheck"
+    },
+    {
+      "finding": "DB-CORE-02",
+      "reviewer": "/root/database_research",
+      "change": "D08 distinguishes decision/ordinary/terminal callback failure; terminal cannot replace native state/effect, D06 latch/drain wins.",
+      "status": "author_fixed_pending_recheck"
+    },
+    {
+      "finding": "DB-CORE-03",
+      "reviewer": "/root/database_research",
+      "change": "D05 get_api applies only to optional function-table profile; author also aligns callback byte length to D02 u64/ulong.",
+      "status": "author_fixed_pending_recheck"
+    },
+    {
+      "finding": "DB-CORE-04",
+      "reviewer": "/root/database_research",
+      "change": "D08 section10 refers explicitly to whole-v1 record write algorithm; section8 forbids v1 hot unloading and scopes any unload preconditions to a future profile.",
+      "status": "author_fixed_pending_recheck"
+    }
+  ],
+  "contract_revision_note": "Root requested all 21 contracts use 0.3.0 for review/acceptance; historical filenames retained, actual registry acceptance remains independent-review-controlled.",
+  "source_range_audit": {
+    "path": "verification/interop-completion/source-range-audit.json",
+    "sha256": "95acb18f05f79f84cc395b8f441041df2c089d2450649d17876ba7b8ea763891",
+    "scope": "Exact EOF metadata audit of all30 source records; four requested upper bounds corrected to actual EOF, no technical or experimental change."
+  }
+}

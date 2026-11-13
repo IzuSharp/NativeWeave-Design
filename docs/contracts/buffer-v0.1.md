@@ -1,6 +1,6 @@
 # D07 — Native buffers, allocation and transfer
 
-**C-BUFFER-001@0.1.0-draft**. Status: proposed, partially evidenced; not accepted. Existing R10/R03/R29 and D07/A04/B06/B07/B16 remain owners. Read [D02](abi-v0.1.md), [D04](lifetime-v0.1.md), [D06](async-v0.1.md), [D08](error-v0.1.md) and [R01 Rust1.100](../research/topics/R01/rust-1.100.md). No SQL/HTTP domain state or mandatory global allocator is added to Core.
+**C-BUFFER-001@0.3.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Existing R10/R03/R29 and D07/A04/B06/B07/B16 remain owners. Read [D02](abi-v0.1.md), [D04](lifetime-v0.1.md), [D06](async-v0.1.md), [D08](error-v0.1.md) and [R01 Rust1.100](../research/topics/R01/rust-1.100.md). No SQL/HTTP domain state or mandatory global allocator is added to Core.
 
 ## 1. Three explicit transfer modes
 
@@ -62,3 +62,16 @@ Schema/ABI/capability mismatches fail before transfer. Decoder exceptions releas
 A04 tests zero/nonzero spans, no null-reference construction for empty input, all overflow/capacity/offset boundaries, injected failed reserve/publication, explicit allocator pairing and CopyTo exact/short capacity. A03/A20 add call/Dispose, mutable contention, parent/child and pool-reuse races. A07 verifies async input/result/callback/root retirement. B06/B07 test SQLx encoding/decoding failures, huge field/batch and early stream termination; B16/B17 test slow/aborted Body and retained bytes. A14/A15/A16 verify native assets and real AOT consumers independently per OS; A21/B23 measure costs without extrapolating microbenchmarks.
 
 The actual Interop fixture is NativeWeave commit `4a4adc883b80719d2a9b2bfb03be5ec86b543f3c`, run43363045559. No already-successful original Rust API/SQLite query experiment was rerun for this document. The additional native database/Server source and results are tracked in the recovery checkpoint. These facts narrow design uncertainty without completing production or independent acceptance.
+
+## 13. 本次完成复核与真实复制边界（2026-11-13）
+
+[R10 报告与 evidence](../research/topics/R10/report.md) 记录 Bytes1.12.1 精确 `Bytes::from_owner`：先转移 owner，再调用一次 AsRef 取得稳定 view，全部 clone 释放后才析构 owner；转成 BytesMut 会分配并复制。这个公开 API 可以复用 backing-owner 生命周期，却不使任意临时 managed Span 变成长期安全的 native input。
+
+[本次 normal/AOT 试验](../../verification/interop-completion/linux/result.json) 验证 u64 extent 的溢出、isize 上界和有限预算，以及独立 owned result 在 operation 释放后仍有效、转换失败 finally 释放。既有 [source-lifecycle 证据](../../verification/source-lifecycle/results.json) 继续支撑 Body 结束与最后 Bytes backing owner 分离；不重复成功运行。
+
+owned buffer/result 的唯一 allocator/release 必须来自创建它的 Engine，view 只在显式 lease 内有效。native/managed 内存预算分别记录 queued、retained、pinned 和 transferred result，操作预算转移不允许丢失 held-result 字节。初始产品由明确 profile 控制 copy；没有测试证据的路线不得宣称零复制或完整 RSS 有界。经独立审查可接受本设计；A04/A20/B15/B22 的生产 buffer 样式和长期内存测试保留。
+
+
+### Committed target evidence
+
+The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.

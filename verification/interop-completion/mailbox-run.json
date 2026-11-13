@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "python",
+    "experiments/interop-completion/mailbox_model.py"
+  ],
+  "cwd": "repository root",
+  "exit_code": 0,
+  "started_utc": "2026-11-13T07:47:03.189547+00:00",
+  "ended_utc": "2026-11-13T07:47:03.243941+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "source_commit": null,
+  "baseline_commit": "9e1dfdd3816930b6adc7d4c8d86bbd55cbc7e747",
+  "source_sha256": "5049c708a75a1bbcb27364fd7ee964266796563100400875de7fc2f477d5dd0e",
+  "stdout_sha256": "fc282fd701b477f2e148a1ad13e0ad6da62826f79c2179f65fa1bdf3234db390",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "result_sha256": "fc282fd701b477f2e148a1ad13e0ad6da62826f79c2179f65fa1bdf3234db390",
+  "independent_review": false
+}

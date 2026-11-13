@@ -4,16 +4,25 @@ use tonic::codec::{Codec, Decoder, Encoder, DecodeBuf, EncodeBuf};
 use tonic::Status;
 
 #[derive(Clone, Default)]
-pub struct RawCodec;
+pub struct RawCodec { single_request: bool }
+impl RawCodec {
+    /// Unary and server-streaming methods have exactly one inbound message.
+    /// A new decoder is created for each request; the counter is not connection-wide.
+    pub fn single_request() -> Self { Self { single_request: true } }
+    /// Research streaming seam. Full aggregate byte/item/deadline quotas are B18 duties.
+    pub fn streaming() -> Self { Self::default() }
+}
 pub struct RawEncoder;
-pub struct RawDecoder;
+pub struct RawDecoder { remaining: Option<usize> }
 impl Codec for RawCodec {
     type Encode = Bytes;
     type Decode = Bytes;
     type Encoder = RawEncoder;
     type Decoder = RawDecoder;
     fn encoder(&mut self) -> RawEncoder { RawEncoder }
-    fn decoder(&mut self) -> RawDecoder { RawDecoder }
+    fn decoder(&mut self) -> RawDecoder {
+        RawDecoder { remaining: self.single_request.then_some(1) }
+    }
 }
 impl Encoder for RawEncoder {
     type Item = Bytes;
@@ -26,6 +35,12 @@ impl Decoder for RawDecoder {
     type Item = Bytes;
     type Error = Status;
     fn decode(&mut self, src: &mut DecodeBuf<'_>) -> Result<Option<Bytes>, Status> {
+        if let Some(remaining) = &mut self.remaining {
+            if *remaining == 0 {
+                return Err(Status::invalid_argument("single-request method received multiple messages"));
+            }
+            *remaining -= 1;
+        }
         Ok(Some(src.copy_to_bytes(src.remaining())))
     }
 }
@@ -49,7 +64,7 @@ mod tests {
             calls.fetch_add(1, Ordering::SeqCst);
             async move { Ok::<_, Status>(tonic::Response::new(req.into_inner())) }
         });
-        tonic::server::Grpc::new(RawCodec).max_decoding_message_size(8).max_encoding_message_size(8)
+        tonic::server::Grpc::new(RawCodec::single_request()).max_decoding_message_size(8).max_encoding_message_size(8)
             .unary(svc, http::Request::new(Full::new(input))).await
     }
     #[tokio::test]
@@ -89,12 +104,89 @@ mod tests {
         let svc = tower::service_fn(|_: tonic::Request<Bytes>| async {
             Ok::<_,Status>(tonic::Response::new(tokio_stream::iter([Ok(Bytes::from_static(b"a")),Ok(Bytes::from_static(b"bc"))])))
         });
-        let response = tonic::server::Grpc::new(RawCodec).max_decoding_message_size(8).max_encoding_message_size(8)
+        let response = tonic::server::Grpc::new(RawCodec::single_request()).max_decoding_message_size(8).max_encoding_message_size(8)
             .server_streaming(svc,http::Request::new(Full::new(wire(b"start")))).await;
         let body=response.into_body().collect().await.unwrap();
         assert_eq!(body.trailers().unwrap()["grpc-status"], "0");
         let mut expect=wire(b"a").to_vec();expect.extend_from_slice(&wire(b"bc"));
         assert_eq!(body.to_bytes(),Bytes::from(expect));
+    }
+
+    #[tokio::test]
+    async fn tonic_default_unary_drains_extra_messages_counterexample() {
+        let calls=Arc::new(AtomicUsize::new(0)); let seen=calls.clone();
+        let svc=tower::service_fn(move |req:tonic::Request<Bytes>| {
+            seen.fetch_add(1,Ordering::SeqCst);
+            async move {Ok::<_,Status>(tonic::Response::new(req.into_inner()))}
+        });
+        let mut input=wire(b"first").to_vec(); input.extend_from_slice(&wire(b"extra"));
+        // Tonic's unary path consumes the first message then drains through trailers().
+        // Without adapter cardinality enforcement the extra message is discarded.
+        let response=tonic::server::Grpc::new(RawCodec::default())
+            .unary(svc,http::Request::new(Full::new(Bytes::from(input)))).await;
+        let body=response.into_body().collect().await.unwrap();
+        assert_eq!(body.trailers().unwrap()["grpc-status"],"0");
+        assert_eq!(body.to_bytes(),wire(b"first"));assert_eq!(calls.load(Ordering::SeqCst),1);
+    }
+    #[tokio::test]
+    async fn tonic_single_request_unary_rejects_extra_before_handler() {
+        for second in [&b"second"[..], &b""[..]] {
+            let calls=Arc::new(AtomicUsize::new(0));
+            let mut input=wire(b"first").to_vec();input.extend_from_slice(&wire(second));
+            let response=unary(Bytes::from(input),calls.clone()).await;
+            assert_eq!(response.headers()["grpc-status"],"3");
+            assert_eq!(calls.load(Ordering::SeqCst),0);
+        }
+    }
+    #[tokio::test]
+    async fn tonic_single_request_server_stream_rejects_extra_before_handler() {
+        let calls=Arc::new(AtomicUsize::new(0));let seen=calls.clone();
+        let svc=tower::service_fn(move |_:tonic::Request<Bytes>| {
+            seen.fetch_add(1,Ordering::SeqCst);
+            async {Ok::<_,Status>(tonic::Response::new(tokio_stream::iter([Ok(Bytes::new())])))}
+        });
+        let mut input=wire(b"first").to_vec();input.extend_from_slice(&wire(b"second"));
+        let response=tonic::server::Grpc::new(RawCodec::single_request())
+            .server_streaming(svc,http::Request::new(Full::new(Bytes::from(input)))).await;
+        assert_eq!(response.headers()["grpc-status"],"3");assert_eq!(calls.load(Ordering::SeqCst),0);
+    }
+    #[tokio::test]
+    async fn tonic_zero_messages_rejected_but_one_empty_message_valid() {
+        let calls=Arc::new(AtomicUsize::new(0));
+        let response=unary(Bytes::new(),calls.clone()).await;
+        assert_eq!(response.headers()["grpc-status"],"13");assert_eq!(calls.load(Ordering::SeqCst),0);
+        let response=unary(wire(b""),calls.clone()).await;
+        assert_eq!(response.into_body().collect().await.unwrap().trailers().unwrap()["grpc-status"],"0");
+        assert_eq!(calls.load(Ordering::SeqCst),1);
+    }
+    #[tokio::test]
+    async fn tonic_single_request_counter_resets_for_each_request() {
+        let mut grpc=tonic::server::Grpc::new(RawCodec::single_request());
+        for payload in [b"first".as_slice(),b"second".as_slice()] {
+            let svc=tower::service_fn(|req:tonic::Request<Bytes>|async{Ok::<_,Status>(tonic::Response::new(req.into_inner()))});
+            let response=grpc.unary(svc,http::Request::new(Full::new(wire(payload)))).await;
+            let body=response.into_body().collect().await.unwrap();
+            assert_eq!(body.trailers().unwrap()["grpc-status"],"0");assert_eq!(body.to_bytes(),wire(payload));
+        }
+    }
+    #[tokio::test]
+    async fn tonic_client_stream_mode_preserves_multiple_messages() {
+        let calls=Arc::new(AtomicUsize::new(0));let seen=calls.clone();
+        let svc=tower::service_fn(move |req:tonic::Request<tonic::Streaming<Bytes>>| {
+            seen.fetch_add(1,Ordering::SeqCst);
+            async move {
+                let mut stream=req.into_inner();let mut decoded=Vec::new();
+                while let Some(message)=stream.message().await? {decoded.push(message);}
+                assert_eq!(decoded,[Bytes::from_static(b"first"),Bytes::new()]);
+                Ok::<_,Status>(tonic::Response::new(Bytes::from_static(b"two")))
+            }
+        });
+        let mut input=wire(b"first").to_vec();input.extend_from_slice(&wire(b""));
+        let response=tonic::server::Grpc::new(RawCodec::streaming()).max_decoding_message_size(8)
+            .client_streaming(svc,http::Request::new(Full::new(Bytes::from(input)))).await;
+        let body=response.into_body().collect().await.unwrap();
+        assert_eq!(body.trailers().unwrap()["grpc-status"],"0");assert_eq!(body.to_bytes(),wire(b"two"));
+        assert_eq!(calls.load(Ordering::SeqCst),1);
     }
 
     #[derive(Clone)]

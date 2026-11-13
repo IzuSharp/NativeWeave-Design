@@ -1,14 +1,14 @@
 # D14 — Rust Database Engine and precompiled application boundary
 
-Contract: **C-DB-001@0.2.0-draft**. Status: proposed; independent review pending. Supersedes DB-D004/DB-D005/DB-D006's ordinary SeaORM model-build assumptions, not the historical source facts. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered prototype](../research/source-driven-evidence/README.md), existing R19–R22. Transaction safety remains [D15](transactions-and-pooling.md).
+Contract: **C-DB-001@0.3.0**. Status: design candidate; the registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Supersedes DB-D004/DB-D005/DB-D006's ordinary SeaORM model-build assumptions, not the historical source facts. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered prototype](../research/source-driven-evidence/README.md), existing R19–R22. Transaction safety remains [D15](transactions-and-pooling.md).
 
 ## 1. Architecture and selection
 
-Database lower layers are mandatory Rust. After comparing dynamic SeaQuery and static SeaORM, the default implementation candidate is a maintainer-precompiled **SeaQuery 1.0.2 + SQLx 0.9.0** Engine. SeaQuery owns native query construction and dialects; SQLx owns execution, connections, pools and protocol. NativeWeave's Rust Adapter supplies bounded admission, fallible codecs, capability checks, transaction/cleanup coordination and explicit ORM policies. C# supplies business types, typed Fluent calls, static metadata/DTO code and interop; no C# SQL dialect engine or managed-provider fallback.
+Database lower layers are mandatory Rust. After comparing SeaQuery, SQLx, SeaORM static entities and its actual public dynamic projection/loader boundaries, the selected ordinary design is a maintainer-precompiled **SeaQuery 1.0.2 + SQLx 0.9.0** Engine. SeaQuery owns native query construction and dialects; SQLx owns execution, connections, pools and protocol. NativeWeave's Rust Adapter supplies bounded admission, fallible codecs, capability checks, transaction/cleanup coordination and explicit ORM policies. C# supplies business types, typed Fluent calls, static metadata/DTO code and interop; no C# SQL dialect engine or managed-provider fallback.
 
-Static SeaORM Entity/ActiveModel/Relation integration remains a specialized profile with a separately compiled model package. Its build coupling is not a universal property of Rust database access. Ordinary Student/User entities using supported codecs/operators vary as runtime metadata and C# code, not generated Rust. No Cargo or CI-built application Engine is required on that path. New native codecs/operators/providers can require a new maintainer Engine version.
+SeaORM public ModelType/FieldType/QueryResult dynamic projections are a real no-per-entity-build integration, demonstrated by the database-completion fixture. Their result shape must be checked before nullable decoding. Static SeaORM Entity/ActiveModel/Relation integration remains a specialized profile with a separately compiled model package. Its build coupling is not a universal property of Rust database access. Ordinary Student/User entities using supported codecs/operators vary as runtime metadata and C# code, not generated Rust. No Cargo or CI-built application Engine is required on that path. New native codecs/operators/providers can require a new maintainer Engine version.
 
-Core has no SQL AST, pool or mandatory global Tokio runtime. Managed drivers remain external comparisons. Source reuse and consumer experience justify this candidate; no performance superiority or independent acceptance is claimed.
+Core has no SQL AST, pool or mandatory global Tokio runtime. Managed drivers remain external comparisons. Source reuse and consumer experience justify this design. Formal research/design acceptance is recorded by the independent review and registry; no product execution or performance superiority follows from that acceptance.
 
 ## 2. Modules and implementation boundaries
 
@@ -107,10 +107,111 @@ The Engine manifest binds ABI, capability/codec profile, RID, toolchain, locked 
 
 Migrations are explicit Rust administrative operations, not speculative startup schema-sync. Immutable ID/content hash/provider/from-to version/transaction mode enter the ledger. PostgreSQL advisory locking or SQLite explicit writer/deployment admission serializes migration owners. Transactional DDL and ledger commit together; nontransactional DDL uses staged resumable checks. Same ID/different hash, missing migration, inadequate permission and incompatible schema fail explicitly. Destructive down-migration is not the production default.
 
+
+
+SQLite 的原子迁移批次必须经 SQLx 公开 `Connection::begin_with("BEGIN IMMEDIATE")` 创建受跟踪的 `Transaction`，再调用 `Migrator::run(&mut *tx)`。先用 `migrator.iter().any(|m| m.no_tx)` 拒绝不支持的非事务条目，再准入并取得 writer lock。成功后仅 `tx.commit().await` 结束外层批次；迁移错误时显式 `tx.rollback().await`，回滚失败则隔离并关闭专用连接。不能先 `query("BEGIN IMMEDIATE").execute(&mut conn)`：原始 SQL 不更新 SQLx transaction depth，Migrator 内部再次 BEGIN 会失败。
+
+```rust
+// Illustrative public SQLx 0.9.0 chain; domain error/cleanup mapping remains B08.
+use sqlx::Connection;
+if migrator.iter().any(|m| m.no_tx) {
+    return Err(UnsupportedNonTransactionalMigration);
+}
+let mut tx = conn.begin_with("BEGIN IMMEDIATE").await?;
+match migrator.run(&mut *tx).await {
+    Ok(()) => tx.commit().await?,
+    Err(error) => {
+        // If rollback fails, retain both errors and retire this dedicated connection.
+        let rollback = tx.rollback().await;
+        return Err(map_migration_failure(error, rollback));
+    }
+}
+```
+
+独立审查者实际运行了原始 BEGIN 反例、受跟踪外层 rollback/commit，以及第二条迁移失败后整批 rollback 三项 Linux Rust 回归；schema 与迁移 ledger 同时撤销，内层保存点不提交外层事务。见 [independent three-case regression](../../verification/interop-completion/db-review-migration/result.json)。这证明公开调用链和有限原子性，不代替 B08 的跨进程竞争、Windows、崩溃/重启和产品 AOT 验证；示例错误名和 map_migration_failure 仅说明领域映射，不是已发布 API；该映射必须保留原始迁移错误及回滚错误，并要求隔离/关闭尚未安全清理的连接。
+
 ## 10. Source-driven failure gates and acceptance
 
 Reject SQLite row-lock/SELECT INTO/SEARCH-CYCLE requests that the pinned renderer silently ignores. Catching panic cannot detect omitted semantics. Check CTE shape and values before native rendering. A fallible argument binder propagates every encoding error and checks narrowing; do not use discarded add errors or unsigned unwrap. Poison unsafe partial builder mutations and retain all live owners.
 
 B01/B04 verify malformed metadata/length/shape fuzzing, ABI/RID/capability rejection and no managed product provider. B02/B03 verify actual Rust PG/SQLite into typed batches/DTOs, schema errors, cancellation, stream early stop and pool/worker cleanup. B05/B06 verify Unknown COMMIT, unconfirmed rollback, reuse versus retirement, decoder exceptions and huge fields. B07/B08 cover every codec negative and migration interruption. B09–B14 cover typed native query parity, metadata/DTO generation and bounded relation/CAS scope. B21–B24 cover Windows/Linux AOT, faults/soak, clean no-Rust and RID-free consumers, unchanged native hash after entity changes, and full-workload costs.
 
-The recovered Linux SQLite AOT experiment is real but finite. Its JSON/fetch_all/per-call-runtime/raw-handle shortcuts are not the production streaming/pool/concurrency design. Windows, PostgreSQL faults, production generator, async lifetime and hard resource bounds remain unverified. Never suppress IL2026/IL3050 indiscriminately to manufacture acceptance.
+The recovered Linux SQLite AOT experiment is real but finite. Its JSON/fetch_all/per-call-runtime/raw-handle shortcuts are not the production streaming/pool/concurrency design. That recovered probe did not cover Windows or PostgreSQL faults; the later native PostgreSQL fault cases are recorded below. Production generator, cross-language async lifetime and hard resource bounds remain product verification obligations. Never suppress IL2026/IL3050 indiscriminately to manufacture acceptance.
+
+## 11. Concrete native boundary and binding obligations
+
+The following signatures specify the domain boundary. `nw_status`, opaque creating-engine pointers and `nw_bytes_view_v1` reuse D02/D07/D08; they do not introduce a second Core status enum or a universal SQL IR. The shown declarations are **design examples, not compiled product exports**. Operation create/start/take_result/retire/release follows D06.
+
+```c
+nw_status NW_CDECL nw_db_metadata_register(nw_db_source* source,
+    nw_bytes_view_v1 descriptor, nw_db_metadata** out_metadata, nw_error_info_v1* error);
+nw_status NW_CDECL nw_db_query_create(nw_db_session* session,
+    nw_db_metadata* metadata, uint32_t table_id, nw_db_query** out_query, nw_error_info_v1* error);
+nw_status NW_CDECL nw_db_query_seal(nw_db_query* query, nw_db_plan** out_plan, nw_error_info_v1* error);
+nw_status NW_CDECL nw_db_execute_create(nw_db_session* session,
+    nw_db_plan* plan, nw_db_operation** out_operation, nw_error_info_v1* error);
+nw_status NW_CDECL nw_db_operation_take_cursor(nw_db_operation* operation,
+    nw_db_cursor** out_cursor, nw_error_info_v1* error);
+```
+
+Each output pointer is initialized to null; ownership transfers only on success.
+Metadata input is borrowed for the call and copied/validated into bounded native
+metadata before return. Registration is all-or-nothing and checks duplicate IDs,
+names, codec/null/key/relation shape and capability profile. Query creation retains
+metadata and its logical parent. A sealed plan is immutable; mutation cannot race
+sealing. Execution owns a parameter snapshot and a session lease. The cursor returned
+by successful take_result is an independent result owner; operation retirement may
+not free it. Cursor fetch has one active native operation and returns owned batches.
+Each release goes to the engine that created that owner. No caller can reinterpret
+Rust Vec/Expr/Value or a managed object pointer as one of these exported structures.
+
+| Entry family | Native work | Managed obligation | Failure rule |
+| --- | --- | --- | --- |
+| Metadata registration | Validate/copy descriptors and native codec registry | Supply generated or handwritten immutable descriptors | Reject missing/duplicate fields and unsupported codec; no partial registration |
+| Typed query/expr calls | SeaQuery native methods under one-writer admission | Enforce entity/value typing and matching query/alias owner | Reject mixed owner, disposed/sealed/poisoned builder; never emulate in C# |
+| Seal/execute | Freeze values, render natively, fallibly bind, submit SQLx future | Capture inputs before await; keep owner/control leases | Pre-dispatch errors have no DB effect; dispatched failures use D15 |
+| Cursor/batch | SQLx stream, bounded transport and retirement | Static shape-checked DTO construction and finally release | No borrowed row across MoveNext; constructor errors close cursor safely |
+| Administrative migration | SQLx Migrator and native DB transaction/lock | Explicit invocation, trusted migration bundle | Never auto-migrate on open; close dedicated connection on error |
+
+Rust enums, memory layout and non-exhaustive upstream variants remain private. The
+binding manifest enumerates each exported operation/version/capability and both-side
+conformance tests. Typed direct calls are the baseline; a compact batching envelope
+can be added when measured, without becoming a second query-semantic authority.
+
+## 12. Source-confirmed shape, security and administration corrections
+
+The completion study verified that SeaORM's `Option<T>` decoder treats SQLx
+ColumnNotFound as None. Validate result count, unique aliases/ordinals and type shape
+before any nullable mapping; missing and SQL NULL are separate facts. This rule
+also applies to hand-written descriptors and expert SQL projections.
+
+Remote PostgreSQL defaults to VerifyFull with declared root trust/hostname checks.
+SQLx Prefer permits plaintext fallback and Require alone does not enforce the same
+identity checks. A local/test plaintext profile is explicit and never silently
+selected after TLS failure. Native driver features and TLS backend belong in the
+package capability manifest and SBOM.
+
+SQLx's migration engine already supplies applied-version/checksum/dirty detection
+and transactional DDL/ledger work. Reuse it. PG migration locks are session advisory
+locks and an early error may leave them held; use a dedicated administrative
+connection and close it on error or timeout. SQLite migration lock/unlock are no-ops;
+obtain native write serialization before ledger inspection and hold it through the
+supported transactional batch, rather than assuming `Migrator::run(&pool)` serializes
+all processes. Nontransactional maintenance is a separate explicit admin capability.
+
+## 13. Research-design acceptance versus product verification
+
+[R19–R25](../research/topics/R25/report.md), the exact [source manifest](../../verification/database-completion/source-inspection.json),
+and the [finite native fixture](../../experiments/database-completion/README.md)
+resolve the ordinary no-per-entity-Cargo architecture and expose concrete error cases.
+Independent acceptance can approve these interfaces and constraints before Codex
+implements them. B01–B14/B22–B24 still must pass their actual C# AOT, Windows/Linux,
+TLS/auth, malformed-input, concurrency, fault, memory and performance obligations.
+No successful native-only experiment is relabeled as completed product validation.
+
+### Published research CI evidence
+
+The [database CI confirmation](../../verification/database-completion/ci-confirmation.json) binds source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80` and run `43388468172` to actual Windows/Linux metadata/SQLite results (5/5 on each) and Linux PostgreSQL 18.0 results (6/6). Archived inputs/logs were checked byte-for-byte; Windows CRLF inputs remain separately identified. This confirms the finite native research oracles and leaves the specified C# product, TLS, concurrency, long-load and independent design-review obligations distinct.
+
+
+The optional SeaORM profile can inspect actual provider shape through public `QueryResult::try_as_pg_row` / `try_as_sqlite_row`, then SQLx `Row::columns` / `Column::type_info`. These borrowed views remain inside the row owner lifetime; no private field or fork is needed. Validate provider type compatibility rather than assuming a declared nullable field proves the result column exists; SQLite NULL/dynamic affinity still follows the explicit codec/null policy. The missing-column negative control remains part of the research fixture.

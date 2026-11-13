@@ -1,0 +1,24 @@
+ Downloading crates ...
+  Downloaded zeroize v1.9.1
+  Downloaded rustls-pki-types v1.16.0
+  Downloaded subtle v2.6.1
+  Downloaded untrusted v0.9.0
+  Downloaded rustls-webpki v0.103.17
+  Downloaded rustls v0.23.46
+  Downloaded ring v0.17.14
+    Blocking waiting for file lock on package cache
+   Compiling find-msvc-tools v0.1.15
+   Compiling shlex v2.0.1
+   Compiling getrandom v0.2.17
+   Compiling zeroize v1.9.1
+   Compiling untrusted v0.9.0
+   Compiling rustls v0.23.46
+   Compiling subtle v2.6.1
+   Compiling nw-server-protocol-research v0.0.1 (/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/server-completion/protocol)
+   Compiling rustls-pki-types v1.16.0
+   Compiling cc v1.11.1
+   Compiling ring v0.17.14
+   Compiling rustls-webpki v0.103.17
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 27.14s
+     Running unittests src/lib.rs (/workspace/scratch/1b611a39541d/server-target/debug/build/nw-server-protocol-research/39bed1649f7fa2ea/out/nw_server_protocol_research-39bed1649f7fa2ea)
+   Doc-tests nw_server_protocol_research

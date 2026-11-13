@@ -1,0 +1,50 @@
+{
+  "kind": "research_only",
+  "os": "Linux",
+  "arch": "x86_64",
+  "inputs_sha256": {
+    "diagnostics/DiagnosticsProbe.csproj": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+    "diagnostics/Program.cs": "31b9c926093e811ad0f972426a32aae8c4ed983fa55109588e61c8a65ebcc7c6",
+    "run_diagnostics.py": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96"
+  },
+  "commands": [
+    {
+      "name": "dotnet-info",
+      "command": [
+        "dotnet",
+        "--info"
+      ],
+      "timeout_seconds": 30,
+      "exit_code": 0,
+      "elapsed_seconds": 0.084,
+      "stdout_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish",
+      "command": [
+        "dotnet",
+        "publish",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/server-completion/diagnostics/DiagnosticsProbe.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "-o",
+        "/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/server-completion/diagnostics-local-1/publish"
+      ],
+      "timeout_seconds": 600,
+      "exit_code": 1,
+      "elapsed_seconds": 24.556,
+      "stdout_sha256": "dbc8952311125903611c01a1a6eb45a855ca207b62221ab1d81d22866356db86",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "success": false,
+  "limitations": [
+    "Not a cross-language propagation test.",
+    "Single-process no-observer timing is not a production benchmark.",
+    "Current-thread allocation counter excludes native memory."
+  ]
+}

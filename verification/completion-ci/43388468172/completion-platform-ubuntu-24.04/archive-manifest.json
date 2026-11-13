@@ -1,0 +1,281 @@
+{
+  "artifact_id": 14020031127,
+  "name": "completion-platform-ubuntu-24.04",
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "run_id": 43388468172,
+  "zip_sha256": "8db2298c74970ebb6e168cd71bb2e8f795f7ca74fd2135ba90c31e50bf00c946",
+  "zip_bytes": 5325299,
+  "files": [
+    {
+      "path": "artifacts/completion/platform/aot-default.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/aot-default.stdout",
+      "sha256": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+      "bytes": 79,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/aot-runtime-async.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/aot-runtime-async.stdout",
+      "sha256": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+      "bytes": 79,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/external-closed-negative.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/external-closed-negative.stdout",
+      "sha256": "9db13c99d256e0aa1ef056594eb0d15ae66c9a0ec9e017f0da35f1bdb18d8d47",
+      "bytes": 1081,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/modern/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+      "bytes": 374,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/modern/Negative.cs.txt",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+      "bytes": 125,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/modern/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+      "bytes": 2773,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/run.py",
+      "sha256": "058f71c632f353aa8cbfe07a5ddb731724fb7fada3701a771e6806d54ce26c35",
+      "bytes": 4423,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/negative/External.cs",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+      "bytes": 125,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/negative/External.csproj",
+      "sha256": "16ccce38da07404547e9242771e5a78e8a5c5cd32a79f68d4693690a4a23db50",
+      "bytes": 309,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/.NETCoreApp,Version=v11.0.AssemblyAttributes.cs",
+      "sha256": "18171b35badd46ad63a98f1233df58d31ff1b4aa1f27b9c2a507fcd513dda70f",
+      "bytes": 196,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.AssemblyInfo.cs",
+      "sha256": "377c59bcb8a3d8d054cb66cd31dca74b2765fbe7bbdff672d232f9ca72b60425",
+      "bytes": 976,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.AssemblyInfoInputs.cache",
+      "sha256": "152014fa4f4830d4c0fbb313892a0dbc2f3098aa981c541e8b91e3204a299f13",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.assets.cache",
+      "sha256": "380d9e871a1db96de3a0ab88d0abd20e538a0db446ceb8bab44f3fa7a4853c1a",
+      "bytes": 150,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.GeneratedMSBuildEditorConfig.editorconfig",
+      "sha256": "544e6f8e07fea7574d25ff7667f94a27592f7a35069296371778404d089e628a",
+      "bytes": 859,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.csproj.AssemblyReference.cache",
+      "sha256": "add3e6cdeeabdea2a573c0fc904b9ee34132811a0fb9620614012407dc3984e7",
+      "bytes": 711,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.csproj.CoreCompileInputs.cache",
+      "sha256": "cb8b2dc429e1f12a875b14a0453c1c22f6857c1af3e5d0e6e088f53fd6adc0f1",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.csproj.FileListAbsolute.txt",
+      "sha256": "a55b71b082615b36ad5c6b9576919bd314ea3d2403888a1ecd4169c44413aa74",
+      "bytes": 893,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.sourcelink.json",
+      "sha256": "30f48d2a3daffb7ca0f3a041e88d239922cceeaa25e596f7992a86deab1fa794",
+      "bytes": 182,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/External.csproj.nuget.dgspec.json",
+      "sha256": "33a6775236f7784895a015248df0094e7710255738ad9657685b8585c3053f52",
+      "bytes": 48561,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/External.csproj.nuget.g.props",
+      "sha256": "f830241d56206fb3353dc322b6733272428114082923772cd5878a9cfc6919df",
+      "bytes": 1115,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/External.csproj.nuget.g.targets",
+      "sha256": "b14461e0cb1be3f77fcf9fe2fdd62889325ca92523d0f606980ed59eb5c4aa1c",
+      "bytes": 149,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/project.assets.json",
+      "sha256": "48888a04e0205f6921b71bde3a3495f1ccf224a42cbe8956e91d15fe0a70969a",
+      "bytes": 24069,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/project.nuget.cache",
+      "sha256": "24f1f228bc549910aede1d8493fb7dabc54eb9e6486fa009d747272b606ddf93",
+      "bytes": 248,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/ordinary.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/ordinary.stdout",
+      "sha256": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+      "bytes": 79,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/publish-default/Modern",
+      "sha256": "331732827172c44135f5f7800f3183c0e348da80b77a438afd550d88f4fb9a12",
+      "bytes": 1565640,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/publish-default/Modern.dbg",
+      "sha256": "c625f3e75f84447f9258e528329aaa7e3606d8a1435794916578c8c51dd09d09",
+      "bytes": 2747232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/publish-default.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/publish-default.stdout",
+      "sha256": "2d7dd8eca77a195d400857996eee6dd98e51f1288818c3433472f01f88d3dc33",
+      "bytes": 460,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/publish-runtime-async/Modern",
+      "sha256": "331732827172c44135f5f7800f3183c0e348da80b77a438afd550d88f4fb9a12",
+      "bytes": 1565640,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/publish-runtime-async/Modern.dbg",
+      "sha256": "c625f3e75f84447f9258e528329aaa7e3606d8a1435794916578c8c51dd09d09",
+      "bytes": 2747232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/publish-runtime-async.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/publish-runtime-async.stdout",
+      "sha256": "2303f65354e1815244b6a817df237e4aed51bf767fe5675b5160043490f3030e",
+      "bytes": 349,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/results.json",
+      "sha256": "e537d9111f0039643818533267b902f537850cccf3c81ab88677b2137b031eb4",
+      "bytes": 5870,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/sdk-info.stdout",
+      "sha256": "973f18d799788ce1112ecd851d575905dafcc00f0486fa5e471a12ab5b603015",
+      "bytes": 3140,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/sdk-info.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    }
+  ],
+  "results": [
+    {
+      "path": "artifacts/completion/platform/results.json",
+      "passed": true,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "keys": [
+        "scope",
+        "platform",
+        "source_commit",
+        "source_snapshot",
+        "commands",
+        "started_at",
+        "passed",
+        "closed_external_negative",
+        "aot_executions",
+        "finished_at"
+      ]
+    }
+  ]
+}

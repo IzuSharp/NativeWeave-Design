@@ -1,5 +1,7 @@
 # R08：Callback注册、重入、停止与静默
 
+**Current completion (2026-11-13):** source-driven research/design is ready for exact-content independent review. The original dated report below is preserved as a historical increment; its unexecuted statements describe that increment. Current evidence/coverage contain `completion_2026_11_13` and immutable later execution records.
+
 日期：2026-11-12。作者：interop_design。状态：**partially_evidenced；design decision recorded；independent review pending**。本轮在既有任务中深化真实源码并形成[D05 callback契约](../../../contracts/callback-v0.1.md)，不是新的协调规划，也不是产品实现验证。
 
 ## 1. 固定输入与问题
@@ -80,3 +82,18 @@ AOT要求静态、非泛型、精确blittable UCO签名；C#/Rust bool不直接�
 Q04的callback回收策略已可做design-resolved审查；生产验证保留。R07审查cookie/parent/module寿命，R09审查同步start和托管取消注册屏障，R12审查协调器进展、线程亲和和shutdown，R15审查原子准入与真实内存模型映射。需要独立审查者特别尝试：Owner先Closing随后terminal需要take的顺序、callback内Dispose、无await的Task以及poison后排空。
 
 Qt for Python和Godot dispatcher深层未读，故报告整体保留partially_evidenced。MIT来源许可证已在固定SHA读取；无上游测试运行，无源码大段复制。后续补查应针对这些具体证据缺口，不能因一个来源未读而停止其他独立设计。
+
+## Current completion review — real reverse callback and managed registration drain
+
+The original callback/source report and finite model are preserved. The new interop-completion fixture now actually invokes static managed UCO from a Rust-created native thread, holds a controlled callback barrier, requests retirement/cancellation concurrently and forces GC. Retirement stays pending while the callback is active; after permanent native completion and all test calls return, the cookie is freed. An ordinary callback mapping exception is caught and recorded before returning across FFI. Thirty-two rounds execute in normal and actual Linux Native AOT modes; raw evidence and precise source/binary hashes are in `verification/interop-completion/linux`.
+
+The same fixture observes an already-cancelled token's UnsafeRegister callback before registration publication and verifies DisposeAsync remains incomplete while another callback runs, then completes after that callback exits. This closes the previously source-only registration-order experiment. It does not claim arbitrary invalid-cookie probing is safe or that a test barrier is appropriate production callback behavior; production callbacks remain short/nonblocking.
+
+New UniFFI scheduler source at `482095c1ba1b76a1393b582e0589e2fdc9c64b14` invokes foreign continuations outside its mutex and stores wake/cancel state when no continuation is installed. Its callback/free semantics are deliberately not substituted for NativeWeave's no-future-callback retirement requirement. The alternative is now source-inspected rather than falsely listed as universally unexamined; exact read limits remain recorded.
+
+D05/D06/D09 provide stable cookie, source closure, native quiet, managed start/control/callback/registration drain and bounded dispatcher rules. Existing Godot/YAHA evidence already suffices to compare ownership hazards; Qt is not an adopted runtime dependency and its broader source audit is outside this selected C# ABI design. Product notification subscriptions, many concurrent operations, allocator failure and two-OS long-load tests remain A06/A07/A20/B17 implementation obligations. Research/design acceptance awaits independent review of this new scope, not completion of the product.
+
+
+## Committed Windows/Linux completion execution
+
+[CI evidence readback](../../../../verification/interop-completion/ci-evidence-read.json) verifies actual GitHub run `43388468172` at source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`: Windows x64 MSVC and Linux x64 GNU each executed normal 10,528 assertions and Native AOT 10,529, 32 controlled callback rounds per mode, nine Roslyn checks and static metadata/AOT restriction checks. All command exits and source hashes were verified; Windows checkout CRLF accounts for its distinct input hashes. This extends the main fixture only. Linux-only generator-comparison/panic/invalid-UCO supplemental studies are not mislabeled as Windows results. Deliberate reflection fallback negative cases retain their IL2026/IL3050 diagnostics. Product package/full-protocol/long-load obligations remain separate.

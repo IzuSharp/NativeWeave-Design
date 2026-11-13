@@ -20,4 +20,11 @@ A compiled native service can wait for external completion and return a native B
 
 Retain separate request/body/callback/cleanup ownership. Do not confuse the stream-slot lease with a byte lease: Bytes may outlive a delivered frame and must retain their own accounting until their last relevant borrower is done. No TLS, external TCP, HTTP2 credit exercise, time-limited abort/recovery, client-disconnect storm, multicore weak-memory model, long soak or process RSS bound is proven here. Actix worker-affinity and Pingora proxy scope remain source-researched alternatives, not executed implementations in this fixture.
 
-Persisted evidence lives under NativeWeave `verification/native-slices/server-linux` and `server-windows`, with exact commands, source/lock hashes and raw outputs. R27/R29 remain continuable; D18/B16/B17/B20 must add the foreign managed handler bridge and full resource/cancel/close tests before formal acceptance.
+The historical run used NativeWeave `verification/native-slices/server-linux` and
+`server-windows`; its byte-preserved current location is NativeWeave-Design
+`verification/native-slices/original-pr1/`, as mapped above. B16/B17/B20 must add the
+foreign managed Handler bridge and full resource/cancel/close tests before product
+acceptance. Research/design acceptance uses the bounded evidence and independent
+review; it does not wait for that future product implementation. The current required
+Rust-host selection and additional real TCP HTTP1/HTTP2, TLS and protocol probes are
+in the main R27 report and `verification/server-completion/`.

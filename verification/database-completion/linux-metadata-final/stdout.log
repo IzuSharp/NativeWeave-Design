@@ -1,0 +1,10 @@
+
+running 5 tests
+test sqlite_foreign_key_and_savepoint_recovery_are_explicit ... ok
+test native_cas_preserves_tenant_and_not_set_null_distinction ... ok
+test native_join_aggregate_matches_independent_sql_oracle ... ok
+test seaorm_public_dynamic_projection_needs_no_static_entity ... ok
+test sqlx_migration_checksum_and_failed_ddl_are_native ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

@@ -1,0 +1,2653 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "Research fixture resolved registry packages only; not a product SBOM or legal/vulnerability approval.",
+  "lockfile_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+  "packages": [
+    {
+      "name": "android_system_properties",
+      "version": "0.1.6",
+      "package_checksum": "ae221649c9976a6f6c56ae1facf410f3ddb33cc661c4b7b61020a912d4237fbc",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "asn1-rs",
+      "version": "0.7.2",
+      "package_checksum": "b7f43a50ac4fdca5df8e885c21b835997f0a1cdee65494a6847694a98652d9d8",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rusticata/asn1-rs.git",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "a5c61b93b6ee1d104af9920cf020ff3c7efe818e31fe562c72261847a728f513",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "asn1-rs-derive",
+      "version": "0.6.0",
+      "package_checksum": "3109e49b1e4909e9db6515a30c633684d68cdeaa252f215214cb4fa1a5bfee2c",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rusticata/asn1-rs.git",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "a5c61b93b6ee1d104af9920cf020ff3c7efe818e31fe562c72261847a728f513",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "asn1-rs-impl",
+      "version": "0.2.0",
+      "package_checksum": "7b18050c2cd6fe86c3a76584ef5e0baf286d038cda203eb6223df2cc413565f7",
+      "declared_license": "MIT/Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rusticata/asn1-rs.git",
+      "local_license_files": []
+    },
+    {
+      "name": "async-trait",
+      "version": "0.1.92",
+      "package_checksum": "82f6aeea286b8eb4dd3431a1be1b59d290ace00f5bfd8e2a159bc2a05e2c1667",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/async-trait",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "atomic-waker",
+      "version": "1.1.2",
+      "package_checksum": "1505bd5d3d116872e7271a6d4e16d81d0c8570876c8de68093a09ac269d8aac0",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/smol-rs/atomic-waker",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-THIRD-PARTY",
+          "sha256": "6226d0632e2e1a80c23597e964da9812ae193c535fe058154afb034e94167aa5",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "autocfg",
+      "version": "1.5.1",
+      "package_checksum": "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/cuviper/autocfg",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "base64",
+      "version": "0.22.1",
+      "package_checksum": "72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/marshallpierce/rust-base64",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "0dd882e53de11566d50f8e8e2d5a651bcf3fabee4987d70f306233cf39094ba7",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "base64",
+      "version": "0.23.1",
+      "package_checksum": "ac07cdecf99051d9a5238b80f35af32cdeba5b336e55d957b318b50137e18da5",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/marshallpierce/rust-base64",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "ab499c75a0f0da8e0fe83bf9ba3a27e5c39705310f07107c6c66b69958d2401c",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "bit-vec",
+      "version": "0.9.1",
+      "package_checksum": "b71798fca2c1fe1086445a7258a4bc81e6e49dcd24c8d0dd9a1e57395b603f51",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/contain-rs/bit-vec",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "f51ac2c59a222f7476ce507ca879960e2b64ea64bb2786eefdbeb7b0b538d1b7",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "block-buffer",
+      "version": "0.12.1",
+      "package_checksum": "d2f6c7dbe95a6ed67ad9f18e57daf93a2f034c524b99fd2b76d18fdfeb6660aa",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/utils",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "98181e7249d0c01737645ec982499ce99a0f07eb8f7d625b8840d799d10dbc01",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "bumpalo",
+      "version": "3.20.3",
+      "package_checksum": "72f5acc6cb2ba439de613abc23857ec3d78374d8ed5ac84e9d11336e87da8649",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "bytes",
+      "version": "1.12.1",
+      "package_checksum": "fc652a48c352aef3ea3aed32080501cf3ef6ed5da78602a020c991775b0aff04",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/bytes",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "45f522cacecb1023856e46df79ca625dfc550c94910078bd8aec6e02880b3d42",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "cc",
+      "version": "1.11.1",
+      "package_checksum": "4ff2a8126fff0f8c839080d619675a585e61720bb12d2baceae45769fd66f155",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "cfg-if",
+      "version": "1.0.5",
+      "package_checksum": "4e7648175b45a9a48536d676f68d918270699102aa8dab5496df06904c914600",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/cfg-if",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "chacha20",
+      "version": "0.10.2",
+      "package_checksum": "65c35e4b699c7e15ccbe7ee35c005e4fc0a278d22238a2857e6ce2dadeda1b06",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/stream-ciphers",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "b8c6939380a400f53e11923d50fcc4dd2fa1ba8339fd9d04cda38a0251b6c9b0",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "chrono",
+      "version": "0.4.45",
+      "package_checksum": "1aa79e62e7697b8e29b513a68abacf485adcd1fe8284a4316c5ae868e6633327",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/chronotope/chrono",
+      "local_license_files": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "946c9835d8034d24404f8cfec5f4654cee5dad17e944afc3d06d742cf2882831",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "const-oid",
+      "version": "0.10.3",
+      "package_checksum": "be95d4a884358a21a199689323c29e9256b4a1b315e22f183d155422041d3a9a",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/formats",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "73b9dc2e79c7308998dd30296e073aefaefb944a68fb89aa412c23c0edcabcaa",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "core-foundation-sys",
+      "version": "0.8.7",
+      "package_checksum": "773648b94d0e5d620f64f280777445740e61fe701025087ec8b57f45c791888b",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "cpufeatures",
+      "version": "0.3.1",
+      "package_checksum": "5ca28b0ae3115b884660db4118d803791fd6756b6e88f39c0f3f7859060d7566",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/utils",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "73b9dc2e79c7308998dd30296e073aefaefb944a68fb89aa412c23c0edcabcaa",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "crypto-common",
+      "version": "0.2.2",
+      "package_checksum": "ce6e4c961d6cd6c9a86db418387425e8bdeaf05b3c8bc1411e6dca4c252f1453",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/traits",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "d2e7ec5355c96eeade56b09187ceb48a6a30299da3ce7531a66d3d11405ab963",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "data-encoding",
+      "version": "2.11.1",
+      "package_checksum": "4583a4551df46e2792f82ceeac45e850d2e2d5debba0b91f102385cda5b11f06",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/ia0/data-encoding",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "b68ad1a3367b825447089e1f8d6829b97f47a89eb78d2f4ebaef4672f5606186",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "der-parser",
+      "version": "10.0.0",
+      "package_checksum": "07da5016415d5a3c4dd39b11ed26f915f52fc4e0dc197d87908bc916e51bc1a6",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rusticata/der-parser.git",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "a5c61b93b6ee1d104af9920cf020ff3c7efe818e31fe562c72261847a728f513",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "deranged",
+      "version": "0.5.9",
+      "package_checksum": "9e9de72ce2ad1f90dc62fa25f0f430ef85eb4b0d8fa0be4f30373bc40a21d28e",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/jhpratt/deranged",
+      "local_license_files": [
+        {
+          "path": "LICENSE-Apache",
+          "sha256": "edd65bdd88957a205c47d53fa499eed8865a70320f0f03f6391668cb304ea376",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "231c837c45eb53f108fb48929e488965bc4fcc14e9ea21d35f50e6b99d98685b",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "digest",
+      "version": "0.11.3",
+      "package_checksum": "f1dd6dbb5841937940781866fa1281a1ff7bd3bf827091440879f9994983d5c2",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/traits",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "af59cea35d7f5e2777a713b8d155d65efa2c339eb43f3c14e868c6ac8506edad",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "displaydoc",
+      "version": "0.2.7",
+      "package_checksum": "c6232dd377dcc64799954cbd3a9bb882e9cdc1308ccd87b1c098f1fb2eaf82a8",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/yaahc/displaydoc",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "dyn-clone",
+      "version": "1.0.20",
+      "package_checksum": "d0881ea181b1df73ff77ffaaf9c7544ecc11e82fba9b5f27b262a3c73a332555",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/dyn-clone",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "equivalent",
+      "version": "1.0.3",
+      "package_checksum": "00d174d5400e5e8fd687ad1049e2f578285fa914201b1af7e8b112a4546bd826",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/indexmap-rs/equivalent",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "7365cc8878a1d7ce155a58c4ca09c3d7a6be413efa5334a80ea842912b669349",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "find-msvc-tools",
+      "version": "0.1.15",
+      "package_checksum": "1c66915cc5391097de7a2b0b972e8505aa33c0df401fd3a6811dbdb32881ba48",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "fnv",
+      "version": "1.0.7",
+      "package_checksum": "3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1",
+      "declared_license": "Apache-2.0 / MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/servo/rust-fnv",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "65fdb6c76cd61612070c066eec9ecdb30ee74fb27859d0d9af58b9f499fd0c3e",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures",
+      "version": "0.3.34",
+      "package_checksum": "9a31d2a3fbaaeb2af2368bbdd904aa8e812d3c04a1ee10d3171f52d556e5d0a3",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures-channel",
+      "version": "0.3.34",
+      "package_checksum": "b1f9e3d69d39e4862ffed03ed071a76f9a13ba1d9109d355b0f0aa6b15e393c4",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures-core",
+      "version": "0.3.34",
+      "package_checksum": "92d699e522242e69e3003b94ecc1f960f3a5e015aa7c5d7486e65ad01dd94f5e",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures-executor",
+      "version": "0.3.34",
+      "package_checksum": "031b47cf1a3c6cc8bc2fc76cd437f521619387907d469316e7c0bc278f1f5432",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures-io",
+      "version": "0.3.34",
+      "package_checksum": "53c0fa8157de1303bfffdaa1cc2a673bfffb60102f76b0ef4441659124373fed",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures-macro",
+      "version": "0.3.34",
+      "package_checksum": "9fb9654ba8355388abeb8dcb4fc62f511300867002afc858860463bdd9fe0c44",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures-sink",
+      "version": "0.3.34",
+      "package_checksum": "1944426bf7d03f1d14f708785e4b33efd750b36d48a157b836b3efc15ede8e1d",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures-task",
+      "version": "0.3.34",
+      "package_checksum": "cd417de3d1d015fc3bfd2b1ea46dfc7bab72ef86f1cc7cc9c78e728b34a6d1fd",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "futures-util",
+      "version": "0.3.34",
+      "package_checksum": "0d50a92467f8ba5dd6e3ee5d4bd04d73ab2e4e1c44474a0674821dfce14b79bc",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/futures-rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "getrandom",
+      "version": "0.2.17",
+      "package_checksum": "ff2abc00be7fca6ebc474524697ae276ad847ad0a6b3faa4bcb027e9a4614ad0",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-random/getrandom",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "42fa16951ce7f24b5a467a40e5b449a1d41e662f97ca779864f053f39e097737",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "getrandom",
+      "version": "0.4.3",
+      "package_checksum": "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-random/getrandom",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "523a42c25d245dde9c015f882cec7f4555aad883382a6cf19b4b7d9b2cd5419b",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "h2",
+      "version": "0.4.20",
+      "package_checksum": "7d29020232d6aa3fb1daca64c1127cf662cf97f254ae16c18c05b8ab635fc118",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/hyperium/h2",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "b21623012e6c453d944b0342c515b631cfcbf30704c2621b291526b69c10724d",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "package_checksum": "ed5909b6e89a2db4456e54cd5f673791d7eca6732202bbf2a9cc504fe2f9b84a",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/hashbrown",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "http",
+      "version": "1.5.0",
+      "package_checksum": "918d3568bebf352712bc2ef3d46a8bcf1a75b373be6539de198e9105cbbf9ce0",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/hyperium/http",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "8bb1b50b0e5c9399ae33bd35fab2769010fa6c14e8860c729a52295d84896b7a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "dc91f8200e4b2a1f9261035d4c18c33c246911a6c0f7b543d75347e61b249cff",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "http-body",
+      "version": "1.1.0",
+      "package_checksum": "ca2a8f2913ee65f60facd6a5905613afaa448497a0230cc41ce022d93290bc2c",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/hyperium/http-body",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "248378d0a3383c173fb925f17141b88e71580b3ba17ddc6ac3d2a344683232ab",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "http-body-util",
+      "version": "0.1.5",
+      "package_checksum": "23169fe34a5fbcdd3f3862e78fb9b6fccd5f02a6dc6f732547005d45631ce71c",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/hyperium/http-body",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "248378d0a3383c173fb925f17141b88e71580b3ba17ddc6ac3d2a344683232ab",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "httparse",
+      "version": "1.10.1",
+      "package_checksum": "6dbf3de79e51f3d586ab4cb9d5c3e2c14aa28ed23d180cf89b4df0454a69cc87",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/seanmonstar/httparse",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "391a5396cec6230bfabd4ef4eb2350eb895bc5efce377a2218f5702ed020d3e3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "httpdate",
+      "version": "1.0.3",
+      "package_checksum": "df3b46402a9d5adb4c86a0cf463f42e19994e3ee891101b1841f30a545cb49a9",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/pyfisch/httpdate",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "4d10fe5f3aa176b05b229a248866bad70b834c173f1252a814ff4748d8a13837",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "934887691e05d69d7c86ad3f2c360980fa30c15b035e351f3c9865e99da4debc",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "hybrid-array",
+      "version": "0.4.15",
+      "package_checksum": "27f864f10dfb56725ce5ce5472bc52252c8f93a4ab86327122cebf62c5f59a17",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/hybrid-array",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "70c9d40f1f9545c3f133b8a67206e89da850f6468eed072281bb3701514114a9",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "hyper",
+      "version": "1.12.0",
+      "package_checksum": "2c3e324da4c95177d6291d4c8730197c0d1822f8a9766814a4a44fa5ab797c9c",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/hyperium/hyper",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "2d01890414494742ba4a509fcec8efa40f6d8be22cbd72be7cff08d6fda4ec89",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "hyper-util",
+      "version": "0.1.21",
+      "package_checksum": "ddc03d96684f9226b8a787cdb71488417b53ab5ea8fdb1dac946cb9431cc8bff",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/hyperium/hyper-util",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "9e0a97848ea543aef745c98e84fde696a9a3e0735538f6daefdd3cb1942effc1",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "iana-time-zone",
+      "version": "0.1.65",
+      "package_checksum": "e31bc9ad994ba00e440a8aa5c9ef0ec67d5cb5e5cb0cc7f8b744a35b389cc470",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/strawlab/iana-time-zone",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "696759d65dfe558ff7d9f031c76db19ec5c0767470fb67c4e8d990820d1e99c9",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "da28ccc6b158fc2d8cccc74e99794b1cff1d29bd7bbeb019442fcf0c04c6cad9",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "iana-time-zone-haiku",
+      "version": "0.1.2",
+      "package_checksum": "f31827a206f56af32e590ba56d5d2d085f558508192593743f16b2306495269f",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "indexmap",
+      "version": "2.14.2",
+      "package_checksum": "cc4e190f5d26ca7051642629da2c52fc03bde85a03197c99408dcd291734c855",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/indexmap-rs/indexmap",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "ecc269ef87fd38a1d98e30bfac9ba964a9dbd9315c3770fed98d4d7cb5882055",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "itoa",
+      "version": "1.0.19",
+      "package_checksum": "3bd1574e617a9a6c1f8f8181bd7e841e1f20e4277607ef28945765188d6284d4",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/itoa",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "js-sys",
+      "version": "0.3.107",
+      "package_checksum": "8dc09d2154098bbf4ef54eab6b117a3c24cbbffe94046b16ee6d6d4510584d3a",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "lazy_static",
+      "version": "1.5.1",
+      "package_checksum": "20870f649af7073d53e38067b2a84312175d56ea15217e1b15bc83506ec50afb",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang-nursery/lazy-static.rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "libc",
+      "version": "0.2.191",
+      "package_checksum": "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/libc",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "log",
+      "version": "0.4.35",
+      "package_checksum": "5d15f86d12da44cd8d4ec3c73984537eb7f4cadcb9776a575a0a8a05ca11005c",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/log",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "memchr",
+      "version": "2.8.3",
+      "package_checksum": "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98",
+      "declared_license": "Unlicense OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/BurntSushi/memchr",
+      "local_license_files": [
+        {
+          "path": "COPYING",
+          "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "UNLICENSE",
+          "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "minimal-lexical",
+      "version": "0.2.1",
+      "package_checksum": "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a",
+      "declared_license": "MIT/Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/Alexhuszagh/minimal-lexical",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE.md",
+          "sha256": "dbe1fff0fb1314b6af94f161511406275cf01c5a32441fbf24528a57a051d599",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "mio",
+      "version": "1.2.4",
+      "package_checksum": "1788edb87fdc09c7e26304471e2f5be8cdefb1b6930d6e3985fc02ff53bf86ee",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/mio",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "07919255c7e04793d8ea760d6c2ce32d19f9ff02bdbdde3ce90b1e1880929a9b",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "nom",
+      "version": "7.1.3",
+      "package_checksum": "d273983c5a657a70a3e8f2a01329822f3b8c8172b73826411a55751e404a0a4a",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/Geal/nom",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "4dbda04344456f09a7a588140455413a9ac59b6b26a1ef7cdf9c800c012d87f0",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "num-bigint",
+      "version": "0.4.8",
+      "package_checksum": "c89e69e7e0f03bea5ef08013795c25018e101932225a656383bd384495ecc367",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-num/num-bigint",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "num-conv",
+      "version": "0.2.2",
+      "package_checksum": "521739c6d2bac4aa25192232afe6841231376b2b26d4d9fae5ecf8ca5772e441",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/jhpratt/num-conv",
+      "local_license_files": [
+        {
+          "path": "LICENSE-Apache",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "e2e245f2b566d0bfafb0f6a04c16b82d710c4e6e7d799e39bb4ef6e541b85b98",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "num-integer",
+      "version": "0.1.47",
+      "package_checksum": "7ce2d95d4b3734dc35aa2f45e1aa22cd416814592a4f9d9205e11affd5b8e10b",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-num/num-integer",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "package_checksum": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-num/num-traits",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "oid-registry",
+      "version": "0.8.1",
+      "package_checksum": "12f40cff3dde1b6087cc5d5f5d4d65712f34016a03ed60e9c08dcc392736b5b7",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rusticata/oid-registry.git",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "a5c61b93b6ee1d104af9920cf020ff3c7efe818e31fe562c72261847a728f513",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "once_cell",
+      "version": "1.21.4",
+      "package_checksum": "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/matklad/once_cell",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "pastey",
+      "version": "0.2.3",
+      "package_checksum": "2ee67f1008b1ba2321834326597b8e186293b049a023cdef258527550b9935b4",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/as1100k/pastey",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "pem",
+      "version": "4.0.0",
+      "package_checksum": "d354a98a3d1251555de99e8fdd8afda05573c31b82f59063a7b0a29b5527f120",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/jcreekmore/pem-rs.git",
+      "local_license_files": [
+        {
+          "path": "LICENSE.md",
+          "sha256": "b7c76ff4466a3aeb6a7d903e81b651335e97d64ecb857e2ee9812a36c6fd1acf",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "percent-encoding",
+      "version": "2.3.2",
+      "package_checksum": "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/servo/rust-url/",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "b38f11f6096706e6de553dabe2a7ed142d59b6fa8c97e290c67496154745cdd5",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "pin-project",
+      "version": "1.1.13",
+      "package_checksum": "2466b2336ed02bcdca6b294417127b90ec92038d1d5c4fbeac971a922e0e0924",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/taiki-e/pin-project",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "pin-project-internal",
+      "version": "1.1.13",
+      "package_checksum": "c96395f0a926bc13b1c17622aaddda1ecb55d49c8f1bf9777e4d877800a43f8b",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/taiki-e/pin-project",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "pin-project-lite",
+      "version": "0.2.17",
+      "package_checksum": "a89322df9ebe1c1578d689c92318e070967d1042b512afbe49518723f4e6d5cd",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/taiki-e/pin-project-lite",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "powerfmt",
+      "version": "0.2.1",
+      "package_checksum": "4a6394b9e965e73d0a289ee54f589087e2c676aedf60885baf52c76b771e4958",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/jhpratt/powerfmt",
+      "local_license_files": [
+        {
+          "path": "LICENSE-Apache",
+          "sha256": "155420c6403d4e0fca34105e3c03fdd6939b64c393c7ec6f95f5b72c5474eab0",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "070dbc7dda03a29296f2d58bdb9b7331af90f2abc9f31df22875d1eabaf29852",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "package_checksum": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/proc-macro2",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "quote",
+      "version": "1.0.47",
+      "package_checksum": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/quote",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "r-efi",
+      "version": "6.0.0",
+      "package_checksum": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "rand",
+      "version": "0.10.3",
+      "package_checksum": "65c9fb96cbc91e3478eaae79a69fcd3f1ae4ad052e471fe6732fff548984b4af",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-random/rand",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "35242e7a83f69875e6edeff02291e688c97caafe2f8902e4e19b49d3e78b4cab",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "rand_core",
+      "version": "0.10.1",
+      "package_checksum": "63b8176103e19a2643978565ca18b50549f6101881c443590420e4dc998a3c69",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-random/rand_core",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "6df43f6f4b5d4587f3d8d71e45532c688fd168afa5fe89d571cb32fa09c4ef51",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "8b6e9feec03e7c9a5facb26855cecd31662bf989b636bcfe79521bdf8ac863f0",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "rcgen",
+      "version": "0.14.10",
+      "package_checksum": "8774e05a7d0de114588e6a28fe7e71694b82614ed569d86d8b389dfbc98b8ad8",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rustls/rcgen",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "debe6fed7ac143217c7f533759c54b14f18cd01d5fe195c51d83c2ae2d136cb4",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "ref-cast",
+      "version": "1.0.27",
+      "package_checksum": "7e440fb4e4b4147295338efb76001ab9e4efc0e5839df2c47fc5ac2381d365c3",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/ref-cast",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "ref-cast-impl",
+      "version": "1.0.27",
+      "package_checksum": "92ecd8964f8453721699a1ed72037b0db49ce2f5a5138486ee89bed6f67cdf3a",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/ref-cast",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "ring",
+      "version": "0.17.14",
+      "package_checksum": "a4689e6c2294d81e88dc6261c768b63bc4fcdb852be6d1352498b114f61383b7",
+      "declared_license": "Apache-2.0 AND ISC",
+      "declared_license_file": null,
+      "repository": "https://github.com/briansmith/ring",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "b3d734001a94efff3579978d953391aa7115f877657d25eb54037a43875d078a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-BoringSSL",
+          "sha256": "005fc765ddc5115da796cca915baa9557abae13ff35e0a47c47affc56f6c414d",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-other-bits",
+          "sha256": "f025ccfb7dfb6bdfedc75ca0f67acc69e6fb4998143d834f7c2f38a29989680f",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "rmcp",
+      "version": "3.10.0",
+      "package_checksum": "b5949e504d5ab9944a168259afc0c39ac0230627b6ec5367ace194c59bcbe163",
+      "declared_license": "Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/modelcontextprotocol/rust-sdk/",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "rusticata-macros",
+      "version": "4.1.0",
+      "package_checksum": "faf0c4a6ece9950b9abdb62b1cfcf2a68b3b67a10ba445b3bb85be2a293d0632",
+      "declared_license": "MIT/Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rusticata/rusticata-macros.git",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "a5c61b93b6ee1d104af9920cf020ff3c7efe818e31fe562c72261847a728f513",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "rustls",
+      "version": "0.23.46",
+      "package_checksum": "48e13bd8c0e9365c43cfa5c9e8f9ad49d3c8444926c9aac819e0e4dc503c8fdf",
+      "declared_license": "Apache-2.0 OR ISC OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/rustls/rustls",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-ISC",
+          "sha256": "7cfafc877eccc46c0e346ccbaa5c51bb6b894d2b818e617d970211e232785ad4",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "709e3175b4212f7b13aa93971c9f62ff8c69ec45ad8c6532a7e0c41d7a7d6f8c",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "rustls-pki-types",
+      "version": "1.16.0",
+      "package_checksum": "102f35f7de7b06d8c61f1cff6592f5253e0dea431c74867aad5dfd70f44663fb",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rustls/pki-types",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "45fd05c4865e7c350b98ad7ac50e1b15462d49af4a91e9b0c9dd933dc9a69742",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "9117d922e667125508dde62b02c1f57ed22f5ad21eb536aa2e2d99e1c796e639",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "rustls-webpki",
+      "version": "0.103.17",
+      "package_checksum": "e3a0760a887c14823fca5a1c970b01d47c328c696c0c64829d1df50e8f853fd5",
+      "declared_license": "ISC",
+      "declared_license_file": null,
+      "repository": "https://github.com/rustls/webpki",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "5b698ca13897be3afdb7174256fa1574f8c6892b8bea1a66dd6469d3fe27885a",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "rustversion",
+      "version": "1.0.23",
+      "package_checksum": "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "schemars",
+      "version": "1.2.3",
+      "package_checksum": "ab508826f74a77ca9d5aba6ff19b522583ee3eaf28a19384ff3d0e5835fadf6e",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/GREsau/schemars",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "1954992a2b32e8a2af24a4c11b726902e344c1934b947a77f04d404908f8db30",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "schemars_derive",
+      "version": "1.2.3",
+      "package_checksum": "e1c3a92094fa7d61aa124645844facb6b554dfc797136d0f5fd1f890e2bffc69",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/GREsau/schemars",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "1954992a2b32e8a2af24a4c11b726902e344c1934b947a77f04d404908f8db30",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "serde",
+      "version": "1.0.229",
+      "package_checksum": "4148590afebada386688f18773da617792bf2ef03ffc1e4cbd2b1d45b023e0ba",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/serde-rs/serde",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "serde_core",
+      "version": "1.0.229",
+      "package_checksum": "67dca2c9c51e58a4791a4b1ed58308b39c64224d349a935ab5039aa360942a48",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/serde-rs/serde",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "serde_derive",
+      "version": "1.0.229",
+      "package_checksum": "e7a5d71263a5a7d47b41f6b3f06ba276f10cc18b0931f1799f710578e2309348",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/serde-rs/serde",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "serde_derive_internals",
+      "version": "0.30.0",
+      "package_checksum": "f852137cce035d6a4df67ccce505ff6b3e9fd3a10e3e52b24dc71e650bb1a9bd",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/serde-rs/serde",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "serde_json",
+      "version": "1.0.154",
+      "package_checksum": "e7e9cc8b1b85264074fbcc02a88680c4096b1e47df8f739dceb03bf482f04bd6",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/serde-rs/json",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "sha2",
+      "version": "0.11.1",
+      "package_checksum": "47d7069beb7d6ac7b9acd1039986e73443f24234f41074da099d6f994ac9ad19",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/hashes",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "831e0f43ad0bf014c1c4fec5767aae470434c1d66d6e671be2d823e729063e25",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "shlex",
+      "version": "2.0.1",
+      "package_checksum": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/comex/rust-shlex",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "553fffcd9b1cb158bc3e9edc35da85ca5c3b3d7d2e61c883ebcfa8a65814b583",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "4455bf75a91154108304cb283e0fea9948c14f13e20d60887cf2552449dea3b1",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "slab",
+      "version": "0.4.12",
+      "package_checksum": "0c790de23124f9ab44544d7ac05d60440adc586479ce501c1d6d7da3cd8c9cf5",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/slab",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "8ce0830173fdac609dfb4ea603fdc002c2f4af0dc9b1a005653f5da9cf534b18",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "smallvec",
+      "version": "1.16.5",
+      "package_checksum": "149309498a5f7334b12ddae0cad8aba81ce785fe91755068867e017cf98fee46",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/servo/rust-smallvec",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "socket2",
+      "version": "0.6.5",
+      "package_checksum": "c3d1e2c7f27f8d4cb10542a02c49005dbd6e93095799d6f3be745fae9f8fedd4",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rust-lang/socket2",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "sse-stream",
+      "version": "0.2.6",
+      "package_checksum": "c25ac7aff0abd1dbc474536e40416e1102c7dd9bfba0b9861c6d357f835dcfb4",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/4t145/sse-stream/",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "049d23c7810a0723f186a193f841378dbc307f62be89bdba21c73126b0df2c52",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "subtle",
+      "version": "2.6.1",
+      "package_checksum": "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292",
+      "declared_license": "BSD-3-Clause",
+      "declared_license_file": null,
+      "repository": "https://github.com/dalek-cryptography/subtle",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "d1fc1bc0d155df60b2e7705b6b2ae02a05c96f948e1cec6e2fb86360b09f346b",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "syn",
+      "version": "2.0.119",
+      "package_checksum": "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/syn",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "syn",
+      "version": "3.0.10",
+      "package_checksum": "4ae9ccbea3a7b0b09443036490c8f34a8b1b760fd345e5c0dae0aac718faea79",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/syn",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "sync_wrapper",
+      "version": "1.0.2",
+      "package_checksum": "0bf256ce5efdfa370213c1dabab5935a12e49f2c58d15e9eac2870d3b4f27263",
+      "declared_license": "Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/Actyx/sync_wrapper",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "synstructure",
+      "version": "0.13.2",
+      "package_checksum": "728a70f3dbaf5bab7f0c4b1ac8d7ae5ea60a4b5549c8a5914361c99147a709d2",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/mystor/synstructure",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "219920e865eee70b7dcfc948a86b099e7f4fe2de01bcca2ca9a20c0a033f2b59",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "thiserror",
+      "version": "2.0.21",
+      "package_checksum": "09e52cb86a36cede5cb101bf8908837b3e4c6e5e59fe7fd85c23fb56200d189e",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/thiserror",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "thiserror-impl",
+      "version": "2.0.21",
+      "package_checksum": "fe5197923287db20a58125f0bc85c062f7f2c892de97b18c356f9efb14b28524",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/thiserror",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "time",
+      "version": "0.3.55",
+      "package_checksum": "cdb87b95ec50ddfa440816d227a17b2ccbdda963a316a727fda0fc4334f7d134",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/time-rs/time",
+      "local_license_files": [
+        {
+          "path": "LICENSE-Apache",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "2537228d9a1b44a5dc595241349cae7090b326c8de165aaf89bfddef4a00d0fc",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "time-core",
+      "version": "0.1.9",
+      "package_checksum": "9e1c906769ad99c88eaa54e728060edef082f8e358ff32030cb7c7d315e81109",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/time-rs/time",
+      "local_license_files": [
+        {
+          "path": "LICENSE-Apache",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "2537228d9a1b44a5dc595241349cae7090b326c8de165aaf89bfddef4a00d0fc",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "time-macros",
+      "version": "0.2.32",
+      "package_checksum": "7e689342a48d2ea927c87ea50cabf8594854bf940e9310208848d680d668ed85",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/time-rs/time",
+      "local_license_files": [
+        {
+          "path": "LICENSE-Apache",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "2537228d9a1b44a5dc595241349cae7090b326c8de165aaf89bfddef4a00d0fc",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tokio",
+      "version": "1.54.1",
+      "package_checksum": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/tokio",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "253cd04c6714889df2d32f3f64d669179a1c95c76ac43c40882c52eb06bc3552",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tokio-macros",
+      "version": "2.7.2",
+      "package_checksum": "78773a2a397f451582ce068015985c33193cf6dea8b74d2a639fe457b2f07b0e",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/tokio",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "0b83dc40cba89b9922bb84b0a9c7d2768ce37c1d7e138b7424fd4549915778c9",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tokio-stream",
+      "version": "0.1.19",
+      "package_checksum": "a3d06f0b082ba57c26b79407372e57cf2a1e28124f78e9479fe80322cf53420b",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/tokio",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "253cd04c6714889df2d32f3f64d669179a1c95c76ac43c40882c52eb06bc3552",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tokio-util",
+      "version": "0.7.20",
+      "package_checksum": "e464cf451ba96ebfc6f9b6542f17ee8b8956e33f1e40d9690624e59d7a7f8a4b",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/tokio",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "253cd04c6714889df2d32f3f64d669179a1c95c76ac43c40882c52eb06bc3552",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tonic",
+      "version": "0.14.9",
+      "package_checksum": "e2cdfc673aabd30fe8fee92e65837b644c37c5d47f0f97ae6d5e0f1237d15e1b",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/grpc/grpc-rust",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "5c686e0f7978412b49187ae0e9f77e9b52eea9d8d2e6c0de8694b35817d873b1",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tower",
+      "version": "0.5.3",
+      "package_checksum": "ebe5ef63511595f1344e2d5cfa636d973292adc0eec1f0ad45fae9f0851ab1d4",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tower-rs/tower",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "4249c8e6c5ebb85f97c77e6457c6fafc1066406eb8f1ef61e796fbdc5ff18482",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tower-layer",
+      "version": "0.3.3",
+      "package_checksum": "121c2a6cda46980bb0fcd1647ffaf6cd3fc79a013de288782836f6df9c48780e",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tower-rs/tower",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "4249c8e6c5ebb85f97c77e6457c6fafc1066406eb8f1ef61e796fbdc5ff18482",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tower-service",
+      "version": "0.3.3",
+      "package_checksum": "8df9b6e13f2d32c91b9bd719c00d1958837bc7dec474d94952798cc8e69eeec3",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tower-rs/tower",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "4249c8e6c5ebb85f97c77e6457c6fafc1066406eb8f1ef61e796fbdc5ff18482",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tracing",
+      "version": "0.1.44",
+      "package_checksum": "63e71662fa4b2a2c3a26f570f037eb95bb1f85397f3cd8076caed2f026a6d100",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/tracing",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tracing-attributes",
+      "version": "0.1.31",
+      "package_checksum": "7490cfa5ec963746568740651ac6781f701c9c5ea257c58e057f3ba8cf69e8da",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/tracing",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "tracing-core",
+      "version": "0.1.36",
+      "package_checksum": "db97caf9d906fbde555dd62fa95ddba9eecfd14cb388e4f491a66d74cd5fb79a",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/tokio-rs/tracing",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "try-lock",
+      "version": "0.2.5",
+      "package_checksum": "e421abadd41a4225275504ea4d6566923418b7f05506fbc9c0fe86ba7396114b",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/seanmonstar/try-lock",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "c816a0749cdc6bf062a5111c159723de51b2bfac66a1dac2655abd9e6b1583eb",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "typenum",
+      "version": "1.20.1",
+      "package_checksum": "b6f5e870be6c3b371b77fe0ee0bafb859fa4964b4404c27de1d380043c4dda20",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/paholg/typenum",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "516b24e051bf5630880ebbd55c40a25ce9552ebaf8970a53e8976eb70e522406",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "a825bd853ab71619a4923d7b4311221427848070ff44d990da39b0b274c1683f",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.27",
+      "package_checksum": "a2c754d6c33795a1c324727428e5a7dedb5b06195f9890bdbcba760d3e246563",
+      "declared_license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/unicode-ident",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-UNICODE",
+          "sha256": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "untrusted",
+      "version": "0.9.0",
+      "package_checksum": "8ecb6da28b8a351d773b68d5825ac39017e680750f980f3a1a85cd8dd28a47c1",
+      "declared_license": "ISC",
+      "declared_license_file": null,
+      "repository": "https://github.com/briansmith/untrusted",
+      "local_license_files": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "7abd9b6960dcf7d4d0a48606a5b71bfe37d472db68d70637f3a58a56785f1621",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "uuid",
+      "version": "1.29.2",
+      "package_checksum": "bed99139f7dac9b5cfe5f17be4d66dc7079a34dee1d74bcc77217119240e267c",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/uuid-rs/uuid",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "436bc5a105d8e57dcd8778730f3754f7bf39c14d2f530e4cde4bd2d17a83ec3d",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "want",
+      "version": "0.3.2",
+      "package_checksum": "ec4cdd0dd910afe868b7ef477227d8d538b46b3075031afee8a9f2acb0a2ed0b",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/seanmonstar/want",
+      "local_license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "a65f5d0a945d267751344c95665945b90c030ea107faf5c85d518929886187da",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "wasi",
+      "version": "0.11.1+wasi-snapshot-preview1",
+      "package_checksum": "ccf3ec651a847eb01de73ccad15eb7d99f80485de043efb2f370cd654f4ea44b",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "wasm-bindgen",
+      "version": "0.2.130",
+      "package_checksum": "a0181c14ddd6c7b8b0b0132a5f1ea2f32be0d893cd3ea97b6e3b28886b8a3d1c",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "wasm-bindgen-macro",
+      "version": "0.2.130",
+      "package_checksum": "6e931a02a39abdbf66966fc35902b5ed58344750a70885bed4ebb3d8eaf28ed9",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "wasm-bindgen-macro-support",
+      "version": "0.2.130",
+      "package_checksum": "2ca4b54280e455bd831e33a6b8e734baf432fe63fbc35c42ac14ce67a043a53a",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "wasm-bindgen-shared",
+      "version": "0.2.130",
+      "package_checksum": "3b1f9c3798725016c6ee5f2f57869ec0831e8bbc0ab0310a86e787e97f41389e",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-core",
+      "version": "0.62.2",
+      "package_checksum": "b8e83a14d34d0623b51dce9581199302a221863196a1dde71a7663a4c2be9deb",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-implement",
+      "version": "0.60.2",
+      "package_checksum": "053e2e040ab57b9dc951b72c264860db7eb3b0200ba345b4e4c3b14f67855ddf",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-interface",
+      "version": "0.59.3",
+      "package_checksum": "3f316c4a2570ba26bbec722032c4099d8c8bc095efccdc15688708623367e358",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-link",
+      "version": "0.2.1",
+      "package_checksum": "f0805222e57f7521d6a62e36fa9163bc891acd422f971defe97d64e70d0a4fe5",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-result",
+      "version": "0.4.1",
+      "package_checksum": "7781fa89eaf60850ac3d2da7af8e5242a5ea78d1a11c49bf2910bb5a73853eb5",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-strings",
+      "version": "0.5.1",
+      "package_checksum": "7837d08f69c77cf6b07689544538e017c1bfcf57e34b4c0ff58e6c2cd3b37091",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.52.0",
+      "package_checksum": "282be5f36a8ce781fad8c8ae18fa3f9beff57ec1b52cb3de0789201425d9a33d",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.61.2",
+      "package_checksum": "ae137229bcbd6cdf0f7b80a31df61766145077ddf49416a728b02cb3921ff3fc",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows-targets",
+      "version": "0.52.6",
+      "package_checksum": "9b724f72796e036ab90c1021d4780d4d3d648aca59e491e6b98e725b84e99973",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows_aarch64_gnullvm",
+      "version": "0.52.6",
+      "package_checksum": "32a4622180e7a0ec044bb555404c800bc9fd9ec262ec147edd5989ccd0c02cd3",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows_aarch64_msvc",
+      "version": "0.52.6",
+      "package_checksum": "09ec2a7bb152e2252b53fa7803150007879548bc709c039df7627cabbd05d469",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows_i686_gnu",
+      "version": "0.52.6",
+      "package_checksum": "8e9b5ad5ab802e97eb8e295ac6720e509ee4c243f69d781394014ebfe8bbfa0b",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows_i686_gnullvm",
+      "version": "0.52.6",
+      "package_checksum": "0eee52d38c090b3caa76c563b86c3a4bd71ef1a819287c19d586d7334ae8ed66",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows_i686_msvc",
+      "version": "0.52.6",
+      "package_checksum": "240948bc05c5e7c6dabba28bf89d89ffce3e303022809e73deaefe4f6ec56c66",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows_x86_64_gnu",
+      "version": "0.52.6",
+      "package_checksum": "147a5c80aabfbf0c7d901cb5895d1de30ef2907eb21fbbab29ca94c5b08b1a78",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows_x86_64_gnullvm",
+      "version": "0.52.6",
+      "package_checksum": "24d5b23dc417412679681396f2b49f3de8c1473deb516bd34410872eff51ed0d",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "version": "0.52.6",
+      "package_checksum": "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec",
+      "declared_license": null,
+      "local_license_files": [],
+      "read_state": "lockfile_identity_only_not_downloaded_for_current_target"
+    },
+    {
+      "name": "x509-parser",
+      "version": "0.18.1",
+      "package_checksum": "d43b0f71ce057da06bc0851b23ee24f3f86190b07203dd8f567d0b706a185202",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/rusticata/x509-parser.git",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "a5c61b93b6ee1d104af9920cf020ff3c7efe818e31fe562c72261847a728f513",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "yasna",
+      "version": "0.6.0",
+      "package_checksum": "b5f6765e852b9b4dc8e2a76843e4d64d1cea8e79bcde0b6901aea8e7c7f08282",
+      "declared_license": "MIT OR Apache-2.0",
+      "declared_license_file": null,
+      "repository": "https://github.com/qnighy/yasna.rs",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "2a7df90e60fd5512b8bca35d3ce90e068f21c52d962855053fd1d9e2e7ca0f16",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "zeroize",
+      "version": "1.9.1",
+      "package_checksum": "e13084392c5e4bc371903e2935a5eaeed24905a7511356b883835e18a78f6879",
+      "declared_license": "Apache-2.0 OR MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/RustCrypto/utils",
+      "local_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "read_state": "inventoried_not_legal_review"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "8c7516d4b27b1e495be5e38b612298b63de48d05f49cdac94f70f3cd70f8864b",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    },
+    {
+      "name": "zmij",
+      "version": "1.0.23",
+      "package_checksum": "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b",
+      "declared_license": "MIT",
+      "declared_license_file": null,
+      "repository": "https://github.com/dtolnay/zmij",
+      "local_license_files": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "read_state": "inventoried_not_legal_review"
+        }
+      ]
+    }
+  ],
+  "future_release_obligations": [
+    "Build product feature/RID-specific SBOM and native dependency inventory including OS/crypto artifacts.",
+    "Review exact distributed license texts and NOTICE obligations and security advisories at release.",
+    "Update fixed source/test seam evidence and old/new compatibility after dependency changes."
+  ]
+}

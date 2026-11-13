@@ -1,43 +1,45 @@
-# R25 — SeaORM选型、实体与关系
+# R25 — Native ORM reuse without mandatory per-entity compilation
 
-- 日期：2026-11-12；执行者：database_design（真实协作子代理）。
-- 状态：**partially_evidenced**；设计决定已有明确建议，正式接受需独立Review；产品实现与生产验收未完成。
-- 输入：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
-- Task packet：revision0.1.1，SHA-256 `22a35bfe736e0f07bfb21bc10115a6ea7dd20233489b07d9a7926f1c0436524f`；不伪造后续packet修订为本次原始输入。
-- 当前需求：Rust Database + Rust ORM必须；C#只上层语法/请求/API/DTO。旧managed默认决策明确superseded，已有源码观察和实际实验保留。
-- 逐结论：[evidence.json](evidence.json)；实际/未读范围与真实reader：[coverage.json](coverage.json)。完整fetch不等于完整阅读。
+Research consolidation: 2026-11-12 (America/Los_Angeles); author `/root/database_research`. Baselines Design `ba21ecb5c2299b303584b120f2e6bd1c6d74783a`, Plan `5b346ebb5acdb387077d0faae16b00bbc77cb299`. **Independent acceptance review pending; no product implementation or performance acceptance claimed.** Current evidence and explicit stage obligations are in [evidence.json](evidence.json), [coverage.json](coverage.json), and [completion record](../../../../verification/database-completion/task-status.json).
 
-## 1. 自主选定SeaORM，不再用SQLx代称ORM
 
-用户明确Rust提供合适ORM、C#仅最上层。比较后选SeaORM2.0.4+SQLx0.9/SeaQuery1.0系列；SQLx是驱动/查询执行，SeaQuery是SQLbuilder，不能单独满足ORM选型。旧自有C#IR/mapper/TrackedUnitOfWork默认方案superseded，EF/Npgsql/DapperAOT只研究和benchmark。
+## Selection based on actual public and internal boundaries
 
-SeaORM采用真实Entity/Model/ActiveModel/Column/Relation/Related、typedProjection和runtimeCondition。Diesel2.3.14的dynamic-schema与boxedquery由root实际读取：dynamic schema真实存在但失去部分schema/type编译保障，boxed仍有ST/QS/DB/GB泛型与boxfragments；不是“Diesel不能动态/异步”。本场景选择SeaORM的async模型与动态条件组合，未测性能优劣。完整root路径/blob/ranges以cross-task证据保存。
+The ordinary profile selects **SeaQuery + SQLx** for native query construction, dialect, execution, pool, transactions and codecs, with a small Rust metadata/ownership/capability layer. This is now a concrete design choice, subject to independent contract review. C# owns typed Fluent declarations and static DTO materialization. It does not own SQL semantics, relation-query execution, identity-map machinery or a hidden full ORM.
 
-## 2. 公共API到ORM内部与测试
+SeaORM is neither forced by its name nor dismissed as static-only. The preserved [SeaQuery investigation](source-driven-seaquery.md) and [dynamic-module correction](seaorm-dynamic-boundary.md) are supplemented by an executed SeaORM2.0.4 public dynamic-projection fixture. It constructs ModelType/FieldType for unrelated runtime tables and maps rows without a Rust EntityTrait declaration. This is positive evidence for a reusable native SeaORM capability with no entity recompilation.
 
-EntityTrait静态关联类型→Entityfind/filter/join→SeaQueryStatement→ConnectionTrait→SQLxdriver→QueryResult→FromQueryResult→Model/Projection。ActiveModel定义Set/Unchanged/NotSet，insert/update先before_save再Entityexecutor后after_save；save只按PKNotSet决定insert/update，不能当真正upsert。try_set返回Result，set不匹配可panic；外部typedrequest先校验，用typed构造/try_set。
+## Native capability allocation
 
-RelationTrait/Related提供key/direction/via及RelationDef，真实join/related查询可由生成的Entity复用；codegen compact writer发射DeriveEntityModel/Relation/Related，fixture显示FK和has_many。tests/relational_tests读取了插入join实体、find_also_related/into_model/missingNone/find_related；只读未运行。
+| Capability | Concrete owner and integration |
+| --- | --- |
+| SQL AST, expressions, CRUD, join/CTE/window/dialects | SeaQuery public dynamic APIs; native Adapter checks capability/ownership/budgets |
+| Protocol, driver, physical pool, native transactions | SQLx; reuse directly, no managed replacement |
+| Runtime projection metadata and native dynamic values | SeaORM public ModelType/FieldType/QueryResult is a supported comparison/optional integration; prevalidate actual row shape |
+| Static ActiveModel hooks and typed relationship graph | SeaORM specialized native profile with explicit build/upgrade cost; not ordinary entity behavior |
+| Explicit ordinary relation queries and CAS changesets | Rust applies declared metadata to native SeaQuery joins/updates and SQLx execution; C# only expresses typed intent |
+| Batch eager loading with native grouping | Existing SeaORM loader source is the reuse candidate, but current ModelTrait/EntityTrait bounds require a controlled dynamic extension before promising arbitrary runtime metadata |
+| CLR construction | Static C# projection reader/constructor; no reflection SQL/ORM engine |
 
-Update executor判断rows_affected/RETURNING，普通单行RecordNotUpdated不是自动versionCAS；NW显式key+tenant+expectedversion谓词、原子nextversion，0冲突、1成功、>1违约。transaction_tests显示after_save报错时事务内行已经存在，scope rollback后才清零；failure与effect必须分开。v1使用无副作用默认hooks，关系写操作明确transaction，不接C#回调hook。
+## Deep relation-source finding
 
-## 3. 生成模型而非伪万能引擎
+SeaORM LoaderTrait avoids N+1 by loading relation hops and regrouping results by ValueTuple. The inspected loader_impl remains generic over ModelTrait/EntityTrait, reads relation key metadata from static associated columns and uses all() to collect rows. The dynamic projection helper participates in many-to-many key extraction; it does not erase the outer static trait boundary. Duplicate-key reduction and ordered reconstruction are valuable existing native algorithms. A dynamic Entity constructor alone cannot automatically make this loader a complete runtime-metadata ORM.
 
-C#schema/query→SDKprebuild逻辑manifest→RustCLI验证/生成静态Entity/ActiveModel/Relation/Projection/dispatcher→与commonRustDBcrate静态链接到一个model native module。C#SG只消费已存在manifest生成薄API/encoder/DTOdecoder。新增实体/关系/projection/staticquery需重编译native，普通开发者不写Rust，可CI预构建；不声称运行时从任意schema生造Rust泛型。
+Accordingly, the initial public ordinary surface supports explicit native joins, bounded relation result projections and explicit updates/CAS. Do not silently ship lazy loading/full graph persistence/change tracking. If batch eager-loading is admitted, prefer an upstream extraction/generalization of the existing native loader over reimplementing it in C#: descriptor access, bounded collection, key/tenant/arity validation and result regrouping form the reviewed extension boundary. Its conformance tests must use the upstream duplicate-key/empty/many-to-many cases plus arbitrary runtime schemas. No fork is currently required for the chosen baseline.
 
-统一requestIR由Rust解释，C#仅提前syntax/type/budget检查；dynamicCondition限于编译实体/列/关系/投影。SeaORMActiveModelEx源码注明minor可能变化，v1核心依赖普通ActiveModel/Relation，显式boundedchangeset，不把evolvinggraph API当public ABI。
+## New negative control and cost implications
 
-## 4. Session/事务适配与Rust工作单元
+SeaORM dynamic nullable decoding maps a missing column to None through Option<T>. The original failed fixture and corrected shape-preflight test are preserved. Every integration must validate unique names/ordinals/type shape before interpreting NULL. Public API availability alone was insufficient to establish correctness.
 
-默认SeaORMDatabaseConnection每queryacquire；DatabaseTransaction私有conn、consumecommit、Droptry_lock/expect不能直接满足NW固定Session及quiescence。RustSessionExecutor实现公开Connection/Stream/Transactiontraits，持有SQLxPoolConnection并控制budget/close，真正ORM链仍工作。公开row/resultFrom和SqlxValues提供依据；Send/borrow/trait组合未编译，由B04/B05fixture验证，不能自称已集成成功。
+SeaQuery/SQLx direct row mapping avoids mandatory dynamic FieldValue objects when the requested C# projection can be encoded directly. That is a plausible allocation advantage, not measured superiority. Direct builder calls are the correctness route; batching is an optimization only after representative workloads justify transport/decoder costs. Static SeaORM hooks and optional dynamic projections remain separately measured alternatives. New native algorithms/codecs can require a maintainer module update; new ordinary supported entities cannot.
 
-默认结果无隐式tracking/lazyload；C#DTO修改不自动送库。可选DataChangeSet只是nativehandle façade，Rust保存有界ActiveModel/原始version/关系依赖，SaveChanges拥有明确事务；已有外层Active事务拒绝，避免earlyaccept。ConfirmedCommitted才acceptchanges，Unknown冻结，恢复后reload。关系Replace/Clear/Delete必须显式，不能从C#集合缺项猜删除；显式joins/splitload支持HasOne/HasMany/多对多。
+## Closure and future obligations
 
-## 5. 候选成本与实测义务
+Source inspection, prior same-native-hash C# AOT evidence and the new dynamic projection/native join/changeset/codec/migration probes resolve the architecture questions. Existing report claims and source identities remain historical evidence below; schema-specific default decisions are explicitly superseded. Independent review decides research/design acceptance. B04/B09–B14 then implement the chosen scopes and both-OS AOT, semantic differential, race/fuzz and memory/performance tests. The existence of those future tests is not authorization to leave this architecture undecided forever.
 
-EFStateManager/ChangeDetector真实identitymap/snapshot/scan及成功AcceptAllChanges路径保留作对照，不是NW复制目标。RustModel/Projection+wire+C#DTO有copy和alloc，SeaORMasync-trait/stream也有box成本，schema-specific编译有build时间/包体成本；这些必须量化，不能因Rust/静态类型名称断言胜出。
+## Historical source citations retained
 
-B11模型生成+实际ORMquery/CRUD，B14FK顺序/relations/CAS/changeset/Unknown/after-saveeffect，B12wire/DTOerrorcleanup；B22真实PG/SQLite和Windows/LinuxAOT；B23与同功能纯RustSeaORM及managed参考对照CPU/alloc/RSS/P99/build/code量。没有执行Rust/C#代码或上游测试。完整SeaORM所有loader/继承/schema-sync、Dieselasync实现、全部drivercodec未读；status保持partial，但适合本项目的ORM选择与边界已有明确设计决定。
+The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
 ## 固定源码入口与实际阅读
 
@@ -65,4 +67,6 @@ B11模型生成+实际ORMquery/CRUD，B14FK顺序/relations/CAS/changeset/Unknow
 | R25-ROOT05 | [diesel/src/query_builder/select_statement/boxed.rs](https://github.com/diesel-rs/diesel/blob/4007d771b1e808839f771a693f6bae9f821f0e64/diesel/src/query_builder/select_statement/boxed.rs) | [[1, 190]]; cross-task-source-evidence; reader=/root |
 | R25-ROOT06 | [diesel_dynamic_schema/tests/dynamic_values.rs](https://github.com/diesel-rs/diesel/blob/4007d771b1e808839f771a693f6bae9f821f0e64/diesel_dynamic_schema/tests/dynamic_values.rs) | [[1, 140]]; cross-task-source-evidence; reader=/root |
 
-所有新C#/Rust接口均design-draft、未编译；source/test-source与跨任务源码证据不是执行结果。此前R24的Python/SQLite实验范围及原始hash不变。精确缺口转入现有B任务，不新增元规划体系。
+## CI confirmation at the published fixture commit
+
+GitHub run `43388468172`, source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, independently executed the same five metadata/SQLite cases on Windows and Linux and all six PostgreSQL cases on Linux PostgreSQL 18.0. The author read raw suite logs and verified every archived file, input snapshot and stream hash; the [confirmation](../../../../verification/database-completion/ci-confirmation.json) records exact artifact identities, image digest and CRLF/LF differences. These are 11 unique native research cases with 16 CI executions, not new product/AOT tests or a second technical reviewer. This task claims only its mapped cases above.

@@ -3,7 +3,7 @@
   "task_id": "R07",
   "observed_date": "2026-11-12",
   "author": "interop_design",
-  "status": "partially_evidenced_design_decision_recorded",
+  "status": "research_complete_independent_review_pending",
   "input_pin": {
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
@@ -248,5 +248,101 @@
       "read_state": "read_complete",
       "notes": "License source read; no substantial upstream code copied into this report; future code reuse needs file-specific notice review."
     }
-  ]
+  ],
+  "completion_2026_11_13": {
+    "observed_date": "2026-11-13",
+    "author": "/root/interop_research",
+    "input_pin": {
+      "design_baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+      "task_revision": "0.2.5",
+      "packet_path": "research-tasks/R07.md",
+      "packet_sha256": "5aa7894ad9e2d3c06e4d4a6bc236e54905dc11b8a14f60df840c2456276bc8f4",
+      "graph_packet_sha256": "5aa7894ad9e2d3c06e4d4a6bc236e54905dc11b8a14f60df840c2456276bc8f4",
+      "graph_packet_hash_matches": true
+    },
+    "status": "research_complete_independent_review_pending",
+    "decision": "Opaque owner + SafeHandle physical lease + separate atomic logical admission; explicit parent/module ownership and independent transferred result; no global generation table or blocking finalizer.",
+    "source_manifest": {
+      "path": "verification/interop-completion/source-inspection.json",
+      "sha256": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096"
+    },
+    "sources": [
+      {
+        "repository": "https://github.com/rust-diplomat/diplomat",
+        "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+        "path": "tool/src/dotnet/mod.rs",
+        "blob_sha": "ef22c1423cdb07c602e6f463bdf6a61f8898dc92",
+        "read_ranges": "1-180",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Backend explicitly requires callers to synchronize call/Dispose, unlike NativeWeave's stronger generated admission contract.",
+        "url": "https://github.com/rust-diplomat/diplomat/blob/f8259ad0e37ff2f9187739622443dfaa12e32937/tool/src/dotnet/mod.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "Dotnet backend capabilities/lifetimes"
+      },
+      {
+        "repository": "https://github.com/mozilla/uniffi-rs",
+        "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+        "path": "uniffi_core/src/ffi/rustfuture/future.rs",
+        "blob_sha": "95a9c6c0fddb201580a6f0533aa14ec4b43ce712",
+        "read_ranges": "1-310",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+        "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/future.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "RustFuture / wrapped future / poll/complete/free"
+      },
+      {
+        "repository": "https://github.com/tokio-rs/bytes",
+        "commit": "76c0fbb54ed4336caf9d2311658a2f4a5627c21d",
+        "path": "src/bytes.rs",
+        "blob_sha": "0f1aaed4ee1674ba3946fdd986ac32cead808689",
+        "read_ranges": "207-290",
+        "symbol": "Bytes::from_owner",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Owner moves into Bytes, one AsRef call after ownership publication; last clone controls drop; conversion to BytesMut copies.",
+        "url": "https://github.com/tokio-rs/bytes/blob/76c0fbb54ed4336caf9d2311658a2f4a5627c21d/src/bytes.rs",
+        "not_claimed": "Other source ranges or upstream test execution.",
+        "local_blob_verified": true
+      }
+    ],
+    "executed_experiments": [
+      {
+        "manifest": "verification/interop-completion/linux/result.json",
+        "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "evidence_kind": "research_fixture_executed",
+        "supported_claim": "Actual Linux x64 .NET11/Rust1.100 native-thread callback, cancellation-registration drain, unique terminal/take and independent result-owner fixture: normal 10528 and Native AOT 10529 assertions; incremental Roslyn probe 9, static metadata restrictions 4 normal/6 AOT. Scope is research harness, not the complete product protocol."
+      }
+    ],
+    "inherited_evidence": [
+      {
+        "path": "verification/logical-admission/primary-results.json",
+        "sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "status": "existing_evidence_reused_not_reexecuted"
+      },
+      {
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "status": "existing_evidence_reused_not_reexecuted"
+      }
+    ],
+    "independent_review": {
+      "status": "pending",
+      "reviewer": null
+    },
+    "research_blockers": [],
+    "future_implementation_obligations": [
+      "Complete product parent/child transfer, mutable builder writer, finalizer and worker-affine cleanup matrices in A03/A04/A20/B01; weak-memory proof at actual atomics."
+    ],
+    "upstream_tests_executed": false,
+    "product_implementation_verified": false,
+    "production_acceptance_complete": false,
+    "ci_executed_evidence": {
+      "path": "verification/interop-completion/ci-evidence-read.json",
+      "sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+      "scope": "Main interop, generator and AOT restrictions fixture actually normal/AOT executed on Windows x64 MSVC and Linux x64 GNU, source commit 7ea84e11ee19e6dad4503a5872eb27c6c7f44e80."
+    }
+  },
+  "historical_status": "partially_evidenced_design_decision_recorded",
+  "historical_claim_scope": "Original claims retain their observed_date/input_pin and unexecuted statements; completion_2026_11_13 records new evidence without rewriting history."
 }

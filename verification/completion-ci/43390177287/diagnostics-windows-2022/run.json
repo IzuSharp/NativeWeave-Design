@@ -1,0 +1,62 @@
+{
+  "kind": "research_only",
+  "os": "Windows",
+  "arch": "AMD64",
+  "inputs_sha256": {
+    "diagnostics/DiagnosticsProbe.csproj": "8e95e5ea1af7d0f015798020f23febe234f52324c2f75e74784d99009e6aad9e",
+    "diagnostics/Program.cs": "8e778e42178b8538106e0b4efbd295c03fad6cd6a626902b90bc53d5c31ec3e6",
+    "run_diagnostics.py": "d68e5da6ac95f4390ff8c58d3e30bf48b84b7f14fae871712b579098e2c6bf43"
+  },
+  "commands": [
+    {
+      "name": "dotnet-info",
+      "command": [
+        "dotnet",
+        "--info"
+      ],
+      "timeout_seconds": 30,
+      "exit_code": 0,
+      "elapsed_seconds": 0.797,
+      "stdout_sha256": "f170989b6d9b73672423252cb85923cda7b4ce099714f35862a17c0d6de18c07",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish",
+      "command": [
+        "dotnet",
+        "publish",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\server-completion\\diagnostics\\DiagnosticsProbe.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "win-x64",
+        "-p:PublishAot=true",
+        "-o",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\diagnostics\\publish"
+      ],
+      "timeout_seconds": 600,
+      "exit_code": 0,
+      "elapsed_seconds": 24.281,
+      "stdout_sha256": "8548c8a654c32c1610e9f416f23ab57405b00cd75b7d258e7d8dfa4db5301a93",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native-aot-run",
+      "command": [
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\diagnostics\\publish\\DiagnosticsProbe.exe"
+      ],
+      "timeout_seconds": 30,
+      "exit_code": 3221226505,
+      "elapsed_seconds": 0.265,
+      "stdout_sha256": "c66b755c9bbda6e85a47a7843a9d947618a922a931ebc295095f3742ed116ddb",
+      "stderr_sha256": "9918bb63b52ed5ff016ffac5196ac34c06a4217f7f7be7b780ad94adbc570805"
+    }
+  ],
+  "success": false,
+  "limitations": [
+    "Not a cross-language propagation test.",
+    "Single-process no-observer timing is not a production benchmark.",
+    "Current-thread allocation counter excludes native memory."
+  ],
+  "binary_sha256": "722b7855b0a4eda141959bc041e9ce041b2e87e57d97f56b562ee8fbb0da4f1e"
+}

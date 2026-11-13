@@ -1,9 +1,9 @@
 # 事务、连接池与不确定结果恢复
 
-- Task：D15；契约：C-TX-001@0.2.1-draft；作者：database_design / source-lifecycle continuation；2026-11-12。
-- 输入packet：revision0.1.1，SHA-256 `cce4d00e3cc7983c2808cf7a5d47e4a08707885973c497ba5a929a78c5bd554c`，已与Plan图匹配。
-- 基线：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
-- 状态：**proposed；本修订待独立Review**；接受状态以registry中相同内容hash及独立Review为准。契约代码样例仍design-draft、未编译；完整生产adapter、PostgreSQL故障与C# AOT验证尚未完成；有限Rust/SQLite回收与丢失COMMIT确认实验见第12节。
+- Task：D15；契约：C-TX-001@0.3.0；作者：database_design / source-lifecycle continuation；2026-11-12。
+- 历史输入packet：revision0.1.1，SHA-256 `cce4d00e3cc7983c2808cf7a5d47e4a08707885973c497ba5a929a78c5bd554c`，曾与当时Plan图匹配；当前修订输入与hash见 [database-completion](../../verification/database-completion/task-status.json)。
+- 历史基线：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
+- 状态：**0.3.0 设计候选；registry记录精确内容独立审查与接受，产品实施/发布验收保留于Delivery**；接受状态以registry中相同内容hash及独立Review为准。契约代码样例仍design-draft、未编译；完整生产adapter与C# AOT验证尚未完成；历史有限Rust/SQLite回收实验见第12节，本次真实PostgreSQL响应丢失、协议恢复与迁移锁实验见第13节。
 - 输入：[R19](../research/topics/R19/report.md)、[R20](../research/topics/R20/report.md)、[R21](../research/topics/R21/report.md)；与[驱动规范](drivers.md)共享WeaveDataSource/DataSession命名。
 
 > 旧packet与Review仅为原版本历史溯源，不能接受本次新内容hash。
@@ -24,11 +24,11 @@ TX-D004：默认不自动重试业务写入或整个事务。可证明未发送�
 
 普通路径是预编译SeaQuery + SQLx Rust Engine；SQLx研究pin为v0.9.0 `75bc0487eb661da811bb7a3c5d158f1bd463fef4`。SeaORM固定源码保留为专用静态Entity profile证据，其trait/model编译耦合不是普通应用前置。
 
-Rust SessionExecutor持有物理connection lease；B04定义可注入driver接口，B02/B03执行，B05协调事务/cleanup。SeaQuery构建SQL，fallible binder传播参数编码错误。借用transaction/stream局限在拥有连接的native async任务，不transmute越过生命周期。新增普通C#实体是runtime metadata；不跨动态库传SQLx pool/trait object/allocator owner。真实编译、PG/SQLite故障与并发门禁仍须执行。
+Rust SessionExecutor持有物理connection lease；B01声明共享driver/session接口，B04组合并持有host，B02/B03执行，B05协调事务/cleanup。SeaQuery构建SQL，fallible binder传播参数编码错误。借用transaction/stream局限在拥有连接的native async任务，不transmute越过生命周期。新增普通C#实体是runtime metadata；不跨动态库传SQLx pool/trait object/allocator owner。当前真实原生编译及有限PG/SQLite故障证据见第12/13节；正式产品跨语言并发门禁仍须执行。
 
 SQLx PoolConnection::close保留池permit到关闭结束；close_on_drop只安排关闭，Drop可能spawn返池；返池执行after_release与ping并在失败时close_hard。PG TransactionManager通过命令与ReadyForQuery推进事务深度；commit调用后错误不证明未提交。SQLite worker将BEGIN成功但失去ack与COMMIT成功但失去ack区别处理；start_rollback/shutdown可同步等待bounded channel，不能进入SafeHandle ReleaseHandle或非阻塞control函数。详细固定文件/行段与真实reader身份在R20/R21 evidence。
 
-Npgsql v10.0.3的受控延迟reset、坏连接剔除、取消请求不等于终态保留为**对照证据**，不是新产品依赖。PostgreSQL18 [协议流](https://www.postgresql.org/docs/18/protocol-flow.html)定义Sync/ReadyForQuery边界。上游测试源码只读未执行；本事务规范未取得生产adapter、PG故障及完整AOT证据；PR5有限Linux/SQLite查询原型不能替代这些验证。
+Npgsql v10.0.3的受控延迟reset、坏连接剔除、取消请求不等于终态保留为**对照证据**，不是新产品依赖。PostgreSQL18 [协议流](https://www.postgresql.org/docs/18/protocol-flow.html)定义Sync/ReadyForQuery边界。所引用上游测试源码只读未执行；本次独立实验已取得第13节所列有限PG故障证据，不能替代生产adapter及完整AOT验证；PR5有限Linux/SQLite查询原型也不能替代这些验证。
 
 ## 3. 四个状态维度
 
@@ -178,3 +178,54 @@ C# Outcome/异常及恢复DTO静态定义，serializer使用明确metadata；PG/
 其中COMMIT测试在SQLite原生commit hook中进行受控暂停，丢弃应用等待Future后再放行，最终观察到已提交行。这个反例支持TX-D002/TX-D003：停止等待不能报告RolledBack；未知提交效果和本地清理继续分别记录。故障注入hook刻意阻塞，仅用于研究，不能复制到生产callback/finalizer。
 
 独立读取的六个SQLx源码文件与实际编译的registry文件逐字一致；包的VCS声明与历史研究Git pin不同，所以不声明整个包等同。SQLx worker Shutdown响应发生在其连接引用释放之后、线程闭包返回之前；该响应和Pool.size归零不等于取得OS JoinHandle。D02初始module常驻约束继续有效。上述有限Rust证据不接受生产adapter、PostgreSQL响应丢失、跨语言retirement或完整AOT契约。
+
+## 13. PostgreSQL response loss, protocol recovery and migration ownership
+
+The database-completion research fixture adds explicit PostgreSQL18.0 probes with a
+source/lock/OS/server identity manifest. Its COMMIT-loss proxy forwards the request,
+consumes server COMMIT and idle ReadyForQuery, discards those replies to the client,
+and checks durable state through another connection. A client error with a committed
+row is the concrete oracle for Unknown; it does not implement the future C# exception.
+The timeout case observes 57014, then 25P02 before rollback, then same-backend recovery.
+The stream case drops consumption and verifies cleanup before the next query.
+
+Migration lifetime is an administrative instance of the same rule. SQLx's PG
+Migrator acquires a session advisory lock, checks ledger/checksums and unlocks on its
+success path. Some errors return before unlock. A pooled application's connection
+must never inherit this state. Use a dedicated migration connection, close it after
+error/cancellation and preserve its cleanup owner until closure. A close failure
+leaves the admin operation quarantined with resources counted; it is not proof of
+remote lock release. The research negative control queries pg_locks after checksum
+mismatch and after closing the dedicated connection. SQLite migration lock/unlock
+are no-ops; the documented SQLite administrative profile owns write serialization
+and rejects unsupported nontransactional migration inside its atomic batch.
+
+SQLite 的原子迁移批次必须经 SQLx 公开 `Connection::begin_with("BEGIN IMMEDIATE")` 创建受跟踪的 `Transaction`，再调用 `Migrator::run(&mut *tx)`。先用 `migrator.iter().any(|m| m.no_tx)` 拒绝不支持的非事务条目，再准入并取得 writer lock。成功后仅 `tx.commit().await` 结束外层批次；迁移错误时显式 `tx.rollback().await`，回滚失败则隔离并关闭专用连接。不能先 `query("BEGIN IMMEDIATE").execute(&mut conn)`：原始 SQL 不更新 SQLx transaction depth，Migrator 内部再次 BEGIN 会失败。
+
+```rust
+// Illustrative public SQLx 0.9.0 chain; domain error/cleanup mapping remains B08.
+use sqlx::Connection;
+if migrator.iter().any(|m| m.no_tx) {
+    return Err(UnsupportedNonTransactionalMigration);
+}
+let mut tx = conn.begin_with("BEGIN IMMEDIATE").await?;
+match migrator.run(&mut *tx).await {
+    Ok(()) => tx.commit().await?,
+    Err(error) => {
+        // If rollback fails, retain both errors and retire this dedicated connection.
+        let rollback = tx.rollback().await;
+        return Err(map_migration_failure(error, rollback));
+    }
+}
+```
+
+独立审查者实际运行了原始 BEGIN 反例、受跟踪外层 rollback/commit，以及第二条迁移失败后整批 rollback 三项 Linux Rust 回归；schema 与迁移 ledger 同时撤销，内层保存点不提交外层事务。见 [independent three-case regression](../../verification/interop-completion/db-review-migration/result.json)。这证明公开调用链和有限原子性，不代替 B08 的跨进程竞争、Windows、崩溃/重启和产品 AOT 验证；示例错误名和 map_migration_failure 仅说明领域映射，不是已发布 API；该映射必须保留原始迁移错误及回滚错误，并要求隔离/关闭尚未安全清理的连接。
+
+
+These facts refine B05/B08/B22: distinct outcome/cleanup observables, zero advisory
+locks after successful retirement, no pool reentry after unknown admin state, and
+explicit finite deadlines that never free still-used native owners.
+
+### Published research CI evidence
+
+The [database CI confirmation](../../verification/database-completion/ci-confirmation.json) binds source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80` and run `43388468172` to actual Windows/Linux metadata/SQLite results (5/5 on each) and Linux PostgreSQL 18.0 results (6/6). Archived inputs/logs were checked byte-for-byte; Windows CRLF inputs remain separately identified. This confirms the finite native research oracles and leaves the specified C# product, TLS, concurrency, long-load and independent design-review obligations distinct.

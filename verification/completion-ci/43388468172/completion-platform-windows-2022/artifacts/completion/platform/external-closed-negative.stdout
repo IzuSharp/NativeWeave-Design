@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored D:\a\NativeWeave-Design\NativeWeave-Design\artifacts\completion\platform\negative\External.csproj (in 90 ms).
+  1 of 2 projects are up-to-date for restore.
+  Modern -> D:\a\NativeWeave-Design\NativeWeave-Design\experiments\platform-completion\modern\bin\Debug\net11.0\Modern.dll
+D:\a\NativeWeave-Design\NativeWeave-Design\artifacts\completion\platform\negative\External.cs(2,22): error CS9382: 'ExternalGate': cannot use a closed type 'Gate' from another assembly as a base type. [D:\a\NativeWeave-Design\NativeWeave-Design\artifacts\completion\platform\negative\External.csproj]
+
+Build FAILED.
+
+D:\a\NativeWeave-Design\NativeWeave-Design\artifacts\completion\platform\negative\External.cs(2,22): error CS9382: 'ExternalGate': cannot use a closed type 'Gate' from another assembly as a base type. [D:\a\NativeWeave-Design\NativeWeave-Design\artifacts\completion\platform\negative\External.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:03.05

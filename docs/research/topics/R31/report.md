@@ -1,14 +1,14 @@
 # R31 — 参考应用、幂等恢复与等价负载验证
 
-日期：2026-11-12。输入packet0.1.1及baseline/hash见[evidence.json](evidence.json)。研究状态partially_evidenced：完成幂等与Unknown恢复设计及实际SQLite研究原型，未实施C#/Rust产品、PostgreSQL网络故障、真实AOT/跨平台/性能验收。完整应用规范已同步[D20](../../../verification/reference-application.md)。
+日期：2026-11-12（America/Los_Angeles）。原始packet/baseline/hash与SQLite执行记录保持可追溯。当前基线Design `ba21ecb5c2299b303584b120f2e6bd1c6d74783a`、Plan `5b346ebb5acdb387077d0faae16b00bbc77cb299`；当前架构与研究补充由`/root/database_research`整合，独立接受审查待记录。实际新增PG响应丢失/并发snapshot探针在[completion fixture](../../../../experiments/database-completion/README.md)，运行状态以[task-status](../../../../verification/database-completion/task-status.json)与原始manifest为准。未实现C#/Rust产品，不把研究执行等同产品AOT/长期负载验收。详细规范见[D20](../../../verification/reference-application.md)。
 
 ## 1. 选择的参考场景
 
 通用多租户工作项服务覆盖幂等创建、typedquery分页、附件upload/download、transactionaloutbox与授权status查询。REST为必需最小入口，可选gRPC/MCP复用同一C#应用service。它同时验证阶段Ainterop/生成/包装与阶段Bdatabase/ORM/server，而不是只给阶段B几项抽象“未来任务”。ArcForges只为文档组织参考，不影响业务schema或架构。
 
-产品基线是 Kestrel + C# application/语法/DTO 边界 + 必需 Rust ORM / PostgreSQL/SQLite Database Engine；C# 提供 LINQ/泛型/async/Native AOT 上层体验，应用开发者不写 Rust。C# Source Generator 只捕获语法、诊断并编码版本化 IR，Rust 负责查询语义、SQL 生成、ORM、驱动、池和事务执行；具体 ORM 由数据库 D14/D16 唯一选型，R31 不另行覆盖。依据用户明确约束，旧草稿中的可选 Rust DB / 默认托管 provider 路线已被替代。Npgsql、Microsoft.Data.Sqlite 与 EF Core 仅保留为源码研究和独立等价基准，不进入产品默认数据库执行路径。可选 Rust Server 不改变数据库底层 Rust 要求。
+产品基线是 **Rust Server + C# application/typed Fluent/DTO + Rust Database/ORM Engine**。Rust Server负责网络I/O、协议、连接、流与背压；C#负责业务Handler。Kestrel只保留独立功能/成本/性能对照。数据库普通路径选择维护者预编译SeaQuery+SQLx，普通C#实体使用runtime metadata和static DTO，不要求生成Rust Entity或重新Cargo编译。SeaORM动态投影是有实际执行证据的可复用能力，静态Entity/ActiveModel是另行维护的专用profile；具体边界服从D14/D16，不在R31重建ORM选型。
 
-同步数据库当前选择：采用 SeaORM 路线，以 schema-specific model Engine 将生成的 `Entity` / `ActiveModel` / static dispatcher 与 common Rust DB code 静态链接为一个 native module；不跨 DLL 传递 Rust pool/transaction/trait object。新 schema 的构建需要 Rust toolchain（可放 CI），而应用作者无需编写 Rust，运行已发布应用不需 Rust toolchain。此处为对 D14/D16/D10 的设计引用；本 R31 原型没有执行 SeaORM/SQLx/Rust，也不另行宣称其 AOT 验证通过。
+C#不重建SQL AST/方言/复杂LINQ Provider，SG可选生成静态元数据而不是每次捕获完整方法体。Npgsql、Microsoft.Data.Sqlite与EF Core仅为独立比较。数据库与服务器Rust底层是确定的项目目标；性能实验优化实现，不把已明确目标重新设为二选一。
 
 非目标：当前完成整个产品；宣称数据库与外部消息/文件系统分布式exactly-once；将数据库要求扩大为所有模块必须 Rust；以单次Python实验证明Rust driver、AOT或生产durability。
 
@@ -29,7 +29,7 @@
 
 ## 3. PostgreSQL官方语义与具体反例
 
-已读官方v18 [INSERT](https://www.postgresql.org/docs/18/sql-insert.html)与[TransactionIsolation](https://www.postgresql.org/docs/18/transaction-iso.html)§13.2.1。证据是版本化官方文档而非固定serverexecutable；本轮未运行PG。
+已读官方v18 [INSERT](https://www.postgresql.org/docs/18/sql-insert.html)与[TransactionIsolation](https://www.postgresql.org/docs/18/transaction-iso.html)§13.2.1。原始证据是版本化官方文档。新增PG18.0研究执行单独固定源码/二进制与运行manifest，不把文档阅读本身当执行。
 
 DO NOTHING发生冲突时可看到当前statement snapshot尚不可见的并发事务；RETURNING只返真正插入/更新的行。因此同statement的CTE INSERT DO NOTHING加SELECT不能被宣布总能拿到原record。
 
@@ -65,7 +65,7 @@ python docs/research/topics/R31/idempotency_experiment.py > docs/research/topics
 
 Outboxworker有界claimbatch，发布后标记；发布后崩溃会重复，consumeroracle按event_id持久去重。业务事务不等待客户端下载、不调用外部publisher；慢response也不能永久占有DBlease。分页采用稳定keyset(created_at,id)，默认跨页不承诺一致snapshot；一致导出有单独时限/leaseprofile。
 
-应用普通开发者写 C# typed model / 受支持 LINQ 风格 query / async API，无 Rust/FFI 需求。C# SG 捕获语法/诊断并生成 IR 编码与静态 DTO 元数据，Rust ORM 校验语义并生成参数化 SQL、执行关系/工作单元和数据库操作；C# 静态 DTO 解码不成为第二套 ORM。动态过滤限定列与运算符，Rust 验证 IR 能力和参数边界。业务 operation hash / correlation 不成为无界 metric labels。
+应用开发者写普通C# typed model、Fluent query和async API，无Rust/FFI或逐实体Cargo要求。可选C# SG生成static metadata/DTO；普通Fluent调用复用native SeaQuery builder和SQLx执行。动态过滤先解析允许的列/运算符，再由Rust验证能力/参数/租户与资源边界。业务 operation hash / correlation 不成为无界 metric labels。
 
 ## 6. 故障与完整负载证据
 
@@ -73,12 +73,22 @@ B21实现D20完整最小服务、goldenvectors、可选协议facade和参考cons
 
 模型/属性验证至少检查：同scope/key最多一业务效果；item/result/outbox原子一致；终态不可逆；Unknown不因Dispose或空查询变成rollback；每owner最终释放或明确隔离。fuzz针对长度/输入/queryIR/ABI，真实多线程测试控制竞争窗口而不是仅sleep。Windows/Linux真实AOT发布后运行，24h回归与72hrelease soak检查长期资源斜率、steady plateau和故障恢复；不能只报一次峰值RSS。
 
-B23 产品基线比较 Kestrel + C# 语法/DTO 上层 + Rust ORM / PostgreSQL/SQLite Engine，并覆盖已选择的 Rust Server + 同业务 handler + 同一 Rust ORM / DB Engine。纯 C# 的 Kestrel + Npgsql/Microsoft.Data.Sqlite（适用时 EF Core）仅为外部托管基准，纯 Rust 实现仅为生态与跨语言成本对照；不能将它们误列为 NativeWeave 的托管数据库产品 profile。TLS/HTTPprofile、schema/index/isolation/pool、dataset/cache、错误比例、durability、硬件资源、采样都相同。使用固定到达率并记录排队，保留p99/p99.9/rawhistogram、CPU/op、GC/alloc/native/RSS/handles/copies/crossings。不存在/未测组合写not-run，不从微基准推断真实收益；性能门槛基于冻结基线与产品目标，当前不编造百分比。证据用于改进 Rust DB，不能静默取消产品约束；Rust Server 是否推荐仍由端到端收益决定。
+B23产品基线为Rust Server + C#业务Handler/typed Fluent/DTO + Rust ORM / PostgreSQL/SQLite Engine。纯 C# 的 Kestrel + Npgsql/Microsoft.Data.Sqlite（适用时 EF Core）仅为外部托管基准，纯 Rust 实现仅为生态与跨语言成本对照；不能将它们误列为 NativeWeave 的托管数据库产品 profile。TLS/HTTPprofile、schema/index/isolation/pool、dataset/cache、错误比例、durability、硬件资源、采样都相同。使用固定到达率并记录排队，保留p99/p99.9/rawhistogram、CPU/op、GC/alloc/native/RSS/handles/copies/crossings。不存在/未测组合写not-run，不从微基准推断真实收益；性能门槛基于冻结基线与产品目标，当前不编造百分比。证据用于改进 Rust DB，不能静默取消产品约束；Rust Server底层是既定目标；端到端证据用于选择和优化具体Rust组合。
 
-B24验收独立包/RID/profile、cleanmachine运行、版本拒绝、upgrade/rollback、SBOM/LICENSE。所有包含数据库的应用都必须验收 Rust DB native library 及相关阶段 A interop/AOT gate；纯 managed 无 native 加载只适用于独立无数据库的 Server 示例。数据库/Server核心必须可单独验收，再组合验证；不为了参考应用强制所有独立任务串行。
+B24验收独立包/RID/profile、cleanmachine运行、版本拒绝、upgrade/rollback、SBOM/LICENSE。所有 NativeWeave Server 示例均必须验收 Rust Server native library；含数据库的应用同时验收 Rust DB native library 及相关阶段 A interop/AOT gate。纯 managed 示例只能是独立外部对照，不能标记为 NativeWeave Server 产品 profile。数据库/Server核心必须可单独验收，再组合验证；不为了参考应用强制所有独立任务串行。
 
 ## 7. 结题建议与交叉Review
 
-参考应用场景、事务幂等、Unknown恢复及等价性能方法已有明确设计；其实现/生产验证义务全部交B21–B24，不让研究一直等到全产品发布。R31仍partially_evidenced，因为PG真实并发与完整源码/平台候选覆盖未完，不能把作者草案称为accepted。
+参考应用场景、事务幂等、Unknown恢复及等价性能方法已有明确设计；其实现/生产验证义务全部交B21–B24，不让研究一直等到全产品发布。R31当前研究/设计成果已齐备并进入独立接受审查：新增 Rust/SQLx PostgreSQL 18.0 实库反例已执行，包含 COMMIT 确认丢失和并发 snapshot。作者不能自行宣称 accepted；全产品、其他候选特性与长期验证仍是明确的 Delivery 义务，不再据此将已完成研究记为 planned/partially_evidenced。
 
 交叉Review：数据库R21核对Commit状态和PGsnapshot、R20核对SQLite writer语义；R26/R29核对requestabort/stream预算；R28核对gRPC/MCP不同终态；R17检查工作负载等价；R34检查tenant/auth/hash/retention与错误泄露。潜在反例与影响文件均具体落到D20和相关Delivery任务，而非新增元规划层。
+
+## 8. 新增的研究闭环与明确后续阶段
+
+`database-completion/tests/postgres.rs`固定两个决定性反例：COMMIT应答在网络代理中丢弃而新连接看到已提交结果；并发唯一键冲突使用真实pg_locks等待同步后，同statement CTE SELECT可返回空，下一statement获得原operation。原R31 SQLite实验的模拟response loss、真实进程退出与四连接竞争原始结果保留，不重复计数。此轮其他PG/SQLite新研究还覆盖协议恢复、类型损失、shape遗漏与迁移锁，全部通过指定manifest追溯实际执行范围。
+
+D20/B21以同一业务操作定义连接两原生Engine，所有权仍按各Engine本地runtime与CoreABI组合，不造全局巨型调度器。B22/B23保留产品故障注入、真实C# AOT、长期负载、性能和磁盘持久性义务；这些义务不阻止研究层接受幂等/outbox/Unknown/接口设计，也不授权当前开始正式产品开发。
+
+## CI confirmation at the published fixture commit
+
+GitHub run `43388468172`, source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, independently executed the same five metadata/SQLite cases on Windows and Linux and all six PostgreSQL cases on Linux PostgreSQL 18.0. The author read raw suite logs and verified every archived file, input snapshot and stream hash; the [confirmation](../../../../verification/database-completion/ci-confirmation.json) records exact artifact identities, image digest and CRLF/LF differences. These are 11 unique native research cases with 16 CI executions, not new product/AOT tests or a second technical reviewer. This task claims only its mapped cases above.

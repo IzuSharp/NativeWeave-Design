@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0.0",
+  "checked_by": "/root/database_research",
+  "kind": "author_ci_evidence_reconciliation_not_independent_review",
+  "run_id": 43388468172,
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "checks": [
+    {
+      "artifact_name": "completion-database-ubuntu-24.04",
+      "artifact_id": 14019189533,
+      "archive_manifest": "verification/completion-ci/43388468172/completion-database-ubuntu-24.04/archive-manifest.json",
+      "archive_manifest_sha256": "5dd1db92d7be81b3de2fad3d392ccd8a8182675580e861fbfe0f66162fd4780e",
+      "manifest": "verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/manifest.json",
+      "manifest_sha256": "54ea86302986807d4ba3bb8ae6c664a4fffe4546f49ab3b426ef47354d023a4b",
+      "suite": "metadata",
+      "os": "Linux",
+      "passed": 5,
+      "failed": 0,
+      "ignored": 0,
+      "executed_tests": [
+        "sqlite_foreign_key_and_savepoint_recovery_are_explicit",
+        "native_join_aggregate_matches_independent_sql_oracle",
+        "native_cas_preserves_tenant_and_not_set_null_distinction",
+        "seaorm_public_dynamic_projection_needs_no_static_entity",
+        "sqlx_migration_checksum_and_failed_ddl_are_native"
+      ],
+      "all_archived_files_match_raw_sha256": true,
+      "all_input_snapshots_match_manifest_raw_sha256": true,
+      "working_inputs_raw_equal": [
+        "experiments/database-completion/Cargo.toml",
+        "experiments/database-completion/Cargo.lock",
+        "experiments/database-completion/run.py",
+        "experiments/database-completion/tests/postgres.rs",
+        "experiments/database-completion/tests/runtime_metadata.rs",
+        "experiments/native-slices/database/Cargo.toml",
+        "experiments/native-slices/database/src/lib.rs"
+      ],
+      "working_inputs_differ_only_crlf_lf": [],
+      "stdout_sha256": "ba18b4d7d7ed06d7fea8b1edb51c94aefcd4a349c90d1192c67f341525a7dc1b",
+      "stderr_sha256": "b4d4f27fcd6095f5f8173dc97a4f282904624ab731277a6828ab60e76c6ce0e9"
+    },
+    {
+      "artifact_name": "completion-database-windows-2022",
+      "artifact_id": 14019567445,
+      "archive_manifest": "verification/completion-ci/43388468172/completion-database-windows-2022/archive-manifest.json",
+      "archive_manifest_sha256": "8624f3efe95dca6927537ab84157dfe3f3340be7bba4e7cfee24c52ef2b0ef33",
+      "manifest": "verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/manifest.json",
+      "manifest_sha256": "b9bc85f55b056c477255cf58abd373d687048955912d753c550fedf0cd055f93",
+      "suite": "metadata",
+      "os": "Windows",
+      "passed": 5,
+      "failed": 0,
+      "ignored": 0,
+      "executed_tests": [
+        "native_join_aggregate_matches_independent_sql_oracle",
+        "seaorm_public_dynamic_projection_needs_no_static_entity",
+        "sqlx_migration_checksum_and_failed_ddl_are_native",
+        "native_cas_preserves_tenant_and_not_set_null_distinction",
+        "sqlite_foreign_key_and_savepoint_recovery_are_explicit"
+      ],
+      "all_archived_files_match_raw_sha256": true,
+      "all_input_snapshots_match_manifest_raw_sha256": true,
+      "working_inputs_raw_equal": [
+        "experiments/native-slices/database/Cargo.toml",
+        "experiments/native-slices/database/src/lib.rs"
+      ],
+      "working_inputs_differ_only_crlf_lf": [
+        "experiments/database-completion/Cargo.toml",
+        "experiments/database-completion/Cargo.lock",
+        "experiments/database-completion/run.py",
+        "experiments/database-completion/tests/postgres.rs",
+        "experiments/database-completion/tests/runtime_metadata.rs"
+      ],
+      "stdout_sha256": "9299dad47ad4cc245eb3d1dab0e72641b1739ebc3d14a99458d103e358e57ae9",
+      "stderr_sha256": "bdfc8e69170bb2e41079a432b3e46fac851b9d17288c2e3ff3beb1c536d9fff9"
+    },
+    {
+      "artifact_name": "completion-postgres-ubuntu-24.04",
+      "artifact_id": 14019626601,
+      "archive_manifest": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/archive-manifest.json",
+      "archive_manifest_sha256": "913123ea1582118c49d587a79a9a50b2a80cdfe35770a4d0381399c84cca54fd",
+      "manifest": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/manifest.json",
+      "manifest_sha256": "2657a79ccf8c11b351fafe23bd3f928c7b597d23cad7d22d89caa4a88cbf239e",
+      "suite": "postgres",
+      "os": "Linux",
+      "passed": 6,
+      "failed": 0,
+      "ignored": 0,
+      "executed_tests": [
+        "codec_roundtrip_and_loss_are_observed",
+        "conflict_cte_old_snapshot_needs_separate_recovery_statement",
+        "early_row_stream_drop_drains_before_next_query",
+        "lost_commit_response_is_error_with_durable_effect",
+        "migration_error_keeps_session_lock_until_dedicated_connection_closes",
+        "statement_timeout_needs_rollback_before_same_connection_reuse"
+      ],
+      "all_archived_files_match_raw_sha256": true,
+      "all_input_snapshots_match_manifest_raw_sha256": true,
+      "working_inputs_raw_equal": [
+        "experiments/database-completion/Cargo.toml",
+        "experiments/database-completion/Cargo.lock",
+        "experiments/database-completion/run.py",
+        "experiments/database-completion/tests/postgres.rs",
+        "experiments/database-completion/tests/runtime_metadata.rs",
+        "experiments/native-slices/database/Cargo.toml",
+        "experiments/native-slices/database/src/lib.rs"
+      ],
+      "working_inputs_differ_only_crlf_lf": [],
+      "stdout_sha256": "c88f13af32e481fee2f8214a6e1bb68ab84cdc744522ed99704fdf7c227fd1c7",
+      "stderr_sha256": "234fa9f920527ff7f5d31e97a3469af4db154b0a89570c6c3548e609e9f2af97"
+    }
+  ],
+  "postgres_identity": {
+    "docker_ref": "postgres:18.0",
+    "image_digests": [
+      "postgres@sha256:41fc5342eefba6cc2ccda736aaf034bbbb7c3df0fdb81516eba1ba33f360162c"
+    ],
+    "image_id": "sha256:6cb75ec20a1d7a81c2c92b9a0ab681ffa4d540a5ec404a977def81ffd0138eca",
+    "server_version_raw": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/server-version.txt",
+    "server_version_sha256": "54f9bde921e8a5e3860cfa78252e0c5aba8e20e3f68fe9c500870d22ffb3e703",
+    "server_version": "PostgreSQL 18.0 (Debian 18.0-1.pgdg13+3) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+  },
+  "scope": {
+    "unique_new_cases": 11,
+    "ci_executions": 16,
+    "not_claimed": [
+      "PostgreSQL on Windows",
+      "C# Native AOT product adapter",
+      "TLS/auth production acceptance",
+      "soak or memory/performance advantage",
+      "independent technical review"
+    ],
+    "line_endings": "Windows checkout preserved CRLF for the new fixture files. Exact executed bytes and hashes are retained; only normalized comparison establishes content equivalence. No hashes were rewritten to match Linux."
+  }
+}

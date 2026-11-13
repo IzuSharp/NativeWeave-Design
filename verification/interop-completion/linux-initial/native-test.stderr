@@ -1,0 +1,127 @@
+   Compiling nw_interop_completion_probe v0.0.0 (/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/native)
+warning: type `Operation` is more private than the item `nw_ic_create`
+  --> src/lib.rs:43:1
+   |
+43 | pub unsafe extern "C" fn nw_ic_create(callback: Callback, cookie: usize, out: *mut *mut Handle) -> u32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_create` is reachable at visibility `pub`
+   |
+note: but type `Operation` is only usable at visibility `pub(crate)`
+  --> src/lib.rs:19:1
+   |
+19 | struct Operation { state: Mutex<State>, callback: Callback, cookie: usize }
+   | ^^^^^^^^^^^^^^^^
+   = note: `#[warn(private_interfaces)]` on by default
+
+warning: type `Operation` is more private than the item `nw_ic_start`
+  --> src/lib.rs:53:1
+   |
+53 | pub unsafe extern "C" fn nw_ic_start(handle: *mut Handle, background: u32) -> u32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_start` is reachable at visibility `pub`
+   |
+note: but type `Operation` is only usable at visibility `pub(crate)`
+  --> src/lib.rs:19:1
+   |
+19 | struct Operation { state: Mutex<State>, callback: Callback, cookie: usize }
+   | ^^^^^^^^^^^^^^^^
+
+warning: type `Operation` is more private than the item `nw_ic_cancel`
+  --> src/lib.rs:74:1
+   |
+74 | pub unsafe extern "C" fn nw_ic_cancel(handle: *mut Handle) -> u32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_cancel` is reachable at visibility `pub`
+   |
+note: but type `Operation` is only usable at visibility `pub(crate)`
+  --> src/lib.rs:19:1
+   |
+19 | struct Operation { state: Mutex<State>, callback: Callback, cookie: usize }
+   | ^^^^^^^^^^^^^^^^
+
+warning: type `Operation` is more private than the item `nw_ic_try_retire`
+  --> src/lib.rs:83:1
+   |
+83 | pub unsafe extern "C" fn nw_ic_try_retire(handle: *mut Handle) -> u32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_try_retire` is reachable at visibility `pub`
+   |
+note: but type `Operation` is only usable at visibility `pub(crate)`
+  --> src/lib.rs:19:1
+   |
+19 | struct Operation { state: Mutex<State>, callback: Callback, cookie: usize }
+   | ^^^^^^^^^^^^^^^^
+
+warning: type `Operation` is more private than the item `nw_ic_take`
+  --> src/lib.rs:93:1
+   |
+93 | pub unsafe extern "C" fn nw_ic_take(handle: *mut Handle, out: *mut *mut ResultOwner) -> u32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_take` is reachable at visibility `pub`
+   |
+note: but type `Operation` is only usable at visibility `pub(crate)`
+  --> src/lib.rs:19:1
+   |
+19 | struct Operation { state: Mutex<State>, callback: Callback, cookie: usize }
+   | ^^^^^^^^^^^^^^^^
+
+warning: type `ResultOwner` is more private than the item `nw_ic_take`
+  --> src/lib.rs:93:1
+   |
+93 | pub unsafe extern "C" fn nw_ic_take(handle: *mut Handle, out: *mut *mut ResultOwner) -> u32 {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_take` is reachable at visibility `pub`
+   |
+note: but type `ResultOwner` is only usable at visibility `pub(crate)`
+  --> src/lib.rs:13:1
+   |
+13 | struct ResultOwner { value: u64 }
+   | ^^^^^^^^^^^^^^^^^^
+
+warning: type `Operation` is more private than the item `nw_ic_duplicate_terminal`
+   --> src/lib.rs:104:1
+    |
+104 | pub unsafe extern "C" fn nw_ic_duplicate_terminal(handle: *mut Handle) -> u32 {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_duplicate_terminal` is reachable at visibility `pub`
+    |
+note: but type `Operation` is only usable at visibility `pub(crate)`
+   --> src/lib.rs:19:1
+    |
+ 19 | struct Operation { state: Mutex<State>, callback: Callback, cookie: usize }
+    | ^^^^^^^^^^^^^^^^
+
+warning: type `Operation` is more private than the item `nw_ic_release`
+   --> src/lib.rs:110:1
+    |
+110 | pub unsafe extern "C" fn nw_ic_release(handle: *mut Handle) -> u32 {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_release` is reachable at visibility `pub`
+    |
+note: but type `Operation` is only usable at visibility `pub(crate)`
+   --> src/lib.rs:19:1
+    |
+ 19 | struct Operation { state: Mutex<State>, callback: Callback, cookie: usize }
+    | ^^^^^^^^^^^^^^^^
+
+warning: type `ResultOwner` is more private than the item `nw_ic_result_value`
+   --> src/lib.rs:118:1
+    |
+118 | pub unsafe extern "C" fn nw_ic_result_value(result: *const ResultOwner) -> u64 {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_result_value` is reachable at visibility `pub`
+    |
+note: but type `ResultOwner` is only usable at visibility `pub(crate)`
+   --> src/lib.rs:13:1
+    |
+ 13 | struct ResultOwner { value: u64 }
+    | ^^^^^^^^^^^^^^^^^^
+
+warning: type `ResultOwner` is more private than the item `nw_ic_result_release`
+   --> src/lib.rs:123:1
+    |
+123 | pub unsafe extern "C" fn nw_ic_result_release(result: *mut ResultOwner) {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ function `nw_ic_result_release` is reachable at visibility `pub`
+    |
+note: but type `ResultOwner` is only usable at visibility `pub(crate)`
+   --> src/lib.rs:13:1
+    |
+ 13 | struct ResultOwner { value: u64 }
+    | ^^^^^^^^^^^^^^^^^^
+
+warning: `nw_interop_completion_probe` (lib test) generated 10 warnings
+warning: `nw_interop_completion_probe` (lib) generated 10 warnings (10 duplicates)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.78s
+     Running unittests src/lib.rs (.work/intermediates/debug/build/nw_interop_completion_probe/dafe9bfa05547d6f/out/nw_interop_completion_probe-dafe9bfa05547d6f)
+   Doc-tests nw_interop_completion_probe

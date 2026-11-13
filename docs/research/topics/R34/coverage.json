@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R34",
+  "paths": [
+    {
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/mod.rs",
+      "scope": "128-184",
+      "sha256": "9ddbf6d9b944736b9c47f2c031ac055d29c6169de2be10a69ae37c3810819e64",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/codec/mod.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "TONIC-CODEC"
+    },
+    {
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/decode.rs",
+      "scope": "190-274;365-410",
+      "sha256": "46688c06b3becce361716c10559e70ba8fe2423e8d0fae93ca575c1fcc5e5173",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/codec/decode.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "TONIC-DECODE"
+    },
+    {
+      "repo": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/handler/server.rs",
+      "scope": "81-96;213-255;382-414;550-618;664-686;737-746",
+      "sha256": "def2157d3e702aaa256bc5fa304dbd71faec0a624c55aac83edb4d7b195f958d",
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/handler/server.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "RMCP-HANDLER"
+    },
+    {
+      "repo": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/transport/streamable_http_server/tower.rs",
+      "scope": "219-350;357-425;1473-1574;1734-1778;1955-1985;2050-2105;2220-2255;2398-2412;2571-2612",
+      "sha256": "8a01370513389994bc675d5bd58dbae3dadf5383c916a7f122a9f2a37ff4fdb0",
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/transport/streamable_http_server/tower.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "RMCP-TOWER"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/core/src/slice/raw.rs",
+      "scope": "1-35;108-140;145-170",
+      "sha256": "0914968067f7e2bc798680c1edd72bcb032a9fd44ebb2b6fbc082a3a2b16941f",
+      "url": "https://github.com/rust-lang/rust/blob/0ef1bc386059596dada8fb65b50425aab2ea637a/library/core/src/slice/raw.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "RUST-SLICE"
+    },
+    {
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/transport/service/grpc_timeout.rs",
+      "scope": "1-179;181-261",
+      "sha256": "ce83ea986f8c2ff6d52291a0cf821aa6561fb9b2bd69a2b4c2ebd4f2edaf8449",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/transport/service/grpc_timeout.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "TONIC-TIMEOUT"
+    },
+    {
+      "repo": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/model/meta.rs",
+      "scope": "390-440;565-608",
+      "sha256": "66cdccb21870babfe4c5c8bf952d6ed019d0ec909080c28335d12dcfd7ee8ec4",
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/model/meta.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "RMCP-META"
+    }
+  ],
+  "licenses": [],
+  "code_reuse": "Original analysis and research probes; upstream implementation not copied into a product.",
+  "observed_date": "2026-11-13",
+  "coverage_statement": "Exact scoped source reads and separately identified actual research executions; historical source and execution identities retained.",
+  "explicit_remaining_coverage": [
+    "Fuzz/sanitize actual generated ABI and full protocol stack after implementation; finite negatives are not broad security certification.",
+    "Release-specific dependency/crypto/OS SBOM, license/NOTICE and current advisory review remain B24."
+  ],
+  "test_state": {
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [
+      {
+        "path": "verification/server-completion/protocol-local-4/run.json",
+        "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+        "success": true,
+        "scope": [
+          "No NativeWeave product implementation.",
+          "Protocol Rust tests do not execute a C# FFI Handler.",
+          "Kestrel is solely the managed comparator.",
+          "Finite tests do not establish long-load performance or platform certification."
+        ]
+      },
+      {
+        "path": "verification/server-completion/ci-verification.json",
+        "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+        "success": true,
+        "scope": [
+          "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+        ]
+      },
+      {
+        "path": "verification/server-completion/protocol-reviewed-local/run.json",
+        "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+        "success": true,
+        "scope": [
+          "19 actual Linux protocol cases; old 13-case two-OS CI remains distinct.",
+          "Review correction adds cardinality default counterexample, strict unary/server-streaming, zero versus empty, per-request counter reset and client-stream mode.",
+          "No C# product bridge or full protocol/TLS end-to-end certification."
+        ]
+      }
+    ],
+    "rust_protocol_fixture": "executed_native_windows_linux",
+    "csharp_native_aot": "not_claimed_for_this_task",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete"
+  },
+  "scope_completion": "Research questions and design counterexamples resolved for declared scope; independent acceptance pending; product validation remains separate.",
+  "package_inventory": "verification/server-completion/dependency-inventory.json",
+  "package_identity_checks": "verification/server-completion/package-identities.json"
+}

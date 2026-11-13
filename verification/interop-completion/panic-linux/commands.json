@@ -1,0 +1,132 @@
+[
+  {
+    "name": "version",
+    "argv": [
+      "rustc",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:39:47.069888+00:00",
+    "ended_utc": "2026-11-13T07:39:47.184657+00:00",
+    "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "compile-unwind",
+    "argv": [
+      "rustc",
+      "--edition=2024",
+      "-C",
+      "panic=unwind",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/panic_probe.rs",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/unwind"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:39:47.184793+00:00",
+    "ended_utc": "2026-11-13T07:39:47.493681+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "unwind-catch",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/unwind",
+      "catch"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:39:47.493775+00:00",
+    "ended_utc": "2026-11-13T07:39:47.501371+00:00",
+    "stdout_sha256": "e2bd0dcea84f3d3f8a690777d3a1c7a924dc27d93c81bffd1e94545d8cd7de68",
+    "stderr_sha256": "11e17bf2a378e8a3106a59bf6877ad64624f23f7a9e472b19492f65e56f1a677"
+  },
+  {
+    "name": "unwind-payload-drop",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/unwind",
+      "payload-drop"
+    ],
+    "exit_code": 101,
+    "started_utc": "2026-11-13T07:39:47.501709+00:00",
+    "ended_utc": "2026-11-13T07:39:47.513938+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "9c8b127a6fe7159f926a2f73534ff46b83b14fcbcb09f611fb7da483fa737036"
+  },
+  {
+    "name": "unwind-payload-forget",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/unwind",
+      "payload-forget"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:39:47.514070+00:00",
+    "ended_utc": "2026-11-13T07:39:47.519261+00:00",
+    "stdout_sha256": "f18ccabcacc6d557f6e66b6b8d839a0ab43b5a324a4489a166b296b5d73da5f3",
+    "stderr_sha256": "e2553cde862edab7c84134578f4a927b9676d9f28b28badb6a0367d0543800ee"
+  },
+  {
+    "name": "unwind-hook",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/unwind",
+      "hook"
+    ],
+    "exit_code": -6,
+    "started_utc": "2026-11-13T07:39:47.519363+00:00",
+    "ended_utc": "2026-11-13T07:39:47.528761+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "dcf2722d5dd1cac5f5c79beb1912437964b832e7bf9b0da056217d7ff22bb2a7"
+  },
+  {
+    "name": "unwind-cleanup",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/unwind",
+      "cleanup"
+    ],
+    "exit_code": -6,
+    "started_utc": "2026-11-13T07:39:47.528848+00:00",
+    "ended_utc": "2026-11-13T07:39:47.543936+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "95f760795f13d1073e6a5e57f6168b077c8f293602cd63a038c299f0f4e6d75c"
+  },
+  {
+    "name": "unwind-ffi",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/unwind",
+      "ffi"
+    ],
+    "exit_code": -6,
+    "started_utc": "2026-11-13T07:39:47.544077+00:00",
+    "ended_utc": "2026-11-13T07:39:47.562311+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "3785a47496be3463941491505fce16fbd3ed63a232c76f0b1f5f773c458868e9"
+  },
+  {
+    "name": "compile-abort",
+    "argv": [
+      "rustc",
+      "--edition=2024",
+      "-C",
+      "panic=abort",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/panic_probe.rs",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/abort"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:39:47.562448+00:00",
+    "ended_utc": "2026-11-13T07:39:47.808529+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "abort-catch",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/panic/abort",
+      "catch"
+    ],
+    "exit_code": -6,
+    "started_utc": "2026-11-13T07:39:47.808643+00:00",
+    "ended_utc": "2026-11-13T07:39:47.814039+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "37e7c36754f4b2f7fedf839b50c5a82b169f25b74a6feafa8b6e18c29a5cbedc"
+  }
+]

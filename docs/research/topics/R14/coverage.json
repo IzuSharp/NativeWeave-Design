@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R14",
+  "recorded_at": "2026-11-13",
+  "coverage_policy": "Actually read fixed-source ranges; downloaded files not automatically read; tests observed versus executed distinct.",
+  "paths": [
+    {
+      "repository": "https://github.com/rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/external-tools.md",
+      "file_sha256": "67a22a8ca329d223483a7a6056ed4877ba9e4bfa46f8fa6f945743edd4dcdd78",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          95,
+          205
+        ]
+      ],
+      "purpose": "compiler-artifact identity/profile/features/filenames/fresh fields",
+      "permalinks": [
+        "https://github.com/rust-lang/cargo/blob/3acc79c0c841844675bc53a605922dbfc441e750/doc/book/src/reference/external-tools.md#L95-L205"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/specifying-dependencies.md",
+      "file_sha256": "c59e3a7489d1f28208648a36e44698a48b695d40051b92e88b463af73a35404e",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          300,
+          360
+        ]
+      ],
+      "purpose": "git/registry/path and publication/submodule constraints",
+      "permalinks": [
+        "https://github.com/rust-lang/cargo/blob/3acc79c0c841844675bc53a605922dbfc441e750/doc/book/src/reference/specifying-dependencies.md#L300-L360"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/NuGet/NuGet.Client",
+      "commit": "7e935f9c72b287adc13b9f42fd7b3bdcaa1500e7",
+      "path": "src/NuGet.Core/NuGet.Packaging/PackageArchiveReader.cs",
+      "file_sha256": "310c27e2c1119143f7f18e9d75dee335a214b66cc7088afc84e8e6787ebbd7fd",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          80,
+          175
+        ]
+      ],
+      "purpose": "archive stream ownership/error and file enumeration",
+      "permalinks": [
+        "https://github.com/NuGet/NuGet.Client/blob/7e935f9c72b287adc13b9f42fd7b3bdcaa1500e7/src/NuGet.Core/NuGet.Packaging/PackageArchiveReader.cs#L80-L175"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/sigstore/cosign",
+      "commit": "6181e75677cc4719e845fa23d0ef8a936e883aa0",
+      "path": "cmd/cosign/cli/verify/verify.go",
+      "file_sha256": "0745f57e5e012d66a3c7c4417e22718257b23ad328576f2e6bbf92c2980dc612",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          90,
+          230
+        ]
+      ],
+      "purpose": "signature/identity/trust material/claim/offline/transparency policy separation",
+      "permalinks": [
+        "https://github.com/sigstore/cosign/blob/6181e75677cc4719e845fa23d0ef8a936e883aa0/cmd/cosign/cli/verify/verify.go#L90-L230"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/anchore/syft",
+      "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+      "path": "README.md",
+      "file_sha256": "b072fd6c75f6ba759933b4f035bb9e263309f535e2128f13e6ed50860c328aef",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          30,
+          100
+        ]
+      ],
+      "purpose": "Syft optional SBOM commands and formats; documentation, not tool execution",
+      "permalinks": [
+        "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/README.md#L30-L100"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/anchore/syft",
+      "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+      "path": "syft/pkg/cataloger/rust/cataloger.go",
+      "file_sha256": "3ba5d63aa79674a428a27cd91530e014e5995129c0fa22eed423813fec8cb39d",
+      "read_state": "read_complete",
+      "line_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "purpose": "Cargo.lock versus auditable binary cataloger",
+      "permalinks": [
+        "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/syft/pkg/cataloger/rust/cataloger.go#L1-L23"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/anchore/syft",
+      "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+      "path": "syft/pkg/cataloger/rust/parse_cargo_lock.go",
+      "file_sha256": "bc5008609a49b8326b54d87e57f80c62297e46b73cf42762bee311d74e2ff0d1",
+      "read_state": "read_complete",
+      "line_ranges": [
+        [
+          1,
+          90
+        ]
+      ],
+      "purpose": "Cargo package identity and dependency-string graph resolution",
+      "permalinks": [
+        "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/syft/pkg/cataloger/rust/parse_cargo_lock.go#L1-L90"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    }
+  ],
+  "reused_research": [
+    {
+      "path": "docs/research/topics/R01/rust-1.100.md",
+      "sha256": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d"
+    }
+  ],
+  "normal_error_boundary_coverage": "See report and exact run manifests; unsupported platform/production claims remain explicit Delivery obligations.",
+  "product_obligations": [
+    "A16 actual signed release and whole native closure",
+    "A22 old/new product compatibility and provenance",
+    "B24 immutable package/release rollback verification"
+  ]
+}

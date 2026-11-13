@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "task_id": "R31",
   "observed_date": "2026-11-12",
-  "status": "partially_evidenced",
+  "status": "research_complete_independent_review_pending",
   "input_baseline": {
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
@@ -94,44 +94,183 @@
         "child_process_expected_exit": 17,
         "checks_passed": 5
       }
+    },
+    {
+      "claim_id": "R31-COMP-01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/connection/mod.rs",
+      "blob_sha": "d594585b6cb2c8b4a30f4b31385fe8b82716c6b0",
+      "file_sha256": "efeafd9bc07c0bd20e0d2c2312bd2db45039c9d139aa754b1ff6574dd280de72",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            256
+          ]
+        ]
+      },
+      "source_reader": "/root/database_research",
+      "supported_claim": "Pending ReadyForQuery count, transaction status and stream flushing; private cancel identifiers do not provide a public remote cancellation API.",
+      "limitations": "Only listed ranges read. Executed registry identities and Git-file equality recorded in verification/database-completion/source-inspection.json; no whole-repository or whole-package equivalence claim."
+    },
+    {
+      "claim_id": "R31-COMP-02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/connection/executor.rs",
+      "blob_sha": "e0f4c3d44a6c81556822796bd2739576a9ea7fdf",
+      "file_sha256": "721ead17743d912c625a56b5728669d8111c750797b6fee24e234226a5b6fbe6",
+      "locator": {
+        "line_ranges": [
+          [
+            200,
+            390
+          ]
+        ]
+      },
+      "source_reader": "/root/database_research",
+      "supported_claim": "Run sends Execute limit=0, closes portal, drains to ReadyForQuery; application batches do not imply server fetch-size control.",
+      "limitations": "Only listed ranges read. Executed registry identities and Git-file equality recorded in verification/database-completion/source-inspection.json; no whole-repository or whole-package equivalence claim."
+    },
+    {
+      "claim_id": "R31-COMP-EXEC",
+      "evidence_kind": "executed_native_research",
+      "supported_claim": "Only the enumerated Rust research cases executed; per-suite raw streams and exact input hashes identify observations. Existing C# AOT evidence remains at its prior exact snapshot.",
+      "cases": [
+        "lost_commit_response_is_error_with_durable_effect",
+        "conflict_cte_old_snapshot_needs_separate_recovery_statement"
+      ],
+      "run_manifests": [
+        "verification/database-completion/linux-metadata-current/manifest.json",
+        "verification/database-completion/linux-postgres-final/manifest.json"
+      ],
+      "limitations": "No product implementation, new C# AOT execution, TLS/auth test, performance or soak claim."
     }
   ],
   "selected_design": {
-    "decision": "Single-transaction scoped idempotency/result/business/outbox and explicit Commit Unknown recovery; C# application/syntax/DTO layer over mandatory Rust ORM and PostgreSQL/SQLite Database Engine, with Kestrel default and optional Rust Server.",
-    "design_research_status": "resolved_pending_independent_review",
-    "contract_acceptance": "proposed_not_self_accepted",
-    "question_closure_recommendations": [],
-    "documentation_tasks": [
-      "D20"
-    ],
-    "verification_delivery_tasks": [
-      "B21",
-      "B22",
-      "B23",
-      "B24"
-    ],
-    "product_scope_constraint": {
-      "source": "Explicit user direction relayed by integrator during this session",
-      "database_execution": "Rust required for query semantics, SQL generation, ORM, drivers, pool and transaction execution; C# supplies syntax capture/diagnostics/versioned IR encoding/static DTO boundary and public generic/LINQ/async/AOT surface",
-      "superseded_draft": "Managed Npgsql/Microsoft.Data.Sqlite default product path and optional-only Rust DB",
-      "external_comparators_only": [
-        "Npgsql",
-        "Microsoft.Data.Sqlite",
-        "EF Core"
-      ],
-      "implementation_verification": "Rust DB and related Core interop/AOT remain required delivery evidence, not satisfied by this Python experiment",
-      "selected_orm_reference": "SeaORM route from D14/D16; schema-specific generated Entity/ActiveModel/dispatcher plus common Rust DB code statically linked in one native module; new model build requires Rust toolchain locally or CI. R31 did not execute this implementation."
-    },
-    "bounded_http_cleanup": "D14/D15 DataSession.CloseAsync(deadline) permits Pending/Quarantined wait completion with Engine-held parent leases/roots/budgets; DisposeAsync success still joins true local safety. B21/B22 must test finite response waiting and no request-scope escape. Not validated by the SQLite prototype."
+    "decision": "Rust Server + C# business handlers + mandatory Rust database; scoped single-transaction idempotency/result/business/outbox and Unknown recovery. Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
+    "design_research_status": "ready_for_independent_review",
+    "future_delivery_obligations": [
+      "B21/B22: implement reference app, product faults including outbox/filesystem/HTTP and actual C# AOT",
+      "B23/B24: long load/performance and independent package acceptance"
+    ]
   },
   "execution": {
     "upstream_tests": "not_run",
-    "csharp_compilation": "not_run",
-    "rust_compilation": "not_run",
+    "csharp_compilation": "no new C# execution in this fixture; historical source-driven AOT evidence separate",
+    "rust_compilation": "new database-completion fixture compiled Rust1.100",
     "native_aot": "not_run",
     "product_runtime": "not_implemented",
     "production_acceptance": "not_complete",
-    "research_experiments": "executed_see_manifest"
+    "research_experiments": "executed_see_manifest",
+    "historical_snapshot": {
+      "upstream_tests": "not_run",
+      "csharp_compilation": "not_run",
+      "rust_compilation": "not_run",
+      "native_aot": "not_run",
+      "product_runtime": "not_implemented",
+      "production_acceptance": "not_complete",
+      "research_experiments": "executed_see_manifest"
+    },
+    "postgres_native_research": "six cases executed on PostgreSQL18.0 Linux; exact manifest linked"
   },
-  "independent_review": "required_by_other_author_not_claimed_here"
+  "independent_review": "required_by_other_author_not_claimed_here",
+  "superseded_architecture_decisions": {
+    "baseline": {
+      "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+      "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+      "packet_revision": "0.1.1",
+      "packet_sha256": "ff6ebe45d69e7a3390fa6c029ac7cb4dc499e9807b7132cdb720d2b02fad086c"
+    },
+    "values": {
+      "selected_design": {
+        "decision": "Single-transaction scoped idempotency/result/business/outbox and explicit Commit Unknown recovery; C# application/syntax/DTO layer over mandatory Rust ORM and PostgreSQL/SQLite Database Engine, with Kestrel default and optional Rust Server.",
+        "design_research_status": "resolved_pending_independent_review",
+        "contract_acceptance": "proposed_not_self_accepted",
+        "question_closure_recommendations": [],
+        "documentation_tasks": [
+          "D20"
+        ],
+        "verification_delivery_tasks": [
+          "B21",
+          "B22",
+          "B23",
+          "B24"
+        ],
+        "product_scope_constraint": {
+          "source": "Explicit user direction relayed by integrator during this session",
+          "database_execution": "Rust required for query semantics, SQL generation, ORM, drivers, pool and transaction execution; C# supplies syntax capture/diagnostics/versioned IR encoding/static DTO boundary and public generic/LINQ/async/AOT surface",
+          "superseded_draft": "Managed Npgsql/Microsoft.Data.Sqlite default product path and optional-only Rust DB",
+          "external_comparators_only": [
+            "Npgsql",
+            "Microsoft.Data.Sqlite",
+            "EF Core"
+          ],
+          "implementation_verification": "Rust DB and related Core interop/AOT remain required delivery evidence, not satisfied by this Python experiment",
+          "selected_orm_reference": "SeaORM route from D14/D16; schema-specific generated Entity/ActiveModel/dispatcher plus common Rust DB code statically linked in one native module; new model build requires Rust toolchain locally or CI. R31 did not execute this implementation."
+        },
+        "bounded_http_cleanup": "D14/D15 DataSession.CloseAsync(deadline) permits Pending/Quarantined wait completion with Engine-held parent leases/roots/budgets; DisposeAsync success still joins true local safety. B21/B22 must test finite response waiting and no request-scope escape. Not validated by the SQLite prototype."
+      }
+    },
+    "superseded_by": "2026-11-12 current user mandate and database completion research; retained only as history"
+  },
+  "decision_revision": "precompiled-native-database-completion-2026-11-12",
+  "requirement_correction": {
+    "authority": "current user mandate",
+    "database_backend": "Rust required",
+    "orm": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
+    "server": "Rust required; Kestrel comparator only",
+    "csharp_scope": "business, typed Fluent API, static metadata/binding/DTO; no SQL AST/dialect/complex LINQ provider",
+    "ordinary_entity_rebuild": "No Rust recompilation for new entity using existing native capabilities"
+  },
+  "design_decisions": {
+    "status": "ready_for_independent_research_design_review",
+    "choice": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
+    "product_implementation_verified": false,
+    "production_accepted": false,
+    "future_delivery_obligations": [
+      "B21/B22: implement reference app, product faults including outbox/filesystem/HTTP and actual C# AOT",
+      "B23/B24: long load/performance and independent package acceptance"
+    ]
+  },
+  "completion_research": {
+    "baseline": {
+      "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+      "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299"
+    },
+    "task_packet": {
+      "revision": "0.2.0",
+      "sha256": "4e95841ee2120c56375d106e35038d7f9a6fb66d326c215b47cd4ab2eefb363a"
+    },
+    "author": "/root/database_research",
+    "source_manifest": "verification/database-completion/source-inspection.json",
+    "experiment_cases": [
+      "lost_commit_response_is_error_with_durable_effect",
+      "conflict_cte_old_snapshot_needs_separate_recovery_statement"
+    ],
+    "actual_linux_manifests": [
+      "verification/database-completion/linux-metadata-current/manifest.json",
+      "verification/database-completion/linux-postgres-final/manifest.json"
+    ],
+    "failed_hypothesis_retained": "verification/database-completion/linux-attempt-1/manifest.json",
+    "status": "research_findings_and_design_ready_for_independent_review",
+    "independent_review": "not_claimed_by_author",
+    "future_stage_obligations": [
+      "B21/B22: implement reference app, product faults including outbox/filesystem/HTTP and actual C# AOT",
+      "B23/B24: long load/performance and independent package acceptance"
+    ],
+    "no_product_code_written": true,
+    "ci_confirmation": {
+      "manifest": "verification/database-completion/ci-confirmation.json",
+      "run_id": 43388468172,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "metadata": "Windows and Linux: 5/5 each",
+      "postgres": "Linux PostgreSQL18.0: 6/6",
+      "scope": "Use only the task-specific cases already listed; repeated platforms are not additional unique cases. No C# or product acceptance claim."
+    }
+  },
+  "historical_status": "partially_evidenced"
 }

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "task_id": "R26",
-  "observed_date": "2026-11-12",
-  "coverage_statement": "Only listed scopes were read; repository enumeration or retrieval alone is not source coverage.",
+  "observed_date": "2026-11-13",
+  "coverage_statement": "Exact scoped source reads and separately identified actual research executions; historical source and execution identities retained.",
   "paths": [
     {
       "repo": "dotnet/aspnetcore",
@@ -76,10 +76,6 @@
       "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs"
     }
   ],
-  "explicit_remaining_coverage": [
-    "Full Kestrel HTTP2/TLS/socket transport internals and all RDG diagnostics/tests were not read.",
-    "No real net11 HTTP application was published or run."
-  ],
   "licenses": [
     {
       "repository": "https://github.com/dotnet/aspnetcore",
@@ -93,12 +89,43 @@
   ],
   "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
   "test_state": {
-    "upstream_tests": "not_run",
-    "csharp_compilation": "not_run",
-    "rust_compilation": "not_run",
-    "native_aot": "not_run",
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [
+      {
+        "path": "verification/server-completion/kestrel-local-2/run.json",
+        "sha256": "0a9b78cc2aa5108adef0f696f902f0cc6e22aef781f076d7db0529c7f7f1a94b",
+        "success": true,
+        "scope": [
+          "No NativeWeave product implementation.",
+          "Protocol Rust tests do not execute a C# FFI Handler.",
+          "Kestrel is solely the managed comparator.",
+          "Finite tests do not establish long-load performance or platform certification."
+        ]
+      },
+      {
+        "path": "verification/server-completion/ci-verification.json",
+        "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+        "success": true,
+        "scope": [
+          "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+        ]
+      }
+    ],
+    "rust_protocol_fixture": "not_claimed_for_this_task",
+    "csharp_native_aot": "executed_windows_linux_comparator",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
     "product_runtime": "not_implemented",
-    "production_acceptance": "not_complete",
-    "research_experiments": "none"
-  }
+    "production_acceptance": "not_complete"
+  },
+  "historical_explicit_remaining_coverage": [
+    "Full Kestrel HTTP2/TLS/socket transport internals and all RDG diagnostics/tests were not read.",
+    "No real net11 HTTP application was published or run."
+  ],
+  "explicit_remaining_coverage": [
+    "Full equivalent-load and 24h/72h comparisons belong to B23 after the native product bridge exists.",
+    "Windows/Linux scoped comparator execution is complete; HTTP2/TLS equivalence and production profiles still require B23."
+  ],
+  "scope_completion": "Research questions and design counterexamples resolved for declared scope; independent acceptance pending; product validation remains separate.",
+  "package_inventory": "verification/server-completion/dependency-inventory.json",
+  "package_identity_checks": "verification/server-completion/package-identities.json"
 }

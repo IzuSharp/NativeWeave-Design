@@ -1,0 +1,20 @@
+[package]
+name = "nw-database-completion-study"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.100"
+publish = false
+
+[dev-dependencies]
+sea-query = { version = "=1.0.2", default-features = false, features = ["backend-sqlite", "backend-postgres", "thread-safe"] }
+sea-orm = { version = "=2.0.4", default-features = false, features = ["runtime-tokio", "sqlx-sqlite", "stream"] }
+sqlx = { version = "=0.9.0", default-features = false, features = ["runtime-tokio", "sqlite", "postgres", "migrate", "uuid", "chrono", "rust_decimal"] }
+tokio = { version = "=1.54.1", features = ["rt", "macros", "sync", "time", "net", "io-util"] }
+futures-util = "=0.3.34"
+uuid = "=1.18.1"
+chrono = "=0.4.42"
+rust_decimal = "=1.39.0"
+nw-database-boundary-probe = { path = "../native-slices/database" }
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"

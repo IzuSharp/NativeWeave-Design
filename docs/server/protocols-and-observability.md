@@ -1,104 +1,230 @@
-# D19 — gRPC、MCP、TLS 与跨语言诊断
+# D19 — Native gRPC/MCP/TLS and cross-language diagnostics
 
-| 项目 | 值 |
-| --- | --- |
-| 契约 | C-PROTOCOL-001，0.1.0 |
-| 输入任务 | R28、R30；交叉 R02/R07/R08/R29/R34、D18/D20 |
-| 基线 | Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5` |
-| 状态 | 设计规范 0.1.0；接受状态由 registry 中相同内容哈希与独立 Review 确定；所有本文件 C# / Rust 片段未编译；产品、AOT 与协议认证未验证 |
-| 核验日期 | 2026-11-12 |
+Contract C-PROTOCOL-001. Design revision **0.3.0 design candidate**. Inputs R28/R30/R34 with D18 and
+Core ownership/async/error/buffer contracts. Exact-content acceptance belongs to the
+registry and independent review; this specification does not assert product execution.
 
-## 1. 需求、边界与选择
+## 1. Required Rust host and independent protocol modules
 
-gRPC、MCP 和 telemetry exporter 都是可独立引用的 managed 包；不使用它们的应用没有这些包引入的程序集或依赖。它们建立在 [D18](hosting-and-streaming.md) Kestrel、预算、deadline、关闭及独立 Engine 边界上，不向 Core 塞入业务协议。独立无数据库的 managed 服务保留通用 .NET diagnostics；使用 Database 的应用仍依赖必需的 Rust DB Engine，不能因为协议包为 managed 就声称整个应用没有 native dependency。Rust Engine 只接收小型、可选的诊断上下文。
+All NativeWeave network/protocol transport runs on the required Rust Server Engine.
+The selected initial composition is D18's Tokio/Hyper/Tower; mature native protocol
+engines are Tonic0.14.9, rmcp3.10.0 and rustls0.23.46. C# exposes typed generated DTOs,
+method/tool registration and business Handlers. Kestrel/grpc-dotnet/MCP C# SDK remain
+comparators, not the production transport. A standalone Server app has a native
+Server dependency even when it has no Database dependency.
 
-本轮已选择版本化协议 profile、静态可达注册与有界流语义；不承诺所有历史版本、所有插件、动态 assembly 扫描、任意 JSON `object` 图或任意浏览器 transport。协议升级修改独立包/profile 与兼容矩阵，不要求修改 Core ABI。
+Protocol NuGet/native feature packages are independently selectable. An application
+without gRPC/MCP does not load their adapters or require protocol services in Core.
+All packages negotiate native version/feature support; they cannot silently activate
+a managed Host fallback. Ordinary new services, tool metadata and DTOs use the existing
+native module. No .proto/tool-specific Rust compilation is required of consumers.
 
-源码证据见 [R28](../research/topics/R28/report.md) / [R30](../research/topics/R30/report.md)。已固定 grpc-dotnet `v2.85.0`（`a7767e28a2c2f4e89a17e9efb95f75e8a82637d0`）、MCP C# SDK `v2.4.0`（`4cbf42ef107763f0bc75c358af8cb2dfe47a769a`）、MCP spec `2026-07-28`（`5f5440bb26a62e2cf3440b92da5a667efa03b267`）、OpenTelemetry .NET `core-1.21.0`（`51c6db11dadde6ed5019af4f42332860f1a5d8da`）及 .NET 11。版本是当前研究与候选依赖基线，不是所有平台已兼容的认证。
-
-## 2. gRPC：生成服务、受限消息、明确终态
-
-采用 grpc-dotnet 与由 `.proto` 编译生成的 service/DTO/marshaller；Google.Protobuf 等传递依赖在 B18/B24 锁文件精确锁定。本轮不手写 HTTP/2 framing 或 protobuf 运行时，也不把任意运行时 service discovery 作为 AOT 路径。生成代码、服务泛型及 DTO 必须有静态调用入口；反射服务（若产品显式需要）是另一个有限 descriptor profile，不能全程序集 root。
-
-```csharp
-// 草案：B18 必须在固定 net11.0 与 NuGet lock 上编译并发布 AOT。
-builder.Services.AddGrpc(options =>
-{
-    options.MaxReceiveMessageSize = 1024 * 1024;
-    options.MaxSendMessageSize = 1024 * 1024;
-});
-app.MapGrpcService<WorkItemsGrpcService>();
-
-public override async Task Watch(
-    WatchRequest request, IServerStreamWriter<WorkItemEvent> writer,
-    ServerCallContext context)
-{
-    await foreach (var item in events.ReadAsync(request, context.CancellationToken))
-        await writer.WriteAsync(item, context.CancellationToken);
-}
+```json nativeweave-protocol-host-profiles-v1
+{"host_task_ids":["B17"],"profiles":{"grpc":"native-tonic","mcp":"native-rmcp"}}
 ```
 
-Message cap 是参考 profile 的选择；累积 stream 仍由时间/速率/总量预算约束。`WriteAsync` 返回后才能发下一条；不得以 `Task.WhenAll` 并行写同一 writer。grpc-dotnet 的 `HttpContextStreamWriter.WriteCoreAsync` 在锁内检查 pending write，并在 finally 释放 token registration；对应测试验证 concurrent write 拒绝、默认 flush 和 BufferHint 不立即 flush。应用不能把 BufferHint 当无界批处理许可。
+This block is part of the content-hashed specification. B15 is the complementary C#
+application/Handler surface, B17 the native host, not mutually exclusive choices.
 
-接收限额同时覆盖 wire message length 和解压输出；v2.85.0 `PipeExtensions.TryReadMessage` 把同一限额传入解压 helper，超限产生 ResourceExhausted。B18 仍须用高压缩比输入、分片及超大 declared length 检查真实输出分配峰值，不以 header cap 代替解压 cap。未知压缩方式拒绝；默认 profile 关闭未验收压缩器，避免扩大攻击面。
+## 2. gRPC adapter: precise reuse and interfaces
 
-每个 RPC 具有统一最终状态：正常 OK；业务定义 status；deadline exceeded；取消；协议/连接错误。`ServerCallContext.CancellationToken` 在有 deadline 时来自 deadline manager，否则来自 RequestAborted；不能只监听 `HttpContext.RequestAborted`。已读 `DeadlineExceededAsync` 先设置 grpc status/trailers 并尝试完成 response，然后 reset/abort。NativeWeave 不再写第二份 HTTP JSON 错误；应用响应已经 committed 时通过协议终态结束流。客户端断开与服务端未执行没有等价关系，涉及 DB COMMIT 的 Unknown 由业务 RPC 返回/恢复协议保留。
+Fixed Tonic source identity: `grpc/grpc-rust` tonic-v0.14.9,
+`4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70`. `Codec`, `Encoder`, `Decoder`,
+`Grpc::unary/server_streaming/client_streaming/streaming`, and the four public service
+traits are the reuse seam. [R28](../research/topics/R28/report.md) and
+[executed codec](../../experiments/server-completion/protocol/src/lib.rs) show concrete
+source and compilation evidence. No private Tonic type or unstable Hyper FFI becomes ABI.
 
-默认要求经过验收的 HTTP/2 与 ALPN/TLS 配置。HTTP/1 gRPC-Web、HTTP/3、浏览器代理行为为显式独立 profile，不因普通 REST 成功自动放行。
+An immutable runtime method descriptor carries method path, unary/client/server/bidi
+kind, Handler ID, request/response type metadata identifiers, authorization policy,
+message caps and deadline policy. C# generated protobuf code serializes the complete
+message; the native byte codec copies/retains just those bytes. Tonic owns gRPC framing,
+compression, headers/trailers, statuses, incremental decode and stream transport.
+This is required language-boundary DTO mapping, not a managed gRPC stack.
 
-## 3. MCP：协议版本直接决定生命周期
+The native HTTP route selects a validated `/package.Service/Method` descriptor and
+constructs one of four adapters: `UnaryService<Bytes>`, `ServerStreamingService<Bytes>`,
+`ClientStreamingService<Bytes>` or `StreamingService<Bytes>`. The concrete public
+Tower service signatures use `tonic::Request<Bytes>` for a single request and
+`tonic::Request<tonic::Streaming<Bytes>>` for inbound streams, with
+`tonic::Response<Bytes>` or a bounded `Stream<Item=Result<Bytes,tonic::Status>>` response.
+`tonic::server::Grpc::new(RawCodec::for_method(kind))` dispatches to the corresponding method and returns
+`http::Response<tonic::body::Body>`. The executed fixture compiles the unary and
+server-streaming forms; its review correction also executes client-streaming mode.
+`for_method` is the Adapter's validated method-kind policy, not an upstream Tonic API.
+B18 implements the complete bidirectional profile from these same public
+traits; it must not import private Tonic transport helpers.
 
-### 3.1 显式 profile
+On the C# side, each generated method descriptor binds static encode/decode delegates
+and a typed business delegate. Protobuf code generation and generated message/parser
+code belong to the C# build; runtime schema compilation and arbitrary assembly lookup
+are excluded. Deserialization failure releases the taken message buffer before
+returning the selected protocol error. Method metadata and serializers may change
+with an application build while the precompiled native module stays identical.
 
-| Profile | 设计支持状态 | 会话/消息语义 | 配置与验收 |
-| --- | --- | --- | --- |
-| `Mcp2026_07_28` | 默认推荐候选，B19 实施目标 | 每次请求提供版本/能力 metadata；无 initialize 握手、无协议 session；POST JSON 或该请求的 SSE response | SDK `Stateless`，固定版本；GET/DELETE 为405；不生成/回显 session ID；现代 conformance fixture |
-| `Mcp2025_11_25` | 应用显式选择的兼容候选，不与新 profile 隐式混合 | initialize、协商、session/旧 transport 规则按旧规范执行 | 独立 endpoint 或明确 hybrid；会话数量/idle timeout/存储有界；单独 AOT/conformance |
-| `HybridInitializeClients` | 只有兼容需求与独立验收后启用 | SDK `StatefulForInitializeClients`：旧 initialize client 为 stateful，新 metadata client 为 stateless | 明确允许版本集，逐请求路由，隔离两种状态/取消语义 |
-| 未列版本、任意旧 SSE | 不自动支持 | 返回协议定义的 unsupported version 错误/能力信息 | 禁止为“连接成功”静默退回未知版本 |
+| Native adapter operation | C# semantic API | Ownership/ordering |
+|---|---|---|
+| `grpc_register_methods(descriptor_batch)` | `MapGrpc(GeneratedServices.All)` | validate paths/kinds/caps, freeze descriptor generation before serving; no arbitrary runtime assemblies |
+| `grpc_receive_message(op)` | `ReadAsync<TRequest>(cancel)` | pull, one pending read, owned bytes taken once after terminal success; decode failure releases lease |
+| `grpc_send_message(op, bytes)` | `WriteAsync<TResponse>(value,cancel)` | serialize into bounded owner; one pending write; retain until native ack; bytes are not a gRPC frame |
+| `grpc_set_status(code, detail, metadata)` | typed completion/result | native validates finite status/metadata; exactly one status commit; never append an HTTP JSON error |
+| `grpc_cancel(reason)` | request cancellation | intent only; terminal/result and retirement remain distinct; no inference of remote side-effect rollback |
 
-应用可主动选择旧 profile；默认推荐最新稳定是本项目设计选择，不是迫使所有应用升级，也不承诺无限历史兼容。版本、SDK major、transport、serializer、server capabilities、认证方式都写进发布 manifest。SDK 升级不能静默改变应用 profile；客户端降级须调用者策略明确允许，并记录最终版本。遇现代 unsupported-version 结构化错误不能误当成“旧 server”而盲试 initialize。
+Unary and server-streaming require exactly one inbound message. This is an explicit
+Adapter rule: pinned Tonic `map_request_unary` reads the first message, then calls
+`Streaming::trailers`, which drains and discards additional messages unless the Decoder
+rejects them. Each request therefore creates a fresh mode-aware Decoder with one remaining
+message for these two method kinds. Its first complete message consumes that allowance;
+a second complete message returns INVALID_ARGUMENT before the business Handler runs.
+No message retains Tonic's INTERNAL missing-message error; one empty framed message is
+valid. The counter must reset per request and must not be shared by connections or methods.
+Client/bidirectional streaming uses its separate finite stream quotas and permits multiple
+messages; applying the unary limit to those methods is an error. Tonic still owns framing,
+incremental parsing and decompression. The Decoder sees already framed message payloads
+and does not implement another gRPC parser. Independent review reproduced the default
+permissive behavior and the strict correction; exact source and runs are linked in R28.
 
-### 3.2 已核实的新语义
+Native error/status is projected into a stable managed diagnostic category while preserving
+the original gRPC code. In this Tonic version oversized framed length is OUT_OF_RANGE;
+decompression-output cap is RESOURCE_EXHAUSTED. Do not pretend both paths are identical.
+Default profile caps each encoded/decoded message to 1MiB, and imposes independent
+stream byte/time/request quotas. Compression is disabled until explicitly selected
+and validated. Client/server/bidi streams maintain independent inbound/outbound state,
+bounded queues and half-close; no unbounded Task.WhenAll writes or read-ahead collection.
 
-[官方固定版本 Streamable HTTP](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http) 与 SDK `HttpServerSessionMode`、`McpProtocolVersions`、`StreamableHttpHandler` 一致：现代请求使用 per-request metadata，旧的 session ID、GET unsolicited SSE 与 DELETE terminate session 不适用。关闭某次请求的 response stream 会取消该请求；这不同于旧 session/profile 中 SSE 断线/恢复的处理，不可用一个笼统“断流只是重连”规则覆盖两者。
+`tonic::server::Grpc` alone does not install Tonic transport's timeout layer. The
+inspected `transport/service/grpc_timeout.rs` contains a private `GrpcTimeout` and
+private parser; its timer covers the response future, not a returned streaming body.
+The NativeWeave Rust Adapter therefore owns a small deadline policy component, not a
+managed timer stack or an unsupported call to that private API. At header admission it
+accepts at most one `grpc-timeout` value of 1–8 ASCII digits plus `H/M/S/m/u/n`, uses
+checked duration arithmetic, and takes the minimum with the finite route deadline.
+Invalid/duplicate values fail before the Handler (INVALID_ARGUMENT); zero is already
+expired (DEADLINE_EXCEEDED); absence uses the route deadline. Cap the duration before
+checked monotonic Instant addition. Unlike the inspected private helper's permissive
+invalid-header fallback, this is an explicit strict NativeWeave policy.
 
-入口检查 HTTP method、Content-Type、Accept、Origin/认证及 header/body 一致性。`MCP-Protocol-Version` 与 body metadata 必须一致；`Mcp-Method` 必须与 JSON-RPC method 一致；需要名称的 method 校验 `Mcp-Name`。header 名大小写不敏感，值按规范解释；不能直接把用户任意 Unicode/控制字符写进 HTTP header。custom metadata 镜像遵守规范编码规则，不自造 JSON/HTTP 双重解释。header 与 body 不一致是错误，不择一静默覆盖。SDK 在 parse 后带请求 id 返回错误，这意味着 NativeWeave 仍要在 parse 前限制 bytes、depth、headers，不能认为后置校验防止解析资源消耗。
+The resulting deadline is stored once in the native request owner and drives
+admission, inbound and outbound messages, response body, cancellation and retirement
+coordination. Producing response headers cannot cancel the timer or restart its budget.
+Expiry sets intent and competes for the terminal state; send DEADLINE_EXCEEDED trailers
+if the protocol still permits them, otherwise reset/close with the real reason.
+The timer itself retires with its operation. A disconnect, expired deadline and
+explicit client cancel converge on cancellation intent, but cannot overwrite an earlier
+success/error or prove a remote side effect did not occur. Headers/trailers already sent
+cannot be rewound. All stream owners remain charged through body/callback retirement.
 
-现代 profile 不把工具实例/数据库 transaction 保留在隐含 session。每次调用的鉴权、服务 scope、预算和 cancellation 均独立建立；长期工作先转为显式持久 operation，再给授权的 status/query 入口，不能让一次 HTTP SSE 永久持有 DB transaction。协议 tool cancellation 是请求终止意图；外部副作用按 D20 幂等与恢复语义处理。discovery/tool schema 也是有限集合，不能把用户任意输入转成运行时注册工具。
+Research execution proves the byte-codec unary/empty/binary and server-streaming seam,
+malformed length/truncation/compression rejection and HTTP2 transport separately. The
+future B18 implementation must integrate all method kinds, static C# serializers and
+Core callbacks; the current fixture does not claim a C# gRPC product or HTTP2+TLS
+interoperability certification.
 
-### 3.3 静态注册、序列化与 C# API
+## 3. MCP adapter: explicit version, tool metadata and lifecycle
 
-```csharp
-// 全部 NativeWeave wrapper / generated name 是未编译的候选 API。
-builder.Services.AddMcpServer()
-    .WithTools(GeneratedWorkItemTools.All)
-    .WithHttpTransport(options =>
-    {
-        options.SessionMode = HttpServerSessionMode.Stateless;
-    });
-// B19 同时配置 SDK 的固定 ProtocolVersion="2026-07-28"；
-// 具体 options binding 由版本锁定后的编译 fixture 核对，不使用隐式 SDK default。
-app.MapMcp("/mcp");
+Fixed rmcp3.10.0 `53e64a93c8e32d8f7699af587b9e28566929940c` supplies
+`StreamableHttpService<S,M>: tower_service::Service<Request<B>>`, `ServerHandler` and
+existing JSON-RPC/MCP model/transport implementations. One native ForeignMcp type reads
+runtime descriptor records for tools/resources/prompts and dispatches managed Handler
+IDs. Its required methods include `get_info`, `supported_protocol_versions`,
+`list_tools`, `get_tool`, `call_tool`; only declared capabilities are advertised.
+`get_tool` returns the exact input schema, because returning None skips schema-dependent
+SEP-2243 `Mcp-Param-*` standard-header consistency validation. The native SDK does not
+thereby promise complete JSON Schema validation of all arguments. Generated typed
+mapping and explicit argument/permission checks run before application dispatch; an
+arbitrary-schema profile requires a separately selected mature native validator.
+
+The initial profile is **Mcp2026_07_28 without legacy sessions or event-store replay**.
+The configuration uses public rmcp builder methods:
+
+```rust
+// Executed method/configuration seam in the research fixture; full product wiring pending.
+StreamableHttpServerConfig::default()
+    .with_legacy_session_mode(false)
+    .with_json_response(true)
+    .with_stateless_protocol_metadata_required(true)
+    .with_max_request_body_bytes(1_048_576)
+    .with_allowed_hosts(["api.example.com:443"])
+    .with_allowed_origins(["https://app.example.com:443"])
+    .enforce_origin_validation();
 ```
 
-`GeneratedWorkItemTools.All` 是 B19 生成的 `McpServerTool[]`：明确 tool 名、输入 JSON schema、输出 schema、typed handler 与已知 DTO 的 `JsonTypeInfo`，不扫描 assembly，不从任意 CLR `Type` 建 schema。`McpServerTool.ProtocolTool` 与 `InvokeAsync` 是已读 SDK 扩展口，实例枚举注册 overload 只添加明确实例。生成器使用 SDK 提供的序列化和 protocol types，不再实现另一套 JSON-RPC。
+The service's `supported_protocol_versions` advertises exactly the enabled version.
+Default rmcp settings are not the product policy: legacy sessions default true, strict
+modern metadata default false, and Origin checking is normally disabled by an empty
+allowlist. Origin is a browser defense, not authentication; requests without Origin
+still require explicit application authorization. Public deployments must supply their
+actual Host/Origin allowlists; loopback defaults are only for local tools. Explicit
+ports prevent deprecated broad origin-port matching.
 
-可保留更简洁的 `WithTools<WorkItemTools>(ApiJsonContext.Default.Options)` 有限泛型注册 profile；源码用 `DynamicallyAccessedMembers` 标记并仍通过 `GetMethods`/attribute 发现该固定类型。它是 **受约束的反射路径，不是零反射生成器**。只有该精确泛型/DTO集合的 trim/AOT 测试通过才放行；non-generic `IEnumerable<Type>`、`WithToolsFromAssembly` 的 RUC 路径不进入严格 profile。
+HTTP method/content-type/accept, body cap and Host/Origin checks precede dispatch.
+`MCP-Protocol-Version` and `_meta.io.modelcontextprotocol/protocolVersion` agree;
+`Mcp-Method`, `Mcp-Name`, client capabilities and request metadata are interpreted by
+the pinned SDK. The Adapter supplies finite schema/depth/string/list limits and typed
+static JsonTypeInfo mapping to C#. Unknown tools/versions and metadata conflicts fail
+explicitly; there is no reflection scan or permissive legacy fallback.
 
-DTO 使用源码生成的 `System.Text.Json` metadata；闭合泛型和集合类型必须可达。拒绝无 schema 的任意 `object` 返回、未知派生类型与运行时匿名模型；诊断指出具体 tool/parameter/result/path。输入 schema 验证、业务鉴权和 serializer 都不能互相代替。工具名、路由和 JSON 属性名兼容性由 package profile 管理，重命名需 migration/version 决定。
+| Profile | Availability and lifecycle |
+|---|---|
+| Mcp2026_07_28, no event store | initial implementation target; no implicit protocol session; POST only; GET/DELETE405; unfinished response drop cancels this request |
+| modern persisted/resumable events | not enabled by initial profile; SDK can allow GET and continue persisted work on disconnect; requires explicit cursor/auth/storage/quota contract |
+| legacy2025_11_25 | not enabled implicitly; future compatibility package must separately specify initialize/session/timeout/cancel behavior and run conformance |
 
-### 3.4 AOT 证据的真实限制
+The distinction comes from actual rmcp source: `CancelOnDisconnect` is disarmed on
+natural EOF, and persisted requests are handled differently. Do not apply the initial
+profile's cancel-on-disconnect rule to every stateless transport. Application operations
+that outlive HTTP are durable, authorized operation records; they cannot quietly hold
+a DB transaction forever under an implicit session.
 
-SDK 自带 AOT TestApp 的 csproj 设置 `net10.0`、`PublishAot=true`，但同时 `TrimmerRootAssembly` 保留多个 SDK assembly；Program 使用 in-memory stream。它说明上游有 AOT 覆盖入口，**不证明** NativeWeave 的 net11 HTTP endpoint、静态注册、精确 DTO、TLS 与 trimming 组合已经工作。本轮只读源码，没有运行该测试。B19 必须使用最小 app、无全程序集 root、明确 profile，运行发布后的 Windows/Linux 二进制，验证 discovery、tool success/failure、取消、畸形 header、超大 JSON、unknown version、GET/DELETE 和 shutdown。
+The C# API shape is `MapMcp(GeneratedTools.All, profile, ApiJsonContext.Default)` with
+typed tool delegates. Native descriptors hold tool name/schema, Handler ID and limits;
+C# owns typed argument/result mapping and business authorization. Native rmcp returns
+tool execution failures as tool error results; malformed/unroutable protocol requests
+produce JSON-RPC errors, and pre-parser failures use HTTP errors. These layers cannot
+all be flattened into one Engine status. Tool annotations are advisory metadata, never
+authorization. Expensive enumeration/schema generation is bounded and happens before
+serving, not per request.
 
-## 4. TLS、身份与错误边界
+The initial data bridge serializes the already native-decoded argument object into a
+bounded UTF-8 owned buffer for generated C# JsonTypeInfo mapping; the result returns
+through the inverse bounded mapping. Charge temporary native JSON values, UTF-8 bytes
+and managed DTO buffers to their actual simultaneous owners. This can incur a second
+JSON encode/decode at the language boundary and must be measured, not described as
+zero-copy. A future native field-oriented projection may reduce that cost only with
+an explicit capability and equivalent protocol/schema semantics. It is not a second
+managed MCP parser/session/transport implementation.
 
-TLS 只有一个终止 owner，见 D18。MCP Origin 校验和 CORS 不能代替认证；反向代理传播的身份只来自已配置可信边界。每个 tool/RPC 绑定显式权限和资源范围；异常信息、SQL、token、证书私钥、request body 不进入默认 telemetry。MCP tool error、JSON-RPC error、HTTP error、gRPC status 与 Engine error 分层映射，不能把内部统一错误码直接当所有协议的 wire code。
+The real Rust fixture changes tool names at runtime and calls both through one compiled
+Handler, proving the native registry seam without Rust per-tool code generation.
+It also executes method, Host/Origin and streaming body cap rejection. C# FFI DTO,
+request cancellation and production conformance remain future B19 acceptance work.
 
-协议 parser fuzz 至少覆盖长度溢出、分片、压缩炸弹、JSON depth、重复/冲突 headers、非法 UTF-8、重复 JSON 属性的确定处理、unknown method/tool、trailer 竞态、客户端取消与业务提交竞争。协议本身的错误/版本规则由固定规范决定；本项目不为方便创建宽松 fallback。
+## 4. TLS, native lifetime and safety
 
-## 5. Diagnostics：C# 默认、跨 FFI 小上下文
+rustls0.23.46 owns one TLS layer under Hyper. Pin the crypto provider and feature set,
+certificate/trust policy, ALPN and supported protocol versions in the native package.
+Bound handshake concurrency/time independently of active HTTP requests. Application
+payload caps do not bound TLS buffers, socket buffers or allocator-retained pages.
+Fatal TLS processing errors stop reads and close the connection; continuing to buffer
+after a fatal error is forbidden. Graceful close_notify and abrupt transport EOF are
+different outcomes and do not prove C# callback quiescence.
+
+Certificate reload builds/validates an immutable config and atomically swaps the
+new-listener reference. Active connections hold their old snapshot until retirement;
+never mutate/free a certificate/key object still used in a handshake. Private keys
+are never in diagnostics, descriptors exposed to C#, source control or test manifests.
+Research TLS tests generate ephemeral localhost certificates at runtime, check trust
+and hostname rejection, negotiate h2 ALPN and observe close_notify; test trust is not
+a production trust default. Native TLS+actual network+protocol+cross-language behavior
+must be exercised together by B18/B19/B22, separately from these scoped proofs.
+
+Host/Origin policy cannot substitute for authentication. Only explicitly trusted
+proxies supply forwarding/identity headers. SQL values remain parameterized in the
+required Rust DB layer. Every buffer/length uses the D07 checked arithmetic and owner
+contract; in-process native code is trusted, not sandboxed by a safe language.
+R34 documents resource, malformed-input and diagnostic-data boundaries.
+
+## 5. Diagnostics: C# 默认、跨 FFI 小上下文
 
 默认用 `ActivitySource`、`Meter` 与结构化日志接口；OpenTelemetry exporter 为选装包。dotnet/runtime 11 的 `ActivitySource` 无 listener 时直接不创建 activity，故昂贵 tags、links、formatted strings 应在 enabled/sampling 判断之后创建。`HasListeners` 只是快速判断，不能取代 sampling；无 listener 仍可按配置转发已有 trace context，不需要创建 Activity 对象。
 
@@ -113,23 +239,47 @@ Engine 入口仅传 optional `TraceContextV1`；不把 `Activity`、`ExecutionCo
 | 8 | trace_id | 16 bytes，W3C 字节次序；全零无效 |
 | 24 | parent_span_id | 8 bytes；全零无效 |
 
-布局仅含固定字节，不含平台指针；C# explicit/sequential layout 与 Rust repr(C) 的 size/offset assertions 由 B20 编译验证，当前未运行。Engine 不支持此 capability 时忽略，不影响业务结果。可选 tracestate 通过单独有界 UTF-8 元数据传入并在同步入口复制，默认不转发 baggage；完整格式校验按 [W3C Trace Context 1 推荐规范](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) §3.2/§3.3，畸形外部上下文开启新 root 并计数，不当作认证/授权依据。该32-byte layout是本项目领域Adapter选择，不是W3C定义的二进制ABI。跨 ABI 的结构越界仍是契约错误，不容忍非法指针。
+布局仅含固定字节，不含平台指针；本轮独立 C# Native AOT 与 Rust repr(C) 探针均已编译执行 size/offset assertions，原始结果见 `verification/server-completion/diagnostics-local-2` 与 `diagnostics-rust-layout`。它们没有通过真实 FFI 传输该结构，B20 仍需完成 golden bytes、非法字段与实际 callback 路径验证。Engine 不支持此 capability 时忽略，不影响业务结果。可选 tracestate 通过单独有界 UTF-8 元数据传入并在同步入口复制，默认不转发 baggage；完整格式校验按 [W3C Trace Context 1 推荐规范](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) §3.2/§3.3，畸形外部上下文开启新 root 并计数，不当作认证/授权依据。该32-byte layout是本项目领域Adapter选择，不是W3C定义的二进制ABI。跨 ABI 的结构越界仍是契约错误，不容忍非法指针。
 
-Rust 内部 tracing span 与 managed Activity 共享 trace/parent 关联，不假设 thread-local 能跨 callback/async 迁移；完成 callback 只带 operation/correlation ID，在 managed continuation 恢复该请求 scope。重试 child span 必须保留 attempt 编号，数据库 Unknown 为独立可观测事件，不写假 Rollback/Succeeded。采样只影响诊断，不影响资源释放或业务计数。
+Rust 内部 tracing span 与 managed Activity 共享 trace/parent 关联，不假设 thread-local 能跨 callback/async 迁移；采用 tracing `Instrumented` 与显式 `WithDispatch` 在每次 Future poll 设置/退出 scope，禁止 Span::enter guard 跨 await。领域库不调用 set_global_default 抢占进程 subscriber；完成 callback 只带 operation/correlation ID，在 managed continuation 恢复该请求 scope。重试 child span 必须保留 attempt 编号，数据库 Unknown 为独立可观测事件，不写假 Rollback/Succeeded。采样只影响诊断，不影响资源释放或业务计数。
 
 指标 tag 允许 route template、protocol profile、provider、规范化 error category；禁止 request ID、operation ID、SQL 字面值、任意 tool argument 成为无界维度。trace events/attributes 每项长度、每 span 数量、总 exporter queue 与批次大小有界；reference profile 例如每 span 32属性、字符串最大256 UTF-8 bytes、队列2048条，同时限制每条payload。数量界限不是字节/RSS界限。
 
 OpenTelemetry `BatchExportProcessor.TryExport` 在队列满或自旋失败后 drop 并计数，shutdown 给 worker/exporter 传剩余 timeout。NativeWeave 采用相同故障隔离原则：网络 exporter 不在 FFI callback 或业务锁内阻塞；满队列丢诊断并计 drop，不阻止业务完成。必须实测 callback 最坏耗时与 exporter 故障时CPU，不把“有 bounded queue”当零成本保证。关闭先结束业务/资源，再给 telemetry 有限 flush deadline；无法导出的诊断不得造成永不退出。
 
-## 6. 正式验证义务与设计关闭建议
 
-| 既有任务 | 必需验收 |
-| --- | --- |
-| B18 | generated gRPC 服务/DTO；Windows/Linux net11 AOT HTTP/2 真运行；unary/stream、并发write拒绝、deadline、headers/trailers、截断、压缩前后限额；异常与状态一致 |
-| B19 | 精确 MCP profile manifest；静态/泛型两种受控注册分别验收；现代/legacy endpoint 各自 conformance；profile错配不静默降级；无root-all AOT；Origin/authn/authz；SSE关闭取消、资源归还 |
-| B20 | trace layout size/offset、跨线程parent传播、禁用诊断分配对照、限额/高基数/secret测试、exporter断网/阻塞/关闭deadline；所有丢失有计数 |
-| B22/B24 | 协议/SDK升级差异、TLS证书重载/关闭、跨平台兼容；长跑无session/registration泄漏；所选profile的实际发布二进制回归 |
+## 6. Acceptance inputs and future Codex implementation
 
-Q17 的设计问题可关闭为“独立 gRPC/MCP 包、生成/受控泛型注册、显式版本 profile、分层有界流与 diagnostics”；并不声称 B18/B19 的真实 AOT、兼容性或生产验收完成。新的 SDK 或协议变更按该接口局部修订，保留固定旧 profile 或明确迁移，不重新设计 Core。
+| Existing task | Concrete implementation and release obligations |
+|---|---|
+| B18 | runtime native method registry; compiled C# protobuf descriptors; Core operation bridge; unary/client/server/bidi streams; metadata/trailers/deadline; bounded encoded/decompressed lengths; real HTTP2/TLS interoperability on Windows/Linux AOT |
+| B19 | native rmcp ForeignHandler and exact profile; static C# tool/DTO metadata; get_tool schema registration; modern metadata checks; authn/authz; finite JSON/body/schema limits; error/tool-error distinction; disconnect/EOF/cancel and no replay/session leak |
+| B20 | compile TraceContextV1 size/offset, async parent propagation; no TLS/SQL/key leakage; bounded byte+entry telemetry queue and overflow counters; exporter failure and bounded shutdown |
+| B22 | cancellation/retirement races, half-close/reset, client disconnect after side effect, DB Unknown recovery, old/new protocol package mismatch, long-lived streams and quota exhaustion |
+| B24 | pinned crate/NuGet/native dependency manifests, license/NOTICE/SBOM, certificate policy/provider, cross-platform native assets, upgrade conformance and independent NuGet consumption |
 
-独立 reviewer 应检查：现代与旧 MCP 取消是否混同；metadata/header校验前是否有资源上限；泛型反射是否被误称零反射；native error/correlation 与trace/身份是否混淆；上游AOT fixture是否被夸大为产品证据。许可证也按固定 release 核对：MCP SDK/spec 的当前 LICENSE 记录 MIT→Apache-2.0 过渡、部分旧贡献仍 MIT、非规范 documentation CC-BY-4.0；不得机械标记整个项目为 MIT。本文是原创建议，不复制上游实现；B24 记录实际分发包的 LICENSE/NOTICE/SBOM。
+The native dependency graph is locked and inspected in the protocol experiment. Its
+Tokio/Hyper/http/Bytes families are unified; protocol adapters do not each instantiate
+a runtime. Version changes require source/test review of these exact seams and updated
+artifact contracts, not blind semver trust. Codec and serialized DTO ownership are
+explicit; no managed HTTP or complex network runtime is introduced to hide incompatibility.
+
+The report/source manifests and actual fixture logs support research/design acceptance
+after independent review. Future product, long-load and production conformance tests
+remain labeled obligations. A current finite success does not certify untested protocol
+extensions or all mobile targets. This distinction closes the design without claiming
+the future B18/B19 code already exists.
+
+R30 additionally executes a Linux Native AOT disabled-observer/layout/managed-parent probe. Its 0 current-thread allocated bytes in the fixed warm loop is scoped evidence, not a zero-overhead or native-memory claim; see the exact diagnostics run manifests.
+
+
+### Verified Windows/Linux research CI
+
+CI run [43388468172](https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43388468172)
+tested source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`. Protocol13/13 and
+Kestrel Native AOT5/5 passed on both Windows2022 and Ubuntu24.04. Their actual
+run manifests, stdout/stderr and source snapshots are retained under
+`verification/completion-ci/43388468172/`; author checks of each raw log/input hash and
+exact Windows LF-to-CRLF conversion are recorded in
+`verification/server-completion/ci-verification.json`. This extends platform coverage
+for these same distinct cases, not their product/FFI/soak scope or independent review.

@@ -1,0 +1,23 @@
+
+running 13 tests
+test tests::mcp_origin_and_host_are_checked_before_dispatch ... ok
+test tests::mcp_no_event_store_stateless_get_delete_are_405 ... ok
+test tests::mcp_streaming_body_limit_without_content_length ... ok
+test tests::hyper_real_loopback_http2_runtime_handler ... ok
+test tests::hyper_real_loopback_http1_runtime_handler ... ok
+test tests::mcp_runtime_tool_metadata_uses_one_compiled_handler ... ok
+test tests::tonic_rejects_oversize_before_handler ... ok
+test tests::tonic_rejects_invalid_compression_flag_before_handler ... ok
+test tests::tonic_server_streaming_reuses_same_codec_and_trailers ... ok
+test tests::tonic_rejects_truncated_frame_before_handler ... ok
+test tests::rustls_verified_handshake_alpn_and_close_notify ... ok
+test tests::tonic_runtime_bytes_codec_preserves_binary_and_empty ... ok
+test tests::rustls_rejects_wrong_name_and_untrusted_certificate ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

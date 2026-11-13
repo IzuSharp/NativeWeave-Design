@@ -1,37 +1,37 @@
-# R24 — Rust查询语义与参数安全
+# R24 — Native SQL semantics, parameters and explicit relations
 
-- 日期：2026-11-12；执行者：database_design（真实协作子代理）。
-- 状态：**partially_evidenced**；设计决定已有明确建议，正式接受需独立Review；产品实现与生产验收未完成。
-- 输入：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
-- Task packet：revision0.1.1，SHA-256 `eb8ca392ff71d128ca7a373e4dcdacc261d2cb280389f02450c692cb9d2dede0`；不伪造后续packet修订为本次原始输入。
-- 当前需求：Rust Database + Rust ORM必须；C#只上层语法/请求/API/DTO。旧managed默认决策明确superseded，已有源码观察和实际实验保留。
-- 逐结论：[evidence.json](evidence.json)；实际/未读范围与真实reader：[coverage.json](coverage.json)。完整fetch不等于完整阅读。
+Research consolidation: 2026-11-12 (America/Los_Angeles); author `/root/database_research`. Baselines Design `ba21ecb5c2299b303584b120f2e6bd1c6d74783a`, Plan `5b346ebb5acdb387077d0faae16b00bbc77cb299`. **Independent acceptance review pending; no product implementation or performance acceptance claimed.** Current evidence and explicit stage obligations are in [evidence.json](evidence.json), [coverage.json](coverage.json), and [completion record](../../../../verification/database-completion/task-status.json).
 
-## 1. 语义权威迁到Rust，参考事实不变
 
-Q14确定RustORM request validator/lowerer负责C#可空语义、SQLTruth、capability/参数预算，SeaORM/SeaQuery负责实际查询/方言/绑定。C#只捕获typed语法和参数，旧C#关系IR/SQLemitter决定superseded。专家SQL是显式补充，不能普通查询失败后自动转rawSQL。
+## Current design
 
-## 2. NULL与可验证反例
+SeaQuery is the SQL semantic constructor and renderer, SQLx the execution/codec authority. C# typing limits invalid composition but does not impose complete LINQ/CLR semantics on SQL. The source-driven contract covers explicit CRUD, comparisons, SQL3VL/null tests, join/group/aggregate/order, supported subquery/CTE/window/set operations and backend capability rejection. Native engine capability is exposed through versioned bindings; unsupported semantics fail before database send.
 
-C#nullable > 任一null为false，取反后为true；SQL普通比较为UNKNOWN且NOT UNKNOWN仍UNKNOWN。Rust采用完整two-valued normalization，只有满足上下文前提才优化，不能把WHERE专用rewrite搬入projection/NOT。EFSqlNullabilityProcessor完整补偿/过滤优化源码和negatednullable测试已读；C#与SQLite官方语义页面已读。
+The previous managed AST/provider and compulsory static SeaORM model assumptions are superseded. Existing SQLite semantic results remain valid. R24's native engine evidence now also includes an executed SeaQuery LEFT JOIN/group/count/sum query compared with separately written SQL over the same actual SQLx SQLite connection. It preserves the distinction between an unmatched row, a matched nullable amount, COUNT(column)=0 and SUM=NULL. The test is finite, not universal relational equivalence.
 
-Contains空集合false、null匹配null、重复不改变结果；不能把含NULL的NOT IN当C#取反。最终RustStatement重新计参数数量，默认总900；只检查输入900个元素不够，补偿/重复表达可能展开。变量必须参数化，table/column/operator来自schemaID；SqlSafeStr/AssertSqlSafe只保证调用者断言，非sanitizer。
+## Parameters and identifiers
 
-## 3. 已读Rust ORM链
+Values are native bound parameters. Identifier quoting prevents syntax confusion but does not authorize table/tenant access; metadata IDs and raw identifier imports require allowlists and native validation. SQLx's AssertSqlSafe is a provenance assertion only. Typed fallible binding propagates encoding errors and rejects overflow, invalid UTF8, mismatched null/type/codec and excess counts before dispatch; no string concatenation fallback.
 
-SeaORM2.0.4 QueryFilter.filter本体调用SeaQuerycond_where，runtimeCondition可与静态Entity共存；显式order nulls示例。RelationDef包含关系方向/key/via/ONcondition，supporttypedjoin。Selectprojection由RustFromQueryResult处理，不依C#数据库mapper。SeaQuery1.0.2 build生成SQL+Values而to_string inline，SQLiteSEARCH/CYCLE空实现反例要求capability先拒绝。
+The existing native-slices fixture already demonstrates the SQLite silent-row-lock negative control and explicit rejection, unsigned overflow before send, encoder rollback and runtime tables. Do not repeat it or promote only a renderer result into real execution. Each native backend/operator pair needs a declared capability and test oracle; SQLite's ignored FOR UPDATE/SELECT INTO/SEARCH/CYCLE and unsupported subquery operators cannot be accepted silently.
 
-## 4. 关系、数值、排序
+## Relational and mutation semantics
 
-LEFTJOIN ON vs WHERE改变行集；missing row用nonnullkey/matchmarker，不能把nullablecell当存在性。GroupBy仅明确aggregate，C#emptySUMzero与SQLSUMnull不同；Min/Max/Average签名明确empty/error。SQLiteint64overflow会转REAL，portableprofile拒绝未证明范围的checked等价；decimalTEXT不允许数值sort/SUM。字符串collation/Unicode不可从相同方法名推导跨库一致，初始portablebinary只覆盖受限ASCII。
+SQL3VL is normative. WHERE retains TRUE; NOT UNKNOWN stays UNKNOWN. NULL-safe comparison is a named operator; nullable integer NOT(x>y) versus x<=y equivalence does not justify NaN/custom-order rewrites. LIKE literal conveniences escape wildcard and escape bytes and declare collation; raw patterns are a separate API. LEFT JOIN ON predicates cannot be moved to WHERE. Paging with semantic guarantees requires a unique tie-breaker and explicit snapshot policy.
 
-分页显式排序/唯一tie-breaker，keysetcursor绑query/schema/profile与租户授权。ReadCommitted多请求不保证snapshot一致；需要显式snapshot/物化IDs策略。未支持operator/functions/collation/动态projection拒绝，不能客户端求值。
+Rust changesets distinguish NotSet, Null and Value. Native UPDATE predicates always include the declared key, tenant and expected version; affected-row mismatch becomes an explicit concurrency conflict. A real SeaQuery/SQLx fixture performs a nullable update, preserves omitted fields and the other tenant, and observes 1 then 0 affected rows for repeated expected-version writes. This is a native capability binding, not managed tracking.
 
-## 5. 本轮唯一实际实验及边界
+## Advanced native capabilities and limits
 
-`sqlite_semantics_probe.py`：Python3.12.14、SQLite3.53.1、Linuxx86_64，实际50checks0failures，原始stdout/stderr/result及hash均保留。9组nullablepairs×eq/ne/gt/notnormalized、empty/nullContains、负对照NOT、LEFTJOIN、COUNT/SUM、参数注入样值、keyset、decimalTEXTsort和整数overflow。未修改该实验，也未将它标为Rust/SeaORM/NativeWeave验证。
+Validate CTE shape before native assertions. The pinned SelectStatement has one optional named-window slot; bind native inline/single-window capability and fail explicit unsupported multi-named-window requests until an upstream extension is adopted. Do not produce SQL in C# to fill gaps. Multiple statement/query features can be bound independently against the same native metadata without new Rust entity types.
 
-B09Rust语义property；B11PG+SQLite真实差分；B13AST/value/identifier/nodecycle与最终参数预算fuzz；B22完整C#AOT经nativeORM执行。预期来自独立有限oracle和实库，不能用待测emitter自己生成期望。没读完数据库optimizer/全部collation/functionmatrix，保持partially_evidenced；设计支持/拒绝边界已经给出而非笼统open。
+Budget the operation count/depth/values before building and parameters before binding; output-length checks after allocating a SQL string are not allocation protection. SeaQuery uses clones/infallible allocations in inspected paths; a bounded operation envelope and conservative admission can limit requested work, not guarantee recovery from every allocator failure. Process-level availability and measured whole-memory limits remain R34/B22/B23 responsibilities.
+
+D16 records the native method/lifetime boundary, supported semantics and explicit rejection table. B11/B13 implement differential SQL+ordered-values+actual-result cases for both PG/SQLite, not only text goldens. No performance superiority, complete EF compatibility or full arbitrary SQL validation is claimed.
+
+## Historical source citations retained
+
+The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
 ## 固定源码入口与实际阅读
 
@@ -53,4 +53,6 @@ B09Rust语义property；B11PG+SQLite真实差分；B13AST/value/identifier/nodec
 | R24-RU02 | [src/entity/relation.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/relation.rs#L1-L145) | [[1, 145], [301, 326]]; source-observed; reader=/root/database_design |
 | R24-RU03 | [src/executor/select.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/executor/select.rs#L266-L324) | [[266, 324], [869, 925]]; source-observed; reader=/root/database_design |
 
-所有新C#/Rust接口均design-draft、未编译；source/test-source与跨任务源码证据不是执行结果。此前R24的Python/SQLite实验范围及原始hash不变。精确缺口转入现有B任务，不新增元规划体系。
+## CI confirmation at the published fixture commit
+
+GitHub run `43388468172`, source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, independently executed the same five metadata/SQLite cases on Windows and Linux and all six PostgreSQL cases on Linux PostgreSQL 18.0. The author read raw suite logs and verified every archived file, input snapshot and stream hash; the [confirmation](../../../../verification/database-completion/ci-confirmation.json) records exact artifact identities, image digest and CRLF/LF differences. These are 11 unique native research cases with 16 CI executions, not new product/AOT tests or a second technical reviewer. This task claims only its mapped cases above.

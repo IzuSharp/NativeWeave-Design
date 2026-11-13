@@ -1,0 +1,19 @@
+{
+  "author": "/root/interop_research",
+  "review_scope": "Independent DB design regression for SQLx tracked BEGIN IMMEDIATE + Migrator, not product implementation",
+  "source_commit": null,
+  "baseline_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+  "success": true,
+  "test_count": 3,
+  "source_files": {
+    "experiments/interop-completion/db-review/Cargo.toml": "d961cf2f0021615021d21f12e32744db73c74b097f8fe1fbeafb1d36d94f60c8",
+    "experiments/interop-completion/db-review/Cargo.lock": "696768f36415c3f5682d05dc15479ae13b2670bf78769a70606ba434ff756b50",
+    "experiments/interop-completion/db-review/migration_admission.rs": "3337c33340dafc154b6aa312165475e87decd50c4880d515e03a345ba0fee207"
+  },
+  "limits": [
+    "Linux native Rust only; no C#/AOT/Windows or concurrent-process migration test",
+    "Public API path and outer transaction atomicity only; no nontransactional migration or crash guarantee"
+  ]
+}

@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "task_id": "R19",
   "recorded_at": "2026-11-12",
-  "status": "partially_evidenced",
+  "status": "research_complete_independent_review_pending",
   "baseline": {
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
@@ -350,39 +350,180 @@
       "source_reader": "/root/database_design",
       "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
       "run_manifest": null
+    },
+    {
+      "claim_id": "R19-COMP-01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/connection/executor.rs",
+      "blob_sha": "e0f4c3d44a6c81556822796bd2739576a9ea7fdf",
+      "file_sha256": "721ead17743d912c625a56b5728669d8111c750797b6fee24e234226a5b6fbe6",
+      "locator": {
+        "line_ranges": [
+          [
+            200,
+            390
+          ]
+        ]
+      },
+      "source_reader": "/root/database_research",
+      "supported_claim": "Run sends Execute limit=0, closes portal, drains to ReadyForQuery; application batches do not imply server fetch-size control.",
+      "limitations": "Only listed ranges read. Executed registry identities and Git-file equality recorded in verification/database-completion/source-inspection.json; no whole-repository or whole-package equivalence claim."
+    },
+    {
+      "claim_id": "R19-COMP-02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/connection/mod.rs",
+      "blob_sha": "d594585b6cb2c8b4a30f4b31385fe8b82716c6b0",
+      "file_sha256": "efeafd9bc07c0bd20e0d2c2312bd2db45039c9d139aa754b1ff6574dd280de72",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            256
+          ]
+        ]
+      },
+      "source_reader": "/root/database_research",
+      "supported_claim": "Pending ReadyForQuery count, transaction status and stream flushing; private cancel identifiers do not provide a public remote cancellation API.",
+      "limitations": "Only listed ranges read. Executed registry identities and Git-file equality recorded in verification/database-completion/source-inspection.json; no whole-repository or whole-package equivalence claim."
+    },
+    {
+      "claim_id": "R19-COMP-03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-postgres/src/connection/tls.rs",
+      "blob_sha": "a49c9caa8ca64416182c7838c192d0a42cabdcdd",
+      "file_sha256": "e93bd2605e010a71b9a0200b27dfdd101a8427385dc39468e522fb6547958e07",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            110
+          ]
+        ]
+      },
+      "source_reader": "/root/database_research",
+      "supported_claim": "Prefer can downgrade; Require accepts invalid certs; VerifyFull is required for certificate and hostname validation.",
+      "limitations": "Only listed ranges read. Executed registry identities and Git-file equality recorded in verification/database-completion/source-inspection.json; no whole-repository or whole-package equivalence claim."
+    },
+    {
+      "claim_id": "R19-COMP-EXEC",
+      "evidence_kind": "executed_native_research",
+      "supported_claim": "Only the enumerated Rust research cases executed; per-suite raw streams and exact input hashes identify observations. Existing C# AOT evidence remains at its prior exact snapshot.",
+      "cases": [
+        "statement_timeout_needs_rollback_before_same_connection_reuse",
+        "early_row_stream_drop_drains_before_next_query",
+        "lost_commit_response_is_error_with_durable_effect"
+      ],
+      "run_manifests": [
+        "verification/database-completion/linux-metadata-current/manifest.json",
+        "verification/database-completion/linux-postgres-final/manifest.json"
+      ],
+      "limitations": "No product implementation, new C# AOT execution, TLS/auth test, performance or soak claim."
     }
   ],
-  "decision_revision": "rust-orm-required-2026-11-12",
+  "decision_revision": "precompiled-native-database-completion-2026-11-12",
   "requirement_correction": {
-    "authority": "current user instruction relayed by root",
+    "authority": "current user mandate",
     "database_backend": "Rust required",
-    "orm": "SeaORM 2.0.4 selected; SQLx alone is not ORM",
-    "csharp_scope": "syntax capture, request encoding, public API, boundary DTO only",
-    "prior_managed_default": "superseded; prior source observations/experiments retained"
+    "orm": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
+    "server": "Rust required; Kestrel comparator only",
+    "csharp_scope": "business, typed Fluent API, static metadata/binding/DTO; no SQL AST/dialect/complex LINQ provider",
+    "ordinary_entity_rebuild": "No Rust recompilation for new entity using existing native capabilities"
   },
   "design_decisions": {
-    "status": "design_decided_pending_independent_acceptance",
-    "choice": "SeaORM Rust ORM + generated schema-specific native module; C# topmost only",
-    "implementation_verified": false,
+    "status": "ready_for_independent_research_design_review",
+    "choice": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
+    "product_implementation_verified": false,
     "production_accepted": false,
-    "remaining_delivery": [
-      "B01",
-      "B02",
-      "B03",
-      "B04",
-      "B05",
-      "B06",
-      "B07",
-      "B08",
-      "B09",
-      "B10",
-      "B11",
-      "B12",
-      "B13",
-      "B14",
-      "B22",
-      "B23",
-      "B24"
+    "future_delivery_obligations": [
+      "B02: product TLS/auth/real Windows/Linux C# Native AOT provider integration",
+      "B23/R17: matched full-workload managed/native/FFI measurement; no performance superiority claimed"
     ]
-  }
+  },
+  "superseded_architecture_decisions": {
+    "baseline": {
+      "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+      "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
+    },
+    "values": {
+      "decision_revision": "rust-orm-required-2026-11-12",
+      "requirement_correction": {
+        "authority": "current user instruction relayed by root",
+        "database_backend": "Rust required",
+        "orm": "SeaORM 2.0.4 selected; SQLx alone is not ORM",
+        "csharp_scope": "syntax capture, request encoding, public API, boundary DTO only",
+        "prior_managed_default": "superseded; prior source observations/experiments retained"
+      },
+      "design_decisions": {
+        "status": "design_decided_pending_independent_acceptance",
+        "choice": "SeaORM Rust ORM + generated schema-specific native module; C# topmost only",
+        "implementation_verified": false,
+        "production_accepted": false,
+        "remaining_delivery": [
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07",
+          "B08",
+          "B09",
+          "B10",
+          "B11",
+          "B12",
+          "B13",
+          "B14",
+          "B22",
+          "B23",
+          "B24"
+        ]
+      }
+    },
+    "superseded_by": "2026-11-12 current user mandate and database completion research; retained only as history"
+  },
+  "completion_research": {
+    "baseline": {
+      "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+      "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299"
+    },
+    "task_packet": {
+      "revision": "0.2.0",
+      "sha256": "fe85be9306e54138be935fb67e1131e00678f037b58c603815fd8d550587f899"
+    },
+    "author": "/root/database_research",
+    "source_manifest": "verification/database-completion/source-inspection.json",
+    "experiment_cases": [
+      "statement_timeout_needs_rollback_before_same_connection_reuse",
+      "early_row_stream_drop_drains_before_next_query",
+      "lost_commit_response_is_error_with_durable_effect"
+    ],
+    "actual_linux_manifests": [
+      "verification/database-completion/linux-metadata-current/manifest.json",
+      "verification/database-completion/linux-postgres-final/manifest.json"
+    ],
+    "failed_hypothesis_retained": "verification/database-completion/linux-attempt-1/manifest.json",
+    "status": "research_findings_and_design_ready_for_independent_review",
+    "independent_review": "not_claimed_by_author",
+    "future_stage_obligations": [
+      "B02: product TLS/auth/real Windows/Linux C# Native AOT provider integration",
+      "B23/R17: matched full-workload managed/native/FFI measurement; no performance superiority claimed"
+    ],
+    "no_product_code_written": true,
+    "ci_confirmation": {
+      "manifest": "verification/database-completion/ci-confirmation.json",
+      "run_id": 43388468172,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "metadata": "Windows and Linux: 5/5 each",
+      "postgres": "Linux PostgreSQL18.0: 6/6",
+      "scope": "Use only the task-specific cases already listed; repeated platforms are not additional unique cases. No C# or product acceptance claim."
+    }
+  },
+  "historical_status": "partially_evidenced"
 }

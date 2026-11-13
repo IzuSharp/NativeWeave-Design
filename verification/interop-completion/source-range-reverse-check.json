@@ -1,0 +1,74 @@
+{
+  "scope": "Exact reverse transformation confirms no other byte changes to17 frozen files.",
+  "correction_manifest_sha256": "77ac3baec9f38e676fc3351d1dd8c391d7eb7ff70997ab07c4ef82ed423b8c3a",
+  "results": [
+    {
+      "path": "verification/interop-completion/source-inspection.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R02/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R03/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R04/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R05/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R05/coverage.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R06/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R07/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R08/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R09/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R10/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R11/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R12/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R15/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R15/coverage.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "docs/research/topics/R16/evidence.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    },
+    {
+      "path": "verification/interop-completion/task-assessment.json",
+      "reverse_only_documented_changes_matches_original_hash": true
+    }
+  ]
+}

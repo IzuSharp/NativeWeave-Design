@@ -1,0 +1,224 @@
+{
+  "scope": "R01 modern C# finite research; no product or benchmark acceptance",
+  "platform": {
+    "os": "Windows",
+    "arch": "AMD64"
+  },
+  "source_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec",
+  "source_snapshot": [
+    {
+      "path": "experiments\\platform-completion\\run.py",
+      "sha256": "c8c746eb8a1b28f453fd573cfbba9c0b1a96bfc7e036bd5855792455e8d5b4fc"
+    },
+    {
+      "path": "experiments\\platform-completion\\modern\\Modern.csproj",
+      "sha256": "9d7326b9ea4e9eea0c3f699653ae6c0ff84f79c370f9d13310648ac57e9e507a"
+    },
+    {
+      "path": "experiments\\platform-completion\\modern\\Program.cs",
+      "sha256": "8732a5f3b1de028ffafc10eba6356ca128f74c34b606d14bcf0336046bd9eda0"
+    },
+    {
+      "path": "experiments\\platform-completion\\modern\\Negative.cs.txt",
+      "sha256": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635"
+    },
+    {
+      "path": "experiments\\platform-completion\\inspect\\Inspect.csproj",
+      "sha256": "a8becaa5eb6656f587ecfc49f8083fafc809cd6dace4a7f994a7b54b4a7f77b4"
+    },
+    {
+      "path": "experiments\\platform-completion\\inspect\\Program.cs",
+      "sha256": "d076d5902d9c279240dda8caac7687db9de9e04f44ce4178d7b54ca80401be78"
+    }
+  ],
+  "commands": [
+    {
+      "name": "sdk-info",
+      "command": [
+        "dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T08:03:58.428477+00:00",
+      "finished_at": "2026-11-13T08:03:59.414269+00:00",
+      "stdout_sha256": "d56ea3dfc840ba3e04ad581f5abd4c99e6649fe089ba94d22ede5c7ad298087c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ordinary",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\platform-completion\\modern\\Modern.csproj",
+        "-c",
+        "Release",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T08:03:59.429891+00:00",
+      "finished_at": "2026-11-13T08:04:04.468530+00:00",
+      "stdout_sha256": "422dd0a8ae4ade3a64dd259bae5662c67e79031e302c3319c752674119d2db09",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "external-closed-negative",
+      "command": [
+        "dotnet",
+        "build",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\negative\\External.csproj",
+        "--disable-build-servers"
+      ],
+      "exit_code": 1,
+      "started_at": "2026-11-13T08:04:04.468530+00:00",
+      "finished_at": "2026-11-13T08:04:08.881521+00:00",
+      "stdout_sha256": "599c77f0de37a793d63056c2ba09fabf2a5043e68f61c8c0c57d2fd8500f70a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish-default",
+      "command": [
+        "dotnet",
+        "publish",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\.work\\default\\Modern.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "win-x64",
+        "-p:PublishAot=true",
+        "--disable-build-servers",
+        "-v:normal",
+        "-o",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\publish-default"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T08:04:08.881521+00:00",
+      "finished_at": "2026-11-13T08:04:31.598030+00:00",
+      "stdout_sha256": "e82465e6bd8aa65f11aa3b1757daa4fd54e6fde58a0f43720f80b81434da275a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "metadata-default",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\platform-completion\\inspect\\Inspect.csproj",
+        "-c",
+        "Release",
+        "--",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\.work\\default\\bin\\Release\\net11.0\\win-x64\\Modern.dll",
+        "default"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T08:04:31.598030+00:00",
+      "finished_at": "2026-11-13T08:04:34.996241+00:00",
+      "stdout_sha256": "5b3f23de9ccacb6b5d8068b67bad8fdf37802159726f91c44f99792fd8640963",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "aot-default",
+      "command": [
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\publish-default\\Modern.exe",
+        "--aot"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T08:04:34.996241+00:00",
+      "finished_at": "2026-11-13T08:04:35.027487+00:00",
+      "stdout_sha256": "5fec69bf744c4969b40462ecec89053afeaef47e9289297789dc94b60d7e9e69",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish-runtime-async",
+      "command": [
+        "dotnet",
+        "publish",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\.work\\runtime-async\\Modern.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "win-x64",
+        "-p:PublishAot=true",
+        "--disable-build-servers",
+        "-v:normal",
+        "-o",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\publish-runtime-async",
+        "-p:Features=runtime-async=on"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T08:04:35.027487+00:00",
+      "finished_at": "2026-11-13T08:04:42.098820+00:00",
+      "stdout_sha256": "a2c78478ff925adb5d8db1db9bd16d0f781dc4a5aae83ba25de260300dbb327f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "metadata-runtime-async",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\platform-completion\\inspect\\Inspect.csproj",
+        "-c",
+        "Release",
+        "--",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\.work\\runtime-async\\bin\\Release\\net11.0\\win-x64\\Modern.dll",
+        "runtime-async"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T08:04:42.098820+00:00",
+      "finished_at": "2026-11-13T08:04:43.818793+00:00",
+      "stdout_sha256": "6c7dafc300c429824199f3e0ed9918811e6eb062bd0ce55709bda2b58eacdfe7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "aot-runtime-async",
+      "command": [
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\publish-runtime-async\\Modern.exe",
+        "--aot"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T08:04:43.819317+00:00",
+      "finished_at": "2026-11-13T08:04:43.835296+00:00",
+      "stdout_sha256": "5fec69bf744c4969b40462ecec89053afeaef47e9289297789dc94b60d7e9e69",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "started_at": "2026-11-13T08:03:58.412849+00:00",
+  "passed": true,
+  "closed_external_negative": true,
+  "aot_executions": [
+    {
+      "configuration": "default",
+      "isolated_project": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\.work\\default\\Modern.csproj",
+      "compiler_features": [],
+      "rid": "win-x64",
+      "binary_sha256": "9efa688c52ea3a1a8a09d2e73462d42e223d9cf88feae269454deb87317f81d9",
+      "published": true,
+      "executed": true
+    },
+    {
+      "configuration": "runtime-async",
+      "isolated_project": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\artifacts\\completion\\platform\\.work\\runtime-async\\Modern.csproj",
+      "compiler_features": [
+        "-p:Features=runtime-async=on"
+      ],
+      "rid": "win-x64",
+      "binary_sha256": "e7444b2b00f57c80eadadb07463031b2eb0f08b32db9852fcdf4fa055b7731c6",
+      "published": true,
+      "executed": true
+    }
+  ],
+  "compiler_lowering": [
+    {
+      "configuration": "default",
+      "assembly_sha256": "a84aa965c095a9bfe413c98680cf6950e3ebb3331d9604d96a5e18c2862a6623",
+      "inspection": "{\"assembly\":\"D:\\\\a\\\\NativeWeave-Design\\\\NativeWeave-Design\\\\artifacts\\\\completion\\\\platform\\\\.work\\\\default\\\\bin\\\\Release\\\\net11.0\\\\win-x64\\\\Modern.dll\",\"stateMachineTypes\":[\"\\u003C\\u003C\\u003CMain\\u003E$\\u003Eg__ThrowAsync|0_3\\u003Ed\",\"\\u003C\\u003CMain\\u003E$\\u003Ed__0\",\"\\u003C\\u003C\\u003CMain\\u003E$\\u003Eg__Suspended|2\\u003Ed\"]}"
+    },
+    {
+      "configuration": "runtime-async",
+      "assembly_sha256": "45f6dba251b086c4f0c2bf33762b504d548a7e2fe8c78b0fb55bc331ffa9c4cb",
+      "inspection": "{\"assembly\":\"D:\\\\a\\\\NativeWeave-Design\\\\NativeWeave-Design\\\\artifacts\\\\completion\\\\platform\\\\.work\\\\runtime-async\\\\bin\\\\Release\\\\net11.0\\\\win-x64\\\\Modern.dll\",\"stateMachineTypes\":[]}"
+    }
+  ],
+  "finished_at": "2026-11-13T08:04:43.835296+00:00"
+}
