@@ -139,7 +139,7 @@ Outbox payload 与item/result同事务。worker在有界batch中租约claim，�
 
 常用列表使用自然typed C# Fluent；SG可选提供static metadata/DTO，SeaQuery负责native构建/方言，SQLx执行，显式关系/CAS政策留在Rust。动态过滤只能用已登记列/操作，native再次检查capability并参数化。分页`(created_at,id)`含唯一tie-breaker；独立ReadCommitted不承诺跨页snapshot。需要一致导出时使用明确snapshot/transaction profile、最长时限及stream lease，慢客户端不能永久占池。
 
-Server profile沿用D18：256活动request、128 metadata waiter、应用stream buffers64MiB、chunk32KiB；数据库pool与upload/outbox并发分别设上限。默认连接pool不可大于数据库实际允许的应用预算；slow response先释放不再使用的DB lease。JSON固定DTO最多1MiB，分页最多100，附件64MiB以stream处理。所有数字是初始参考配置，性能验收冻结后才作为可复现实验输入，不作为通用推荐容量。
+Server profile沿用D18的ReferenceSmall：512连接、每连接32个HTTP2 stream、256个active/retiring request及128个仅metadata waiter。Managed与native应用payload预算分别为64MiB，每请求每侧4MiB；两侧复制同时存活时分别计费，按backing allocation实际capacity持有credit至最后owner释放。chunk最多32KiB，headers最多32KiB；TLS/socket/protocol/allocator/GC开销单独观察，这些payload上限不是进程RSS上界。数据库pool与upload/outbox并发分别设有限上限；慢响应及时释放已不再使用的DB lease。JSON固定DTO最多1MiB，分页最多100，附件64MiB是整次route长度上限并以32KiB chunk流式处理，不得把64MiB附件一次装入4MiB请求预算。请求的绝对峰值预算无法容纳的单次分配在入队前拒绝；普通可满足credit的等待受总deadline与取消控制，Pending cleanup继续持有credit。所有数字是初始参考配置，性能验收冻结后才作为可复现实验输入，不作为通用推荐容量。
 
 每个request/operation记录低基数结果、取消/Unknown、pool wait、bytes/copies、FFI crossings和最终lease归还；日志不记敏感body/key。已完成请求不得保留context/DI scope/GCHandle。热路径避免双重JSON序列化；幂等response保存明确schema version和字节上限，升级仍能重放旧版本或返回明确兼容处理，不能静默按新DTO错误解释旧bytes。
 

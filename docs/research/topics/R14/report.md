@@ -44,3 +44,7 @@ Dependency-age policy is configurable, initially seven days for routine new reso
 ## Final research conclusion
 
 Use a small explicit provenance/compatibility manifest integrated into existing package and ledger workflows. Do not introduce an always-running release service or product Core dependency on SBOM/signing tools. D10/D31 define the precise schema and update obligations. Product signing, pristine-image consumption and final release dependency closure remain explicit Delivery gates. There is no unresolved architectural requirement to rebuild native code for ordinary application models.
+
+## Final registry-operation and dependency-resolution clarification
+
+The dated [NuGet source review](../../../../verification/platform-completion/nuget-final-source-review.json) records Microsoft documentation for direct-dependency-wins, NU1608, individual package push/409, repository signing and unlisting. D10 now fixes the owned-package closure explicitly, validates the resolved graph even when warnings are suppressed, and separates staged catalog promotion from non-atomic public registry uploads. A retry checks permitted signing identities and actual payload/dependencies/native hashes; uploaded and downloaded archives have separate identities. An unlisted known version remains restorable and cannot revoke caches or running native modules. These are design conclusions from the cited API/policy, not a claim that NativeWeave has published or rolled back a production release. A16/A22/B24 contain the concrete future negative cases and consumer gates.

@@ -348,5 +348,10 @@
   ],
   "scope_completion": "Research questions and design counterexamples resolved for declared scope; independent acceptance pending; product validation remains separate.",
   "package_inventory": "verification/server-completion/dependency-inventory.json",
-  "package_identity_checks": "verification/server-completion/package-identities.json"
+  "package_identity_checks": "verification/server-completion/package-identities.json",
+  "final_json_admission_source": {
+    "path": "verification/server-completion/rmcp-json-admission-source.json",
+    "sha256": "279507a1f953ea6a923bf552faf44765a4cf2d095dd01608f3c6b043212c3bfa",
+    "source_read_only": true
+  }
 }

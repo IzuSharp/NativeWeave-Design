@@ -138,5 +138,10 @@
   ],
   "scope_completion": "Research questions and design counterexamples resolved for declared scope; independent acceptance pending; product validation remains separate.",
   "package_inventory": "verification/server-completion/dependency-inventory.json",
-  "package_identity_checks": "verification/server-completion/package-identities.json"
+  "package_identity_checks": "verification/server-completion/package-identities.json",
+  "final_diagnostics_ci": {
+    "path": "verification/server-completion/diagnostics-final-ci.json",
+    "sha256": "4e63df245f3e342a97844cabcfcc06252c9a8b6f48110a07abfaccf2d2c47933",
+    "scope": "Retrieved Windows/Linux Release AOT; retains prior Windows failed attempt."
+  }
 }

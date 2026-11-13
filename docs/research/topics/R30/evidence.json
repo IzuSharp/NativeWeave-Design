@@ -161,6 +161,20 @@
       "supported_claim": "Original Windows run passed layout/listener/null checks but failed allocation assertion; first clock calls were inside measured region and numerical output was not reached.",
       "limitations": "No number or ActivitySource-specific allocation cause can be inferred; not a passed Windows result. Corrected Windows run remains separate.",
       "run_manifest": "verification/completion-ci/43390177287/diagnostics-windows-2022/run.json"
+    },
+    {
+      "claim_id": "R30-FINAL-CORRECTED-CI",
+      "evidence_kind": "retrieved_executed_research_experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+      "path": "verification/server-completion/diagnostics-final-ci.json",
+      "sha256": "4e63df245f3e342a97844cabcfcc06252c9a8b6f48110a07abfaccf2d2c47933",
+      "run_manifest": "verification/server-completion/diagnostics-final-ci.json",
+      "supported_claim": "Both actual Windows/Linux Release Native AOT runs pass11 assertions; scoped warm-loop current-thread allocation is0.",
+      "limitations": [
+        "No new execution in final review.",
+        "Not Debug cost, enabled tracing/export, native memory, cross-language propagation or product performance."
+      ]
     }
   ],
   "selected_design": {
@@ -260,5 +274,6 @@
     "B20 executes actual FFI context golden bytes, malformed fields and callback parent restoration.",
     "B20/B23 validate exporter saturation/fault/shutdown and disabled/sampled/full costs under product load."
   ],
-  "baseline_audit": "Existing Activity/OpenTelemetry source/test reading and detailed D19 existed under planned; Rust tracing and actual no-observer cost/layout probes were missing."
+  "baseline_audit": "Existing Activity/OpenTelemetry source/test reading and detailed D19 existed under planned; Rust tracing and actual no-observer cost/layout probes were missing.",
+  "final_diagnostics_ci": "verification/server-completion/diagnostics-final-ci.json"
 }

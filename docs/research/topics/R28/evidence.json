@@ -580,5 +580,10 @@
     "B19 integrates typed C# mapping/authz and fixed rmcp profile; arbitrary JSON Schema support needs explicit native validator selection if added.",
     "Full protocol+TLS+real-network+C# bridge conformance remains future implementation acceptance."
   ],
-  "baseline_audit": "Existing 17-claim managed protocol report was hidden by planned state but selected the wrong production transport; native source/seam experiments were missing."
+  "baseline_audit": "Existing 17-claim managed protocol report was hidden by planned state but selected the wrong production transport; native source/seam experiments were missing.",
+  "final_json_admission_source": {
+    "path": "verification/server-completion/rmcp-json-admission-source.json",
+    "sha256": "279507a1f953ea6a923bf552faf44765a4cf2d095dd01608f3c6b043212c3bfa",
+    "source_read_only": true
+  }
 }

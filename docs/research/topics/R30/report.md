@@ -137,5 +137,22 @@ observation is printed before either assertion. The Linux NativeAOT rerun at
 `verification/server-completion/diagnostics-reviewed-local/run.json` passed all eleven
 checks and observed 200000 null returns, zero current-thread allocated bytes and
 12.437 ns/call. This is another scoped observation, not a promise of a universal
-zero-allocation or timing result. Windows must supply its own corrected run before
-that observation is claimed; the threshold was not raised to mask its failure.
+zero-allocation or timing result. At that checkpoint Windows still required its corrected run; the threshold was not raised to mask its failure. The later retrieved run below closes this finite platform-evidence gap.
+
+## Final corrected Windows/Linux evidence and diagnostic defaults
+
+Existing Actions run43401371233 at source `5bb128424259f3d9cf594b4e50d7688ad5b6541e`
+has now been retrieved, not rerun. The exact source/CRLF transformation, archives,
+logs and binary hashes are recorded in `verification/server-completion/diagnostics-final-ci.json`.
+Both Release Native AOT executions passed all11 assertions and observed200000 null
+returns and0 current-thread allocated bytes in the StartActivity-only warm loop.
+Windows observed16.634 ns/call; Linux20.468 ns/call. These single-run timings do not
+compare operating systems or prove universal zero overhead. Debug, Meter/log sinks,
+enabled sampling/export, native callback propagation and native memory were not measured.
+
+D19 now makes configuration explicit: Release and Debug install no listener/provider,
+process-global Rust subscriber or exporter by default. The optional convenience log preset
+uses Warning/Error through application-configured sinks, with IsEnabled before formatting;
+Debug does not automatically switch on high-volume tracing. Resource safety and retirement
+checks stay active independently. B20/B23 implement and measure the explicit disabled,
+Debug-local, sampled/full and exporter-fault modes; these product rows are not claimed here.

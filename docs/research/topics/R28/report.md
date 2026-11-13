@@ -171,3 +171,7 @@ run manifests, stdout/stderr and source snapshots are retained under
 exact Windows LF-to-CRLF conversion are recorded in
 `verification/server-completion/ci-verification.json`. This extends platform coverage
 for these same distinct cases, not their product/FFI/soak scope or independent review.
+
+## Final MCP parse-allocation boundary
+
+The independently inspected fixed rmcp `expect_json` path collects capped wire bytes before `serde_json::from_slice::<ClientJsonRpcMessage>` and precedes tool/managed validation. See `verification/server-completion/rmcp-json-admission-source.json` for the actual source identity and excerpt. A 1MiB wire cap cannot alone prove a 4MiB decoded-tree/bridge peak. D19 specifies a budgeted native Tower preflight using the mature serde parser, bounded structure counters and a reviewed conservative peak reservation before invoking public StreamableHttpService. No private helper call, new JSON grammar or per-tool Rust recompilation is required. B19 owns the corresponding adversarial parse/overlap fixtures; no product execution is claimed by this source review.

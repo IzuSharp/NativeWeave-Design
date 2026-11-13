@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "source_analysis",
+  "repository": "https://github.com/modelcontextprotocol/rust-sdk",
+  "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+  "path": "crates/rmcp/src/transport/common/server_side_http.rs",
+  "blob_sha": "ba248ba82a9ea001cf24eb5e26a438b0011506db",
+  "read_lines": [
+    200,
+    270
+  ],
+  "symbol": "expect_json",
+  "excerpt_path": "verification/server-completion/rmcp-expect-json-reviewed.txt",
+  "excerpt_sha256": "6e2fcb77748ad062549abda3d396dfe22825e87720dc5e0d6eaf10c6b1a52463",
+  "reviewer": "/root/server_review",
+  "integrator_verification": "/root fetched the same pinned file through GitHub and read the collection/from_slice path.",
+  "finding": "SR-FINAL-02",
+  "conclusion": "Wire size cap precedes allocation but does not bound JSON tree/overlap; D19/B19 apply budgeted preflight outside public SDK service.",
+  "execution": false,
+  "product_obligation": "B19 parse admission/peak-bound negative fixtures; no product test claimed."
+}

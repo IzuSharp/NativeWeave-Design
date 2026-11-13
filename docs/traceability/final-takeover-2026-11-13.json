@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "observed_at": "2026-11-13T12:55:16.902395+00:00",
+  "design": {
+    "pr": 10,
+    "branch": "research/rd-completion-2026-11-12",
+    "head": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+    "main": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "draft": true,
+    "github_reviews": 0,
+    "successful_runs": [
+      43401371233,
+      43401371232,
+      43401371209
+    ]
+  },
+  "plan": {
+    "pr": 8,
+    "branch": "research/rd-completion-2026-11-13",
+    "head": "7359060f88f94591b0dc41178e35701eefc8eb6d",
+    "main": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "draft": true,
+    "github_reviews": 0,
+    "failed_run": 43400919954,
+    "failed_job": 131803261646,
+    "failure": "verify_source_lifecycle.py:92 asserted current R01 status equals old frozen status; failed before current gates."
+  },
+  "product": {
+    "unchanged_main": "658ed6a410783de356a7b9b2cd6601336fff5148",
+    "pr1": "closed_unmerged",
+    "writes_authorized": false
+  },
+  "recovery": {
+    "prior_local_repositories_available": true,
+    "recovered_uncommitted": [
+      "Design registry specification hashes, D10 NuGet closure rules, R04 evidence pointers, D20 budget correction",
+      "Plan delivery dependencies/details, D27/D28/D30, nine fragment updates,48Delivery packets",
+      "Plan tools/render_packets.py"
+    ],
+    "not_found": [
+      "An executable final acceptance/evidence-wrapper script was not present in either recovered workspace; references to verification/completion.json and tools/verify_completion.py had no corresponding files. These must be built and honestly validated now."
+    ],
+    "historical_limitation": "The six original historical subagent reports mentioned in earlier handovers are not invented. Later attributable committed reviews and this session independent domain reviews are used for the final current design."
+  },
+  "phase": "research_design_planning",
+  "product_implementation_authorized": false
+}

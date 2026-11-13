@@ -1,0 +1,13 @@
+PASS trace_context_size_32
+PASS trace_id_offset_8
+PASS parent_span_offset_24
+PASS no_observer_before_registration
+OBSERVATION samples=200000 elapsed_ns=4093500 ns_per_call=20.468 allocated_bytes=0 null_count=200000 allocation_scope=StartActivity_loop_only
+PASS no_observer_returns_null
+PASS no_observer_steady_loop_zero_thread_allocations
+PASS observer_gate_does_not_format_tags
+PASS explicit_remote_parent_preserved
+PASS managed_async_context_preserved
+PASS managed_task_child_parent_preserved
+PASS observer_disposal_restores_disabled_state
+RESEARCH_ONLY: thread-local allocation counter excludes native memory; single-process timing is not a production benchmark or cross-language propagation proof.

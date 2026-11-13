@@ -176,6 +176,41 @@ profile's cancel-on-disconnect rule to every stateless transport. Application op
 that outlive HTTP are durable, authorized operation records; they cannot quietly hold
 a DB transaction forever under an implicit session.
 
+### JSON parsing admission and allocation peak
+
+The pinned rmcp `crates/rmcp/src/transport/common/server_side_http.rs:207–267`
+(`expect_json`, blob `ba248ba82a9ea001cf24eb5e26a438b0011506db`) first collects
+wire bytes and then calls `serde_json::from_slice::<ClientJsonRpcMessage>`.
+The helper is `pub(crate)`. Its wire cap does not bound the allocated JSON tree,
+and `get_tool` or C# typed validation is too late to protect the parse allocation.
+The reviewed source excerpt is `verification/server-completion/rmcp-expect-json-reviewed.txt`.
+
+B19's native Tower admission wrapper therefore applies D07 before handing the body
+to the public `StreamableHttpService`. It retains one budgeted bounded wire buffer
+and uses mature `serde_json::Deserializer` with `DeserializeSeed`/`Visitor` to scan
+structure without building a `Value` tree. Bound depth, nodes, object members, total
+string bytes and parser work/deadline; charge escaped-string scratch and the scan's
+own stack/allocation before use. This is parser reuse, not a handwritten JSON grammar
+or a call to the private rmcp helper. A bounded replay Body supplies the inspected
+wire bytes to the public SDK after admission.
+
+Compute and atomically reserve a conservative peak for the exact enabled SDK/parser
+profile: retained wire bytes, rmcp's additional collection capacity, its typed/JSON
+tree and allocator/collection growth, UTF-8 bridge copies and managed DTO materialization
+while owners overlap. Use fixed-source layout/growth analysis and bounded fixtures to
+justify the formula; the whole 1MiB wire allowance is not automatically admissible
+within D18's 4MiB/request/side. The native and managed budgets are separate, and reserves
+remain charged until their actual owners retire. Unsupported/unproved profile bounds
+prevent enabling that profile; an individual request exceeding the bound is rejected
+before SDK parse and before its Handler, with a bounded resource-limit response.
+
+B19 negative acceptance includes many tiny JSON elements, deep nesting, long escaped
+strings and overlap at both per-request/global limits. It must prove parse/Handler
+admission stays zero when reservations cannot fit, release exactly once on preflight
+failure/cancel, and preserve normal MCP semantics for admitted requests. Product
+implementation of these cases remains future Delivery; the current source reading
+exposes the allocation seam and defines its concrete required adapter behavior.
+
 The C# API shape is `MapMcp(GeneratedTools.All, profile, ApiJsonContext.Default)` with
 typed tool delegates. Native descriptors hold tool name/schema, Handler ID and limits;
 C# owns typed argument/result mapping and business authorization. Native rmcp returns
@@ -228,6 +263,21 @@ R34 documents resource, malformed-input and diagnostic-data boundaries.
 
 默认用 `ActivitySource`、`Meter` 与结构化日志接口；OpenTelemetry exporter 为选装包。dotnet/runtime 11 的 `ActivitySource` 无 listener 时直接不创建 activity，故昂贵 tags、links、formatted strings 应在 enabled/sampling 判断之后创建。`HasListeners` 只是快速判断，不能取代 sampling；无 listener 仍可按配置转发已有 trace context，不需要创建 Activity 对象。
 
+### Build configuration and explicit diagnostic modes
+
+| Mode | Default behavior and cost boundary |
+| --- | --- |
+| Release default | Expose ActivitySource/Meter and structured logging hooks; install no listener, meter provider, global Rust subscriber or network exporter. Format log messages only when the caller-configured sink IsEnabled; build trace tags only for enabled/sampled activities. Trace sampling does not suppress enabled Warning/Error logs. |
+| Debug default | Keep the same diagnostic activation defaults. Debug build configuration alone does not enable request/body/SQL tracing, a global subscriber or an exporter. Explicit bounded local debugging and Debug assertions may add cost and must not define Release safety behavior. |
+| Explicit diagnostics | An application selects sinks, levels, sampling and exporter budgets. NativeWeave's convenience logging preset is Warning/Error; callers may change it. With no configured sink no log is emitted. Check IsEnabled before formatting, and use structured fields with the existing redaction and cardinality limits. |
+| Sampled/full tracing or exporter failure | Measure these separately from the disabled path on both OS profiles. Include allocations, CPU, callback latency, queue byte/entry bounds, dropped diagnostics and finite shutdown; no zero-overhead claim follows from the disabled witness. |
+
+Correctness, admission, ownership and retirement counters/checks remain active independently of
+logging level, sampling and build configuration. Diagnostics cannot disable or replace them.
+The existing cost fixture is a finite **Release Native AOT no-listener** observation; it does not
+measure Debug overhead, logging sinks, Meter listeners, enabled tracing, Rust dispatch or export.
+B20 implements this matrix; B23 measures the full selected product workload in these modes.
+
 Engine 入口仅传 optional `TraceContextV1`；不把 `Activity`、`ExecutionContext`、Rust span guard 或 GCHandle 当通用诊断数据跨边界。下面是领域扩展 metadata 的候选布局，非 Core 强制字段，D08 的 `ErrorRecord.correlation_id` 仍只是关联编号：
 
 | offset | 字段 | wire 类型/约束 |
@@ -270,7 +320,7 @@ remain labeled obligations. A current finite success does not certify untested p
 extensions or all mobile targets. This distinction closes the design without claiming
 the future B18/B19 code already exists.
 
-R30 additionally executes a Linux Native AOT disabled-observer/layout/managed-parent probe. Its 0 current-thread allocated bytes in the fixed warm loop is scoped evidence, not a zero-overhead or native-memory claim; see the exact diagnostics run manifests.
+R30 additionally preserves actual Windows/Linux Release Native AOT disabled-observer/layout/managed-parent probes from run43401371233. Its 0 current-thread allocated bytes in the fixed warm loop is scoped evidence, not a zero-overhead or native-memory claim; see the exact diagnostics run manifests.
 
 
 ### Verified Windows/Linux research CI
@@ -283,3 +333,15 @@ run manifests, stdout/stderr and source snapshots are retained under
 exact Windows LF-to-CRLF conversion are recorded in
 `verification/server-completion/ci-verification.json`. This extends platform coverage
 for these same distinct cases, not their product/FFI/soak scope or independent review.
+
+### Corrected diagnostics CI evidence
+
+The corrected measurement ran successfully on Windows2022 and Ubuntu24.04 in
+[43401371233](https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43401371233),
+source `5bb128424259f3d9cf594b4e50d7688ad5b6541e`. Each actual AOT execution passed
+11 assertions. The 200000-call warm no-listener loop observed 0 current-thread allocated
+bytes on each OS; the recorded times were 16.634 ns/call on Windows and 20.468 on Linux.
+These are single-run observations, not transferable latency or native-memory guarantees.
+The retrieved archive digest, byte-exact logs, source checkout transformation and executable
+digest are bound by `verification/server-completion/diagnostics-final-ci.json`.
+The earlier Windows failure remains preserved and is not relabelled as successful.
