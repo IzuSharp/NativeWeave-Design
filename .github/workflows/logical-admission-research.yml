@@ -3,8 +3,14 @@ on:
   push:
     branches: [research/logical-admission-r07]
     paths:
-      - experiments/logical-admission/**
-      - .github/workflows/logical-admission-research.yml
+      - experiments/logical-admission/Program.cs
+      - experiments/logical-admission/Admission.csproj
+      - experiments/logical-admission/run.py
+      - experiments/native-slices/interop/native/**
+      - experiments/native-slices/interop/managed/Bridge.cs
+      - experiments/native-slices/global.json
+      - experiments/native-slices/rust-toolchain.toml
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
