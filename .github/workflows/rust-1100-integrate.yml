@@ -1,0 +1,79 @@
+name: Integrate Rust 1.100 research evidence
+on:
+  push:
+    branches: [research/source-driven-integration-2026-11-12]
+    paths: [.github/workflows/rust-1100-integrate.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  integrate:
+    if: github.repository == 'IzuSharp/NativeWeave-Design' && github.ref == 'refs/heads/research/source-driven-integration-2026-11-12'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Apply reviewed evidence-index and checkout-byte corrections
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('experiments/rust-1100/integrate.py');s=p.read_text()
+          changes=[('[1,170]','[1,158]'),('[890,920]','[890,915]')]
+          old="    assert result['test_source_sha256']==hashlib.sha256((ROOT/'experiments/rust-1100/stable_tests.rs').read_bytes()).hexdigest()"
+          new="""    canonical=(ROOT/'experiments/rust-1100/stable_tests.rs').read_bytes().replace(b'\\r\\n',b'\\n')
+              executed=canonical.replace(b'\\n',b'\\r\\n') if osname=='windows' else canonical
+              assert result['test_source_sha256']==hashlib.sha256(executed).hexdigest(),(osname,'actual checkout source hash')
+              (OUT/osname/'executed-stable_tests.rs').write_bytes(executed)
+              data((OUT/osname/'source-byte-provenance.json').relative_to(ROOT),{'reconstructed_from':'same immutable Git source with platform checkout newline conversion','recorded_execution_sha256':result['test_source_sha256'],'reconstruction_matches_recorded_hash':True,'canonical_git_sha256':hashlib.sha256(canonical).hexdigest(),'previous_failed_archive_run':43354345265})"""
+          changes.append((old,new))
+          for a,b in changes:
+              assert a in s,a
+              s=s.replace(a,b)
+          p.write_text(s)
+          PY
+      - name: Preserve original new API evidence and apply checked corrections
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 experiments/rust-1100/integrate.py
+          python3 - <<'PY'
+          from pathlib import Path
+          d=Path('docs/research/topics/R01/rust-1100-evidence')
+          (d/'.gitattributes').write_text('* -text\n')
+          p=Path('docs/traceability/rust-1100-self-review.md')
+          p.write_text(p.read_text()+'\nEvidence preservation attempts43354345265/43354629514 failed on a Windows CRLF source-hash assumption and then CR-at-EOL whitespace recognition, respectively. The actual API test run remained successful. Both raw source variants are reconstructed from the immutable Git text and match their recorded execution hashes; raw logs remain byte-preserved. The final whitespace check recognizes CRLF but still rejects other trailing whitespace. Neither failure is erased or reported as a product compiler failure.\n')
+          PY
+      - name: Validate exact generated documentation and commit to existing PR branch
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          reg=json.loads(pathlib.Path('docs/contracts/registry.json').read_text())
+          for c in reg['contracts']:
+              assert c['status']=='proposed'
+              if c.get('spec_path'):assert hashlib.sha256(pathlib.Path(c['spec_path']).read_bytes()).hexdigest()==c['content_sha256']
+          for p in pathlib.Path('docs').rglob('*.json'):json.loads(p.read_text())
+          for line in subprocess.check_output(['git','status','--porcelain'],text=True).splitlines():
+              p=line[3:]
+              assert p.startswith('docs/') or p in ('AGENTS.md','experiments/rust-1100/integrate.py'),p
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs AGENTS.md experiments/rust-1100/integrate.py
+          git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --cached --check -- '*.md' '*.py' '*.json'
+          git commit -m 'docs: preserve two-platform Rust results and repair versioned Design assumptions'
+          git push origin HEAD:refs/heads/research/source-driven-integration-2026-11-12
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rust-1100-integrated-design
+          path: |
+            docs/
+            AGENTS.md
+            experiments/rust-1100/
+          retention-days: 14

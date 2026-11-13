@@ -61,3 +61,8 @@ SQLx旧launchbadge地址本轮解析到transact-rs/sqlx；引用应使用实际�
 固定完整SHA；记录具体文件、符号和行段；公共API→实现→错误→释放→测试完整覆盖所研究机制。标明仅README/文档、目录定位、取回未读、限定源码阅读、运行证实。当前目录仅将已做的工作标已读。
 
 每个新候选要补许可证、维护状态、目标支持和替代成本；不得因为知名或现代就直接采用。正式复用要审查准确版本LICENSE和来源，不能把GitHub的自动license标签当完整法律结论。
+
+
+## Source-driven amendment / 2026-11-12
+
+Existing IDs remain authoritative. R19–R25/D14–D17/B01–B14 cover native SeaQuery/SQLx, no managed fallback or per-entity Cargo, typed Fluent instead of full LINQ SQL translation. R26–R31/D18–D20/B15–B24 cover native Service/Body reuse and retirement budgets, retaining Kestrel AOT. R13/R14/R18/D10/D11/A13–A16/A22/A24 cover precompiled consumers, upstream mapping and controlled upgrades. See [impact/recovery record](../traceability/source-driven-impact.md). Partial source evidence does not complete all tasks.

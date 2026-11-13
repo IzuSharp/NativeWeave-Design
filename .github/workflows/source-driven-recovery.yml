@@ -1,0 +1,44 @@
+name: Preserve and integrate recovered source-driven research
+on:
+  push:
+    branches: [research/source-driven-integration-2026-11-12]
+    paths:
+      - .github/workflows/source-driven-recovery.yml
+      - experiments/source-driven/recovery/**
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preserve-and-integrate:
+    if: github.repository == 'IzuSharp/NativeWeave-Design' && github.ref == 'refs/heads/research/source-driven-integration-2026-11-12'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          ref: ${{ github.sha }}
+      - name: Check fixed preimages and integrate scoped documents
+        run: python3 experiments/source-driven/recovery/integrate_design.py
+      - name: Preserve original artifacts and replay only the new finite model
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 experiments/source-driven/recovery/preserve_evidence.py
+      - name: Validate and commit only documentation to the existing research branch
+        run: |
+          git diff --check
+          python3 - <<'PY'
+          import json,pathlib,subprocess
+          for p in pathlib.Path('docs').rglob('*.json'):json.loads(p.read_text())
+          for line in subprocess.check_output(['git','status','--porcelain'],text=True).splitlines():
+              p=line[3:]
+              assert p.startswith('docs/') or p in ('README.md','AGENTS.md'), p
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs README.md AGENTS.md
+          git commit -m 'docs: integrate recovered evidence and source-driven contract corrections'
+          git push origin HEAD:refs/heads/research/source-driven-integration-2026-11-12

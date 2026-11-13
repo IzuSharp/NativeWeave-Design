@@ -1,0 +1,237 @@
+{
+  "collected_at": "2026-11-12T14:57:43.473992+00:00",
+  "run_id": "43242624552",
+  "baselines": {
+    "IzuSharp/NativeWeave-Design": {
+      "commit": "baa953772d2a771bb4da3aff0cf4b4be6fc811a1",
+      "archive_url": "https://codeload.github.com/IzuSharp/NativeWeave-Design/tar.gz/baa953772d2a771bb4da3aff0cf4b4be6fc811a1",
+      "archive_sha256": "b7a592f35bfc764807ba27e884ef484b281299cbff89e089f47b70936b9c5a7e",
+      "archive_file_count": 147
+    },
+    "IzuSharp/Plan": {
+      "commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+      "archive_url": "https://codeload.github.com/IzuSharp/Plan/tar.gz/da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+      "archive_sha256": "ded8e301655a0eedbe9b3b7cb791e93c472771b8630c4d3575fb3031bb7dc2f3",
+      "archive_file_count": 138
+    }
+  },
+  "upstreams": [
+    {
+      "repository": "SeaQL/sea-query",
+      "tag": "1.0.2",
+      "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "latest_release_observed": {
+        "tag": "1.0.2",
+        "published_at": "2026-08-12T22:48:52Z"
+      },
+      "selected_prefixes": [
+        "src/",
+        "tests/",
+        "sea-query-sqlx/",
+        "sea-query-binder/",
+        "examples/"
+      ],
+      "archive_url": "https://codeload.github.com/SeaQL/sea-query/tar.gz/f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+      "archive_sha256": "0f1c4a47f30cc4617d790bca5c5bb8bd6686524f235e35736317362f39f07761",
+      "archive_file_count": 304
+    },
+    {
+      "repository": "SeaQL/sea-orm",
+      "tag": "2.0.4",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "latest_release_observed": {
+        "tag": "2.0.4",
+        "published_at": "2026-09-27T16:39:15Z"
+      },
+      "selected_prefixes": [
+        "src/",
+        "tests/",
+        "sea-orm-codegen/src/",
+        "sea-orm-macros/src/"
+      ],
+      "archive_url": "https://codeload.github.com/SeaQL/sea-orm/tar.gz/db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "archive_sha256": "23ba1eb44b27cf27c57ddf361e7bc3ed0316ea59a8c172730eabff8a83bff749",
+      "archive_file_count": 1631
+    },
+    {
+      "repository": "launchbadge/sqlx",
+      "tag": null,
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "repository": "tokio-rs/tokio",
+      "tag": "tokio-1.54.1",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "latest_release_observed": {
+        "tag": "tokio-1.54.1",
+        "published_at": "2026-10-21T21:07:05Z"
+      },
+      "selected_prefixes": [
+        "tokio/src/",
+        "tokio/tests/",
+        "tokio-util/src/"
+      ],
+      "archive_url": "https://codeload.github.com/tokio-rs/tokio/tar.gz/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "archive_sha256": "8f19c588bdafb5d0ba44ed0fdccee8e8049dcf386d2bd8b2a6a721595a6cd4ff",
+      "archive_file_count": 886
+    },
+    {
+      "repository": "hyperium/hyper",
+      "tag": "v1.12.0",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "latest_release_observed": {
+        "tag": "v1.12.0",
+        "published_at": "2026-10-06T15:58:27Z"
+      },
+      "selected_prefixes": [
+        "src/",
+        "tests/",
+        "capi/"
+      ],
+      "archive_url": "https://codeload.github.com/hyperium/hyper/tar.gz/7f67699ce32d717081deb7018b4da7d679277ac0",
+      "archive_sha256": "ae7b250cc2cc01b93b57282741fb0735e6f01c1665b7cabb137d27abc60197b2",
+      "archive_file_count": 139
+    },
+    {
+      "repository": "hyperium/hyper-util",
+      "tag": "v0.1.21",
+      "commit": "23a868965964c1d6bb1b94f30ba4c420a4bebe7c",
+      "latest_release_observed": {
+        "tag": "v0.1.21",
+        "published_at": "2026-09-24T18:01:58Z"
+      },
+      "selected_prefixes": [
+        "src/",
+        "tests/"
+      ],
+      "archive_url": "https://codeload.github.com/hyperium/hyper-util/tar.gz/23a868965964c1d6bb1b94f30ba4c420a4bebe7c",
+      "archive_sha256": "22e47b84c47e6299edb9f8a06ab7307f58bccea00b1f185f46926ccf04274355",
+      "archive_file_count": 59
+    },
+    {
+      "repository": "tokio-rs/axum",
+      "tag": "axum-v0.8.9",
+      "commit": "c59208c86fded335cd85e388030ad59347b0e5ae",
+      "latest_release_observed": {
+        "tag": "axum-v0.8.9",
+        "published_at": "2026-04-14T09:39:51Z"
+      },
+      "selected_prefixes": [
+        "axum/src/",
+        "axum-core/src/",
+        "examples/"
+      ],
+      "archive_url": "https://codeload.github.com/tokio-rs/axum/tar.gz/c59208c86fded335cd85e388030ad59347b0e5ae",
+      "archive_sha256": "07e84be117e11980890ff135d45f79f1b68874a0086ae74d3952a40ee8b1ac9a",
+      "archive_file_count": 489
+    },
+    {
+      "repository": "tower-rs/tower",
+      "tag": "tower-0.5.3",
+      "commit": "4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc",
+      "latest_release_observed": {
+        "tag": "tower-0.5.3",
+        "published_at": "2026-01-12T18:43:10Z"
+      },
+      "selected_prefixes": [
+        "tower/src/",
+        "tower/tests/",
+        "tower-service/src/",
+        "tower-layer/src/"
+      ],
+      "archive_url": "https://codeload.github.com/tower-rs/tower/tar.gz/4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc",
+      "archive_sha256": "f4d283d58c0ef035d99f02991179ca1009c472c313126313b85fda4eb6aaeff7",
+      "archive_file_count": 162
+    },
+    {
+      "repository": "actix/actix-web",
+      "tag": "actix-multipart-v0.8.8",
+      "commit": "ae1d51adc04ae0a8cc06b396329fea67cbd4483d",
+      "latest_release_observed": {
+        "tag": "actix-multipart-v0.8.8",
+        "published_at": "2026-11-10T07:17:54Z"
+      },
+      "selected_prefixes": [
+        "actix-web/src/",
+        "actix-web/tests/",
+        "actix-http/src/",
+        "actix-http/tests/"
+      ],
+      "archive_url": "https://codeload.github.com/actix/actix-web/tar.gz/ae1d51adc04ae0a8cc06b396329fea67cbd4483d",
+      "archive_sha256": "d0ca283cedb2b57623eab87021f012f6d6e824a1ce8ec6f20fc1fbaeaa84ba2e",
+      "archive_file_count": 435
+    },
+    {
+      "repository": "actix/actix-net",
+      "tag": "bytestring-v1.6.0",
+      "commit": "d8ae9bde1054824a5cc961494d2eb6c1f93f7899",
+      "latest_release_observed": {
+        "tag": "bytestring-v1.6.0",
+        "published_at": "2026-11-10T03:01:11Z"
+      },
+      "selected_prefixes": [
+        "actix-server/src/",
+        "actix-server/tests/",
+        "actix-tls/src/"
+      ],
+      "archive_url": "https://codeload.github.com/actix/actix-net/tar.gz/d8ae9bde1054824a5cc961494d2eb6c1f93f7899",
+      "archive_sha256": "b7f30b998bb9a3e51f7d2c0b718d47e2caffa2c7fa7c11efe90bfd32cb38537e",
+      "archive_file_count": 181
+    },
+    {
+      "repository": "rustls/rustls",
+      "tag": "v/0.23.46",
+      "commit": "f04804fa13341a9b1dc02b5d1dd8a746f2c4b7fb",
+      "latest_release_observed": {
+        "tag": "v/0.23.46",
+        "published_at": "2026-10-14T09:51:22Z"
+      },
+      "selected_prefixes": [
+        "rustls/src/",
+        "rustls/tests/"
+      ],
+      "archive_url": "https://codeload.github.com/rustls/rustls/tar.gz/f04804fa13341a9b1dc02b5d1dd8a746f2c4b7fb",
+      "archive_sha256": "4cfdec250d939cd129036024cd62cc47143939a2ec596f9d6de1f69dd9cf9ae8",
+      "archive_file_count": 1033
+    },
+    {
+      "repository": "cloudflare/pingora",
+      "tag": "0.9.1",
+      "commit": "f86ffda5d3ae5c3baf5125682138b33b26c01b08",
+      "latest_release_observed": {
+        "tag": "0.9.1",
+        "published_at": "2026-11-03T01:07:23Z"
+      },
+      "selected_prefixes": [
+        "pingora-core/src/",
+        "pingora-proxy/src/",
+        "pingora-http/src/"
+      ],
+      "archive_url": "https://codeload.github.com/cloudflare/pingora/tar.gz/f86ffda5d3ae5c3baf5125682138b33b26c01b08",
+      "archive_sha256": "53f6d194c8e6d52278aeaff0da7384ec0b6c507c911f1a7fce95e8e694a6a551",
+      "archive_file_count": 397
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "tag": "v11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "latest_release_observed": {
+        "tag": "v10.0.15",
+        "published_at": "2026-11-10T17:15:30Z"
+      },
+      "selected_prefixes": [
+        "src/Servers/Kestrel/Core/src/",
+        "src/Servers/Kestrel/test/",
+        "src/Http/Http.Extensions/src/",
+        "src/Http/Http.Extensions/test/"
+      ],
+      "archive_url": "https://codeload.github.com/dotnet/aspnetcore/tar.gz/1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "archive_sha256": "9c35c50f0736fa49933e12c316995a4a566b84941d54725112c15d73ca357d8f",
+      "archive_file_count": 17269
+    }
+  ],
+  "limitations": [
+    "Downloaded source is not automatically reviewed source.",
+    "No native build or AOT result is claimed by this collection job."
+  ]
+}

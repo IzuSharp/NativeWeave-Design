@@ -1,0 +1,97 @@
+name: Source-driven integration research
+on:
+  push:
+    branches: [research/source-driven-integration-2026-11-12]
+    paths:
+      - .github/workflows/source-driven-research.yml
+      - experiments/source-driven/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Collect immutable research inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          mkdir -p evidence
+          cat > /tmp/collect.py <<'PY'
+          import datetime, hashlib, io, json, os, pathlib, tarfile, urllib.request
+          root = pathlib.Path('evidence')
+          def api(path):
+              req = urllib.request.Request('https://api.github.com/' + path, headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'User-Agent': 'NativeWeave-source-research', 'Accept': 'application/vnd.github+json'})
+              with urllib.request.urlopen(req, timeout=90) as r: return json.load(r)
+          def resolve(repo, tag):
+              obj = api(f'repos/{repo}/git/ref/tags/{tag}')['object']
+              while obj['type'] == 'tag': obj = api(f'repos/{repo}/git/tags/{obj["sha"]}')['object']
+              if obj['type'] != 'commit': raise ValueError('not a commit')
+              return obj['sha']
+          def extract(repo, sha, dest, prefixes=None):
+              url = f'https://codeload.github.com/{repo}/tar.gz/{sha}'
+              with urllib.request.urlopen(url, timeout=120) as r: data = r.read()
+              dest.mkdir(parents=True, exist_ok=True)
+              files = []
+              with tarfile.open(fileobj=io.BytesIO(data), mode='r:gz') as tf:
+                  for m in tf.getmembers():
+                      if not m.isfile(): continue
+                      p = pathlib.PurePosixPath(m.name)
+                      rel = pathlib.PurePosixPath(*p.parts[1:])
+                      if not rel.parts or '..' in rel.parts: raise ValueError('unsafe archive path')
+                      name = str(rel)
+                      files.append({'path': name, 'size': m.size})
+                      keep = prefixes is None or any(name.startswith(x) for x in prefixes) or '/' not in name
+                      if not keep or m.size > 2000000: continue
+                      b = tf.extractfile(m).read()
+                      try: b.decode('utf-8')
+                      except UnicodeDecodeError: continue
+                      out = dest / name
+                      out.parent.mkdir(parents=True, exist_ok=True)
+                      out.write_bytes(b)
+              (dest / '_archive-files.json').write_text(json.dumps(files, indent=2))
+              return {'archive_url': url, 'archive_sha256': hashlib.sha256(data).hexdigest(), 'archive_file_count': len(files)}
+          baselines = {'IzuSharp/NativeWeave-Design': 'baa953772d2a771bb4da3aff0cf4b4be6fc811a1', 'IzuSharp/Plan': 'da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5'}
+          manifest = {'collected_at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'run_id': os.environ.get('GITHUB_RUN_ID'), 'baselines': {}, 'upstreams': [], 'limitations': ['Downloaded source is not automatically reviewed source.', 'No native build or AOT result is claimed by this collection job.']}
+          for repo, sha in baselines.items():
+              manifest['baselines'][repo] = {'commit': sha, **extract(repo, sha, root / 'baseline' / repo.split('/')[1])}
+          targets = [
+              ('SeaQL/sea-query', '1.0.2', ['src/', 'tests/', 'sea-query-sqlx/', 'sea-query-binder/', 'examples/']),
+              ('SeaQL/sea-orm', '2.0.4', ['src/', 'tests/', 'sea-orm-codegen/src/', 'sea-orm-macros/src/']),
+              ('launchbadge/sqlx', None, ['sqlx-core/src/', 'sqlx-postgres/src/', 'sqlx-sqlite/src/', 'tests/postgres/', 'tests/sqlite/']),
+              ('tokio-rs/tokio', None, ['tokio/src/', 'tokio/tests/', 'tokio-util/src/']),
+              ('hyperium/hyper', None, ['src/', 'tests/', 'capi/']),
+              ('hyperium/hyper-util', None, ['src/', 'tests/']),
+              ('tokio-rs/axum', None, ['axum/src/', 'axum-core/src/', 'examples/']),
+              ('tower-rs/tower', None, ['tower/src/', 'tower/tests/', 'tower-service/src/', 'tower-layer/src/']),
+              ('actix/actix-web', None, ['actix-web/src/', 'actix-web/tests/', 'actix-http/src/', 'actix-http/tests/']),
+              ('actix/actix-net', None, ['actix-server/src/', 'actix-server/tests/', 'actix-tls/src/']),
+              ('rustls/rustls', None, ['rustls/src/', 'rustls/tests/']),
+              ('cloudflare/pingora', None, ['pingora-core/src/', 'pingora-proxy/src/', 'pingora-http/src/']),
+              ('dotnet/aspnetcore', 'v11.0.0', ['src/Servers/Kestrel/Core/src/', 'src/Servers/Kestrel/test/', 'src/Http/Http.Extensions/src/', 'src/Http/Http.Extensions/test/'])
+          ]
+          for repo, tag, prefixes in targets:
+              try:
+                  release = api(f'repos/{repo}/releases/latest')
+                  if tag is None: tag = release['tag_name']
+                  sha = resolve(repo, tag)
+                  record = {'repository': repo, 'tag': tag, 'commit': sha, 'latest_release_observed': {'tag': release['tag_name'], 'published_at': release.get('published_at')}, 'selected_prefixes': prefixes}
+                  record.update(extract(repo, sha, root / 'upstream' / repo.replace('/', '__'), prefixes))
+                  manifest['upstreams'].append(record)
+              except Exception as e:
+                  manifest['upstreams'].append({'repository': repo, 'tag': tag, 'error': str(e)})
+              (root / 'source-lock.json').write_text(json.dumps(manifest, indent=2) + '\n')
+          print(json.dumps(manifest, indent=2))
+          PY
+          python3 /tmp/collect.py | tee evidence/collection.log
+          { uname -a; rustc --version || true; cargo --version || true; dotnet --info || true; python3 --version; } > evidence/runner-environment.txt 2>&1
+      - name: Upload source evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: source-driven-inputs
+          path: evidence/
+          retention-days: 14
+          include-hidden-files: true

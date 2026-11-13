@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/app/Bad.cs(1,109): error CS1503: Argument 1: cannot convert from 'NativeWeave.SourceProbe.Column<User, long>' to 'NativeWeave.SourceProbe.Column<Student, long>' [/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/app/App.csproj]
+
+Build FAILED.
+
+/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/app/Bad.cs(1,109): error CS1503: Argument 1: cannot convert from 'NativeWeave.SourceProbe.Column<User, long>' to 'NativeWeave.SourceProbe.Column<Student, long>' [/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/source-driven/work/app/App.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.15

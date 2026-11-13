@@ -1,0 +1,6 @@
+PASS Student real SQLx/SQLite select
+PASS value is not interpolated SQL
+PASS injection-shaped value is a parameter
+PASS PostgreSQL placeholder rendering only
+PASS native row budget rejects overflow
+PASS database error crosses boundary as failure

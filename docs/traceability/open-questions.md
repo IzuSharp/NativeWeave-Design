@@ -1,6 +1,6 @@
 # 未决问题与证据缺口
 
-状态：open；2026-11-12。这里记录实际未解决事项；每项只阻断依赖该事实的正式契约，不阻断其他专题开始研究/写草稿。
+状态：设计回答、实现验证、生产接受分别记录；2026-11-12。这里记录实际未解决事项；每项只阻断依赖该事实的正式契约，不阻断其他专题开始研究/写草稿。
 
 | ID | 问题 | 负责研究 / 文档 | 关闭依据 | 当前影响 |
 | --- | --- | --- | --- | --- |
@@ -14,9 +14,9 @@
 | Q08 | Rust panic与C#callback异常、fatal边界 | R11/R04 → D08/D03 | subprocess负例；unwind/abort和UCO签名分析 | 无“捕获所有异常”承诺 |
 | Q09 | 包/RID/静态链接/加载路径与来源 | R13/R14 → D10 | clean consumer、ABI版本、资产/依赖、SBOM | 未发布包 |
 | Q10 | 两个真实Engine的选择 | R17/R18 → D11 | 同步/异步差异与当前C#基线对照 | 不以mock代真引擎验收 |
-| Q11 | Npgsql/SQLx/SQLite支持矩阵与Rust价值 | R19–R22 → D14/D15 | 功能等价AOT/负载/取消/恢复 | provider未最终选型 |
+| Q11 | Rust动态数据库与预编译复用 | R19–R25 → D14/D15 | SeaQuery+SQLx候选及有限Linux AOT，无逐实体native构建 | 设计回答形成；独立接受/PG/Windows验证pending |
 | Q12 | Unknown事务效果、pool恢复与幂等 | R21/R31 → D15/D20 | COMMIT响应丢失、原子幂等、实库故障 | 不能取消即视为回滚 |
-| Q13 | 可自然表达且可证明的LINQ/AOT子集 | R23/R25/R06 → D16/D17 | 支持/拒绝语法、调用接管、静态mapping | 不承诺任意IQueryable |
+| Q13 | Typed Fluent及static metadata/DTO | R23/R25/R06 → D16/D17 | 普通native-backed Fluent，不要求完整LINQ Provider | 设计问题已回答；SG/全能力/跨平台验证pending |
 | Q14 | NULL/Join/分页/collation/类型语义 | R22/R24 → D16 | 真实PG/SQLite差分与属性测试 | SQL正确性未验收 |
 | Q15 | Kestrel或Rust server在何种负载有价值 | R26/R27/R17 → D18/D13 | 同协议/功能/硬件端到端对照 | 不预设Rust/Tokio |
 | Q16 | server整体预算与graceful shutdown | R29/R12 → D18 | 逻辑预算+RSS实测、慢端/断流/长跑 | channel容量不证明总内存 |
@@ -31,3 +31,9 @@
 工具链版本事实、源码局部行为和Python模型/图检查可以独立成立；它们不能取代以上产品验收。正式结论以证据和契约版本为单位逐步接受，不把“研究报告已写”计成“完整产品可发布”。
 
 后续任务拆分或否定候选时保留历史ID、理由及replacement关系。新Engine沿同一接入规范加入独立任务，不要求所有已有领域同步重做。
+
+## Scope of design answers and remaining verification
+
+The Q11/Q13 questions “must every ordinary C# entity compile Rust?” and “must this be a full LINQ SQL Provider?” are answered **no for the dynamic profile** by R25 and ADR-0002. They no longer remain open language-feasibility questions. SeaORM's static-profile restrictions remain real but do not generalize to all native database access. Contracts still require independent acceptance.
+
+Q01/Q09 have only explicit-RID Linux/SQLite NuGet/AOT and unchanged-native-hash evidence; Windows, clean Rust-free consumers and RID-free commands remain pending. Q14 retains SQL differential, silent-no-op rejection and fallible binder gates. Q15's Server benefit choice is not closed by source feasibility. Q16 has a finite response-body admission counterexample/model, not a verified network/memory/shutdown implementation. Q04/Q12's existing safety distinctions remain; design resolution does not erase implementation tests. Continue through existing R14/R17/R25/R27, D10/D11/D14–D18 and Plan's independent-review prompt, not a new graph.

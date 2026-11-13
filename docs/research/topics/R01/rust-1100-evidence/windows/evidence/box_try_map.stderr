@@ -1,0 +1,11 @@
+error[E0658]: use of unstable library feature `smart_pointer_try_map`
+ --> D:\a\NativeWeave-Design\NativeWeave-Design\experiments\rust-1100\work\box_try_map.rs:1:17
+  |
+1 | fn main(){let _=Box::try_map(Box::new(1_u8),|v|Ok::<_,()>(v));}
+  |                 ^^^^^^^^^^^^
+  |
+  = note: see issue #144419 <https://github.com/rust-lang/rust/issues/144419> for more information
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0658`.

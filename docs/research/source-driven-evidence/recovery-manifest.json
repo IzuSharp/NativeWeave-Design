@@ -1,0 +1,217 @@
+{
+  "date": "2026-11-12",
+  "design_main": "baa953772d2a771bb4da3aff0cf4b4be6fc811a1",
+  "plan_main": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+  "existing_pr": 5,
+  "recovered_head": "16e673b1077f6784936703f4c4dc38b46b4d058b",
+  "preservation_input_commit": "9509f0d8190671939d7f4c1ab22368872c86edc7",
+  "artifacts": [
+    {
+      "run_id": 43242624552,
+      "artifact_id": 13954862179,
+      "zip_sha256": "defda5e08a309dec167ef1c517b3a9d2f1d316215bd8265e3a3fa3c1b5724372"
+    },
+    {
+      "run_id": 43245931319,
+      "artifact_id": 13956034512,
+      "zip_sha256": "e0af8616e6ee31fb8fb6dcc5c1cffc6aae9bc4862db1296e110b65aae52e7199"
+    },
+    {
+      "run_id": 43245931319,
+      "artifact_id": 13957435482,
+      "zip_sha256": "341d43c19e6c90597f78c584fa63f5ef6ea952a478ad627c2e83cfadffbb5be7"
+    }
+  ],
+  "preserved_files": [
+    {
+      "path": "docs/research/source-driven-evidence/Cargo.lock",
+      "sha256": "313224d2a108029b86c6cfa24f33ee7ad817d29427a36a2f186ce49492cdff47",
+      "bytes": 28041,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/cargo-lock.log",
+      "sha256": "0f0f3abb63bea490dc6ae2944344cff0ce356750fc87ed811963d9e96c809504",
+      "bytes": 154,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/cargo-metadata.log",
+      "sha256": "6d7fddb6aa702b2e0c675d618e8c32cc2251ec3d445b2583da9460e52554704a",
+      "bytes": 584389,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/commands.json",
+      "sha256": "66ffe69036f7ccc4b11cd3413b0c4b6d379a6a7fb6f287889fa6aaef20290753",
+      "bytes": 4863,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/consumer-aot-publish.log",
+      "sha256": "97e336e0b1dcb2a02af4d5f20e9e5fbdf8a9ea4132507e0232380cdb01ddff38",
+      "bytes": 351,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/consumer-aot-run.log",
+      "sha256": "73946929edf2b9c225271cb18e2ddebad8226d1e9f72020b6ae6f28772ae5123",
+      "bytes": 246,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/consumer-build.log",
+      "sha256": "eff692f599ce84a876c31c538e951512db50a2cbe35a32fa3a0d41a298d5f51c",
+      "bytes": 379,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/consumer-run.log",
+      "sha256": "73946929edf2b9c225271cb18e2ddebad8226d1e9f72020b6ae6f28772ae5123",
+      "bytes": 246,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/environment.log",
+      "sha256": "4523c0f1a33d096f160c4600540f1565190bc64d5653cca33a3b94b57e3c4abf",
+      "bytes": 3161,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/native-release.log",
+      "sha256": "cce046e05980fe0924bb23c8fac524464bb1191e56e51d3e5cbaca5761bd96d9",
+      "bytes": 3515,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/new-entity-aot-publish.log",
+      "sha256": "165d08a15010039865dcc0a598c3658068a3caa5e6a8489d265bf5a389c60649",
+      "bytes": 351,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/new-entity-aot-run.log",
+      "sha256": "017cc6281c59a242203cb1b48844f017ceac2a10af5b6a3bd3a1db21c0f6453b",
+      "bytes": 297,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/new-entity-build.log",
+      "sha256": "aa462930440d2d3c0710fa1fbce97e9d1dba238c30b00daf9f668df436d76ecb",
+      "bytes": 294,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/new-entity-run.log",
+      "sha256": "017cc6281c59a242203cb1b48844f017ceac2a10af5b6a3bd3a1db21c0f6453b",
+      "bytes": 297,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/pack.log",
+      "sha256": "106cf22aaea5826f264d967398b9e5493e1fb5d909baa8026c0ecbd9290a56dc",
+      "bytes": 689,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/result.json",
+      "sha256": "5a5634c9c4385f95d999e64c4482ed88d5ef809a571528b72167aa2a73db0e72",
+      "bytes": 1012,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/rust-tests.log",
+      "sha256": "13a00541adc3b5f6d487b7252a4d25dc6ff97095835894a71410ab4df8b36e02",
+      "bytes": 7637,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/wrong-entity-compile-negative.log",
+      "sha256": "175e964bfcef39b84d3fc184c3055fe2156ef68c8f64fb1b923958be899eddc4",
+      "bytes": 858,
+      "origin": "Recovered original artifact 13957435482, not rerun"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/probe-resolved.py",
+      "sha256": "a6d1fc8c3e1e57cc318515d7916014c82c16b7eef0b8b71e731b381a538f848d",
+      "bytes": 23350,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/probe.py",
+      "sha256": "1086e4e603a82b0c063e4580c49cadd7f879c5bebc48bbc99e8d670326bb900c",
+      "bytes": 23180,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/app/App.csproj",
+      "sha256": "ed4a827b4f74a0f9e150fc50d518fb030fcf33c738d4ed789793da960c38ee93",
+      "bytes": 385,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/app/Extra.cs",
+      "sha256": "ef8bc6b9d4770c2a1e28bbf813f6fe532a7bb46c4b6f59f6917dc5db68d4f768",
+      "bytes": 611,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/app/NuGet.Config",
+      "sha256": "c16ce2a23b718cceebfd2cf41a3bb0707c9b39830269735bd490b61e3fe3f261",
+      "bytes": 252,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/app/Program.cs",
+      "sha256": "4bc25a22d450d025bb1d9d6bd1116e611ed6650ddb332e366fc0b5bbf10bf63b",
+      "bytes": 1640,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/managed/NativeWeave.SourceProbe.csproj",
+      "sha256": "fd4ad4f219d6c797077e20181b871e886dc5a597b7454ca183844be94386afd9",
+      "bytes": 569,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/managed/Query.cs",
+      "sha256": "5b5b11e9b52f51b4073e49c7396cb1aba6c5a852c434e914079f1390b6f1fe78",
+      "bytes": 4097,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/native/Cargo.lock",
+      "sha256": "313224d2a108029b86c6cfa24f33ee7ad817d29427a36a2f186ce49492cdff47",
+      "bytes": 28041,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/native/Cargo.toml",
+      "sha256": "e8effc42f8e9a9034ea45c17f9d22d5e4c38470d92a96e7732015991def508c2",
+      "bytes": 524,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/probe-inputs/work/native/src/lib.rs",
+      "sha256": "1bdccd2aa71170ae30ba662a61bd6a25313cbc8fc38f6f9fc33c21f8d1c309b7",
+      "bytes": 9812,
+      "origin": "Recovered original prototype input, not production code"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/source-lock.json",
+      "sha256": "d624062b56da53ec86ee508a983afde02a7fc0a9836a40f3cf8a0c52420586ed",
+      "bytes": 8546,
+      "origin": "Original source collection artifact 13954862179"
+    },
+    {
+      "path": "docs/research/source-driven-evidence/corrected-pins.json",
+      "sha256": "c81e2016bf7c83894e7e1123fe79021afd338ccedebd5ffde1d889542418a643",
+      "bytes": 1329,
+      "origin": "Corrected source identities artifact 13956034512"
+    }
+  ],
+  "native_asset_sha256": "e47fee8b949599ed5430af36aa403f7782b33d7402b249709c71e50f74dad52e",
+  "subagent_results": "Six separately attributable completed outputs not recovered in current accessible records",
+  "independent_review": "pending; not simulated",
+  "original_aot_probe_rerun": false
+}

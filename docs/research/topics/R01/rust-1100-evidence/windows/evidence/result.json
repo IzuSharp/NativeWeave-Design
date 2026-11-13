@@ -1,0 +1,257 @@
+{
+  "source_commit": "73821095d99c0690def9e10815eb6c91dbed8b7b",
+  "run_id": "43352716861",
+  "os": "Windows",
+  "arch": "AMD64",
+  "all_expected_results": true,
+  "commands": [
+    {
+      "name": "rustc-version",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "-Vv"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:27.856871+00:00",
+      "finished_at": "2026-11-13T02:31:28.450825+00:00",
+      "stdout_sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "cargo-version",
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "-Vv"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:28.450825+00:00",
+      "finished_at": "2026-11-13T02:31:29.201804+00:00",
+      "stdout_sha256": "d8647b158f37a24d36ed38419927e7b3057418bdbdcbabee756e08afa57c7313",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stable-tests-compile",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "--test",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\stable_tests.rs",
+        "-Dwarnings",
+        "-o",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\tests.exe"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:29.201804+00:00",
+      "finished_at": "2026-11-13T02:31:31.456834+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stable-tests-run",
+      "command": [
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\tests.exe",
+        "--test-threads=1"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.456834+00:00",
+      "finished_at": "2026-11-13T02:31:31.486180+00:00",
+      "stdout_sha256": "270c7576f554f33617ef87b9664177930b69b28d07d6b002b9dc875d5213a9fd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "arc_custom_allocator",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\arc_custom_allocator.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 1,
+      "expected": "failure",
+      "expected_diagnostic": "E0658",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.486180+00:00",
+      "finished_at": "2026-11-13T02:31:31.540409+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "85410a69aec9c47021d6c965e6d8705823ebfddd514fe851ddef62e9e6ca62a2"
+    },
+    {
+      "name": "box_try_map",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\box_try_map.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 1,
+      "expected": "failure",
+      "expected_diagnostic": "E0658",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.540409+00:00",
+      "finished_at": "2026-11-13T02:31:31.595131+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5e00e76d848d4f790dd932e5179b8e8e69b6571433765eb9ccdd56266ccbd458"
+    },
+    {
+      "name": "custom_ordinary_body",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\custom_ordinary_body.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 1,
+      "expected": "failure",
+      "expected_diagnostic": "custom",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.595131+00:00",
+      "finished_at": "2026-11-13T02:31:31.633647+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5af5ba41e19f3e712767556e83f37568afd2421cea0034dc452d778679b6702a"
+    },
+    {
+      "name": "never_overlap",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\never_overlap.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 1,
+      "expected": "failure",
+      "expected_diagnostic": "E0119",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.633647+00:00",
+      "finished_at": "2026-11-13T02:31:31.674965+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c5c9245b709e0d6bd1e4e935ceff5fcd8f446ce7d7e511264c42e25b02c30447"
+    },
+    {
+      "name": "custom-naked-compile-only",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "--crate-type=lib",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\custom_naked.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.674965+00:00",
+      "finished_at": "2026-11-13T02:31:31.721849+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "never-2021-compile",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2021",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\edition2021.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.721849+00:00",
+      "finished_at": "2026-11-13T02:31:31.768726+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "cargo-unused-negative",
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "check",
+        "--offline",
+        "--all-targets"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\lint",
+      "exit_code": 101,
+      "expected": "failure",
+      "expected_diagnostic": "unused dependency",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.768726+00:00",
+      "finished_at": "2026-11-13T02:31:31.987552+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "32a9a7d3ca51a0e6e8e16c205e560f858b5cf22d69d66c7ec0cd12cdf2c56dd9"
+    },
+    {
+      "name": "cargo-unused-positive",
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "check",
+        "--offline",
+        "--all-targets"
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\lint",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:31.987552+00:00",
+      "finished_at": "2026-11-13T02:31:32.081347+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3519652675014aa7b57263abc8f5378d3d9f744e7a6af07618b2b778cbbe9544"
+    },
+    {
+      "name": "cargo-build-dir-json",
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "build",
+        "--offline",
+        "--message-format=json",
+        "--config",
+        "build.build-dir=\"native-build-cache\""
+      ],
+      "cwd": "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\rust-1100\\work\\lint",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:32.081347+00:00",
+      "finished_at": "2026-11-13T02:31:32.346950+00:00",
+      "stdout_sha256": "b94fb4dafeeb1a77225dd6fa748a7383ea86326c39564774eba79cb6f0e201ec",
+      "stderr_sha256": "c4eed413aa0bdc8acda24960d5dea9856f9d42220d0140fa7c839bd9f25fdf43"
+    }
+  ],
+  "test_source_sha256": "50aed969700f266572c4851aa5c4ed767ce7687bcddd312b8fd59b82d57e115d",
+  "scope": "New stable API/compiler fixtures; no AOT/production/independent review/performance claim"
+}

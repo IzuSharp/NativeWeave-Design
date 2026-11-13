@@ -1,0 +1,1 @@
+fn main(){let _=Box::try_map(Box::new(1_u8),|v|Ok::<_,()>(v));}

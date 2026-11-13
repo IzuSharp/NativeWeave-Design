@@ -1,0 +1,27 @@
+{
+  "run_id": "43245931319",
+  "correction": "Initial latest-release collector selected unrelated monorepo tags for Actix and did not resolve SQLx repository move. These exact package tags supersede those observations; downloaded does not mean reviewed.",
+  "sources": [
+    {
+      "repository": "transact-rs/sqlx",
+      "tag": "v0.9.0",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "archive_url": "https://codeload.github.com/transact-rs/sqlx/tar.gz/75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "archive_sha256": "4dd6ed6d7073b0958f3b80bb2bece886cf5f5a3b6a8c4a6d269e54c5464e5f61"
+    },
+    {
+      "repository": "actix/actix-web",
+      "tag": "actix-web-v4.19.0",
+      "commit": "fdb6503d95228f44ba926f6347c11fd523e22193",
+      "archive_url": "https://codeload.github.com/actix/actix-web/tar.gz/fdb6503d95228f44ba926f6347c11fd523e22193",
+      "archive_sha256": "24812c05779c824bd30421db752635fcc37a3701c3ab4724e07412c36e02f883"
+    },
+    {
+      "repository": "actix/actix-net",
+      "tag": "actix-server-v2.10.0",
+      "commit": "f22be1d9731f764707dd3e286900d285c6f60b14",
+      "archive_url": "https://codeload.github.com/actix/actix-net/tar.gz/f22be1d9731f764707dd3e286900d285c6f60b14",
+      "archive_sha256": "c935a85d80bdfb3c97f3fb797f7619c55f1e98760ef6b6d14ac93c8e024abc12"
+    }
+  ]
+}

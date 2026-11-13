@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "run_id": "43245931319",
+  "native_sha256_before": "e47fee8b949599ed5430af36aa403f7782b33d7402b249709c71e50f74dad52e",
+  "native_sha256_after": "e47fee8b949599ed5430af36aa403f7782b33d7402b249709c71e50f74dad52e",
+  "source_probe_sha256": "a6d1fc8c3e1e57cc318515d7916014c82c16b7eef0b8b71e731b381a538f848d",
+  "new_entity_required_native_rebuild": false,
+  "consumer_rust_invocations": "PATH denied by exit97 shims",
+  "row_types": [
+    "Int64",
+    "text"
+  ],
+  "platform": "linux-x64",
+  "database": "SQLite",
+  "transport": "bounded query / JSON result prototype",
+  "mapping": "explicit static C# descriptors and DTO constructors, no Source Generator executed",
+  "not_proven": [
+    "Windows",
+    "PostgreSQL execution",
+    "production async/cancellation ABI",
+    "transaction commit ambiguity",
+    "streaming",
+    "throughput/latency/memory improvement",
+    "full ORM semantics",
+    "actual clean machine without installed Rust",
+    "source-generator implementation"
+  ]
+}
