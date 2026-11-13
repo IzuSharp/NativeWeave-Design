@@ -1,0 +1,235 @@
+{
+  "repository": "IzuSharp/NativeWeave-Design",
+  "scope": "R07 NS-01 controlled admission experiment; not production ABI or completed Delivery",
+  "success": true,
+  "started_utc": "2026-11-13T05:49:31.714302+00:00",
+  "rid": "linux-x64",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "architecture": "x86_64",
+  "run_id": null,
+  "workflow_trigger_sha": null,
+  "reused_design_snapshot": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+  "clean_rust_free_host": false,
+  "independent_review": false,
+  "product_delivery_executed": false,
+  "source_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+  "local_source_dirty": true,
+  "source_files": {
+    "experiments/interop-admission/run.py": "4b796d14b107b240f491b24cdf70d90e7f98a4a5d324edf6f7af7df6bcfa3778",
+    "experiments/interop-admission/global.json": "d68766f83e6c794b511ea1cb87f6cc00089cd21d6e92c1246ac7c2a542b11c7d",
+    "experiments/interop-admission/consumer/AdmissionBuffer.cs": "9d6d9bea6dd364b4145a4f9b45b438d79baef923a15af1560c0af93fd9f0461a",
+    "experiments/interop-admission/consumer/AdmissionProbe.csproj": "a4cabc7458cd1ce8cecc53a0ed2fcf4f73da0a07b9ee9544769875f94fd404c6",
+    "experiments/interop-admission/consumer/Program.cs": "950e6dcb89b1999bce4026cb812b75a426c045ce46482fa26554c78c114fe079"
+  },
+  "reused_source_files": {
+    "experiments/native-slices/interop/native/Cargo.toml": "1ec6048a2c40d4de73d59127db3cd4675bdf3fe43d04a20399dcae0cab51707d",
+    "experiments/native-slices/interop/native/Cargo.lock": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+    "experiments/native-slices/interop/native/src/lib.rs": "e4e632a1145a2148443fb795785dbc693305ca446a298bd840c2fe380187b5ef",
+    "experiments/native-slices/interop/managed/Bridge.cs": "366f282bc9864e1bf72b4ef711774fb506a418555abceb73836cd249b28d7eef",
+    "experiments/native-slices/interop/managed/NativeWeave.Interop.Probe.csproj": "f3568055889622ebff2b6b7369c647aadae96bd7a1d108a6ac0a09bac6fe8530"
+  },
+  "migration_map_sha256": "1f306d8f4625421360f4e324f1e83f1382d53155f9b6748a7c11682af7b9c1c8",
+  "design_reference": {
+    "path": "docs/contracts/lifetime-v0.1.md",
+    "sha256": "c21e14010397330ba08f41db91d438c98f190f018130a3429f7f58b07f135bcb",
+    "acceptance": "proposed; no acceptance inferred"
+  },
+  "normal": {
+    "assertions": 931,
+    "negative_new_calls_admitted": 32,
+    "candidate_new_calls_rejected": 32,
+    "controlled_race_rounds": 64,
+    "native_live_final": 0,
+    "native_aot": false
+  },
+  "native_aot": {
+    "assertions": 932,
+    "negative_new_calls_admitted": 32,
+    "candidate_new_calls_rejected": 32,
+    "controlled_race_rounds": 64,
+    "native_live_final": 0,
+    "native_aot": true
+  },
+  "native_sha256": "889196ff36ad2e5c287aed56ca5a0ddddd3662051425c9a7b9ca37b1c836110b",
+  "package_sha256": "8f2f482f5b70c1202f052911e9327eed7f971c9f6a847ecf64edcc75dc3ef079",
+  "aot_executable_sha256": "a63b62d358d8290056643056e17a15c554a5d5dfc2f30f9a0d168e514a0b9ae5",
+  "package_reference_only": true,
+  "ordinary_build_run_without_rid": true,
+  "old_consumer_executed": false,
+  "old_rust_tests_executed": false,
+  "binaries": [
+    {
+      "path": "binaries/NativeWeave.Interop.Probe.0.0.1.nupkg",
+      "bytes": 189933,
+      "sha256": "8f2f482f5b70c1202f052911e9327eed7f971c9f6a847ecf64edcc75dc3ef079"
+    },
+    {
+      "path": "binaries/aot/AdmissionProbe",
+      "bytes": 1399520,
+      "sha256": "a63b62d358d8290056643056e17a15c554a5d5dfc2f30f9a0d168e514a0b9ae5"
+    },
+    {
+      "path": "binaries/aot/AdmissionProbe.dbg",
+      "bytes": 2885120,
+      "sha256": "8527d8f5db17a1730a11eacfe1ba9926b755c1d28393ebb6b9779e0773342b7c"
+    },
+    {
+      "path": "binaries/aot/libnw_interop_probe.so",
+      "bytes": 424456,
+      "sha256": "889196ff36ad2e5c287aed56ca5a0ddddd3662051425c9a7b9ca37b1c836110b"
+    },
+    {
+      "path": "binaries/native/libnw_interop_probe.so",
+      "bytes": 424456,
+      "sha256": "889196ff36ad2e5c287aed56ca5a0ddddd3662051425c9a7b9ca37b1c836110b"
+    }
+  ],
+  "ended_utc": "2026-11-13T05:51:36.082463+00:00",
+  "commands": [
+    {
+      "name": "rust-version",
+      "argv": [
+        "rustc",
+        "+1.100.0",
+        "-Vv"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:49:31.733910+00:00",
+      "ended_utc": "2026-11-13T05:49:31.761134+00:00",
+      "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "cargo-version",
+      "argv": [
+        "cargo",
+        "+1.100.0",
+        "-Vv"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:49:31.761353+00:00",
+      "ended_utc": "2026-11-13T05:49:31.781796+00:00",
+      "stdout_sha256": "43dfd9b07c0d268f1436e3229aa614fbf3349f3e848cde0b66cf6ade8918f693",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "dotnet-info",
+      "argv": [
+        "dotnet",
+        "--info"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:49:31.782663+00:00",
+      "ended_utc": "2026-11-13T05:49:31.859951+00:00",
+      "stdout_sha256": "1ad5db11faa82fed7609082c133df86c132dc6d2fefcb1a667dcf8377a394808",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native-build",
+      "argv": [
+        "cargo",
+        "+1.100.0",
+        "build",
+        "--locked",
+        "--offline",
+        "--release",
+        "--manifest-path",
+        "/tmp/nw-admission-b6az3fwc/native/Cargo.toml",
+        "--message-format=json"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:49:31.860338+00:00",
+      "ended_utc": "2026-11-13T05:49:32.414678+00:00",
+      "stdout_sha256": "bb091690ffb9290ff552e7410d262306d6c0959afb2564c17c723f7c1e98ac7e",
+      "stderr_sha256": "4f70448ec9d919ada6868c51c93b8c75ae115417f20f5a0d678f5dfe6971d413"
+    },
+    {
+      "name": "package-reused-managed",
+      "argv": [
+        "dotnet",
+        "pack",
+        "/tmp/nw-admission-b6az3fwc/managed/NativeWeave.Interop.Probe.csproj",
+        "-c",
+        "Release",
+        "-o",
+        "/tmp/nw-admission-b6az3fwc/feed",
+        "-p:NativeAsset=/tmp/nw-admission-b6az3fwc/target/release/libnw_interop_probe.so",
+        "-p:ProbeRid=linux-x64"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:49:32.418341+00:00",
+      "ended_utc": "2026-11-13T05:50:24.667191+00:00",
+      "stdout_sha256": "eed8e8ee11bd40d5880ceb4e8c87a8b9dad7936305cb0858960de797e17b1afd",
+      "stderr_sha256": "141a20e4265252570c0f5066f91ee15a7bb6557bb7ad3c9220d3a3c369e59f1c"
+    },
+    {
+      "name": "consumer-build-no-rid",
+      "argv": [
+        "dotnet",
+        "build",
+        "-c",
+        "Release"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc/consumer",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:50:24.675125+00:00",
+      "ended_utc": "2026-11-13T05:50:54.568482+00:00",
+      "stdout_sha256": "fad925b332f7db5ffc651ae80cf403f99832bbc64a53fd533c5ce85c78249b5a",
+      "stderr_sha256": "d7583bee0ee828ca3f8cde2706bb62db25edcfa58258fadbb24241a756dc354e"
+    },
+    {
+      "name": "consumer-run-no-rid",
+      "argv": [
+        "dotnet",
+        "run",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc/consumer",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:50:54.569114+00:00",
+      "ended_utc": "2026-11-13T05:50:55.804878+00:00",
+      "stdout_sha256": "ef31a0f4c60efef885e4bb91adaa429e109dcbff747c09019ec4c6ffb1fdcfe8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "aot-publish",
+      "argv": [
+        "dotnet",
+        "publish",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "-o",
+        "/tmp/nw-admission-b6az3fwc/publish"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc/consumer",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:50:55.808151+00:00",
+      "ended_utc": "2026-11-13T05:51:35.974670+00:00",
+      "stdout_sha256": "42b1ea6ac8f0c4a32eb129bcd18b250612aa32a829f5b1e46c889d93bebe6c28",
+      "stderr_sha256": "d7583bee0ee828ca3f8cde2706bb62db25edcfa58258fadbb24241a756dc354e"
+    },
+    {
+      "name": "aot-run",
+      "argv": [
+        "/tmp/nw-admission-b6az3fwc/publish/AdmissionProbe",
+        "--expect-aot"
+      ],
+      "cwd": "/tmp/nw-admission-b6az3fwc/publish",
+      "exit_code": 0,
+      "started_utc": "2026-11-13T05:51:35.977152+00:00",
+      "ended_utc": "2026-11-13T05:51:36.064664+00:00",
+      "stdout_sha256": "864bcadde658f5de769a9f5166546113e66fd73c262871d66e6da98677bc6f60",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

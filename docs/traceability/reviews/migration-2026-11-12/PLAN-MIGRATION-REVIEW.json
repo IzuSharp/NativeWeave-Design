@@ -1,0 +1,3280 @@
+{
+  "reviewed_at_utc": "2026-11-13T05:43:34.171822+00:00",
+  "scope": "Independent post-merge review of actual Plan PR #4; concurrent recovery superseded duplicate PR #5 patch review. No source edits or remote writes.",
+  "reviewer": {
+    "agent": "/root/migration_evidence",
+    "independent_of_patch_author": true,
+    "github_separate_account_approval": false,
+    "contract_or_product_acceptance": false
+  },
+  "base": "f6ed91dddba62b9eba246f2af56ca5b93cc2593b",
+  "reviewed_commit": "04c2f043c0ec60a2d49dd3ca8ea4ad1c8c888d89",
+  "tree": "85cb3a3b54778ab6f226f57dc0f204f6aff611ae",
+  "file_count": 49,
+  "content_sha256": "c1bbbb6a2cd88ac65466eb3a9eeef6be71b45a6e6b86d48e396d616b8629c8ec",
+  "diff_sha256": "2b88c39f32beec75a4f1083a8e4afe498d5abb4b40e3db497938103a2ec3925d",
+  "task_states": {
+    "research": {
+      "partially_evidenced": 10,
+      "planned": 24
+    },
+    "documentation": {
+      "partially_evidenced": 3,
+      "draft_ready": 29
+    },
+    "delivery": {
+      "planned_candidate": 48
+    }
+  },
+  "changed_packet_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D07",
+    "D09",
+    "D10",
+    "D13",
+    "D14",
+    "D16",
+    "D17",
+    "D18",
+    "D22",
+    "D23",
+    "D24",
+    "D25",
+    "D26",
+    "D27",
+    "D28",
+    "D29",
+    "D30",
+    "D31",
+    "D32",
+    "R03",
+    "R04",
+    "R07",
+    "R10",
+    "R13",
+    "R22",
+    "R25",
+    "R27",
+    "R29"
+  ],
+  "unchanged_packets": 81,
+  "delivery_packets_unchanged": 48,
+  "source_artifact_audit": "INDEPENDENT-MIGRATION-AUDIT.md and integrity-audit.json (1240/1240)",
+  "checks": [
+    {
+      "check": "exact_merged_commit_and_tree",
+      "passed": true
+    },
+    {
+      "check": "merge_first_parent_is_review_base",
+      "passed": true
+    },
+    {
+      "check": "all_49_snapshot_file_hashes",
+      "passed": true
+    },
+    {
+      "check": "patch_hash",
+      "passed": true
+    },
+    {
+      "check": "research_same_ids_order",
+      "passed": true
+    },
+    {
+      "check": "research_same_graph_metadata",
+      "passed": true
+    },
+    {
+      "check": "documentation_same_ids_order",
+      "passed": true
+    },
+    {
+      "check": "documentation_same_graph_metadata",
+      "passed": true
+    },
+    {
+      "check": "delivery_same_ids_order",
+      "passed": true
+    },
+    {
+      "check": "delivery_same_graph_metadata",
+      "passed": true
+    },
+    {
+      "check": "same_114_nodes",
+      "passed": true
+    },
+    {
+      "check": "R01_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R01_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R01_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R01_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R01_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R01_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R02_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R02_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R02_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R02_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R02_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R02_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R03_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R03_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R03_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R03_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R03_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R03_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R03_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R03_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R03_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R04_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R04_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R04_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R04_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R04_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R04_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R04_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R04_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R04_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R05_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R05_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R05_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R05_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R05_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R05_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R06_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R06_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R06_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R06_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R06_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R06_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R07_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R07_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R07_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R07_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R07_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R07_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R07_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R07_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R07_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R08_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R08_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R08_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R08_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R08_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R08_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R09_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R09_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R09_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R09_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R09_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R09_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R10_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R10_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R10_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R10_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R10_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R10_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R10_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R10_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R10_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R11_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R11_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R11_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R11_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R11_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R11_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R12_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R12_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R12_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R12_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R12_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R12_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R13_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R13_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R13_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R13_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R13_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R13_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R13_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R13_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R13_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R14_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R14_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R14_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R14_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R14_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R14_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R15_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R15_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R15_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R15_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R15_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R15_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R16_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R16_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R16_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R16_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R16_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R16_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R17_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R17_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R17_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R17_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R17_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R17_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R18_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R18_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R18_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R18_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R18_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R18_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R19_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R19_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R19_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R19_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R19_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R19_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R20_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R20_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R20_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R20_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R20_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R20_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R21_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R21_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R21_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R21_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R21_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R21_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R22_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R22_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R22_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R22_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R22_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R22_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R22_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R22_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R22_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R23_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R23_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R23_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R23_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R23_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R23_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R24_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R24_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R24_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R24_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R24_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R24_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R25_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R25_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R25_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R25_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R25_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R25_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R25_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R25_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R25_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R26_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R26_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R26_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R26_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R26_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R26_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R27_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R27_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R27_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R27_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R27_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R27_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R27_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R27_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R27_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R28_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R28_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R28_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R28_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R28_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R28_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R29_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R29_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R29_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R29_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R29_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "R29_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "R29_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "R29_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "R29_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "R30_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R30_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R30_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R30_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R30_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R30_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R31_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R31_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R31_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R31_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R31_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R31_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R32_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R32_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R32_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R32_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R32_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R32_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R33_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R33_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R33_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R33_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R33_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R33_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "R34_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "R34_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "R34_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "R34_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "R34_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "R34_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D01_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D01_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D01_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D01_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D01_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D01_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "D01_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "D01_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "D01_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D02_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D02_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D02_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D02_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D02_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D02_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "D02_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "D02_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "D02_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D03_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D03_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D03_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D03_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D03_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D03_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D03_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D04_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D04_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D04_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D04_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D04_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D04_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D04_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D05_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D05_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D05_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D05_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D05_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D05_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D05_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D06_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D06_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D06_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D06_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D06_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "D06_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D07_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D07_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D07_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D07_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D07_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D07_evidence_record_count_preserved",
+      "passed": true
+    },
+    {
+      "check": "D07_explicit_relocation_and_history_0",
+      "passed": true
+    },
+    {
+      "check": "D07_evidence_path_exists_0",
+      "passed": true
+    },
+    {
+      "check": "D07_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D08_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D08_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D08_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D08_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D08_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "D08_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D09_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D09_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D09_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D09_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D09_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D09_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D09_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D10_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D10_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D10_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D10_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D10_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D10_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D10_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D11_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D11_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D11_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D11_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D11_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "D11_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D12_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D12_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D12_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D12_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D12_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "D12_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D13_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D13_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D13_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D13_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D13_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D13_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D13_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D14_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D14_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D14_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D14_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D14_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D14_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D14_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D15_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D15_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D15_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D15_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D15_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "D15_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D16_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D16_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D16_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D16_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D16_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D16_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D16_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D17_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D17_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D17_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D17_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D17_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D17_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D17_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D18_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D18_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D18_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D18_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D18_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D18_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D18_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D19_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D19_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D19_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D19_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D19_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "D19_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D20_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D20_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D20_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D20_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D20_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "D20_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D21_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D21_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D21_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D21_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D21_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "D21_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D22_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D22_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D22_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D22_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D22_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D22_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D22_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D23_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D23_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D23_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D23_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D23_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D23_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D23_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D24_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D24_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D24_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D24_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D24_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D24_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D24_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D25_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D25_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D25_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D25_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D25_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D25_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D25_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D26_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D26_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D26_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D26_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D26_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D26_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D26_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D27_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D27_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D27_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D27_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D27_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D27_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D27_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D28_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D28_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D28_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D28_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D28_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D28_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D28_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D29_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D29_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D29_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D29_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D29_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D29_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D29_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D30_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D30_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D30_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D30_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D30_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D30_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D30_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D31_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D31_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D31_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D31_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D31_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D31_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D31_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "D32_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "D32_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "D32_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "D32_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "D32_one_patch_increment",
+      "passed": true
+    },
+    {
+      "check": "D32_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "D32_packet_changes_only_revision_dependencies_relocation_and_phase",
+      "passed": true
+    },
+    {
+      "check": "A01_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A01_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A01_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A01_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A01_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A01_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A02_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A02_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A02_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A02_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A02_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A02_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A03_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A03_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A03_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A03_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A03_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A03_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A04_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A04_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A04_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A04_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A04_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A04_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A05_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A05_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A05_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A05_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A05_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A05_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A06_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A06_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A06_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A06_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A06_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A06_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A07_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A07_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A07_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A07_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A07_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A07_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A08_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A08_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A08_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A08_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A08_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A08_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A09_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A09_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A09_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A09_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A09_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A09_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A10_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A10_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A10_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A10_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A10_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A10_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A11_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A11_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A11_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A11_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A11_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A11_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A12_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A12_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A12_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A12_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A12_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A12_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A13_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A13_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A13_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A13_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A13_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A13_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A14_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A14_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A14_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A14_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A14_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A14_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A15_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A15_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A15_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A15_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A15_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A15_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A16_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A16_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A16_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A16_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A16_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A16_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A17_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A17_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A17_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A17_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A17_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A17_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A18_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A18_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A18_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A18_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A18_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A18_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A19_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A19_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A19_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A19_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A19_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A19_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A20_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A20_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A20_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A20_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A20_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A20_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A21_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A21_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A21_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A21_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A21_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A21_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A22_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A22_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A22_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A22_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A22_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A22_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A23_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A23_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A23_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A23_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A23_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A23_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "A24_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "A24_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "A24_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "A24_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "A24_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "A24_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B01_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B01_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B01_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B01_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B01_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B01_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B02_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B02_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B02_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B02_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B02_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B02_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B03_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B03_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B03_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B03_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B03_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B03_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B04_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B04_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B04_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B04_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B04_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B04_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B05_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B05_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B05_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B05_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B05_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B05_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B06_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B06_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B06_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B06_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B06_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B06_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B07_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B07_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B07_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B07_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B07_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B07_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B08_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B08_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B08_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B08_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B08_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B08_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B09_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B09_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B09_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B09_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B09_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B09_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B10_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B10_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B10_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B10_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B10_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B10_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B11_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B11_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B11_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B11_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B11_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B11_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B12_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B12_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B12_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B12_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B12_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B12_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B13_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B13_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B13_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B13_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B13_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B13_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B14_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B14_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B14_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B14_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B14_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B14_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B15_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B15_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B15_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B15_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B15_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B15_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B16_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B16_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B16_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B16_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B16_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B16_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B17_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B17_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B17_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B17_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B17_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B17_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B18_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B18_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B18_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B18_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B18_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B18_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B19_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B19_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B19_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B19_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B19_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B19_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B20_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B20_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B20_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B20_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B20_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B20_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B21_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B21_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B21_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B21_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B21_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B21_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B22_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B22_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B22_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B22_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B22_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B22_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B23_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B23_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B23_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B23_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B23_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B23_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "B24_same_state_and_other_semantics",
+      "passed": true
+    },
+    {
+      "check": "B24_packet_sha256_matches_actual_bytes",
+      "passed": true
+    },
+    {
+      "check": "B24_same_dependency_ids",
+      "passed": true
+    },
+    {
+      "check": "B24_exact_dependency_revisions",
+      "passed": true
+    },
+    {
+      "check": "B24_same_revision_and_packet_hash",
+      "passed": true
+    },
+    {
+      "check": "B24_same_evidence",
+      "passed": true
+    },
+    {
+      "check": "direct_12_exact",
+      "passed": true
+    },
+    {
+      "check": "changed_33_exact_dependency_closure",
+      "passed": true
+    },
+    {
+      "check": "81_other_packets_unchanged",
+      "passed": true
+    },
+    {
+      "check": "48_delivery_packet_bytes_unchanged",
+      "passed": true
+    },
+    {
+      "check": "delivery_graph_bytes_unchanged",
+      "passed": true
+    },
+    {
+      "check": "no_delivery_authorized",
+      "passed": true
+    },
+    {
+      "check": "old_checkpoint_bytes_retained",
+      "passed": true
+    },
+    {
+      "check": "baseline_research_only",
+      "passed": true
+    },
+    {
+      "check": "baseline_exact_design_source",
+      "passed": true
+    },
+    {
+      "check": "baseline_exact_registry_hash",
+      "passed": true
+    },
+    {
+      "check": "same_independently_audited_map",
+      "passed": true
+    },
+    {
+      "check": "same_independently_audited_results",
+      "passed": true
+    },
+    {
+      "check": "executed_design_commit_and_run_preserved",
+      "passed": true
+    },
+    {
+      "check": "old_139_map_source_identity",
+      "passed": true
+    },
+    {
+      "check": "previous_1240_source_artifact_checks_still_apply",
+      "passed": true
+    },
+    {
+      "check": "original_history_not_relabelled",
+      "passed": true
+    },
+    {
+      "check": "current_phase_explicit",
+      "passed": true
+    },
+    {
+      "check": "ci_exact_plan_head",
+      "passed": true
+    },
+    {
+      "check": "ci_uses_exact_baseline_design_commit",
+      "passed": true
+    },
+    {
+      "check": "ci_no_product_checkout_or_write",
+      "passed": true
+    },
+    {
+      "check": "ci_preserves_failure_and_pins_action_hashes",
+      "passed": true
+    },
+    {
+      "check": "ci_runs_graph_safety_and_three_schemas",
+      "passed": true
+    },
+    {
+      "check": "one_shot_workflow_only_plan_research_branch",
+      "passed": true
+    },
+    {
+      "check": "one_shot_migration_no_product_checkout",
+      "passed": true
+    },
+    {
+      "check": "core_graph_gate_implementations_unchanged",
+      "passed": true
+    },
+    {
+      "check": "all_six_commands_passed",
+      "passed": true
+    },
+    {
+      "check": "14_mutation_cases_passed",
+      "passed": true
+    },
+    {
+      "check": "four_rust_gate_regressions_passed",
+      "passed": true
+    },
+    {
+      "check": "no_accepted_contracts_no_ready_or_continuable_delivery",
+      "passed": true
+    }
+  ],
+  "passed_checks": 781,
+  "total_checks": 781,
+  "errors": [],
+  "validation_commands": [
+    {
+      "command": [
+        "python",
+        "tools/verify_research_assets.py"
+      ],
+      "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+      "exit_code": 0,
+      "seconds": 0.485,
+      "stdout": "merged-plan-validation-0.stdout",
+      "stderr": "merged-plan-validation-0.stderr"
+    },
+    {
+      "command": [
+        "python",
+        "tools/validate_graphs.py"
+      ],
+      "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+      "exit_code": 0,
+      "seconds": 0.342,
+      "stdout": "merged-plan-validation-1.stdout",
+      "stderr": "merged-plan-validation-1.stderr"
+    },
+    {
+      "command": [
+        "python",
+        "tools/mutation_checks.py"
+      ],
+      "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+      "exit_code": 0,
+      "seconds": 3.263,
+      "stdout": "merged-plan-validation-2.stdout",
+      "stderr": "merged-plan-validation-2.stderr"
+    },
+    {
+      "command": [
+        "python",
+        "tools/rust1100_checks.py"
+      ],
+      "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+      "exit_code": 0,
+      "seconds": 1.359,
+      "stdout": "merged-plan-validation-3.stdout",
+      "stderr": "merged-plan-validation-3.stderr"
+    },
+    {
+      "command": [
+        "python",
+        "-c",
+        "from pathlib import Path; import json,jsonschema; s=json.loads(Path('schemas/graph-v1.schema.json').read_text()); [jsonschema.Draft202012Validator(s).validate(json.loads(Path(k+'-graph.json').read_text())) for k in ('research','documentation','delivery')]; print('PASS all three graph schemas')"
+      ],
+      "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+      "exit_code": 0,
+      "seconds": 0.196,
+      "stdout": "merged-plan-validation-4.stdout",
+      "stderr": "merged-plan-validation-4.stderr"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "f6ed91dddba62b9eba246f2af56ca5b93cc2593b",
+        "HEAD",
+        "--"
+      ],
+      "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+      "exit_code": 0,
+      "seconds": 0.01,
+      "stdout": "merged-plan-validation-5.stdout",
+      "stderr": "merged-plan-validation-5.stderr"
+    }
+  ],
+  "limitations": [
+    "Local review does not independently certify historical GitHub rule enforcement or another GitHub account approval. Root integrator checks live PR/Actions/rules separately.",
+    "No native Rust/C# experiment rerun was performed. Existing source and artifact preservation was independently audited.",
+    "Fixed 33-packet checkpoint in verify_research_assets.py is a historical migration invariant; a later legitimate packet change with baseline updates may require explicitly scoping this check rather than falsely preserving 33.",
+    "Historical closure checkpoint text remains a pre-merge observation; root integrator separately verifies actual PR #1 closed state."
+  ],
+  "source_artifact_audit_sha256": "300dd3f516e36939ec4776f57e6328a74c8efa7f102e950da7c448a4870db7a5",
+  "review_files_manifest": "merged-plan-review-input.json",
+  "review_patch": "merged-plan-review-final.patch",
+  "content_hash_algorithm": "SHA256 of UTF-8 JSON {base,files} with sorted keys and compact separators; files are the ordered git diff --name-status entries with path/status/bytes/sha256/base_sha256.",
+  "diff_hash_algorithm": "SHA256 of raw git diff --binary f6ed91dddba62b9eba246f2af56ca5b93cc2593b 04c2f043c0ec60a2d49dd3ca8ea4ad1c8c888d89 -- output."
+}

@@ -1,0 +1,579 @@
+{
+  "reviewer": "/root/migration_evidence",
+  "author": "/root/design_source_review; D15 version header integrated by /root",
+  "reviewed_at_utc": "2026-11-13T06:11:24.657503+00:00",
+  "review_kind": "Independent subagent content/source review and independent native Linux execution; no GitHub account approval or product contract acceptance",
+  "scope": [
+    "experiments/database-retirement/",
+    "docs/database/sqlx-retirement-study.md",
+    "docs/database/transactions-and-pooling.md (changed sections)"
+  ],
+  "observed_local_head": "b6c3a7c9161edc4949b2d05c3c2443f074f3f0e5",
+  "file_count": 59,
+  "files_content_sha256": "8a0dcd3821bea1fdd541c9ed88a347a36e4cea89c0e2379d333c9195f860372e",
+  "files": [
+    {
+      "path": "docs/database/sqlx-retirement-study.md",
+      "bytes": 18270,
+      "sha256": "b37aac712a8028ad5d985d6ca2a3644c02dc4f11c31ea394b65f7d0d0eb6ae32"
+    },
+    {
+      "path": "docs/database/transactions-and-pooling.md",
+      "bytes": 22555,
+      "sha256": "34788328a967205b6d139aa4d613fdb224cde1bf3dca5f4784acc4eb18c09cce"
+    },
+    {
+      "path": "experiments/database-retirement/.gitignore",
+      "bytes": 9,
+      "sha256": "306fd52e74fca6746e12acc750f232de15e71da917756a1270d74c91f5eb7368"
+    },
+    {
+      "path": "experiments/database-retirement/Cargo.lock",
+      "bytes": 28053,
+      "sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c"
+    },
+    {
+      "path": "experiments/database-retirement/Cargo.toml",
+      "bytes": 531,
+      "sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4"
+    },
+    {
+      "path": "experiments/database-retirement/README.md",
+      "bytes": 3184,
+      "sha256": "9f313a9fedd7e75275911ab0ae0fd8055bc06c21c01153aa55890f4393066c3e"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/cargo-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/cargo-version.stdout",
+      "bytes": 338,
+      "sha256": "43dfd9b07c0d268f1436e3229aa614fbf3349f3e848cde0b66cf6ade8918f693"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/commands.json",
+      "bytes": 710,
+      "sha256": "72b47e18de54ce3d3d456d5bfac440060e08f94120106cd3353771d534392649"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/dependency-tree.stderr",
+      "bytes": 3581,
+      "sha256": "ba0cfa1d60c4f9d67e1c1e235943d18d92aace4a45e8f0824e189fa8c745ac90"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/dependency-tree.stdout",
+      "bytes": 11179,
+      "sha256": "7ecfd64af473d2b7069444d4934d70a9426acbc5514c2a59410519f6b5fea537"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/inputs/Cargo.lock",
+      "bytes": 28053,
+      "sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/inputs/Cargo.toml",
+      "bytes": 547,
+      "sha256": "b17d276a523ee16f0f0004f3626585776b67b9546e8b9538b3ef2d8b0c40c0d7"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/inputs/run.py",
+      "bytes": 3821,
+      "sha256": "ecaf13c4c4b2e62249ef2aec719c2ed196a4994031498ca3263508a1e3188cb4"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/inputs/rust-toolchain.toml",
+      "bytes": 52,
+      "sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/inputs/src/lib.rs",
+      "bytes": 9971,
+      "sha256": "b628bd3e3d7e5f811332e54abf9160d14876286fd773deea52c79569c359bbc3"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/result.json",
+      "bytes": 508,
+      "sha256": "5bb6caaba61bc9a305162710fc53ccc65d4f965d8e02a0ca76e1fdd4a9f188a6"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/rustc-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/rustc-version.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/source-inputs.json",
+      "bytes": 621,
+      "sha256": "63d373dad1b39027578ce184734dd8f0c069522f0908aa829a889d1975f8f8f1"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/tests.stderr",
+      "bytes": 4353,
+      "sha256": "bf2858d80d89bd8dadb7a13504b6cbbb16c4e5a01784459342fefaa7e48aa4f9"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-1/tests.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/cargo-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/cargo-version.stdout",
+      "bytes": 338,
+      "sha256": "43dfd9b07c0d268f1436e3229aa614fbf3349f3e848cde0b66cf6ade8918f693"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/commands.json",
+      "bytes": 705,
+      "sha256": "d60160d12971ee83ffea039080d96637677e8bf71d9093430924a475a8c1254c"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/dependency-tree.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/dependency-tree.stdout",
+      "bytes": 11579,
+      "sha256": "8ef955f01d424af6d060976c9ac2d0f83681f1816927c4cbedc5a365eaa22cb3"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/inputs/Cargo.lock",
+      "bytes": 28053,
+      "sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/inputs/Cargo.toml",
+      "bytes": 531,
+      "sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/inputs/run.py",
+      "bytes": 3999,
+      "sha256": "e1cb7d603fa09889292f7353492a3ce7af3da4b148c5e9a433c3c5c0b82ed9fb"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/inputs/rust-toolchain.toml",
+      "bytes": 52,
+      "sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/inputs/src/lib.rs",
+      "bytes": 9971,
+      "sha256": "b628bd3e3d7e5f811332e54abf9160d14876286fd773deea52c79569c359bbc3"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/result.json",
+      "bytes": 505,
+      "sha256": "0ed1d86cd37c5f7cbfdc714dedac5f0a71b46dc4662ad861ca69a9570fa66f7c"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/rustc-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/rustc-version.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/source-inputs.json",
+      "bytes": 621,
+      "sha256": "d10a0cb6b02157b89d80c58e0841ffd11fae6d633e679e4a8df280953a58e276"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/tests.stderr",
+      "bytes": 421,
+      "sha256": "f8f153c5130474a7973cc7e2238d510fc5a7d8d67c5e21cb32686938a8aea417"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-2/tests.stdout",
+      "bytes": 699,
+      "sha256": "5dd1371429494cc8d8c20ca30d98420d89d9ca3d5ee8ddc3d95c015369bc9367"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/cargo-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/cargo-version.stdout",
+      "bytes": 338,
+      "sha256": "43dfd9b07c0d268f1436e3229aa614fbf3349f3e848cde0b66cf6ade8918f693"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/commands.json",
+      "bytes": 707,
+      "sha256": "cf0555b34ead526e6af292c6564004d87e906a055c1ddceef773bbef93fc4c92"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/dependency-tree.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/dependency-tree.stdout",
+      "bytes": 11579,
+      "sha256": "8ef955f01d424af6d060976c9ac2d0f83681f1816927c4cbedc5a365eaa22cb3"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/inputs/Cargo.lock",
+      "bytes": 28053,
+      "sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/inputs/Cargo.toml",
+      "bytes": 531,
+      "sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/inputs/run.py",
+      "bytes": 4237,
+      "sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/inputs/rust-toolchain.toml",
+      "bytes": 52,
+      "sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/inputs/src/lib.rs",
+      "bytes": 10022,
+      "sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/result.json",
+      "bytes": 935,
+      "sha256": "e38fbfc167d2a17883c1adb1ce8c8389948de791fa310f5d0259b0ac8910b230"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/rustc-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/rustc-version.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/source-inputs.json",
+      "bytes": 622,
+      "sha256": "ad1c38d2a7d8aa5a187c7d8b71c68907b8d0943fd91d6ff924bcdaebfeaeef91"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/tests.stderr",
+      "bytes": 422,
+      "sha256": "cd4427633cd3d290838b2fe334b380cee377f958a549235a4467f228d023b80d"
+    },
+    {
+      "path": "experiments/database-retirement/evidence/linux-local-attempt-3/tests.stdout",
+      "bytes": 699,
+      "sha256": "5dd1371429494cc8d8c20ca30d98420d89d9ca3d5ee8ddc3d95c015369bc9367"
+    },
+    {
+      "path": "experiments/database-retirement/execution-summary.json",
+      "bytes": 1980,
+      "sha256": "cca983776b18eacb6b43d74f3e54ba7266f1e02ed0c74fdbc92bd9cc461b99ab"
+    },
+    {
+      "path": "experiments/database-retirement/run.py",
+      "bytes": 4237,
+      "sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366"
+    },
+    {
+      "path": "experiments/database-retirement/rust-toolchain.toml",
+      "bytes": 52,
+      "sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+    },
+    {
+      "path": "experiments/database-retirement/source-inspection.json",
+      "bytes": 9827,
+      "sha256": "4a7afffd05bb8003fbdb7738e9eddb69fe067a865ce312ad08d0abd98245b8bd"
+    },
+    {
+      "path": "experiments/database-retirement/src/lib.rs",
+      "bytes": 10022,
+      "sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46"
+    }
+  ],
+  "checks": [
+    {
+      "check": "sqlx-core/src/pool/connection.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "94269a532ef60aaa31321e43af17cba2424f919a36501d862328ed05958a08de",
+        "git_blob_sha1": "7912b12aa14f763e8928bf8ac9466a97a81f681a",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-core-0.9.0/src/pool/connection.rs"
+      }
+    },
+    {
+      "check": "sqlx-core/src/pool/connection.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-core/src/transaction.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "7c0e1b28f1f0b56920d71b3340407abc2eeef9fe442321d25f43d1bf1721dbf7",
+        "git_blob_sha1": "46f89d25b2be6a04d7ab80347f22e21f16cd0731",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-core-0.9.0/src/transaction.rs"
+      }
+    },
+    {
+      "check": "sqlx-core/src/transaction.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-sqlite/src/transaction.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "5f6958702455ef631a9a7290e63c1666e60731c85ffc828a176c39d0ce01f6be",
+        "git_blob_sha1": "1c57d0163f3505dc048be18c5d47bfee4360cf96",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-sqlite-0.9.0/src/transaction.rs"
+      }
+    },
+    {
+      "check": "sqlx-sqlite/src/transaction.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/worker.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "b66aafc56f0e287eac3b09111c5d4997d350ab61294c5cc576ce359bc18cebe4",
+        "git_blob_sha1": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-sqlite-0.9.0/src/connection/worker.rs"
+      }
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/worker.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/mod.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "a20c2e51a1505e298fd897b378f9032c89b82850838aa6e5d9409f612fb1e7fd",
+        "git_blob_sha1": "218c747143fe80b344bca3405d4b0b38da2bd932",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-sqlite-0.9.0/src/connection/mod.rs"
+      }
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/mod.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-sqlite/src/options/mod.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "ff5005abc6408f2df073d95bf3440c2a3ee96c1a312d73468bf66123f8ab2f1e",
+        "git_blob_sha1": "0cafc4d08c4c63c342685fedbcc43222dd38d2f1",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-sqlite-0.9.0/src/options/mod.rs"
+      }
+    },
+    {
+      "check": "sqlx-sqlite/src/options/mod.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "378620ccc25c62c89d8be1c819e76a88d59bdcc3304733330788948e619bfd71"
+    },
+    {
+      "check": "sqlx-core_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "05b44e85bf579a8eeb4ceaa77a3a523baf2bf0e9bac7e40f405d537b5d2d5ccb"
+    },
+    {
+      "check": "sqlx-sqlite_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "488e99c397a62007e4229aec669a179816339afc6d2620ca6fa420dbee2e982c"
+    },
+    {
+      "check": "sea-query_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "546040c653a705e60ec65ecd3191a809603734bebbc225775916dea9ae409b31"
+    },
+    {
+      "check": "tokio_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3"
+    },
+    {
+      "check": "lock_closure_only_root_name_changes",
+      "passed": true,
+      "detail": {
+        "current_root": [
+          "nw-database-retirement-probe"
+        ],
+        "old_root": [
+          "nw-database-boundary-probe"
+        ]
+      }
+    },
+    {
+      "check": "sqlx-core/src/pool/connection.rs_fresh_github_source_matches",
+      "passed": true,
+      "detail": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-core/src/pool/connection.rs"
+    },
+    {
+      "check": "sqlx-core/src/transaction.rs_fresh_github_source_matches",
+      "passed": true,
+      "detail": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-core/src/transaction.rs"
+    },
+    {
+      "check": "sqlx-sqlite/src/transaction.rs_fresh_github_source_matches",
+      "passed": true,
+      "detail": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/transaction.rs"
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/worker.rs_fresh_github_source_matches",
+      "passed": true,
+      "detail": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs"
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/mod.rs_fresh_github_source_matches",
+      "passed": true,
+      "detail": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/mod.rs"
+    },
+    {
+      "check": "sqlx-sqlite/src/options/mod.rs_fresh_github_source_matches",
+      "passed": true,
+      "detail": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/options/mod.rs"
+    },
+    {
+      "check": "independent_native_linux_six_named_tests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reviewed_current_input_bytes_equal_independent_run",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "D15_final_exact_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "study_final_exact_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_1_actual_input_hashes_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_1_status_truthful",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_1_command_logs_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_2_actual_input_hashes_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_2_status_truthful",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_2_command_logs_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_3_actual_input_hashes_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_3_status_truthful",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "attempt_3_command_logs_present",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed_checks": 37,
+  "total_checks": 37,
+  "blocking_findings": [],
+  "errors": [],
+  "independent_run": {
+    "schema_version": 1,
+    "scope": "finite-native-sqlite-retirement-research",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "ci": false,
+    "github_run_id": null,
+    "github_head_sha": null,
+    "expected_tests": 6,
+    "passed_test_names": [
+      "canceled_acquire_waiter_does_not_lose_the_only_pool_permit",
+      "dropped_transaction_rolls_back_before_same_connection_reuse",
+      "dropping_dispatched_commit_before_ack_can_still_commit",
+      "early_stream_drop_unblocks_bounded_row_queue_and_reuses_connection",
+      "pool_close_waits_for_checked_out_owner_and_rejects_new_acquire",
+      "progress_cancel_state_is_removed_before_next_operation"
+    ],
+    "tests_exit_code": 0,
+    "input_bytes_unchanged": true,
+    "passed": true,
+    "not_proven": [
+      "PostgreSQL",
+      "C# Native AOT",
+      "hard cancellation deadline",
+      "OS worker JoinHandle",
+      "weak-memory correctness",
+      "production acceptance"
+    ]
+  },
+  "source_snapshot_sha256": "de0732c2156bef4967615580cabeed1fdd8e04256118a151d6cefbdcea4aba99",
+  "source_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+  "package_vcs_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+  "source_identity_limit": "Only six selected files match the inspected Git pin and registry bytes; five archives match Cargo.lock. Whole-package Git equivalence not claimed.",
+  "test_interpretation": {
+    "dropped_transaction": "TEMP marker rules out substitution of a different clean connection",
+    "early_stream": "One row from a 1000-row query with row capacity1, followed by same-connection marker/count; no claim every run observed worker blocked at a specific instruction",
+    "acquire": "Dropped pending waiter does not lose sole pool permit",
+    "commit": "Actual SQLite commit hook entered before application Future is dropped; later same-connection SELECT observes committed row, so drop cannot be classified as rollback",
+    "progress": "Old handler capture removed before new state and late old-flag intent; sequential isolation only",
+    "close": "New acquire rejected and pool size0 after owner release; no OS worker join proof"
+  },
+  "limitations": [
+    "Current source and finite SQLite behavior only; no PostgreSQL fault execution, C# AOT database adapter, hard deadline, arbitrary scheduler/weak-memory, or product acceptance.",
+    "Shared CI archive/checkout identity reviewed separately in SOURCE-LIFECYCLE-CI-REVIEW.json; this report does not relabel local logs as GitHub results.",
+    "Original failed attempt remains preserved; test-only blocking commit hook must not become a production callback/finalizer implementation."
+  ]
+}

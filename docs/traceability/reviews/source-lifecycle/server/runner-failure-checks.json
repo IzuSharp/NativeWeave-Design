@@ -1,0 +1,16 @@
+[
+  {
+    "case": "timeout",
+    "kind": "injected Python exception; not an actual Cargo failure",
+    "expected_failed_command_and_logs_preserved": true,
+    "runner_input_hash": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+    "result": "raw/injected-timeout/result.json"
+  },
+  {
+    "case": "missing-tool",
+    "kind": "injected Python exception; not an actual Cargo failure",
+    "expected_failed_command_and_logs_preserved": true,
+    "runner_input_hash": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+    "result": "raw/injected-missing-tool/result.json"
+  }
+]

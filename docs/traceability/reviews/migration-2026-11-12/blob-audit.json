@@ -1,0 +1,91 @@
+{
+  "source_head": "267364a440074a61e193cf33315f1b9d0fa8126b",
+  "design_head": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+  "source_files": 139,
+  "mapped": 139,
+  "missing": [],
+  "errors": [],
+  "adapted": [
+    {
+      "source_path": "experiments/interop/run.py",
+      "source_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+      "source_blob_sha1": "b859721ae36e00bdb964ae2db9fe0addb1117568",
+      "source_sha256": "ce51311372e365314ecb44dd40dd1bacdac69772f2cd66fbd125b2e4a6b3cf23",
+      "destination_path": "experiments/native-slices/interop/run.py",
+      "destination_blob_sha1": "7dd4c93a3d2005397de95292d317dba3db9b1b54",
+      "destination_sha256": "c95d9d525d0ccb474ad5af5c2bd0eb8deeae783a58589c80482a7b11193651d1",
+      "byte_exact": false,
+      "disposition": "relocate experiment root and interop paths only; test semantics unchanged"
+    },
+    {
+      "source_path": "experiments/run_domains.py",
+      "source_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+      "source_blob_sha1": "f3aed55dabbc9a15cb17fb8607c072e5edb10ac7",
+      "source_sha256": "f87b93b1afa716fb2958be00806b06ad3b1bbce1105f26d36a65ec9417f4dc0e",
+      "destination_path": "experiments/native-slices/run_domains.py",
+      "destination_blob_sha1": "fb60b6bba2fd4f9b502bd94e53e209535fe67d13",
+      "destination_sha256": "f63c5272e34fce90e57dfc4ea367faaecf40dbd84eead175beb8f02dfabe1b70",
+      "byte_exact": false,
+      "disposition": "relocate experiment root and domain crate paths only; test semantics unchanged"
+    }
+  ],
+  "byte_exact": 137,
+  "original_evidence_entries": 114,
+  "new_evidence_files": 90,
+  "artifactChecks": [
+    {
+      "id": 14012845812,
+      "name": "relocated-database-ubuntu-24.04",
+      "api_digest": "sha256:5cdf5a4d5881ed5bb3d586f52c4806c98d6664e24a5c92804c7fd9a615ac57de",
+      "recorded_digest": "sha256:5cdf5a4d5881ed5bb3d586f52c4806c98d6664e24a5c92804c7fd9a615ac57de",
+      "matches": true,
+      "expired": false,
+      "files": 11
+    },
+    {
+      "id": 14012796236,
+      "name": "relocated-database-windows-2022",
+      "api_digest": "sha256:29ead7908818131ced8ea51c2becfdb031d1ac8f4d0c63c4684cc32af76818f8",
+      "recorded_digest": "sha256:29ead7908818131ced8ea51c2becfdb031d1ac8f4d0c63c4684cc32af76818f8",
+      "matches": true,
+      "expired": false,
+      "files": 11
+    },
+    {
+      "id": 14012920214,
+      "name": "relocated-interop-ubuntu-24.04",
+      "api_digest": "sha256:c870fbebee4d7e00377495893db4ff56f1f894f1722cccd9df5f39511bf55900",
+      "recorded_digest": "sha256:c870fbebee4d7e00377495893db4ff56f1f894f1722cccd9df5f39511bf55900",
+      "matches": true,
+      "expired": false,
+      "files": 23
+    },
+    {
+      "id": 14012895648,
+      "name": "relocated-interop-windows-2022",
+      "api_digest": "sha256:5d85fc24a72ec29792f96100bc1ff42563ab6de0cd31779a46b914c4e21c54a9",
+      "recorded_digest": "sha256:5d85fc24a72ec29792f96100bc1ff42563ab6de0cd31779a46b914c4e21c54a9",
+      "matches": true,
+      "expired": false,
+      "files": 23
+    },
+    {
+      "id": 14012198437,
+      "name": "relocated-server-ubuntu-24.04",
+      "api_digest": "sha256:d61394f7a6940e66c508086356d03bdf23509f4fb0780900a9c86f053f73bb24",
+      "recorded_digest": "sha256:d61394f7a6940e66c508086356d03bdf23509f4fb0780900a9c86f053f73bb24",
+      "matches": true,
+      "expired": false,
+      "files": 11
+    },
+    {
+      "id": 14012067961,
+      "name": "relocated-server-windows-2022",
+      "api_digest": "sha256:7daa8a577e6c3b32664b7205f732099c150eb1133034ffbb00e15884273525fc",
+      "recorded_digest": "sha256:7daa8a577e6c3b32664b7205f732099c150eb1133034ffbb00e15884273525fc",
+      "matches": true,
+      "expired": false,
+      "files": 11
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+ Downloading crates ...
+  Downloaded http-body v1.1.0
+  Downloaded http v1.5.0
+  Downloaded hyper v1.12.0
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling bytes v1.12.1
+   Compiling itoa v1.0.19
+   Compiling pin-project-lite v0.2.17
+   Compiling nw-server-retained-bytes-probe v0.0.1 (/workspace/scratch/a64c8260e732/nativeweave/NativeWeave-Design-research/experiments/server-retained-bytes)
+   Compiling http v1.5.0
+   Compiling syn v3.0.10
+   Compiling http-body v1.1.0
+   Compiling tokio-macros v2.7.2
+   Compiling tokio v1.54.1
+   Compiling hyper v1.12.0
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.93s
+     Running unittests src/lib.rs (/workspace/scratch/a64c8260e732/nativeweave/toolchains/targets/server-retained-bytes/debug/build/nw-server-retained-bytes-probe/5da229ef36ddbfa8/out/nw_server_retained_bytes_probe-5da229ef36ddbfa8)
+   Doc-tests nw_server_retained_bytes_probe

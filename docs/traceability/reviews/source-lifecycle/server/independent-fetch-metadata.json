@@ -1,0 +1,30 @@
+[
+  {
+    "repository": "tokio-rs/bytes",
+    "path": "src/bytes.rs",
+    "git_blob_sha1": "0f1aaed4ee1674ba3946fdd986ac32cead808689",
+    "url": "https://github.com/tokio-rs/bytes/blob/76c0fbb54ed4336caf9d2311658a2f4a5627c21d/src/bytes.rs",
+    "independently_retrieved": true
+  },
+  {
+    "repository": "tokio-rs/tokio",
+    "path": "tokio/src/sync/mpsc/bounded.rs",
+    "git_blob_sha1": "273e5ae433c35e314dd758a616a0585786e6f147",
+    "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/mpsc/bounded.rs",
+    "independently_retrieved": true
+  },
+  {
+    "repository": "tokio-rs/tokio",
+    "path": "tokio/src/sync/semaphore.rs",
+    "git_blob_sha1": "1afe523113b1aa30b15ce65e3d11f656fff97db2",
+    "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/semaphore.rs",
+    "independently_retrieved": true
+  },
+  {
+    "repository": "hyperium/hyper",
+    "path": "src/body/incoming.rs",
+    "git_blob_sha1": "b026a24d6b9e50479e40b8e8e9384161a353f5fe",
+    "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/body/incoming.rs",
+    "independently_retrieved": true
+  }
+]

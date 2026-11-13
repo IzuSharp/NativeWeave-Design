@@ -1,0 +1,16 @@
+
+running 6 tests
+test tests::cancelled_byte_wait_restores_message_capacity_before_allocating ... ok
+test tests::body_end_does_not_retire_an_externally_retained_frame ... ok
+test tests::byte_credit_survives_last_retained_slice ... ok
+test tests::oversized_chunk_is_rejected_before_reservations_or_allocation ... ok
+test tests::receiver_drop_releases_queued_but_not_external_bytes ... ok
+test tests::channel_close_does_not_revoke_an_already_reserved_send ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

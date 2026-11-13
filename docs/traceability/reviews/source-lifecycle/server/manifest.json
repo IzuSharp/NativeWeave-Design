@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/design_source_review",
+  "author_of_reviewed_server_files": false,
+  "recorded_at_utc": "2026-11-13T06:09:34.651302+00:00",
+  "reviewed_repository_head_at_capture": "b6c3a7c9161edc4949b2d05c3c2443f074f3f0e5",
+  "reviewed_paths_clean": true,
+  "tested_source_commit": "de43481581df9876cb2d0aed5de2db796d048c9d",
+  "ci_run_id": 43375871731,
+  "reviewed_files": [
+    {
+      "path": "experiments/server-retained-bytes/Cargo.toml",
+      "bytes": 378,
+      "sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f"
+    },
+    {
+      "path": "experiments/server-retained-bytes/Cargo.lock",
+      "bytes": 2916,
+      "sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4"
+    },
+    {
+      "path": "experiments/server-retained-bytes/src/lib.rs",
+      "bytes": 7004,
+      "sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677"
+    },
+    {
+      "path": "experiments/server-retained-bytes/run.py",
+      "bytes": 4893,
+      "sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc"
+    },
+    {
+      "path": "experiments/server-retained-bytes/README.md",
+      "bytes": 1280,
+      "sha256": "4171b104bab5315588bc809aab7230accbe808ca1def4709ea3094117fed756f"
+    },
+    {
+      "path": "experiments/server-retained-bytes/.gitattributes",
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    },
+    {
+      "path": "experiments/server-retained-bytes/source-inspection.json",
+      "bytes": 6583,
+      "sha256": "f106307ad765faf060563821e64adef88fc9c43a7ecde8aacd195bc316a340cc"
+    },
+    {
+      "path": "docs/server/body-retirement-protocol.md",
+      "bytes": 11989,
+      "sha256": "d2aa6bc99a89665726a806ef580c777eb4ae8af181397ed6e827cc2560a52a15"
+    },
+    {
+      "path": "docs/server/hosting-and-streaming.md",
+      "bytes": 23200,
+      "sha256": "9acf2b3bd464815ac0bb66700ee0c5c8791fa3772f7b0fbe54736e59e2f47358"
+    },
+    {
+      "path": ".github/workflows/source-lifecycle-research.yml",
+      "bytes": 1845,
+      "sha256": "81177ac3cce246b402db7275076f26be86c1ac4aa7d47ca8f7c44836c0e40965"
+    }
+  ],
+  "raw_evidence": [
+    {
+      "path": "raw/independent-1/0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/independent-1/0.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "raw/independent-1/1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/independent-1/1.stdout",
+      "bytes": 37,
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "path": "raw/independent-1/2.stderr",
+      "bytes": 873,
+      "sha256": "f92c26a6f35cc9ab51d9308f39a90d45a7acc7224254c1d174f7ed7f041dde95"
+    },
+    {
+      "path": "raw/independent-1/2.stdout",
+      "bytes": 669,
+      "sha256": "3faf36c265e5a2f7558c67e82e5817ec91a8f8d40bcc2475a5b47c94fbc2c063"
+    },
+    {
+      "path": "raw/independent-1/result.json",
+      "bytes": 3334,
+      "sha256": "33dd4d73390cc2cfd1970285e6931317286aedc16ec974863f5c800b310db0ba"
+    },
+    {
+      "path": "raw/independent-2/0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/independent-2/0.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "raw/independent-2/1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/independent-2/1.stdout",
+      "bytes": 37,
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "path": "raw/independent-2/2.stderr",
+      "bytes": 872,
+      "sha256": "885313d8f572d90f38aee6ed9c249de8db76f605e96ba3d32540a99c1e60c118"
+    },
+    {
+      "path": "raw/independent-2/2.stdout",
+      "bytes": 669,
+      "sha256": "25f389510e707854f94096acbf8aac6d1af84131cfd3ab2b734aa5866c4d0866"
+    },
+    {
+      "path": "raw/independent-2/inputs/.gitattributes",
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    },
+    {
+      "path": "raw/independent-2/inputs/Cargo.lock",
+      "bytes": 2916,
+      "sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4"
+    },
+    {
+      "path": "raw/independent-2/inputs/Cargo.toml",
+      "bytes": 378,
+      "sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f"
+    },
+    {
+      "path": "raw/independent-2/inputs/run.py",
+      "bytes": 4893,
+      "sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc"
+    },
+    {
+      "path": "raw/independent-2/inputs/src/lib.rs",
+      "bytes": 7004,
+      "sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677"
+    },
+    {
+      "path": "raw/independent-2/result.json",
+      "bytes": 3404,
+      "sha256": "b3a24db2bbe7bbb4c781c6a7a5efc1ddf4543c962e6a18a0de0849837fda6dde"
+    },
+    {
+      "path": "raw/injected-missing-tool/0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/injected-missing-tool/0.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "raw/injected-missing-tool/1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/injected-missing-tool/1.stdout",
+      "bytes": 37,
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "path": "raw/injected-missing-tool/2.stderr",
+      "bytes": 23,
+      "sha256": "2e69e9bb1100f2ad5681da96be5fc47265b815f8714bf46be5aa6df92d00dda3"
+    },
+    {
+      "path": "raw/injected-missing-tool/2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/injected-missing-tool/inputs/.gitattributes",
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    },
+    {
+      "path": "raw/injected-missing-tool/inputs/Cargo.lock",
+      "bytes": 2916,
+      "sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4"
+    },
+    {
+      "path": "raw/injected-missing-tool/inputs/Cargo.toml",
+      "bytes": 378,
+      "sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f"
+    },
+    {
+      "path": "raw/injected-missing-tool/inputs/run.py",
+      "bytes": 4893,
+      "sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc"
+    },
+    {
+      "path": "raw/injected-missing-tool/inputs/src/lib.rs",
+      "bytes": 7004,
+      "sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677"
+    },
+    {
+      "path": "raw/injected-missing-tool/result.json",
+      "bytes": 2594,
+      "sha256": "60208363b3ae43d73ea2b607588123df0af84b972225542362898c18079ba4fa"
+    },
+    {
+      "path": "raw/injected-timeout/0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/injected-timeout/0.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "raw/injected-timeout/1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/injected-timeout/1.stdout",
+      "bytes": 37,
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "path": "raw/injected-timeout/2.stderr",
+      "bytes": 104,
+      "sha256": "4fd287e880c9880f7484dcdc533f34c770b5a650cd93ce99547c935accb205da"
+    },
+    {
+      "path": "raw/injected-timeout/2.stdout",
+      "bytes": 33,
+      "sha256": "62d4c3caf34a1fb6b15fff846f6fd100f122abc3c825af2999155ef7436345bc"
+    },
+    {
+      "path": "raw/injected-timeout/inputs/.gitattributes",
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    },
+    {
+      "path": "raw/injected-timeout/inputs/Cargo.lock",
+      "bytes": 2916,
+      "sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4"
+    },
+    {
+      "path": "raw/injected-timeout/inputs/Cargo.toml",
+      "bytes": 378,
+      "sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f"
+    },
+    {
+      "path": "raw/injected-timeout/inputs/run.py",
+      "bytes": 4893,
+      "sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc"
+    },
+    {
+      "path": "raw/injected-timeout/inputs/src/lib.rs",
+      "bytes": 7004,
+      "sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677"
+    },
+    {
+      "path": "raw/injected-timeout/result.json",
+      "bytes": 2593,
+      "sha256": "9e51b980d37bcf6fa9d6f45ce0fdc795eae7b03e4cf754a0593df5b231f199aa"
+    }
+  ],
+  "independent_execution_results": [
+    "raw/independent-1/result.json",
+    "raw/independent-2/result.json"
+  ],
+  "error_record_checks": {
+    "kind": "review-only injected Python TimeoutExpired/FileNotFoundError; not actual Cargo failures",
+    "results": [
+      "raw/injected-timeout/result.json",
+      "raw/injected-missing-tool/result.json"
+    ]
+  },
+  "decision": "approve finite Server research integration at these exact hashes",
+  "unresolved_server_scoped_findings": [],
+  "contract": {
+    "id": "C-SERVER-001",
+    "version": "0.2.1-draft",
+    "content_sha256": "9acf2b3bd464815ac0bb66700ee0c5c8791fa3772f7b0fbe54736e59e2f47358",
+    "status": "proposed",
+    "accepted_by_this_review": false
+  },
+  "explicit_exclusions": [
+    "Independent review of database-retirement authored by this reviewer",
+    "Product implementation or formal Delivery acceptance",
+    "Native AOT Server or C# handler bridge execution",
+    "Actual HTTP/2/TLS/reset network execution",
+    "Complete budget coordinator, scheduler fairness, exhaustive races, RSS bound",
+    "Future edits outside these frozen hashes"
+  ],
+  "source_identity": "source-identity.json",
+  "fresh_upstream_blob_retrieval": "independent-fetch-metadata.json",
+  "evidence_integrity_extension": "separate follow-up review; not included in this Server approval",
+  "supporting_review_files": [
+    {
+      "path": "check-runner-failure-records.py",
+      "bytes": 2619,
+      "sha256": "5b96ef90e0b4f6c346ba975851305c76fe773c67875ec7381f0d3b5aefc9265c"
+    },
+    {
+      "path": "independent-fetch-metadata.json",
+      "bytes": 1209,
+      "sha256": "4b8a387fa91640f0a9697554bb4523dc188abbbf61eb523760f7fd4356f64194"
+    },
+    {
+      "path": "report.md",
+      "bytes": 7126,
+      "sha256": "63d556dc05bbb5c07facbc89d3f2dfed5bcf9b13ea28b0a76284791026920773"
+    },
+    {
+      "path": "runner-failure-checks.json",
+      "bytes": 613,
+      "sha256": "9184a56c0c6ab602c72084891172ce1d85b4d8839917c657142d83a22b68e496"
+    },
+    {
+      "path": "source-identity.json",
+      "bytes": 6045,
+      "sha256": "9f40ad422db82958da4b6b4006b785d7c060ebcc380e8e6e1c5576acb82eadd6"
+    },
+    {
+      "path": "upload-artifact-action.yml",
+      "bytes": 3159,
+      "sha256": "29b21270ff44638a165ea12abb4481796770c629e513217af7b4df1aa3821177"
+    }
+  ]
+}

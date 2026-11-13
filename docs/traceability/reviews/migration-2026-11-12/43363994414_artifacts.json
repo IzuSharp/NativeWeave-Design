@@ -1,0 +1,85 @@
+{
+  "total_count": 4,
+  "artifacts": [
+    {
+      "id": 14010040740,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAxMDA0MDc0MA==",
+      "name": "database-ubuntu-24.04",
+      "size_in_bytes": 15369,
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14010040740",
+      "archive_download_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14010040740/zip",
+      "expired": false,
+      "digest": "sha256:75d35d974758f024d1510d1dcae26df7998c7065037b16e650a485ad6bb56dd0",
+      "created_at": "2026-11-13T04:13:25Z",
+      "updated_at": "2026-11-13T04:13:25Z",
+      "expires_at": "2026-11-27T04:13:23Z",
+      "workflow_run": {
+        "id": 43363994414,
+        "repository_id": 1454887692,
+        "head_repository_id": 1454887692,
+        "head_branch": "research/native-slices-rust-1100",
+        "head_sha": "d2ba134118ec39a8c2ed579c26dad3924b47cd2b"
+      }
+    },
+    {
+      "id": 14009881379,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwOTg4MTM3OQ==",
+      "name": "database-windows-2022",
+      "size_in_bytes": 15522,
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14009881379",
+      "archive_download_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14009881379/zip",
+      "expired": false,
+      "digest": "sha256:d1164166ab2932d68de478fd1e046e3df339a8c4fb8d4408f2b5ec5492ce2986",
+      "created_at": "2026-11-13T04:13:55Z",
+      "updated_at": "2026-11-13T04:13:55Z",
+      "expires_at": "2026-11-27T04:13:54Z",
+      "workflow_run": {
+        "id": 43363994414,
+        "repository_id": 1454887692,
+        "head_repository_id": 1454887692,
+        "head_branch": "research/native-slices-rust-1100",
+        "head_sha": "d2ba134118ec39a8c2ed579c26dad3924b47cd2b"
+      }
+    },
+    {
+      "id": 14009482437,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwOTQ4MjQzNw==",
+      "name": "server-ubuntu-24.04",
+      "size_in_bytes": 8443,
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14009482437",
+      "archive_download_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14009482437/zip",
+      "expired": false,
+      "digest": "sha256:5b73ec1bc9287da6c7eae2140939a1f54800601e3959cbe74f425e82efd0459b",
+      "created_at": "2026-11-13T04:13:05Z",
+      "updated_at": "2026-11-13T04:13:05Z",
+      "expires_at": "2026-11-27T04:13:04Z",
+      "workflow_run": {
+        "id": 43363994414,
+        "repository_id": 1454887692,
+        "head_repository_id": 1454887692,
+        "head_branch": "research/native-slices-rust-1100",
+        "head_sha": "d2ba134118ec39a8c2ed579c26dad3924b47cd2b"
+      }
+    },
+    {
+      "id": 14009078546,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwOTA3ODU0Ng==",
+      "name": "server-windows-2022",
+      "size_in_bytes": 8535,
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14009078546",
+      "archive_download_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14009078546/zip",
+      "expired": false,
+      "digest": "sha256:d4377b992bd5b2822b791cfefbe749823ce9402f9cf7556c988dd7a37002ba63",
+      "created_at": "2026-11-13T04:13:26Z",
+      "updated_at": "2026-11-13T04:13:26Z",
+      "expires_at": "2026-11-27T04:13:25Z",
+      "workflow_run": {
+        "id": 43363994414,
+        "repository_id": 1454887692,
+        "head_repository_id": 1454887692,
+        "head_branch": "research/native-slices-rust-1100",
+        "head_sha": "d2ba134118ec39a8c2ed579c26dad3924b47cd2b"
+      }
+    }
+  ]
+}

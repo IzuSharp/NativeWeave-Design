@@ -1,0 +1,187 @@
+{
+  "scope": "Graph safety gate tests only; not NativeWeave product verification",
+  "baseline_ok": true,
+  "results": [
+    {
+      "case": "cycle",
+      "passed": true,
+      "expected_any_error": [
+        "DEPENDENCY_CYCLE"
+      ],
+      "actual_errors": [
+        "DEPENDENCY_CYCLE",
+        "DEPENDENCY_VERSION"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "missing_dependency",
+      "passed": true,
+      "expected_any_error": [
+        "MISSING_DEPENDENCY"
+      ],
+      "actual_errors": [
+        "MISSING_DEPENDENCY"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "duplicate_id",
+      "passed": true,
+      "expected_any_error": [
+        "DUPLICATE_ID"
+      ],
+      "actual_errors": [
+        "DUPLICATE_ID"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "shared_write_scope",
+      "passed": true,
+      "expected_any_error": [
+        "WRITE_SCOPE_CONFLICT"
+      ],
+      "actual_errors": [
+        "WRITE_SCOPE_CONFLICT"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "unowned_parent_output",
+      "passed": true,
+      "expected_any_error": [
+        "OUTPUT_NOT_OWNED"
+      ],
+      "actual_errors": [
+        "OUTPUT_NOT_OWNED"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "task_packet_changed",
+      "passed": true,
+      "expected_any_error": [
+        "HASH_MISMATCH"
+      ],
+      "actual_errors": [
+        "HASH_MISMATCH"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "dependency_version_drift",
+      "passed": true,
+      "expected_any_error": [
+        "DEPENDENCY_VERSION"
+      ],
+      "actual_errors": [
+        "DEPENDENCY_VERSION"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "forged_accepted_contract",
+      "passed": true,
+      "expected_any_error": [
+        "HASH_REQUIRED",
+        "FILE_MISSING"
+      ],
+      "actual_errors": [
+        "FILE_MISSING"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "empty_evidence_accepted",
+      "passed": true,
+      "expected_any_error": [
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "actual_errors": [
+        "AUTHOR_REQUIRED",
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED",
+        "TASK_COMMIT"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "empty_evidence_complete",
+      "passed": true,
+      "expected_any_error": [
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "actual_errors": [
+        "AUTHOR_REQUIRED",
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED",
+        "TASK_COMMIT"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "empty_evidence_completed",
+      "passed": true,
+      "expected_any_error": [
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "actual_errors": [
+        "AUTHOR_REQUIRED",
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED",
+        "TASK_COMMIT"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "empty_evidence_delivered",
+      "passed": true,
+      "expected_any_error": [
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "actual_errors": [
+        "AUTHOR_REQUIRED",
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED",
+        "TASK_COMMIT"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "empty_evidence_done",
+      "passed": true,
+      "expected_any_error": [
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "actual_errors": [
+        "AUTHOR_REQUIRED",
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED",
+        "TASK_COMMIT"
+      ],
+      "ready_fail_closed": true
+    },
+    {
+      "case": "empty_evidence_verified",
+      "passed": true,
+      "expected_any_error": [
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "actual_errors": [
+        "AUTHOR_REQUIRED",
+        "EVIDENCE_REQUIRED",
+        "INDEPENDENT_REVIEW_REQUIRED",
+        "TASK_COMMIT"
+      ],
+      "ready_fail_closed": true
+    }
+  ],
+  "all_passed": true
+}

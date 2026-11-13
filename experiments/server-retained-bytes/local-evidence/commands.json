@@ -1,0 +1,29 @@
+[
+  {
+    "command": [
+      "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/bin/cargo",
+      "+1.100.0",
+      "generate-lockfile",
+      "--manifest-path",
+      "/workspace/scratch/a64c8260e732/nativeweave/NativeWeave-Design-research/experiments/server-retained-bytes/Cargo.toml"
+    ],
+    "started_utc": "2026-11-13T05:43:18.593930+00:00",
+    "finished_utc": "2026-11-13T05:43:26.319402+00:00",
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/bin/cargo",
+      "+1.100.0",
+      "test",
+      "--locked",
+      "--manifest-path",
+      "/workspace/scratch/a64c8260e732/nativeweave/NativeWeave-Design-research/experiments/server-retained-bytes/Cargo.toml",
+      "--",
+      "--nocapture"
+    ],
+    "started_utc": "2026-11-13T05:43:26.319591+00:00",
+    "finished_utc": "2026-11-13T05:43:35.304861+00:00",
+    "exit_code": 0
+  }
+]

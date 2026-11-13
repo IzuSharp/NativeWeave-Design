@@ -98,7 +98,7 @@ accounted_work_bytes ≤ Σ(connection_budget) + active_requests×request_budget
 
 ## 10. 尚未证明
 
-上述不变量是证明义务，候选接口不是编译结果。恢复的Actions已有有限Linux/SQLite C#/Rust Native AOT实验；当前本地无相应编译器且无Windows结果，见source-driven evidence。无需为证明“简洁”预先造公共 runtime；需要根据源码研究、模型、最小原型、真实AOT和工作负载证据逐步缩小候选。
+上述不变量是证明义务，候选接口不是编译结果。恢复并迁移的 Actions 已有 Windows/Linux Interop 的真实 NuGet、无 RID 普通消费及 Native AOT 执行，两个平台的有限 Rust Database/Server fixture，以及此前有限 Linux/SQLite C#/Rust 查询 AOT。源码、实际执行 commit 与制品身份见[迁移记录](../traceability/research-asset-migration.md)。这些记录不等同于 clean Rust-free 消费主机、PostgreSQL、完整 C# Database/Server AOT、性能或生产内存界证明；旧“本地没有编译器、没有 Windows 结果”的恢复观察已过期。新增生命周期研究见[续接检查点](../traceability/source-lifecycle-followup.md)。无需为证明“简洁”预先造公共 runtime；根据源码研究、模型、最小原型、真实 AOT 和工作负载证据逐步缩小候选。
 
 ## 11. Source-driven Engine maintenance
 

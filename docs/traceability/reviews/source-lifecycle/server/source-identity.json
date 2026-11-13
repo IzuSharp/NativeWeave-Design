@@ -1,0 +1,178 @@
+{
+  "reader": "/root/design_source_review",
+  "author_of_reviewed_server_files": false,
+  "recorded_at_utc": "2026-11-13T05:50:17.732310+00:00",
+  "source_files": [
+    {
+      "repository": "https://github.com/hyperium/hyper",
+      "commit": "7f67699ce32d717081deb7018b4da7d679277ac0",
+      "path": "src/body/incoming.rs",
+      "sha256": "11b8d262650730750721d6f93faf567e9cce6aa2e8a326aeb8f2cad908fdd485",
+      "git_blob_sha1": "b026a24d6b9e50479e40b8e8e9384161a353f5fe",
+      "url": "https://github.com/hyperium/hyper/blob/7f67699ce32d717081deb7018b4da7d679277ac0/src/body/incoming.rs",
+      "reader": "/root/design_source_review",
+      "read_ranges": [
+        [
+          147,
+          233
+        ]
+      ],
+      "registry_package": "hyper",
+      "registry_version": "1.12.0",
+      "registry_file_sha256": "11b8d262650730750721d6f93faf567e9cce6aa2e8a326aeb8f2cad908fdd485",
+      "selected_file_byte_identical": true,
+      "registry_vcs_info": {
+        "git": {
+          "sha1": "7f67699ce32d717081deb7018b4da7d679277ac0"
+        },
+        "path_in_vcs": ""
+      }
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/sync/mpsc/bounded.rs",
+      "sha256": "f229ccaa6711bffb17d8021dade6405d17595d5f64dac2f03107c05a4cc381f2",
+      "git_blob_sha1": "273e5ae433c35e314dd758a616a0585786e6f147",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/mpsc/bounded.rs",
+      "reader": "/root/design_source_review",
+      "read_ranges": [
+        [
+          438,
+          480
+        ],
+        [
+          1190,
+          1212
+        ],
+        [
+          1265,
+          1271
+        ],
+        [
+          1812,
+          1854
+        ],
+        [
+          1949,
+          1959
+        ]
+      ],
+      "registry_package": "tokio",
+      "registry_version": "1.54.1",
+      "registry_file_sha256": "f229ccaa6711bffb17d8021dade6405d17595d5f64dac2f03107c05a4cc381f2",
+      "selected_file_byte_identical": true,
+      "registry_vcs_info": {
+        "git": {
+          "sha1": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8"
+        },
+        "path_in_vcs": "tokio"
+      }
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/sync/semaphore.rs",
+      "sha256": "458bf1436ad8254aff8a40faf74e8ff2e724680eed09c008f519fcc9caa41f08",
+      "git_blob_sha1": "1afe523113b1aa30b15ce65e3d11f656fff97db2",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/semaphore.rs",
+      "reader": "/root/design_source_review",
+      "read_ranges": [
+        [
+          902,
+          967
+        ],
+        [
+          1401,
+          1412
+        ]
+      ],
+      "registry_package": "tokio",
+      "registry_version": "1.54.1",
+      "registry_file_sha256": "458bf1436ad8254aff8a40faf74e8ff2e724680eed09c008f519fcc9caa41f08",
+      "selected_file_byte_identical": true,
+      "registry_vcs_info": {
+        "git": {
+          "sha1": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8"
+        },
+        "path_in_vcs": "tokio"
+      }
+    },
+    {
+      "repository": "https://github.com/tokio-rs/bytes",
+      "commit": "76c0fbb54ed4336caf9d2311658a2f4a5627c21d",
+      "path": "src/bytes.rs",
+      "sha256": "eee15c02105022837d6ed01c6863fee58802ce7bd7c300e158521c9ae61257fc",
+      "git_blob_sha1": "0f1aaed4ee1674ba3946fdd986ac32cead808689",
+      "url": "https://github.com/tokio-rs/bytes/blob/76c0fbb54ed4336caf9d2311658a2f4a5627c21d/src/bytes.rs",
+      "reader": "/root/design_source_review",
+      "read_ranges": [
+        [
+          245,
+          290
+        ],
+        [
+          373,
+          388
+        ],
+        [
+          1097,
+          1165
+        ]
+      ],
+      "registry_package": "bytes",
+      "registry_version": "1.12.1",
+      "registry_file_sha256": "eee15c02105022837d6ed01c6863fee58802ce7bd7c300e158521c9ae61257fc",
+      "selected_file_byte_identical": true,
+      "registry_vcs_info": {
+        "git": {
+          "sha1": "76c0fbb54ed4336caf9d2311658a2f4a5627c21d"
+        },
+        "path_in_vcs": ""
+      }
+    }
+  ],
+  "package_checksums": [
+    {
+      "package": "bytes",
+      "version": "1.12.1",
+      "checksum_in_lock": "fc652a48c352aef3ea3aed32080501cf3ef6ed5da78602a020c991775b0aff04",
+      "archive_sha256": "fc652a48c352aef3ea3aed32080501cf3ef6ed5da78602a020c991775b0aff04",
+      "matches": true
+    },
+    {
+      "package": "hyper",
+      "version": "1.12.0",
+      "checksum_in_lock": "2c3e324da4c95177d6291d4c8730197c0d1822f8a9766814a4a44fa5ab797c9c",
+      "archive_sha256": "2c3e324da4c95177d6291d4c8730197c0d1822f8a9766814a4a44fa5ab797c9c",
+      "matches": true
+    },
+    {
+      "package": "tokio",
+      "version": "1.54.1",
+      "checksum_in_lock": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3",
+      "archive_sha256": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3",
+      "matches": true
+    }
+  ],
+  "independent_execution": "raw/independent-2/result.json",
+  "status": "independent selected-source identity review completed; finite Server approval scoped by manifest.json",
+  "limitations": [
+    "No HTTP transport execution; Hyper Body interface only",
+    "No FFI or C# Native AOT execution by this reviewer",
+    "No exhaustive concurrency, cancellation fairness or RSS proof"
+  ],
+  "execution_history": [
+    "raw/independent-1/result.json",
+    "raw/independent-2/result.json"
+  ],
+  "runner_error_record_checks": "runner-failure-checks.json",
+  "workflow_action_source": {
+    "repository": "actions/upload-artifact",
+    "commit": "ea165f8d65b6e75b540449e92b4886f43607fa02",
+    "path": "action.yml",
+    "git_blob_sha1": "2a0ecf19e8d0087dd2e5d1785dcf764811e79fae",
+    "sha256": "29b21270ff44638a165ea12abb4481796770c629e513217af7b4df1aa3821177",
+    "observation": "include-hidden-files defaults false"
+  }
+}

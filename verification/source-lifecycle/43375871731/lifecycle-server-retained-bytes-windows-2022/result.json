@@ -1,0 +1,87 @@
+{
+  "scope": "finite Rust research; no FFI, C# handler, transport, RSS or production acceptance",
+  "repository": "IzuSharp/NativeWeave-Design",
+  "git_head": "de43481581df9876cb2d0aed5de2db796d048c9d",
+  "worktree_dirty": false,
+  "github_run_id": "43375871731",
+  "github_run_attempt": "1",
+  "platform": "Windows-2022Server-10.0.20348-SP0",
+  "source_sha256_before": {
+    "Cargo.toml": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+    "Cargo.lock": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+    "src/lib.rs": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+    "run.py": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+    ".gitattributes": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+  },
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--version",
+        "--verbose"
+      ],
+      "started_utc": "2026-11-13T06:02:20.913423+00:00",
+      "finished_utc": "2026-11-13T06:02:21.633985+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "0.stdout",
+      "stderr": "0.stderr"
+    },
+    {
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "--version"
+      ],
+      "started_utc": "2026-11-13T06:02:21.633985+00:00",
+      "finished_utc": "2026-11-13T06:02:22.228159+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "1.stdout",
+      "stderr": "1.stderr"
+    },
+    {
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "test",
+        "--locked",
+        "--manifest-path",
+        "D:\\a\\NativeWeave-Design\\NativeWeave-Design\\experiments\\server-retained-bytes\\Cargo.toml",
+        "--",
+        "--nocapture"
+      ],
+      "started_utc": "2026-11-13T06:02:22.228159+00:00",
+      "finished_utc": "2026-11-13T06:02:33.309138+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "2.stdout",
+      "stderr": "2.stderr"
+    }
+  ],
+  "success": true,
+  "named_tests_passed": [
+    "body_end_does_not_retire_an_externally_retained_frame",
+    "byte_credit_survives_last_retained_slice",
+    "cancelled_byte_wait_restores_message_capacity_before_allocating",
+    "channel_close_does_not_revoke_an_already_reserved_send",
+    "oversized_chunk_is_rejected_before_reservations_or_allocation",
+    "receiver_drop_releases_queued_but_not_external_bytes"
+  ],
+  "source_sha256_after": {
+    "Cargo.toml": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+    "Cargo.lock": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+    "src/lib.rs": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+    "run.py": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+    ".gitattributes": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+  },
+  "logs_sha256": {
+    "0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "0.stdout": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+    "1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "1.stdout": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+    "2.stderr": "74165e134c9eec46223eb2e0ffdd50a9797a26176a317a439f13e5253d4a1a95",
+    "2.stdout": "d083fea29d9c98f9da69847c6c08f7a97639a07020086c975db1006dbbcdb2b0"
+  }
+}

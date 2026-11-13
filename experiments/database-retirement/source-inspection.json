@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "reader": "/root/design_source_review",
+  "observation_date": "2026-11-12 America/Los_Angeles",
+  "observed_at_utc": "2026-11-13T05:39:57.303398+00:00",
+  "base_design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+  "source_status": "selected-source-inspected; local registry bytes independently compared",
+  "files": [
+    {
+      "repository": "transact-rs/sqlx",
+      "version": "0.9.0",
+      "inspected_git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "git_path": "sqlx-core/src/pool/connection.rs",
+      "git_blob_sha1": "7912b12aa14f763e8928bf8ac9466a97a81f681a",
+      "git_sha256": "94269a532ef60aaa31321e43af17cba2424f919a36501d862328ed05958a08de",
+      "read_ranges": [
+        [
+          80,
+          185
+        ],
+        [
+          209,
+          222
+        ],
+        [
+          282,
+          340
+        ]
+      ],
+      "inspected_symbols": [
+        "PoolConnection::close",
+        "PoolConnection::close_on_drop",
+        "PoolConnection::drop",
+        "Floating::return_to_pool"
+      ],
+      "registry_package": "sqlx-core",
+      "registry_version": "0.9.0",
+      "registry_path": "src/pool/connection.rs",
+      "registry_sha256": "94269a532ef60aaa31321e43af17cba2424f919a36501d862328ed05958a08de",
+      "selected_file_byte_identical": true,
+      "package_vcs_info": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-core"
+      },
+      "whole_package_git_identity_verified": false,
+      "line_count": 421
+    },
+    {
+      "repository": "transact-rs/sqlx",
+      "version": "0.9.0",
+      "inspected_git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "git_path": "sqlx-core/src/transaction.rs",
+      "git_blob_sha1": "46f89d25b2be6a04d7ab80347f22e21f16cd0731",
+      "git_sha256": "7c0e1b28f1f0b56920d71b3340407abc2eeef9fe442321d25f43d1bf1721dbf7",
+      "read_ranges": [
+        [
+          94,
+          134
+        ],
+        [
+          265,
+          279
+        ]
+      ],
+      "inspected_symbols": [
+        "Transaction::begin",
+        "Transaction::commit",
+        "Transaction::rollback",
+        "Transaction::drop"
+      ],
+      "registry_package": "sqlx-core",
+      "registry_version": "0.9.0",
+      "registry_path": "src/transaction.rs",
+      "registry_sha256": "7c0e1b28f1f0b56920d71b3340407abc2eeef9fe442321d25f43d1bf1721dbf7",
+      "selected_file_byte_identical": true,
+      "package_vcs_info": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-core"
+      },
+      "whole_package_git_identity_verified": false,
+      "line_count": 308
+    },
+    {
+      "repository": "transact-rs/sqlx",
+      "version": "0.9.0",
+      "inspected_git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "git_path": "sqlx-sqlite/src/transaction.rs",
+      "git_blob_sha1": "1c57d0163f3505dc048be18c5d47bfee4360cf96",
+      "git_sha256": "5f6958702455ef631a9a7290e63c1666e60731c85ffc828a176c39d0ce01f6be",
+      "read_ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "inspected_symbols": [
+        "SqliteTransactionManager::begin",
+        "SqliteTransactionManager::commit",
+        "SqliteTransactionManager::start_rollback"
+      ],
+      "registry_package": "sqlx-sqlite",
+      "registry_version": "0.9.0",
+      "registry_path": "src/transaction.rs",
+      "registry_sha256": "5f6958702455ef631a9a7290e63c1666e60731c85ffc828a176c39d0ce01f6be",
+      "selected_file_byte_identical": true,
+      "package_vcs_info": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-sqlite"
+      },
+      "whole_package_git_identity_verified": false,
+      "line_count": 35
+    },
+    {
+      "repository": "transact-rs/sqlx",
+      "version": "0.9.0",
+      "inspected_git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "git_path": "sqlx-sqlite/src/connection/worker.rs",
+      "git_blob_sha1": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "git_sha256": "b66aafc56f0e287eac3b09111c5d4997d350ab61294c5cc576ce359bc18cebe4",
+      "read_ranges": [
+        [
+          96,
+          145
+        ],
+        [
+          163,
+          344
+        ],
+        [
+          390,
+          414
+        ],
+        [
+          451,
+          505
+        ],
+        [
+          537,
+          573
+        ]
+      ],
+      "inspected_symbols": [
+        "ConnectionWorker::establish",
+        "Command::Execute",
+        "Command::Begin",
+        "Command::Commit",
+        "Command::Rollback",
+        "Command::Shutdown",
+        "ConnectionWorker::start_rollback",
+        "ConnectionWorker::shutdown",
+        "rendezvous_oneshot"
+      ],
+      "registry_package": "sqlx-sqlite",
+      "registry_version": "0.9.0",
+      "registry_path": "src/connection/worker.rs",
+      "registry_sha256": "b66aafc56f0e287eac3b09111c5d4997d350ab61294c5cc576ce359bc18cebe4",
+      "selected_file_byte_identical": true,
+      "package_vcs_info": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-sqlite"
+      },
+      "whole_package_git_identity_verified": false,
+      "line_count": 573
+    },
+    {
+      "repository": "transact-rs/sqlx",
+      "version": "0.9.0",
+      "inspected_git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "git_path": "sqlx-sqlite/src/connection/mod.rs",
+      "git_blob_sha1": "218c747143fe80b344bca3405d4b0b38da2bd932",
+      "git_sha256": "a20c2e51a1505e298fd897b378f9032c89b82850838aa6e5d9409f612fb1e7fd",
+      "read_ranges": [
+        [
+          130,
+          137
+        ],
+        [
+          184,
+          244
+        ],
+        [
+          276,
+          304
+        ],
+        [
+          385,
+          420
+        ],
+        [
+          468,
+          558
+        ]
+      ],
+      "inspected_symbols": [
+        "SqliteConnection::lock_handle",
+        "SqliteConnection::close",
+        "SqliteConnection::close_hard",
+        "progress_callback",
+        "LockedSqliteHandle::set_progress_handler",
+        "LockedSqliteHandle::set_commit_hook",
+        "ConnectionState::drop"
+      ],
+      "registry_package": "sqlx-sqlite",
+      "registry_version": "0.9.0",
+      "registry_path": "src/connection/mod.rs",
+      "registry_sha256": "a20c2e51a1505e298fd897b378f9032c89b82850838aa6e5d9409f612fb1e7fd",
+      "selected_file_byte_identical": true,
+      "package_vcs_info": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-sqlite"
+      },
+      "whole_package_git_identity_verified": false,
+      "line_count": 599
+    },
+    {
+      "repository": "transact-rs/sqlx",
+      "version": "0.9.0",
+      "inspected_git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "git_path": "sqlx-sqlite/src/options/mod.rs",
+      "git_blob_sha1": "0cafc4d08c4c63c342685fedbcc43222dd38d2f1",
+      "git_sha256": "ff5005abc6408f2df073d95bf3440c2a3ee96c1a312d73468bf66123f8ab2f1e",
+      "read_ranges": [
+        [
+          243,
+          259
+        ],
+        [
+          438,
+          463
+        ]
+      ],
+      "inspected_symbols": [
+        "SqliteConnectOptions::command_buffer_size",
+        "SqliteConnectOptions::row_buffer_size"
+      ],
+      "registry_package": "sqlx-sqlite",
+      "registry_version": "0.9.0",
+      "registry_path": "src/options/mod.rs",
+      "registry_sha256": "ff5005abc6408f2df073d95bf3440c2a3ee96c1a312d73468bf66123f8ab2f1e",
+      "selected_file_byte_identical": true,
+      "package_vcs_info": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-sqlite"
+      },
+      "whole_package_git_identity_verified": false,
+      "line_count": 675
+    }
+  ],
+  "package_archive_checks": [
+    {
+      "name": "sqlx",
+      "version": "0.9.0",
+      "lock_checksum": "378620ccc25c62c89d8be1c819e76a88d59bdcc3304733330788948e619bfd71",
+      "archive_sha256": "378620ccc25c62c89d8be1c819e76a88d59bdcc3304733330788948e619bfd71",
+      "archive_matches_lock": true
+    },
+    {
+      "name": "sqlx-core",
+      "version": "0.9.0",
+      "lock_checksum": "05b44e85bf579a8eeb4ceaa77a3a523baf2bf0e9bac7e40f405d537b5d2d5ccb",
+      "archive_sha256": "05b44e85bf579a8eeb4ceaa77a3a523baf2bf0e9bac7e40f405d537b5d2d5ccb",
+      "archive_matches_lock": true
+    },
+    {
+      "name": "sqlx-sqlite",
+      "version": "0.9.0",
+      "lock_checksum": "488e99c397a62007e4229aec669a179816339afc6d2620ca6fa420dbee2e982c",
+      "archive_sha256": "488e99c397a62007e4229aec669a179816339afc6d2620ca6fa420dbee2e982c",
+      "archive_matches_lock": true
+    },
+    {
+      "name": "sea-query",
+      "version": "1.0.2",
+      "lock_checksum": "546040c653a705e60ec65ecd3191a809603734bebbc225775916dea9ae409b31",
+      "archive_sha256": "546040c653a705e60ec65ecd3191a809603734bebbc225775916dea9ae409b31",
+      "archive_matches_lock": true
+    },
+    {
+      "name": "tokio",
+      "version": "1.54.1",
+      "lock_checksum": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3",
+      "archive_sha256": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3",
+      "archive_matches_lock": true
+    }
+  ],
+  "identity_limit": "Published SQLx crates report packaging commit 003b698e99e024f3621b8043a2426fde5b741171, different from the prior study pin. Six inspected files match byte-for-byte; no whole-repository or whole-package equivalence is claimed.",
+  "unread_or_unverified": [
+    "PostgreSQL wire and commit fault paths in this study",
+    "SQLite VM/file-I/O/busy-handler internals",
+    "all SQLx package source files",
+    "native OS worker JoinHandle or arbitrary shutdown races"
+  ]
+}

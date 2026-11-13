@@ -1,0 +1,492 @@
+{
+  "validator_version": "1.0.0",
+  "ok": true,
+  "counts": {
+    "research": 34,
+    "documentation": 32,
+    "delivery": 48
+  },
+  "errors": [],
+  "warnings": [],
+  "write_conflicts": [],
+  "ready": {
+    "research": [
+      "R02",
+      "R05",
+      "R06",
+      "R08",
+      "R09",
+      "R11",
+      "R12",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R23",
+      "R24",
+      "R26",
+      "R28",
+      "R30",
+      "R31",
+      "R32",
+      "R33",
+      "R34"
+    ],
+    "documentation": [
+      "D03",
+      "D04",
+      "D05",
+      "D06",
+      "D08",
+      "D09",
+      "D10",
+      "D11",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16",
+      "D17",
+      "D18",
+      "D19",
+      "D20",
+      "D21",
+      "D22",
+      "D23",
+      "D24",
+      "D25",
+      "D26",
+      "D27",
+      "D28",
+      "D29",
+      "D30",
+      "D31",
+      "D32"
+    ],
+    "delivery": []
+  },
+  "continuable": {
+    "research": [
+      "R01",
+      "R03",
+      "R04",
+      "R07",
+      "R10",
+      "R13",
+      "R22",
+      "R25",
+      "R27",
+      "R29"
+    ],
+    "documentation": [
+      "D01",
+      "D02",
+      "D07"
+    ],
+    "delivery": []
+  },
+  "blocked": {
+    "R01": [
+      "state=partially_evidenced"
+    ],
+    "R03": [
+      "state=partially_evidenced"
+    ],
+    "R04": [
+      "state=partially_evidenced"
+    ],
+    "R07": [
+      "state=partially_evidenced"
+    ],
+    "R10": [
+      "state=partially_evidenced"
+    ],
+    "R13": [
+      "state=partially_evidenced"
+    ],
+    "R22": [
+      "state=partially_evidenced"
+    ],
+    "R25": [
+      "state=partially_evidenced"
+    ],
+    "R27": [
+      "state=partially_evidenced"
+    ],
+    "R29": [
+      "state=partially_evidenced"
+    ],
+    "D01": [
+      "state=partially_evidenced"
+    ],
+    "D02": [
+      "state=partially_evidenced"
+    ],
+    "D07": [
+      "state=partially_evidenced"
+    ],
+    "A01": [
+      "state=planned_candidate",
+      "contract=C-ABI-001@0.1.0-draft",
+      "contract=C-PLATFORM-001@0.1.0-draft"
+    ],
+    "A02": [
+      "state=planned_candidate",
+      "dependency=A01",
+      "contract=C-ABI-001@0.1.0-draft",
+      "contract=C-ERROR-001@0.1.0-draft",
+      "contract=C-ENGINE-001@0.2.1-draft"
+    ],
+    "A03": [
+      "state=planned_candidate",
+      "dependency=A01",
+      "dependency=A05",
+      "contract=C-LIFETIME-001@0.1.0-draft",
+      "contract=C-ABI-001@0.1.0-draft"
+    ],
+    "A04": [
+      "state=planned_candidate",
+      "dependency=A01",
+      "dependency=A05",
+      "contract=C-BUFFER-001@0.1.0-draft",
+      "contract=C-LIFETIME-001@0.1.0-draft"
+    ],
+    "A05": [
+      "state=planned_candidate",
+      "dependency=A01",
+      "contract=C-ERROR-001@0.1.0-draft",
+      "contract=C-ABI-001@0.1.0-draft"
+    ],
+    "A06": [
+      "state=planned_candidate",
+      "dependency=A03",
+      "dependency=A05",
+      "contract=C-CALLBACK-001@0.1.0-draft",
+      "contract=C-LIFETIME-001@0.1.0-draft"
+    ],
+    "A07": [
+      "state=planned_candidate",
+      "dependency=A04",
+      "dependency=A06",
+      "contract=C-ASYNC-001@0.1.0-draft",
+      "contract=C-CALLBACK-001@0.1.0-draft",
+      "contract=C-BUFFER-001@0.1.0-draft"
+    ],
+    "A08": [
+      "state=planned_candidate",
+      "dependency=A07",
+      "contract=C-CONCURRENCY-001@0.1.0-draft",
+      "contract=C-ASYNC-001@0.1.0-draft"
+    ],
+    "A09": [
+      "state=planned_candidate",
+      "dependency=A01",
+      "contract=C-BINDING-001@0.1.0-draft",
+      "contract=C-ABI-001@0.1.0-draft"
+    ],
+    "A10": [
+      "state=planned_candidate",
+      "dependency=A09",
+      "contract=C-BINDING-001@0.1.0-draft",
+      "contract=C-ABI-001@0.1.0-draft"
+    ],
+    "A11": [
+      "state=planned_candidate",
+      "dependency=A09",
+      "contract=C-BINDING-001@0.1.0-draft",
+      "contract=C-ABI-001@0.1.0-draft",
+      "contract=C-ERROR-001@0.1.0-draft"
+    ],
+    "A12": [
+      "state=planned_candidate",
+      "dependency=A09",
+      "contract=C-BINDING-001@0.1.0-draft",
+      "contract=C-PLATFORM-001@0.1.0-draft",
+      "contract=C-LIFETIME-001@0.1.0-draft"
+    ],
+    "A13": [
+      "state=planned_candidate",
+      "dependency=A09",
+      "contract=C-BUILD-001@0.2.1-draft",
+      "contract=C-BINDING-001@0.1.0-draft"
+    ],
+    "A14": [
+      "state=planned_candidate",
+      "dependency=A13",
+      "dependency=A10",
+      "dependency=A11",
+      "contract=C-BUILD-001@0.2.1-draft",
+      "contract=C-PLATFORM-001@0.1.0-draft"
+    ],
+    "A15": [
+      "state=planned_candidate",
+      "dependency=A13",
+      "dependency=A10",
+      "dependency=A11",
+      "contract=C-BUILD-001@0.2.1-draft",
+      "contract=C-PLATFORM-001@0.1.0-draft"
+    ],
+    "A16": [
+      "state=planned_candidate",
+      "dependency=A14",
+      "dependency=A15",
+      "dependency=A22",
+      "contract=C-BUILD-001@0.2.1-draft",
+      "contract=C-ENGINE-001@0.2.1-draft"
+    ],
+    "A17": [
+      "state=planned_candidate",
+      "dependency=A02",
+      "dependency=A03",
+      "dependency=A04",
+      "dependency=A05",
+      "dependency=A10",
+      "dependency=A11",
+      "contract=C-ENGINE-001@0.2.1-draft",
+      "contract=C-BUFFER-001@0.1.0-draft",
+      "contract=C-PERF-001@0.1.0-draft"
+    ],
+    "A18": [
+      "state=planned_candidate",
+      "dependency=A02",
+      "dependency=A07",
+      "dependency=A08",
+      "dependency=A10",
+      "dependency=A11",
+      "contract=C-ENGINE-001@0.2.1-draft",
+      "contract=C-ASYNC-001@0.1.0-draft",
+      "contract=C-CONCURRENCY-001@0.1.0-draft"
+    ],
+    "A19": [
+      "state=planned_candidate",
+      "contract=C-VERIFY-001@0.1.0-draft",
+      "contract=C-LIFETIME-001@0.1.0-draft",
+      "contract=C-CALLBACK-001@0.1.0-draft",
+      "contract=C-ASYNC-001@0.1.0-draft"
+    ],
+    "A20": [
+      "state=planned_candidate",
+      "dependency=A03",
+      "dependency=A04",
+      "dependency=A05",
+      "dependency=A06",
+      "dependency=A07",
+      "contract=C-VERIFY-001@0.1.0-draft",
+      "contract=C-ABI-001@0.1.0-draft"
+    ],
+    "A21": [
+      "state=planned_candidate",
+      "contract=C-PERF-001@0.1.0-draft",
+      "contract=C-PLATFORM-001@0.1.0-draft"
+    ],
+    "A22": [
+      "state=planned_candidate",
+      "dependency=A02",
+      "dependency=A09",
+      "contract=C-ABI-001@0.1.0-draft",
+      "contract=C-BUILD-001@0.2.1-draft"
+    ],
+    "A23": [
+      "state=planned_candidate",
+      "dependency=A02",
+      "dependency=A03",
+      "dependency=A06",
+      "contract=C-EXTENSION-001@0.1.0-draft",
+      "contract=C-ENGINE-001@0.2.1-draft",
+      "contract=C-CALLBACK-001@0.1.0-draft"
+    ],
+    "A24": [
+      "state=planned_candidate",
+      "dependency=A02",
+      "dependency=A09",
+      "dependency=A13",
+      "contract=C-ENGINE-001@0.2.1-draft",
+      "contract=C-BINDING-001@0.1.0-draft",
+      "contract=C-BUILD-001@0.2.1-draft"
+    ],
+    "B01": [
+      "state=planned_candidate",
+      "contract=C-DB-001@0.2.0-draft",
+      "contract=C-PLATFORM-001@0.1.0-draft"
+    ],
+    "B02": [
+      "state=planned_candidate",
+      "dependency=B01",
+      "dependency=B07",
+      "contract=C-DB-001@0.2.0-draft",
+      "contract=C-TX-001@0.2.0-draft"
+    ],
+    "B03": [
+      "state=planned_candidate",
+      "dependency=B01",
+      "dependency=B07",
+      "contract=C-DB-001@0.2.0-draft",
+      "contract=C-TX-001@0.2.0-draft"
+    ],
+    "B04": [
+      "state=planned_candidate",
+      "dependency=B01",
+      "dependency=B07",
+      "dependency=A03",
+      "dependency=A04",
+      "dependency=A05",
+      "dependency=A07",
+      "dependency=A10",
+      "dependency=A11",
+      "contract=C-DB-001@0.2.0-draft",
+      "contract=C-TX-001@0.2.0-draft",
+      "contract=C-ASYNC-001@0.1.0-draft",
+      "contract=C-BUFFER-001@0.1.0-draft",
+      "contract=C-CONCURRENCY-001@0.1.0-draft"
+    ],
+    "B05": [
+      "state=planned_candidate",
+      "dependency=B01",
+      "contract=C-TX-001@0.2.0-draft",
+      "contract=C-DB-001@0.2.0-draft"
+    ],
+    "B06": [
+      "state=planned_candidate",
+      "dependency=B01",
+      "dependency=B07",
+      "contract=C-DB-001@0.2.0-draft",
+      "contract=C-TX-001@0.2.0-draft"
+    ],
+    "B07": [
+      "state=planned_candidate",
+      "dependency=B01",
+      "contract=C-DB-001@0.2.0-draft"
+    ],
+    "B08": [
+      "state=planned_candidate",
+      "dependency=B01",
+      "dependency=B05",
+      "contract=C-DB-001@0.2.0-draft",
+      "contract=C-TX-001@0.2.0-draft"
+    ],
+    "B09": [
+      "state=planned_candidate",
+      "contract=C-QUERY-001@0.2.1-draft"
+    ],
+    "B10": [
+      "state=planned_candidate",
+      "dependency=B09",
+      "contract=C-QUERYGEN-001@0.2.0-draft",
+      "contract=C-QUERY-001@0.2.1-draft"
+    ],
+    "B11": [
+      "state=planned_candidate",
+      "dependency=B09",
+      "contract=C-QUERY-001@0.2.1-draft"
+    ],
+    "B12": [
+      "state=planned_candidate",
+      "dependency=B07",
+      "dependency=B09",
+      "contract=C-QUERYGEN-001@0.2.0-draft",
+      "contract=C-DB-001@0.2.0-draft"
+    ],
+    "B13": [
+      "state=planned_candidate",
+      "dependency=B09",
+      "dependency=B11",
+      "contract=C-QUERYGEN-001@0.2.0-draft",
+      "contract=C-QUERY-001@0.2.1-draft"
+    ],
+    "B14": [
+      "state=planned_candidate",
+      "dependency=B05",
+      "dependency=B11",
+      "dependency=B12",
+      "contract=C-QUERY-001@0.2.1-draft",
+      "contract=C-TX-001@0.2.0-draft"
+    ],
+    "B15": [
+      "state=planned_candidate",
+      "contract=C-SERVER-001@0.2.0-draft",
+      "contract=C-PLATFORM-001@0.1.0-draft"
+    ],
+    "B16": [
+      "state=planned_candidate",
+      "dependency=B15",
+      "contract=C-SERVER-001@0.2.0-draft",
+      "contract=C-BUFFER-001@0.1.0-draft"
+    ],
+    "B17": [
+      "state=planned_candidate",
+      "dependency=A07",
+      "dependency=A08",
+      "dependency=A10",
+      "dependency=A11",
+      "contract=C-SERVER-001@0.2.0-draft",
+      "contract=C-ASYNC-001@0.1.0-draft",
+      "contract=C-CONCURRENCY-001@0.1.0-draft",
+      "optional route undecided"
+    ],
+    "B18": [
+      "state=planned_candidate",
+      "dependency=B15",
+      "contract=C-PROTOCOL-001@0.1.0-draft",
+      "contract=C-SERVER-001@0.2.0-draft",
+      "optional route undecided"
+    ],
+    "B19": [
+      "state=planned_candidate",
+      "dependency=B15",
+      "contract=C-PROTOCOL-001@0.1.0-draft",
+      "contract=C-SERVER-001@0.2.0-draft",
+      "optional route undecided"
+    ],
+    "B20": [
+      "state=planned_candidate",
+      "dependency=B15",
+      "dependency=B16",
+      "contract=C-SERVER-001@0.2.0-draft"
+    ],
+    "B21": [
+      "state=planned_candidate",
+      "dependency=B02",
+      "dependency=B03",
+      "dependency=B05",
+      "dependency=B06",
+      "dependency=B08",
+      "dependency=B14",
+      "dependency=B15",
+      "dependency=B16",
+      "contract=C-REFERENCE-001@0.2.0-draft",
+      "contract=C-DB-001@0.2.0-draft",
+      "contract=C-SERVER-001@0.2.0-draft"
+    ],
+    "B22": [
+      "state=planned_candidate",
+      "dependency=B21",
+      "contract=C-REFERENCE-001@0.2.0-draft",
+      "contract=C-VERIFY-001@0.1.0-draft"
+    ],
+    "B23": [
+      "state=planned_candidate",
+      "dependency=B21",
+      "dependency=A21",
+      "contract=C-PERF-001@0.1.0-draft",
+      "contract=C-REFERENCE-001@0.2.0-draft"
+    ],
+    "B24": [
+      "state=planned_candidate",
+      "dependency=B22",
+      "dependency=B23",
+      "contract=C-BUILD-001@0.2.1-draft",
+      "contract=C-REFERENCE-001@0.2.0-draft"
+    ]
+  },
+  "resource_conflicts": [],
+  "accepted_contracts": 0,
+  "limitations": [
+    "Local structure, hashes and manifest bindings are checked; this does not authenticate reviewer identity or prove commands truly executed.",
+    "An empty or proposed contract registry never authorizes delivery.",
+    "The initial delivery graph is a candidate decomposition, not accepted implementation instructions."
+  ]
+}

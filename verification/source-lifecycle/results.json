@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "repository": "IzuSharp/NativeWeave-Design",
+  "run_id": 43375871731,
+  "tested_source_commit": "de43481581df9876cb2d0aed5de2db796d048c9d",
+  "workflow_path": ".github/workflows/source-lifecycle-research.yml",
+  "workflow_sha256": "81177ac3cce246b402db7275076f26be86c1ac4aa7d47ca8f7c44836c0e40965",
+  "run_conclusion": "success",
+  "successful_jobs": 4,
+  "distinct_tests": 12,
+  "platform_test_executions": 24,
+  "records": [
+    {
+      "artifact_id": 14014900927,
+      "artifact_name": "lifecycle-server-retained-bytes-windows-2022",
+      "artifact_zip_sha256": "351f189006efd997bb43d5c5e925d49a00d45de9a5f4d0045478be73b37d6e41",
+      "artifact_bytes": 8720,
+      "fixture": "server-retained-bytes",
+      "platform": "Windows-2022Server-10.0.20348-SP0",
+      "tested_source": "de43481581df9876cb2d0aed5de2db796d048c9d",
+      "tests_passed": [
+        "body_end_does_not_retire_an_externally_retained_frame",
+        "byte_credit_survives_last_retained_slice",
+        "cancelled_byte_wait_restores_message_capacity_before_allocating",
+        "channel_close_does_not_revoke_an_already_reserved_send",
+        "oversized_chunk_is_rejected_before_reservations_or_allocation",
+        "receiver_drop_releases_queued_but_not_external_bytes"
+      ],
+      "source_inputs": {
+        "Cargo.toml": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+        "Cargo.lock": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+        "src/lib.rs": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+        "run.py": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+        ".gitattributes": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+      },
+      "source_input_identities": {
+        "Cargo.toml": {
+          "git_blob_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+          "checkout_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+          "relationship": "byte_exact"
+        },
+        "Cargo.lock": {
+          "git_blob_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+          "checkout_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+          "relationship": "byte_exact"
+        },
+        "src/lib.rs": {
+          "git_blob_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+          "checkout_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+          "relationship": "byte_exact"
+        },
+        "run.py": {
+          "git_blob_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+          "checkout_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+          "relationship": "byte_exact"
+        },
+        ".gitattributes": {
+          "git_blob_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+          "checkout_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+          "relationship": "byte_exact"
+        }
+      },
+      "source_inputs_verified": true,
+      "files": [
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/0.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/1.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/1.stdout",
+          "bytes": 37,
+          "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/0.stdout",
+          "bytes": 196,
+          "sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/2.stderr",
+          "bytes": 1229,
+          "sha256": "74165e134c9eec46223eb2e0ffdd50a9797a26176a317a439f13e5253d4a1a95"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/2.stdout",
+          "bytes": 669,
+          "sha256": "d083fea29d9c98f9da69847c6c08f7a97639a07020086c975db1006dbbcdb2b0"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/.gitattributes",
+          "bytes": 14,
+          "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/Cargo.lock",
+          "bytes": 2916,
+          "sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/Cargo.toml",
+          "bytes": 378,
+          "sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/run.py",
+          "bytes": 4893,
+          "sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/src/lib.rs",
+          "bytes": 7004,
+          "sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/result.json",
+          "bytes": 3475,
+          "sha256": "a2a4a0103e1123936ed20c3a596a2fb5f9141c70976352cfd3a8b5949d0588a5"
+        }
+      ]
+    },
+    {
+      "artifact_id": 14014880511,
+      "artifact_name": "lifecycle-database-retirement-windows-2022",
+      "artifact_zip_sha256": "0c64ef55a8b742ea16561eedcabf3dd5ec07d72d285e2f15c123c8af2dff70ce",
+      "artifact_bytes": 19897,
+      "fixture": "database-retirement",
+      "platform": "Windows-2022Server-10.0.20348-SP0",
+      "tested_source": "de43481581df9876cb2d0aed5de2db796d048c9d",
+      "tests_passed": [
+        "canceled_acquire_waiter_does_not_lose_the_only_pool_permit",
+        "dropped_transaction_rolls_back_before_same_connection_reuse",
+        "dropping_dispatched_commit_before_ack_can_still_commit",
+        "early_stream_drop_unblocks_bounded_row_queue_and_reuses_connection",
+        "pool_close_waits_for_checked_out_owner_and_rejects_new_acquire",
+        "progress_cancel_state_is_removed_before_next_operation"
+      ],
+      "source_inputs": {
+        "Cargo.toml": "ff159de62d2fede24ed10c3f02de3fa748345b43efeca4af09bb5c5fe4b5c13a",
+        "Cargo.lock": "5e3dfdb6b278f1b35b0055c34109f3ff2a4dd572531e3322cd86b252a7c815a2",
+        "rust-toolchain.toml": "0ce99f0775a7799b6b4244c677eccd97c4aa98b74b3b803fbfd1b5fc2f3f95be",
+        "src/lib.rs": "04f47138fff59d893be6383c7516cf21309249f1258620eb6aa2ed14dae1d5fd",
+        "run.py": "a7d20e739d5b2bd0e5250a58acd63c39a75214daba97066f03f6db8a217eacc5"
+      },
+      "source_input_identities": {
+        "Cargo.toml": {
+          "git_blob_sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4",
+          "checkout_sha256": "ff159de62d2fede24ed10c3f02de3fa748345b43efeca4af09bb5c5fe4b5c13a",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion"
+        },
+        "Cargo.lock": {
+          "git_blob_sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c",
+          "checkout_sha256": "5e3dfdb6b278f1b35b0055c34109f3ff2a4dd572531e3322cd86b252a7c815a2",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion"
+        },
+        "rust-toolchain.toml": {
+          "git_blob_sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+          "checkout_sha256": "0ce99f0775a7799b6b4244c677eccd97c4aa98b74b3b803fbfd1b5fc2f3f95be",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion"
+        },
+        "src/lib.rs": {
+          "git_blob_sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46",
+          "checkout_sha256": "04f47138fff59d893be6383c7516cf21309249f1258620eb6aa2ed14dae1d5fd",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion"
+        },
+        "run.py": {
+          "git_blob_sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366",
+          "checkout_sha256": "a7d20e739d5b2bd0e5250a58acd63c39a75214daba97066f03f6db8a217eacc5",
+          "relationship": "exact_LF_to_CRLF_checkout_conversion"
+        }
+      },
+      "source_inputs_verified": true,
+      "files": [
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/cargo-version.stdout",
+          "bytes": 338,
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/cargo-version.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/commands.json",
+          "bytes": 755,
+          "sha256": "a5d7c042f9b385bec9279aac8ec1b8e0047c154469995526b2e98c9e2b0e6591"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/dependency-tree.stderr",
+          "bytes": 3736,
+          "sha256": "d9f793008493beb4d7108219bccbcc97616b2f435ec9325c3933b89efade3f99"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/dependency-tree.stdout",
+          "bytes": 18586,
+          "sha256": "95f7caf480c2734c42b96bcb13bdf7284ffa02c06e2e8d8f75ffab17963f3b33"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/inputs/Cargo.lock",
+          "bytes": 29160,
+          "sha256": "5e3dfdb6b278f1b35b0055c34109f3ff2a4dd572531e3322cd86b252a7c815a2"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/inputs/run.py",
+          "bytes": 4317,
+          "sha256": "a7d20e739d5b2bd0e5250a58acd63c39a75214daba97066f03f6db8a217eacc5"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/inputs/Cargo.toml",
+          "bytes": 547,
+          "sha256": "ff159de62d2fede24ed10c3f02de3fa748345b43efeca4af09bb5c5fe4b5c13a"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/inputs/rust-toolchain.toml",
+          "bytes": 55,
+          "sha256": "0ce99f0775a7799b6b4244c677eccd97c4aa98b74b3b803fbfd1b5fc2f3f95be"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/inputs/src/lib.rs",
+          "bytes": 10236,
+          "sha256": "04f47138fff59d893be6383c7516cf21309249f1258620eb6aa2ed14dae1d5fd"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/result.json",
+          "bytes": 1007,
+          "sha256": "171869cdbf73d22f89bc4b95302538baddfacb0a4677e694d0775873ee0f843a"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/rustc-version.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/rustc-version.stdout",
+          "bytes": 203,
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/source-inputs.json",
+          "bytes": 644,
+          "sha256": "3b6973fb225220090fc64f8d3bfb3c0c6ce4a044cc874c715edc713157b42a95"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/tests.stdout",
+          "bytes": 715,
+          "sha256": "e20c720a80b82b38afe42de056bf762b99c798427dac3e16bf801b27f845a882"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-windows-2022/tests.stderr",
+          "bytes": 3743,
+          "sha256": "5259e0178eef34bae7bd0ae69ec286fbd4e6d42c2372a49731dc0223bd4dca14"
+        }
+      ]
+    },
+    {
+      "artifact_id": 14014666488,
+      "artifact_name": "lifecycle-database-retirement-ubuntu-24.04",
+      "artifact_zip_sha256": "ed99a8da14382f1e5eadc4ed47a0c940d169bde1352e1643be0eb3f2e0c09859",
+      "artifact_bytes": 19631,
+      "fixture": "database-retirement",
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "tested_source": "de43481581df9876cb2d0aed5de2db796d048c9d",
+      "tests_passed": [
+        "canceled_acquire_waiter_does_not_lose_the_only_pool_permit",
+        "dropped_transaction_rolls_back_before_same_connection_reuse",
+        "dropping_dispatched_commit_before_ack_can_still_commit",
+        "early_stream_drop_unblocks_bounded_row_queue_and_reuses_connection",
+        "pool_close_waits_for_checked_out_owner_and_rejects_new_acquire",
+        "progress_cancel_state_is_removed_before_next_operation"
+      ],
+      "source_inputs": {
+        "Cargo.toml": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4",
+        "Cargo.lock": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c",
+        "rust-toolchain.toml": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+        "src/lib.rs": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46",
+        "run.py": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366"
+      },
+      "source_input_identities": {
+        "Cargo.toml": {
+          "git_blob_sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4",
+          "checkout_sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4",
+          "relationship": "byte_exact"
+        },
+        "Cargo.lock": {
+          "git_blob_sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c",
+          "checkout_sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c",
+          "relationship": "byte_exact"
+        },
+        "rust-toolchain.toml": {
+          "git_blob_sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+          "checkout_sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+          "relationship": "byte_exact"
+        },
+        "src/lib.rs": {
+          "git_blob_sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46",
+          "checkout_sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46",
+          "relationship": "byte_exact"
+        },
+        "run.py": {
+          "git_blob_sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366",
+          "checkout_sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366",
+          "relationship": "byte_exact"
+        }
+      },
+      "source_inputs_verified": true,
+      "files": [
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/cargo-version.stdout",
+          "bytes": 337,
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/commands.json",
+          "bytes": 706,
+          "sha256": "1f6ef49e465b525acead27736363817230034409bfdec77b84dc3384b548ddbe"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/cargo-version.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/dependency-tree.stderr",
+          "bytes": 3581,
+          "sha256": "fead75cb73d4e3cc087737079f889d9c66ce42fe55470404ab061ce8e412164e"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/dependency-tree.stdout",
+          "bytes": 11563,
+          "sha256": "be385c4ad9a5dff4afabcba0849a6a80c5a126441c35c847254c1c0e49773d23"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/inputs/Cargo.toml",
+          "bytes": 531,
+          "sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/inputs/Cargo.lock",
+          "bytes": 28053,
+          "sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/inputs/run.py",
+          "bytes": 4237,
+          "sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/inputs/rust-toolchain.toml",
+          "bytes": 52,
+          "sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/inputs/src/lib.rs",
+          "bytes": 10022,
+          "sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/result.json",
+          "bytes": 990,
+          "sha256": "bd5640dc43d5267025d02d5854eec8ef39f0a7e854ae182283368757c66c81a6"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/rustc-version.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/rustc-version.stdout",
+          "bytes": 198,
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/source-inputs.json",
+          "bytes": 622,
+          "sha256": "ad1c38d2a7d8aa5a187c7d8b71c68907b8d0943fd91d6ff924bcdaebfeaeef91"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/tests.stderr",
+          "bytes": 3606,
+          "sha256": "cac33e0f271e295c2764a304234681b19f397460ca16bc398923bea8116eee29"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-database-retirement-ubuntu-24.04/tests.stdout",
+          "bytes": 699,
+          "sha256": "5dd1371429494cc8d8c20ca30d98420d89d9ca3d5ee8ddc3d95c015369bc9367"
+        }
+      ]
+    },
+    {
+      "artifact_id": 14014566727,
+      "artifact_name": "lifecycle-server-retained-bytes-ubuntu-24.04",
+      "artifact_zip_sha256": "eec344cca170fa07b74bcf3ccb0650964f31e490fef09b90d31dfd3bacf766c0",
+      "artifact_bytes": 8728,
+      "fixture": "server-retained-bytes",
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "tested_source": "de43481581df9876cb2d0aed5de2db796d048c9d",
+      "tests_passed": [
+        "body_end_does_not_retire_an_externally_retained_frame",
+        "byte_credit_survives_last_retained_slice",
+        "cancelled_byte_wait_restores_message_capacity_before_allocating",
+        "channel_close_does_not_revoke_an_already_reserved_send",
+        "oversized_chunk_is_rejected_before_reservations_or_allocation",
+        "receiver_drop_releases_queued_but_not_external_bytes"
+      ],
+      "source_inputs": {
+        "Cargo.toml": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+        "Cargo.lock": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+        "src/lib.rs": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+        "run.py": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+        ".gitattributes": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+      },
+      "source_input_identities": {
+        "Cargo.toml": {
+          "git_blob_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+          "checkout_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+          "relationship": "byte_exact"
+        },
+        "Cargo.lock": {
+          "git_blob_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+          "checkout_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+          "relationship": "byte_exact"
+        },
+        "src/lib.rs": {
+          "git_blob_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+          "checkout_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+          "relationship": "byte_exact"
+        },
+        "run.py": {
+          "git_blob_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+          "checkout_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+          "relationship": "byte_exact"
+        },
+        ".gitattributes": {
+          "git_blob_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+          "checkout_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+          "relationship": "byte_exact"
+        }
+      },
+      "source_inputs_verified": true,
+      "files": [
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/0.stdout",
+          "bytes": 198,
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/1.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/0.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/1.stdout",
+          "bytes": 37,
+          "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/2.stderr",
+          "bytes": 1237,
+          "sha256": "d731aa62c448946cc3a0d1faafe70d5d74c48fd39401d02c79e1e3fc9fd78215"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/2.stdout",
+          "bytes": 669,
+          "sha256": "fd6544b0ac11127e453f09e671548517996e16b437dc3a3f9c9201a20b3ac5ea"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/.gitattributes",
+          "bytes": 14,
+          "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/Cargo.lock",
+          "bytes": 2916,
+          "sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/Cargo.toml",
+          "bytes": 378,
+          "sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/run.py",
+          "bytes": 4893,
+          "sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/src/lib.rs",
+          "bytes": 7004,
+          "sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677"
+        },
+        {
+          "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/result.json",
+          "bytes": 3406,
+          "sha256": "b0cccf943905af2e600f44aeeafba693f716030275e010016164f49837f40b5f"
+        }
+      ]
+    }
+  ],
+  "preserved_raw_files": 56,
+  "scope": "Finite native Rust Database/Server research; no full C# adapter/AOT, transport, PostgreSQL, RSS or product acceptance",
+  "independent_review": "recorded separately; CI success is not independent architectural acceptance",
+  "formal_contract_accepted": false,
+  "product_delivery_executed": false
+}

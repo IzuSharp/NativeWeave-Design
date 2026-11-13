@@ -1,0 +1,65 @@
+{
+  "total_count": 3,
+  "artifacts": [
+    {
+      "id": 14009370861,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwOTM3MDg2MQ==",
+      "name": "interop-ubuntu-24.04",
+      "size_in_bytes": 2866193,
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14009370861",
+      "archive_download_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14009370861/zip",
+      "expired": false,
+      "digest": "sha256:42d197ed6ceb6ab1b7879079fe6a487b7f59c15ad203eb66a6d8d02200abf124",
+      "created_at": "2026-11-13T04:04:43Z",
+      "updated_at": "2026-11-13T04:04:43Z",
+      "expires_at": "2026-11-27T04:04:41Z",
+      "workflow_run": {
+        "id": 43363045559,
+        "repository_id": 1454887692,
+        "head_repository_id": 1454887692,
+        "head_branch": "research/native-slices-rust-1100",
+        "head_sha": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c"
+      }
+    },
+    {
+      "id": 14008634061,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwODYzNDA2MQ==",
+      "name": "merged-recovery-snapshots",
+      "size_in_bytes": 1398187,
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14008634061",
+      "archive_download_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14008634061/zip",
+      "expired": false,
+      "digest": "sha256:aa631210bf157f4e6e47c003f2a9a8e9433d66144bf8501fb75c9d7e7b623c78",
+      "created_at": "2026-11-13T04:04:16Z",
+      "updated_at": "2026-11-13T04:04:16Z",
+      "expires_at": "2026-11-27T04:04:14Z",
+      "workflow_run": {
+        "id": 43363045559,
+        "repository_id": 1454887692,
+        "head_repository_id": 1454887692,
+        "head_branch": "research/native-slices-rust-1100",
+        "head_sha": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c"
+      }
+    },
+    {
+      "id": 14008494778,
+      "node_id": "MDg6QXJ0aWZhY3QxNDAwODQ5NDc3OA==",
+      "name": "interop-windows-2022",
+      "size_in_bytes": 2593344,
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14008494778",
+      "archive_download_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/artifacts/14008494778/zip",
+      "expired": false,
+      "digest": "sha256:7f4bb0600182d1092882725217a253f6b6d5edff3fb62dd7133a1fd7a84cb4e1",
+      "created_at": "2026-11-13T04:05:17Z",
+      "updated_at": "2026-11-13T04:05:17Z",
+      "expires_at": "2026-11-27T04:05:17Z",
+      "workflow_run": {
+        "id": 43363045559,
+        "repository_id": 1454887692,
+        "head_repository_id": 1454887692,
+        "head_branch": "research/native-slices-rust-1100",
+        "head_sha": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c"
+      }
+    }
+  ]
+}
