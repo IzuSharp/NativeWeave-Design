@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net11.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Reuse the exact migrated research facade as a negative control, not a product dependency. -->
+    <Compile Include="../native-slices/interop/managed/Bridge.cs" Link="HistoricalBridge.cs" />
+    <None Include="$(NativeAsset)" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="RequireNativeAsset" BeforeTargets="BeforeBuild">
+    <Error Condition="'$(NativeAsset)' == '' Or !Exists('$(NativeAsset)')" Text="The research native asset must be supplied by run.py." />
+  </Target>
+</Project>
