@@ -1,0 +1,36 @@
+name: Persist executed native-slice evidence
+on:
+  push:
+    branches: [research/native-slices-rust-1100]
+    paths:
+      - tools/preserve_native_slice_evidence.py
+      - .github/workflows/preserve-native-evidence.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preserve:
+    if: github.repository == 'IzuSharp/NativeWeave' && github.ref == 'refs/heads/research/native-slices-rust-1100'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Verify and preserve exact completed artifacts, including failures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/preserve_native_slice_evidence.py
+      - name: Commit evidence only on the existing feature branch
+        run: |
+          git diff --check -- ':!verification/native-slices/'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add verification/native-slices
+          git diff --cached --quiet && exit 0
+          git commit -m 'test: persist exact native-slice commands outputs sources and failures'
+          git push origin HEAD:refs/heads/research/native-slices-rust-1100

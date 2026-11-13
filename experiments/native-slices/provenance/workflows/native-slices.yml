@@ -1,0 +1,65 @@
+name: Native slices (research, not product acceptance)
+on:
+  push:
+    branches: [research/native-slices-rust-1100]
+    paths:
+      - 'experiments/interop/**'
+      - '.github/workflows/native-slices.yml'
+      - 'rust-toolchain.toml'
+      - 'global.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  interop:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
+        with:
+          dotnet-version: '11.0.100'
+      - name: Install exact stable Rust
+        run: rustup toolchain install 1.100.0 --profile minimal
+      - name: Execute native tests, local NuGet and actual AOT consumer
+        run: python experiments/interop/run.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: interop-${{ matrix.os }}
+          retention-days: 14
+          path: artifacts/
+  recovery-snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: IzuSharp/NativeWeave-Design
+          ref: 7759248e8c3bb37a99481f09c690d2c9f9b49248
+          path: snapshots/NativeWeave-Design
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: IzuSharp/Plan
+          ref: 2ef12b8459e8f8905f7b288f9b58393714aedfaa
+          path: snapshots/Plan
+          persist-credentials: false
+      - name: Validate merged Plan without accepting any new tasks
+        working-directory: snapshots/Plan
+        run: |
+          python3 tools/validate_graphs.py --output verification/recovery-current-graphs.json
+          python3 tools/mutation_checks.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: merged-recovery-snapshots
+          path: snapshots/
+          include-hidden-files: false
+          retention-days: 14

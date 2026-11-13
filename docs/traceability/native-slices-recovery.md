@@ -1,3 +1,5 @@
+> **Research asset location correction:** these historical execution identities remain unchanged. Current source is `experiments/native-slices/` and original evidence is `verification/native-slices/original-pr1/` in NativeWeave-Design. See `docs/traceability/research-asset-migration.md` and its per-file mapping. No formal product implementation is authorized in this phase.
+
 # Recovery after Rust1.100 integration — actual next-stage checkpoint
 
 Date: 2026-11-12 America/Los_Angeles (Actions records use UTC2026-11-13). This continues existing tasks, not a new planning layer.

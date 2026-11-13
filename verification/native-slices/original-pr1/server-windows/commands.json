@@ -1,0 +1,43 @@
+[
+  {
+    "command": [
+      "rustc",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:13:08.270974+00:00",
+    "ended_utc": "2026-11-13T04:13:08.866640+00:00",
+    "stdout_sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "cargo",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:13:08.883951+00:00",
+    "ended_utc": "2026-11-13T04:13:09.681847+00:00",
+    "stdout_sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "cargo",
+      "+1.100.0",
+      "test",
+      "--locked",
+      "--manifest-path",
+      "D:\\a\\NativeWeave\\NativeWeave\\experiments\\server\\Cargo.toml",
+      "--",
+      "--test-threads=1"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:13:09.681847+00:00",
+    "ended_utc": "2026-11-13T04:13:25.469143+00:00",
+    "stdout_sha256": "8d8e2fd29d72e52377a013afab8699c33de94973e9573d66a753ed81c3775f0b",
+    "stderr_sha256": "dfb4a0276cc7abe6c25ee5732d87da37a63be7746beb2fd2309f3edd8857787b"
+  }
+]

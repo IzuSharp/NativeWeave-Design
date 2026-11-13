@@ -1,0 +1,14 @@
+{
+  "success": false,
+  "fixture": "database",
+  "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+  "workflow_commit": "d2ba134118ec39a8c2ed579c26dad3924b47cd2b",
+  "run_id": "43363994414",
+  "platform": "Windows-2022Server-10.0.20348-SP0",
+  "scope": "finite native source-informed fixture; no C# domain binding, PostgreSQL, TLS, load or product acceptance",
+  "source_files": {
+    "experiments\\database\\Cargo.lock": "44ace8e02b624d0ed1f753bd133732abd31541675707dacfabf4686a0cab0d9f",
+    "experiments\\database\\Cargo.toml": "d60ba2c914538c0df681b58b96bb6af0642ab80f68dbadfa74fcb4a78c918e40",
+    "experiments\\database\\src\\lib.rs": "aa86280d2ad53c5b57c2d104e24f17eb0207c9b3691cb0d86c8ee05950231a72"
+  }
+}

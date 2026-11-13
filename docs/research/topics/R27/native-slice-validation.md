@@ -1,3 +1,5 @@
+> **Research asset location correction:** these historical execution identities remain unchanged. Current source is `experiments/native-slices/` and original evidence is `verification/native-slices/original-pr1/` in NativeWeave-Design. See `docs/traceability/research-asset-migration.md` and its per-file mapping. No formal product implementation is authorized in this phase.
+
 # R27/R29 — actual native Service/Body tests, beyond the finite model
 
 Status: partially evidenced, not an independent review or production Server. Exact source **5dd696725afe75f2b8b03b104c8275db50dcf2c7**, [run43363994414](https://github.com/IzuSharp/NativeWeave/actions/runs/43363994414). Both Windows2022 and Ubuntu24.04 passed **four actual Rust tests** against Hyper1.12.0, hyper-util0.1.21, Tower0.5.3 and Tokio1.54.1 with a persisted lockfile. These are distinct from the older abstract Python admission model; no model counts are reported as network execution.

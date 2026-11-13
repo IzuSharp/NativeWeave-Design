@@ -1,0 +1,167 @@
+[
+  {
+    "name": "rust-version",
+    "argv": [
+      "rustc",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:04:52.362810+00:00",
+    "ended_utc": "2026-11-13T04:04:53.035012+00:00",
+    "stdout_sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "cargo-version",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:04:53.050643+00:00",
+    "ended_utc": "2026-11-13T04:04:53.630836+00:00",
+    "stdout_sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "dotnet-info",
+    "argv": [
+      "dotnet",
+      "--info"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:04:53.630836+00:00",
+    "ended_utc": "2026-11-13T04:04:54.618040+00:00",
+    "stdout_sha256": "15b913093b0ccfe2979b657666a17deb29ed218d70c083b3f0b727898ac362e7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "rust-tests",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "test",
+      "--locked",
+      "--offline",
+      "--manifest-path",
+      "D:\\a\\NativeWeave\\NativeWeave\\experiments\\interop\\native\\Cargo.toml",
+      "--",
+      "--test-threads=1"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:04:54.618040+00:00",
+    "ended_utc": "2026-11-13T04:04:56.920635+00:00",
+    "stdout_sha256": "d5764b6d5104e8af5c4ff7fee2cf3f72435beb21018f5112e2e592df347961d4",
+    "stderr_sha256": "eb8cace24b6ac2d08351fcf918593e04993bfa3cda39e8df9d23fc451507aeb9"
+  },
+  {
+    "name": "native-build",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "build",
+      "--locked",
+      "--offline",
+      "--release",
+      "--manifest-path",
+      "D:\\a\\NativeWeave\\NativeWeave\\experiments\\interop\\native\\Cargo.toml",
+      "--message-format=json"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:04:56.920635+00:00",
+    "ended_utc": "2026-11-13T04:04:57.249496+00:00",
+    "stdout_sha256": "9a415eef4306513fbb768fa9969d00a85e0a3d7d5ec1380c2e9669e837e70817",
+    "stderr_sha256": "15059dd4cf44fa46c09fb46591f1da8c5eef47bf189bdb2e53ceab90355c63c5"
+  },
+  {
+    "name": "pack",
+    "argv": [
+      "dotnet",
+      "pack",
+      "D:\\a\\NativeWeave\\NativeWeave\\experiments\\interop\\managed\\NativeWeave.Interop.Probe.csproj",
+      "-c",
+      "Release",
+      "-o",
+      "D:\\a\\NativeWeave\\NativeWeave\\.work\\win-x64\\feed",
+      "-p:NativeAsset=D:\\a\\NativeWeave\\NativeWeave\\.work\\win-x64\\target\\release\\nw_interop_probe.dll",
+      "-p:ProbeRid=win-x64"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:04:57.249496+00:00",
+    "ended_utc": "2026-11-13T04:05:01.549201+00:00",
+    "stdout_sha256": "c404a63f19665a34f4a9bd48837a2d04cb96f8bf68f1f6df0ad12f42bdd05b1d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "consumer-build-no-rid",
+    "argv": [
+      "dotnet",
+      "build",
+      "-c",
+      "Release"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave\\.work\\win-x64\\consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:05:01.833226+00:00",
+    "ended_utc": "2026-11-13T04:05:02.786991+00:00",
+    "stdout_sha256": "645de1f0652e3ed19762aa55a115b010a3dc351b82d1c3e9a79151b388e09756",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "consumer-run-no-rid",
+    "argv": [
+      "dotnet",
+      "run",
+      "-c",
+      "Release",
+      "--no-build"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave\\.work\\win-x64\\consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:05:02.786991+00:00",
+    "ended_utc": "2026-11-13T04:05:03.818803+00:00",
+    "stdout_sha256": "49d1ebb3d458753627a09ba78a0ab7e8aea3d09b3a6401f683bf3dd88c63cbdf",
+    "stderr_sha256": "244571eb8cb7e7909c4854abaf817f7e43c52a466bb7ba323039135501e4a8e6"
+  },
+  {
+    "name": "aot-publish",
+    "argv": [
+      "dotnet",
+      "publish",
+      "-c",
+      "Release",
+      "-r",
+      "win-x64",
+      "-p:PublishAot=true",
+      "-o",
+      "D:\\a\\NativeWeave\\NativeWeave\\.work\\win-x64\\publish"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave\\.work\\win-x64\\consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:05:03.818803+00:00",
+    "ended_utc": "2026-11-13T04:05:16.319250+00:00",
+    "stdout_sha256": "5975d4595314d5982b3f45f757ed017b8c60978744aa0ab092c035410290dc8a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "aot-run",
+    "argv": [
+      "D:\\a\\NativeWeave\\NativeWeave\\.work\\win-x64\\publish\\Consumer.exe",
+      "--expect-aot"
+    ],
+    "cwd": "D:\\a\\NativeWeave\\NativeWeave\\.work\\win-x64\\publish",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T04:05:16.319250+00:00",
+    "ended_utc": "2026-11-13T04:05:16.744295+00:00",
+    "stdout_sha256": "a982edb9fb6a39ee7662275c8cf93dc31ed9015dd26098ad77c06b288286eabf",
+    "stderr_sha256": "c5efd76091ccc7edeb6482c2a0b5bda96ffba087d83ec196705761eef6624320"
+  }
+]

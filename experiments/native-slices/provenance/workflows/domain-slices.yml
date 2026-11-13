@@ -1,0 +1,84 @@
+name: Independent native Database and Server slices
+on:
+  push:
+    branches: [research/native-slices-rust-1100]
+    paths:
+      - 'experiments/database/src/**'
+      - 'experiments/database/Cargo.toml'
+      - 'experiments/server/src/**'
+      - 'experiments/server/Cargo.toml'
+      - 'experiments/run_domains.py'
+      - '.github/workflows/domain-slices.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lock-new-fixtures:
+    if: github.repository == 'IzuSharp/NativeWeave' && github.ref == 'refs/heads/research/native-slices-rust-1100'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      fixture_commit: ${{ steps.lock.outputs.fixture_commit }}
+      domains: ${{ steps.lock.outputs.domains }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - run: rustup toolchain install 1.100.0 --profile minimal
+      - name: Initialize missing locks and select changed domain fixtures
+        id: lock
+        shell: bash
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          before=os.environ.get('BEFORE','')
+          if before and before.strip('0'):
+              paths=subprocess.check_output(['git','diff','--name-only',before,os.environ['GITHUB_SHA']],text=True).splitlines()
+              domains=[d for d in ('database','server') if any(p.startswith('experiments/'+d+'/') for p in paths)]
+              if 'experiments/run_domains.py' in paths:domains=['database','server']
+          else:domains=[]
+          if not domains:domains=['database','server']
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('domains='+json.dumps(domains)+'\n')
+          PY
+          for domain in database server; do
+            file="experiments/$domain/Cargo.lock"
+            if [ ! -f "$file" ]; then cargo +1.100.0 generate-lockfile --manifest-path "experiments/$domain/Cargo.toml"; fi
+          done
+          git add experiments/database/Cargo.lock experiments/server/Cargo.lock
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'test: lock new native domain fixtures before platform execution'
+            git push origin HEAD:refs/heads/research/native-slices-rust-1100
+          fi
+          echo "fixture_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+  domain:
+    needs: lock-new-fixtures
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+        domain: ${{ fromJSON(needs.lock-new-fixtures.outputs.domains) }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.lock-new-fixtures.outputs.fixture_commit }}
+          persist-credentials: false
+      - run: rustup toolchain install 1.100.0 --profile minimal
+      - name: Run locked source-informed native fixture
+        env:
+          FIXTURE_COMMIT: ${{ needs.lock-new-fixtures.outputs.fixture_commit }}
+        run: python experiments/run_domains.py ${{ matrix.domain }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ${{ matrix.domain }}-${{ matrix.os }}
+          retention-days: 14
+          path: artifacts/

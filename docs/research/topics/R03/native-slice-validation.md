@@ -1,3 +1,5 @@
+> **Research asset location correction:** these historical execution identities remain unchanged. Current source is `experiments/native-slices/` and original evidence is `verification/native-slices/original-pr1/` in NativeWeave-Design. See `docs/traceability/research-asset-migration.md` and its per-file mapping. No formal product implementation is authorized in this phase.
+
 # R03/R04/R07/R10 — executed native/managed boundary continuation
 
 Status: **partially evidenced**, author self-review, independent review pending. This adds new executable evidence to the original source research; no existing successful Rust API or database AOT experiment was rerun. Recovery details: [checkpoint](../../../traceability/native-slices-recovery.md).
