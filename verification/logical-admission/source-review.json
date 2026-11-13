@@ -1,0 +1,70 @@
+[
+  {
+    "repository": "SeaQL/sea-query",
+    "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+    "path": "src/query/select.rs",
+    "blob_sha1": "f5d48689a7b88e3b17f855b67ad3b40af05c2940",
+    "full_source_sha256": "ae717b8975d1d4200b0945012306fe2df5a5d6b27294007be6b86d1c9d577cef",
+    "read_ranges": [
+      [
+        40,
+        64
+      ]
+    ],
+    "excerpt_path": "verification/logical-admission/upstream/review-1.txt",
+    "excerpt_sha256": "7ff8ee08179dcc97c12908d13a3f0cdd4ac6407ea4b87b214b8dda2c58ac1a62",
+    "upstream_tests_executed": false
+  },
+  {
+    "repository": "SeaQL/sea-query",
+    "commit": "f2d5e04d30919c342da1f8845ff1fde46e3308fc",
+    "path": "src/query/traits.rs",
+    "blob_sha1": "7527dab633c156e6918bc4404b7d98b923760452",
+    "full_source_sha256": "3d0a3e3d2287ae0259a478a6c3c7bf571be3f9cffeb5b67d6c84d0a6bfdbd6ee",
+    "read_ranges": [
+      [
+        5,
+        25
+      ],
+      [
+        83,
+        87
+      ]
+    ],
+    "excerpt_path": "verification/logical-admission/upstream/review-2.txt",
+    "excerpt_sha256": "be2926a8acc201f544e9b40e6710be5d8188fe7918faf47e8c52de535efb4306",
+    "upstream_tests_executed": false
+  },
+  {
+    "repository": "tower-rs/tower",
+    "commit": "4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc",
+    "path": "tower/src/limit/concurrency/future.rs",
+    "blob_sha1": "2d8833692e3434f533900e2ae8cd637995eaf13e",
+    "full_source_sha256": "a8b66f9862fd24a1c41b7d3e889a4989a4efd333493e7347dba02f25582208da",
+    "read_ranges": [
+      [
+        1,
+        40
+      ]
+    ],
+    "excerpt_path": "verification/logical-admission/upstream/review-3.txt",
+    "excerpt_sha256": "63d28ebd5cb92c2220d271b35dcea488f422dc3b66fb8f4f08d0cabfd60800ca",
+    "upstream_tests_executed": false
+  },
+  {
+    "repository": "rust-lang/rust",
+    "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+    "path": "library/std/src/sync/poison/mutex.rs",
+    "blob_sha1": "42c5fcf3e27c02adf3d2143e30b5c77d2bf05491",
+    "full_source_sha256": "7bcfaa04fc7df7e1a5bf7ea8d7185b7820e840ed26fa05e448419a724f8e1af7",
+    "read_ranges": [
+      [
+        1,
+        110
+      ]
+    ],
+    "excerpt_path": "verification/logical-admission/upstream/review-4.txt",
+    "excerpt_sha256": "ca6a7fb1a5b22ef8d504266f726e3cb8905451beebc583fea2efa53e3f5a3d8e",
+    "upstream_tests_executed": false
+  }
+]

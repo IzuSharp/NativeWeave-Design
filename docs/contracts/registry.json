@@ -58,15 +58,18 @@
       "version": "0.1.0-draft",
       "status": "proposed",
       "title": "资源所有权与释放",
-      "evidence": [],
+      "evidence": [
+        "docs/research/topics/R07/logical-admission.md",
+        "verification/logical-admission/primary-results.json"
+      ],
       "reviewers": [],
       "specification_status": "existing_review_ready_text_registered_as_proposed",
-      "content_sha256": "c21e14010397330ba08f41db91d438c98f190f018130a3429f7f58b07f135bcb",
+      "content_sha256": "d527369dfd97a2d97ecd0930e25effc523791eb5e22586b1d9e18ac6f4aa31c9",
       "author": "interop_design",
       "spec_path": "docs/contracts/lifetime-v0.1.md",
       "dependencies": [],
       "reviews": [],
-      "version_note": "Registry draft label retained; document v0.1.0 text is review-ready, not formally accepted. Original independent review applies only to its original bytes."
+      "version_note": "0.1.0-draft protocol unchanged; non-normative finite execution addendum updates exact content hash. Old reviews do not approve these new bytes. Independent and full contract acceptance remain pending."
     },
     {
       "id": "C-CALLBACK-001",

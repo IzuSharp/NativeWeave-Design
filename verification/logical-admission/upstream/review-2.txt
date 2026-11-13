@@ -1,0 +1,29 @@
+Source: https://raw.githubusercontent.com/SeaQL/sea-query/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/traits.rs
+Original copyright and license remain those of the upstream repository.
+
+5: pub trait QueryStatementBuilder: Debug + Into<SubQueryStatement> {
+6:     /// Build corresponding SQL statement for certain database backend and collect query parameters into a vector
+7:     fn build_any(&self, query_builder: &impl QueryBuilder) -> (String, Values) {
+8:         let (placeholder, numbered) = query_builder.placeholder();
+9:         let mut sql = SqlWriterValues::new(placeholder, numbered);
+10:         self.build_collect_any_into(query_builder, &mut sql);
+11:         sql.into_parts()
+12:     }
+13: 
+14:     /// Build corresponding SQL statement for certain database backend and collect query parameters
+15:     fn build_collect_any(
+16:         &self,
+17:         query_builder: &impl QueryBuilder,
+18:         sql: &mut impl SqlWriter,
+19:     ) -> String {
+20:         self.build_collect_any_into(query_builder, sql);
+21:         sql.to_string()
+22:     }
+23: 
+24:     /// Build corresponding SQL statement into the SqlWriter for certain database backend and collect query parameters
+25:     fn build_collect_any_into(&self, query_builder: &impl QueryBuilder, sql: &mut impl SqlWriter);
+83:     fn build<T: QueryBuilder>(&self, query_builder: T) -> (String, Values) {
+84:         let (placeholder, numbered) = query_builder.placeholder();
+85:         let mut sql = SqlWriterValues::new(placeholder, numbered);
+86:         self.build_collect_into(query_builder, &mut sql);
+87:         sql.into_parts()

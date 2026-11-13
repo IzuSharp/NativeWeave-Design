@@ -1,0 +1,28 @@
+Source: https://raw.githubusercontent.com/SeaQL/sea-query/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/query/select.rs
+Original copyright and license remain those of the upstream repository.
+
+40: #[derive(Default, Debug, Clone, PartialEq)]
+41: pub struct SelectStatement {
+42:     pub(crate) distinct: Option<SelectDistinct>,
+43:     pub(crate) selects: Vec<SelectExpr>,
+44:     pub(crate) into: Option<SelectInto>,
+45:     pub(crate) from: Vec<TableRef>,
+46:     pub(crate) join: Vec<JoinExpr>,
+47:     pub(crate) r#where: ConditionHolder,
+48:     pub(crate) groups: Vec<Expr>,
+49:     pub(crate) having: ConditionHolder,
+50:     pub(crate) unions: Vec<(UnionType, SelectStatement)>,
+51:     pub(crate) orders: Vec<OrderExpr>,
+52:     pub(crate) limit: Option<Value>,
+53:     pub(crate) offset: Option<Value>,
+54:     pub(crate) lock: Option<LockClause>,
+55:     pub(crate) window: Option<(DynIden, WindowStatement)>,
+56:     pub(crate) with: Option<Box<WithClause>>,
+57:     #[cfg(feature = "backend-postgres")]
+58:     pub(crate) table_sample: Option<crate::extension::postgres::TableSample>,
+59:     #[cfg(feature = "backend-mysql")]
+60:     pub(crate) index_hints: std::collections::HashMap<
+61:         index_hint::IndexHintKey,
+62:         Vec<crate::extension::mysql::IndexHint>,
+63:     >,
+64: }

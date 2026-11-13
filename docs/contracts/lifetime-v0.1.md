@@ -139,3 +139,9 @@ GCHandle可复用，因此“句柄值非零”或`Target != null`不能辨别�
 
 Q04的资源安全设计部分可以在独立审查本文件、D05与D06后记录为design-resolved；本地内存静默与远端效果区分已明确。对应实施和生产验证保持pending。Q02中私有指针与代际表的v1选择已有明确建议，其完整ABI接受由D02及独立审查负责。
 
+
+## Supplemental execution evidence — logical admission only
+
+This non-normative update does not change the v0.1.0 admission protocol or accept the contract. The earlier uncompiled skeleton is now complemented by an equivalent synchronous research facade in `experiments/logical-admission/Program.cs`, tested at Design28f6cf7e6e4e80b9f32a92ad587a528d82911bd0/run43373306474. Both Windows/Linux passed normal and actual AOT runs with653 assertions and64 controlled gate/Dispose rounds each. The original SafeHandle-only facade admitted a new call while an old lease remained; the explicit Open/Closing gate rejected it while allowing the old call to complete. An injected managed failure returned its acquired reference.
+
+See [R07 detailed study](../research/topics/R07/logical-admission.md) for exact source, traces, operation ordering, mutation-lock separation and future Codex test cases. The compiled fixture has no RequestStopIfApplicable, async callback, parent/child, finalizer or module-unload implementation, so those parts of this contract remain unverified by it. Keep native query mutation guards separate, avoid callbacks/await under them, and do not rely on Mutex poisoning for unsafe memory soundness. Research experiment success is not formal A03/A07/B11/B17 implementation or independent acceptance.

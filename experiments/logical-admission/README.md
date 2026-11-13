@@ -4,7 +4,7 @@ Research only. This extends the existing lifetime study after PR1 assets were mo
 
 ## Question and inspected source
 
-Does SafeHandle alone reject new business calls after Dispose when an earlier native call still owns a reference? The exact .NET11 source is dotnet/runtime commit `deae2e32bf0e018e09d64597b7c59b62b73bb3ce`, `src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs`, inspected lines130–281, Git blob `2d1f9313b485c57afab1f187e00a180df7fad3ba`. DangerousAddRef checks the Closed bit; InternalRelease records Disposed separately and closes on final reference release. Existing R07 already identifies this distinction. The new fixture makes that source-derived counterexample executable across C ABI and actual AOT.
+Does SafeHandle alone reject new business calls after Dispose when an earlier native call still owns a reference? The exact .NET11 source is dotnet/runtime commit `deae2e32bf0e018e09d64597b7c59b62b73bb3ce`, `src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs`, inspected lines130–265, Git blob `2d1f9313b485c57afab1f187e00a180df7fad3ba`. DangerousAddRef checks the Closed bit; InternalRelease records Disposed separately and closes on final reference release. Existing R07 already identifies this distinction. The new fixture makes that source-derived counterexample executable across C ABI and actual AOT.
 
 ## Experimental design
 

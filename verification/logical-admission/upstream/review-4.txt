@@ -1,0 +1,113 @@
+Source: https://raw.githubusercontent.com/rust-lang/rust/0ef1bc386059596dada8fb65b50425aab2ea637a/library/std/src/sync/poison/mutex.rs
+Original copyright and license remain those of the upstream repository.
+
+1: use crate::cell::UnsafeCell;
+2: use crate::fmt;
+3: use crate::marker::PhantomData;
+4: use crate::mem::{self, ManuallyDrop};
+5: use crate::ops::{Deref, DerefMut};
+6: use crate::ptr::NonNull;
+7: use crate::sync::{LockResult, PoisonError, TryLockError, TryLockResult, poison};
+8: use crate::sys::sync as sys;
+9: 
+10: /// A mutual exclusion primitive useful for protecting shared data
+11: ///
+12: /// This mutex will block threads waiting for the lock to become available. The
+13: /// mutex can be created via a [`new`] constructor. Each mutex has a type parameter
+14: /// which represents the data that it is protecting. The data can only be accessed
+15: /// through the RAII guards returned from [`lock`] and [`try_lock`], which
+16: /// guarantees that the data is only ever accessed when the mutex is locked.
+17: ///
+18: /// # Poisoning
+19: ///
+20: /// The mutexes in this module implement a strategy called "poisoning" where a
+21: /// mutex becomes poisoned if it recognizes that the thread holding it has
+22: /// panicked.
+23: ///
+24: /// Once a mutex is poisoned, all other threads are unable to access the data by
+25: /// default as it is likely tainted (some invariant is not being upheld). For a
+26: /// mutex, this means that the [`lock`] and [`try_lock`] methods return a
+27: /// [`Result`] which indicates whether a mutex has been poisoned or not. Most
+28: /// usage of a mutex will simply [`unwrap()`] these results, propagating panics
+29: /// among threads to ensure that a possibly invalid invariant is not witnessed.
+30: ///
+31: /// Poisoning is only advisory: the [`PoisonError`] type has an [`into_inner`]
+32: /// method which will return the guard that would have otherwise been returned
+33: /// on a successful lock. This allows access to the data, despite the lock being
+34: /// poisoned.
+35: ///
+36: /// In addition, the panic detection is not ideal, so even unpoisoned mutexes
+37: /// need to be handled with care, since certain panics may have been skipped.
+38: /// Here is a non-exhaustive list of situations where this might occur:
+39: ///
+40: /// - If a mutex is locked while a panic is underway, e.g. within a [`Drop`]
+41: ///   implementation or a [panic hook], panicking for the second time while the
+42: ///   lock is held will leave the mutex unpoisoned. Note that while double panic
+43: ///   usually aborts the program, [`catch_unwind`] can prevent this.
+44: ///
+45: /// - Locking and unlocking the mutex across different panic contexts, e.g. by
+46: ///   storing the guard to a [`Cell`] within [`Drop::drop`] and accessing it
+47: ///   outside, or vice versa, can affect poisoning status in an unexpected way.
+48: ///
+49: /// - Foreign exceptions do not currently trigger poisoning even in absence of
+50: ///   other panics.
+51: ///
+52: /// While this rarely happens in realistic code, `unsafe` code cannot rely on
+53: /// poisoning for soundness, since the behavior of poisoning can depend on
+54: /// outside context. Here's an example of **incorrect** use of poisoning:
+55: ///
+56: /// ```rust
+57: /// use std::sync::Mutex;
+58: ///
+59: /// struct MutexBox<T> {
+60: ///     data: Mutex<*mut T>,
+61: /// }
+62: ///
+63: /// impl<T> MutexBox<T> {
+64: ///     pub fn new(value: T) -> Self {
+65: ///         Self {
+66: ///             data: Mutex::new(Box::into_raw(Box::new(value))),
+67: ///         }
+68: ///     }
+69: ///
+70: ///     pub fn replace_with(&self, f: impl FnOnce(T) -> T) {
+71: ///         let ptr = self.data.lock().expect("`Mutex` should not be poisoned");
+72: ///         // While `f` is running, the data is moved out of `*ptr`. If `f`
+73: ///         // panics, `*ptr` keeps pointing at a dropped value. The intention
+74: ///         // is that this will poison the mutex, so the following calls to
+75: ///         // `replace_with` will panic without reading `*ptr`. But since
+76: ///         // poisoning is not guaranteed to occur if this is run from a panic
+77: ///         // hook, this can lead to use-after-free.
+78: ///         unsafe {
+79: ///             (*ptr).write(f((*ptr).read()));
+80: ///         }
+81: ///     }
+82: /// }
+83: /// ```
+84: ///
+85: /// [`new`]: Self::new
+86: /// [`lock`]: Self::lock
+87: /// [`try_lock`]: Self::try_lock
+88: /// [`unwrap()`]: Result::unwrap
+89: /// [`PoisonError`]: super::PoisonError
+90: /// [`into_inner`]: super::PoisonError::into_inner
+91: /// [panic hook]: crate::panic::set_hook
+92: /// [`catch_unwind`]: crate::panic::catch_unwind
+93: /// [`Cell`]: crate::cell::Cell
+94: ///
+95: /// # Examples
+96: ///
+97: /// ```
+98: /// use std::sync::{Arc, Mutex};
+99: /// use std::thread;
+100: /// use std::sync::mpsc::channel;
+101: ///
+102: /// const N: usize = 10;
+103: ///
+104: /// // Spawn a few threads to increment a shared variable (non-atomically), and
+105: /// // let the main thread know once all increments are done.
+106: /// //
+107: /// // Here we're using an Arc to share memory among threads, and the data inside
+108: /// // the Arc is protected with a mutex.
+109: /// let data = Arc::new(Mutex::new(0));
+110: ///

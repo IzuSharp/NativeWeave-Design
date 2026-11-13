@@ -1,7 +1,7 @@
 """Verify completed R07 evidence and add non-normative detail to existing documents."""
 from pathlib import Path
 import hashlib,json,os,subprocess,urllib.request
-D=Path.cwd();e=D/'verification/logical-admission';r=json.loads((e/'results.json').read_text())
+D=Path.cwd();e=D/'verification/logical-admission';r=json.loads((e/'primary-results.json').read_text())
 assert r['both_platforms_passed'] and r['tested_design_commit']=='28f6cf7e6e4e80b9f32a92ad587a528d82911bd0'
 def sha(b):return hashlib.sha256(b).hexdigest()
 count=0
@@ -44,7 +44,7 @@ for c in registry['contracts']:
  if c['id']=='C-LIFETIME-001':
   assert c['status']=='proposed' and not c['reviews']
   c['content_sha256']=sha((D/c['spec_path']).read_bytes())
-  c['evidence']=['docs/research/topics/R07/logical-admission.md','verification/logical-admission/results.json']
+  c['evidence']=['docs/research/topics/R07/logical-admission.md','verification/logical-admission/primary-results.json']
   c['version_note']='0.1.0-draft protocol unchanged; non-normative finite execution addendum updates exact content hash. Old reviews do not approve these new bytes. Independent and full contract acceptance remain pending.'
 p.write_text(json.dumps(registry,ensure_ascii=False,indent=2)+'\n')
 checked=[]
