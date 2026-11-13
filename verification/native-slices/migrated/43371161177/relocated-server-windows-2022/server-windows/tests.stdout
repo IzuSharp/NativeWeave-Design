@@ -1,0 +1,14 @@
+
+running 4 tests
+test tests::body_and_callback_share_one_admission_slot ... ok
+test tests::bounded_body_queue_and_eof_release ... ok
+test tests::hyper_http1_service_future_and_streamed_body_on_real_duplex_transport ... ok
+test tests::tower_response_future_negative_control_does_not_limit_live_bodies ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

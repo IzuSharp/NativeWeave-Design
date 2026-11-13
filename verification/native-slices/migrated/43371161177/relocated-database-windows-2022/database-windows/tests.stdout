@@ -1,0 +1,16 @@
+
+running 6 tests
+test tests::argument_bounds_null_and_unsigned ... ok
+test tests::encoding_error_is_propagated_and_native_arguments_roll_back ... ok
+test tests::explicit_transaction_rollback_and_schema_error ... ok
+test tests::overflow_rejected_before_database_send ... ok
+test tests::runtime_tables_native_crud_and_injection_value ... ok
+test tests::sqlite_silent_row_lock_negative_control_and_explicit_rejection ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

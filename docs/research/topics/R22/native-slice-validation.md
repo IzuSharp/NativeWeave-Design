@@ -1,3 +1,5 @@
+> **Research asset location correction:** these historical execution identities remain unchanged. Current source is `experiments/native-slices/` and original evidence is `verification/native-slices/original-pr1/` in NativeWeave-Design. See `docs/traceability/research-asset-migration.md` and its per-file mapping. No formal product implementation is authorized in this phase.
+
 # R22/R25 — actual fallible native binder and SQLite semantics
 
 Status: partially evidenced; author-side implementation/tests, not independent review or production ORM. Uses the original pinned SeaQuery1.0.2/SQLx0.9.0/Tokio1.54.1 routes, no C# SQL implementation. NativeWeave PR1 contains the executable fixture at `experiments/database/`.

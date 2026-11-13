@@ -1,0 +1,517 @@
+{
+  "repository": "IzuSharp/NativeWeave-Design",
+  "run_id": "43371161177",
+  "tested_design_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+  "migration_map_sha256": "1f306d8f4625421360f4e324f1e83f1382d53155f9b6748a7c11682af7b9c1c8",
+  "all_six_jobs_passed": true,
+  "records": [
+    {
+      "artifact": "relocated-database-ubuntu-24.04",
+      "artifact_id": 14012845812,
+      "artifact_zip_sha256": "5cdf5a4d5881ed5bb3d586f52c4806c98d6664e24a5c92804c7fd9a615ac57de",
+      "tested_design_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "success": true,
+      "files": [
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/Cargo.lock",
+          "sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "bytes": 28051
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/cargo-version.stdout",
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+          "bytes": 337
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/Cargo.toml",
+          "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "bytes": 537
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/commands.json",
+          "sha256": "b64b8eae8b35f80b4fc04e8e979de749a13389524442efe4da59a5c69ff244c1",
+          "bytes": 1345
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/result.json",
+          "sha256": "b45fa5dd6a6b33d30df01458f638c3194e88dde96f216a9bea81f61130a8277a",
+          "bytes": 692
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/rust-version.stdout",
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+          "bytes": 198
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/src/lib.rs",
+          "sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+          "bytes": 9918
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/tests.stderr",
+          "sha256": "17185650fbb9f36041b7bf5cf0de3e20b937a774e4f8ff60ae8c79cecfbc8f4e",
+          "bytes": 7204
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/tests.stdout",
+          "sha256": "ec0288cca6c86dc6f1ae9ecf292606d689426b984d46b45db68e6a45cf296815",
+          "bytes": 630
+        }
+      ]
+    },
+    {
+      "artifact": "relocated-database-windows-2022",
+      "artifact_id": 14012796236,
+      "artifact_zip_sha256": "29ead7908818131ced8ea51c2becfdb031d1ac8f4d0c63c4684cc32af76818f8",
+      "tested_design_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "success": true,
+      "files": [
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/cargo-version.stdout",
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+          "bytes": 338
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/Cargo.lock",
+          "sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "bytes": 28051
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/Cargo.toml",
+          "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "bytes": 537
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/commands.json",
+          "sha256": "e664d2eb8901cac4df0bb73cef2e6733cd18caa52bd192d8fbc247f0140ca146",
+          "bytes": 1382
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/result.json",
+          "sha256": "3f8fddce349509987d4af1c7ae22d4df043b7ba9524c6118bae53ad049c60369",
+          "bytes": 699
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/rust-version.stdout",
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+          "bytes": 203
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/src/lib.rs",
+          "sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+          "bytes": 9918
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/tests.stderr",
+          "sha256": "788d54b788cc4872b2db5dcd7a9458a38eab7f4f96fdd51810be2c722af26a7b",
+          "bytes": 7496
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/tests.stdout",
+          "sha256": "f051c950a50956ded73c6895e96a75e731c8d9772dcc7e0da3bb613a204a0149",
+          "bytes": 646
+        }
+      ]
+    },
+    {
+      "artifact": "relocated-interop-ubuntu-24.04",
+      "artifact_id": 14012920214,
+      "artifact_zip_sha256": "c870fbebee4d7e00377495893db4ff56f1f894f1722cccd9df5f39511bf55900",
+      "tested_design_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "success": true,
+      "files": [
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/Cargo.lock",
+          "sha256": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+          "bytes": 160
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-publish.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-publish.stdout",
+          "sha256": "1f8c1a8bd3acaf8830cfbdef5e841762a498baa05f53a3f9d1e12cad1ac61f85",
+          "bytes": 496
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-run.stderr",
+          "sha256": "dbbf452295ef4373987103202a915b31c6c126af6c15f86eec816729c3f223bb",
+          "bytes": 178
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-run.stdout",
+          "sha256": "cf0b074a570621b5825e12e7610f6c6943b2f36a211d3e11174ab0cb3772b137",
+          "bytes": 230
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/cargo-version.stdout",
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+          "bytes": 337
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/commands.json",
+          "sha256": "9021cd21d20ba3d2dec56e07e1da053efa5634faa7b41070bce70bcc23f0ba58",
+          "bytes": 6393
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-build-no-rid.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-build-no-rid.stdout",
+          "sha256": "d7c6188f87cb0e4ff488ba2281e6174ad42285abd0abe53fb82618a2cd040869",
+          "bytes": 413
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-run-no-rid.stderr",
+          "sha256": "1266d04fe0e384f6b2e1814c3ebffe521e66e88adab67ef974a3b4194f4c80f7",
+          "bytes": 178
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-run-no-rid.stdout",
+          "sha256": "191886e1269d85ffc219cc7d3ae9355513f70f3f4a1a978267dc5f856bd3512f",
+          "bytes": 231
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/dotnet-info.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/dotnet-info.stdout",
+          "sha256": "025a77ee6fb635716c429cae9427e9f0b5c33da95835da50d9fcbf5745bd6a7f",
+          "bytes": 3173
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/native-build.stderr",
+          "sha256": "4f01c177b7d5b3a09ef1165827ba89c3dec0a0ea2a153cdabe5826a83aacb3c5",
+          "bytes": 198
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/native-build.stdout",
+          "sha256": "7eb8d8d64eb652013301f2c217577cdc305cb51bda85dbb51735a84f44d3d2d7",
+          "bytes": 1059
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/pack.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/pack.stdout",
+          "sha256": "af305a4b0cc949ec588223cba9b5d56fc22c051a43493f2dbf9c01a73b3fff3a",
+          "bytes": 716
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/result.json",
+          "sha256": "ee50c35466e188b1a46af80cbf088c454b2f1de60d0898996e173f87a8228332",
+          "bytes": 1577
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-tests.stderr",
+          "sha256": "95b4f9321269f5e6684e80692e9df1b546243426f6318f6d54e5bc883a3a137a",
+          "bytes": 389
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-tests.stdout",
+          "sha256": "9d2b55367a0b75378110f602455726783ba24651c8d5e9ff4fa17c816650a014",
+          "bytes": 377
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-version.stdout",
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+          "bytes": 198
+        }
+      ]
+    },
+    {
+      "artifact": "relocated-interop-windows-2022",
+      "artifact_id": 14012895648,
+      "artifact_zip_sha256": "5d85fc24a72ec29792f96100bc1ff42563ab6de0cd31779a46b914c4e21c54a9",
+      "tested_design_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "success": true,
+      "files": [
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-publish.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-publish.stdout",
+          "sha256": "23ae478f123f7f3b013c01584d9b569599cdf57dc1188c4fd1e81e76c06a22e9",
+          "bytes": 454
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-run.stdout",
+          "sha256": "a982edb9fb6a39ee7662275c8cf93dc31ed9015dd26098ad77c06b288286eabf",
+          "bytes": 237
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-run.stderr",
+          "sha256": "4932b0b37f92f573a667e180010456bbfc840a999ffc81b0ead782985661f224",
+          "bytes": 182
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/cargo-version.stdout",
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+          "bytes": 338
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/Cargo.lock",
+          "sha256": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+          "bytes": 160
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/commands.json",
+          "sha256": "4c5537d466cd3c4dd41dc33d6d18cf92ac1856221fd5a4a3b6313fc34a5f3b45",
+          "bytes": 6442
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-build-no-rid.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-build-no-rid.stdout",
+          "sha256": "984f5b726bfb96bca60497e8fc1220138d6cc4cebdbdf236b2561f94fd6cd286",
+          "bytes": 392
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-run-no-rid.stderr",
+          "sha256": "3ad71600c804e57b91dda8c9d3738433b1d79ddd9b87dad64c4250cf64247912",
+          "bytes": 182
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-run-no-rid.stdout",
+          "sha256": "49d1ebb3d458753627a09ba78a0ab7e8aea3d09b3a6401f683bf3dd88c63cbdf",
+          "bytes": 238
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/dotnet-info.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/dotnet-info.stdout",
+          "sha256": "d37364f764a373379a41af17e2068af3b475d83fc857069e8698d2138fbf22eb",
+          "bytes": 6120
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/native-build.stderr",
+          "sha256": "21de0f2e94870f0b1f6078bfa2dd57dd317cd26c3f053eec0f3b37a7398e224a",
+          "bytes": 187
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/native-build.stdout",
+          "sha256": "22d367d16f905d3a21d12fb85062a54e3a9e5e3d2c7831c223f70c7746f581a2",
+          "bytes": 1429
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/pack.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/pack.stdout",
+          "sha256": "192df2d0a4e0688a6677b447c31d45e669eba7bd8f8a6e75694f34d697915304",
+          "bytes": 680
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/result.json",
+          "sha256": "f970b29c2bbc7d76fd7c190928b1613713259be622650666a510e0d7e912b3a7",
+          "bytes": 1606
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-tests.stdout",
+          "sha256": "05a27c038c04f21152cf2cf69a341c08d7514f8f867162fd740de1b87c5268ba",
+          "bytes": 391
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-tests.stderr",
+          "sha256": "f89249a5590ff4e72d389afa10fbbffe2d84ce7cea1b72e712fcd6ff1c560593",
+          "bytes": 382
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-version.stdout",
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+          "bytes": 203
+        }
+      ]
+    },
+    {
+      "artifact": "relocated-server-ubuntu-24.04",
+      "artifact_id": 14012198437,
+      "artifact_zip_sha256": "d61394f7a6940e66c508086356d03bdf23509f4fb0780900a9c86f053f73bb24",
+      "tested_design_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "success": true,
+      "files": [
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/Cargo.lock",
+          "sha256": "97c4d51d5ac7dc328f14fb878b6c43ae1829ffa4ed37f0158a53fbaeb23a456f",
+          "bytes": 7478
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/Cargo.toml",
+          "sha256": "a57375b80aba69629d2dd972c27b5314ef88b67474ece4e86a66af342d486c9d",
+          "bytes": 505
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/cargo-version.stdout",
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+          "bytes": 337
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/commands.json",
+          "sha256": "8389dd5b28605e45dc23b5583d97697f1c9cb8bf3a951a5e6868141f5f13f610",
+          "bytes": 1343
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/result.json",
+          "sha256": "6e3440c1ef51d09bef108329fdc8d9c08455521b2bc40df3a39f452424a2f4b9",
+          "bytes": 684
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/rust-version.stdout",
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+          "bytes": 198
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/src/lib.rs",
+          "sha256": "551eb0dbd3b4b0935b4aff77c54bc2ef73ea341d729a8a5839c18b27421c2b94",
+          "bytes": 7632
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/tests.stderr",
+          "sha256": "17675a4d61d0cb591668fb4460827da69bf037be13e4bcde23cec9d63971861b",
+          "bytes": 2397
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/tests.stdout",
+          "sha256": "c6641b29dc06097f5a20b84e3de70443871ac1a1289cf32262d573f573ac4b1c",
+          "bytes": 516
+        }
+      ]
+    },
+    {
+      "artifact": "relocated-server-windows-2022",
+      "artifact_id": 14012067961,
+      "artifact_zip_sha256": "7daa8a577e6c3b32664b7205f732099c150eb1133034ffbb00e15884273525fc",
+      "tested_design_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "success": true,
+      "files": [
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/Cargo.lock",
+          "sha256": "97c4d51d5ac7dc328f14fb878b6c43ae1829ffa4ed37f0158a53fbaeb23a456f",
+          "bytes": 7478
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/cargo-version.stdout",
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+          "bytes": 338
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/Cargo.toml",
+          "sha256": "a57375b80aba69629d2dd972c27b5314ef88b67474ece4e86a66af342d486c9d",
+          "bytes": 505
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/commands.json",
+          "sha256": "939dc4eecabc674bf9561e0ebbff93371a679a70e4002e6f2cee124a4942d458",
+          "bytes": 1380
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/result.json",
+          "sha256": "a0cf90ffdc23f7f4268f6dd4052fbf0b7ea4ca94d4959f168518dbe7cc32bf1b",
+          "bytes": 691
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/rust-version.stdout",
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+          "bytes": 203
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/src/lib.rs",
+          "sha256": "551eb0dbd3b4b0935b4aff77c54bc2ef73ea341d729a8a5839c18b27421c2b94",
+          "bytes": 7632
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/tests.stderr",
+          "sha256": "75e2bbc30b6724042e0297c8f3f6240d50359835ca35a0408fd8a928354ac352",
+          "bytes": 2459
+        },
+        {
+          "path": "verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/tests.stdout",
+          "sha256": "8d8e2fd29d72e52377a013afab8699c33de94973e9573d66a753ed81c3775f0b",
+          "bytes": 530
+        }
+      ]
+    }
+  ],
+  "original_history_relabelled": false,
+  "independent_review": false,
+  "product_delivery_executed": false,
+  "binary_assets": "verified from artifacts; raw text and binary hashes persisted; not product releases"
+}

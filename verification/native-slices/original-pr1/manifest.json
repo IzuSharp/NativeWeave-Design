@@ -1,0 +1,881 @@
+{
+  "preservation_utc": "2026-11-13T04:22:16.671459+00:00",
+  "preservation_input_commit": "4513fcf60aa7d48e7e821d68125f7144c8acfb0d",
+  "preservation_run_id": "43365053808",
+  "not_an_experiment_rerun": true,
+  "independent_review": false,
+  "records": [
+    {
+      "label": "interop-linux",
+      "run_id": 43363045559,
+      "artifact_id": 14009370861,
+      "zip_sha256": "42d197ed6ceb6ab1b7879079fe6a487b7f59c15ad203eb66a6d8d02200abf124",
+      "source_commit": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c",
+      "success": true,
+      "source_checks": [
+        {
+          "path": "experiments/interop/README.md",
+          "executed_sha256": "dd0ea905719795301bd5640c4299cb29ca9b80cbf12cc6ef7c0f0e403470fc64",
+          "git_blob_bytes_sha256": "dd0ea905719795301bd5640c4299cb29ca9b80cbf12cc6ef7c0f0e403470fc64",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/interop/consumer/Consumer.csproj",
+          "executed_sha256": "10dd2830fb49d636348f5e154b6b5f7f33fa579d5225e14ec4b67336d787fe14",
+          "git_blob_bytes_sha256": "10dd2830fb49d636348f5e154b6b5f7f33fa579d5225e14ec4b67336d787fe14",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/interop/consumer/Program.cs",
+          "executed_sha256": "dca07eab6d53be8f12d14f04fcffabce16d4cd44d4b57aa6ffd5014904835c8d",
+          "git_blob_bytes_sha256": "dca07eab6d53be8f12d14f04fcffabce16d4cd44d4b57aa6ffd5014904835c8d",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/interop/managed/Bridge.cs",
+          "executed_sha256": "366f282bc9864e1bf72b4ef711774fb506a418555abceb73836cd249b28d7eef",
+          "git_blob_bytes_sha256": "366f282bc9864e1bf72b4ef711774fb506a418555abceb73836cd249b28d7eef",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/interop/managed/NativeWeave.Interop.Probe.csproj",
+          "executed_sha256": "f3568055889622ebff2b6b7369c647aadae96bd7a1d108a6ac0a09bac6fe8530",
+          "git_blob_bytes_sha256": "f3568055889622ebff2b6b7369c647aadae96bd7a1d108a6ac0a09bac6fe8530",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/interop/native/Cargo.lock",
+          "executed_sha256": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+          "git_blob_bytes_sha256": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/interop/native/Cargo.toml",
+          "executed_sha256": "1ec6048a2c40d4de73d59127db3cd4675bdf3fe43d04a20399dcae0cab51707d",
+          "git_blob_bytes_sha256": "1ec6048a2c40d4de73d59127db3cd4675bdf3fe43d04a20399dcae0cab51707d",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/interop/native/src/lib.rs",
+          "executed_sha256": "e4e632a1145a2148443fb795785dbc693305ca446a298bd840c2fe380187b5ef",
+          "git_blob_bytes_sha256": "e4e632a1145a2148443fb795785dbc693305ca446a298bd840c2fe380187b5ef",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/interop/run.py",
+          "executed_sha256": "ce51311372e365314ecb44dd40dd1bacdac69772f2cd66fbd125b2e4a6b3cf23",
+          "git_blob_bytes_sha256": "ce51311372e365314ecb44dd40dd1bacdac69772f2cd66fbd125b2e4a6b3cf23",
+          "comparison": "exact"
+        }
+      ],
+      "files": [
+        {
+          "path": "verification/native-slices/interop-linux/Cargo.lock",
+          "sha256": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+          "bytes": 160
+        },
+        {
+          "path": "verification/native-slices/interop-linux/aot-publish.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-linux/aot-publish.stdout",
+          "sha256": "2a96ca8319ec54fa3901a4f5474bfc6d2883d64967ffd9c593535c412aef0fdc",
+          "bytes": 376
+        },
+        {
+          "path": "verification/native-slices/interop-linux/aot-run.stderr",
+          "sha256": "a1ac56685cfd74fb973854dde97521b6d0f2c026ee728826cde2460314bf5b4e",
+          "bytes": 178
+        },
+        {
+          "path": "verification/native-slices/interop-linux/aot-run.stdout",
+          "sha256": "cf0b074a570621b5825e12e7610f6c6943b2f36a211d3e11174ab0cb3772b137",
+          "bytes": 230
+        },
+        {
+          "path": "verification/native-slices/interop-linux/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-linux/cargo-version.stdout",
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+          "bytes": 337
+        },
+        {
+          "path": "verification/native-slices/interop-linux/commands.json",
+          "sha256": "65e4f8701a2d6c8cbfe057e0a5964b7659ef7f9b4c8de04fa59dc1118d25fb5f",
+          "bytes": 5749
+        },
+        {
+          "path": "verification/native-slices/interop-linux/consumer-build-no-rid.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-linux/consumer-build-no-rid.stdout",
+          "sha256": "e62b5cbc4a6a2bdfba7159828764715ddac30ed0c4b036b0e988b68ca9050964",
+          "bytes": 333
+        },
+        {
+          "path": "verification/native-slices/interop-linux/consumer-run-no-rid.stderr",
+          "sha256": "40501ea661d62b0d374a579d113e5f82ec1fa1fa73170967c2bc8955f5567db5",
+          "bytes": 178
+        },
+        {
+          "path": "verification/native-slices/interop-linux/consumer-run-no-rid.stdout",
+          "sha256": "191886e1269d85ffc219cc7d3ae9355513f70f3f4a1a978267dc5f856bd3512f",
+          "bytes": 231
+        },
+        {
+          "path": "verification/native-slices/interop-linux/dotnet-info.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-linux/dotnet-info.stdout",
+          "sha256": "9aa49c38322df090e6c503b81480140766ef04d28e7de01484874313b6cbd7e6",
+          "bytes": 3133
+        },
+        {
+          "path": "verification/native-slices/interop-linux/native-build.stderr",
+          "sha256": "c8a18911792ebcfba46ee809c8890bf58bb6ed1788dc1f83aee7e9414587a36b",
+          "bytes": 170
+        },
+        {
+          "path": "verification/native-slices/interop-linux/native-build.stdout",
+          "sha256": "e2bd0810d4b49d2d85e4716ed847ab7326e972d0780cc42f62ed4e6496f10c6a",
+          "bytes": 895
+        },
+        {
+          "path": "verification/native-slices/interop-linux/pack.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-linux/pack.stdout",
+          "sha256": "f10bd2c6df92d5815ac16871f1379f3765822f7930f0f7c6c3590b548d67937f",
+          "bytes": 620
+        },
+        {
+          "path": "verification/native-slices/interop-linux/result.json",
+          "sha256": "156470f92157c9792c49a5dd740faf586ab62d20a951e0174832c9ed1503d7b8",
+          "bytes": 1778
+        },
+        {
+          "path": "verification/native-slices/interop-linux/rust-tests.stderr",
+          "sha256": "8f8b7d4d1e926f22987834e0e2259c64a304eb78519d0e0290fbf8a934e824c9",
+          "bytes": 361
+        },
+        {
+          "path": "verification/native-slices/interop-linux/rust-tests.stdout",
+          "sha256": "9d2b55367a0b75378110f602455726783ba24651c8d5e9ff4fa17c816650a014",
+          "bytes": 377
+        },
+        {
+          "path": "verification/native-slices/interop-linux/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-linux/rust-version.stdout",
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+          "bytes": 198
+        }
+      ]
+    },
+    {
+      "label": "interop-windows",
+      "run_id": 43363045559,
+      "artifact_id": 14008494778,
+      "zip_sha256": "7f4bb0600182d1092882725217a253f6b6d5edff3fb62dd7133a1fd7a84cb4e1",
+      "source_commit": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c",
+      "success": true,
+      "source_checks": [
+        {
+          "path": "experiments\\interop\\consumer\\Consumer.csproj",
+          "executed_sha256": "b1bb0c1813b29a846bb1684c10ea1f1de21e4b2bff4069dbbde63af2f9b56fb3",
+          "git_blob_bytes_sha256": "10dd2830fb49d636348f5e154b6b5f7f33fa579d5225e14ec4b67336d787fe14",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\interop\\consumer\\Program.cs",
+          "executed_sha256": "bf78ac38d752c634b5727e3cca3834ec789e974c32a0375cddb29d534cc37371",
+          "git_blob_bytes_sha256": "dca07eab6d53be8f12d14f04fcffabce16d4cd44d4b57aa6ffd5014904835c8d",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\interop\\managed\\Bridge.cs",
+          "executed_sha256": "ed42c3cf927102c5a44f3330388b48a4fdfed5ff9cfd9343c2178a95fc8dc9c7",
+          "git_blob_bytes_sha256": "366f282bc9864e1bf72b4ef711774fb506a418555abceb73836cd249b28d7eef",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\interop\\managed\\NativeWeave.Interop.Probe.csproj",
+          "executed_sha256": "5379f6b2f986329f92e7829edea6309a511f6872fcbb3c886082d35fa42c2ce3",
+          "git_blob_bytes_sha256": "f3568055889622ebff2b6b7369c647aadae96bd7a1d108a6ac0a09bac6fe8530",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\interop\\native\\Cargo.lock",
+          "executed_sha256": "fd5a1b0d3bfeba1f7c7a99514188512aa64ba89a07575189d1591e18a63e3a6d",
+          "git_blob_bytes_sha256": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\interop\\native\\Cargo.toml",
+          "executed_sha256": "55835fbc1fd3d4b6bc88f9eca7f18d2e471603714f17101551f509fa9c0b70da",
+          "git_blob_bytes_sha256": "1ec6048a2c40d4de73d59127db3cd4675bdf3fe43d04a20399dcae0cab51707d",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\interop\\native\\src\\lib.rs",
+          "executed_sha256": "238e01f51242927166fa5183dd5729a1b2eff293662867321e5e3cd616fedaaa",
+          "git_blob_bytes_sha256": "e4e632a1145a2148443fb795785dbc693305ca446a298bd840c2fe380187b5ef",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\interop\\README.md",
+          "executed_sha256": "1c693343a7caf81effa5da196155742dcf73be53ffbb692f4864a226db3e6eac",
+          "git_blob_bytes_sha256": "dd0ea905719795301bd5640c4299cb29ca9b80cbf12cc6ef7c0f0e403470fc64",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\interop\\run.py",
+          "executed_sha256": "651630039cbaa9c27cc566fd7de73382e6b7ea949db06554c1be13ea08c3acec",
+          "git_blob_bytes_sha256": "ce51311372e365314ecb44dd40dd1bacdac69772f2cd66fbd125b2e4a6b3cf23",
+          "comparison": "git-LF-to-checkout-CRLF"
+        }
+      ],
+      "files": [
+        {
+          "path": "verification/native-slices/interop-windows/aot-publish.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-windows/aot-run.stderr",
+          "sha256": "c5efd76091ccc7edeb6482c2a0b5bda96ffba087d83ec196705761eef6624320",
+          "bytes": 182
+        },
+        {
+          "path": "verification/native-slices/interop-windows/aot-publish.stdout",
+          "sha256": "5975d4595314d5982b3f45f757ed017b8c60978744aa0ab092c035410290dc8a",
+          "bytes": 334
+        },
+        {
+          "path": "verification/native-slices/interop-windows/aot-run.stdout",
+          "sha256": "a982edb9fb6a39ee7662275c8cf93dc31ed9015dd26098ad77c06b288286eabf",
+          "bytes": 237
+        },
+        {
+          "path": "verification/native-slices/interop-windows/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-windows/cargo-version.stdout",
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+          "bytes": 338
+        },
+        {
+          "path": "verification/native-slices/interop-windows/Cargo.lock",
+          "sha256": "fd5a1b0d3bfeba1f7c7a99514188512aa64ba89a07575189d1591e18a63e3a6d",
+          "bytes": 167
+        },
+        {
+          "path": "verification/native-slices/interop-windows/commands.json",
+          "sha256": "46772aec358dd2baa27ddeee0a8af8493659f9ca20ab3b2944cd4a43c2394714",
+          "bytes": 5767
+        },
+        {
+          "path": "verification/native-slices/interop-windows/consumer-build-no-rid.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-windows/consumer-build-no-rid.stdout",
+          "sha256": "645de1f0652e3ed19762aa55a115b010a3dc351b82d1c3e9a79151b388e09756",
+          "bytes": 312
+        },
+        {
+          "path": "verification/native-slices/interop-windows/consumer-run-no-rid.stderr",
+          "sha256": "244571eb8cb7e7909c4854abaf817f7e43c52a466bb7ba323039135501e4a8e6",
+          "bytes": 182
+        },
+        {
+          "path": "verification/native-slices/interop-windows/consumer-run-no-rid.stdout",
+          "sha256": "49d1ebb3d458753627a09ba78a0ab7e8aea3d09b3a6401f683bf3dd88c63cbdf",
+          "bytes": 238
+        },
+        {
+          "path": "verification/native-slices/interop-windows/dotnet-info.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-windows/dotnet-info.stdout",
+          "sha256": "15b913093b0ccfe2979b657666a17deb29ed218d70c083b3f0b727898ac362e7",
+          "bytes": 6080
+        },
+        {
+          "path": "verification/native-slices/interop-windows/native-build.stderr",
+          "sha256": "15059dd4cf44fa46c09fb46591f1da8c5eef47bf189bdb2e53ceab90355c63c5",
+          "bytes": 159
+        },
+        {
+          "path": "verification/native-slices/interop-windows/native-build.stdout",
+          "sha256": "9a415eef4306513fbb768fa9969d00a85e0a3d7d5ec1380c2e9669e837e70817",
+          "bytes": 1133
+        },
+        {
+          "path": "verification/native-slices/interop-windows/pack.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-windows/pack.stdout",
+          "sha256": "c404a63f19665a34f4a9bd48837a2d04cb96f8bf68f1f6df0ad12f42bdd05b1d",
+          "bytes": 584
+        },
+        {
+          "path": "verification/native-slices/interop-windows/result.json",
+          "sha256": "798f7b5ecaf67755e69c1793f9d196f862a20a76d52d328f7bae2cd6d920416f",
+          "bytes": 1818
+        },
+        {
+          "path": "verification/native-slices/interop-windows/rust-tests.stderr",
+          "sha256": "eb8cace24b6ac2d08351fcf918593e04993bfa3cda39e8df9d23fc451507aeb9",
+          "bytes": 354
+        },
+        {
+          "path": "verification/native-slices/interop-windows/rust-tests.stdout",
+          "sha256": "d5764b6d5104e8af5c4ff7fee2cf3f72435beb21018f5112e2e592df347961d4",
+          "bytes": 391
+        },
+        {
+          "path": "verification/native-slices/interop-windows/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/interop-windows/rust-version.stdout",
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+          "bytes": 203
+        }
+      ]
+    },
+    {
+      "label": "server-linux",
+      "run_id": 43363994414,
+      "artifact_id": 14009482437,
+      "zip_sha256": "5b73ec1bc9287da6c7eae2140939a1f54800601e3959cbe74f425e82efd0459b",
+      "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+      "success": true,
+      "source_checks": [
+        {
+          "path": "experiments/server/Cargo.toml",
+          "executed_sha256": "a57375b80aba69629d2dd972c27b5314ef88b67474ece4e86a66af342d486c9d",
+          "git_blob_bytes_sha256": "a57375b80aba69629d2dd972c27b5314ef88b67474ece4e86a66af342d486c9d",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/server/Cargo.lock",
+          "executed_sha256": "97c4d51d5ac7dc328f14fb878b6c43ae1829ffa4ed37f0158a53fbaeb23a456f",
+          "git_blob_bytes_sha256": "97c4d51d5ac7dc328f14fb878b6c43ae1829ffa4ed37f0158a53fbaeb23a456f",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/server/src/lib.rs",
+          "executed_sha256": "551eb0dbd3b4b0935b4aff77c54bc2ef73ea341d729a8a5839c18b27421c2b94",
+          "git_blob_bytes_sha256": "551eb0dbd3b4b0935b4aff77c54bc2ef73ea341d729a8a5839c18b27421c2b94",
+          "comparison": "exact"
+        }
+      ],
+      "files": [
+        {
+          "path": "verification/native-slices/server-linux/Cargo.lock",
+          "sha256": "97c4d51d5ac7dc328f14fb878b6c43ae1829ffa4ed37f0158a53fbaeb23a456f",
+          "bytes": 7478
+        },
+        {
+          "path": "verification/native-slices/server-linux/Cargo.toml",
+          "sha256": "a57375b80aba69629d2dd972c27b5314ef88b67474ece4e86a66af342d486c9d",
+          "bytes": 505
+        },
+        {
+          "path": "verification/native-slices/server-linux/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/server-linux/cargo-version.stdout",
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+          "bytes": 337
+        },
+        {
+          "path": "verification/native-slices/server-linux/commands.json",
+          "sha256": "fc5bbbcbb6ac0e2cad8ff64b5cc4c4c41bf7bcaf6d1d19445b99335ce05c5c38",
+          "bytes": 1315
+        },
+        {
+          "path": "verification/native-slices/server-linux/result.json",
+          "sha256": "4dc36cc88a2e2714477e317dd171ea931338ab098b0f6dbbca3928e5152b357a",
+          "bytes": 720
+        },
+        {
+          "path": "verification/native-slices/server-linux/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/server-linux/rust-version.stdout",
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+          "bytes": 198
+        },
+        {
+          "path": "verification/native-slices/server-linux/src/lib.rs",
+          "sha256": "551eb0dbd3b4b0935b4aff77c54bc2ef73ea341d729a8a5839c18b27421c2b94",
+          "bytes": 7632
+        },
+        {
+          "path": "verification/native-slices/server-linux/tests.stderr",
+          "sha256": "71aa600f88a9ff7327778819a27e58666b981d66468a49c5889f29a8adea849b",
+          "bytes": 2369
+        },
+        {
+          "path": "verification/native-slices/server-linux/tests.stdout",
+          "sha256": "c6641b29dc06097f5a20b84e3de70443871ac1a1289cf32262d573f573ac4b1c",
+          "bytes": 516
+        }
+      ]
+    },
+    {
+      "label": "server-windows",
+      "run_id": 43363994414,
+      "artifact_id": 14009078546,
+      "zip_sha256": "d4377b992bd5b2822b791cfefbe749823ce9402f9cf7556c988dd7a37002ba63",
+      "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+      "success": true,
+      "source_checks": [
+        {
+          "path": "experiments\\server\\Cargo.lock",
+          "executed_sha256": "06110a1cd7c7f95651226eafe895929c15efeeaa776dccccb965b5eb5fbb3e09",
+          "git_blob_bytes_sha256": "97c4d51d5ac7dc328f14fb878b6c43ae1829ffa4ed37f0158a53fbaeb23a456f",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\server\\Cargo.toml",
+          "executed_sha256": "f1f236b22f95d63ee3518e2b1aff4941db0c48430ea99dc7a1eafbc258d47ebe",
+          "git_blob_bytes_sha256": "a57375b80aba69629d2dd972c27b5314ef88b67474ece4e86a66af342d486c9d",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\server\\src\\lib.rs",
+          "executed_sha256": "950b7587db616470f08553bad12a9e198a4e50681ff65e443bf78b6222970a7c",
+          "git_blob_bytes_sha256": "551eb0dbd3b4b0935b4aff77c54bc2ef73ea341d729a8a5839c18b27421c2b94",
+          "comparison": "git-LF-to-checkout-CRLF"
+        }
+      ],
+      "files": [
+        {
+          "path": "verification/native-slices/server-windows/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/server-windows/cargo-version.stdout",
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+          "bytes": 338
+        },
+        {
+          "path": "verification/native-slices/server-windows/Cargo.lock",
+          "sha256": "06110a1cd7c7f95651226eafe895929c15efeeaa776dccccb965b5eb5fbb3e09",
+          "bytes": 7768
+        },
+        {
+          "path": "verification/native-slices/server-windows/Cargo.toml",
+          "sha256": "f1f236b22f95d63ee3518e2b1aff4941db0c48430ea99dc7a1eafbc258d47ebe",
+          "bytes": 522
+        },
+        {
+          "path": "verification/native-slices/server-windows/commands.json",
+          "sha256": "65be16d5fc5a85916ac0cc713a949b5edda8e83a1044e9149f9f351283ab0e5c",
+          "bytes": 1351
+        },
+        {
+          "path": "verification/native-slices/server-windows/result.json",
+          "sha256": "20069566053f47dc084ab6b8a8db7e6ee5fd55008764e9e729ba88d83f41d15e",
+          "bytes": 730
+        },
+        {
+          "path": "verification/native-slices/server-windows/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/server-windows/rust-version.stdout",
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+          "bytes": 203
+        },
+        {
+          "path": "verification/native-slices/server-windows/src/lib.rs",
+          "sha256": "950b7587db616470f08553bad12a9e198a4e50681ff65e443bf78b6222970a7c",
+          "bytes": 7765
+        },
+        {
+          "path": "verification/native-slices/server-windows/tests.stderr",
+          "sha256": "dfb4a0276cc7abe6c25ee5732d87da37a63be7746beb2fd2309f3edd8857787b",
+          "bytes": 2431
+        },
+        {
+          "path": "verification/native-slices/server-windows/tests.stdout",
+          "sha256": "8d8e2fd29d72e52377a013afab8699c33de94973e9573d66a753ed81c3775f0b",
+          "bytes": 530
+        }
+      ]
+    },
+    {
+      "label": "database-first-failure-linux",
+      "run_id": 43363994414,
+      "artifact_id": 14010040740,
+      "zip_sha256": "75d35d974758f024d1510d1dcae26df7998c7065037b16e650a485ad6bb56dd0",
+      "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+      "success": false,
+      "source_checks": [
+        {
+          "path": "experiments/database/Cargo.toml",
+          "executed_sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "git_blob_bytes_sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/database/Cargo.lock",
+          "executed_sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "git_blob_bytes_sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/database/src/lib.rs",
+          "executed_sha256": "8a0fa80baaeb78f4483e4b3a9a67166978ea3b28ca3fd339515a6a5bffe46b90",
+          "git_blob_bytes_sha256": "8a0fa80baaeb78f4483e4b3a9a67166978ea3b28ca3fd339515a6a5bffe46b90",
+          "comparison": "exact"
+        }
+      ],
+      "files": [
+        {
+          "path": "verification/native-slices/database-first-failure-linux/Cargo.lock",
+          "sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "bytes": 28051
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/Cargo.toml",
+          "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "bytes": 537
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/cargo-version.stdout",
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+          "bytes": 337
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/commands.json",
+          "sha256": "a004507a80ed82a1670430c58a8c11615eba6375ff2558cc695736d731a076a7",
+          "bytes": 1319
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/result.json",
+          "sha256": "d3027eb60b2bbde0b58e76b969c9ae9b6a0512e6b6f71ef5a08e43ba76fa3b4d",
+          "bytes": 729
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/rust-version.stdout",
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+          "bytes": 198
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/src/lib.rs",
+          "sha256": "8a0fa80baaeb78f4483e4b3a9a67166978ea3b28ca3fd339515a6a5bffe46b90",
+          "bytes": 9911
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/tests.stderr",
+          "sha256": "36e423db8a97ad5fd86e674d9c950e746b9c993e01b0d58e49771016f74391a8",
+          "bytes": 7940
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-linux/tests.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "label": "database-first-failure-windows",
+      "run_id": 43363994414,
+      "artifact_id": 14009881379,
+      "zip_sha256": "d1164166ab2932d68de478fd1e046e3df339a8c4fb8d4408f2b5ec5492ce2986",
+      "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+      "success": false,
+      "source_checks": [
+        {
+          "path": "experiments\\database\\Cargo.lock",
+          "executed_sha256": "44ace8e02b624d0ed1f753bd133732abd31541675707dacfabf4686a0cab0d9f",
+          "git_blob_bytes_sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\database\\Cargo.toml",
+          "executed_sha256": "d60ba2c914538c0df681b58b96bb6af0642ab80f68dbadfa74fcb4a78c918e40",
+          "git_blob_bytes_sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\database\\src\\lib.rs",
+          "executed_sha256": "aa86280d2ad53c5b57c2d104e24f17eb0207c9b3691cb0d86c8ee05950231a72",
+          "git_blob_bytes_sha256": "8a0fa80baaeb78f4483e4b3a9a67166978ea3b28ca3fd339515a6a5bffe46b90",
+          "comparison": "git-LF-to-checkout-CRLF"
+        }
+      ],
+      "files": [
+        {
+          "path": "verification/native-slices/database-first-failure-windows/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/cargo-version.stdout",
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+          "bytes": 338
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/Cargo.lock",
+          "sha256": "44ace8e02b624d0ed1f753bd133732abd31541675707dacfabf4686a0cab0d9f",
+          "bytes": 29158
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/Cargo.toml",
+          "sha256": "d60ba2c914538c0df681b58b96bb6af0642ab80f68dbadfa74fcb4a78c918e40",
+          "bytes": 555
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/commands.json",
+          "sha256": "8a46783e501223b10253ac6589bbde064771c5d5929f0a7b505dda1e5932aad1",
+          "bytes": 1355
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/result.json",
+          "sha256": "f289723eb96f1455bccd3e18bd4bad8e873dddf7884639fdeeef9f77196a9a20",
+          "bytes": 739
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/rust-version.stdout",
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+          "bytes": 203
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/src/lib.rs",
+          "sha256": "aa86280d2ad53c5b57c2d104e24f17eb0207c9b3691cb0d86c8ee05950231a72",
+          "bytes": 10077
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/tests.stderr",
+          "sha256": "f429abb01c5f8470b148404a629ad2229aa95dcbafa7de67809158da4253baf5",
+          "bytes": 8253
+        },
+        {
+          "path": "verification/native-slices/database-first-failure-windows/tests.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "label": "database-linux",
+      "run_id": 43364366610,
+      "artifact_id": 14009114165,
+      "zip_sha256": "b40f0ae6fad80d44aa867579a4cd256496194f622f1711a69185bbf5aa76543d",
+      "source_commit": "43e4fbcbe0417165c0f7df03507bfa1da8a53049",
+      "success": true,
+      "source_checks": [
+        {
+          "path": "experiments/database/Cargo.toml",
+          "executed_sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "git_blob_bytes_sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/database/Cargo.lock",
+          "executed_sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "git_blob_bytes_sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "comparison": "exact"
+        },
+        {
+          "path": "experiments/database/src/lib.rs",
+          "executed_sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+          "git_blob_bytes_sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+          "comparison": "exact"
+        }
+      ],
+      "files": [
+        {
+          "path": "verification/native-slices/database-linux/Cargo.lock",
+          "sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "bytes": 28051
+        },
+        {
+          "path": "verification/native-slices/database-linux/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/database-linux/Cargo.toml",
+          "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "bytes": 537
+        },
+        {
+          "path": "verification/native-slices/database-linux/cargo-version.stdout",
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+          "bytes": 337
+        },
+        {
+          "path": "verification/native-slices/database-linux/commands.json",
+          "sha256": "5075c6668b06814ed131e862e4cc102388a12cf9bee56e483264b71bcef4fd51",
+          "bytes": 1317
+        },
+        {
+          "path": "verification/native-slices/database-linux/result.json",
+          "sha256": "4d812de3023a773bf68d6d8fbbc5ee9ee6ddd91a9806ed619f37e88ccad1c8d5",
+          "bytes": 728
+        },
+        {
+          "path": "verification/native-slices/database-linux/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/database-linux/rust-version.stdout",
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+          "bytes": 198
+        },
+        {
+          "path": "verification/native-slices/database-linux/src/lib.rs",
+          "sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+          "bytes": 9918
+        },
+        {
+          "path": "verification/native-slices/database-linux/tests.stderr",
+          "sha256": "b6d41518ce37ea1cc7bc43e43bdbe07df0bea3ab81162b282ce1943e41f62ca5",
+          "bytes": 7176
+        },
+        {
+          "path": "verification/native-slices/database-linux/tests.stdout",
+          "sha256": "ec0288cca6c86dc6f1ae9ecf292606d689426b984d46b45db68e6a45cf296815",
+          "bytes": 630
+        }
+      ]
+    },
+    {
+      "label": "database-windows",
+      "run_id": 43364366610,
+      "artifact_id": 14009902007,
+      "zip_sha256": "dcf513ca31bde0b3d7e6aa273e2ca6e2e2220002ede2ad97d9d3fb42510e2e2f",
+      "source_commit": "43e4fbcbe0417165c0f7df03507bfa1da8a53049",
+      "success": true,
+      "source_checks": [
+        {
+          "path": "experiments\\database\\Cargo.lock",
+          "executed_sha256": "44ace8e02b624d0ed1f753bd133732abd31541675707dacfabf4686a0cab0d9f",
+          "git_blob_bytes_sha256": "10d4ca6999205068e7232fa8aec84067f264c036549ec3a6f691c5b326603e6e",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\database\\Cargo.toml",
+          "executed_sha256": "d60ba2c914538c0df681b58b96bb6af0642ab80f68dbadfa74fcb4a78c918e40",
+          "git_blob_bytes_sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+          "comparison": "git-LF-to-checkout-CRLF"
+        },
+        {
+          "path": "experiments\\database\\src\\lib.rs",
+          "executed_sha256": "180f3976293f28cfa1ed4c3522e18688d2448cfbb66d1ab803ad5d986a8fea21",
+          "git_blob_bytes_sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+          "comparison": "git-LF-to-checkout-CRLF"
+        }
+      ],
+      "files": [
+        {
+          "path": "verification/native-slices/database-windows/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/database-windows/cargo-version.stdout",
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31",
+          "bytes": 338
+        },
+        {
+          "path": "verification/native-slices/database-windows/Cargo.lock",
+          "sha256": "44ace8e02b624d0ed1f753bd133732abd31541675707dacfabf4686a0cab0d9f",
+          "bytes": 29158
+        },
+        {
+          "path": "verification/native-slices/database-windows/Cargo.toml",
+          "sha256": "d60ba2c914538c0df681b58b96bb6af0642ab80f68dbadfa74fcb4a78c918e40",
+          "bytes": 555
+        },
+        {
+          "path": "verification/native-slices/database-windows/commands.json",
+          "sha256": "8137604979237ac94366192fda1f8b482fc1aa2dffe53938f88c9bb51451d3bf",
+          "bytes": 1353
+        },
+        {
+          "path": "verification/native-slices/database-windows/result.json",
+          "sha256": "ad04fc65dc08ce36e096866bb170e673f736fcceb6bc1dfe88296cd32ffe503e",
+          "bytes": 738
+        },
+        {
+          "path": "verification/native-slices/database-windows/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/native-slices/database-windows/rust-version.stdout",
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+          "bytes": 203
+        },
+        {
+          "path": "verification/native-slices/database-windows/src/lib.rs",
+          "sha256": "180f3976293f28cfa1ed4c3522e18688d2448cfbb66d1ab803ad5d986a8fea21",
+          "bytes": 10084
+        },
+        {
+          "path": "verification/native-slices/database-windows/tests.stderr",
+          "sha256": "361b268a616339d4e9fbf9501df15415bd904fd3b97689beaf56efce9cd5810f",
+          "bytes": 7468
+        },
+        {
+          "path": "verification/native-slices/database-windows/tests.stdout",
+          "sha256": "f051c950a50956ded73c6895e96a75e731c8d9772dcc7e0da3bb613a204a0149",
+          "bytes": 646
+        }
+      ]
+    }
+  ]
+}

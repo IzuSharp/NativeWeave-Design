@@ -1,3 +1,5 @@
+> **Current phase:** research and detailed design, not product implementation. All executable research assets belong here. See [CURRENT-PHASE.md](CURRENT-PHASE.md) and [migration provenance](docs/traceability/research-asset-migration.md).
+
 # NativeWeave Design
 
 > 2026-11-12 首次研究启动包，状态 **research-bootstrap / proposed**。这里是 NativeWeave 唯一正式研究与设计仓库，但本分支中的候选设计尚未成为 accepted 产品规范。

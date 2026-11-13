@@ -1,0 +1,18 @@
+[package]
+name = "nw-database-boundary-probe"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.100"
+publish = false
+
+[dependencies]
+sea-query = { version = "=1.0.2", default-features = false, features = ["backend-sqlite", "backend-postgres", "thread-safe"] }
+sqlx = { version = "=0.9.0", default-features = false, features = ["runtime-tokio", "sqlite"] }
+
+[dev-dependencies]
+tokio = { version = "=1.54.1", features = ["rt", "macros", "time"] }
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+[lints.cargo]
+unused_dependencies = "deny"

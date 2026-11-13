@@ -1,0 +1,7 @@
+PASS layout-and-size-negatives
+PASS buffer-empty-and-owned
+PASS failure-before-publication
+PASS synchronous-reverse-call
+PASS disposed-wrapper-rejects-reuse
+PASS safehandle-inflight-lease-32-rounds
+SUCCESS assertions=185 aot=False

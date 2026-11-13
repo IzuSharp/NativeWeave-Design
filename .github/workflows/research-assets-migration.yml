@@ -1,0 +1,136 @@
+name: Research asset migration and relocated execution
+on:
+  push:
+    branches: [research/pr1-asset-migration]
+    paths:
+      - experiments/native-slices/migrate_pr1.py
+      - experiments/native-slices/verify_migration.py
+      - experiments/native-slices/collect_migrated.py
+      - .github/workflows/research-assets-migration.yml
+permissions:
+  contents: read
+jobs:
+  migrate:
+    if: github.repository == 'IzuSharp/NativeWeave-Design' && github.ref == 'refs/heads/research/pr1-asset-migration'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      source_sha: ${{ steps.migrate.outputs.source_sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          path: Design
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: IzuSharp/NativeWeave
+          ref: 267364a440074a61e193cf33315f1b9d0fa8126b
+          fetch-depth: 0
+          persist-credentials: false
+          path: Original
+      - name: Migrate immutable source snapshot and verify exact bytes
+        id: migrate
+        working-directory: Design
+        shell: bash
+        run: |
+          if [ ! -f verification/native-slices/migration-map.json ]; then
+            python3 experiments/native-slices/migrate_pr1.py ../Original
+          fi
+          python3 experiments/native-slices/verify_migration.py
+          git diff --check -- ':!verification/native-slices/'
+          git add .gitattributes AGENTS.md README.md CURRENT-PHASE.md experiments/native-slices verification/native-slices docs/research/topics/R03/native-slice-validation.md docs/research/topics/R22/native-slice-validation.md docs/research/topics/R27/native-slice-validation.md docs/traceability/native-slices-recovery.md
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'research: relocate all139 PR1 assets with original112 evidence hashes preserved'
+            git push origin HEAD:refs/heads/research/pr1-asset-migration
+          fi
+          echo "source_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+  relocated:
+    needs: migrate
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+        fixture: [interop, database, server]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.migrate.outputs.source_sha }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
+        if: matrix.fixture == 'interop'
+        with:
+          dotnet-version: '11.0.100'
+      - run: rustup toolchain install 1.100.0 --profile minimal
+      - name: Execute relocated research fixture; no product Delivery
+        run: python experiments/native-slices/verify_migration.py ${{ matrix.fixture }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: relocated-${{ matrix.fixture }}-${{ matrix.os }}
+          retention-days: 30
+          path: experiments/native-slices/artifacts/
+  preserve:
+    needs: [migrate, relocated]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.migrate.outputs.source_sha }}
+          fetch-depth: 0
+          path: Design
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: IzuSharp/Plan
+          ref: f6ed91dddba62b9eba246f2af56ca5b93cc2593b
+          fetch-depth: 0
+          persist-credentials: false
+          path: Plan
+      - name: Verify artifact hashes and archive fresh Design execution
+        working-directory: Design
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 experiments/native-slices/collect_migrated.py
+      - name: Observe current official stable channel without upgrading the locked fixtures
+        working-directory: Design
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import urllib.request,hashlib,json,tomllib,datetime
+          url='https://static.rust-lang.org/dist/channel-rust-stable.toml'
+          raw=urllib.request.urlopen(url,timeout=60).read();data=tomllib.loads(raw.decode())
+          out=Path('verification/native-slices')
+          (out/'observed-stable-channel.toml').write_bytes(raw)
+          result={'observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'url':url,'sha256':hashlib.sha256(raw).hexdigest(),'channel_date':data['date'],'rust':data['pkg']['rust']['version'],'cargo':data['pkg']['cargo']['version'],'fixture_pin':'1.100.0','auto_upgrade':False}
+          (out/'toolchain-observation.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(result)
+          PY
+      - name: Commit evidence only in Design and export review snapshots
+        working-directory: Design
+        shell: bash
+        run: |
+          python3 experiments/native-slices/verify_migration.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add verification/native-slices
+          git commit -m 'research: persist new Design migration results and stable-channel observation'
+          git push origin HEAD:refs/heads/research/pr1-asset-migration
+          mkdir -p ../review-snapshots
+          git archive HEAD --prefix=NativeWeave-Design/ -o ../review-snapshots/design.tar
+          git -C ../Plan archive HEAD --prefix=Plan/ -o ../review-snapshots/plan.tar
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: migration-review-snapshots
+          retention-days: 30
+          path: review-snapshots/
