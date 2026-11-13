@@ -10,12 +10,15 @@
       "version": "0.1.0-draft",
       "status": "proposed",
       "title": "平台、工具链与AOT支持",
-      "evidence": [],
+      "evidence": [
+        "docs/research/topics/R03/native-slice-validation.md",
+        "docs/traceability/native-slices-recovery.md"
+      ],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
+      "specification_status": "authored_proposed_partial_execution",
+      "content_sha256": "7b65c9516a0a5ffbd013a14875e7c883fdbc5a567bfd78477d75aa8999e75587",
+      "author": "recovery_native_slices_author",
+      "spec_path": "docs/platforms/support-and-aot.md",
       "dependencies": [],
       "reviews": []
     },
@@ -24,12 +27,15 @@
       "version": "0.1.0-draft",
       "status": "proposed",
       "title": "C ABI类型布局和版本",
-      "evidence": [],
+      "evidence": [
+        "docs/research/topics/R03/native-slice-validation.md",
+        "docs/traceability/native-slices-recovery.md"
+      ],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
+      "specification_status": "authored_proposed_partial_execution",
+      "content_sha256": "e3451642062c1e8f9489fbb24fc85323735ad3189035762cbbf6330264e5de02",
+      "author": "recovery_native_slices_author",
+      "spec_path": "docs/contracts/abi-v0.1.md",
       "dependencies": [],
       "reviews": []
     },
@@ -97,12 +103,15 @@
       "version": "0.1.0-draft",
       "status": "proposed",
       "title": "缓冲区与传输",
-      "evidence": [],
+      "evidence": [
+        "docs/research/topics/R03/native-slice-validation.md",
+        "docs/traceability/native-slices-recovery.md"
+      ],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
+      "specification_status": "authored_proposed_partial_execution",
+      "content_sha256": "007751a802554f0e75760bef2d3103e93e01c5f51245325939de64cdac18e5d4",
+      "author": "recovery_native_slices_author",
+      "spec_path": "docs/contracts/buffer-v0.1.md",
       "dependencies": [],
       "reviews": []
     },
