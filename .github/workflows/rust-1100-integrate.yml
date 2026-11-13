@@ -40,7 +40,15 @@ jobs:
       - name: Preserve original new API evidence and apply checked corrections
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python3 experiments/rust-1100/integrate.py
+        run: |
+          python3 experiments/rust-1100/integrate.py
+          python3 - <<'PY'
+          from pathlib import Path
+          d=Path('docs/research/topics/R01/rust-1100-evidence')
+          (d/'.gitattributes').write_text('* -text\n')
+          p=Path('docs/traceability/rust-1100-self-review.md')
+          p.write_text(p.read_text()+'\nEvidence preservation attempts43354345265/43354629514 failed on a Windows CRLF source-hash assumption and then CR-at-EOL whitespace recognition, respectively. The actual API test run remained successful. Both raw source variants are reconstructed from the immutable Git text and match their recorded execution hashes; raw logs remain byte-preserved. The final whitespace check recognizes CRLF but still rejects other trailing whitespace. Neither failure is erased or reported as a product compiler failure.\n')
+          PY
       - name: Validate exact generated documentation and commit to existing PR branch
         run: |
           python3 - <<'PY'
@@ -57,7 +65,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add docs AGENTS.md experiments/rust-1100/integrate.py
-          git diff --cached --check -- '*.md' '*.py' '*.json'
+          git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --cached --check -- '*.md' '*.py' '*.json'
           git commit -m 'docs: preserve two-platform Rust results and repair versioned Design assumptions'
           git push origin HEAD:refs/heads/research/source-driven-integration-2026-11-12
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
