@@ -1,0 +1,1533 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "NW-FINAL-PLATFORM-2026-11-13",
+  "reviewer": "/root/database_review",
+  "reviewed_authors": [
+    "/root",
+    "/root/interop_research"
+  ],
+  "independence": "Separate actual delegated executor; did not author or modify the research, specifications, graph, packets or fixes. Author implemented three review findings and this executor rereviewed resulting exact bytes. Not another GitHub approval identity.",
+  "reviewed_at_utc": "2026-11-13T13:02:45.522675+00:00",
+  "input_remote_checkpoints": {
+    "NativeWeave-Design": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+    "Plan": "7359060f88f94591b0dc41178e35701eefc8eb6d"
+  },
+  "input_scope": "Recovered working bytes and author revisions; exact per-file hashes control scope. Root owns subsequent acceptance commits and graph status propagation.",
+  "decision": "recommend_accept_research_and_detailed_design",
+  "unresolved_blocking_findings": [],
+  "new_findings": [
+    {
+      "id": "FP-PLATFORM-01",
+      "severity": "medium",
+      "status": "resolved",
+      "finding": "A17 did not explicitly carry the prior SR-ROOT-03 deterministic post-native-success managed-wrapper-failure obligation.",
+      "resolution": "Root added exact raw-owner once-only release/no partial result/no leak/no double free and normal+NativeAOT Windows/Linux injection cases to graph, packet and D26 fragment; independently reread and compared.",
+      "resolution_inputs": {
+        "Plan:tasks/A17.md": "578a800a69511d5ebf973a91b5a7bf9056e60390f5936e5c4dc3ad8100e3b408",
+        "Plan:fragments/verification-engines.json": "7da28aca906110f2fb308f6925276e8ad89da2165d8ddfd801117ce04db59338"
+      }
+    },
+    {
+      "id": "FP-PLATFORM-02",
+      "severity": "low",
+      "status": "resolved_in_product_design",
+      "finding": "The finite codec fixture uses the same 4MiB input cap for compression and decompression; a permitted incompressible raw boundary input can expand beyond that cap. Existing successful finite runs do not prove all-boundary roundtrip.",
+      "resolution": "Root separated raw/compressed/decoded limits in A17. Same-profile successful compression must be decodable, otherwise compression must fail before owner publication; boundary incompressible/expansion/decoded-overrun tests required. Historical fixture/evidence not rewritten or rerun.",
+      "resolution_inputs": {
+        "Plan:tasks/A17.md": "578a800a69511d5ebf973a91b5a7bf9056e60390f5936e5c4dc3ad8100e3b408",
+        "Plan:fragments/verification-engines.json": "7da28aca906110f2fb308f6925276e8ad89da2165d8ddfd801117ce04db59338"
+      }
+    },
+    {
+      "id": "FP-PLATFORM-03",
+      "severity": "low",
+      "status": "resolved",
+      "finding": "R02 evidence future-obligation text incorrectly assigned no-Rust/RID consumption to A21 instead of A16.",
+      "resolution": "Author corrected that one current task-reference field to A14/A15/A16; report/Design already had correct responsibility; raw manifests untouched.",
+      "resolution_inputs": {
+        "NativeWeave-Design:docs/research/topics/R02/evidence.json": "8ffd451a7944eb36ad3a47e922f323fb8e1a71391814c24bee529bc537f27195"
+      }
+    }
+  ],
+  "task_decisions": [
+    {
+      "task_id": "R01",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Rust1.100 stable API study and exact two-OS experiments reused; .NET11/C#15 official dated releases rechecked; isolated Runtime Async metadata and real AOT results support optional lowering, not performance.",
+      "packet_sha256": "3ad45319701dc28269bc8ef3712cd496d77f37ed91b4a75786b13902a0357b07",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R01/report.md": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11",
+        "NativeWeave-Design:docs/research/topics/R01/evidence.json": "c9696e64ed82c383cde5c10b0a8dda49fb990a0e7dbc11bb5cfee6ee90695425",
+        "NativeWeave-Design:docs/research/topics/R01/coverage.json": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a"
+      },
+      "related_delivery_or_contracts": [
+        "A14",
+        "A15",
+        "A21",
+        "A22"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R02",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Static imports, closed generics and source-generated JSON supported by exact source and Windows/Linux normal/AOT restrictions runs; invalid char/bool UCO Linux failure occurs before callback body. Consumer clean-image obligation maps to A16.",
+      "packet_sha256": "b6061140e791fcc789beac1f6b70ba010a6daddc245b233fe94638e0f5373e8a",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R02/report.md": "a7843818835bb8d0c760b8db7aa1f527ac347fc5e5ba65b663d28d6c08ac77e2",
+        "NativeWeave-Design:docs/research/topics/R02/evidence.json": "8ffd451a7944eb36ad3a47e922f323fb8e1a71391814c24bee529bc537f27195",
+        "NativeWeave-Design:docs/research/topics/R02/coverage.json": "e792f4386fa45895634d3c6c0d6ffd3433c6c25083f443392d86c1a289052f82"
+      },
+      "related_delivery_or_contracts": [
+        "A10",
+        "A12",
+        "A14",
+        "A15",
+        "A16",
+        "B10",
+        "B12"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R13",
+      "decision": "recommend_accept_research_design",
+      "rationale": "SDK native/RID asset resolution plus Cargo JSON artifacts and real separate NuGet consumer establish maintainer prebuild/ordinary C# mechanism; PATH-hidden Rust research is not pristine OS certification.",
+      "packet_sha256": "6a7e9dad85db425d8125114aaf17f15dca3df37fdc57fd08c0d25565ca96a6c5",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R13/report.md": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7",
+        "NativeWeave-Design:docs/research/topics/R13/evidence.json": "f891c8d8b2e7f50e3ba7ca16005bad630c8c4cc6add49573bb4ae4af3f9b7874",
+        "NativeWeave-Design:docs/research/topics/R13/coverage.json": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696"
+      },
+      "related_delivery_or_contracts": [
+        "A13",
+        "A14",
+        "A15",
+        "A16"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R14",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Four identities, explicit compatibility/provenance and original package inventory are sound. Newly independently checked NuGet direct override, per-package uploads, signing-aware readback and unlist rules resolve publication semantics.",
+      "packet_sha256": "3c66b7bd8e91a44284d9d5d1428cfb3833747ebaa04447cb49c196615e8c684a",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R14/report.md": "b353abde7c361ec0d8ad6cd36bc2747fa67d887c4cf7db3a2293781de94d494d",
+        "NativeWeave-Design:docs/research/topics/R14/evidence.json": "6e1dc5fcaf35cb2e5f9b8d46fbf0ce7eddf6b3abea953278b6c8f17c9cf67292",
+        "NativeWeave-Design:docs/research/topics/R14/coverage.json": "641dff377a13cb1a58f3b2eb0e5708d6f165ac8966e6eaa0f1b8817684dd8367"
+      },
+      "related_delivery_or_contracts": [
+        "A16",
+        "A22",
+        "B24"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R17",
+      "decision": "recommend_accept_research_design",
+      "rationale": "NativeAOT external executable/ISA controls, scheduled-arrival latency, failures and memory ownership distinguish valid measurements from finite model evidence; no product performance fabricated.",
+      "packet_sha256": "3040e1007ba4f9f3f7673b58b56885e6ecad2f9adaeb33e03f6eb51c260dbdfa",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R17/report.md": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+        "NativeWeave-Design:docs/research/topics/R17/evidence.json": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f",
+        "NativeWeave-Design:docs/research/topics/R17/coverage.json": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878"
+      },
+      "related_delivery_or_contracts": [
+        "A21",
+        "B22",
+        "B23",
+        "B24"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R18",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Real miniz native codec and real asynchronous Rust network domain establish heterogeneous Engine boundaries; guarded managed ownership transfer is correct by control flow with post-fix Linux regression. Product construction failure and expansion-boundary gates are explicit in A17.",
+      "packet_sha256": "25995859b30a62e2a9cc860335363abd508bae7cf8aecac8a0b8f853ce819a6a",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R18/report.md": "bdf46e37799950570583df4bc31382b3d4253658c98bc14031bbae1c31de557d",
+        "NativeWeave-Design:docs/research/topics/R18/evidence.json": "72199f94b832bd02bba96a72f8d0561f17b82cc8ff88e36ffa05d601c0827888",
+        "NativeWeave-Design:docs/research/topics/R18/coverage.json": "c73e6b3ddafe23aa831b7b82f5733e767a23f84c17b2ea60dafad2b89bfd181f"
+      },
+      "related_delivery_or_contracts": [
+        "A17",
+        "A18",
+        "A24",
+        "B15",
+        "B17"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D01",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Pins initial actual OS/CPU/toolchain profile, ordinary/AOT consumption, static metadata rules and separate unsupported profiles without treating Linux evidence as Windows or clean image.",
+      "packet_sha256": "4716c2ef1fbf25f54f79867062cde84911b9ea35a703b4e945064ded388890f6",
+      "output_hashes": {
+        "NativeWeave-Design:docs/platforms/support-and-aot.md": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470"
+      },
+      "related_delivery_or_contracts": [
+        "C-PLATFORM-001"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D10",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Precise owned-package closure and post-restore hard validation survive direct version override/warning suppression; staged catalog is distinct from partial public uploads; signing and payload identities, 409 conflict, unlist and previous-complete-closure rollback are coherent.",
+      "packet_sha256": "477fc7f451987bb9a672e7d1078751dd66d3ab46fecd64a00f948e7ae75db4fb",
+      "output_hashes": {
+        "NativeWeave-Design:docs/platforms/build-package-release.md": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0"
+      },
+      "related_delivery_or_contracts": [
+        "C-BUILD-001",
+        "A16",
+        "A22",
+        "B24"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D11",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Small optional capabilities, source-informed adapter/fork ladder, module/owner/affinity/async boundaries and independent mature Engine conformance are actionable; no mandatory giant runtime or C# domain rewrite.",
+      "packet_sha256": "d3476621b0134aa3ea103a664837f883886ff3c0e1f304eecd3595fdb1f570e6",
+      "output_hashes": {
+        "NativeWeave-Design:docs/extension/engine-integration.md": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4"
+      },
+      "related_delivery_or_contracts": [
+        "C-ENGINE-001",
+        "A17",
+        "A18",
+        "A24"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D13",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Isolated NativeAOT execution, fair direct Rust/facade/managed semantics, explicit ISA and load/failure/resource accounting form a credible implementable measurement protocol.",
+      "packet_sha256": "bf702293bf23ec41feef6f7cf8d7316afef8c290b6cae43ffccacf0e10a12a30",
+      "output_hashes": {
+        "NativeWeave-Design:docs/performance/methodology.md": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0"
+      },
+      "related_delivery_or_contracts": [
+        "C-PERF-001",
+        "A21",
+        "B23"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D25",
+      "decision": "recommend_accept_research_design",
+      "rationale": "A13–A16 actual file ownership, OS acceptance closure, source/native/package provenance and detailed no-Rust/package-failure cases are consistent with D01/D10 and fixed graph.",
+      "packet_sha256": "dad7b9ec2615257ae407b3d25c1b5e66113e9652b15a74e950718295dbe14069",
+      "output_hashes": {
+        "Plan:fragments/build-release.json": "c26c081e809607865f055be30fa479c56103a004797d17171c07072fd1453bff"
+      },
+      "related_delivery_or_contracts": [
+        "A13",
+        "A14",
+        "A15",
+        "A16"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D26",
+      "decision": "recommend_accept_research_design",
+      "rationale": "A17–A21/A23 fragments retain exact model/fuzz limits and real Engine cases; missing A17 deterministic construction-failure gate and codec expansion limits were fixed and rereviewed. Proof/tool/device scope remains bounded.",
+      "packet_sha256": "53fac0203216c63b5da3659c772630202d6f5665bd322de1a7334fa37e113141",
+      "output_hashes": {
+        "Plan:fragments/verification-engines.json": "7da28aca906110f2fb308f6925276e8ad89da2165d8ddfd801117ce04db59338"
+      },
+      "related_delivery_or_contracts": [
+        "A17",
+        "A18",
+        "A19",
+        "A20",
+        "A21",
+        "A23"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D31",
+      "decision": "recommend_accept_research_design",
+      "rationale": "A22 compatibility upgrade policy and A24 two-domain scaffold keep source/crate/ABI/API/semantic identities distinct, with scoped worktrees, existing three graphs and no automatic production promotion.",
+      "packet_sha256": "c26ab7a2ae7ae5ecaf7f9b06ccb19cbb71992141c4a6671dae295eae6188e1f0",
+      "output_hashes": {
+        "Plan:fragments/evolution.json": "e105a3b66f8c8a4917c728bb1ac3e8d021ecbe536476d66612a7e8a9141ae063"
+      },
+      "related_delivery_or_contracts": [
+        "A22",
+        "A24"
+      ],
+      "product_execution_accepted": false
+    }
+  ],
+  "contract_reviews": [
+    {
+      "id": "C-PLATFORM-001",
+      "version": "0.3.0",
+      "spec_path": "docs/platforms/support-and-aot.md",
+      "content_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "decision": "recommend_accept_research_design",
+      "product_implementation_accepted": false
+    },
+    {
+      "id": "C-BUILD-001",
+      "version": "0.3.0",
+      "spec_path": "docs/platforms/build-package-release.md",
+      "content_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "decision": "recommend_accept_research_design",
+      "product_implementation_accepted": false
+    },
+    {
+      "id": "C-ENGINE-001",
+      "version": "0.3.0",
+      "spec_path": "docs/extension/engine-integration.md",
+      "content_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "decision": "recommend_accept_research_design",
+      "product_implementation_accepted": false
+    },
+    {
+      "id": "C-PERF-001",
+      "version": "0.3.0",
+      "spec_path": "docs/performance/methodology.md",
+      "content_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+      "decision": "recommend_accept_research_design",
+      "product_implementation_accepted": false
+    }
+  ],
+  "review_inputs_sha256": {
+    "NativeWeave-Design:AGENTS.md": "e42f4fd965744e1b8c5982ba11c80402a20b20858e32ed412ac1d75e54c962da",
+    "NativeWeave-Design:docs/extension/engine-integration.md": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+    "NativeWeave-Design:docs/performance/methodology.md": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+    "NativeWeave-Design:docs/platforms/build-package-release.md": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+    "NativeWeave-Design:docs/platforms/support-and-aot.md": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+    "NativeWeave-Design:docs/research/topics/R01/coverage.json": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a",
+    "NativeWeave-Design:docs/research/topics/R01/evidence.json": "c9696e64ed82c383cde5c10b0a8dda49fb990a0e7dbc11bb5cfee6ee90695425",
+    "NativeWeave-Design:docs/research/topics/R01/report.md": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11",
+    "NativeWeave-Design:docs/research/topics/R01/rust-1.100.md": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d",
+    "NativeWeave-Design:docs/research/topics/R02/coverage.json": "e792f4386fa45895634d3c6c0d6ffd3433c6c25083f443392d86c1a289052f82",
+    "NativeWeave-Design:docs/research/topics/R02/evidence.json": "8ffd451a7944eb36ad3a47e922f323fb8e1a71391814c24bee529bc537f27195",
+    "NativeWeave-Design:docs/research/topics/R02/report.md": "a7843818835bb8d0c760b8db7aa1f527ac347fc5e5ba65b663d28d6c08ac77e2",
+    "NativeWeave-Design:docs/research/topics/R13/coverage.json": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696",
+    "NativeWeave-Design:docs/research/topics/R13/evidence.json": "f891c8d8b2e7f50e3ba7ca16005bad630c8c4cc6add49573bb4ae4af3f9b7874",
+    "NativeWeave-Design:docs/research/topics/R13/report.md": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7",
+    "NativeWeave-Design:docs/research/topics/R14/coverage.json": "641dff377a13cb1a58f3b2eb0e5708d6f165ac8966e6eaa0f1b8817684dd8367",
+    "NativeWeave-Design:docs/research/topics/R14/evidence.json": "6e1dc5fcaf35cb2e5f9b8d46fbf0ce7eddf6b3abea953278b6c8f17c9cf67292",
+    "NativeWeave-Design:docs/research/topics/R14/report.md": "b353abde7c361ec0d8ad6cd36bc2747fa67d887c4cf7db3a2293781de94d494d",
+    "NativeWeave-Design:docs/research/topics/R17/coverage.json": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878",
+    "NativeWeave-Design:docs/research/topics/R17/evidence.json": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f",
+    "NativeWeave-Design:docs/research/topics/R17/report.md": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+    "NativeWeave-Design:docs/research/topics/R18/coverage.json": "c73e6b3ddafe23aa831b7b82f5733e767a23f84c17b2ea60dafad2b89bfd181f",
+    "NativeWeave-Design:docs/research/topics/R18/evidence.json": "72199f94b832bd02bba96a72f8d0561f17b82cc8ff88e36ffa05d601c0827888",
+    "NativeWeave-Design:docs/research/topics/R18/report.md": "bdf46e37799950570583df4bc31382b3d4253658c98bc14031bbae1c31de557d",
+    "NativeWeave-Design:docs/traceability/reviews/completion/root-independent-review.json": "e171d4037dd85fadfd45f1c99f39ebbe49bf83f4a2571d6940dbfa08a2f3da5e",
+    "NativeWeave-Design:docs/traceability/reviews/completion/root-independent-review.md": "355dd859074a351ca3ccd81f74a882f6a7827297f04c09e6f531c3cc4979ac6a",
+    "NativeWeave-Design:experiments/engine-completion/consumer/Consumer.csproj": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076",
+    "NativeWeave-Design:experiments/engine-completion/consumer/Program.cs": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a",
+    "NativeWeave-Design:experiments/engine-completion/managed/Codec.cs": "a967a3a1ce6bfaa8873ae71bf298a7a8a2d3e9f7fbdf050442a35dbe68bbe0b4",
+    "NativeWeave-Design:experiments/engine-completion/managed/Codec.csproj": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9",
+    "NativeWeave-Design:experiments/engine-completion/native/Cargo.lock": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6",
+    "NativeWeave-Design:experiments/engine-completion/native/Cargo.toml": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060",
+    "NativeWeave-Design:experiments/engine-completion/native/src/lib.rs": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9",
+    "NativeWeave-Design:experiments/engine-completion/run.py": "31121daccf8f0a5e0df2a0e1b35de798bb2ec579d56763561915e9b8de6b8fa5",
+    "NativeWeave-Design:experiments/interop-completion/AotRestrictions.cs": "f27e1d2fdca73ac16d16dca03d627f4ecf3a1382314184c2d33e344d56883d7e",
+    "NativeWeave-Design:experiments/interop-completion/AotRestrictions.csproj": "da5c22071e79bca5aca697d497f8e8bb18e25f01fcf19e1df1ef6209975df257",
+    "NativeWeave-Design:experiments/performance-completion/omission.py": "e1d41b9926bbc3d401ac0c1f5a0a599ae475c8d3f239446796bbb9f91ff743bf",
+    "NativeWeave-Design:experiments/platform-completion/inspect/Inspect.csproj": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c",
+    "NativeWeave-Design:experiments/platform-completion/inspect/Program.cs": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a",
+    "NativeWeave-Design:experiments/platform-completion/modern/Modern.csproj": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+    "NativeWeave-Design:experiments/platform-completion/modern/Negative.cs.txt": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:experiments/platform-completion/modern/Program.cs": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+    "NativeWeave-Design:experiments/platform-completion/run.py": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/actual-aot.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/actual-aot.stdout": "88dd00f25a04bf4ff4388554c1cbf3b263771955fe1e69cfb31d9f9e6beca9eb",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/aot-publish-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/aot-publish-no-rust.stdout": "168cc875e196e357391fbfbc3a90f65bab293609bbe2f36a3edb4234cf45e13e",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/archive-manifest.json": "cd49b2874a327b61d3b7ea37cfa852a31337981e0d6f66b4b7bb88da2b084293",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/cargo-metadata.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/cargo-metadata.stdout": "720022a77711eaf1d6b307fae421e9606baf7a17ceb9d8a06dc567f78c670fe9",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-build-no-rid-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-build-no-rid-no-rust.stdout": "2aa3751d3ed052f816cff047be6025f3eeb8a06b0f7b38b9272f735c809b079a",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-change-offline.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-change-offline.stdout": "05ada8a08c0efec3ed698a45f756309ed119485aa37523908a2ad2b65f727851",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-run-no-rid-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-run-no-rid-no-rust.stdout": "442aacb1788435ed654567d4e4697ecd920218fb4fba0740ea90f6f74bd0772e",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/dependency-inventory.json": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/consumer/Consumer.csproj": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/consumer/Program.cs": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/managed/Codec.cs": "594a504f8422d8ab598179b3940c4d31b717c407448dfb0af6293faf9f4b088c",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/managed/Codec.csproj": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/native/Cargo.lock": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/native/Cargo.toml": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/native/src/lib.rs": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-build.stderr": "3080a12a6991b8c1e73de91a3a33ced0ebacaee79c5445517f6ec855468abb51",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-build.stdout": "552d66417804746e29eba5e57e64faf97c1a85262b4099e63c685b11a74021ed",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-test.stderr": "612407d17a5a45fd08ebd5aa53784423454cfd6ec8aaacdc2dda6941558612d1",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-test.stdout": "eab7d2fd6c353711d39835f4f0668c5115cb6257b7fe3181366c2d5f04b13e40",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/pack.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/pack.stdout": "38e3f1592578d02bb3aacb6ab88613bb9422a40c745976924d38c2413c414ad4",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/result.json": "66780bb3b65e748bfc737dddae5b9b3ea7c3c29b52256715b927d65b93841aaa",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/rustc.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/rustc.stdout": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/sdk.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/sdk.stdout": "deba5c9d29183999fa54d9a87bea58c6b3386ae8e4be146c3a0f8bf760d3aa06",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/actual-aot.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/actual-aot.stdout": "3abe15e1fd851d99eb78ef2b818501d85574fb20790980ea7ab6182979b0bf3c",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/aot-publish-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/aot-publish-no-rust.stdout": "de8aba4fbf66af939e5f8f9025bb293f7bf7845ec71b474b0e385d350c8893d9",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/archive-manifest.json": "6328b1d0eccc2c987cccc6b689410eca34c2e7db817b933b005f3fdccc9cd4e7",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/cargo-metadata.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/cargo-metadata.stdout": "1cb4f721a3948ed0178e8a151cb7a9b7b1ba40f188965e12733f9e93a5351756",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-build-no-rid-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-build-no-rid-no-rust.stdout": "302b7d278a1a144b07de4ae95ad5e6908cdb6ac6363f31388c8663940788b2b4",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-change-offline.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-change-offline.stdout": "322b703d416ca1a0d1490ff4a79417ed1ef71c5b7507f52b6b2810cc24ac3a7d",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-run-no-rid-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-run-no-rid-no-rust.stdout": "2d5249bad4e65bbb45e2eeaaccd02053cd906016758e6c9e6fef926bcff3bb8c",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/dependency-inventory.json": "af0afd34f1bd486ea1534a344b320894ed47c47ae7203393182917d4c2bebbbf",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/consumer/Consumer.csproj": "50f0e2a945912089da8342aad7a1cc0c882c5308fa3e18edf490586d74641db2",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/consumer/Program.cs": "c9344d246548e01ee581fd9ce6414cd27f22210f9b8d4c3e1740bf980170fa0c",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/managed/Codec.cs": "179ccb6ef010bac4016856c5cd84793891da379bc7a165ffdda75b7cfeb353d7",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/managed/Codec.csproj": "f73ced97b21d9f0f9515dfecce90204f70fa356a28f07d77e07cc0b6c0c35051",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/native/Cargo.lock": "9e17d190a5385ec98738a562f2d70561d5d9a40556b1e5e2235ce9c6d9bc0bb5",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/native/Cargo.toml": "39bbd25a60f005c3a771c2c5217ec358e2ad938aee3a1e724e42dc35261eb500",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/native/src/lib.rs": "57dd3920878100b9d291c1900a0d9534595842c8bd89689e3a89579233ff873b",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/native-build.stderr": "9e8bdc790d60bd15a8f39d577459de33362c72c42f383f15a7fc206786f1c904",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/native-build.stdout": "6a5b4e45c77f50c3dfbcbd62cb391c2f72f9850274da00dff1272956f3546cc7",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/native-test.stderr": "450d9ae67e51fff9c2dac580f39441858168e95197888efb645c2e7cf9de255a",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/native-test.stdout": "eab7d2fd6c353711d39835f4f0668c5115cb6257b7fe3181366c2d5f04b13e40",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/pack.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/pack.stdout": "17965cf288f6acd7ce5f5a70b15288b9a6eb81d891d2dc002d722f047c5564bd",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/result.json": "234314f10c21b48afb5b5fb94a68a626a04f002d6f3d23254b4c3640666a1ce3",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/rustc.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/rustc.stdout": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/sdk.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468147/engine-completion-windows-2022/sdk.stdout": "2a91caa34114f97b4569e7d15931f36831458ce2d53533d39dbddaaf9f38a829",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/archive-manifest.json": "5dd1db92d7be81b3de2fad3d392ccd8a8182675580e861fbfe0f66162fd4780e",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/Cargo.toml": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/run.py": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/tests/postgres.rs": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/tests/runtime_metadata.rs": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/native-slices/database/Cargo.toml": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/native-slices/database/src/lib.rs": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/manifest.json": "54ea86302986807d4ba3bb8ae6c664a4fffe4546f49ab3b426ef47354d023a4b",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/stderr.log": "b4d4f27fcd6095f5f8173dc97a4f282904624ab731277a6828ab60e76c6ce0e9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/stdout.log": "ba18b4d7d7ed06d7fea8b1edb51c94aefcd4a349c90d1192c67f341525a7dc1b",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/archive-manifest.json": "8624f3efe95dca6927537ab84157dfe3f3340be7bba4e7cfee24c52ef2b0ef33",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/Cargo.lock": "8de967ba203d829a734591b2c7d0af30578518b396e4f2ca4d544203cc6f454a",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/Cargo.toml": "939173c62c85a0d0e67bb7772cd36c776f59b4b656d1e9ba1c07dc9b8745f46a",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/run.py": "511be33e3be404a05126a8eb0ceb18a6a492ef507fe5a25e9985c290a758f968",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/tests/postgres.rs": "09127e713b177bcaaa24b0879d4c77b483323740b72a4b8ec17c26fda30c2c71",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/tests/runtime_metadata.rs": "96e1b00983cf76564520febc670085ea5be40723f43f164ad5bab177cd0092c7",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/native-slices/database/Cargo.toml": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/native-slices/database/src/lib.rs": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/manifest.json": "b9bc85f55b056c477255cf58abd373d687048955912d753c550fedf0cd055f93",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/stderr.log": "bdfc8e69170bb2e41079a432b3e46fac851b9d17288c2e3ff3beb1c536d9fff9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/stdout.log": "9299dad47ad4cc245eb3d1dab0e72641b1739ebc3d14a99458d103e358e57ae9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/archive-manifest.json": "009a937543fdf8e3c16f5c8b7ac994f1a01e8d52db93655e38ce9b4d0cb6aca6",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/aot-publish.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/aot-publish.stdout": "0bb388b4e37ec77b3880c6c5d94ba66a486f920643d0591252924670de347e0d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/aot-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/aot-run.stdout": "30588ba4dfe045f8da19e3c412bace250faf48a4c291dec061e926c8ac1fce7d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/commands.json": "33811e5ea26237f49932934f4b691ad0236cc6a17322a827a2398a98e489e870",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/dotnet-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/dotnet-info.stdout": "a27b2e64e18d49becfc9b29ffea86a9c5d0423c477bec0b95fde9369951f6977",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/generator-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/generator-run.stdout": "32453c70e80736bfcfb95590eaed24ca36379ba20899406c3dee562d3ce70595",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/native-build.stderr": "ad41544c50102f6799af85a8727ddd5b202ef395e95c6561769e54f07a224512",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/native-build.stdout": "37223f989a96bacf23f04862ae4c0311c74ced630a9277bacf4f38eaa22c9235",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/native-test.stderr": "747f35836dbfd238ad235abf5ccdb32a1f0116c4af631b022381e66cf205e79b",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/native-test.stdout": "28c306352c0bc3b4af55e6cd0d897578ac068d0c7c6208e77643476645116e49",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/normal-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/normal-run.stdout": "ff631a06b5f1e54ec0a2e6fb1074046decf7d171669d4bde6acf1f4624c31804",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/restrictions-aot-publish.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/restrictions-aot-publish.stdout": "1bc774a45dba32c5a2f6aee06026081ec6aff91f9feb6f482c7eea49d0d0b49d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/restrictions-aot-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/restrictions-aot-run.stdout": "a059bca07ddec320cb9cbd1da03d8fe8454f658b9c20555680f875f8b2fb1042",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/restrictions-normal.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/restrictions-normal.stdout": "6fdf9cd2fbc3bb33bbf9f882ebe49b49630e87f96ef73dca84fe1d49d8d9f734",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/result.json": "12cc08486d5fb5567c36497e0b3f214e7315ccca86e0cb54d006fc410f816a23",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/rust-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/rust-version.stdout": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/archive-manifest.json": "18986ca20667685a678aafc93201968444352b50d6a3b3836dab4226f3a75a86",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/aot-publish.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/aot-publish.stdout": "6f5f1108b0a541baa9ce69c6f1de3c1994d30153669d92ebb4b959cfd196309c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/aot-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/aot-run.stdout": "36ba9bbf537f71ae9fae984f554ebf1ace1bff7b2e4d84f947f1fb183f825f23",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/commands.json": "178a93bc1a28b7df258581c6d23329e71ff4ab49595e6e546b47cec985667c42",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/dotnet-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/dotnet-info.stdout": "570787210d4817f36ce08790c190e51e408a14c2c3d03af9675bfa8400994eca",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/generator-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/generator-run.stdout": "c74c37b015d996b5bdcdae05937499a0961772a6cd597a97853b3cfa548f8fd8",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/native-build.stderr": "9910e097800892b69023c5adffc9b67c3899af3e8eac8027b96986732995e06f",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/native-build.stdout": "a0d586d39431176b22bebbd9449315fd093566b33d4aa0676cc04a87e5ca3360",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/native-test.stderr": "fdede5ce154541e97670ead5835aa9d011d7e255852b7468372acee9f41bbb5c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/native-test.stdout": "21c42fbd19aac791b858fc92cd88f518bd3fa7ddfc710e0de181e3ca2e4ad615",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/normal-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/normal-run.stdout": "6a5d2a59add4b5150ec7df3eb921174154cef578a32bd04f0c3fc252b8035603",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/restrictions-aot-publish.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/restrictions-aot-publish.stdout": "2a0cb5d23e45ce87bfd4ab231f38c80aa9f604c0967f613c3375c8ca987051c8",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/restrictions-aot-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/restrictions-aot-run.stdout": "10c5280dc3fc923b11af489500c38e5b6803758d6b3063b1a62d9b17ee970fab",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/restrictions-normal.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/restrictions-normal.stdout": "167a9a8c73eeee5aff58f8a7d7808d67e46e96e4891e9036b56fbb39bfb25c5a",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/result.json": "9f00fed67217b38ce98b4c46aee0fbedfd3ccb86669292f24529b376d3901c1f",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/rust-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/rust-version.stdout": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/archive-manifest.json": "f0e332deafd0f42da33869d2bf6b1f5aac68a358b7cd389d1e806bfaa22acf50",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/dotnet-info.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/dotnet-info.stdout.txt": "973f18d799788ce1112ecd851d575905dafcc00f0486fa5e471a12ab5b603015",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/inputs/kestrel/KestrelComparator.csproj": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/inputs/kestrel/Program.cs": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/native-aot-run.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/native-aot-run.stdout.txt": "38050539a8767479c78b416f569eb0dcd0f073ff0b2edd16cd31c03f7cf7aea0",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/publish.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/publish.stdout.txt": "4e22e325a3d06ffdf350846c6caa1460919b17d513c1738ab825c84443d84755",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/run.json": "3dbec23de2270a4487767c254c6f04fb1ff93269d860f0c4c6f83e8f3bd1f86a",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/archive-manifest.json": "5863aec58066c64253c29c6d6f0039ccc6948e326f0b57faa4e561484f2f9780",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/dotnet-info.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/dotnet-info.stdout.txt": "d56ea3dfc840ba3e04ad581f5abd4c99e6649fe089ba94d22ede5c7ad298087c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/inputs/kestrel/KestrelComparator.csproj": "a6ad2fe3b3531fbb3f3a0d9b5954a5a4ed973739054b95b3608d71dd9317ce2c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/inputs/kestrel/Program.cs": "8d5089166c1ff720c32b278e21b1a5fcb2157bd3cc07d5126a04a941c8d0d8b8",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/native-aot-run.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/native-aot-run.stdout.txt": "d1f80f4aff5c173ba5c8d9f0c37349e08549eb44c96f0abbe83cd8961d2f5f27",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/publish.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/publish.stdout.txt": "a99a43bfd77921e736bb289b79494ec6d1ec23180674d82c071f5f27142271be",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/run.json": "b86ae545f625319bcfc3c53ac964cfb2047c0548db7720a19ce130679e4d1c36",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/archive-manifest.json": "52f093c72d4efaf3e2a7feb0383fcf6e0ea1eeee3952f689c4a4bdc53fda426b",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-default.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-runtime-async.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/external-closed-negative.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/external-closed-negative.stdout": "9db13c99d256e0aa1ef056594eb0d15ae66c9a0ec9e017f0da35f1bdb18d8d47",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Modern.csproj": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Negative.cs.txt": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Program.cs": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/run.py": "058f71c632f353aa8cbfe07a5ddb731724fb7fada3701a771e6806d54ce26c35",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/negative/External.cs": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/negative/External.csproj": "16ccce38da07404547e9242771e5a78e8a5c5cd32a79f68d4693690a4a23db50",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/ordinary.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/ordinary.stdout": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-default.stdout": "2d7dd8eca77a195d400857996eee6dd98e51f1288818c3433472f01f88d3dc33",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-runtime-async.stdout": "2303f65354e1815244b6a817df237e4aed51bf767fe5675b5160043490f3030e",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/results.json": "e537d9111f0039643818533267b902f537850cccf3c81ab88677b2137b031eb4",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/sdk-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/sdk-info.stdout": "973f18d799788ce1112ecd851d575905dafcc00f0486fa5e471a12ab5b603015",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/archive-manifest.json": "79a2adb8f053e5f6ba508a7521404efbaf61c9e0c9e537a0a85ed3fd434f9715",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-default.stdout": "5fec69bf744c4969b40462ecec89053afeaef47e9289297789dc94b60d7e9e69",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-runtime-async.stdout": "5fec69bf744c4969b40462ecec89053afeaef47e9289297789dc94b60d7e9e69",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/external-closed-negative.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/external-closed-negative.stdout": "bd81c41985915d8cfe5c0980b4298e8d12577449d25cf0fba321ee2bf550abe7",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Modern.csproj": "9d7326b9ea4e9eea0c3f699653ae6c0ff84f79c370f9d13310648ac57e9e507a",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Negative.cs.txt": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Program.cs": "8732a5f3b1de028ffafc10eba6356ca128f74c34b606d14bcf0336046bd9eda0",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/inputs/run.py": "6834eec5d0b245fbc9e459886c8d1717dd1f5a4bcdcb9145bcef32ddd1516e9a",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/negative/External.cs": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/negative/External.csproj": "11a8443cc0d995e82f361f3f081009be3c8ab29ea945cdfc35545b6def8de635",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/ordinary.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/ordinary.stdout": "422dd0a8ae4ade3a64dd259bae5662c67e79031e302c3319c752674119d2db09",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-default.stdout": "3e45a0abb6371ce92187d55ad1ec308d62eac1c6aeb26cb11174c8fefd0f68d5",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-runtime-async.stdout": "3fb13799c0211d9166e16af0e0db05a1d334b0010cf2152d59308bbdac052d8b",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/results.json": "7791d70d53d890c879106c954e76625f82113c46201cd3aaa4c241b47b0fc08c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/sdk-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/sdk-info.stdout": "d56ea3dfc840ba3e04ad581f5abd4c99e6649fe089ba94d22ede5c7ad298087c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/archive-manifest.json": "913123ea1582118c49d587a79a9a50b2a80cdfe35770a4d0381399c84cca54fd",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/image-digests.json": "4a2c3d2aa701b9f8fc7df150993296da1d0459be27c5203079c701b5c368398e",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/image-id.txt": "3edfd2dd8089f0439d3763edc2219e5b3904758b67fc1f3748f0685d9e8500bd",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/server-version.txt": "54f9bde921e8a5e3860cfa78252e0c5aba8e20e3f68fe9c500870d22ffb3e703",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/Cargo.toml": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/run.py": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/tests/postgres.rs": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/tests/runtime_metadata.rs": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/native-slices/database/Cargo.toml": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/native-slices/database/src/lib.rs": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/manifest.json": "2657a79ccf8c11b351fafe23bd3f928c7b597d23cad7d22d89caa4a88cbf239e",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/stderr.log": "234fa9f920527ff7f5d31e97a3469af4db154b0a89570c6c3548e609e9f2af97",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/stdout.log": "c88f13af32e481fee2f8214a6e1bb68ab84cdc744522ed99704fdf7c227fd1c7",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/archive-manifest.json": "126cc741c54de034ceff4675a86419d671f19dffe16060e318915609c5ba1a6b",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/cargo-version.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/cargo-version.stdout.txt": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/dependency-tree.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/dependency-tree.stdout.txt": "95eacead555e2c2b4cb7ec38a763189cc01233e72e5318c8cbc60244620803bc",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/inputs/protocol/Cargo.lock": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/inputs/protocol/Cargo.toml": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/inputs/protocol/src/lib.rs": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/run.json": "5d2eef1b68e05ea130334c8733046ac0f802d92b1d570cd54c485396cf4f8332",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/rustc-version.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/rustc-version.stdout.txt": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/test.stderr.txt": "46574434d52884c4c1f162d3c113d80e40238eae8aa70c4a5b7ba0626783241d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/test.stdout.txt": "1a1713f8d08239eeac9d2096c6f46ffffadefc1bdb38bfe3562a727cd891910c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/archive-manifest.json": "167b595f1538a09d6e6c0cf87a0d8cfd497e155ef72ab2f464c927acb0dadde1",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/cargo-version.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/cargo-version.stdout.txt": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/dependency-tree.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/dependency-tree.stdout.txt": "9311b9336f1b519b096e2e14b4bd5b0a06cc91bfb711c984120339b8e1053b5d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/inputs/protocol/Cargo.lock": "0974affb37393e609b85d3b90102a7be7be569510affff1dcd6d7ee20264436c",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/inputs/protocol/Cargo.toml": "36116de5e455e23813a8f0d6b77408d1503774e5af6a1fa8398804b9f23b341d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/inputs/protocol/src/lib.rs": "b9d3d32db2a36aa69e6478259fd9acb3016c3e1bc781a59ec5f6a73dfe3ce021",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/run.json": "d230ce88e61165aed31b0138f191b6c6b662e325f014eccade4e6c86c72cf15d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/rustc-version.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/rustc-version.stdout.txt": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/test.stderr.txt": "720377d0fe58c69f0eae893e552ab610eb1ef7a4841aad06ed14894140f8f5cd",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/test.stdout.txt": "2fa8130d28b6489b8b828907f1e8a6731746fa494f0c569eb978d04ccf335b64",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/archive-manifest.json": "7bbafb156102c8ae3ad92c2216baa23e5b975bcd61ba2fefe550eb7094480ad2",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/dotnet-info.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/dotnet-info.stdout.txt": "c69203d1c919596ba84f61ab2b82fc2e61805f7434451463f7b328903fc14924",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/inputs/diagnostics/DiagnosticsProbe.csproj": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/inputs/diagnostics/Program.cs": "858f64868785d1843417b604f5cfcb05deda2588015daa1e21f07e34775ffc9b",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/inputs/run_diagnostics.py": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/native-aot-run.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/native-aot-run.stdout.txt": "645b9f66ba476836216109aae8c5662589bd13cc7d552576bb26b4e6d0845cc6",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/publish.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/publish.stdout.txt": "61b6f4b4e55a9842a44824ae091bafb3d19a2977b28421bda26b81175b80872c",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/run.json": "59a2b233570d268cf978a9068e4b3763e59b930d6bd3f00932079c633987b860",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/archive-manifest.json": "1124292b7dd70c2f8fed5e88b22a68fc4032ea0d44fda553b0a0b0ad6342f19b",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/dotnet-info.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/dotnet-info.stdout.txt": "f170989b6d9b73672423252cb85923cda7b4ce099714f35862a17c0d6de18c07",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/inputs/diagnostics/DiagnosticsProbe.csproj": "8e95e5ea1af7d0f015798020f23febe234f52324c2f75e74784d99009e6aad9e",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/inputs/diagnostics/Program.cs": "8e778e42178b8538106e0b4efbd295c03fad6cd6a626902b90bc53d5c31ec3e6",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/inputs/run_diagnostics.py": "d68e5da6ac95f4390ff8c58d3e30bf48b84b7f14fae871712b579098e2c6bf43",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/native-aot-run.stderr.txt": "9918bb63b52ed5ff016ffac5196ac34c06a4217f7f7be7b780ad94adbc570805",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/native-aot-run.stdout.txt": "c66b755c9bbda6e85a47a7843a9d947618a922a931ebc295095f3742ed116ddb",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/publish.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/publish.stdout.txt": "8548c8a654c32c1610e9f416f23ab57405b00cd75b7d258e7d8dfa4db5301a93",
+    "NativeWeave-Design:verification/completion-ci/43390177287/diagnostics-windows-2022/run.json": "e65de673616e620a6da36efbf559733e17d13a9ceaa5139224c10bdc12817693",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/archive-manifest.json": "83c316f7f9eb2160bcfe2503f184247734f45ba1dd58daa6c079bf9aa2472d29",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-default.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-runtime-async.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/external-closed-negative.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/external-closed-negative.stdout": "a1e9db7c9732230362e6a4929007e17717e6455326b193eab21547af95e42682",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/inspect/Inspect.csproj": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/inspect/Program.cs": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Modern.csproj": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Negative.cs.txt": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Program.cs": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/run.py": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/metadata-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/metadata-default.stdout": "dd3e78c49008ef21b6114c94f19ba76fdaa26761261021d5f8dd86081b6bdf5e",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/metadata-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/metadata-runtime-async.stdout": "14c287310ff2e1d61f672a2713d5c7ca3a4795ba43e738408863b04d476817e8",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/negative/External.cs": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/negative/External.csproj": "16ccce38da07404547e9242771e5a78e8a5c5cd32a79f68d4693690a4a23db50",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/ordinary.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/ordinary.stdout": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-default.stdout": "cf4fbb2446b3b7ce8e0a58484e631bdc9ee672571c10c661c320c260a1e011fb",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-runtime-async.stdout": "2a7912c36757733d079df9f1f97273eeaa59296d74112a4876cd3905e2848053",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/results.json": "846065854e60dcc958d9ba084dbf4c09692fe8dafe85fe09aa5f380548a76811",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/sdk-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/sdk-info.stdout": "edc07caa9f7168a45b7e7ba9e83f653116a8e31e4ad8bceee2686b822b91dd12",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/archive-manifest.json": "07d6e33366fa4f0991bca7dff84549d5b8f661fe91d3e5bf09db1369f49bf85b",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/aot-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/aot-default.stdout": "5fec69bf744c4969b40462ecec89053afeaef47e9289297789dc94b60d7e9e69",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/aot-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/aot-runtime-async.stdout": "5fec69bf744c4969b40462ecec89053afeaef47e9289297789dc94b60d7e9e69",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/external-closed-negative.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/external-closed-negative.stdout": "599c77f0de37a793d63056c2ba09fabf2a5043e68f61c8c0c57d2fd8500f70a9",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/inputs/inspect/Inspect.csproj": "a8becaa5eb6656f587ecfc49f8083fafc809cd6dace4a7f994a7b54b4a7f77b4",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/inputs/inspect/Program.cs": "d076d5902d9c279240dda8caac7687db9de9e04f44ce4178d7b54ca80401be78",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Modern.csproj": "9d7326b9ea4e9eea0c3f699653ae6c0ff84f79c370f9d13310648ac57e9e507a",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Negative.cs.txt": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Program.cs": "8732a5f3b1de028ffafc10eba6356ca128f74c34b606d14bcf0336046bd9eda0",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/inputs/run.py": "c8c746eb8a1b28f453fd573cfbba9c0b1a96bfc7e036bd5855792455e8d5b4fc",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/metadata-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/metadata-default.stdout": "5b3f23de9ccacb6b5d8068b67bad8fdf37802159726f91c44f99792fd8640963",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/metadata-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/metadata-runtime-async.stdout": "6c7dafc300c429824199f3e0ed9918811e6eb062bd0ce55709bda2b58eacdfe7",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/negative/External.cs": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/negative/External.csproj": "11a8443cc0d995e82f361f3f081009be3c8ab29ea945cdfc35545b6def8de635",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/ordinary.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/ordinary.stdout": "422dd0a8ae4ade3a64dd259bae5662c67e79031e302c3319c752674119d2db09",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/publish-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/publish-default.stdout": "e82465e6bd8aa65f11aa3b1757daa4fd54e6fde58a0f43720f80b81434da275a",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/publish-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/publish-runtime-async.stdout": "a2c78478ff925adb5d8db1db9bd16d0f781dc4a5aae83ba25de260300dbb327f",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/results.json": "5b91b328240099eb30dafc510d619e26da3685918aaa74c8529df9c79452e9bd",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/sdk-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/sdk-info.stdout": "d56ea3dfc840ba3e04ad581f5abd4c99e6649fe089ba94d22ede5c7ad298087c",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/NativeWeave.Research.Codec.0.0.1.nupkg": "2f45f6d4ab1f4fc10dae770fad2ac91c96612de193933365caf4ad25295dde1f",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/actual-aot.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/actual-aot.stdout": "88dd00f25a04bf4ff4388554c1cbf3b263771955fe1e69cfb31d9f9e6beca9eb",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/aot-publish-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/aot-publish-no-rust.stdout": "5b1bb970d3f700ac0e28fd4f08bf47a8e2a3ea21d4e209df1036e9487df7842a",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/cargo-metadata.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/cargo-metadata.stdout": "291eba6e2d9eb814ba2ab384fb42c5c0014bc406fd81b8f29304492a4b7f9dd8",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/consumer-build-no-rid-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/consumer-build-no-rid-no-rust.stdout": "011a5552b62692abce0978175917e38bebbb0387c936dc9fe19d329910dc00a8",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/consumer-change-offline.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/consumer-change-offline.stdout": "9ff31000177d77eb940665f13e4554f07a71467cf1b8c3072e5676c89343817f",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/consumer-run-no-rid-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/consumer-run-no-rid-no-rust.stdout": "442aacb1788435ed654567d4e4697ecd920218fb4fba0740ea90f6f74bd0772e",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/dependency-inventory.json": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/inputs/consumer/Consumer.csproj": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/inputs/consumer/Program.cs": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/inputs/managed/Codec.cs": "a967a3a1ce6bfaa8873ae71bf298a7a8a2d3e9f7fbdf050442a35dbe68bbe0b4",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/inputs/managed/Codec.csproj": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/inputs/native/Cargo.lock": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/inputs/native/Cargo.toml": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/inputs/native/src/lib.rs": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/native-build.stderr": "6bfa9e18ffdef821c711a542cfebd7db0982665615563e5a191285e489609c6f",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/native-build.stdout": "c93c7da8d3d0ff03bc603636cbc79b575ad73948cd28f099fd01f919cbe36777",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/native-test.stderr": "1292097fedce3219807af190c49ce6c8e2cc5d0e7a794e506ff0e82d6d126c35",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/native-test.stdout": "e9b79cff163960d6ec4870de07a91f3cd9919828f11d30a3bb617e0a5277e6e2",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/pack.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/pack.stdout": "1d2899ce70a48ba89044fdf9c18a8bde0ae5a7260f4a2b9032d162230650f026",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/result.json": "5e7f11d0f6609fa8d37251235deda5570462c6ddceaaa2590ab01e76cab0f082",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/rustc.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/rustc.stdout": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/sdk.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux-reviewed/sdk.stdout": "a8616d4615f1c2010416f073c5b0e21c81d11a4b9610dd358bc81bd7caf5246d",
+    "NativeWeave-Design:verification/engine-completion/linux/NativeWeave.Research.Codec.0.0.1.nupkg": "e6b40e006bbc7b4c11eed07bca6192116fe6a0a90c6c8225d0eb13157d0fd7ba",
+    "NativeWeave-Design:verification/engine-completion/linux/actual-aot.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/actual-aot.stdout": "88dd00f25a04bf4ff4388554c1cbf3b263771955fe1e69cfb31d9f9e6beca9eb",
+    "NativeWeave-Design:verification/engine-completion/linux/aot-publish-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/aot-publish-no-rust.stdout": "e5c71dc3a3e7bfa2644fdbb74d1f0059d6b887329c623112bfdefeb808413aeb",
+    "NativeWeave-Design:verification/engine-completion/linux/cargo-metadata.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/cargo-metadata.stdout": "291eba6e2d9eb814ba2ab384fb42c5c0014bc406fd81b8f29304492a4b7f9dd8",
+    "NativeWeave-Design:verification/engine-completion/linux/consumer-build-no-rid-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/consumer-build-no-rid-no-rust.stdout": "a3beae923b4740ddfdbf76121d55f1543c7329776c2023e2096e341eebcb3270",
+    "NativeWeave-Design:verification/engine-completion/linux/consumer-change-offline.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/consumer-change-offline.stdout": "7e8af3bd555c40faf195da06d83e0505874cd2040b0c5a7c53853ff6e4f25483",
+    "NativeWeave-Design:verification/engine-completion/linux/consumer-run-no-rid-no-rust.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/consumer-run-no-rid-no-rust.stdout": "442aacb1788435ed654567d4e4697ecd920218fb4fba0740ea90f6f74bd0772e",
+    "NativeWeave-Design:verification/engine-completion/linux/dependency-inventory.json": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3",
+    "NativeWeave-Design:verification/engine-completion/linux/inputs/consumer/Consumer.csproj": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076",
+    "NativeWeave-Design:verification/engine-completion/linux/inputs/consumer/Program.cs": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a",
+    "NativeWeave-Design:verification/engine-completion/linux/inputs/managed/Codec.cs": "594a504f8422d8ab598179b3940c4d31b717c407448dfb0af6293faf9f4b088c",
+    "NativeWeave-Design:verification/engine-completion/linux/inputs/managed/Codec.csproj": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9",
+    "NativeWeave-Design:verification/engine-completion/linux/inputs/native/Cargo.lock": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6",
+    "NativeWeave-Design:verification/engine-completion/linux/inputs/native/Cargo.toml": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060",
+    "NativeWeave-Design:verification/engine-completion/linux/inputs/native/src/lib.rs": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9",
+    "NativeWeave-Design:verification/engine-completion/linux/native-build.stderr": "e5261597c9557061a060e76ed4dcd793d153dbbda59ec28f04f7abae61c45492",
+    "NativeWeave-Design:verification/engine-completion/linux/native-build.stdout": "8a4ef8a26b1c6b0d2a2938fa80cc4c4d158e055115211a1d20a8c08aac806b46",
+    "NativeWeave-Design:verification/engine-completion/linux/native-test.stderr": "3cfd2225a21d66617f8abbbcd13e90f5451f3480ba924c0d1f96b1e951c7b86f",
+    "NativeWeave-Design:verification/engine-completion/linux/native-test.stdout": "934be9d341059489dc2271c2db6b1e3c4e4b295a7f49b978f6362842b659f814",
+    "NativeWeave-Design:verification/engine-completion/linux/pack.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/pack.stdout": "14d7bb930a54d73a96bb7b503484298a8dba56d9dcb570d157004bdf1671b333",
+    "NativeWeave-Design:verification/engine-completion/linux/result.json": "6b925d9b5eb1f0b9d05984732137b08939717e60f4f4e30b14bd63c5c0089727",
+    "NativeWeave-Design:verification/engine-completion/linux/rustc.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/rustc.stdout": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "NativeWeave-Design:verification/engine-completion/linux/sdk.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/engine-completion/linux/sdk.stdout": "a8616d4615f1c2010416f073c5b0e21c81d11a4b9610dd358bc81bd7caf5246d",
+    "NativeWeave-Design:verification/interop-completion/ci-evidence-read.json": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+    "NativeWeave-Design:verification/interop-completion/linux/result.json": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+    "NativeWeave-Design:verification/interop-completion/source-inspection.json": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096",
+    "NativeWeave-Design:verification/interop-completion/uco-invalid-linux/result.json": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+    "NativeWeave-Design:verification/native-slices/original-pr1/manifest.json": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+    "NativeWeave-Design:verification/performance-completion/omission.stdout": "32a8d8864ee4ce98aecd4d0ad99192edd860aeaf06225554f64f79d478d55954",
+    "NativeWeave-Design:verification/platform-completion/linux-final/aot-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/aot-default.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/platform-completion/linux-final/aot-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/aot-runtime-async.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/platform-completion/linux-final/external-closed-negative.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/external-closed-negative.stdout": "4f34f66678835895dfa30f667873ffb0c568ef167f710bc04ef79636ed0a9ae5",
+    "NativeWeave-Design:verification/platform-completion/linux-final/inputs/inspect/Inspect.csproj": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c",
+    "NativeWeave-Design:verification/platform-completion/linux-final/inputs/inspect/Program.cs": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a",
+    "NativeWeave-Design:verification/platform-completion/linux-final/inputs/modern/Modern.csproj": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+    "NativeWeave-Design:verification/platform-completion/linux-final/inputs/modern/Negative.cs.txt": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:verification/platform-completion/linux-final/inputs/modern/Program.cs": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+    "NativeWeave-Design:verification/platform-completion/linux-final/inputs/run.py": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498",
+    "NativeWeave-Design:verification/platform-completion/linux-final/metadata-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/metadata-default.stdout": "409f354ea4ebce05da9bec3256af9de59656548fb0d85c630c459f7ab62eb919",
+    "NativeWeave-Design:verification/platform-completion/linux-final/metadata-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/metadata-runtime-async.stdout": "7a157192f6b965cd753ea1ab3f7923628d9876e7e923a100cfe83abd5704eeeb",
+    "NativeWeave-Design:verification/platform-completion/linux-final/ordinary.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/ordinary.stdout": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+    "NativeWeave-Design:verification/platform-completion/linux-final/publish-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/publish-default.stdout": "8b815ef072e84486cd4bc213cf0b9617418a728bf39bc1b6e197856fa309a88f",
+    "NativeWeave-Design:verification/platform-completion/linux-final/publish-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/publish-runtime-async.stdout": "89f3535e43af08be40ef09b5c82bff615ec559ea43705909de45ed4ea4d01299",
+    "NativeWeave-Design:verification/platform-completion/linux-final/results.json": "3e2793ffc37f40e56cb88581a2e2bec7aa4cbc811c76c1a5362b00625b171c16",
+    "NativeWeave-Design:verification/platform-completion/linux-final/sdk-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-final/sdk-info.stdout": "a8616d4615f1c2010416f073c5b0e21c81d11a4b9610dd358bc81bd7caf5246d",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/aot-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/aot-default.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/aot-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/aot-runtime-async.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/external-closed-negative.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/external-closed-negative.stdout": "34f8afdbf9bf1db53c7acbcdc957ee2b3ed9080f8dcba21f5676e301896c1dcd",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/inputs/modern/Modern.csproj": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/inputs/modern/Negative.cs.txt": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/inputs/modern/Program.cs": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/inputs/run.py": "17dea079c016cfea0d6f9d866d7ed91d4731672784817737ad872ca2c38b6d08",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/ordinary.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/ordinary.stdout": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/publish-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/publish-default.stdout": "74d13e7c677bc9ae2ce88849d35a7864af464d1d3f0d97f1ccaa711a45e51800",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/publish-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/publish-runtime-async.stdout": "5ed9bba887ea95731abc68d79ab2c4b37d203a8f40538562557d579ecd398476",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/results.json": "1d5b9ec1695a35b05fa350be56e0eebb2fa2f622bc50c6c80186683ec3e204d5",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/sdk-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-isolated/sdk-info.stdout": "a8616d4615f1c2010416f073c5b0e21c81d11a4b9610dd358bc81bd7caf5246d",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/external-closed-negative.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/external-closed-negative.stdout": "4edbffc45fc17cb50e37b0e3e78ae5e72f4450fe2219c96e5dca57205d0c5fee",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/inputs/inspect/Inspect.csproj": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/inputs/inspect/Program.cs": "d2dfcd4011b82da03b6c5dabc54dffd15523cfad2244f841932da8d9e6ffeecb",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/inputs/modern/Modern.csproj": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/inputs/modern/Negative.cs.txt": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/inputs/modern/Program.cs": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/inputs/run.py": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/metadata-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/metadata-default.stdout": "84260f2b523cd974f278360a999b0f6445cae76514d269326cefdada72d4ffab",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/ordinary.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/ordinary.stdout": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/publish-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/publish-default.stdout": "8b78a8543419e2dabd8546aa2c911a9bf3575a4199665811694380f2393d93c6",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/results.json": "29df059fb128204d02b1d7d490ad2ed6dcee278f78b10512d8187c782cc66534",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/sdk-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux-metadata/sdk-info.stdout": "a8616d4615f1c2010416f073c5b0e21c81d11a4b9610dd358bc81bd7caf5246d",
+    "NativeWeave-Design:verification/platform-completion/linux/aot-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux/aot-default.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/platform-completion/linux/aot-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux/aot-runtime-async.stdout": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+    "NativeWeave-Design:verification/platform-completion/linux/external-closed-negative.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux/external-closed-negative.stdout": "b59601954222f03b9afa70d38d3ffaa4ef8d40e39a4c5134b1cb0c7c6f44e4b4",
+    "NativeWeave-Design:verification/platform-completion/linux/inputs/modern/Modern.csproj": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+    "NativeWeave-Design:verification/platform-completion/linux/inputs/modern/Negative.cs.txt": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+    "NativeWeave-Design:verification/platform-completion/linux/inputs/modern/Program.cs": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+    "NativeWeave-Design:verification/platform-completion/linux/inputs/run.py": "058f71c632f353aa8cbfe07a5ddb731724fb7fada3701a771e6806d54ce26c35",
+    "NativeWeave-Design:verification/platform-completion/linux/ordinary.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux/ordinary.stdout": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+    "NativeWeave-Design:verification/platform-completion/linux/publish-default.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux/publish-default.stdout": "8d0f9891ecdca8652f56252b932300ca54f3a0027163509ba6888f9983f39ec9",
+    "NativeWeave-Design:verification/platform-completion/linux/publish-runtime-async.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux/publish-runtime-async.stdout": "bc61090dcdbbd9cb47c2fd36ae589e9eb1ab74f6f7238af029a3bfb948761491",
+    "NativeWeave-Design:verification/platform-completion/linux/results.json": "f4b875d286d33f2b5a77cf6a9d241f5d4b5b78c96f1cc41b6b44719382719504",
+    "NativeWeave-Design:verification/platform-completion/linux/sdk-info.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativeWeave-Design:verification/platform-completion/linux/sdk-info.stdout": "a8616d4615f1c2010416f073c5b0e21c81d11a4b9610dd358bc81bd7caf5246d",
+    "NativeWeave-Design:verification/platform-completion/nuget-final-source-review.json": "bce13b950e7d632ff51aef8db2b32efd44a36ecf6fd509649aa4834944be0126",
+    "NativeWeave-Design:verification/platform-completion/root-review-inputs.json": "f3c20a2ade4d609dce8956d58527aeae758585a420bdf293ecee0346a21c909f",
+    "NativeWeave-Design:verification/platform-completion/root-source-inspection.json": "727855ed7576a70775d1cd23101497b1d66f25692d9b89f218855b6c61d373c9",
+    "NativeWeave-Design:verification/source-lifecycle/toolchain-observation.json": "41fb2095979479047605b48bd8f523b565c9d7ff30011fecec16cb7216855706",
+    "Plan:AGENTS.md": "7bb35e4610329d85c9b2166940195783ec2a9e6a157c11adc03aa59c3c8e698e",
+    "Plan:documentation-tasks/D01.md": "4716c2ef1fbf25f54f79867062cde84911b9ea35a703b4e945064ded388890f6",
+    "Plan:documentation-tasks/D10.md": "477fc7f451987bb9a672e7d1078751dd66d3ab46fecd64a00f948e7ae75db4fb",
+    "Plan:documentation-tasks/D11.md": "d3476621b0134aa3ea103a664837f883886ff3c0e1f304eecd3595fdb1f570e6",
+    "Plan:documentation-tasks/D13.md": "bf702293bf23ec41feef6f7cf8d7316afef8c290b6cae43ffccacf0e10a12a30",
+    "Plan:documentation-tasks/D25.md": "dad7b9ec2615257ae407b3d25c1b5e66113e9652b15a74e950718295dbe14069",
+    "Plan:documentation-tasks/D26.md": "53fac0203216c63b5da3659c772630202d6f5665bd322de1a7334fa37e113141",
+    "Plan:documentation-tasks/D31.md": "c26ab7a2ae7ae5ecaf7f9b06ccb19cbb71992141c4a6671dae295eae6188e1f0",
+    "Plan:fragments/build-release.json": "c26c081e809607865f055be30fa479c56103a004797d17171c07072fd1453bff",
+    "Plan:fragments/evolution.json": "e105a3b66f8c8a4917c728bb1ac3e8d021ecbe536476d66612a7e8a9141ae063",
+    "Plan:fragments/verification-engines.json": "7da28aca906110f2fb308f6925276e8ad89da2165d8ddfd801117ce04db59338",
+    "Plan:research-tasks/R01.md": "3ad45319701dc28269bc8ef3712cd496d77f37ed91b4a75786b13902a0357b07",
+    "Plan:research-tasks/R02.md": "b6061140e791fcc789beac1f6b70ba010a6daddc245b233fe94638e0f5373e8a",
+    "Plan:research-tasks/R13.md": "6a7e9dad85db425d8125114aaf17f15dca3df37fdc57fd08c0d25565ca96a6c5",
+    "Plan:research-tasks/R14.md": "3c66b7bd8e91a44284d9d5d1428cfb3833747ebaa04447cb49c196615e8c684a",
+    "Plan:research-tasks/R17.md": "3040e1007ba4f9f3f7673b58b56885e6ecad2f9adaeb33e03f6eb51c260dbdfa",
+    "Plan:research-tasks/R18.md": "25995859b30a62e2a9cc860335363abd508bae7cf8aecac8a0b8f853ce819a6a",
+    "Plan:tasks/A13.md": "1555818b21ced9b884aa21d8465d7eeb11ffc3c29bafe82e939e1d5627262120",
+    "Plan:tasks/A14.md": "51a05d69f2c2b3f1972b28dffbfa119087e5a3a74a17a7d4a05e50c9bf7e0928",
+    "Plan:tasks/A15.md": "9cf4a9756cd77a3e9d445221d1c3dba549e7b8a10b9a0b6d7933ed511c4d1070",
+    "Plan:tasks/A16.md": "605fd50bc9fdf4bd8e57afd76da1ea1ad5cb4d6372b2e5fec242f908e4efa189",
+    "Plan:tasks/A17.md": "578a800a69511d5ebf973a91b5a7bf9056e60390f5936e5c4dc3ad8100e3b408",
+    "Plan:tasks/A18.md": "4d05bb9138c71d7aeeb38f6973de2c1f359f5a3d7c0838ea2fc0132a21885a57",
+    "Plan:tasks/A21.md": "84d8d52bb3e1cfba09fe7cadc1545e40cfccf72b96a3eba869c54ebe90367b4a",
+    "Plan:tasks/A22.md": "f8ce5ecc8cac90070b3e844d2ec809ac66ceedd8b4ee8c5404ed80c240505ea4",
+    "Plan:tasks/A23.md": "f91d147b3ec28f1ff0d6dabef0c289644736d44c29439d28f598c684670e2d22",
+    "Plan:tasks/A24.md": "da532bbeec904d4cb98007b2adfa8aebbb0e0c9008d9f2404f2c051dcc09970e",
+    "Plan:tasks/B24.md": "11e9fa376a302bf31b5b7567d16efb782b1821c5eaf1369dfce13b9a7c258a71"
+  },
+  "contextual_graph_hashes": {
+    "Plan:research-graph.json": "1f8d8d0aa954ce9bc233c7208ecd9040f4cfcfa16efbff7d0b8a17f87a1ea91a",
+    "Plan:documentation-graph.json": "6e8be2f04d12b12c9d50e3629c4f557c9bdf57170cffce055fed057953761265",
+    "Plan:delivery-graph.json": "06caddba6775a6ef202a15f6d34283aed5e6eb785f91cbee45df8931c09d15f2"
+  },
+  "contextual_registry_hash": "99a37cf57fb28e83c69b8c9ee39c75f1fea27b3fa60c4a9b3ad7399744538dc0",
+  "contextual_hash_note": "Graph/registry hashes identify reviewed context; final research/design acceptance metadata is integrated later. A material task/spec/input change needs scoped re-review; acceptance-only ledger/status propagation does not change this technical finding.",
+  "mechanical_verification": {
+    "native_experiments_rerun": false,
+    "all_retained_ci_archives": [
+      {
+        "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 31,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/archive-manifest.json",
+        "preserved_files_checked": 31,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-database-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 10,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-database-windows-2022/archive-manifest.json",
+        "preserved_files_checked": 10,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 24,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-interop-windows-2022/archive-manifest.json",
+        "preserved_files_checked": 24,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 10,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/archive-manifest.json",
+        "preserved_files_checked": 10,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 21,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/archive-manifest.json",
+        "preserved_files_checked": 21,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 13,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 12,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/archive-manifest.json",
+        "preserved_files_checked": 12,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43390177287/diagnostics-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 10,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/archive-manifest.json",
+        "preserved_files_checked": 10,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/archive-manifest.json",
+        "preserved_files_checked": 27,
+        "issues": []
+      },
+      {
+        "path": "verification/completion-ci/43390177574/completion-platform-windows-2022/archive-manifest.json",
+        "preserved_files_checked": 27,
+        "issues": []
+      }
+    ],
+    "preserved_file_count": 303,
+    "run_integrity": [
+      {
+        "result": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/result.json",
+        "passed": true,
+        "streams_checked": 22,
+        "source_entries_checked": 8,
+        "issues": [],
+        "nonzero_commands": []
+      },
+      {
+        "result": "verification/completion-ci/43388468147/engine-completion-windows-2022/result.json",
+        "passed": true,
+        "streams_checked": 22,
+        "source_entries_checked": 8,
+        "issues": [],
+        "nonzero_commands": []
+      },
+      {
+        "result": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/results.json",
+        "passed": true,
+        "streams_checked": 14,
+        "source_entries_checked": 4,
+        "issues": [],
+        "nonzero_commands": [
+          {
+            "name": "external-closed-negative",
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "result": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/results.json",
+        "passed": true,
+        "streams_checked": 14,
+        "source_entries_checked": 4,
+        "issues": [],
+        "nonzero_commands": [
+          {
+            "name": "external-closed-negative",
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "result": "verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/artifacts/completion/platform/results.json",
+        "passed": true,
+        "streams_checked": 18,
+        "source_entries_checked": 6,
+        "issues": [],
+        "nonzero_commands": [
+          {
+            "name": "external-closed-negative",
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "result": "verification/completion-ci/43390177574/completion-platform-windows-2022/artifacts/completion/platform/results.json",
+        "passed": true,
+        "streams_checked": 18,
+        "source_entries_checked": 6,
+        "issues": [],
+        "nonzero_commands": [
+          {
+            "name": "external-closed-negative",
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "result": "verification/engine-completion/linux/result.json",
+        "passed": true,
+        "streams_checked": 22,
+        "source_entries_checked": 8,
+        "issues": [],
+        "nonzero_commands": []
+      },
+      {
+        "result": "verification/engine-completion/linux-reviewed/result.json",
+        "passed": true,
+        "streams_checked": 22,
+        "source_entries_checked": 8,
+        "issues": [],
+        "nonzero_commands": []
+      },
+      {
+        "result": "verification/platform-completion/linux/results.json",
+        "passed": true,
+        "streams_checked": 14,
+        "source_entries_checked": 4,
+        "issues": [],
+        "nonzero_commands": [
+          {
+            "name": "external-closed-negative",
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "result": "verification/platform-completion/linux-final/results.json",
+        "passed": true,
+        "streams_checked": 18,
+        "source_entries_checked": 6,
+        "issues": [],
+        "nonzero_commands": [
+          {
+            "name": "external-closed-negative",
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "result": "verification/platform-completion/linux-isolated/results.json",
+        "passed": true,
+        "streams_checked": 14,
+        "source_entries_checked": 4,
+        "issues": [],
+        "nonzero_commands": [
+          {
+            "name": "external-closed-negative",
+            "exit_code": 1
+          }
+        ]
+      },
+      {
+        "result": "verification/platform-completion/linux-metadata/results.json",
+        "passed": false,
+        "streams_checked": 10,
+        "source_entries_checked": 6,
+        "issues": [],
+        "nonzero_commands": [
+          {
+            "name": "external-closed-negative",
+            "exit_code": 1
+          },
+          {
+            "name": "metadata-default",
+            "exit_code": 2
+          }
+        ]
+      }
+    ],
+    "recorded_streams_checked": 208,
+    "recorded_source_entries_checked": 72,
+    "packet_hashes_checked": 24,
+    "fragment_fields_compared": 120,
+    "combined_graph_nodes": 114,
+    "combined_start_and_acceptance_graph_acyclic": true,
+    "research_local_references_checked_before_R02_reference_only_fix": 54,
+    "research_local_reference_hash_errors": 0
+  },
+  "preserved_prior_review": {
+    "path": "docs/traceability/reviews/completion/root-independent-review.json",
+    "reviewer": "/root/server_extensions",
+    "sha256": "e171d4037dd85fadfd45f1c99f39ebbe49bf83f4a2571d6940dbfa08a2f3da5e",
+    "freeze_manifest": "verification/platform-completion/root-review-inputs.json",
+    "previous_input_count": 27,
+    "unchanged_previous_inputs": 23,
+    "changed_inputs_reviewed_here": [
+      {
+        "path": "docs/research/topics/R14/report.md",
+        "prior_sha256": "2cd775919c3b9cc88fb1f3c12785f7941656e0da0ead36a0bd3e8c57f4a3706c",
+        "reviewed_sha256": "b353abde7c361ec0d8ad6cd36bc2747fa67d887c4cf7db3a2293781de94d494d"
+      },
+      {
+        "path": "docs/research/topics/R14/evidence.json",
+        "prior_sha256": "91e0545f8aa02138a890b7e401054b454811139615ee0b13b66dfd66e5c972a7",
+        "reviewed_sha256": "6e1dc5fcaf35cb2e5f9b8d46fbf0ce7eddf6b3abea953278b6c8f17c9cf67292"
+      },
+      {
+        "path": "docs/research/topics/R14/coverage.json",
+        "prior_sha256": "2b2817a516136c16099ac0f4f566392359487868dc2e5e1aaf60cad7c72cb222",
+        "reviewed_sha256": "641dff377a13cb1a58f3b2eb0e5708d6f165ac8966e6eaa0f1b8817684dd8367"
+      },
+      {
+        "path": "docs/platforms/build-package-release.md",
+        "prior_sha256": "5e109ca696476c852e516c76380222699ee30827d49beefc96daa3a872fe1a69",
+        "reviewed_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0"
+      }
+    ],
+    "prior_review_not_rewritten": true,
+    "prior_findings": [
+      "SR-ROOT-01 isolated NativeAOT benchmark execution retained",
+      "SR-ROOT-02 two codec exports vs three tests retained",
+      "SR-ROOT-03 raw-owner wrapper failure cleanup retained; deterministic product injection now explicit",
+      "SR-ROOT-04 nontransactional package publication strengthened by current signing-aware D10 rules"
+    ]
+  },
+  "source_checks": {
+    "recovered_upstream_files": [
+      {
+        "repository": "https://github.com/dotnet/sdk",
+        "commit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+        "path": "src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs",
+        "sha256": "bf4e7fcd034ed8206fd8eaff42d5f1217f9d0c8f24a0bbf5700da628bf6d7c0b",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [
+          [
+            1340,
+            1370
+          ],
+          [
+            1695,
+            1735
+          ]
+        ],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/dotnet/sdk",
+        "commit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+        "path": "src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets",
+        "sha256": "7a54e00724d8afe42e72482878de7b152369441e76eac7c543b35e83aa11ce09",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/rust-lang/cargo",
+        "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+        "path": "doc/book/src/reference/external-tools.md",
+        "sha256": "67a22a8ca329d223483a7a6056ed4877ba9e4bfa46f8fa6f945743edd4dcdd78",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/rust-lang/cargo",
+        "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+        "path": "doc/book/src/reference/specifying-dependencies.md",
+        "sha256": "c59e3a7489d1f28208648a36e44698a48b695d40051b92e88b463af73a35404e",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/dotnet/BenchmarkDotNet",
+        "commit": "ecdd5717fc237db869956c4e200883fb58634f7d",
+        "path": "src/BenchmarkDotNet/Toolchains/NativeAot/CsProjNativeAotBuilder.cs",
+        "sha256": "a74e14fa9f21c6780b2f4ede17051ac1cbb2dd2394a94007c5d227b2adebd208",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [
+          [
+            1,
+            170
+          ]
+        ],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/dotnet/BenchmarkDotNet",
+        "commit": "ecdd5717fc237db869956c4e200883fb58634f7d",
+        "path": "tests/BenchmarkDotNet.IntegrationTests/NativeAotTests.cs",
+        "sha256": "89d7f86543555a05490332122275adba86c0cf3c6aebd217aff78d7ce7b1762a",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/HdrHistogram/HdrHistogram",
+        "commit": "de84b0a7de2378abfc405da503bf4898e84ea98e",
+        "path": "src/main/java/org/HdrHistogram/AbstractHistogram.java",
+        "sha256": "40020b2a9a19e826d3eae13c18a69b38d96ccb3fbc1ecdc9eb6d749f8e6a0e69",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [
+          [
+            475,
+            515
+          ]
+        ],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/NuGet/NuGet.Client",
+        "commit": "7e935f9c72b287adc13b9f42fd7b3bdcaa1500e7",
+        "path": "src/NuGet.Core/NuGet.Packaging/PackageArchiveReader.cs",
+        "sha256": "310c27e2c1119143f7f18e9d75dee335a214b66cc7088afc84e8e6787ebbd7fd",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [
+          [
+            80,
+            175
+          ]
+        ],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/sigstore/cosign",
+        "commit": "6181e75677cc4719e845fa23d0ef8a936e883aa0",
+        "path": "cmd/cosign/cli/verify/verify.go",
+        "sha256": "0745f57e5e012d66a3c7c4417e22718257b23ad328576f2e6bbf92c2980dc612",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/anchore/syft",
+        "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+        "path": "README.md",
+        "sha256": "b072fd6c75f6ba759933b4f035bb9e263309f535e2128f13e6ed50860c328aef",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/bheisler/criterion.rs",
+        "commit": "3dbc6c618acb48885066422d81d50729aa17b2b7",
+        "path": "src/routine.rs",
+        "sha256": "5a9434c3e4242bf0166f287338576038e5c8f7c9db916ddd4e130721b26884d7",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/anchore/syft",
+        "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+        "path": "syft/pkg/cataloger/rust/cataloger.go",
+        "sha256": "3ba5d63aa79674a428a27cd91530e014e5995129c0fa22eed423813fec8cb39d",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/anchore/syft",
+        "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+        "path": "syft/pkg/cataloger/rust/parse_cargo_lock.go",
+        "sha256": "bc5008609a49b8326b54d87e57f80c62297e46b73cf42762bee311d74e2ff0d1",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/dotnet/diagnostics",
+        "commit": "dde6f56c8701d40b93b191e2c840e26f535c09d5",
+        "path": "src/Tools/dotnet-counters/CounterMonitor.cs",
+        "sha256": "9e288eb2fdddf6ed451a63a9000226361d6d8834bbb80396e8bb2bdce7a60f99",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/dotnet/roslyn",
+        "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+        "path": "src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs",
+        "sha256": "a7021e42f48c5dfa1e2d8d90a121e02301cdf5d21b333e06148af4430c74b079",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/dotnet/roslyn",
+        "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+        "path": "src/Compilers/CSharp/Portable/Compiler/MethodCompiler.cs",
+        "sha256": "34ebfc009ffe2dae607f4026eebc1967d32f45d11186a39ba8f9c4d61fbf5f7e",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [
+          [
+            766,
+            795
+          ]
+        ],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/dotnet/roslyn",
+        "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+        "path": "src/Compilers/CSharp/Portable/Symbols/Source/SourceMethodSymbol.cs",
+        "sha256": "33795f806655eed0d97e592fd3f00f952c4b86c5af50882008a90eb26a6c5141",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [
+          [
+            198,
+            230
+          ]
+        ],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/Frommi/miniz_oxide",
+        "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+        "path": "miniz_oxide/src/deflate/mod.rs",
+        "sha256": "adedff53960b3fbef46cc83d907131c69b379e72668a116d1cc090fec4276504",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [
+          [
+            130,
+            205
+          ]
+        ],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      },
+      {
+        "repository": "https://github.com/Frommi/miniz_oxide",
+        "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+        "path": "miniz_oxide/src/inflate/mod.rs",
+        "sha256": "24a041eeb9404079395fd8ac5a51b8e2494fdf46a511681bb727e0b2b7017b57",
+        "cache_bytes_match": true,
+        "ranges_read_in_this_review": [
+          [
+            135,
+            251
+          ]
+        ],
+        "other_ranges": "Prior real independent review retained, not reattributed to this executor."
+      }
+    ],
+    "fresh_github_source_reads": [
+      {
+        "repository": "dotnet/runtime",
+        "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+        "path": "src/libraries/System.Private.CoreLib/src/System/Diagnostics/CodeAnalysis/RequiresDynamicCodeAttribute.cs",
+        "read_ranges": [
+          [
+            1,
+            49
+          ]
+        ],
+        "git_blob_sha": "fa36f95c0527c6a78389b83f374760735786d32a"
+      },
+      {
+        "repository": "dotnet/runtime",
+        "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+        "path": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+        "read_ranges": [
+          [
+            1,
+            170
+          ]
+        ],
+        "git_blob_sha": "e0a8747d9081ba724b063c72e11e22c53f4ebb79"
+      }
+    ],
+    "official_primary_sources": [
+      {
+        "url": "https://learn.microsoft.com/en-us/nuget/concepts/dependency-resolution",
+        "reviewed_claim": "Direct-dependency-wins and project.assets.json resolved graph; no transitive exact-edge enforcement assumption."
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1608",
+        "reviewed_claim": "A direct dependency may resolve outside an exact transitive constraint; warning suppression is possible."
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/nuget/api/package-publish-resource",
+        "reviewed_claim": "Single-package push and nuget.org existing ID/version409; multi-package partial-failure rule is an explicit design inference."
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/nuget/api/repository-signatures-resource",
+        "reviewed_claim": "Repository certificate policy and re-signing on revocation distinguish permitted signature-envelope change from payload tampering."
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/nuget/nuget-org/policies/deleting-packages",
+        "reviewed_claim": "Known exact-version and some floating restores can still retrieve unlisted versions; unlist is not revocation."
+      },
+      {
+        "url": "https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/",
+        "reviewed_claim": "Rust1.100 stable dated release."
+      },
+      {
+        "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+        "reviewed_claim": ".NET11 STS released2026-11-10; support through2028-11-14 on dated current table."
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15",
+        "reviewed_claim": "Current freshly opened page confirms C#15/net11 stable features; memory-safety remains preview. Search cache still had outdated prerelease sentence, resolved by live page and official GA release."
+      },
+      {
+        "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/11.0.0/11.0.0.md",
+        "reviewed_claim": "Official11.0.0/SDK11.0.100 GA release page; moving documentation is date-scoped, not source pin."
+      }
+    ]
+  },
+  "delivery_readiness": {
+    "reviewed_packets": [
+      "A13",
+      "A14",
+      "A15",
+      "A16",
+      "A17",
+      "A18",
+      "A21",
+      "A22",
+      "A23",
+      "A24",
+      "B24"
+    ],
+    "states": {
+      "A13": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A14": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A15": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A16": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A17": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A18": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A21": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A22": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A23": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "A24": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      },
+      "B24": {
+        "status": "planned_candidate",
+        "implementation_authorization": {
+          "status": "not_authorized",
+          "approval_record": null
+        }
+      }
+    },
+    "A19_A20": "D26 fragment consistency and bounded-tool claims reviewed; detailed R15/R16/D12 technical review belongs to the independent interop review, not reattributed here.",
+    "scoped_parallel_worktrees": true,
+    "A13_root_manifest_integration_owner_retained": true,
+    "product_authorization_granted": false
+  },
+  "limits": [
+    "All new work is source/semantic review plus hashing/structure inspection; no successful native experiment was rerun.",
+    "Original codec CI43388468147 is pre-wrapper-fix on both OS; linux-reviewed is post-fix functional regression. No archived post-fix Windows codec result or deterministic construction-failure execution is claimed.",
+    "Existing PATH-hidden Rust consumer is explicitly not a pristine operating system. A16/B24 own that product gate and runtime-only target transfer.",
+    "NuGet signing/publication/unlist policy was studied from primary sources; no production publication/signing/unlisting operation was performed.",
+    "Finite miniz fixture does not establish universal max-size roundtrip; the corrected A17 design requires separate compressed/raw/decoded limits and boundary tests.",
+    "Runtime Async and union allocation observations are finite compiler/workload facts; no whole-product performance or support matrix is inferred.",
+    "R18 asynchronous engine conclusion reuses server-domain real source/protocol evidence and independent server review; no completed C# production Handler bridge is claimed.",
+    "Model/proof, instrumented diagnostics, pristine machines, product faults/soak, full package closure and actual performance remain Delivery obligations."
+  ],
+  "product_implementation_accepted": false,
+  "github_approval_identity": "Same deku2026 account; delegated technical executor identity only.",
+  "not_a_second_github_account_approval": true
+}

@@ -1,0 +1,814 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "NW-FINAL-DB-2026-11-13",
+  "reviewer": "/root/database_review",
+  "reviewed_authors": [
+    "/root/database_research",
+    "/root",
+    "/root/database_recovery_review"
+  ],
+  "independence": "New actual delegated executor; did not author or alter the reviewed specifications, research or task corrections. Technical review only, not another GitHub approval identity.",
+  "reviewed_at_utc": "2026-11-13T12:53:36.662840+00:00",
+  "input_remote_checkpoints": {
+    "NativeWeave-Design": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+    "Plan": "7359060f88f94591b0dc41178e35701eefc8eb6d"
+  },
+  "input_scope": "Recovered working bytes following the above remote checkpoints; exact hashes below control the decision. Formal acceptance/source commit propagation is performed by root.",
+  "decision": "recommend_accept_research_and_detailed_design",
+  "unresolved_blocking_findings": [],
+  "new_findings": [],
+  "task_decisions": [
+    {
+      "task_id": "R19",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Fixed SQLx PG execution/ReadyForQuery/TLS source plus real timeout, same-backend stream drain and response-loss durable-effect cases. Npgsql remains comparative.",
+      "packet_sha256": "b075c4a5b2b141a5229861f8d4fc72977e08a67b8cecbfca925fa952eefa1189",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R19/report.md": "7463a51d2f413085beecd52ed67dc7ee52c01a7ad3a9ac9e72deef631838b006",
+        "NativeWeave-Design:docs/research/topics/R19/evidence.json": "021e7c8283af7d8771b7eec7c6e300725ff1bec30765d7b4d9b10065faa61078",
+        "NativeWeave-Design:docs/research/topics/R19/coverage.json": "911d62e6075f147fca5cd83dec011e8727323060ffbddefe0b41f66e7252553f"
+      },
+      "related_delivery_or_contracts": [
+        "B02",
+        "B05",
+        "B06",
+        "B23"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R20",
+      "decision": "recommend_accept_research_design",
+      "rationale": "SQLx worker/progress/retirement limits retained; SQLite FK/savepoint/checksum cases and independent tracked begin_with migration regressions resolve the native administrative path.",
+      "packet_sha256": "e3bae7bb04ffd9925c642395e811548b0192ad78f9fbf423225c324ed60b194a",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R20/report.md": "5a31c55bf5e7deea359752c8fb537aebd36a835d58a1de81d2ffc120b05d3282",
+        "NativeWeave-Design:docs/research/topics/R20/evidence.json": "4f100de2fbe7e8ac39ab0c325f113de37953483b813461a423781dbe7aa93828",
+        "NativeWeave-Design:docs/research/topics/R20/coverage.json": "3c45d8d93fe10b0da6f7ebeac149ec6fe17e1279494af6918fb2371c0365e464"
+      },
+      "related_delivery_or_contracts": [
+        "B03",
+        "B05",
+        "B08"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R21",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Four independent transaction dimensions; COMMIT dispatch versus known outcome, cleanup and pool reuse remain separate. Actual PG COMMIT-response-loss and lock-synchronized old-snapshot counterexamples support the decision.",
+      "packet_sha256": "d87064806673af44435d3f157bb5b66eef6b8e3666ecd78346452eeb175906e6",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R21/report.md": "519460fedfa3918381541d7665a0391bfc8060a89f1ff83c705397123191d614",
+        "NativeWeave-Design:docs/research/topics/R21/evidence.json": "f7441bb4b438531fbf5a69f9ef557b61e173b1b9ba5aa6a4185bfabb0c59ae2e",
+        "NativeWeave-Design:docs/research/topics/R21/coverage.json": "db81b7d4369281576a4815b0ae1c37fb93892d1f998564be89da3abaa51a0a3b"
+      },
+      "related_delivery_or_contracts": [
+        "B05",
+        "B21",
+        "B22"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R22",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Missing nullable column is not SQL NULL; shape preflight precedes Option decode. Explicit finite codecs, precision policy, native migrations and separate batch/RSS accounting are source/evidence supported.",
+      "packet_sha256": "e5b41d07ec1a8d1d34bfc5f17583abded07d4cc2083ce2fe6d64f8c3477a7cd5",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R22/report.md": "3de6debaf443ef27c4db3ca4ca9ca9f0bd2d267eb39f73712e884799e28ad3dc",
+        "NativeWeave-Design:docs/research/topics/R22/evidence.json": "745bd943a14145075ab0652c6c11bb95fd1cab6dd8400d4dcc73482021e4dbcc",
+        "NativeWeave-Design:docs/research/topics/R22/coverage.json": "293319f83dbc15c6f6f3b02bffe8d99aee5ab30767489816b02a8310de643afd",
+        "NativeWeave-Design:docs/research/topics/R22/native-slice-validation.md": "ed63b45332c83accc367fd17d34e844ddf9067a9083801dce59469b208e9c203"
+      },
+      "related_delivery_or_contracts": [
+        "B06",
+        "B07",
+        "B08",
+        "B12"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R23",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Ordinary C# typed Fluent/static descriptors use the same precompiled native asset. Prior Linux AOT new-entity run and wrong-entity compile-negative preserved; generator implementation is separately planned.",
+      "packet_sha256": "163e1b606c9b3a1a5f1da620af5be2e20ebb20771772017a761cf8cb9e6584f6",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R23/report.md": "43eb13aa88a26e08697388d643ddd88a125179238b1a11af9b634537f1b458c1",
+        "NativeWeave-Design:docs/research/topics/R23/evidence.json": "bb4c030de2191ecaedafdce7a01236889955742e4b1ec8bb76582d8628d99257",
+        "NativeWeave-Design:docs/research/topics/R23/coverage.json": "f50130005da98adacf82a7e0b837c9c7d8fc8a9912621d01a20895a570cc89aa"
+      },
+      "related_delivery_or_contracts": [
+        "B09",
+        "B10",
+        "B12",
+        "B13",
+        "B24"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R24",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Native SeaQuery owns SQL3VL, parameters, dialect and relation semantics. SQLite truth tables, native join/aggregate and tenant-CAS fixtures provide finite independent oracles without claiming complete SQL equivalence.",
+      "packet_sha256": "f2976053790fe0070ac714100eaec77d0aea8840cdb47a3bf0cf7a8603803499",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R24/report.md": "4373edb0f171ef00125ac1e5454c0666b42db52150446ce82f594852b907ed08",
+        "NativeWeave-Design:docs/research/topics/R24/evidence.json": "eac88a7abdc6136d44ccb4719926a218f153439453cd7175c8677617905494c1",
+        "NativeWeave-Design:docs/research/topics/R24/coverage.json": "4f4a42439e23e8b83a37c56e1bb680c3acd5e1294de3a7dcadb2c0a073dd0605"
+      },
+      "related_delivery_or_contracts": [
+        "B11",
+        "B13",
+        "B14"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "R25",
+      "decision": "recommend_accept_research_design",
+      "rationale": "SeaQuery+SQLx chosen for ordinary native ORM operations. SeaORM public dynamic projections are real; LoaderTrait static bounds/all() do not promise a dynamic bounded loader. No ordinary per-entity Cargo requirement.",
+      "packet_sha256": "6a698012f10a6ff5d94cd39a5d42312bf586bf06ede1aa6ecefad16734afabc1",
+      "output_hashes": {
+        "NativeWeave-Design:docs/research/topics/R25/report.md": "a6f011f73bed1022fe24cd60a855c9553cedeb2a1c0ad65082ff9942a55d0c5d",
+        "NativeWeave-Design:docs/research/topics/R25/evidence.json": "de4b517a8c6a01408b216b91f6492acbbaa9767864dcac32b9a938dda4f103f5",
+        "NativeWeave-Design:docs/research/topics/R25/coverage.json": "87b06243d2a7646dc71a07de4ad1676276fba93b4ba6148d20cb448e9b76db52",
+        "NativeWeave-Design:docs/research/topics/R25/source-driven-seaquery.md": "d2bd3c03a92debc4e8d935eaf156d848e4ff6d9a13a68d2017bb6ec1f3a8ac7a"
+      },
+      "related_delivery_or_contracts": [
+        "B04",
+        "B09",
+        "B10",
+        "B11",
+        "B12",
+        "B13",
+        "B14"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D14",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Concrete native/C# ownership, db-wire bounds, finite codecs, Rust provider behavior, real TLS policy, dedicated migration lifetime and precompiled entity boundary are implementable.",
+      "packet_sha256": "73abc47a79d65d342e37613cbb6b15e550c24d081178b84c19fb28b7d5c9f9f8",
+      "output_hashes": {
+        "NativeWeave-Design:docs/database/drivers.md": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d"
+      },
+      "related_delivery_or_contracts": [
+        "C-DB-001"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D15",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Canonical four-dimensional state table, commit admission and Unknown, rollback-unconfirmed, safe reuse versus cleanup, explicit savepoints and CloseAsync/DisposeAsync distinction are consistent with the actual counterexamples.",
+      "packet_sha256": "abc7de1e4940f18ee7c54967ad33c5436e0268ad9bc7af62cbbe6ca290f2decd",
+      "output_hashes": {
+        "NativeWeave-Design:docs/database/transactions-and-pooling.md": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a"
+      },
+      "related_delivery_or_contracts": [
+        "C-TX-001"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D16",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Native semantic authority, mutable/sealed/poisoned owner rules, SQL3VL, capability rejection, explicit joins/changesets/CAS and parameter/budget rules form a concrete ordinary profile.",
+      "packet_sha256": "89bb525869d6282f05782a68fa2ff90d2ff1fbbf554abde048251682c9e0d28c",
+      "output_hashes": {
+        "NativeWeave-Design:docs/database/query-semantics.md": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc"
+      },
+      "related_delivery_or_contracts": [
+        "C-QUERY-001"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D17",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Static descriptor/DTO-only generation, handwritten parity, seven diagnostics, result shape preflight, no hidden LINQ engine and unchanged native ordinary entity flow are specific.",
+      "packet_sha256": "c742771f5afa28b12ff33f436862b422a9258932cb0651aaa5c155bad60ba017",
+      "output_hashes": {
+        "NativeWeave-Design:docs/generators/query-generation.md": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a"
+      },
+      "related_delivery_or_contracts": [
+        "C-QUERYGEN-001"
+      ],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D27",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Eight B01–B08 task details agree with graph and packets. B01 canonical seams and B07 sole codecs remove duplication; component fixtures and downstream B04 composition avoid an acceptance cycle.",
+      "packet_sha256": "d67334b9702e344d95ac14df071505edbea4409f85583d7a15161aa62e67ce56",
+      "output_hashes": {
+        "Plan:fragments/database.json": "26fa4e6c5b5d570bb19180cc660705ddefd2208121018cebaf681b36b3696b2c"
+      },
+      "related_delivery_or_contracts": [],
+      "product_execution_accepted": false
+    },
+    {
+      "task_id": "D28",
+      "decision": "recommend_accept_research_design",
+      "rationale": "Six B09–B14 task details agree with graph and packets. B09 imports B01, B11 uses B07, B10 is optional with NWQ0101–0107, and B12/B13/B14 retain native ownership and exact result semantics.",
+      "packet_sha256": "3031c1945d2d831bc39bc3d6b1a73bb6e0b1d1d4a74c556c76ae16cf2f667b97",
+      "output_hashes": {
+        "Plan:fragments/orm.json": "4221e71f145e6aea8cee1a5be76844ad8dc908b537ec7f9960078c140df895c3"
+      },
+      "related_delivery_or_contracts": [],
+      "product_execution_accepted": false
+    }
+  ],
+  "contract_reviews": [
+    {
+      "id": "C-DB-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/drivers.md",
+      "content_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "decision": "recommend_accept_research_design",
+      "product_implementation_accepted": false
+    },
+    {
+      "id": "C-TX-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/transactions-and-pooling.md",
+      "content_sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "decision": "recommend_accept_research_design",
+      "product_implementation_accepted": false
+    },
+    {
+      "id": "C-QUERY-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/query-semantics.md",
+      "content_sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "decision": "recommend_accept_research_design",
+      "product_implementation_accepted": false
+    },
+    {
+      "id": "C-QUERYGEN-001",
+      "version": "0.3.0",
+      "spec_path": "docs/generators/query-generation.md",
+      "content_sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "decision": "recommend_accept_research_design",
+      "product_implementation_accepted": false
+    }
+  ],
+  "review_inputs_sha256": {
+    "NativeWeave-Design:docs/database/drivers.md": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+    "NativeWeave-Design:docs/database/query-semantics.md": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+    "NativeWeave-Design:docs/database/sqlx-retirement-study.md": "b37aac712a8028ad5d985d6ca2a3644c02dc4f11c31ea394b65f7d0d0eb6ae32",
+    "NativeWeave-Design:docs/database/transactions-and-pooling.md": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+    "NativeWeave-Design:docs/generators/query-generation.md": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+    "NativeWeave-Design:docs/research/source-driven-evidence/consumer-aot-publish.log": "97e336e0b1dcb2a02af4d5f20e9e5fbdf8a9ea4132507e0232380cdb01ddff38",
+    "NativeWeave-Design:docs/research/source-driven-evidence/new-entity-aot-run.log": "017cc6281c59a242203cb1b48844f017ceac2a10af5b6a3bd3a1db21c0f6453b",
+    "NativeWeave-Design:docs/research/source-driven-evidence/recovery-manifest.json": "aa60881329af98cb728a0425a295dad61107e9297234e65477214c14c0600bde",
+    "NativeWeave-Design:docs/research/source-driven-evidence/result.json": "5a5634c9c4385f95d999e64c4482ed88d5ef809a571528b72167aa2a73db0e72",
+    "NativeWeave-Design:docs/research/source-driven-evidence/wrong-entity-compile-negative.log": "175e964bfcef39b84d3fc184c3055fe2156ef68c8f64fb1b923958be899eddc4",
+    "NativeWeave-Design:docs/research/topics/R19/coverage.json": "911d62e6075f147fca5cd83dec011e8727323060ffbddefe0b41f66e7252553f",
+    "NativeWeave-Design:docs/research/topics/R19/evidence.json": "021e7c8283af7d8771b7eec7c6e300725ff1bec30765d7b4d9b10065faa61078",
+    "NativeWeave-Design:docs/research/topics/R19/report.md": "7463a51d2f413085beecd52ed67dc7ee52c01a7ad3a9ac9e72deef631838b006",
+    "NativeWeave-Design:docs/research/topics/R20/coverage.json": "3c45d8d93fe10b0da6f7ebeac149ec6fe17e1279494af6918fb2371c0365e464",
+    "NativeWeave-Design:docs/research/topics/R20/evidence.json": "4f100de2fbe7e8ac39ab0c325f113de37953483b813461a423781dbe7aa93828",
+    "NativeWeave-Design:docs/research/topics/R20/report.md": "5a31c55bf5e7deea359752c8fb537aebd36a835d58a1de81d2ffc120b05d3282",
+    "NativeWeave-Design:docs/research/topics/R21/coverage.json": "db81b7d4369281576a4815b0ae1c37fb93892d1f998564be89da3abaa51a0a3b",
+    "NativeWeave-Design:docs/research/topics/R21/evidence.json": "f7441bb4b438531fbf5a69f9ef557b61e173b1b9ba5aa6a4185bfabb0c59ae2e",
+    "NativeWeave-Design:docs/research/topics/R21/report.md": "519460fedfa3918381541d7665a0391bfc8060a89f1ff83c705397123191d614",
+    "NativeWeave-Design:docs/research/topics/R22/coverage.json": "293319f83dbc15c6f6f3b02bffe8d99aee5ab30767489816b02a8310de643afd",
+    "NativeWeave-Design:docs/research/topics/R22/evidence.json": "745bd943a14145075ab0652c6c11bb95fd1cab6dd8400d4dcc73482021e4dbcc",
+    "NativeWeave-Design:docs/research/topics/R22/native-slice-validation.md": "ed63b45332c83accc367fd17d34e844ddf9067a9083801dce59469b208e9c203",
+    "NativeWeave-Design:docs/research/topics/R22/report.md": "3de6debaf443ef27c4db3ca4ca9ca9f0bd2d267eb39f73712e884799e28ad3dc",
+    "NativeWeave-Design:docs/research/topics/R23/coverage.json": "f50130005da98adacf82a7e0b837c9c7d8fc8a9912621d01a20895a570cc89aa",
+    "NativeWeave-Design:docs/research/topics/R23/evidence.json": "bb4c030de2191ecaedafdce7a01236889955742e4b1ec8bb76582d8628d99257",
+    "NativeWeave-Design:docs/research/topics/R23/report.md": "43eb13aa88a26e08697388d643ddd88a125179238b1a11af9b634537f1b458c1",
+    "NativeWeave-Design:docs/research/topics/R24/coverage.json": "4f4a42439e23e8b83a37c56e1bb680c3acd5e1294de3a7dcadb2c0a073dd0605",
+    "NativeWeave-Design:docs/research/topics/R24/evidence.json": "eac88a7abdc6136d44ccb4719926a218f153439453cd7175c8677617905494c1",
+    "NativeWeave-Design:docs/research/topics/R24/report.md": "4373edb0f171ef00125ac1e5454c0666b42db52150446ce82f594852b907ed08",
+    "NativeWeave-Design:docs/research/topics/R25/coverage.json": "87b06243d2a7646dc71a07de4ad1676276fba93b4ba6148d20cb448e9b76db52",
+    "NativeWeave-Design:docs/research/topics/R25/evidence.json": "de4b517a8c6a01408b216b91f6492acbbaa9767864dcac32b9a938dda4f103f5",
+    "NativeWeave-Design:docs/research/topics/R25/report.md": "a6f011f73bed1022fe24cd60a855c9553cedeb2a1c0ad65082ff9942a55d0c5d",
+    "NativeWeave-Design:docs/research/topics/R25/seaorm-dynamic-boundary.md": "b52c234987169ae2d55b1f561ffc080d2f5265f45ade5f8c80e6fdfda75c7198",
+    "NativeWeave-Design:docs/research/topics/R25/source-driven-seaquery.md": "d2bd3c03a92debc4e8d935eaf156d848e4ff6d9a13a68d2017bb6ec1f3a8ac7a",
+    "NativeWeave-Design:experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "NativeWeave-Design:experiments/database-completion/Cargo.toml": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+    "NativeWeave-Design:experiments/database-completion/run.py": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+    "NativeWeave-Design:experiments/database-completion/tests/postgres.rs": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+    "NativeWeave-Design:experiments/database-completion/tests/runtime_metadata.rs": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+    "NativeWeave-Design:experiments/interop-completion/db-review/migration_admission.rs": "3337c33340dafc154b6aa312165475e87decd50c4880d515e03a345ba0fee207",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/archive-manifest.json": "5dd1db92d7be81b3de2fad3d392ccd8a8182675580e861fbfe0f66162fd4780e",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/Cargo.toml": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/run.py": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/tests/postgres.rs": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/database-completion/tests/runtime_metadata.rs": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/native-slices/database/Cargo.toml": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/inputs/experiments/native-slices/database/src/lib.rs": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/manifest.json": "54ea86302986807d4ba3bb8ae6c664a4fffe4546f49ab3b426ef47354d023a4b",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/stderr.log": "b4d4f27fcd6095f5f8173dc97a4f282904624ab731277a6828ab60e76c6ce0e9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/stdout.log": "ba18b4d7d7ed06d7fea8b1edb51c94aefcd4a349c90d1192c67f341525a7dc1b",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/archive-manifest.json": "8624f3efe95dca6927537ab84157dfe3f3340be7bba4e7cfee24c52ef2b0ef33",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/Cargo.lock": "8de967ba203d829a734591b2c7d0af30578518b396e4f2ca4d544203cc6f454a",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/Cargo.toml": "939173c62c85a0d0e67bb7772cd36c776f59b4b656d1e9ba1c07dc9b8745f46a",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/run.py": "511be33e3be404a05126a8eb0ceb18a6a492ef507fe5a25e9985c290a758f968",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/tests/postgres.rs": "09127e713b177bcaaa24b0879d4c77b483323740b72a4b8ec17c26fda30c2c71",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/database-completion/tests/runtime_metadata.rs": "96e1b00983cf76564520febc670085ea5be40723f43f164ad5bab177cd0092c7",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/native-slices/database/Cargo.toml": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/inputs/experiments/native-slices/database/src/lib.rs": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/manifest.json": "b9bc85f55b056c477255cf58abd373d687048955912d753c550fedf0cd055f93",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/stderr.log": "bdfc8e69170bb2e41079a432b3e46fac851b9d17288c2e3ff3beb1c536d9fff9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/stdout.log": "9299dad47ad4cc245eb3d1dab0e72641b1739ebc3d14a99458d103e358e57ae9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/archive-manifest.json": "913123ea1582118c49d587a79a9a50b2a80cdfe35770a4d0381399c84cca54fd",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/image-digests.json": "4a2c3d2aa701b9f8fc7df150993296da1d0459be27c5203079c701b5c368398e",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/image-id.txt": "3edfd2dd8089f0439d3763edc2219e5b3904758b67fc1f3748f0685d9e8500bd",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/server-version.txt": "54f9bde921e8a5e3860cfa78252e0c5aba8e20e3f68fe9c500870d22ffb3e703",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/Cargo.toml": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/run.py": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/tests/postgres.rs": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/database-completion/tests/runtime_metadata.rs": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/native-slices/database/Cargo.toml": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/inputs/experiments/native-slices/database/src/lib.rs": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/manifest.json": "2657a79ccf8c11b351fafe23bd3f928c7b597d23cad7d22d89caa4a88cbf239e",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/stderr.log": "234fa9f920527ff7f5d31e97a3469af4db154b0a89570c6c3548e609e9f2af97",
+    "NativeWeave-Design:verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/stdout.log": "c88f13af32e481fee2f8214a6e1bb68ab84cdc744522ed99704fdf7c227fd1c7",
+    "NativeWeave-Design:verification/database-completion/README.md": "e93e21ffbf14865811ccb94dab7d1f62819c15863b04d6a2be286d8c58644505",
+    "NativeWeave-Design:verification/database-completion/ci-confirmation.json": "b1aa4f8e4bcc3a56c876ef6f75566656a1aa739b8e8e30eb882366021a8c94fc",
+    "NativeWeave-Design:verification/database-completion/linux-attempt-1/manifest.json": "2733c64e79dedf1987a3bc9e2e095637f2eb8c801596c19e5d71fa53a20e7f0d",
+    "NativeWeave-Design:verification/database-completion/linux-attempt-1/stderr.log": "f2fca13000d6e6d4f9fd57cec2524c1cb807184bf0662faf0beccc902d0813a7",
+    "NativeWeave-Design:verification/database-completion/linux-attempt-1/stdout.log": "df2baa263eab894a3f7cdaf7e40f65dcfc792bb0eba5760d39633f246ed8f1f7",
+    "NativeWeave-Design:verification/database-completion/linux-metadata-current/manifest.json": "66c67c1779af37b2cb865647ffd35c0d1620c690d1e8bec198781000ba558cad",
+    "NativeWeave-Design:verification/database-completion/linux-metadata-current/stderr.log": "e476d1e61f800c78ab3315a50639c33d5db6224d436aca18ecbcbc4775b01c2e",
+    "NativeWeave-Design:verification/database-completion/linux-metadata-current/stdout.log": "7a2d52561881a95a81697eeb0789b80851cac1402e93bdcbf669c47cb3a335dd",
+    "NativeWeave-Design:verification/database-completion/linux-postgres-final/manifest.json": "a5f86ee11519bd67bfd2d4bffcd48fd26cc2472c8ec2c969680048885d6a76c9",
+    "NativeWeave-Design:verification/database-completion/linux-postgres-final/stderr.log": "a8e0abf3d0bf86a7127b60c51bee9c1e4bb08519f6a1914b7edd933740c13451",
+    "NativeWeave-Design:verification/database-completion/linux-postgres-final/stdout.log": "591cb7026fa21834f5d1e45e5ec7fcf0492e1bc0fbbcb55ec12ed486144e2fd5",
+    "NativeWeave-Design:verification/database-completion/source-inspection.json": "3460b9adf3bb5dbd86e03917f35a759df92eaca94d0d8e99090e5739e03c6622",
+    "NativeWeave-Design:verification/database-completion/task-status.json": "3081f663362d51b3f836f57b4aa6052b2e8b1dbbd2fd061602addb52bd5e222a",
+    "NativeWeave-Design:verification/interop-completion/database-independent-review.json": "b5ffad5f2dbad699bc08fbcf357faf8b7447b7381bb1a19084625a6a382124eb",
+    "NativeWeave-Design:verification/interop-completion/db-review-migration/commands.json": "df0d0f65e55f89dd67d935613f3a86fc567d3df70edc9a13923dfd6546492dff",
+    "NativeWeave-Design:verification/interop-completion/db-review-migration/result.json": "a4f525e49684df8a3d44068a08485b830091f368f73a52126b1491434f221d55",
+    "NativeWeave-Design:verification/interop-completion/db-review-migration/test.stderr": "9480f166869516cdce0ea4c9a24323194b9d09b7f5807d94109e93e67962c6b3",
+    "NativeWeave-Design:verification/interop-completion/db-review-migration/test.stdout": "422a8e833a8352edd8417aee0c76e8cc6202fbaafa9ec6faa0ce8a377aa664e9",
+    "Plan:documentation-tasks/D14.md": "73abc47a79d65d342e37613cbb6b15e550c24d081178b84c19fb28b7d5c9f9f8",
+    "Plan:documentation-tasks/D15.md": "abc7de1e4940f18ee7c54967ad33c5436e0268ad9bc7af62cbbe6ca290f2decd",
+    "Plan:documentation-tasks/D16.md": "89bb525869d6282f05782a68fa2ff90d2ff1fbbf554abde048251682c9e0d28c",
+    "Plan:documentation-tasks/D17.md": "c742771f5afa28b12ff33f436862b422a9258932cb0651aaa5c155bad60ba017",
+    "Plan:documentation-tasks/D27.md": "d67334b9702e344d95ac14df071505edbea4409f85583d7a15161aa62e67ce56",
+    "Plan:documentation-tasks/D28.md": "3031c1945d2d831bc39bc3d6b1a73bb6e0b1d1d4a74c556c76ae16cf2f667b97",
+    "Plan:fragments/database.json": "26fa4e6c5b5d570bb19180cc660705ddefd2208121018cebaf681b36b3696b2c",
+    "Plan:fragments/orm.json": "4221e71f145e6aea8cee1a5be76844ad8dc908b537ec7f9960078c140df895c3",
+    "Plan:research-tasks/R19.md": "b075c4a5b2b141a5229861f8d4fc72977e08a67b8cecbfca925fa952eefa1189",
+    "Plan:research-tasks/R20.md": "e3bae7bb04ffd9925c642395e811548b0192ad78f9fbf423225c324ed60b194a",
+    "Plan:research-tasks/R21.md": "d87064806673af44435d3f157bb5b66eef6b8e3666ecd78346452eeb175906e6",
+    "Plan:research-tasks/R22.md": "e5b41d07ec1a8d1d34bfc5f17583abded07d4cc2083ce2fe6d64f8c3477a7cd5",
+    "Plan:research-tasks/R23.md": "163e1b606c9b3a1a5f1da620af5be2e20ebb20771772017a761cf8cb9e6584f6",
+    "Plan:research-tasks/R24.md": "f2976053790fe0070ac714100eaec77d0aea8840cdb47a3bf0cf7a8603803499",
+    "Plan:research-tasks/R25.md": "6a698012f10a6ff5d94cd39a5d42312bf586bf06ede1aa6ecefad16734afabc1",
+    "Plan:tasks/B01.md": "1ca9d662a00ae30de5f66c50a9d6b32b47ef8ea3454ec7e5e4602828cacad833",
+    "Plan:tasks/B02.md": "4d371fdc9e5b225238363c6e014b4d4ff92ed9d6cb6a60c0858cdf9fa70dee2e",
+    "Plan:tasks/B03.md": "49bb21a5b7582179ac482f960746cd9c621d3a343ae50f2a912ffdd19808d56d",
+    "Plan:tasks/B04.md": "545f6f1e28f78bfe86ce2719d6484692837b6bcbb20adf32d8ff73134faf61b8",
+    "Plan:tasks/B05.md": "597a7ab1e478a11b4afeb3c0b6e514f2aa734853b6d28caa3ad7ec15b735b2ce",
+    "Plan:tasks/B06.md": "aee7873898e596af1c0bc90d323e58523e53dc5c92e6d412414d00c63f04d4b4",
+    "Plan:tasks/B07.md": "9c6b7241fbc57e5eb15db9d5faeb1daf0bedab576ee5575e1a3d204e57532d49",
+    "Plan:tasks/B08.md": "fcd5cd73f95b8b01213bbfd3fceeb74b6102688957ab86b80d341b28650cdb16",
+    "Plan:tasks/B09.md": "8a321d8b753d0d279cec03c82017bc6b28876ccaf06ac2684df175fcbd65212d",
+    "Plan:tasks/B10.md": "187505b2c7840dcb8c749fe0abab2128a4c4f098ebe1b62752a5240ab6cf689e",
+    "Plan:tasks/B11.md": "c22b81393ee0ace3cdb23de3c8dc1b002039076efb823eac8918c6b65509cf42",
+    "Plan:tasks/B12.md": "5b2c69e536a82e7815c4723b20736aa3171f8ac706bc2b5e50ae397ceaee40b0",
+    "Plan:tasks/B13.md": "29c982c6ac440efd48763b99074fd54f33f79a65b0524abc1a4ab95f7e359960",
+    "Plan:tasks/B14.md": "5cbe9f9e81a7849d33a2c2985baf67e6a5aaa9c64f5f0231b5f14917c7b2fa07"
+  },
+  "contextual_graph_hashes": {
+    "research-graph.json": "1f8d8d0aa954ce9bc233c7208ecd9040f4cfcfa16efbff7d0b8a17f87a1ea91a",
+    "documentation-graph.json": "6e8be2f04d12b12c9d50e3629c4f557c9bdf57170cffce055fed057953761265",
+    "delivery-graph.json": "b8932a2b1ed153612453f71ec0b3619f89e688b19fa760f8fdc914eef829ff19"
+  },
+  "contextual_registry_hash": "1e638aa0de053285dbb6732269a43133cbb76072ac8cfffbdff1c2875766608c",
+  "contextual_hash_note": "Graph/registry status and evidence envelopes are not authored by this reviewer. Any later normative/packet/fragment change needs a delta review; a formal acceptance-only metadata update must preserve the reviewed bytes and cite this record.",
+  "mechanical_verification": {
+    "ci_archives": [
+      {
+        "artifact_name": "completion-database-ubuntu-24.04",
+        "artifact_id": 14019189533,
+        "run_id": 43388468172,
+        "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "manifest": "verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/manifest.json",
+        "manifest_sha256": "54ea86302986807d4ba3bb8ae6c664a4fffe4546f49ab3b426ef47354d023a4b",
+        "preserved_files_checked": 10,
+        "input_snapshots_checked": 7,
+        "current_inputs_raw_equal": 7,
+        "current_inputs_crlf_only_equal": 0,
+        "executed_tests": [
+          "sqlite_foreign_key_and_savepoint_recovery_are_explicit",
+          "native_join_aggregate_matches_independent_sql_oracle",
+          "native_cas_preserves_tenant_and_not_set_null_distinction",
+          "seaorm_public_dynamic_projection_needs_no_static_entity",
+          "sqlx_migration_checksum_and_failed_ddl_are_native"
+        ],
+        "passed": 5,
+        "failed": 0,
+        "ignored": 0
+      },
+      {
+        "artifact_name": "completion-database-windows-2022",
+        "artifact_id": 14019567445,
+        "run_id": 43388468172,
+        "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "manifest": "verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/manifest.json",
+        "manifest_sha256": "b9bc85f55b056c477255cf58abd373d687048955912d753c550fedf0cd055f93",
+        "preserved_files_checked": 10,
+        "input_snapshots_checked": 7,
+        "current_inputs_raw_equal": 2,
+        "current_inputs_crlf_only_equal": 5,
+        "executed_tests": [
+          "native_join_aggregate_matches_independent_sql_oracle",
+          "seaorm_public_dynamic_projection_needs_no_static_entity",
+          "sqlx_migration_checksum_and_failed_ddl_are_native",
+          "native_cas_preserves_tenant_and_not_set_null_distinction",
+          "sqlite_foreign_key_and_savepoint_recovery_are_explicit"
+        ],
+        "passed": 5,
+        "failed": 0,
+        "ignored": 0
+      },
+      {
+        "artifact_name": "completion-postgres-ubuntu-24.04",
+        "artifact_id": 14019626601,
+        "run_id": 43388468172,
+        "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "manifest": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/manifest.json",
+        "manifest_sha256": "2657a79ccf8c11b351fafe23bd3f928c7b597d23cad7d22d89caa4a88cbf239e",
+        "preserved_files_checked": 13,
+        "input_snapshots_checked": 7,
+        "current_inputs_raw_equal": 7,
+        "current_inputs_crlf_only_equal": 0,
+        "executed_tests": [
+          "codec_roundtrip_and_loss_are_observed",
+          "conflict_cte_old_snapshot_needs_separate_recovery_statement",
+          "early_row_stream_drop_drains_before_next_query",
+          "lost_commit_response_is_error_with_durable_effect",
+          "migration_error_keeps_session_lock_until_dedicated_connection_closes",
+          "statement_timeout_needs_rollback_before_same_connection_reuse"
+        ],
+        "passed": 6,
+        "failed": 0,
+        "ignored": 0
+      }
+    ],
+    "archive_files_checked": 33,
+    "input_snapshots_checked": 21,
+    "windows_crlf_only_input_differences": 5,
+    "recovered_aot_files_checked": 31,
+    "independent_migration_source_files_checked": 3,
+    "independent_migration_test_count": 3,
+    "packet_checks": [
+      {
+        "task_id": "R19",
+        "packet_sha256": "b075c4a5b2b141a5229861f8d4fc72977e08a67b8cecbfca925fa952eefa1189",
+        "matches_graph": true
+      },
+      {
+        "task_id": "R20",
+        "packet_sha256": "e3bae7bb04ffd9925c642395e811548b0192ad78f9fbf423225c324ed60b194a",
+        "matches_graph": true
+      },
+      {
+        "task_id": "R21",
+        "packet_sha256": "d87064806673af44435d3f157bb5b66eef6b8e3666ecd78346452eeb175906e6",
+        "matches_graph": true
+      },
+      {
+        "task_id": "R22",
+        "packet_sha256": "e5b41d07ec1a8d1d34bfc5f17583abded07d4cc2083ce2fe6d64f8c3477a7cd5",
+        "matches_graph": true
+      },
+      {
+        "task_id": "R23",
+        "packet_sha256": "163e1b606c9b3a1a5f1da620af5be2e20ebb20771772017a761cf8cb9e6584f6",
+        "matches_graph": true
+      },
+      {
+        "task_id": "R24",
+        "packet_sha256": "f2976053790fe0070ac714100eaec77d0aea8840cdb47a3bf0cf7a8603803499",
+        "matches_graph": true
+      },
+      {
+        "task_id": "R25",
+        "packet_sha256": "6a698012f10a6ff5d94cd39a5d42312bf586bf06ede1aa6ecefad16734afabc1",
+        "matches_graph": true
+      },
+      {
+        "task_id": "D14",
+        "packet_sha256": "73abc47a79d65d342e37613cbb6b15e550c24d081178b84c19fb28b7d5c9f9f8",
+        "matches_graph": true
+      },
+      {
+        "task_id": "D15",
+        "packet_sha256": "abc7de1e4940f18ee7c54967ad33c5436e0268ad9bc7af62cbbe6ca290f2decd",
+        "matches_graph": true
+      },
+      {
+        "task_id": "D16",
+        "packet_sha256": "89bb525869d6282f05782a68fa2ff90d2ff1fbbf554abde048251682c9e0d28c",
+        "matches_graph": true
+      },
+      {
+        "task_id": "D17",
+        "packet_sha256": "c742771f5afa28b12ff33f436862b422a9258932cb0651aaa5c155bad60ba017",
+        "matches_graph": true
+      },
+      {
+        "task_id": "D27",
+        "packet_sha256": "d67334b9702e344d95ac14df071505edbea4409f85583d7a15161aa62e67ce56",
+        "matches_graph": true
+      },
+      {
+        "task_id": "D28",
+        "packet_sha256": "3031c1945d2d831bc39bc3d6b1a73bb6e0b1d1d4a74c556c76ae16cf2f667b97",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B01",
+        "packet_sha256": "1ca9d662a00ae30de5f66c50a9d6b32b47ef8ea3454ec7e5e4602828cacad833",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B02",
+        "packet_sha256": "4d371fdc9e5b225238363c6e014b4d4ff92ed9d6cb6a60c0858cdf9fa70dee2e",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B03",
+        "packet_sha256": "49bb21a5b7582179ac482f960746cd9c621d3a343ae50f2a912ffdd19808d56d",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B04",
+        "packet_sha256": "545f6f1e28f78bfe86ce2719d6484692837b6bcbb20adf32d8ff73134faf61b8",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B05",
+        "packet_sha256": "597a7ab1e478a11b4afeb3c0b6e514f2aa734853b6d28caa3ad7ec15b735b2ce",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B06",
+        "packet_sha256": "aee7873898e596af1c0bc90d323e58523e53dc5c92e6d412414d00c63f04d4b4",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B07",
+        "packet_sha256": "9c6b7241fbc57e5eb15db9d5faeb1daf0bedab576ee5575e1a3d204e57532d49",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B08",
+        "packet_sha256": "fcd5cd73f95b8b01213bbfd3fceeb74b6102688957ab86b80d341b28650cdb16",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B09",
+        "packet_sha256": "8a321d8b753d0d279cec03c82017bc6b28876ccaf06ac2684df175fcbd65212d",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B10",
+        "packet_sha256": "187505b2c7840dcb8c749fe0abab2128a4c4f098ebe1b62752a5240ab6cf689e",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B11",
+        "packet_sha256": "c22b81393ee0ace3cdb23de3c8dc1b002039076efb823eac8918c6b65509cf42",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B12",
+        "packet_sha256": "5b2c69e536a82e7815c4723b20736aa3171f8ac706bc2b5e50ae397ceaee40b0",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B13",
+        "packet_sha256": "29c982c6ac440efd48763b99074fd54f33f79a65b0524abc1a4ab95f7e359960",
+        "matches_graph": true
+      },
+      {
+        "task_id": "B14",
+        "packet_sha256": "5cbe9f9e81a7849d33a2c2985baf67e6a5aaa9c64f5f0231b5f14917c7b2fa07",
+        "matches_graph": true
+      }
+    ],
+    "fragment_graph_field_pairs_checked": 140,
+    "graph_node_count": 114,
+    "union_dependency_dag_checked": true,
+    "product_write_scopes_checked": 130,
+    "product_write_scope_overlaps": [],
+    "errors": []
+  },
+  "preserved_prior_review": {
+    "path": "verification/interop-completion/database-independent-review.json",
+    "reviewer": "/root/interop_research",
+    "original_input_count": 41,
+    "unchanged_input_count": 40,
+    "changed_inputs": [
+      "docs/verification/reference-application.md"
+    ],
+    "supporting_evidence_count": 14,
+    "changed_supporting_evidence": [],
+    "note": "Only D20 reference-application.md changed from the old 41 inputs; D20 is owned by the current server reviewer. Old review hashes remain immutable."
+  },
+  "source_checks": [
+    {
+      "id": "sqlx-pg-executor",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/connection/executor.rs",
+      "git_blob_sha": "e0f4c3d44a6c81556822796bd2739576a9ea7fdf",
+      "file_sha256": "721ead17743d912c625a56b5728669d8111c750797b6fee24e234226a5b6fbe6",
+      "reviewed_ranges": [
+        [
+          200,
+          390
+        ]
+      ],
+      "retrieval": "preserved prior GitHub source response cache",
+      "cache_sha256": "df1aea7ed604f0e3168ca078eb59c4cfbfec97717a171c6d7158d32b96aaf056",
+      "cache_note": "The textual scratch cache has one additional terminal LF. Removing exactly that LF reproduces both reported Git blob SHA and raw canonical file SHA256; no evidence manifest/input/log was normalized or rewritten."
+    },
+    {
+      "id": "seaorm-loader",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/query/loader.rs",
+      "git_blob_sha": "29e2d814968a348214a027d4f8f7ae1784851b95",
+      "file_sha256": "8a09b8d48c2f670cb1d7120a0e8d2d900f67d407ddfb93c856de75d80c972b45",
+      "reviewed_ranges": [
+        [
+          1184,
+          1230
+        ],
+        [
+          1270,
+          1323
+        ],
+        [
+          1385,
+          1443
+        ]
+      ],
+      "retrieval": "preserved prior GitHub source response cache",
+      "cache_sha256": "a2a12dd9c4f0a6c5cec79fe2fd807011f9deef0be897c096cf72631944633a6e",
+      "cache_note": "The textual scratch cache has one additional terminal LF. Removing exactly that LF reproduces both reported Git blob SHA and raw canonical file SHA256; no evidence manifest/input/log was normalized or rewritten."
+    },
+    {
+      "id": "seaorm-dynamic-model",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/dynamic/model.rs",
+      "git_blob_sha": "874caaa3750d7da253856beb680ef04c3e5c2f42",
+      "file_sha256": "11ab43f1ae89b08bf273180d476424ea0d22439369efbb842ea3a9440e8dacf8",
+      "reviewed_ranges": [
+        [
+          1,
+          204
+        ]
+      ],
+      "retrieval": "preserved prior GitHub source response cache",
+      "cache_sha256": "173d84007b27f74f2f40aeda7f6de368d458c14e05952e64ea4851a7e5866239",
+      "cache_note": "The textual scratch cache has one additional terminal LF. Removing exactly that LF reproduces both reported Git blob SHA and raw canonical file SHA256; no evidence manifest/input/log was normalized or rewritten."
+    },
+    {
+      "id": "seaorm-row",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/executor/query.rs",
+      "git_blob_sha": "ad6bf057d0ad34728c73903a2ee917cf145ec5c7",
+      "file_sha256": "b32674ba65c1915d0f6320ce893ee652f14d3252cea9cfb0d1277c09955eea56",
+      "reviewed_ranges": [
+        [
+          190,
+          335
+        ]
+      ],
+      "retrieval": "fresh GitHub connector read at exact commit; returned blob SHA matches source manifest"
+    },
+    {
+      "id": "sqlx-migrate",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-core/src/migrate/migrator.rs",
+      "git_blob_sha": "c64b0f211bb687f838b0e7cb8948daa7025b646f",
+      "file_sha256": "fcd6701394aa58b895237fa2b8cae89d754bdde10b5a6037a8ae796f5bf377c2",
+      "reviewed_ranges": [
+        [
+          140,
+          292
+        ]
+      ],
+      "retrieval": "preserved prior GitHub source response cache",
+      "cache_sha256": "c2e2baac7f8a249ed0c91e60d82d5631d7d3f53dacdb842e327e8a426031d065",
+      "cache_note": "The textual scratch cache has one additional terminal LF. Removing exactly that LF reproduces both reported Git blob SHA and raw canonical file SHA256; no evidence manifest/input/log was normalized or rewritten."
+    },
+    {
+      "id": "pg-tls",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-postgres/src/connection/tls.rs",
+      "git_blob_sha": "a49c9caa8ca64416182c7838c192d0a42cabdcdd",
+      "file_sha256": "e93bd2605e010a71b9a0200b27dfdd101a8427385dc39468e522fb6547958e07",
+      "reviewed_ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "retrieval": "fresh GitHub connector read at exact commit; returned blob SHA matches source manifest"
+    },
+    {
+      "id": "pg-migrate",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-postgres/src/migrate.rs",
+      "git_blob_sha": "4afa2046c9018b5cf9c52a8e74c3ee22468242b1",
+      "file_sha256": "de1fb1f13fa2d4afb887a9037cb2d517ae0f8e08ba5c0cc76c71a6ff18a44866",
+      "reviewed_ranges": [
+        [
+          175,
+          270
+        ]
+      ],
+      "retrieval": "fresh GitHub connector read at exact commit; returned blob SHA matches source manifest"
+    },
+    {
+      "id": "sqlite-migrate",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-sqlite/src/migrate.rs",
+      "git_blob_sha": "5864023891349f7989f72746ced964c5a36d216c",
+      "file_sha256": "039a8072ddf9b05363f47ebde40f3649c040d329cfd81e1d2b2745c53c01790d",
+      "reviewed_ranges": [
+        [
+          149,
+          203
+        ]
+      ],
+      "retrieval": "fresh GitHub connector read at exact commit; returned blob SHA matches source manifest"
+    }
+  ],
+  "resolved_prior_findings": [
+    {
+      "id": "DB-IR-01",
+      "current_disposition": "confirmed_resolved",
+      "evidence": "D14/D15/R20 use tracked Connection::begin_with; retained 3-case independent regression source hashes match and test stdout reports 3/3."
+    },
+    {
+      "id": "DB-IR-05",
+      "current_disposition": "confirmed_resolved",
+      "evidence": "D14/D17 public provider-row shape seam verified directly at SeaORM fixed commit."
+    },
+    {
+      "id": "DB-PLAN-01",
+      "current_disposition": "independently_confirmed_resolved",
+      "evidence": "B05 now uses exact D15 dimensions and rollback-unconfirmed/Unknown/bounded-close distinctions in graph/packet/fragment."
+    },
+    {
+      "id": "DB-PLAN-03",
+      "current_disposition": "independently_confirmed_resolved",
+      "evidence": "B10 lists NWQ0101–NWQ0107 and compile negatives for all seven; D28 agrees."
+    }
+  ],
+  "delivery_readiness": {
+    "task_ids": [
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B09",
+      "B10",
+      "B11",
+      "B12",
+      "B13",
+      "B14"
+    ],
+    "status": "implementation_instructions_reviewed",
+    "all_implementation_authorizations": "not_authorized",
+    "local_dependencies_and_worktrees": "Reviewed; canonical B01 interfaces, B07 binder ownership and downstream B04 composition avoid a provider/host acceptance cycle. B10 generator is optional for ordinary runtime Fluent.",
+    "evidence_boundary": "Existing research observations are regression oracles; all real product AOT/provider/fault/soak/release outcomes must be newly recorded against product commits."
+  },
+  "limits": [
+    "No new native experiment was run; existing successful and failing research source/log/manifests were independently inspected and rehashed.",
+    "No whole-upstream audit, product implementation, PostgreSQL-on-Windows, product TLS/auth, production soak or performance advantage was asserted.",
+    "The prior six attributable original subagent reports were not reconstructed; current real independent review stands on preserved exact evidence.",
+    "Formal registry/graph acceptance and remote CI/merge must use actual saved input commits; this report alone does not advance those states."
+  ],
+  "product_implementation_accepted": false,
+  "github_approval_identity": "deku2026 is not represented as a second reviewer account",
+  "not_a_second_github_account_approval": true
+}

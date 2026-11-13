@@ -1,0 +1,4184 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "server-final-independent-2026-11-13",
+  "reviewer": "/root/server_review",
+  "independent_technical_review": true,
+  "separate_github_approval_identity": false,
+  "date_utc": "2026-11-13T13:00:53.014486+00:00",
+  "status": "accepted_for_research_and_detailed_design",
+  "scope": "Current R26-R33, D18-D21/D29-D30, B15-B24 implementation planning; no product acceptance or implementation authorization.",
+  "research_tasks": [
+    "R26",
+    "R27",
+    "R28",
+    "R29",
+    "R30",
+    "R31",
+    "R32",
+    "R33"
+  ],
+  "documentation_tasks": [
+    "D18",
+    "D19",
+    "D20",
+    "D21",
+    "D29",
+    "D30"
+  ],
+  "reviewed_outputs": [
+    {
+      "task": "R26",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R26/report.md",
+      "sha256": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77"
+    },
+    {
+      "task": "R26",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R26/evidence.json",
+      "sha256": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8"
+    },
+    {
+      "task": "R26",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R26/coverage.json",
+      "sha256": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45"
+    },
+    {
+      "task": "R27",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R27/report.md",
+      "sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9"
+    },
+    {
+      "task": "R27",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R27/evidence.json",
+      "sha256": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95"
+    },
+    {
+      "task": "R27",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R27/coverage.json",
+      "sha256": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e"
+    },
+    {
+      "task": "R27",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R27/source-driven-server.md",
+      "sha256": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113"
+    },
+    {
+      "task": "R27",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R27/native-slice-validation.md",
+      "sha256": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5"
+    },
+    {
+      "task": "R28",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R28/report.md",
+      "sha256": "53c7853a03a74d912574188f0c3646986e9fbdb9f71b6a960450c5595d2b98cf"
+    },
+    {
+      "task": "R28",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R28/evidence.json",
+      "sha256": "53a4334ca9aceb83ea8ed4d4b1a60720eeca12231f57c639ea7eec7af6bf726e"
+    },
+    {
+      "task": "R28",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R28/coverage.json",
+      "sha256": "ad0f906a070892d9c66e6ba06281ac2ac5cd77a1e2113ee5977ce96c92187b39"
+    },
+    {
+      "task": "R29",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R29/report.md",
+      "sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe"
+    },
+    {
+      "task": "R29",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R29/evidence.json",
+      "sha256": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d"
+    },
+    {
+      "task": "R29",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R29/coverage.json",
+      "sha256": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131"
+    },
+    {
+      "task": "R30",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R30/report.md",
+      "sha256": "2924c555ec1cf27494f36bf93e62b841b7ee0d59d979e82fe2d54fcf6b5bbebb"
+    },
+    {
+      "task": "R30",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R30/evidence.json",
+      "sha256": "f7e71407de4ed1d23851d922b75b5dd91a7b3f698e019a4b57ba368d58f50d7e"
+    },
+    {
+      "task": "R30",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R30/coverage.json",
+      "sha256": "01549bad229f0fbc2ff7d1d77f30dc528cfee29356467a3bc9ec0213786b0bd2"
+    },
+    {
+      "task": "R31",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R31/report.md",
+      "sha256": "2df3f72bea0b8b48b9e895ba7496918da2288312838633f54733311b35cf4ac1"
+    },
+    {
+      "task": "R31",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R31/evidence.json",
+      "sha256": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301"
+    },
+    {
+      "task": "R31",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R31/coverage.json",
+      "sha256": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745"
+    },
+    {
+      "task": "R32",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R32/report.md",
+      "sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f"
+    },
+    {
+      "task": "R32",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R32/evidence.json",
+      "sha256": "324df31b893b3a7cd547f7d8a8a99ba0d68f1cf8a68b5714ae45c679e7fb0caa"
+    },
+    {
+      "task": "R32",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R32/coverage.json",
+      "sha256": "db4645b539ca0e93faf4afbc870551d3a1e6c2d0b22d9ea68ab58c4a0aed48f9"
+    },
+    {
+      "task": "R33",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R33/report.md",
+      "sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49"
+    },
+    {
+      "task": "R33",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R33/evidence.json",
+      "sha256": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be"
+    },
+    {
+      "task": "R33",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/research/topics/R33/coverage.json",
+      "sha256": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53"
+    },
+    {
+      "task": "D18",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/server/hosting-and-streaming.md",
+      "sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d"
+    },
+    {
+      "task": "D19",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/server/protocols-and-observability.md",
+      "sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb"
+    },
+    {
+      "task": "D20",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/verification/reference-application.md",
+      "sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be"
+    },
+    {
+      "task": "D21",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/extension/future-platforms.md",
+      "sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54"
+    },
+    {
+      "task": "D29",
+      "repository": "IzuSharp/Plan",
+      "path": "fragments/server.json",
+      "sha256": "9b81edbf25672b020011b808e3b716c752388b210c808e7eb636a4a0f015e5a1"
+    },
+    {
+      "task": "D30",
+      "repository": "IzuSharp/Plan",
+      "path": "fragments/end-to-end.json",
+      "sha256": "217c78e4e6d1d7fe380025d8ef32c2406464900c4e2ffd71d17417973fd71160"
+    },
+    {
+      "task": "B15",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B15.md",
+      "sha256": "0a6028421433b011a46825d7a754a88f825b37f3f337900b4d57f3a7f264ec43"
+    },
+    {
+      "task": "B16",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B16.md",
+      "sha256": "e44161634dc42ce2ed575cab49e07dbca64097de21881e99b4061da1534adee4"
+    },
+    {
+      "task": "B17",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B17.md",
+      "sha256": "99929c354796338610fe4fef797d88c2f8bb450d2f8a07e463efb16d363e88c8"
+    },
+    {
+      "task": "B18",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B18.md",
+      "sha256": "7d44e1f72c0e624967b1d6b9b778a085fb426503e25dd47b0d19c7838a143ba7"
+    },
+    {
+      "task": "B19",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B19.md",
+      "sha256": "82fe67c4ee69f86fa35ebe652e5bf6f3ed2fff8874fa947709c93680b199e701"
+    },
+    {
+      "task": "B20",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B20.md",
+      "sha256": "13085d7933dad89eff458870efebb455ef6ccb374a6334d158fdb255e678bd33"
+    },
+    {
+      "task": "B21",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B21.md",
+      "sha256": "5953644156cfa793fa504f8080e9b37840b969ce3ba2f0a0f26f47d063b5b927"
+    },
+    {
+      "task": "B22",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B22.md",
+      "sha256": "8d5ac57e890bd7d32b27972ab938504cfc6dc86331bf35e5597c3fc86e49e210"
+    },
+    {
+      "task": "B23",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B23.md",
+      "sha256": "5eb0f3890ff230763efec138a7a815ab52a68ed41908b8fc9df58990db15c98e"
+    },
+    {
+      "task": "B24",
+      "repository": "IzuSharp/Plan",
+      "path": "tasks/B24.md",
+      "sha256": "11e9fa376a302bf31b5b7567d16efb782b1821c5eaf1369dfce13b9a7c258a71"
+    },
+    {
+      "task": "R26",
+      "repository": "IzuSharp/Plan",
+      "path": "research-tasks/R26.md",
+      "sha256": "296aedfc3fae421273d88cb88d31ec0f48f478672ca562e6326d6399a1febadc",
+      "role": "independent task packet"
+    },
+    {
+      "task": "R27",
+      "repository": "IzuSharp/Plan",
+      "path": "research-tasks/R27.md",
+      "sha256": "a4726846008686292a165e0691ea7be41a564f4621615e698f8bcce9e1a6287d",
+      "role": "independent task packet"
+    },
+    {
+      "task": "R28",
+      "repository": "IzuSharp/Plan",
+      "path": "research-tasks/R28.md",
+      "sha256": "c8ad3f5dafeb775ed311cc56d236fd9bcb0e65427c3d1ef064ed112775ad58cd",
+      "role": "independent task packet"
+    },
+    {
+      "task": "R29",
+      "repository": "IzuSharp/Plan",
+      "path": "research-tasks/R29.md",
+      "sha256": "e1a23bd5a9506af8bfc36b7edfa3299c635a9c4e466e10fc26c41cb64d36b8af",
+      "role": "independent task packet"
+    },
+    {
+      "task": "R30",
+      "repository": "IzuSharp/Plan",
+      "path": "research-tasks/R30.md",
+      "sha256": "fb5c60f99e0ec58faee321c256fae6d36e654c7c3108de00ecfe21b6976888af",
+      "role": "independent task packet"
+    },
+    {
+      "task": "R31",
+      "repository": "IzuSharp/Plan",
+      "path": "research-tasks/R31.md",
+      "sha256": "5d8b92f140bd68e4184c69d11696c9345d5248b61d0e885d03041e9f14cc8c8f",
+      "role": "independent task packet"
+    },
+    {
+      "task": "R32",
+      "repository": "IzuSharp/Plan",
+      "path": "research-tasks/R32.md",
+      "sha256": "2038f7a76a4a0b834fc7ed8cc4735831f51467b4e204114c9a88984da1bb2904",
+      "role": "independent task packet"
+    },
+    {
+      "task": "R33",
+      "repository": "IzuSharp/Plan",
+      "path": "research-tasks/R33.md",
+      "sha256": "a4e7713dfb46d6f403982e56cf2c3e386ee289ade1f54433adf9d759207915b4",
+      "role": "independent task packet"
+    },
+    {
+      "task": "D18",
+      "repository": "IzuSharp/Plan",
+      "path": "documentation-tasks/D18.md",
+      "sha256": "8d2893825007cd1a39c75fc6e2c141f3f81712c69803fb63b0296b6489c86c10",
+      "role": "independent task packet"
+    },
+    {
+      "task": "D19",
+      "repository": "IzuSharp/Plan",
+      "path": "documentation-tasks/D19.md",
+      "sha256": "3759b32617af5e633c2580fe3cce465d7be758a6d9209961e1c80047b3ff1ee6",
+      "role": "independent task packet"
+    },
+    {
+      "task": "D20",
+      "repository": "IzuSharp/Plan",
+      "path": "documentation-tasks/D20.md",
+      "sha256": "9cb39e759d6eb562514354981fd320cc8eade8370bb61fb9395e46429bfb0724",
+      "role": "independent task packet"
+    },
+    {
+      "task": "D21",
+      "repository": "IzuSharp/Plan",
+      "path": "documentation-tasks/D21.md",
+      "sha256": "19ee2bcbc719d9181ffab726e0aedcc827e873ede56eb255625b6706dae5849b",
+      "role": "independent task packet"
+    },
+    {
+      "task": "D29",
+      "repository": "IzuSharp/Plan",
+      "path": "documentation-tasks/D29.md",
+      "sha256": "b374b0626c326ddbaec2d4016e4d690a69a7b3f71410a2f162f2bb0c6e2879f5",
+      "role": "independent task packet"
+    },
+    {
+      "task": "D30",
+      "repository": "IzuSharp/Plan",
+      "path": "documentation-tasks/D30.md",
+      "sha256": "f1396fd60c3769c09f6c74e1df4d47c9dcf9568b4044dfaf5a3a589bffc4447d",
+      "role": "independent task packet"
+    }
+  ],
+  "historical_identity_checks": [
+    {
+      "path": "verification/server-completion/completion-assessment.json",
+      "expected_sha256": "8e5f34d7ec37f297cb47dcdd09d5f03e3eced98a9ba6d9373dd4a5128ffd5c8f",
+      "actual_sha256": "8e5f34d7ec37f297cb47dcdd09d5f03e3eced98a9ba6d9373dd4a5128ffd5c8f",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/frozen-files.json",
+      "expected_sha256": "e720e3f8258b7e6d49bc38bb069179029ebd37777fdb1c1140306d5125eac965",
+      "actual_sha256": "e720e3f8258b7e6d49bc38bb069179029ebd37777fdb1c1140306d5125eac965",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R26/report.md",
+      "expected_sha256": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77",
+      "actual_sha256": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R26/evidence.json",
+      "expected_sha256": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8",
+      "actual_sha256": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R26/coverage.json",
+      "expected_sha256": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45",
+      "actual_sha256": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R27/report.md",
+      "expected_sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9",
+      "actual_sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R27/evidence.json",
+      "expected_sha256": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95",
+      "actual_sha256": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R27/coverage.json",
+      "expected_sha256": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e",
+      "actual_sha256": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R27/source-driven-server.md",
+      "expected_sha256": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113",
+      "actual_sha256": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R27/native-slice-validation.md",
+      "expected_sha256": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5",
+      "actual_sha256": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R28/report.md",
+      "expected_sha256": "c2e1831f6d6d99d4c5e5517cccdc932abded58591bbafb007344f0d9ce34d255",
+      "actual_sha256": "c2e1831f6d6d99d4c5e5517cccdc932abded58591bbafb007344f0d9ce34d255",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R28/evidence.json",
+      "expected_sha256": "6e59124bef8f5d7ff812cd1a9778ce164ed46c0d0e4771269140852f7c58c07e",
+      "actual_sha256": "6e59124bef8f5d7ff812cd1a9778ce164ed46c0d0e4771269140852f7c58c07e",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R28/coverage.json",
+      "expected_sha256": "5cf95839aff87a0bf188623b73471b47893835391221d95185e04d5d5e986892",
+      "actual_sha256": "5cf95839aff87a0bf188623b73471b47893835391221d95185e04d5d5e986892",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R29/report.md",
+      "expected_sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe",
+      "actual_sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R29/evidence.json",
+      "expected_sha256": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d",
+      "actual_sha256": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R29/coverage.json",
+      "expected_sha256": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131",
+      "actual_sha256": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R30/report.md",
+      "expected_sha256": "fc2e8ccf04b5299b24c6650efec7355d677783ab968d2f3ce4ced1fd4a4c4858",
+      "actual_sha256": "fc2e8ccf04b5299b24c6650efec7355d677783ab968d2f3ce4ced1fd4a4c4858",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R30/evidence.json",
+      "expected_sha256": "ddb0eb14d937fdd0cdd0cdc2313d29c2566449e23283342dc2cee6a1c0c0c7a8",
+      "actual_sha256": "ddb0eb14d937fdd0cdd0cdc2313d29c2566449e23283342dc2cee6a1c0c0c7a8",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R30/coverage.json",
+      "expected_sha256": "fb44bc8a8b41093b92adb07be1291e8570b8c7f2178330a7e3d9afe1b71dec4c",
+      "actual_sha256": "fb44bc8a8b41093b92adb07be1291e8570b8c7f2178330a7e3d9afe1b71dec4c",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R32/report.md",
+      "expected_sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f",
+      "actual_sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R32/evidence.json",
+      "expected_sha256": "324df31b893b3a7cd547f7d8a8a99ba0d68f1cf8a68b5714ae45c679e7fb0caa",
+      "actual_sha256": "324df31b893b3a7cd547f7d8a8a99ba0d68f1cf8a68b5714ae45c679e7fb0caa",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R32/coverage.json",
+      "expected_sha256": "db4645b539ca0e93faf4afbc870551d3a1e6c2d0b22d9ea68ab58c4a0aed48f9",
+      "actual_sha256": "db4645b539ca0e93faf4afbc870551d3a1e6c2d0b22d9ea68ab58c4a0aed48f9",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R33/report.md",
+      "expected_sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49",
+      "actual_sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R33/evidence.json",
+      "expected_sha256": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be",
+      "actual_sha256": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R33/coverage.json",
+      "expected_sha256": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53",
+      "actual_sha256": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R34/report.md",
+      "expected_sha256": "1d1f043b863e9b33483d3e9f88b00a88396c330c5cf1dfc4eed9bc08a5a2f0a9",
+      "actual_sha256": "1d1f043b863e9b33483d3e9f88b00a88396c330c5cf1dfc4eed9bc08a5a2f0a9",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R34/evidence.json",
+      "expected_sha256": "470aa544a5309db79714fdcaedf49c08962c5522c8c045a918799e7bc62b54be",
+      "actual_sha256": "470aa544a5309db79714fdcaedf49c08962c5522c8c045a918799e7bc62b54be",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R34/coverage.json",
+      "expected_sha256": "780ed9f8ce4f5ffc47356c3ee18c02a2b868999cb2284d10016f14811d9e8960",
+      "actual_sha256": "780ed9f8ce4f5ffc47356c3ee18c02a2b868999cb2284d10016f14811d9e8960",
+      "match": true
+    },
+    {
+      "path": "docs/server/hosting-and-streaming.md",
+      "expected_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "actual_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "match": true
+    },
+    {
+      "path": "docs/server/protocols-and-observability.md",
+      "expected_sha256": "cf5fca2afc9aa6b7e81186ad2c67b0e6345bc53c73b20e8ba80a4f0896a77be1",
+      "actual_sha256": "cf5fca2afc9aa6b7e81186ad2c67b0e6345bc53c73b20e8ba80a4f0896a77be1",
+      "match": true
+    },
+    {
+      "path": "docs/extension/future-platforms.md",
+      "expected_sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "actual_sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/protocol/src/lib.rs",
+      "expected_sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96",
+      "actual_sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/kestrel/Program.cs",
+      "expected_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+      "actual_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/diagnostics/Program.cs",
+      "expected_sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+      "actual_sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/diagnostics/layout.rs",
+      "expected_sha256": "ede0dcacf3efa86490f765d0297c41410d4c4885fdd48ecf52b6e12a392ed46e",
+      "actual_sha256": "ede0dcacf3efa86490f765d0297c41410d4c4885fdd48ecf52b6e12a392ed46e",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/run.py",
+      "expected_sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+      "actual_sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/run_diagnostics.py",
+      "expected_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "actual_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "match": true
+    },
+    {
+      "path": "experiments/server-retained-bytes/src/lib.rs",
+      "expected_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "actual_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R29/credit_model.py",
+      "expected_sha256": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519",
+      "actual_sha256": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R27/body_lease_model.py",
+      "expected_sha256": "1a25126749980ecbe2b41994a33d76e8731d1f7954f36f23dc164ecd190670ee",
+      "actual_sha256": "1a25126749980ecbe2b41994a33d76e8731d1f7954f36f23dc164ecd190670ee",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R27/body-lease-result.json",
+      "expected_sha256": "9fabe5a85ae0b26d9ac528ba108c7402cbf15a1424c71aee440d415245154a24",
+      "actual_sha256": "9fabe5a85ae0b26d9ac528ba108c7402cbf15a1424c71aee440d415245154a24",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R29/experiment-result.json",
+      "expected_sha256": "2b2a1c6cf9462501262a30434e41843623e496ac3a8b1ca58154c866069ed625",
+      "actual_sha256": "2b2a1c6cf9462501262a30434e41843623e496ac3a8b1ca58154c866069ed625",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R29/experiment.stderr",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "docs/research/topics/R29/run-manifest.json",
+      "expected_sha256": "722c4ea99bcc9aed1ae098d235076f243989a475a23c658a1ac67b01693e4b30",
+      "actual_sha256": "722c4ea99bcc9aed1ae098d235076f243989a475a23c658a1ac67b01693e4b30",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/diagnostics/DiagnosticsProbe.csproj",
+      "expected_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "actual_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/kestrel/KestrelComparator.csproj",
+      "expected_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+      "actual_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/protocol/Cargo.lock",
+      "expected_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "actual_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "match": true
+    },
+    {
+      "path": "experiments/server-completion/protocol/Cargo.toml",
+      "expected_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "actual_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/README.md",
+      "expected_sha256": "8fafc0b2c4c18a276b2ebbd4f86407e822fab6850c0cc709b6bf6d681fc5aad9",
+      "actual_sha256": "8fafc0b2c4c18a276b2ebbd4f86407e822fab6850c0cc709b6bf6d681fc5aad9",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/author-check.json",
+      "expected_sha256": "02443237cbc6955c3b978f506c1317fba3ace79bd66a8ac55522f3afcd5403a3",
+      "actual_sha256": "02443237cbc6955c3b978f506c1317fba3ace79bd66a8ac55522f3afcd5403a3",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/ci-verification.json",
+      "expected_sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+      "actual_sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/dependency-inventory.json",
+      "expected_sha256": "9a6dafc9b2fe898b5409855487ab5d7b9b8914cf925ff4047852735ce1fbc3d8",
+      "actual_sha256": "9a6dafc9b2fe898b5409855487ab5d7b9b8914cf925ff4047852735ce1fbc3d8",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/dotnet-info.stdout.txt",
+      "expected_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "actual_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/inputs/diagnostics/DiagnosticsProbe.csproj",
+      "expected_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "actual_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/inputs/diagnostics/Program.cs",
+      "expected_sha256": "31b9c926093e811ad0f972426a32aae8c4ed983fa55109588e61c8a65ebcc7c6",
+      "actual_sha256": "31b9c926093e811ad0f972426a32aae8c4ed983fa55109588e61c8a65ebcc7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/inputs/run_diagnostics.py",
+      "expected_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "actual_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/publish.stdout.txt",
+      "expected_sha256": "dbc8952311125903611c01a1a6eb45a855ca207b62221ab1d81d22866356db86",
+      "actual_sha256": "dbc8952311125903611c01a1a6eb45a855ca207b62221ab1d81d22866356db86",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/run.json",
+      "expected_sha256": "74c5ee9701755af55389db0875975d93b14a188b3a8bc27322ae466e627a0e85",
+      "actual_sha256": "74c5ee9701755af55389db0875975d93b14a188b3a8bc27322ae466e627a0e85",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/dotnet-info.stdout.txt",
+      "expected_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "actual_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/inputs/diagnostics/DiagnosticsProbe.csproj",
+      "expected_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "actual_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/inputs/diagnostics/Program.cs",
+      "expected_sha256": "858f64868785d1843417b604f5cfcb05deda2588015daa1e21f07e34775ffc9b",
+      "actual_sha256": "858f64868785d1843417b604f5cfcb05deda2588015daa1e21f07e34775ffc9b",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/inputs/run_diagnostics.py",
+      "expected_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "actual_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/native-aot-run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/native-aot-run.stdout.txt",
+      "expected_sha256": "948d4ecb98389b5ef5110a299832a5b7c16eac5c8ea6e61af3c80a18623d3d6f",
+      "actual_sha256": "948d4ecb98389b5ef5110a299832a5b7c16eac5c8ea6e61af3c80a18623d3d6f",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/publish.stdout.txt",
+      "expected_sha256": "9f864027dd11aa754aa3e3be94a54fd5186e38bd9dc448db2de7fab35e164472",
+      "actual_sha256": "9f864027dd11aa754aa3e3be94a54fd5186e38bd9dc448db2de7fab35e164472",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/run.json",
+      "expected_sha256": "a2081f7fe288071b45e0426a8671a302ec5eb5906e891e04e631980e89151f15",
+      "actual_sha256": "a2081f7fe288071b45e0426a8671a302ec5eb5906e891e04e631980e89151f15",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/dotnet-info.stdout.txt",
+      "expected_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "actual_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/inputs/diagnostics/DiagnosticsProbe.csproj",
+      "expected_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "actual_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/inputs/diagnostics/Program.cs",
+      "expected_sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+      "actual_sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/inputs/run_diagnostics.py",
+      "expected_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "actual_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/native-aot-run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/native-aot-run.stdout.txt",
+      "expected_sha256": "66915ae003f2430e294cb99381f2b018b8a6af4731ab9aa5e0afa54d4f33e1b8",
+      "actual_sha256": "66915ae003f2430e294cb99381f2b018b8a6af4731ab9aa5e0afa54d4f33e1b8",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/publish.stdout.txt",
+      "expected_sha256": "ab18ea4501e01905fc062b39513742ff12932450bab23095856392414ab92614",
+      "actual_sha256": "ab18ea4501e01905fc062b39513742ff12932450bab23095856392414ab92614",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+      "expected_sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf",
+      "actual_sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/compile.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/compile.stdout.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/layout.rs",
+      "expected_sha256": "ede0dcacf3efa86490f765d0297c41410d4c4885fdd48ecf52b6e12a392ed46e",
+      "actual_sha256": "ede0dcacf3efa86490f765d0297c41410d4c4885fdd48ecf52b6e12a392ed46e",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/run.json",
+      "expected_sha256": "53948800bfb19521a7b3209e92d24603114e86093b8ef4e2f074db2454ba6a8e",
+      "actual_sha256": "53948800bfb19521a7b3209e92d24603114e86093b8ef4e2f074db2454ba6a8e",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/run.stdout.txt",
+      "expected_sha256": "a276ac4ab545b1ff18cf97a74095a52f7a6578a50dd97f7c8a3e5ceec0105a75",
+      "actual_sha256": "a276ac4ab545b1ff18cf97a74095a52f7a6578a50dd97f7c8a3e5ceec0105a75",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/historical-input-omissions.json",
+      "expected_sha256": "f7074c69122820d0d912a1492d3b12494ba7f00f2163de706267047e7588b958",
+      "actual_sha256": "f7074c69122820d0d912a1492d3b12494ba7f00f2163de706267047e7588b958",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-1/inputs/KestrelComparator.csproj",
+      "expected_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+      "actual_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-1/inputs/Program.cs",
+      "expected_sha256": "43efbcfb4a4f50bb41112ab09e8651a614b1f0d5d40824022b0f9fb230a793fe",
+      "actual_sha256": "43efbcfb4a4f50bb41112ab09e8651a614b1f0d5d40824022b0f9fb230a793fe",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-1/run.json",
+      "expected_sha256": "2654d31f3fe209a8477999704b7eb93068065227b35e6aecd67d9afa5d986744",
+      "actual_sha256": "2654d31f3fe209a8477999704b7eb93068065227b35e6aecd67d9afa5d986744",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-1/stderr.txt",
+      "expected_sha256": "141a20e4265252570c0f5066f91ee15a7bb6557bb7ad3c9220d3a3c369e59f1c",
+      "actual_sha256": "141a20e4265252570c0f5066f91ee15a7bb6557bb7ad3c9220d3a3c369e59f1c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-1/stdout.txt",
+      "expected_sha256": "ff692b8ee1fb7241d8c07904d6c04c5b9adfb44aa02e96f66f4fe6cbdff44948",
+      "actual_sha256": "ff692b8ee1fb7241d8c07904d6c04c5b9adfb44aa02e96f66f4fe6cbdff44948",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/dotnet-info.stdout.txt",
+      "expected_sha256": "9ac274d6d0ed31993220651f23138e4cb4d4777915d8ed4312a483c523c8b6ec",
+      "actual_sha256": "9ac274d6d0ed31993220651f23138e4cb4d4777915d8ed4312a483c523c8b6ec",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/inputs/kestrel/KestrelComparator.csproj",
+      "expected_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+      "actual_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/inputs/kestrel/Program.cs",
+      "expected_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+      "actual_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/native-aot-run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/native-aot-run.stdout.txt",
+      "expected_sha256": "fe0cfd253e027bae19af920aad75bbd1ea8e4b5957b4a04368900c4cb686f405",
+      "actual_sha256": "fe0cfd253e027bae19af920aad75bbd1ea8e4b5957b4a04368900c4cb686f405",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/publish.stdout.txt",
+      "expected_sha256": "004685383f62059f5c7530aca4737f03adf87aa4f97c23f6c37ca4e55ab1f98e",
+      "actual_sha256": "004685383f62059f5c7530aca4737f03adf87aa4f97c23f6c37ca4e55ab1f98e",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/run.json",
+      "expected_sha256": "0a9b78cc2aa5108adef0f696f902f0cc6e22aef781f076d7db0529c7f7f1a94b",
+      "actual_sha256": "0a9b78cc2aa5108adef0f696f902f0cc6e22aef781f076d7db0529c7f7f1a94b",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/package-identities.json",
+      "expected_sha256": "84d56243e23b22d04838e019c0c1b2ecc14ca95a8b5652a164635866721c7125",
+      "actual_sha256": "84d56243e23b22d04838e019c0c1b2ecc14ca95a8b5652a164635866721c7125",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-1/inputs/Cargo.lock",
+      "expected_sha256": "9e29ca1eb632ca42338d1ecd45ef57afd9d0cd5d790509e1b267a62c6dd149d2",
+      "actual_sha256": "9e29ca1eb632ca42338d1ecd45ef57afd9d0cd5d790509e1b267a62c6dd149d2",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-1/inputs/Cargo.toml",
+      "expected_sha256": "505a71ec454a17770a49e1b9df45181c55b04694fdc8cc7a7e3cbaf6e644c512",
+      "actual_sha256": "505a71ec454a17770a49e1b9df45181c55b04694fdc8cc7a7e3cbaf6e644c512",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-1/inputs/src/lib.rs",
+      "expected_sha256": "30d9483dec2fcff00b6953940948511c698a16aaecacc741556c5ecfe0b9b4f7",
+      "actual_sha256": "30d9483dec2fcff00b6953940948511c698a16aaecacc741556c5ecfe0b9b4f7",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-1/run.json",
+      "expected_sha256": "cc6a714e63d5fa06856245e07c5f9f47fa183ec99e4a155b8ea41235982c2475",
+      "actual_sha256": "cc6a714e63d5fa06856245e07c5f9f47fa183ec99e4a155b8ea41235982c2475",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-1/stderr.txt",
+      "expected_sha256": "868701297cfa93f6521dcd6f9ada6ec60576d1d1346b44699472498e4acb7a0c",
+      "actual_sha256": "868701297cfa93f6521dcd6f9ada6ec60576d1d1346b44699472498e4acb7a0c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-1/stdout.txt",
+      "expected_sha256": "3b09904bc368f2a049bf91a4ae3d4e74f22a10cf4e5389ad2fc32f3045084838",
+      "actual_sha256": "3b09904bc368f2a049bf91a4ae3d4e74f22a10cf4e5389ad2fc32f3045084838",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/dependency-tree.stdout.txt",
+      "expected_sha256": "58b3ef6bfcf3f0fdff27b8892541a72c032d4f8202aace12fe13420f5e60ba8d",
+      "actual_sha256": "58b3ef6bfcf3f0fdff27b8892541a72c032d4f8202aace12fe13420f5e60ba8d",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/inputs/protocol/Cargo.lock",
+      "expected_sha256": "6c381fcbcb841e8fa911b89a7012fab8d95a20f0086cdd65125ebf99744022a0",
+      "actual_sha256": "6c381fcbcb841e8fa911b89a7012fab8d95a20f0086cdd65125ebf99744022a0",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/inputs/protocol/Cargo.toml",
+      "expected_sha256": "29199324315f312b628e11a93673c9c2f348f68fa37772d9dee7e13aa58f71e4",
+      "actual_sha256": "29199324315f312b628e11a93673c9c2f348f68fa37772d9dee7e13aa58f71e4",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/inputs/protocol/fixtures/README.md",
+      "expected_sha256": "8c77f269b9b6e220f8dedd6d5a7a45f3818b2e0a2fe01e13cca128f66b3daf94",
+      "actual_sha256": "8c77f269b9b6e220f8dedd6d5a7a45f3818b2e0a2fe01e13cca128f66b3daf94",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/inputs/protocol/src/lib.rs",
+      "expected_sha256": "092625c9cf4d0a9e1860077d42855caa53eac6404fc34de2a26ae4cc149c7cef",
+      "actual_sha256": "092625c9cf4d0a9e1860077d42855caa53eac6404fc34de2a26ae4cc149c7cef",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/run.json",
+      "expected_sha256": "76088632284bc5f66e3a186d5d1da1478c8bb48dbfa5c265589e75b5da247707",
+      "actual_sha256": "76088632284bc5f66e3a186d5d1da1478c8bb48dbfa5c265589e75b5da247707",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/test.stderr.txt",
+      "expected_sha256": "5282876950415ef521a6e81c4ede35830f01204e22305c2257ee4030a29a7198",
+      "actual_sha256": "5282876950415ef521a6e81c4ede35830f01204e22305c2257ee4030a29a7198",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/test.stdout.txt",
+      "expected_sha256": "5c85fe8f17bf0aaeba696a1e391b68babacf74ed7542274ac52d289088a5d918",
+      "actual_sha256": "5c85fe8f17bf0aaeba696a1e391b68babacf74ed7542274ac52d289088a5d918",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/dependency-tree.stdout.txt",
+      "expected_sha256": "bf668aad0afdf02bdc0226c73c9a39a6a562e4605325e576e343b064d2697b1e",
+      "actual_sha256": "bf668aad0afdf02bdc0226c73c9a39a6a562e4605325e576e343b064d2697b1e",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/inputs/protocol/Cargo.lock",
+      "expected_sha256": "cd7c037492a416d9a547f2fccbae9a554b382556cc6fa5872b06ef3784ba72f7",
+      "actual_sha256": "cd7c037492a416d9a547f2fccbae9a554b382556cc6fa5872b06ef3784ba72f7",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/inputs/protocol/Cargo.toml",
+      "expected_sha256": "0a5bc3c1385003646d18d0697ac5b7cbb2ac43993e8cf951a7950935428d859c",
+      "actual_sha256": "0a5bc3c1385003646d18d0697ac5b7cbb2ac43993e8cf951a7950935428d859c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/inputs/protocol/fixtures/README.md",
+      "expected_sha256": "8c77f269b9b6e220f8dedd6d5a7a45f3818b2e0a2fe01e13cca128f66b3daf94",
+      "actual_sha256": "8c77f269b9b6e220f8dedd6d5a7a45f3818b2e0a2fe01e13cca128f66b3daf94",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/inputs/protocol/src/lib.rs",
+      "expected_sha256": "78a8705fbae3e3828249106826b8577b42b6022c232eb1acc7abab68271bdb5d",
+      "actual_sha256": "78a8705fbae3e3828249106826b8577b42b6022c232eb1acc7abab68271bdb5d",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/run.json",
+      "expected_sha256": "a9a11a85e6768c2e5623677c4109984f51985a0b7535b7a64b40adcac93b7c91",
+      "actual_sha256": "a9a11a85e6768c2e5623677c4109984f51985a0b7535b7a64b40adcac93b7c91",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/test.stderr.txt",
+      "expected_sha256": "0e6dc299c288d15ba871d8bb64123495195a11e29b8272ff50ba33b0aec0d246",
+      "actual_sha256": "0e6dc299c288d15ba871d8bb64123495195a11e29b8272ff50ba33b0aec0d246",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/test.stdout.txt",
+      "expected_sha256": "e975c718fb548cf1a16a35daef12dec214dbc74119017a03100b95edb65f0064",
+      "actual_sha256": "e975c718fb548cf1a16a35daef12dec214dbc74119017a03100b95edb65f0064",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/dependency-tree.stdout.txt",
+      "expected_sha256": "bd2950fd18f2d4060d93605c5996c2766b8b258e6298ef610f17642aa903e7d3",
+      "actual_sha256": "bd2950fd18f2d4060d93605c5996c2766b8b258e6298ef610f17642aa903e7d3",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/inputs/protocol/Cargo.lock",
+      "expected_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "actual_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/inputs/protocol/Cargo.toml",
+      "expected_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "actual_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/inputs/protocol/src/lib.rs",
+      "expected_sha256": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+      "actual_sha256": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/run.json",
+      "expected_sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+      "actual_sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/test.stderr.txt",
+      "expected_sha256": "00ba4541bef35787af1cd52efe4a474beaed1ac0f657945df7bd3eb65ae593e1",
+      "actual_sha256": "00ba4541bef35787af1cd52efe4a474beaed1ac0f657945df7bd3eb65ae593e1",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/test.stdout.txt",
+      "expected_sha256": "f61e815d2dedbddc4ee05191d30c0bc1d6a41ed364d922b176ce16a95b2f8f13",
+      "actual_sha256": "f61e815d2dedbddc4ee05191d30c0bc1d6a41ed364d922b176ce16a95b2f8f13",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/dependency-tree.stdout.txt",
+      "expected_sha256": "bd2950fd18f2d4060d93605c5996c2766b8b258e6298ef610f17642aa903e7d3",
+      "actual_sha256": "bd2950fd18f2d4060d93605c5996c2766b8b258e6298ef610f17642aa903e7d3",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/inputs/protocol/Cargo.lock",
+      "expected_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "actual_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/inputs/protocol/Cargo.toml",
+      "expected_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "actual_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/inputs/protocol/src/lib.rs",
+      "expected_sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96",
+      "actual_sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/run.json",
+      "expected_sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+      "actual_sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/test.stderr.txt",
+      "expected_sha256": "63edb4ad9d3dd1cf2ab0b2b5106cec14aad135e0bc224a98efd264b554df9f34",
+      "actual_sha256": "63edb4ad9d3dd1cf2ab0b2b5106cec14aad135e0bc224a98efd264b554df9f34",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/test.stdout.txt",
+      "expected_sha256": "711cc28db624a57c301c5d92a31f88a58d41bc2d284229d3d534c7ac3c871ca7",
+      "actual_sha256": "711cc28db624a57c301c5d92a31f88a58d41bc2d284229d3d534c7ac3c871ca7",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/review-corrections.json",
+      "expected_sha256": "d4d3ad4ca165a0fd9c0af8688ecfd70f1891aa1622d698b832af6c9514fdeb52",
+      "actual_sha256": "d4d3ad4ca165a0fd9c0af8688ecfd70f1891aa1622d698b832af6c9514fdeb52",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/source-inspection.json",
+      "expected_sha256": "1766ac37da17bf36e9da9eb11b4b1ae302455166c2d03b68d6ce1c4ca03d44d9",
+      "actual_sha256": "1766ac37da17bf36e9da9eb11b4b1ae302455166c2d03b68d6ce1c4ca03d44d9",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/results.json",
+      "expected_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+      "actual_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+      "match": true
+    },
+    {
+      "path": "docs/research/source-driven-evidence/source-inspection.json",
+      "expected_sha256": "70cb01c8441e414194a0b8c4e298f07eb1ec12284afb5c706b3de04d3e80a44a",
+      "actual_sha256": "70cb01c8441e414194a0b8c4e298f07eb1ec12284afb5c706b3de04d3e80a44a",
+      "match": true
+    },
+    {
+      "path": "verification/database-completion/server-review-cardinality/result.json",
+      "expected_sha256": "fdec3c3f3ccffaf1072590ff94f6255676263e5845abcba93cdee2abeb37796d",
+      "actual_sha256": "fdec3c3f3ccffaf1072590ff94f6255676263e5845abcba93cdee2abeb37796d",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/run.json",
+      "expected_sha256": "e65de673616e620a6da36efbf559733e17d13a9ceaa5139224c10bdc12817693",
+      "actual_sha256": "e65de673616e620a6da36efbf559733e17d13a9ceaa5139224c10bdc12817693",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/dependency-tree.stdout.txt",
+      "expected_sha256": "9311b9336f1b519b096e2e14b4bd5b0a06cc91bfb711c984120339b8e1053b5d",
+      "actual_sha256": "9311b9336f1b519b096e2e14b4bd5b0a06cc91bfb711c984120339b8e1053b5d",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/inputs/protocol/Cargo.lock",
+      "expected_sha256": "0974affb37393e609b85d3b90102a7be7be569510affff1dcd6d7ee20264436c",
+      "actual_sha256": "0974affb37393e609b85d3b90102a7be7be569510affff1dcd6d7ee20264436c",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/inputs/protocol/Cargo.toml",
+      "expected_sha256": "36116de5e455e23813a8f0d6b77408d1503774e5af6a1fa8398804b9f23b341d",
+      "actual_sha256": "36116de5e455e23813a8f0d6b77408d1503774e5af6a1fa8398804b9f23b341d",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/inputs/protocol/src/lib.rs",
+      "expected_sha256": "b9d3d32db2a36aa69e6478259fd9acb3016c3e1bc781a59ec5f6a73dfe3ce021",
+      "actual_sha256": "b9d3d32db2a36aa69e6478259fd9acb3016c3e1bc781a59ec5f6a73dfe3ce021",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/run.json",
+      "expected_sha256": "d230ce88e61165aed31b0138f191b6c6b662e325f014eccade4e6c86c72cf15d",
+      "actual_sha256": "d230ce88e61165aed31b0138f191b6c6b662e325f014eccade4e6c86c72cf15d",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/rustc-version.stdout.txt",
+      "expected_sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+      "actual_sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/test.stderr.txt",
+      "expected_sha256": "720377d0fe58c69f0eae893e552ab610eb1ef7a4841aad06ed14894140f8f5cd",
+      "actual_sha256": "720377d0fe58c69f0eae893e552ab610eb1ef7a4841aad06ed14894140f8f5cd",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-windows-2022/artifacts/completion/protocol/test.stdout.txt",
+      "expected_sha256": "2fa8130d28b6489b8b828907f1e8a6731746fa494f0c569eb978d04ccf335b64",
+      "actual_sha256": "2fa8130d28b6489b8b828907f1e8a6731746fa494f0c569eb978d04ccf335b64",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/dependency-tree.stdout.txt",
+      "expected_sha256": "95eacead555e2c2b4cb7ec38a763189cc01233e72e5318c8cbc60244620803bc",
+      "actual_sha256": "95eacead555e2c2b4cb7ec38a763189cc01233e72e5318c8cbc60244620803bc",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/inputs/protocol/Cargo.lock",
+      "expected_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "actual_sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/inputs/protocol/Cargo.toml",
+      "expected_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "actual_sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/inputs/protocol/src/lib.rs",
+      "expected_sha256": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+      "actual_sha256": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/run.json",
+      "expected_sha256": "5d2eef1b68e05ea130334c8733046ac0f802d92b1d570cd54c485396cf4f8332",
+      "actual_sha256": "5d2eef1b68e05ea130334c8733046ac0f802d92b1d570cd54c485396cf4f8332",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/test.stderr.txt",
+      "expected_sha256": "46574434d52884c4c1f162d3c113d80e40238eae8aa70c4a5b7ba0626783241d",
+      "actual_sha256": "46574434d52884c4c1f162d3c113d80e40238eae8aa70c4a5b7ba0626783241d",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-protocol-ubuntu-24.04/artifacts/completion/protocol/test.stdout.txt",
+      "expected_sha256": "1a1713f8d08239eeac9d2096c6f46ffffadefc1bdb38bfe3562a727cd891910c",
+      "actual_sha256": "1a1713f8d08239eeac9d2096c6f46ffffadefc1bdb38bfe3562a727cd891910c",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/inputs/kestrel/KestrelComparator.csproj",
+      "expected_sha256": "a6ad2fe3b3531fbb3f3a0d9b5954a5a4ed973739054b95b3608d71dd9317ce2c",
+      "actual_sha256": "a6ad2fe3b3531fbb3f3a0d9b5954a5a4ed973739054b95b3608d71dd9317ce2c",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/dotnet-info.stdout.txt",
+      "expected_sha256": "d56ea3dfc840ba3e04ad581f5abd4c99e6649fe089ba94d22ede5c7ad298087c",
+      "actual_sha256": "d56ea3dfc840ba3e04ad581f5abd4c99e6649fe089ba94d22ede5c7ad298087c",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/inputs/kestrel/Program.cs",
+      "expected_sha256": "8d5089166c1ff720c32b278e21b1a5fcb2157bd3cc07d5126a04a941c8d0d8b8",
+      "actual_sha256": "8d5089166c1ff720c32b278e21b1a5fcb2157bd3cc07d5126a04a941c8d0d8b8",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/native-aot-run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/native-aot-run.stdout.txt",
+      "expected_sha256": "d1f80f4aff5c173ba5c8d9f0c37349e08549eb44c96f0abbe83cd8961d2f5f27",
+      "actual_sha256": "d1f80f4aff5c173ba5c8d9f0c37349e08549eb44c96f0abbe83cd8961d2f5f27",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/publish.stdout.txt",
+      "expected_sha256": "a99a43bfd77921e736bb289b79494ec6d1ec23180674d82c071f5f27142271be",
+      "actual_sha256": "a99a43bfd77921e736bb289b79494ec6d1ec23180674d82c071f5f27142271be",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/run.json",
+      "expected_sha256": "b86ae545f625319bcfc3c53ac964cfb2047c0548db7720a19ce130679e4d1c36",
+      "actual_sha256": "b86ae545f625319bcfc3c53ac964cfb2047c0548db7720a19ce130679e4d1c36",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/dotnet-info.stdout.txt",
+      "expected_sha256": "973f18d799788ce1112ecd851d575905dafcc00f0486fa5e471a12ab5b603015",
+      "actual_sha256": "973f18d799788ce1112ecd851d575905dafcc00f0486fa5e471a12ab5b603015",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/inputs/kestrel/KestrelComparator.csproj",
+      "expected_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+      "actual_sha256": "04dbb93a0bcdb124e090fdafc0524acb1596a05186458bd0a9ef2c0139b248c2",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/inputs/kestrel/Program.cs",
+      "expected_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+      "actual_sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/native-aot-run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/native-aot-run.stdout.txt",
+      "expected_sha256": "38050539a8767479c78b416f569eb0dcd0f073ff0b2edd16cd31c03f7cf7aea0",
+      "actual_sha256": "38050539a8767479c78b416f569eb0dcd0f073ff0b2edd16cd31c03f7cf7aea0",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/publish.stdout.txt",
+      "expected_sha256": "4e22e325a3d06ffdf350846c6caa1460919b17d513c1738ab825c84443d84755",
+      "actual_sha256": "4e22e325a3d06ffdf350846c6caa1460919b17d513c1738ab825c84443d84755",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/run.json",
+      "expected_sha256": "3dbec23de2270a4487767c254c6f04fb1ff93269d860f0c4c6f83e8f3bd1f86a",
+      "actual_sha256": "3dbec23de2270a4487767c254c6f04fb1ff93269d860f0c4c6f83e8f3bd1f86a",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/0.stderr",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/1.stderr",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/1.stdout",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/0.stdout",
+      "expected_sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+      "actual_sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/2.stderr",
+      "expected_sha256": "74165e134c9eec46223eb2e0ffdd50a9797a26176a317a439f13e5253d4a1a95",
+      "actual_sha256": "74165e134c9eec46223eb2e0ffdd50a9797a26176a317a439f13e5253d4a1a95",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/2.stdout",
+      "expected_sha256": "d083fea29d9c98f9da69847c6c08f7a97639a07020086c975db1006dbbcdb2b0",
+      "actual_sha256": "d083fea29d9c98f9da69847c6c08f7a97639a07020086c975db1006dbbcdb2b0",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/.gitattributes",
+      "expected_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "actual_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/Cargo.lock",
+      "expected_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+      "actual_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/Cargo.toml",
+      "expected_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+      "actual_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/run.py",
+      "expected_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+      "actual_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/inputs/src/lib.rs",
+      "expected_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "actual_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-windows-2022/result.json",
+      "expected_sha256": "a2a4a0103e1123936ed20c3a596a2fb5f9141c70976352cfd3a8b5949d0588a5",
+      "actual_sha256": "a2a4a0103e1123936ed20c3a596a2fb5f9141c70976352cfd3a8b5949d0588a5",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/0.stdout",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/1.stderr",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/0.stderr",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/1.stdout",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/2.stderr",
+      "expected_sha256": "d731aa62c448946cc3a0d1faafe70d5d74c48fd39401d02c79e1e3fc9fd78215",
+      "actual_sha256": "d731aa62c448946cc3a0d1faafe70d5d74c48fd39401d02c79e1e3fc9fd78215",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/2.stdout",
+      "expected_sha256": "fd6544b0ac11127e453f09e671548517996e16b437dc3a3f9c9201a20b3ac5ea",
+      "actual_sha256": "fd6544b0ac11127e453f09e671548517996e16b437dc3a3f9c9201a20b3ac5ea",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/.gitattributes",
+      "expected_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "actual_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/Cargo.lock",
+      "expected_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+      "actual_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/Cargo.toml",
+      "expected_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+      "actual_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/run.py",
+      "expected_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+      "actual_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/inputs/src/lib.rs",
+      "expected_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "actual_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "match": true
+    },
+    {
+      "path": "verification/source-lifecycle/43375871731/lifecycle-server-retained-bytes-ubuntu-24.04/result.json",
+      "expected_sha256": "b0cccf943905af2e600f44aeeafba693f716030275e010016164f49837f40b5f",
+      "actual_sha256": "b0cccf943905af2e600f44aeeafba693f716030275e010016164f49837f40b5f",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/dotnet-info.stdout.txt",
+      "expected_sha256": "f170989b6d9b73672423252cb85923cda7b4ce099714f35862a17c0d6de18c07",
+      "actual_sha256": "f170989b6d9b73672423252cb85923cda7b4ce099714f35862a17c0d6de18c07",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/publish.stdout.txt",
+      "expected_sha256": "8548c8a654c32c1610e9f416f23ab57405b00cd75b7d258e7d8dfa4db5301a93",
+      "actual_sha256": "8548c8a654c32c1610e9f416f23ab57405b00cd75b7d258e7d8dfa4db5301a93",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/native-aot-run.stdout.txt",
+      "expected_sha256": "c66b755c9bbda6e85a47a7843a9d947618a922a931ebc295095f3742ed116ddb",
+      "actual_sha256": "c66b755c9bbda6e85a47a7843a9d947618a922a931ebc295095f3742ed116ddb",
+      "match": true
+    },
+    {
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/native-aot-run.stderr.txt",
+      "expected_sha256": "9918bb63b52ed5ff016ffac5196ac34c06a4217f7f7be7b780ad94adbc570805",
+      "actual_sha256": "9918bb63b52ed5ff016ffac5196ac34c06a4217f7f7be7b780ad94adbc570805",
+      "match": true
+    }
+  ],
+  "historical_unavailable_paths": [],
+  "current_local_command_stream_checks": [
+    {
+      "path": "verification/server-completion/diagnostics-local-1/dotnet-info.stdout.txt",
+      "expected_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "actual_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/publish.stdout.txt",
+      "expected_sha256": "dbc8952311125903611c01a1a6eb45a855ca207b62221ab1d81d22866356db86",
+      "actual_sha256": "dbc8952311125903611c01a1a6eb45a855ca207b62221ab1d81d22866356db86",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-1/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/dotnet-info.stdout.txt",
+      "expected_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "actual_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/publish.stdout.txt",
+      "expected_sha256": "9f864027dd11aa754aa3e3be94a54fd5186e38bd9dc448db2de7fab35e164472",
+      "actual_sha256": "9f864027dd11aa754aa3e3be94a54fd5186e38bd9dc448db2de7fab35e164472",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/native-aot-run.stdout.txt",
+      "expected_sha256": "948d4ecb98389b5ef5110a299832a5b7c16eac5c8ea6e61af3c80a18623d3d6f",
+      "actual_sha256": "948d4ecb98389b5ef5110a299832a5b7c16eac5c8ea6e61af3c80a18623d3d6f",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/native-aot-run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/dotnet-info.stdout.txt",
+      "expected_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "actual_sha256": "5fabcd34889019f179f9ed887f44e123f2b0c19bb831d7b1de168f2b1dafacfa",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/publish.stdout.txt",
+      "expected_sha256": "ab18ea4501e01905fc062b39513742ff12932450bab23095856392414ab92614",
+      "actual_sha256": "ab18ea4501e01905fc062b39513742ff12932450bab23095856392414ab92614",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/native-aot-run.stdout.txt",
+      "expected_sha256": "66915ae003f2430e294cb99381f2b018b8a6af4731ab9aa5e0afa54d4f33e1b8",
+      "actual_sha256": "66915ae003f2430e294cb99381f2b018b8a6af4731ab9aa5e0afa54d4f33e1b8",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/native-aot-run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/compile.stdout.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/compile.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/run.stdout.txt",
+      "expected_sha256": "a276ac4ab545b1ff18cf97a74095a52f7a6578a50dd97f7c8a3e5ceec0105a75",
+      "actual_sha256": "a276ac4ab545b1ff18cf97a74095a52f7a6578a50dd97f7c8a3e5ceec0105a75",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/dotnet-info.stdout.txt",
+      "expected_sha256": "9ac274d6d0ed31993220651f23138e4cb4d4777915d8ed4312a483c523c8b6ec",
+      "actual_sha256": "9ac274d6d0ed31993220651f23138e4cb4d4777915d8ed4312a483c523c8b6ec",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/dotnet-info.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/publish.stdout.txt",
+      "expected_sha256": "004685383f62059f5c7530aca4737f03adf87aa4f97c23f6c37ca4e55ab1f98e",
+      "actual_sha256": "004685383f62059f5c7530aca4737f03adf87aa4f97c23f6c37ca4e55ab1f98e",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/publish.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/native-aot-run.stdout.txt",
+      "expected_sha256": "fe0cfd253e027bae19af920aad75bbd1ea8e4b5957b4a04368900c4cb686f405",
+      "actual_sha256": "fe0cfd253e027bae19af920aad75bbd1ea8e4b5957b4a04368900c4cb686f405",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/native-aot-run.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/test.stdout.txt",
+      "expected_sha256": "5c85fe8f17bf0aaeba696a1e391b68babacf74ed7542274ac52d289088a5d918",
+      "actual_sha256": "5c85fe8f17bf0aaeba696a1e391b68babacf74ed7542274ac52d289088a5d918",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/test.stderr.txt",
+      "expected_sha256": "5282876950415ef521a6e81c4ede35830f01204e22305c2257ee4030a29a7198",
+      "actual_sha256": "5282876950415ef521a6e81c4ede35830f01204e22305c2257ee4030a29a7198",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/dependency-tree.stdout.txt",
+      "expected_sha256": "58b3ef6bfcf3f0fdff27b8892541a72c032d4f8202aace12fe13420f5e60ba8d",
+      "actual_sha256": "58b3ef6bfcf3f0fdff27b8892541a72c032d4f8202aace12fe13420f5e60ba8d",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/test.stdout.txt",
+      "expected_sha256": "e975c718fb548cf1a16a35daef12dec214dbc74119017a03100b95edb65f0064",
+      "actual_sha256": "e975c718fb548cf1a16a35daef12dec214dbc74119017a03100b95edb65f0064",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/test.stderr.txt",
+      "expected_sha256": "0e6dc299c288d15ba871d8bb64123495195a11e29b8272ff50ba33b0aec0d246",
+      "actual_sha256": "0e6dc299c288d15ba871d8bb64123495195a11e29b8272ff50ba33b0aec0d246",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/dependency-tree.stdout.txt",
+      "expected_sha256": "bf668aad0afdf02bdc0226c73c9a39a6a562e4605325e576e343b064d2697b1e",
+      "actual_sha256": "bf668aad0afdf02bdc0226c73c9a39a6a562e4605325e576e343b064d2697b1e",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/test.stdout.txt",
+      "expected_sha256": "f61e815d2dedbddc4ee05191d30c0bc1d6a41ed364d922b176ce16a95b2f8f13",
+      "actual_sha256": "f61e815d2dedbddc4ee05191d30c0bc1d6a41ed364d922b176ce16a95b2f8f13",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/test.stderr.txt",
+      "expected_sha256": "00ba4541bef35787af1cd52efe4a474beaed1ac0f657945df7bd3eb65ae593e1",
+      "actual_sha256": "00ba4541bef35787af1cd52efe4a474beaed1ac0f657945df7bd3eb65ae593e1",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/dependency-tree.stdout.txt",
+      "expected_sha256": "bd2950fd18f2d4060d93605c5996c2766b8b258e6298ef610f17642aa903e7d3",
+      "actual_sha256": "bd2950fd18f2d4060d93605c5996c2766b8b258e6298ef610f17642aa903e7d3",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/rustc-version.stdout.txt",
+      "expected_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "actual_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/rustc-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/cargo-version.stdout.txt",
+      "expected_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "actual_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/cargo-version.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/test.stdout.txt",
+      "expected_sha256": "711cc28db624a57c301c5d92a31f88a58d41bc2d284229d3d534c7ac3c871ca7",
+      "actual_sha256": "711cc28db624a57c301c5d92a31f88a58d41bc2d284229d3d534c7ac3c871ca7",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/test.stderr.txt",
+      "expected_sha256": "63edb4ad9d3dd1cf2ab0b2b5106cec14aad135e0bc224a98efd264b554df9f34",
+      "actual_sha256": "63edb4ad9d3dd1cf2ab0b2b5106cec14aad135e0bc224a98efd264b554df9f34",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/dependency-tree.stdout.txt",
+      "expected_sha256": "bd2950fd18f2d4060d93605c5996c2766b8b258e6298ef610f17642aa903e7d3",
+      "actual_sha256": "bd2950fd18f2d4060d93605c5996c2766b8b258e6298ef610f17642aa903e7d3",
+      "match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/dependency-tree.stderr.txt",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    }
+  ],
+  "local_runs": [
+    {
+      "path": "verification/server-completion/diagnostics-local-1/run.json",
+      "sha256": "74c5ee9701755af55389db0875975d93b14a188b3a8bc27322ae466e627a0e85",
+      "success": false,
+      "commands": [
+        {
+          "name": "dotnet-info",
+          "exit_code": 0
+        },
+        {
+          "name": "publish",
+          "exit_code": 1
+        }
+      ]
+    },
+    {
+      "path": "verification/server-completion/diagnostics-local-2/run.json",
+      "sha256": "a2081f7fe288071b45e0426a8671a302ec5eb5906e891e04e631980e89151f15",
+      "success": true,
+      "commands": [
+        {
+          "name": "dotnet-info",
+          "exit_code": 0
+        },
+        {
+          "name": "publish",
+          "exit_code": 0
+        },
+        {
+          "name": "native-aot-run",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+      "sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf",
+      "success": true,
+      "commands": [
+        {
+          "name": "dotnet-info",
+          "exit_code": 0
+        },
+        {
+          "name": "publish",
+          "exit_code": 0
+        },
+        {
+          "name": "native-aot-run",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "path": "verification/server-completion/diagnostics-rust-layout/run.json",
+      "sha256": "53948800bfb19521a7b3209e92d24603114e86093b8ef4e2f074db2454ba6a8e",
+      "success": true,
+      "commands": [
+        {
+          "name": "rustc-version",
+          "exit_code": 0
+        },
+        {
+          "name": "compile",
+          "exit_code": 0
+        },
+        {
+          "name": "run",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-1/run.json",
+      "sha256": "2654d31f3fe209a8477999704b7eb93068065227b35e6aecd67d9afa5d986744",
+      "success": null,
+      "commands": []
+    },
+    {
+      "path": "verification/server-completion/kestrel-local-2/run.json",
+      "sha256": "0a9b78cc2aa5108adef0f696f902f0cc6e22aef781f076d7db0529c7f7f1a94b",
+      "success": true,
+      "commands": [
+        {
+          "name": "dotnet-info",
+          "exit_code": 0
+        },
+        {
+          "name": "publish",
+          "exit_code": 0
+        },
+        {
+          "name": "native-aot-run",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "path": "verification/server-completion/protocol-local-1/run.json",
+      "sha256": "cc6a714e63d5fa06856245e07c5f9f47fa183ec99e4a155b8ea41235982c2475",
+      "success": null,
+      "commands": []
+    },
+    {
+      "path": "verification/server-completion/protocol-local-2/run.json",
+      "sha256": "76088632284bc5f66e3a186d5d1da1478c8bb48dbfa5c265589e75b5da247707",
+      "success": true,
+      "commands": [
+        {
+          "name": "rustc-version",
+          "exit_code": 0
+        },
+        {
+          "name": "cargo-version",
+          "exit_code": 0
+        },
+        {
+          "name": "test",
+          "exit_code": 0
+        },
+        {
+          "name": "dependency-tree",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "path": "verification/server-completion/protocol-local-3/run.json",
+      "sha256": "a9a11a85e6768c2e5623677c4109984f51985a0b7535b7a64b40adcac93b7c91",
+      "success": true,
+      "commands": [
+        {
+          "name": "rustc-version",
+          "exit_code": 0
+        },
+        {
+          "name": "cargo-version",
+          "exit_code": 0
+        },
+        {
+          "name": "test",
+          "exit_code": 0
+        },
+        {
+          "name": "dependency-tree",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "path": "verification/server-completion/protocol-local-4/run.json",
+      "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+      "success": true,
+      "commands": [
+        {
+          "name": "rustc-version",
+          "exit_code": 0
+        },
+        {
+          "name": "cargo-version",
+          "exit_code": 0
+        },
+        {
+          "name": "test",
+          "exit_code": 0
+        },
+        {
+          "name": "dependency-tree",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/run.json",
+      "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+      "success": true,
+      "commands": [
+        {
+          "name": "rustc-version",
+          "exit_code": 0
+        },
+        {
+          "name": "cargo-version",
+          "exit_code": 0
+        },
+        {
+          "name": "test",
+          "exit_code": 0
+        },
+        {
+          "name": "dependency-tree",
+          "exit_code": 0
+        }
+      ]
+    }
+  ],
+  "upstream_cache_identity_checks": [
+    {
+      "id": "TONIC-CODEC",
+      "repository": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/mod.rs",
+      "expected_sha256": "9ddbf6d9b944736b9c47f2c031ac055d29c6169de2be10a69ae37c3810819e64",
+      "actual_sha256": "9ddbf6d9b944736b9c47f2c031ac055d29c6169de2be10a69ae37c3810819e64",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "TONIC-SERVER",
+      "repository": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/server/grpc.rs",
+      "expected_sha256": "c5f6e6a1d34f3b4e2214d080c0a53de59dea7718293fb60308627581daf117cb",
+      "actual_sha256": "c5f6e6a1d34f3b4e2214d080c0a53de59dea7718293fb60308627581daf117cb",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "TONIC-SERVICE",
+      "repository": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/server/service.rs",
+      "expected_sha256": "6419d3490769db525eed2a4e1020c2722b9ddc51e1ebbe2bdc401379587ab261",
+      "actual_sha256": "6419d3490769db525eed2a4e1020c2722b9ddc51e1ebbe2bdc401379587ab261",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "TONIC-DECODE",
+      "repository": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/decode.rs",
+      "expected_sha256": "46688c06b3becce361716c10559e70ba8fe2423e8d0fae93ca575c1fcc5e5173",
+      "actual_sha256": "46688c06b3becce361716c10559e70ba8fe2423e8d0fae93ca575c1fcc5e5173",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "RMCP-HANDLER",
+      "repository": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/handler/server.rs",
+      "expected_sha256": "def2157d3e702aaa256bc5fa304dbd71faec0a624c55aac83edb4d7b195f958d",
+      "actual_sha256": "def2157d3e702aaa256bc5fa304dbd71faec0a624c55aac83edb4d7b195f958d",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "RMCP-TOWER",
+      "repository": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/transport/streamable_http_server/tower.rs",
+      "expected_sha256": "8a01370513389994bc675d5bd58dbae3dadf5383c916a7f122a9f2a37ff4fdb0",
+      "actual_sha256": "8a01370513389994bc675d5bd58dbae3dadf5383c916a7f122a9f2a37ff4fdb0",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "WINIT-LOOP",
+      "repository": "rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/event_loop.rs",
+      "expected_sha256": "f84209476849188122139926697f1fe97e17409a41ef0e8dfadf9bd4718108c7",
+      "actual_sha256": "f84209476849188122139926697f1fe97e17409a41ef0e8dfadf9bd4718108c7",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "WINIT-LIFECYCLE",
+      "repository": "rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/application.rs",
+      "expected_sha256": "993ddc2bbffca969224b2045dfd6cefd6cadd923df83f8ba24da8da8e5ab3fb4",
+      "actual_sha256": "993ddc2bbffca969224b2045dfd6cefd6cadd923df83f8ba24da8da8e5ab3fb4",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "WGPU-SURFACE",
+      "repository": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/surface.rs",
+      "expected_sha256": "13df4577966d4bcc10aba4b8950023ec17a7cd3933019df1cf1f7f139e92b9a3",
+      "actual_sha256": "13df4577966d4bcc10aba4b8950023ec17a7cd3933019df1cf1f7f139e92b9a3",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "WGPU-BUFFER",
+      "repository": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/buffer.rs",
+      "expected_sha256": "a304040166251cb1f1e60d6e1407b2e951dc3836144b40b95852749005095042",
+      "actual_sha256": "a304040166251cb1f1e60d6e1407b2e951dc3836144b40b95852749005095042",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "WGPU-POLL",
+      "repository": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/device.rs",
+      "expected_sha256": "6adbd3b5bb966fb20601cd55f0cf1b0cffd48fc615c72029dfe3c116b9c88e8f",
+      "actual_sha256": "6adbd3b5bb966fb20601cd55f0cf1b0cffd48fc615c72029dfe3c116b9c88e8f",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "NATIVEAOT-TARGETS",
+      "repository": "dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "expected_sha256": "afc83bf8f87de77200d0bede93aadc7341ff7d7127a44f5131cc129bbf7cf887",
+      "actual_sha256": "afc83bf8f87de77200d0bede93aadc7341ff7d7127a44f5131cc129bbf7cf887",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "NATIVEAOT-COMPILE",
+      "repository": "dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/coreclr/nativeaot/docs/compiling.md",
+      "expected_sha256": "58f685092bfc27911b2f9c72c9aec3279852e1ee6104b49f8c0c840f3b7acc0e",
+      "actual_sha256": "58f685092bfc27911b2f9c72c9aec3279852e1ee6104b49f8c0c840f3b7acc0e",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "DOTNET-AOT-PLATFORMS",
+      "repository": "dotnet/docs",
+      "commit": "c3377f5f732f604c8f9bffc14d814dd35c99f3c0",
+      "path": "docs/core/deploying/native-aot/index.md",
+      "expected_sha256": "d4ebc75350055c421aa6dfafb02221ad1bc2cc7a06f13ece632aad832db73bee",
+      "actual_sha256": "d4ebc75350055c421aa6dfafb02221ad1bc2cc7a06f13ece632aad832db73bee",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "DOTNET-MOBILE11",
+      "repository": "dotnet/docs",
+      "commit": "c3377f5f732f604c8f9bffc14d814dd35c99f3c0",
+      "path": "docs/core/compatibility/maui/11/mobile-code-generation.md",
+      "expected_sha256": "59fce432afbcc375b04babf6384d8162944077aa182570643e608b85c43ad3a2",
+      "actual_sha256": "59fce432afbcc375b04babf6384d8162944077aa182570643e608b85c43ad3a2",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "RUST-IOS",
+      "repository": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "src/doc/rustc/src/platform-support/apple-ios.md",
+      "expected_sha256": "aa4469775d8b1a02ccd2acfa671f8c25f1c362e76ac0168d5abed90097a8375e",
+      "actual_sha256": "aa4469775d8b1a02ccd2acfa671f8c25f1c362e76ac0168d5abed90097a8375e",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "RUST-ANDROID",
+      "repository": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "src/doc/rustc/src/platform-support/android.md",
+      "expected_sha256": "443c9744c8711492e006238dd4dd32ff490d401cee4725efbdd2c5f5e89be8c9",
+      "actual_sha256": "443c9744c8711492e006238dd4dd32ff490d401cee4725efbdd2c5f5e89be8c9",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    },
+    {
+      "id": "RUST-SLICE",
+      "repository": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/core/src/slice/raw.rs",
+      "expected_sha256": "0914968067f7e2bc798680c1edd72bcb032a9fd44ebb2b6fbc082a3a2b16941f",
+      "actual_sha256": "0914968067f7e2bc798680c1edd72bcb032a9fd44ebb2b6fbc082a3a2b16941f",
+      "match": true,
+      "scope": "cache byte identity; semantic ranges listed separately"
+    }
+  ],
+  "plan_fragment_graph_checks": [
+    {
+      "id": "B15",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "title",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "boundary_and_ownership",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "native_reuse",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "csharp_surface",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "implementation_steps",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "error_cancellation_resources_concurrency",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "specific_acceptance",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "write_scopes",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "dependency_rationale",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "verification_matrix",
+      "match": true
+    },
+    {
+      "id": "B15",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B16",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B17",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B18",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B19",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B20",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B21",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B22",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B23",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    },
+    {
+      "id": "B24",
+      "field": "id_from_fragment_mapping_key",
+      "match": true
+    }
+  ],
+  "graph_dependency_cycles": [],
+  "findings": [
+    {
+      "id": "SR-FINAL-01",
+      "severity": "medium",
+      "blocking": true,
+      "status": "resolved_independently_rechecked",
+      "paths": [
+        "docs/server/protocols-and-observability.md",
+        "docs/research/topics/R30/report.md",
+        "Plan:tasks/B20.md",
+        "Plan:tasks/B23.md"
+      ],
+      "problem": "Build configuration and diagnostic mode are not explicitly separated; requested Release/Debug/default logging/tracing cost behavior remains ambiguous.",
+      "required_fix": "Specify no implicit listener/provider/exporter or global subscriber; explicitly gated bounded logging; correctness counters remain; separate Release/Debug and disabled/sampled/full/exporter-fault cost rows. Preserve limited Release AOT observation scope.",
+      "resolution": "D19 now distinguishes Release/Debug defaults and explicit diagnostic modes; B20/B23 matrix matches. Added diagnostics-final-ci is independent-platform Release evidence only."
+    },
+    {
+      "id": "SR-FINAL-02",
+      "severity": "medium",
+      "blocking": true,
+      "status": "resolved_independently_rechecked",
+      "paths": [
+        "docs/server/protocols-and-observability.md",
+        "Plan:tasks/B19.md"
+      ],
+      "problem": "rmcp body cap alone does not reserve or bound materialized JSON values and subsequent UTF8/DTO overlap under D07 preallocation rules.",
+      "required_fix": "Bind D07 to native pre-parse structural/peak-size admission or verified conservative bound; reject impossible expansion before entering materializing SDK parse, with future B19 negative oracle. This is a design policy clarification, not required product implementation now.",
+      "resolution": "D19 now pins the private expect_json collect/from_slice seam and specifies a public Tower admission wrapper with a budgeted wire buffer, mature serde structural preflight, charged scratch, exact-profile conservative live native/managed peak reservation, bounded replay Body and pre-SDK-parse rejection. B19 requires tiny-element/depth/escape/overlap negative fixtures with zero SDK-parse/Handler admission on failed reservation. An unproved profile cannot be enabled. This closes the design policy; the implementation and numeric bound proof remain future B19 acceptance.",
+      "resolved_by_inputs": [
+        "docs/server/protocols-and-observability.md",
+        "docs/research/topics/R28/report.md",
+        "docs/research/topics/R28/evidence.json",
+        "docs/research/topics/R28/coverage.json",
+        "verification/server-completion/rmcp-json-admission-source.json",
+        "verification/server-completion/rmcp-expect-json-reviewed.txt",
+        "Plan:tasks/B19.md",
+        "Plan:fragments/server.json"
+      ]
+    },
+    {
+      "id": "SR-FINAL-03",
+      "severity": "low",
+      "blocking": false,
+      "status": "resolved_independently_rechecked",
+      "paths": [
+        "Plan:research-graph.json:R27.verification"
+      ],
+      "problem": "Legacy verification text still describes Rust as optional when not performance-proven despite required Rust architecture.",
+      "required_fix": "State measured cost informs Rust engine optimization; Kestrel remains comparator only.",
+      "resolution": "Current R27 graph uses mandatory Rust composition and comparator-only Kestrel language."
+    },
+    {
+      "id": "REC-SERVER-BUDGET-01",
+      "severity": "low",
+      "blocking": false,
+      "status": "resolved_independently_rechecked",
+      "paths": [
+        "docs/verification/reference-application.md"
+      ],
+      "resolution": "Current D20 matches D18: separate64MiB Gm/Gn,4MiB/request/side,256 active/retiring slots,128 metadata waiters,32KiB chunks;64MiB attachment is total streamed length; impossible peak rejects before wait. No RSS bound claimed."
+    },
+    {
+      "id": "SR-FINAL-04",
+      "severity": "medium",
+      "blocking": false,
+      "status": "resolved_independently_rechecked",
+      "problem": "Two generated staticwebassets JSON files recorded as preserved in old artifact manifests were missing from the recovered new checkout.",
+      "resolution": "Integrator restored original53-byte files; independently rehashed both to c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac. Include in next commit despite build-directory ignore rule."
+    }
+  ],
+  "remaining_blocking_findings": [],
+  "new_native_experiments_run": false,
+  "limitations": [
+    "Historical reviewers retain their identities; their original source-reading and experiment authorship are not attributed to this reviewer.",
+    "This reviewer rehashed preserved input/output bytes and inspected sources/designs. No new native experiment, product/network/soak/device execution or product acceptance was performed.",
+    "Latest corrected diagnostics evidence is now included for both Windows and Linux, specifically Release Native AOT no-listener measurement. It does not establish Debug or active logging/Meter/exporter/native-memory/FFI costs.",
+    "The integrator rehashed retrieved executable/archive bytes. This reviewer independently verified the committed raw diagnostic logs, manifests and source checkout transformations, and GitHub job results; did not execute or independently rehash the binary archives.",
+    "D19 MCP peak-bound formulas, adapter allocations, full protocol interoperability, cross-language tracing, long load, release and mobile/GPU behavior remain specifically assigned future implementation obligations.",
+    "R34/D12/D13/R17/R18/R21 and underlying Core/Database contracts require the other scoped independent reviews in final integration. This review covers their use by the server/reference design, not a substitute review of their whole subjects.",
+    "Shared graph/registry acceptance bookkeeping is intentionally not a frozen whole-file input; scoped specifications, packets, fragments and evidence bytes below are frozen. Changed substantive input requires a targeted re-review."
+  ],
+  "new_source_inspection": [
+    {
+      "repository": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/server/grpc.rs",
+      "ranges": "360-430",
+      "github_blob_sha": "ed3c291c8b456eb8b79f8991fa2fd6e4d7c3f6ec",
+      "observation": "Fresh request decoder, read first message, then trailers before returning unary Request; failed trailer decode stops business invocation."
+    },
+    {
+      "repository": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/decode.rs",
+      "ranges": "360-430",
+      "github_blob_sha": "f6de23669a219e43b95cfa051ec0b00115427bfa",
+      "observation": "trailers() loops message() and discards payload; explicit cardinality policy needed; error propagates."
+    },
+    {
+      "repository": "tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/instrument.rs",
+      "ranges": "176-231;277-324",
+      "github_blob_sha": "19ff5e153823f9362451266ba66eff6c117327b6",
+      "observation": "Captured subscriber accompanies future; Instrumented poll enters span only around inner poll, not across await."
+    },
+    {
+      "repository": "modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/transport/common/server_side_http.rs",
+      "ranges": "207-267",
+      "github_blob_sha": "ba248ba82a9ea001cf24eb5e26a438b0011506db",
+      "sha256": "1421d3610d487ed51d5c37674e4717b52531cae5330fde2ac286ac2fd1146f09",
+      "whole_file_bytes": 13011,
+      "hash_scope": "Whole source returned by GitHub; semantic review restricted to207-267. Computed Git blob exactly matches upstream.",
+      "observation": "pub(crate) expect_json incrementally copies to BytesMut under wire max then serde_json::from_slice<ClientJsonRpcMessage>; no decoded-tree budget argument or handler-time validation before materialization."
+    }
+  ],
+  "upstream_semantic_read_ranges": {
+    "WINIT-LOOP": "28-47;80-122;549-572",
+    "WINIT-LIFECYCLE": "19-83;125-187",
+    "WGPU-SURFACE": "130-198;218-228",
+    "WGPU-BUFFER": "300-337;356-398",
+    "WGPU-POLL": "70-96",
+    "DOTNET-MOBILE11": "9-91",
+    "RUST-IOS": "1-50",
+    "RUST-ANDROID": "1-50",
+    "DOTNET-AOT-PLATFORMS": "177-231",
+    "RMCP-TOWER": "1-100;2140-2198;2390-2425"
+  },
+  "historical_paths_classification": {
+    "upstream_paths_not_repository_outputs": [
+      "docs/core/compatibility/maui/11/mobile-code-generation.md",
+      "docs/core/deploying/native-aot/index.md"
+    ],
+    "restored_from_original_workspace": [
+      {
+        "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json",
+        "sha256": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac",
+        "bytes": 53
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json",
+        "sha256": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac",
+        "bytes": 53
+      }
+    ]
+  },
+  "latest_diagnostic_ci": {
+    "manifest": "verification/server-completion/diagnostics-final-ci.json",
+    "sha256": "4e63df245f3e342a97844cabcfcc06252c9a8b6f48110a07abfaccf2d2c47933",
+    "source_commit": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+    "run_id": 43401371233,
+    "jobs_independently_fetched": [
+      {
+        "id": 131804743640,
+        "name": "diagnostics (ubuntu-24.04)",
+        "conclusion": "success"
+      },
+      {
+        "id": 131804744074,
+        "name": "diagnostics (windows-2022)",
+        "conclusion": "success"
+      }
+    ],
+    "raw_files_hashed": 20,
+    "command_streams_hashed": 12,
+    "input_git_checkout_transforms_hashed": 6,
+    "assertions_each_platform": 11,
+    "release_only": true,
+    "observations": {
+      "Windows": {
+        "samples": 200000,
+        "current_thread_allocated_bytes": 0,
+        "ns_per_call": 16.634
+      },
+      "Linux": {
+        "samples": 200000,
+        "current_thread_allocated_bytes": 0,
+        "ns_per_call": 20.468
+      }
+    },
+    "limitations": "Scoped no-listener warm-loop observation; not Debug/enabled-tracing/logger/Meter/exporter/native-memory/cross-language/product-performance evidence. Binary/archive byte checks performed by integrator; current reviewer verified committed logs/manifests/input bytes, not reexecuted binaries."
+  },
+  "database_cross_review": {
+    "reviewer": "/root/database_review",
+    "observed_conclusion": "Current independent reviewer checked PG proxy suppresses COMMIT completion/idle response and separate connection sees durable effect; conflict CTE is synchronized by pg_locks and next statement recovers original operation. No product execution or one-OS inference.",
+    "manifest": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/manifest.json",
+    "sha256": "2657a79ccf8c11b351fafe23bd3f928c7b597d23cad7d22d89caa4a88cbf239e"
+  },
+  "decision": "recommend_accept_research_and_detailed_design",
+  "input_remote_checkpoints": {
+    "IzuSharp/NativeWeave-Design": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+    "IzuSharp/Plan": "7359060f88f94591b0dc41178e35701eefc8eb6d",
+    "scope": "Remote recovery baselines; review binds current corrected files individually by SHA-256. These baselines do not claim that later local corrections are already committed."
+  },
+  "independence": {
+    "reviewer": "/root/server_review",
+    "original_research_authors": [
+      "/root/server_extensions",
+      "/root/database_research"
+    ],
+    "final_correction_author": "/root",
+    "reviewer_actions": "Independently read source seams, actual research fixtures/logs, specifications and task plans; raised findings, re-read integrator corrections, and authored only this review pair.",
+    "github_identity_note": "A distinct technical execution agent, not another GitHub account or approval identity."
+  },
+  "unresolved_blocking_findings": [],
+  "product_implementation_accepted": false,
+  "implementation_authorization": "not_granted_by_this_review",
+  "historical_identity_checks_scope": "These 238 initial recovery checks were performed before integrator corrections. Old review output hashes remain historical, not a claim that corrected R28/R30/D19 bytes equal their former content. Current reviewed_outputs and supporting_inputs bind final bytes.",
+  "task_decisions": [
+    {
+      "id": "R26",
+      "title": "Kestrel 与纯 C# AOT 比较基线",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "已审真实 Kestrel 研究程序、静态 AOT 路由、流/请求边界断言和 Windows/Linux 原始证据。5 项执行只建立可复用等价比较入口；其网络能力没有被误作 NativeWeave 正式 Host。",
+      "future_obligations_and_limits": "B23 以相同语义/数据/协议/负载比较完整产品；当前未声称 Rust 有实测吞吐或内存优势。",
+      "related_existing_tasks": [
+        "D18",
+        "B23"
+      ]
+    },
+    {
+      "id": "R27",
+      "title": "必需 Rust Host 与 C# Handler 边界",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "Tokio/Hyper/Tower 与选择性 Axum 的复用和 Adapter 边界具体；C# 静态 Handler 注册复用预编译 native。通知只借用票据，Request/owned-header 领取与拒绝释放明确，不另建大型 Core runtime。旧 optional-Rust 文字已修。",
+      "future_obligations_and_limits": "B15/B17 将来执行真实两语言 Handler、panic/异常、拒绝/取消/关闭和普通无 Rust 消费；研究切片不冒充完整 Host。",
+      "related_existing_tasks": [
+        "D18",
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "R28",
+      "title": "Tonic、rmcp 与 rustls 协议适配",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "独立复读 Tonic unary/trailers 源码、作者 19 项与另一执行者 5 项 cardinality 反例/修复；每请求 Decoder 的单消息模式区分零消息/空 payload，并保留流式多消息。rmcp 公共服务接缝、准确 profile、运行时 metadata、认证/Origin、TLS 分层清楚；补齐 JSON 物化前预算。",
+      "future_obligations_and_limits": "B18/B19 证明完整 C# ABI+HTTP2/TLS 互操作、压缩/解码峰值与 MCP preflight 实际公式；原有13项两OS、19项Linux和独立5项Linux范围分别保留。",
+      "related_existing_tasks": [
+        "D19",
+        "B18",
+        "B19"
+      ]
+    },
+    {
+      "id": "R29",
+      "title": "字节预算、背压、取消与关闭",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "明确 Tower ResponseFuture permit 与 Body 终结、HTTP2 flow credit 与 backing bytes 存活的差别。双侧独立预算、分配前许可、copy 重叠双记账、last-owner 退休和 active/retiring slots 满足关闭期上界推理。",
+      "future_obligations_and_limits": "B16/B17/B22 用真实慢读、半关闭、retain、取消/EOF/close 竞争检验资源退休与有限 deadline；队列项数不等同 RSS 上界。",
+      "related_existing_tasks": [
+        "D18",
+        "B16",
+        "B17",
+        "B22"
+      ]
+    },
+    {
+      "id": "R30",
+      "title": "诊断关联与成本",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "源码、布局探针与改正计量窗的两OS Release AOT 原始输出已核。默认 Release/Debug 均不隐式启动 listener/exporter；日志 IsEnabled 与 trace sampling 分离。诊断失败不阻止业务释放，先前 Windows 失败仍保留。",
+      "future_obligations_and_limits": "B20 证明真正跨 FFI parent/golden bytes/非法字段；B23 分测 Debug、disabled/sampled/full、日志、Meter、exporter 故障。零线程分配观察不能外推零开销。",
+      "related_existing_tasks": [
+        "D19",
+        "B20",
+        "B23"
+      ]
+    },
+    {
+      "id": "R31",
+      "title": "参考应用与幂等/Unknown 恢复",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "规范给出 operations/items/outbox/attachments、租户/hash/留存、独立事务观察者与外部 oracle。COMMIT Unknown 不被 cleanup 改写，冲突幂等查询使用新 statement snapshot；与数据库独立审查确认的真实 PG 反例一致。",
+      "future_obligations_and_limits": "B21/B22/B23 实现全栈故障、重启、durable blob-before-reference、outbox 至少一次、30分钟/24小时/72小时分层负载与等价统计。当前设计接受不宣称这些已执行。",
+      "related_existing_tasks": [
+        "D20",
+        "B21",
+        "B22",
+        "B23"
+      ]
+    },
+    {
+      "id": "R32",
+      "title": "GUI/GPU 与线程亲和扩展",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "独立核读固定 Winit/WGPU 源码范围，区分事件循环线程、surface/window 生命周期、映射/提交完成及 callback 退场。当前仅输出 Engine capability 和生命周期约束，未预造全局 GUI/GPU runtime。",
+      "future_obligations_and_limits": "未来独立领域实施/平台授权后执行实际 device-lost、window-first-destroy、map/poll 与主线程测试；本轮没有 GPU/GUI 运行证据。",
+      "related_existing_tasks": [
+        "D21"
+      ]
+    },
+    {
+      "id": "R33",
+      "title": "移动 AOT、链接与生命周期",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "固定官方 .NET/Rust 平台资料与 Winit 生命周期源码支持分开描述 iOS/Android、AOT/R2R/实验状态。Android suspend 回调返回前 surface 失效/释放义务明确；桌面 AOT 未被外推真机支持。",
+      "future_obligations_and_limits": "未来逐目标证明静态链接/裁剪/加载、签名、真机/模拟器、暂停恢复；本轮不声明移动部署或生产支持通过。",
+      "related_existing_tasks": [
+        "D21"
+      ]
+    },
+    {
+      "id": "D18",
+      "title": "Server 生命周期与适配规范",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "Rust 主导网络/协议/运行时，C# 主导业务；Buffer/byte owner、request/response、callback 退休和 async result 的分离可实施。流 EOF、响应 future 完成与 SafeHandle/GC 根静默不混同。",
+      "future_obligations_and_limits": "B15–B17/B22 证明动态竞态、实际内存与完整 Host 行为。底层 Core 契约按对应独立审查接受。",
+      "related_existing_tasks": [
+        "B15",
+        "B16",
+        "B17",
+        "B22"
+      ]
+    },
+    {
+      "id": "D19",
+      "title": "协议、可观测性与安全规范",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "准确 Tonic raw Codec 接缝、单消息约束、rmcp Tower 接缝/预解析峰值准入、TLS/认证边界、trace ABI 和 diagnostics 默认/成本模式均已明确。两项最终阻断已修并独立复读。",
+      "future_obligations_and_limits": "B18–B20/B22–B24 的真实实现、协议一致性、MCP 公式证明、FFI trace、负载与发布保留为产品验收。R34 的全域审查由其他执行者负责。",
+      "related_existing_tasks": [
+        "B18",
+        "B19",
+        "B20",
+        "B22",
+        "B23",
+        "B24"
+      ]
+    },
+    {
+      "id": "D20",
+      "title": "参考应用与验收设计",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "64MiB Gm/Gn 分侧总预算、每请求每侧4MiB、256 active/retiring、128 metadata waiter、32KiB chunk 与 D18 一致；64MiB附件是流总长度。幂等、Unknown、outbox、blob 顺序与 bounded Close/joining Dispose 可执行。",
+      "future_obligations_and_limits": "B21–B24 执行完整系统及长期资源验收；DB专门语义由 /root/database_review 对固定输入独立确认。",
+      "related_existing_tasks": [
+        "B21",
+        "B22",
+        "B23",
+        "B24"
+      ]
+    },
+    {
+      "id": "D21",
+      "title": "未来平台扩展边界",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "capability、线程亲和、event loop、native owner 与 mobile target 区分明确；各领域 Engine 独立，普通 Core 不承担全局窗口/GPU/mobile runtime。",
+      "future_obligations_and_limits": "未来领域/平台工作独立授权；设备执行、签名、分发与平台兼容没有现在 accepted 的声明。",
+      "related_existing_tasks": [
+        "R32",
+        "R33"
+      ]
+    },
+    {
+      "id": "D29",
+      "title": "Server 与协议实施任务细化",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "B15–B20 精确模块/接口、步骤、失败路径、证据、write scopes 与 worktree 已逐项核。B15 接受依赖 B17，B17 不反向等待 B15；100历史+110最终重叠字段对图一致，未新增规划体系。",
+      "future_obligations_and_limits": "6项仍为 future planned delivery；实际产品测试与 AOT/NuGet 消费不得复用研究 passed 代替。",
+      "related_existing_tasks": [
+        "B15",
+        "B16",
+        "B17",
+        "B18",
+        "B19",
+        "B20"
+      ]
+    },
+    {
+      "id": "D30",
+      "title": "端到端、长期负载与发布任务细化",
+      "decision": "accepted",
+      "acceptance_scope": "research_and_detailed_design_only",
+      "substantive_review": "B21–B24 从精确参考服务到故障、长期负载、性能与发布的输入、局部依赖、文件归属和证据可执行。并行 worktree 与 A13共享manifest整合职责明确；依赖联合图无循环。",
+      "future_obligations_and_limits": "4项需未来阶段授权和真正完整产品执行；30分钟/24小时/72小时、无Rust独立消费者、不可变包与兼容矩阵不是当前成功项。",
+      "related_existing_tasks": [
+        "B21",
+        "B22",
+        "B23",
+        "B24"
+      ]
+    }
+  ],
+  "graph_validation_scope": "Inspected current node dependency union, scoped task/fragment semantics and file ownership. No whole shared graph digest is treated as frozen because acceptance bookkeeping is still being integrated.",
+  "packet_input_digest_checks": [
+    {
+      "packet": "tasks/B15.md",
+      "input_path": "docs/server/hosting-and-streaming.md",
+      "expected_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "actual_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "match": true
+    },
+    {
+      "packet": "tasks/B15.md",
+      "input_path": "docs/platforms/support-and-aot.md",
+      "expected_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "actual_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "match": true
+    },
+    {
+      "packet": "tasks/B15.md",
+      "input_path": "docs/generators/binding-pipeline.md",
+      "expected_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "actual_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "match": true
+    },
+    {
+      "packet": "tasks/B15.md",
+      "input_path": "docs/contracts/callback-v0.1.md",
+      "expected_sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "actual_sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "match": true
+    },
+    {
+      "packet": "tasks/B15.md",
+      "input_path": "docs/contracts/async-v0.1.md",
+      "expected_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "actual_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "match": true
+    },
+    {
+      "packet": "tasks/B15.md",
+      "input_path": "docs/server/protocols-and-observability.md",
+      "expected_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "actual_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "match": true
+    },
+    {
+      "packet": "tasks/B16.md",
+      "input_path": "docs/server/hosting-and-streaming.md",
+      "expected_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "actual_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "match": true
+    },
+    {
+      "packet": "tasks/B16.md",
+      "input_path": "docs/contracts/buffer-v0.1.md",
+      "expected_sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "actual_sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "match": true
+    },
+    {
+      "packet": "tasks/B17.md",
+      "input_path": "docs/server/hosting-and-streaming.md",
+      "expected_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "actual_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "match": true
+    },
+    {
+      "packet": "tasks/B17.md",
+      "input_path": "docs/contracts/async-v0.1.md",
+      "expected_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "actual_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "match": true
+    },
+    {
+      "packet": "tasks/B17.md",
+      "input_path": "docs/contracts/concurrency-v0.1.md",
+      "expected_sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "actual_sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "match": true
+    },
+    {
+      "packet": "tasks/B18.md",
+      "input_path": "docs/server/protocols-and-observability.md",
+      "expected_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "actual_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "match": true
+    },
+    {
+      "packet": "tasks/B18.md",
+      "input_path": "docs/server/hosting-and-streaming.md",
+      "expected_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "actual_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "match": true
+    },
+    {
+      "packet": "tasks/B19.md",
+      "input_path": "docs/server/protocols-and-observability.md",
+      "expected_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "actual_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "match": true
+    },
+    {
+      "packet": "tasks/B19.md",
+      "input_path": "docs/server/hosting-and-streaming.md",
+      "expected_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "actual_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "match": true
+    },
+    {
+      "packet": "tasks/B20.md",
+      "input_path": "docs/server/hosting-and-streaming.md",
+      "expected_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "actual_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "match": true
+    },
+    {
+      "packet": "tasks/B20.md",
+      "input_path": "docs/server/protocols-and-observability.md",
+      "expected_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "actual_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "match": true
+    },
+    {
+      "packet": "tasks/B21.md",
+      "input_path": "docs/verification/reference-application.md",
+      "expected_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "actual_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "match": true
+    },
+    {
+      "packet": "tasks/B21.md",
+      "input_path": "docs/database/drivers.md",
+      "expected_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "actual_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "match": true
+    },
+    {
+      "packet": "tasks/B21.md",
+      "input_path": "docs/server/hosting-and-streaming.md",
+      "expected_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "actual_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "match": true
+    },
+    {
+      "packet": "tasks/B22.md",
+      "input_path": "docs/verification/reference-application.md",
+      "expected_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "actual_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "match": true
+    },
+    {
+      "packet": "tasks/B22.md",
+      "input_path": "docs/verification/models-and-matrix.md",
+      "expected_sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+      "actual_sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+      "match": true
+    },
+    {
+      "packet": "tasks/B23.md",
+      "input_path": "docs/performance/methodology.md",
+      "expected_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+      "actual_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+      "match": true
+    },
+    {
+      "packet": "tasks/B23.md",
+      "input_path": "docs/verification/reference-application.md",
+      "expected_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "actual_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "match": true
+    },
+    {
+      "packet": "tasks/B24.md",
+      "input_path": "docs/platforms/build-package-release.md",
+      "expected_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "actual_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "match": true
+    },
+    {
+      "packet": "tasks/B24.md",
+      "input_path": "docs/verification/reference-application.md",
+      "expected_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "actual_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "match": true
+    }
+  ],
+  "delivery_readiness": [
+    {
+      "id": "B15",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "A02",
+        "A07",
+        "A10"
+      ],
+      "acceptance_dependencies": [
+        "B17"
+      ],
+      "write_scopes": [
+        "NativeWeave:src/Server.Application/",
+        "NativeWeave:tests/Server.Application/",
+        "Plan:ledger/evidence/B15/"
+      ],
+      "parallel_worktree": "task/B15-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B16",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "A07"
+      ],
+      "acceptance_dependencies": [],
+      "write_scopes": [
+        "NativeWeave:src/Server.Streaming/",
+        "NativeWeave:native/server/streaming/",
+        "NativeWeave:tests/Server.Streaming/",
+        "Plan:ledger/evidence/B16/"
+      ],
+      "parallel_worktree": "task/B16-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B17",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "A07",
+        "A10",
+        "A11",
+        "B16",
+        "A02"
+      ],
+      "acceptance_dependencies": [],
+      "write_scopes": [
+        "NativeWeave:src/Server.Native/",
+        "NativeWeave:native/server/host/",
+        "NativeWeave:tests/Server.Native/",
+        "Plan:ledger/evidence/B17/"
+      ],
+      "parallel_worktree": "task/B17-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B18",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "B15",
+        "B17"
+      ],
+      "acceptance_dependencies": [],
+      "write_scopes": [
+        "NativeWeave:src/Protocols.Grpc/",
+        "NativeWeave:native/protocols/grpc/",
+        "NativeWeave:tests/Protocols.Grpc/",
+        "Plan:ledger/evidence/B18/"
+      ],
+      "parallel_worktree": "task/B18-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B19",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "B15",
+        "B17"
+      ],
+      "acceptance_dependencies": [],
+      "write_scopes": [
+        "NativeWeave:src/Protocols.Mcp/",
+        "NativeWeave:native/protocols/mcp/",
+        "NativeWeave:tests/Protocols.Mcp/",
+        "Plan:ledger/evidence/B19/"
+      ],
+      "parallel_worktree": "task/B19-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B20",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "B17"
+      ],
+      "acceptance_dependencies": [],
+      "write_scopes": [
+        "NativeWeave:src/Server.Diagnostics/",
+        "NativeWeave:native/server/diagnostics/",
+        "NativeWeave:tests/Server.Diagnostics/",
+        "Plan:ledger/evidence/B20/"
+      ],
+      "parallel_worktree": "task/B20-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B21",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "B04",
+        "B08",
+        "B13",
+        "B14",
+        "B15",
+        "B17"
+      ],
+      "acceptance_dependencies": [
+        "B20"
+      ],
+      "write_scopes": [
+        "NativeWeave:src/Reference.TaskService/",
+        "NativeWeave:tests/Reference.TaskService/",
+        "Plan:ledger/evidence/B21/"
+      ],
+      "parallel_worktree": "task/B21-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B22",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "B21"
+      ],
+      "acceptance_dependencies": [],
+      "write_scopes": [
+        "NativeWeave:src/Verification.EndToEnd/",
+        "NativeWeave:tests/Verification.EndToEnd/",
+        "Plan:ledger/evidence/B22/"
+      ],
+      "parallel_worktree": "task/B22-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B23",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "B21",
+        "A21"
+      ],
+      "acceptance_dependencies": [
+        "B22"
+      ],
+      "write_scopes": [
+        "NativeWeave:src/Benchmarks.Domain/",
+        "NativeWeave:tests/Benchmarks.Domain/",
+        "Plan:ledger/evidence/B23/"
+      ],
+      "parallel_worktree": "task/B23-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    },
+    {
+      "id": "B24",
+      "decision": "ready_for_future_implementation_after_phase_authorization",
+      "implementation_accepted": false,
+      "start_dependencies": [
+        "B22",
+        "B23"
+      ],
+      "acceptance_dependencies": [
+        "A16",
+        "A22",
+        "B18",
+        "B19"
+      ],
+      "write_scopes": [
+        "NativeWeave:src/Packaging.Domain/",
+        "NativeWeave:tests/Packaging.Domain/",
+        "Plan:ledger/evidence/B24/"
+      ],
+      "parallel_worktree": "task/B24-implementation",
+      "integration_owner": "A13",
+      "specific_acceptance_reviewed": true
+    }
+  ],
+  "contract_reviews": [
+    {
+      "id": "C-SERVER-001",
+      "version": "0.3.0",
+      "decision": "recommend_accept_research_and_detailed_design",
+      "spec_path": "docs/server/hosting-and-streaming.md",
+      "content_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "product_verification_accepted": false,
+      "dependency_acceptance": "Final integrator must bind the other scoped Core/Database/security reviews; future product implementation is not a design acceptance prerequisite."
+    },
+    {
+      "id": "C-PROTOCOL-001",
+      "version": "0.3.0",
+      "decision": "recommend_accept_research_and_detailed_design",
+      "spec_path": "docs/server/protocols-and-observability.md",
+      "content_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "product_verification_accepted": false,
+      "dependency_acceptance": "Final integrator must bind the other scoped Core/Database/security reviews; future product implementation is not a design acceptance prerequisite."
+    },
+    {
+      "id": "C-REFERENCE-001",
+      "version": "0.3.0",
+      "decision": "recommend_accept_research_and_detailed_design",
+      "spec_path": "docs/verification/reference-application.md",
+      "content_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "product_verification_accepted": false,
+      "dependency_acceptance": "Final integrator must bind the other scoped Core/Database/security reviews; future product implementation is not a design acceptance prerequisite."
+    },
+    {
+      "id": "C-EXTENSION-001",
+      "version": "0.3.0",
+      "decision": "recommend_accept_research_and_detailed_design",
+      "spec_path": "docs/extension/future-platforms.md",
+      "content_sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "product_verification_accepted": false,
+      "dependency_acceptance": "Final integrator must bind the other scoped Core/Database/security reviews; future product implementation is not a design acceptance prerequisite."
+    }
+  ],
+  "supporting_inputs": [
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "AGENTS.md",
+      "sha256": "e42f4fd965744e1b8c5982ba11c80402a20b20858e32ed412ac1d75e54c962da"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/server/body-retirement-protocol.md",
+      "sha256": "292c8bbffabe47ecea4f69ea4df47d6a16239ca48cf10a1fdc2eb6c7d71dddf8"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/diagnostics-final-ci.json",
+      "sha256": "4e63df245f3e342a97844cabcfcc06252c9a8b6f48110a07abfaccf2d2c47933"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/rmcp-json-admission-source.json",
+      "sha256": "279507a1f953ea6a923bf552faf44765a4cf2d095dd01608f3c6b043212c3bfa"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/rmcp-expect-json-reviewed.txt",
+      "sha256": "6e2fcb77748ad062549abda3d396dfe22825e87720dc5e0d6eaf10c6b1a52463"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/source-inspection.json",
+      "sha256": "1766ac37da17bf36e9da9eb11b4b1ae302455166c2d03b68d6ce1c4ca03d44d9"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/completion-assessment.json",
+      "sha256": "8e5f34d7ec37f297cb47dcdd09d5f03e3eced98a9ba6d9373dd4a5128ffd5c8f"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/frozen-files.json",
+      "sha256": "e720e3f8258b7e6d49bc38bb069179029ebd37777fdb1c1140306d5125eac965"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/ci-verification.json",
+      "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "experiments/server-completion/protocol/src/lib.rs",
+      "sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "experiments/server-completion/protocol/Cargo.toml",
+      "sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "experiments/server-completion/protocol/Cargo.lock",
+      "sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "experiments/database-completion/server-review/src/lib.rs",
+      "sha256": "b40bd2b30055413fc0f764ada248f61655c583ac06ec0936f6157205ab808a58"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/database-completion/server-review-cardinality/result.json",
+      "sha256": "fdec3c3f3ccffaf1072590ff94f6255676263e5845abcba93cdee2abeb37796d"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/database-completion/server-review-cardinality/test.stdout",
+      "sha256": "807cb602da3633c7993b17429943eddffb8eeeb9685186ebfcc59bae55e0b119"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "experiments/server-completion/diagnostics/Program.cs",
+      "sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "experiments/server-completion/diagnostics/DiagnosticsProbe.csproj",
+      "sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "experiments/server-completion/kestrel/Program.cs",
+      "sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/protocol-reviewed-local/run.json",
+      "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/protocol-reviewed-local/test.stdout.txt",
+      "sha256": "711cc28db624a57c301c5d92a31f88a58d41bc2d284229d3d534c7ac3c871ca7"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+      "sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/diagnostics-reviewed-local/native-aot-run.stdout.txt",
+      "sha256": "66915ae003f2430e294cb99381f2b018b8a6af4731ab9aa5e0afa54d4f33e1b8"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/run.json",
+      "sha256": "e65de673616e620a6da36efbf559733e17d13a9ceaa5139224c10bdc12817693"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/traceability/reviews/completion/server-independent-review.md",
+      "sha256": "e30de5831b5941275fe4112ccb1b810899757067e36218e5249f0ecd6e696ea8"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/traceability/reviews/completion/server-independent-review.json",
+      "sha256": "28fe553f80a00b0689aef25e95203d426f7667e6b39fe75446858ec859e07e97"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "docs/contracts/buffer-v0.1.md",
+      "sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/dotnet-info.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/dotnet-info.stdout.txt",
+      "sha256": "f170989b6d9b73672423252cb85923cda7b4ce099714f35862a17c0d6de18c07"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/diagnostics/DiagnosticsProbe.csproj",
+      "sha256": "8e95e5ea1af7d0f015798020f23febe234f52324c2f75e74784d99009e6aad9e"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/diagnostics/Program.cs",
+      "sha256": "ebcaad4372c7b9aa341e7749875efacbc07c53383f957e1b4aad4f047223639b"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/run_diagnostics.py",
+      "sha256": "d68e5da6ac95f4390ff8c58d3e30bf48b84b7f14fae871712b579098e2c6bf43"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/native-aot-run.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/native-aot-run.stdout.txt",
+      "sha256": "d96d45cc5b69ebfe877f142cef6337acde7cf9926d728439ce550623174b2b5c"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/publish.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/publish.stdout.txt",
+      "sha256": "cf60e8df2ad465900d04179d74203c7ce6c37b3f3a70fc72c88f5cdd81630dff"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/run.json",
+      "sha256": "12500105dc8785a31fa4c3727086af75aa5f01926c35eacdc7db0306f6f62f0f"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/dotnet-info.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/dotnet-info.stdout.txt",
+      "sha256": "c69203d1c919596ba84f61ab2b82fc2e61805f7434451463f7b328903fc14924"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/diagnostics/DiagnosticsProbe.csproj",
+      "sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/diagnostics/Program.cs",
+      "sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/run_diagnostics.py",
+      "sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/native-aot-run.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/native-aot-run.stdout.txt",
+      "sha256": "4f385b142f771f31ed8a0df4b4a1e1b0ab5cfde9c29c9b088cfd17566c909f17"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/publish.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/publish.stdout.txt",
+      "sha256": "cb1912c7da193558fd5f9e5f946365e3af010a540becc531453e3a92e64fa7a2"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/run.json",
+      "sha256": "500bbc71348c86badb91387f5a5d5bd34d58df195db2ec6b21d53862d2654b17"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json",
+      "sha256": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json",
+      "sha256": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac"
+    },
+    {
+      "repository": "IzuSharp/Plan",
+      "path": "AGENTS.md",
+      "sha256": "7bb35e4610329d85c9b2166940195783ec2a9e6a157c11adc03aa59c3c8e698e"
+    }
+  ],
+  "binding_rules": {
+    "immutable_subjects": "Exact current reviewed_outputs and supporting_inputs; pre-correction historical_identity_checks are explicitly historical.",
+    "acceptance_bookkeeping": "Graph and registry status/acceptance links may be integrated without pretending this reviewer reviewed future substantive bytes. The final acceptance manifest must bind this record and its exact subjects.",
+    "changed_packet_hashes": "If later packet regeneration changes actual content (including pinned spec digests), compare that diff and request targeted reviewer confirmation before representing the changed bytes as independently reviewed.",
+    "no_self_acceptance": "Reviewer recommends acceptance; final root integration records formal accepted state and all required cross-review dependencies.",
+    "no_product_acceptance": "All A/B Delivery tasks remain unimplemented and require future phase authorization and their own actual evidence."
+  }
+}
