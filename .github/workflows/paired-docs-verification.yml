@@ -1,0 +1,49 @@
+name: Verify paired NativeWeave documentation
+on:
+  push:
+    branches: [research/source-driven-integration-2026-11-12]
+    paths: [.github/workflows/paired-docs-verification.yml]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          path: NativeWeave-Design
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: IzuSharp/Plan
+          ref: 2a97877468685fa4515f1195527f4ccb6e2d2ba4
+          path: Plan
+          persist-credentials: false
+      - name: Verify contract freeze, graph gates and raw evidence
+        working-directory: Plan
+        run: |
+          python3 tools/validate_graphs.py --output verification/graph-validation.json
+          python3 tools/mutation_checks.py
+          python3 tools/rust1100_checks.py
+          python3 -m pip install 'jsonschema==4.23.0'
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess,jsonschema
+          p=pathlib.Path('.');d=pathlib.Path('../NativeWeave-Design')
+          schema=json.loads((p/'schemas/graph-v1.schema.json').read_text())
+          for k in ('research','documentation','delivery'):
+              jsonschema.validate(json.loads((p/(k+'-graph.json')).read_text()),schema)
+          delta=subprocess.check_output(['git','-C',str(d),'diff','--name-only','22053fd97d701ad771ef51bd3681441597b8d0da','HEAD'],text=True).splitlines()
+          assert delta==['.github/workflows/paired-docs-verification.yml'],delta
+          before=subprocess.check_output(['git','-C',str(d),'show','22053fd97d701ad771ef51bd3681441597b8d0da:docs/contracts/registry.json'])
+          assert before==(d/'docs/contracts/registry.json').read_bytes()
+          pathlib.Path('verification/paired-final.json').write_text(json.dumps({'ok':True,'design_head':subprocess.check_output(['git','-C',str(d),'rev-parse','HEAD'],text=True).strip(),'plan_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'contract_sha256':hashlib.sha256(before).hexdigest(),'review':'author self-review under explicit user exception; independent followup remains pending'},indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: paired-documentation-final-check
+          path: Plan/verification/
+          retention-days: 14
