@@ -1,0 +1,34 @@
+name: Index and check native-slice documentation
+on:
+  push:
+    branches: [research/native-slices-evidence-2026-11-12]
+    paths:
+      - 'experiments/native-slices/index_contracts.py'
+      - '.github/workflows/native-slice-docs.yml'
+      - 'docs/contracts/abi-v0.1.md'
+      - 'docs/contracts/buffer-v0.1.md'
+      - 'docs/platforms/support-and-aot.md'
+permissions:
+  contents: read
+jobs:
+  index-and-check:
+    if: github.repository == 'IzuSharp/NativeWeave-Design' && github.ref == 'refs/heads/research/native-slices-evidence-2026-11-12'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - run: python3 experiments/native-slices/index_contracts.py
+      - name: Commit only derived registry hashes and check record
+        run: |
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/contracts/registry.json docs/traceability/native-slices-doc-checks.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'docs: bind D01 D02 D07 proposals to exact content hashes without acceptance'
+          git push origin HEAD:refs/heads/research/native-slices-evidence-2026-11-12
