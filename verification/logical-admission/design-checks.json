@@ -1,0 +1,27 @@
+{
+  "input_commit": "acb684b66d34a215b6ef3b5c968614d1a319ca8b",
+  "run_id": "43374563996",
+  "verified_new_raw_files": 32,
+  "inspected_upstream_sources": 5,
+  "checked_specification_hashes": [
+    "C-PLATFORM-001",
+    "C-ABI-001",
+    "C-LIFETIME-001",
+    "C-CALLBACK-001",
+    "C-ASYNC-001",
+    "C-BUFFER-001",
+    "C-ERROR-001",
+    "C-BUILD-001",
+    "C-ENGINE-001",
+    "C-DB-001",
+    "C-TX-001",
+    "C-QUERY-001",
+    "C-QUERYGEN-001",
+    "C-SERVER-001",
+    "C-REFERENCE-001"
+  ],
+  "independent_review": false,
+  "accepted_contracts": 0,
+  "formal_delivery_executed": false,
+  "migration_closed_without_merge": true
+}

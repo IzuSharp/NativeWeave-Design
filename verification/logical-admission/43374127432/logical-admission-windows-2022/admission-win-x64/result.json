@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "design_commit": "9fed6f510479622229cef6e917645f6510f7e3c0",
+  "run_id": "43374127432",
+  "platform": "Windows-2022Server-10.0.20348-SP0",
+  "scope": "R07/D04 synchronous admission research; not product Delivery or full lifecycle acceptance",
+  "independent_review": false,
+  "native_sha256": "7f812bd2f8c4c00bf9aff88be85a864d634e84efb7b2fbf63eb4d0ad96b17a17",
+  "aot_executable_sha256": "1007f72fe0ee9736a0c267775f827c67bddbd8072ec29d2c96b62af848f6d63d",
+  "managed_assertions_per_execution": 653,
+  "positive_gate_rounds_per_execution": 64,
+  "groups_per_execution": 3,
+  "negative_control_observed": true,
+  "logical_post_close_rejection": true,
+  "source_files": {
+    "experiments/logical-admission/Program.cs": "a7444652a27613387c2405147db96271dae8d74d870c139749fb0fdbed6eb8ea",
+    "experiments/logical-admission/Admission.csproj": "26a8bb85ea7528c251ba06c39b373fb25362bfc03218ea2550417f13574d838a",
+    "experiments/logical-admission/run.py": "ceaf6091b872dd2ef4e351dc735bbd2df1cc99442de45cb903ceb62067ae9516",
+    "experiments/native-slices/interop/managed/Bridge.cs": "366f282bc9864e1bf72b4ef711774fb506a418555abceb73836cd249b28d7eef",
+    "experiments/native-slices/interop/native/src/lib.rs": "e4e632a1145a2148443fb795785dbc693305ca446a298bd840c2fe380187b5ef",
+    "experiments/native-slices/interop/native/Cargo.toml": "1ec6048a2c40d4de73d59127db3cd4675bdf3fe43d04a20399dcae0cab51707d",
+    "experiments/native-slices/interop/native/Cargo.lock": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+    "experiments/native-slices/global.json": "d68766f83e6c794b511ea1cb87f6cc00089cd21d6e92c1246ac7c2a542b11c7d",
+    "experiments/native-slices/rust-toolchain.toml": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+  }
+}

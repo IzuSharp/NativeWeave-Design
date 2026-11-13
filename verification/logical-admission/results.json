@@ -1,0 +1,212 @@
+{
+  "run_id": "43374127432",
+  "tested_design_commit": "9fed6f510479622229cef6e917645f6510f7e3c0",
+  "both_platforms_passed": true,
+  "source_review": {
+    "url": "https://raw.githubusercontent.com/dotnet/runtime/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+    "git_blob_sha1": "2d1f9313b485c57afab1f187e00a180df7fad3ba",
+    "sha256": "eddb5e1ad53377a5d60b7fdfeecb03a771b45406ec34802e5dbf068b71a117fd",
+    "path": "verification/logical-admission/upstream/SafeHandle.cs",
+    "file_lines": 265
+  },
+  "records": [
+    {
+      "artifact_id": 14013922287,
+      "artifact": "logical-admission-windows-2022",
+      "zip_sha256": "5a33787d8bd8f85e69f0767f5e021b7aef71c1fde31e007f42e02314f7aed71e",
+      "result": {
+        "success": true,
+        "design_commit": "9fed6f510479622229cef6e917645f6510f7e3c0",
+        "run_id": "43374127432",
+        "platform": "Windows-2022Server-10.0.20348-SP0",
+        "scope": "R07/D04 synchronous admission research; not product Delivery or full lifecycle acceptance",
+        "independent_review": false,
+        "native_sha256": "7f812bd2f8c4c00bf9aff88be85a864d634e84efb7b2fbf63eb4d0ad96b17a17",
+        "aot_executable_sha256": "1007f72fe0ee9736a0c267775f827c67bddbd8072ec29d2c96b62af848f6d63d",
+        "managed_assertions_per_execution": 653,
+        "positive_gate_rounds_per_execution": 64,
+        "groups_per_execution": 3,
+        "negative_control_observed": true,
+        "logical_post_close_rejection": true,
+        "source_files": {
+          "experiments/logical-admission/Program.cs": "a7444652a27613387c2405147db96271dae8d74d870c139749fb0fdbed6eb8ea",
+          "experiments/logical-admission/Admission.csproj": "26a8bb85ea7528c251ba06c39b373fb25362bfc03218ea2550417f13574d838a",
+          "experiments/logical-admission/run.py": "ceaf6091b872dd2ef4e351dc735bbd2df1cc99442de45cb903ceb62067ae9516",
+          "experiments/native-slices/interop/managed/Bridge.cs": "366f282bc9864e1bf72b4ef711774fb506a418555abceb73836cd249b28d7eef",
+          "experiments/native-slices/interop/native/src/lib.rs": "e4e632a1145a2148443fb795785dbc693305ca446a298bd840c2fe380187b5ef",
+          "experiments/native-slices/interop/native/Cargo.toml": "1ec6048a2c40d4de73d59127db3cd4675bdf3fe43d04a20399dcae0cab51707d",
+          "experiments/native-slices/interop/native/Cargo.lock": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+          "experiments/native-slices/global.json": "d68766f83e6c794b511ea1cb87f6cc00089cd21d6e92c1246ac7c2a542b11c7d",
+          "experiments/native-slices/rust-toolchain.toml": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+        }
+      },
+      "files": [
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/aot-publish.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/aot-run.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/aot-publish.stdout",
+          "sha256": "3792e6b605d8759b4b8738ebec92b76fe908ca636f751e1612dced4dd062b988"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/aot-run.stdout",
+          "sha256": "580e94972ec0dc4cccb994af8c03f7f50d04a3343cf38fe19f15920d302accb6"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/cargo-version.stdout",
+          "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/commands.json",
+          "sha256": "7b6024eb9f7096e0aedd8d4d9c05b8fcf5c078881c7d4b6ef99e1eed381464dc"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/dotnet-info.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/dotnet-info.stdout",
+          "sha256": "d37364f764a373379a41af17e2068af3b475d83fc857069e8698d2138fbf22eb"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/native-build.stderr",
+          "sha256": "6f8b916302e31c4009d2b8bf28c15a7e0c6edd0cd463ff8163461c7ee5f128ea"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/native-build.stdout",
+          "sha256": "b108f12daceb6bf0dccf77b8ef1bc9eb7a05d42cfcad3e350a726344fec227c3"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/normal-run.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/normal-run.stdout",
+          "sha256": "1aaf2b4ebb8abeeb5afe611298f97ffbe4c2afaea8bba1f45adac6a96d6ee93b"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/result.json",
+          "sha256": "efe09f8e69d03f270a969c3e9f03772b0ddf90d846913095556d74e7e0aa6dd4"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-windows-2022/admission-win-x64/rust-version.stdout",
+          "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7"
+        }
+      ]
+    },
+    {
+      "artifact_id": 14012954553,
+      "artifact": "logical-admission-ubuntu-24.04",
+      "zip_sha256": "841342506bf8acd7ec9febcc694e7e9c6cd7c6c9f78d6708b02e629c060c16e8",
+      "result": {
+        "success": true,
+        "design_commit": "9fed6f510479622229cef6e917645f6510f7e3c0",
+        "run_id": "43374127432",
+        "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+        "scope": "R07/D04 synchronous admission research; not product Delivery or full lifecycle acceptance",
+        "independent_review": false,
+        "native_sha256": "196d80ed98e58c7afbc25470ffdfce4ac162eb644a45224cac0a25d5748a71a9",
+        "aot_executable_sha256": "af80b9946d4d7848f5999bf43499917965e3b56b8dbf680b7820eebbce47e2d0",
+        "managed_assertions_per_execution": 653,
+        "positive_gate_rounds_per_execution": 64,
+        "groups_per_execution": 3,
+        "negative_control_observed": true,
+        "logical_post_close_rejection": true,
+        "source_files": {
+          "experiments/logical-admission/Program.cs": "a7444652a27613387c2405147db96271dae8d74d870c139749fb0fdbed6eb8ea",
+          "experiments/logical-admission/Admission.csproj": "26a8bb85ea7528c251ba06c39b373fb25362bfc03218ea2550417f13574d838a",
+          "experiments/logical-admission/run.py": "ceaf6091b872dd2ef4e351dc735bbd2df1cc99442de45cb903ceb62067ae9516",
+          "experiments/native-slices/interop/managed/Bridge.cs": "366f282bc9864e1bf72b4ef711774fb506a418555abceb73836cd249b28d7eef",
+          "experiments/native-slices/interop/native/src/lib.rs": "e4e632a1145a2148443fb795785dbc693305ca446a298bd840c2fe380187b5ef",
+          "experiments/native-slices/interop/native/Cargo.toml": "1ec6048a2c40d4de73d59127db3cd4675bdf3fe43d04a20399dcae0cab51707d",
+          "experiments/native-slices/interop/native/Cargo.lock": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+          "experiments/native-slices/global.json": "d68766f83e6c794b511ea1cb87f6cc00089cd21d6e92c1246ac7c2a542b11c7d",
+          "experiments/native-slices/rust-toolchain.toml": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+        }
+      },
+      "files": [
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/aot-publish.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/aot-publish.stdout",
+          "sha256": "bf578c06efc62c8f40c1827936c81a57c173e51d350ebd4e42d05065751ad45d"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/aot-run.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/aot-run.stdout",
+          "sha256": "1e80a5052106ece5929b3926e5cb4dc8ca213feec7aa24ebec5e7a9809e3a4b1"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/cargo-version.stdout",
+          "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/cargo-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/commands.json",
+          "sha256": "bdbb89e0d71b91f9e0168f9b2e186fb4058c3f04830334c00ec616c0282add86"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/dotnet-info.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/dotnet-info.stdout",
+          "sha256": "025a77ee6fb635716c429cae9427e9f0b5c33da95835da50d9fcbf5745bd6a7f"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/native-build.stderr",
+          "sha256": "bb4e432c6ebadbd6939bd235e47739ee1a9e0b9c6612fff671bae2aa2b082b32"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/native-build.stdout",
+          "sha256": "020beea410bf41c9836c0e7c20ecae463113bf4c76123cf01138f94fba401702"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/normal-run.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/normal-run.stdout",
+          "sha256": "d9986a87914c90a0cbaa26cdf94e835d38df011d75a4fe3de1f5fd9551973349"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/result.json",
+          "sha256": "1eb99e4582fcfbbff4ff54617086042f6307d4d913d99519b5b6081ada2b42ab"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/rust-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "verification/logical-admission/43374127432/logical-admission-ubuntu-24.04/admission-linux-x64/rust-version.stdout",
+          "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+        }
+      ]
+    }
+  ],
+  "independent_review": false,
+  "formal_contract_accepted": false,
+  "product_delivery_executed": false,
+  "scope": "Synchronous logical admission only; not async retirement, arbitrary invalid pointers, performance or production acceptance"
+}

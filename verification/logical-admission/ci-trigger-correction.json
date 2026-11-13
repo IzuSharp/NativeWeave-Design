@@ -1,0 +1,10 @@
+{
+  "primary_run": "43373306474",
+  "incidental_rerun": "43374127432",
+  "both_runs_passed": true,
+  "same_test_input_hashes": true,
+  "raw_files_verified": 64,
+  "reason": "Initial workflow paths matched all experiment files, including a documentation finalization helper. A normal push triggered an unnecessary extra execution.",
+  "correction": "Execution paths now list actual C#/project/runner/native/toolchain inputs; documentation helpers no longer trigger tests. The extra result is retained, not counted as new research.",
+  "independent_review": false
+}

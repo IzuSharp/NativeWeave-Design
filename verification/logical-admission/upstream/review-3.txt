@@ -1,0 +1,43 @@
+Source: https://raw.githubusercontent.com/tower-rs/tower/4b0a6b0e688bd177eb2c9c97f5268dd9703c66fc/tower/src/limit/concurrency/future.rs
+Original copyright and license remain those of the upstream repository.
+
+1: //! [`Future`] types
+2: //!
+3: //! [`Future`]: std::future::Future
+4: use pin_project_lite::pin_project;
+5: use std::{
+6:     future::Future,
+7:     pin::Pin,
+8:     task::{Context, Poll},
+9: };
+10: use tokio::sync::OwnedSemaphorePermit;
+11: 
+12: pin_project! {
+13:     /// Future for the [`ConcurrencyLimit`] service.
+14:     ///
+15:     /// [`ConcurrencyLimit`]: crate::limit::ConcurrencyLimit
+16:     #[derive(Debug)]
+17:     pub struct ResponseFuture<T> {
+18:         #[pin]
+19:         inner: T,
+20:         // Keep this around so that it is dropped when the future completes
+21:         _permit: OwnedSemaphorePermit,
+22:     }
+23: }
+24: 
+25: impl<T> ResponseFuture<T> {
+26:     pub(crate) fn new(inner: T, _permit: OwnedSemaphorePermit) -> ResponseFuture<T> {
+27:         ResponseFuture { inner, _permit }
+28:     }
+29: }
+30: 
+31: impl<F, T, E> Future for ResponseFuture<F>
+32: where
+33:     F: Future<Output = Result<T, E>>,
+34: {
+35:     type Output = Result<T, E>;
+36: 
+37:     fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
+38:         self.project().inner.poll(cx)
+39:     }
+40: }

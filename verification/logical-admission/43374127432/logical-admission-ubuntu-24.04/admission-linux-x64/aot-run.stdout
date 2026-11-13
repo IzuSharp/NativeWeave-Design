@@ -1,0 +1,5 @@
+OBSERVED negative-control post-Dispose call admitted while physical lease remains
+PASS negative-control
+PASS logical-gate-64-rounds
+PASS exception-compensation
+SUCCESS logical-admission assertions=653 aot=True gate_rounds=64

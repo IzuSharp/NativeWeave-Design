@@ -91,3 +91,7 @@ Q04生命周期设计已有明确方案，可在D04/D05/D06独立审查后关闭
 R08核对callback内Dispose、cookie最终释放与late-callback反例；R09核对start未返回、取消注册与take_result的lease；R32核对独立Engine parent/module寿命与线程亲和profile。影响文件为D04/D05/D06及对应Plan任务。Qt for Python、Godot完整signal dispatch/CSharpInstance深层实现未读，不妨碍当前建议被审查，但本任务整体保留partially_evidenced，后续可针对真正反例补查，不能标全项目研究完成。
 
 许可证：固定快照的dotnet/runtime、Godot、YAHA许可证均已读，为MIT；证据文件记录其blob。报告为机制转述与新设计，不复制大段上游实现；未来产品复用源码仍须保留适用声明并逐项核查。
+
+## Post-migration executed logical-admission evidence
+
+The original report above is a historical source-analysis snapshot. [The new R07/D04 study](logical-admission.md) adds actual Windows/Linux normal and Native AOT negative/positive admission evidence: run43373306474,653 assertions and64 guided gate/Dispose rounds per invocation. It distinguishes logical admission, physical lifetime, native mutation and async retirement, and includes checked SeaQuery/Tower/Rust source implications. The local SafeHandle-only admission question is resolved; full task/contract acceptance and independent review remain pending. Research code and raw outputs are Design-owned, not product implementation.
