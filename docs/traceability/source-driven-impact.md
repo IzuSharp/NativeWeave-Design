@@ -1,3 +1,5 @@
+> Historical checkpoint. Current product constraints and acceptance boundaries are in [ADR-0003](../decisions/ADR-0003-rust-engine-mandate-and-design-acceptance.md). Any optional Rust Server/Kestrel product-host wording below describes the prior snapshot, not current authorization. Original evidence retains its recorded scope.
+
 # Source-driven integration: recovery, impact and independent-review handoff
 
 Status: proposed amendment in existing Design PR #5. No product-source implementation or automatic final acceptance. Exact source pins/ranges, preserved commands/logs and file hashes are in `docs/research/source-driven-evidence/`. The paired Plan PR must pin the resulting Design commit; the two repositories are not an atomic transaction.

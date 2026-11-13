@@ -2,9 +2,9 @@
 
 # NativeWeave Design
 
-> 2026-11-12 研究与详细设计续接，状态 **research / proposed**。这里保存源码研究、真实实验与证据；候选设计尚未成为 accepted 产品规范。当前进度见[生命周期续接检查点](docs/traceability/source-lifecycle-followup.md)。
+> 2026-11-12 研究与详细设计续接，状态 **research / proposed**。这里保存源码研究、真实实验与证据；候选设计尚未成为 accepted 产品规范。本轮基线审计见[完整接管与执行顺序](docs/traceability/takeover-audit-2026-11-12.md)，历史进度见[生命周期续接检查点](docs/traceability/source-lifecycle-followup.md)。
 
-NativeWeave 的目标是让应用开发者主要使用现代 C#，通过 Native AOT 与独立 Rust Native Engine，获得可测量的性能、内存与开发效率收益。Database 底层必须使用 Rust，普通新增实体复用预编译原生资产；Server 的 Kestrel/Rust 产品宿主按实际证据选择。独立 managed 组件保留纯 C# 路径；互操作基础设施按能力组合，不强制引入统一原生运行时。
+NativeWeave 的目标是让应用开发者主要使用现代 C#，通过 Native AOT 与独立 Rust Native Engine，获得可测量的性能、内存与开发效率收益。Database 底层必须使用 Rust，普通新增实体复用预编译原生资产；Server 底层同样必须 Rust，Rust 内部组合按源码与实验选型；Kestrel 仅作对照。独立 managed 组件保留纯 C# 路径；互操作基础设施按能力组合，不强制引入统一原生运行时。
 
 ## 阅读入口
 

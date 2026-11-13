@@ -1,3 +1,5 @@
+> Historical checkpoint. Current product constraints and acceptance boundaries are in [ADR-0003](../decisions/ADR-0003-rust-engine-mandate-and-design-acceptance.md). Any optional Rust Server/Kestrel product-host wording below describes the prior snapshot, not current authorization. Original evidence retains its recorded scope.
+
 # Source-lifecycle research continuation checkpoint
 
 Date: 2026-11-13 UTC / 2026-11-12 America/Los_Angeles.

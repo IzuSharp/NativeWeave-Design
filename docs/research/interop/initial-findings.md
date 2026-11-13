@@ -1,3 +1,5 @@
+> Historical checkpoint. Current product constraints and acceptance boundaries are in [ADR-0003](../../decisions/ADR-0003-rust-engine-mandate-and-design-acceptance.md). Any optional Rust Server/Kestrel product-host wording below describes the prior snapshot, not current authorization. Original evidence retains its recorded scope.
+
 # Interop 初步源码发现与待证明边界
 
 状态：limited-source-research；日期2026-11-12。作者root。不是对任何候选库的完整安全审计，也不是正式NativeWeave选型。

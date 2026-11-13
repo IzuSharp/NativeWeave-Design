@@ -74,7 +74,7 @@ See ADR-0002, D14, D16/D17 and R25's source study. Direct native builder is the 
 
 ## 7. Server 候选边界
 
-纯 C# AOT + Kestrel 是必须比较的成熟基线；Rust engine 只有在具体场景收益支持时引入。普通 C# handler 的编程体验、请求上下文、取消与流生命周期应独立于 engine。
+纯 C# AOT + Kestrel 是必须比较的成熟基线；Rust engine 是正式 Server 的必要底层，具体 Rust 组合由源码、正确性和维护成本决定；对照结果不得隐瞒。普通 C# handler 的编程体验、请求上下文、取消与流生命周期应独立于 engine。
 
 HTTP/TLS 的所有权划清，不让两个实现同时处理同一层协议状态。gRPC/MCP 可作为上层协议适配，不成为所有引擎的必要依赖。Hyper C API 自身不稳定不影响其 Rust库研究价值；如果选用，稳定对外契约由 NativeWeave 明确定义和验证。
 
