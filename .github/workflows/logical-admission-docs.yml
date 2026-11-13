@@ -1,0 +1,49 @@
+name: R07 admission evidence and design integration
+on:
+  push:
+    branches: [research/logical-admission-r07]
+    paths:
+      - experiments/logical-admission/reconcile_docs.py
+      - .github/workflows/logical-admission-docs.yml
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    if: github.repository == 'IzuSharp/NativeWeave-Design' && github.ref == 'refs/heads/research/logical-admission-r07'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Reconcile primary evidence, documented CI rerun and existing contract hash
+        run: |
+          python3 experiments/logical-admission/reconcile_docs.py
+          python3 experiments/native-slices/verify_migration.py
+          git diff --check -- ':!verification/'
+      - name: Commit scoped research and design evidence only
+        run: |
+          python3 - <<'PY'
+          import subprocess
+          allowed={'experiments/logical-admission/README.md','experiments/logical-admission/finalize_docs.py','docs/research/topics/R07/report.md','docs/research/topics/R07/logical-admission.md','docs/contracts/lifetime-v0.1.md','docs/contracts/registry.json','docs/traceability/research-asset-closure.json'}
+          for line in subprocess.check_output(['git','status','--porcelain','--untracked-files=all'],text=True).splitlines():
+              p=line[3:]
+              assert p in allowed or p.startswith('verification/logical-admission/'),p
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add experiments/logical-admission/README.md experiments/logical-admission/finalize_docs.py docs/research/topics/R07 docs/contracts/lifetime-v0.1.md docs/contracts/registry.json docs/traceability/research-asset-closure.json verification/logical-admission
+          git commit -m 'research(R07,D04): integrate executed logical admission and precise native adapter obligations'
+          git push origin HEAD:refs/heads/research/logical-admission-r07
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: logical-admission-design-checks
+          retention-days: 30
+          path: |
+            verification/logical-admission/design-checks.json
+            verification/logical-admission/ci-trigger-correction.json
+            docs/traceability/research-asset-closure.json
