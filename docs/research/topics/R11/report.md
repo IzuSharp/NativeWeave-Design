@@ -1,100 +1,100 @@
-# R11：错误、Rust panic与managed callback异常边界
+# R11: Error, Rust panic and managed-callback exception boundaries
 
 **Current completion (2026-11-13):** source-driven research/design is ready for exact-content independent review. The original dated report below is preserved as a historical increment; its unexecuted statements describe that increment. Current evidence/coverage contain `completion_2026_11_13` and immutable later execution records.
 
-日期：2026-11-12。作者：interop_design。状态：**partially_evidenced；design decision recorded；independent review pending**。交付为[D08 Error契约](../../../contracts/error-v0.1.md)，其中状态编号与基础ErrorRecord是唯一文档权威。代码示例未编译，fatal行为与真实AOT尚未运行。
+Date: 2026-11-12. Author: interop_design. Status: **partially_evidenced; design decision recorded; independent review pending**. The deliverable is the [D08 Error contract](../../../contracts/error-v0.1.md), the sole documentation authority for status numbers and the base ErrorRecord. Code examples are uncompiled; fatal behavior and actual AOT have not yet been executed.
 
-## 1. 输入、需求与非目标
+## 1. Inputs, requirements and non-goals
 
-Design基线`1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan基线`da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。R11 revision `0.1.1`、packet hash `4450ce8ebaea49e3040dcfec110453d2deca4958c633ef16269259d019e1fdd5`；D08 revision `0.1.1`、hash `64665225e71ff86c0dfa9eb006049333de7dc48bbf8c73624218e07ab68320c9`，与固定远端图及本地字节匹配。
+Design baseline `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`; Plan baseline `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`. R11 revision `0.1.1`, packet hash `4450ce8ebaea49e3040dcfec110453d2deca4958c633ef16269259d019e1fdd5`; D08 revision `0.1.1`, hash `64665225e71ff86c0dfa9eb006049333de7dc48bbf8c73624218e07ab68320c9`, matching the pinned remote graphs and local bytes.
 
-普通失败不能越过语言边界unwind，错误报告不能依赖再次成功分配字符串，异步错误不能读到下一调用覆盖的TLS消息，provider领域信息不能被压成无类型文本。必须区分常规错误、契约缺陷、成功捕获的panic和进程致命故障。
+Ordinary failures must not unwind across language boundaries, error reporting must not depend on another successful string allocation, asynchronous errors must not read TLS messages overwritten by the next call, and provider domain information must not be reduced to untyped text. Ordinary errors, contract defects, successfully caught panics and process-fatal faults must be distinguished.
 
-非目标是恢复访问违规、abort、任意堆破坏、双panic或所有OOM；也不承诺将任意Rust/C++异常跨C#运行时安全解栈。普通Rust逻辑用Result，普通C# API使用有类型Exception或领域Result。应用不需要知道native allocator或panic payload布局。
+Non-goals include recovery from access violations, abort, arbitrary heap corruption, double panic or every OOM; safe unwinding of arbitrary Rust/C++ exceptions across the C# runtime is not promised either. Ordinary Rust logic uses Result, and ordinary C# APIs use typed Exceptions or domain Results. Applications need not know native allocators or panic-payload layouts.
 
-## 2. 源码、官方说明和真实覆盖
+## 2. Source, official documentation and actual coverage
 
-| 来源 | 固定身份 | 已读范围 |
+| Source | Pinned identity | Read scope |
 | --- | --- | --- |
-| rust-lang/rust 1.99.1 | `58cf8f9c35b355199727627d07ae34a4e2846d67` | std::panic::catch_unwind说明、panicking实现、panic安全trait测试与3个run-crash测试 |
-| .NET Native AOT官方文档 | 2026-11-12观察，页面更新2026-11-04 | .NET11非法UCO签名与fail-fast限制 |
-| Godot | `069458825a8e4a01938a176372c0709ab6fd9dc3` | SignalAwaiter/GCHandleBridge的UCO内普通异常处理 |
-| YAHA | `c386c1cc48d2e56711c15286cf2769353fdccf07` | TLS验证fail-closed、异步失败传播、native错误字符串与状态 |
+| rust-lang/rust 1.99.1 | `58cf8f9c35b355199727627d07ae34a4e2846d67` | std::panic::catch_unwind documentation, panicking implementation, panic-safety trait tests and 3 run-crash tests |
+| Official .NET Native AOT documentation | Observed 2026-11-12; page updated 2026-11-04 | .NET 11 invalid UCO signatures and fail-fast limitations |
+| Godot | `069458825a8e4a01938a176372c0709ab6fd9dc3` | Ordinary exception handling inside SignalAwaiter/GCHandleBridge UCO methods |
+| YAHA | `c386c1cc48d2e56711c15286cf2769353fdccf07` | Fail-closed TLS validation, asynchronous failure propagation, native error strings and statuses |
 
-源码行段、blob与限制见[evidence.json](evidence.json)。[coverage.json](coverage.json)保留UniFFI错误桥、运行时UCO入口内部和allocator OOM实现未读；没有据官方页面伪造源码commit。上游panic测试源码已读但全未运行。
+See [evidence.json](evidence.json) for source line ranges, blobs and limitations. [coverage.json](coverage.json) retains the unread UniFFI error bridge, runtime-internal UCO entry points and allocator OOM implementations; no source commit was fabricated from an official page. Upstream panic test source was read, but none of those tests were executed.
 
-## 3. Rust普通失败与catch_unwind的真实边界
+## 3. Actual boundaries of ordinary Rust failures and catch_unwind
 
-固定[`std/src/panic.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/src/panic.rs#L290-L360)和[stable catch_unwind文档](https://doc.rust-lang.org/stable/std/panic/fn.catch_unwind.html)说明：catch_unwind只捕获unwinding panic；普通可失败操作应该使用Result；abort不会被恢复；panic hook在捕获前运行；catch foreign exception的结果没有通用可依赖保证；返回的panic payload在销毁时还可能再次panic。[R11-S01、O01]
+Pinned [`std/src/panic.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/src/panic.rs#L290-L360) and the [stable catch_unwind documentation](https://doc.rust-lang.org/stable/std/panic/fn.catch_unwind.html) explain that catch_unwind catches only unwinding panics; ordinary fallible operations should use Result; abort is not recovered; the panic hook runs before the catch; catching a foreign exception has no generally dependable outcome guarantee; and the returned panic payload may panic again when destroyed. [R11-S01, O01]
 
-[`panicking.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/src/panicking.rs#L495-L600)在catch边界用运行时intrinsic与ManuallyDrop状态转交闭包结果/异常payload。这些内部细节说明错误payload也是具有析构责任的owner；不能把返回Err等同于已安全处置所有异常资源。[R11-S02]
+[`panicking.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/src/panicking.rs#L495-L600) uses a runtime intrinsic and ManuallyDrop state at the catch boundary to transfer closure results/exception payloads. These internals show that error payloads are also owners with destruction responsibilities; returning Err is not equivalent to safe disposal of every exception resource. [R11-S02]
 
-NativeWeave选择默认可恢复候选profile为panic=unwind、入口与异步工作边界捕获、捕获后poison所属Engine；常规失败仍走Result。panic=abort只作为显式声明的fatal profile，不能宣称返回NATIVE_PANIC。C-unwind不进入公共C ABI。AssertUnwindSafe不是任意破坏状态的修复许可证，必须逐处说明失败后哪些表示仍成立、哪些cleanup可安全执行。[R11-D01]
+NativeWeave selects panic=unwind as the default recoverable candidate profile, catching at entry and asynchronous-work boundaries and poisoning the owning Engine after a catch; ordinary failures still use Result. panic=abort is only an explicitly declared fatal profile and cannot claim to return NATIVE_PANIC. C-unwind does not enter the public C ABI. AssertUnwindSafe is not a license to repair arbitrary damaged state; each use must explain which representations remain valid after failure and which cleanup can execute safely. [R11-D01]
 
-## 4. 已读测试给出的反例
+## 4. Counterexamples from the tests read
 
-[`panic-in-ffi.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-ffi.rs)为run-crash测试：非unwind FFI内panic不能被想象成普通返回值。它包含析构观察对象并声明预期进程失败。[R11-T01]
+[`panic-in-ffi.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-ffi.rs) is a run-crash test: panic inside non-unwind FFI cannot be imagined as an ordinary return value. It includes an object observing destruction and declares expected process failure. [R11-T01]
 
-[`panic-in-cleanup.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-cleanup.rs)制造unwind途中析构再次panic；该测试对MSVC有特殊忽略说明，因此不能把一条Unix错误输出字符串直接当作Windows验收标准。[R11-T02]
+[`panic-in-cleanup.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-cleanup.rs) triggers another panic during destruction while unwinding; the test has a special MSVC ignore annotation, so a Unix error-output string cannot directly become the Windows acceptance criterion. [R11-T02]
 
-[`panic-in-hook.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-hook.rs)在panic hook中再次panic，给出另一个catch body不能保证恢复的致命路径。[`library/std/tests/panic.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/tests/panic.rs)检查安全trait的静态关系，它不是全部FFI containment的执行证明。[R11-T03、T04]
+[`panic-in-hook.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/tests/ui/panics/panic-in-hook.rs) panics again inside a panic hook, providing another fatal path for which a catch body cannot guarantee recovery. [`library/std/tests/panic.rs`](https://github.com/rust-lang/rust/blob/58cf8f9c35b355199727627d07ae34a4e2846d67/library/std/tests/panic.rs) checks static safety-trait relationships, not execution proof of all FFI containment. [R11-T03, T04]
 
-本轮没有Rust编译器或运行这些测试；“read test source”与“test passed”严格区分。正式验证需在子进程分别覆盖unwind、abort、payload Drop、hook、cleanup double panic，并记录目标工具链、退出码和可移植的行为分类，而非强制跨平台同一错误文本。
+No Rust compiler was available and these tests were not run in this round; “read test source” and “test passed” are strictly distinct. Formal verification must separately cover unwind, abort, payload Drop, hooks and cleanup double panic in subprocesses, recording target toolchains, exit codes and portable behavioral classifications rather than requiring identical error text across platforms.
 
-## 5. managed callback异常与UCO签名
+## 5. Managed callback exceptions and UCO signatures
 
-Godot[`SignalAwaiter`](https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs)和[GCHandleBridge](https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/GCHandleBridge.cs)在UCO方法内处理普通Exception；YAHA的TLS验证callback在普通异常时返回false。它们提供边界containment和fail-closed的实际形状，不代表任何catch都能兜住整个runtime。[R11-S03、S04]
+Godot [`SignalAwaiter`](https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/SignalAwaiter.cs) and [GCHandleBridge](https://github.com/godotengine/godot/blob/069458825a8e4a01938a176372c0709ab6fd9dc3/modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/GCHandleBridge.cs) handle ordinary Exceptions inside UCO methods; YAHA's TLS-validation callback returns false on ordinary exceptions. They provide concrete shapes for boundary containment and fail-closed behavior, not proof that any catch can contain the entire runtime. [R11-S03, S04]
 
-[Native AOT interop官方文档](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/interop)明确描述.NET11：启用runtime marshalling时，native调用含non-blittable参数的非法UCO签名可能触发InvalidProgramException并fail-fast，方法体的catch不能修复签名。[R11-O02] NativeWeave因此采用生成的静态非泛型精确blittable签名，bool/char映射为显式wire类型，错误必须在生成/编译诊断及子进程负例发现。
+The [official Native AOT interop documentation](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/interop) explicitly describes .NET 11: with runtime marshalling enabled, a native call to an invalid UCO signature with nonblittable parameters may trigger InvalidProgramException and fail fast; catch in the method body cannot repair the signature. [R11-O02] NativeWeave therefore uses generated static nongeneric exactly blittable signatures, maps bool/char to explicit wire types, and requires errors to be caught by generation/compilation diagnostics and subprocess negative cases.
 
-边界catch还要考虑解码、日志和finally动作自身可能失败。callback异常记录走已存在context和固定status；错误路径不递归创建大量字符串、Exception或队列Task。StackOverflow、runtime fatal、访问违规与不能继续的OOM保留宿主进程策略，不伪装为普通可恢复失败。
+Boundary catches must also account for failures in decoding, logging and finally actions themselves. Callback exceptions are recorded through existing contexts and fixed statuses; error paths do not recursively create large numbers of strings, Exceptions or queued Tasks. StackOverflow, runtime-fatal faults, access violations and OOM preventing continuation remain subject to host-process policy rather than masquerade as ordinary recoverable failures.
 
-## 6. 基础status与错误布局的选择
+## 6. Choice of base statuses and error layout
 
-| 候选 | 问题 | 选择 |
+| Candidate | Problem | Choice |
 | --- | --- | --- |
-| TLS last-error字符串指针 | 多线程/异步错线程、下一调用覆盖、谁释放不清 | 不用于Core公共错误契约 |
-| 每错误都分配owned文本 | 信息丰富但OOM时可能无法报告原错误 | 仅可选领域详情 |
-| 固定status +固定record | 无需字符串分配即可报告基本失败，易布局验证 | v1基础 |
-| 任意Exception/panic对象跨ABI | 布局/析构/runtime语义不可统一 | 拒绝 |
+| TLS last-error string pointer | Wrong thread under multithreading/async, overwritten by the next call, unclear release responsibility | Not used for Core's public error contract |
+| Allocate owned text for every error | Rich information, but may fail to report the original error under OOM | Optional domain details only |
+| Fixed status + fixed record | Reports basic failure without string allocation; straightforward layout verification | v1 foundation |
+| Arbitrary Exception/panic objects across the ABI | Layout/destruction/runtime semantics cannot be unified | Reject |
 
-D08采用u32 status；0为OK，1=PENDING仅用于声明的try/poll，2=CANCELED仅为已确认终态；其余3～13分别是参数/状态/OOM/能力/容量/callback/panic/poison/契约/超时/领域错误。完整编号只以D08为权威，避免多份表漂移。未知非零失败，不隐式retry。
+D08 uses u32 status: 0 is OK; 1=PENDING only for declared try/poll APIs; 2=CANCELED only for a confirmed terminal state; the remaining 3–13 are argument/state/OOM/capability/capacity/callback/panic/poison/contract/timeout/domain errors, respectively. D08 alone owns the full numbering to avoid drift between duplicate tables. Unknown nonzero values fail without implicit retry.
 
-基础ErrorRecord为`u32 struct_size, u32 domain, i32 code, u32 flags, u64 correlation_id`，x64预期24字节。record没有跨线程借用字符串、TLS error指针或panic对象；callback收到后即时复制。correlation仅用于诊断，不能作为权限或持久内存查询key。C布局探针由R03负责，最终Rust/C#/C三方与AOT仍须实际验证。[R11-D02]
+The base ErrorRecord is `u32 struct_size, u32 domain, i32 code, u32 flags, u64 correlation_id`, expected to occupy 24 bytes on x64. The record has no cross-thread borrowed string, TLS-error pointer or panic object; callbacks copy it immediately on receipt. Correlation is for diagnostics only, not permissions or a persistent-memory lookup key. R03 owns the C-layout probe; final Rust/C#/C agreement and AOT still require actual validation. [R11-D02]
 
-provider详细错误采用typed owned result/UTF-8 payload，遵循D07释放与D06一次take协议。接管失败仍可报告基础status且native保留owner。成功热路径不构造错误字符串；基础错误不因丰富诊断分配失败而丢失。
+Detailed provider errors use typed owned results/UTF-8 payloads, following D07 release and D06 one-time take protocols. Failed takeover still permits basic status reporting while native code retains the owner. The successful hot path constructs no error strings; failure to allocate rich diagnostics does not lose the basic error.
 
-## 7. poison后的既有操作和资源
+## 7. Existing operations and resources after poison
 
-只在spawn/start外包catch_unwind不足以捕获随后worker的panic。每个异步任务的真实执行/轮询边界必须捕获，或由仍可信的supervisor消费任务失败。首次panic原子poison Engine、拒绝新业务；既有操作各自一次发布NATIVE_PANIC/ENGINE_POISONED并请求停止。已完成或effect已知的结果不能被盲目改写；领域保留实际效果知识。
+Wrapping only spawn/start with catch_unwind cannot catch a later worker panic. Every asynchronous task must catch at its actual execution/poll boundary, or a still-trustworthy supervisor must consume its failure. The first panic atomically poisons the Engine and rejects new business work; each existing operation publishes NATIVE_PANIC/ENGINE_POISONED once and requests stop. Completed results or results with known effects must not be blindly overwritten; the domain retains knowledge of actual effects.
 
-stop/cancel/try_retire/release必须仍可进入专用cleanup路径，不走“poison即拒绝一切”的业务门。但不能因为已经向managed发布失败就捏造静默；剩余worker、callback、外部控制调用仍必须排空。若supervisor不再可信或资源表示已破坏，隔离并保留owner/预算，不能强行free来让DisposeAsync假成功。[R11-D01]
+stop/cancel/try_retire/release must remain accessible through dedicated cleanup paths rather than a business gate that “rejects everything when poisoned.” But publishing failure to managed code does not permit fabricated quiescence; remaining workers, callbacks and external control calls must still drain. If the supervisor is no longer trustworthy or resource representations are damaged, isolate and retain owners/budget rather than force a free to make DisposeAsync falsely succeed. [R11-D01]
 
-panic payload的Drop可能再次panic。v1错误返回路径不格式化/不析构未知payload，可在poison路径有意forget并记录quarantine计数；这不是普通无泄漏恢复。Engine关闭新准入，宿主限制隔离Engine数量并决定重启；已有多个并发任务仍可能各自panic，隔离预算需按已接受任务上限计算，不能谎称仅保留一个payload。unknown payload的可达bytes可能不受精确统计，记录对象数与保守未知bytes状态。
+Dropping a panic payload may panic again. The v1 error-return path does not format/destroy unknown payloads; the poison path may deliberately forget them and record quarantine counts, which is not ordinary leak-free recovery. The Engine closes new admission, and the host limits isolated Engine counts and decides on restarts; multiple existing concurrent tasks may still panic separately, so quarantine budget must account for the accepted-task limit rather than falsely claim only one payload is retained. Bytes reachable from an unknown payload may not be precisely counted; record object counts and a conservative unknown-byte state.
 
-known-safe字段的cleanup也需要不会unwind的边界策略；析构double panic、hook panic、allocator abort仍可能终止进程。未来若改为隔离子进程Engine，可加强故障域，但这不是本轮强制新增runtime或产品范围。
+Cleanup of known-safe fields also needs a boundary policy that does not unwind; double panic during destruction, hook panic and allocator abort may still terminate the process. A future isolated subprocess Engine could strengthen the fault domain, but it is not a mandatory new runtime or product scope in this round.
 
-## 8. 失败原子性与场景
+## 8. Failure atomicity and scenarios
 
-create失败保持out owner为空并回滚临时资源；start拒绝不留callback义务；已提交start后的业务错误走terminal。callback本身普通失败返回CALLBACK_FAILED并要求确定停止/失败。结果take成功即转移且native归零；take失败输出为空而native保留owner。错误字符串不是判断是否转移的依据。
+create failure leaves the out owner empty and rolls back temporary resources; start rejection leaves no callback obligations; business errors after committed start go through the terminal path. Ordinary callback failure returns CALLBACK_FAILED and requires a definite stop/failure disposition. Successful result take transfers ownership and zeroes native state; failed take leaves output empty and native code retains the owner. Error strings do not determine whether transfer occurred.
 
-正常示例是C# await返回owned结果、using释放；取消示例是调用者token请求停止而native最终成功/取消仍由终态决定；异常示例是NativeEngineException保留Engine/status/domain/code/correlation，再由应用决定是否重试。D08骨架只展示guard形状，未编译，不能复制其中省略的状态与清理逻辑声称产品实现完成。
+The normal example is C# await returning an owned result released through using; the cancellation example is a caller token requesting stop while the terminal state still determines eventual native success/cancellation; the exception example is NativeEngineException retaining Engine/status/domain/code/correlation so the application decides whether to retry. D08's uncompiled skeleton shows only the guard shape; copying it with its omitted state and cleanup logic does not establish completed product implementation.
 
-## 9. 验证任务与性能账本
+## 9. Verification tasks and performance accounting
 
-D08 ER-01～07映射A02/A04/A06/A07/A14/A15/A18/A20/A21/B22：成功路径无错误分配，所有错误值/未知值映射，error struct容量与版本，OOM与详情接管失败，managed callback普通异常，非法UCO与Rust fatal subprocess，poison后的既有操作一次终态与真实排空，长负载quarantine及资源预算。
+D08 ER-01–07 maps to A02/A04/A06/A07/A14/A15/A18/A20/A21/B22: no error allocations on success paths, mapping every error/unknown value, error-struct capacity and version, OOM and failed detail takeover, ordinary managed-callback exceptions, invalid UCO and Rust fatal subprocesses, one terminal state and actual drain for existing operations after poison, and quarantine/resource budgets under long-running workloads.
 
-分别记录status计数、错误详情分配、panic/poison数、已接受任务数、未退休bytes、quarantine对象/未知bytes、cleanup age和fatal子进程退出行为。不能拿“catch到了panic”的微基准证明完整Engine恢复，也不能把错误日志开销隐藏在成功路径吞吐统计之外。
+Separately record status counts, error-detail allocations, panic/poison counts, accepted task counts, unretired bytes, quarantined objects/unknown bytes, cleanup age and fatal-subprocess exit behavior. A “caught a panic” microbenchmark does not prove full Engine recovery, and error-logging overhead must not be hidden outside successful-path throughput statistics.
 
-Windows/Linux unwind工具链、panic strategy、C调用约定与AOT二进制hash进入正式manifest。R11未执行这些验证；R03的C布局结果也不能代替Rust/C#/AOT的跨语言一致性。
+Windows/Linux unwind toolchains, panic strategy, C calling conventions and AOT binary hashes enter the formal manifest. R11 did not execute these validations; R03 C-layout results also cannot substitute for Rust/C#/AOT cross-language agreement.
 
-## 10. 设计关闭与后续审查
+## 10. Design closure and further review
 
-Q08已有可审查的明确决定：固定错误基础、typed owned详情、普通managed异常containment、unwind捕获后poison、fatal profile显式声明，以及真实cleanup与错误结果分离。独立审查通过后可关闭设计研究问题，同时把ER系列实施和生产验证保持pending。
+Q08 has explicit, reviewable decisions: a fixed error foundation, typed owned details, containment of ordinary managed exceptions, poison after catching unwind, explicit fatal-profile declarations, and separation of actual cleanup from error outcomes. The design research question may close after independent review passes, while ER-series implementation and production validation remain pending.
 
-R03审查ErrorRecord prefix与状态演进；R08审查callback内失败、退出与不重复拥有；R34审查错误隐私、预算和不可信参数；R12审查worker supervisor与poison排空。UniFFI及runtime内部UCO入口未读，任务整体保留partially_evidenced；不把这些缺口隐去或把所有决定留给用户。
+R03 reviews ErrorRecord prefixes and status evolution; R08 reviews failure inside callbacks, exit and prevention of duplicate ownership; R34 reviews error privacy, budgets and untrusted parameters; R12 reviews worker supervisors and draining after poison. UniFFI and runtime-internal UCO entry points remain unread, so the task overall remains partially_evidenced; these gaps are neither hidden nor used to leave every decision to the user.
 
-许可证：Rust固定LICENSE-MIT与LICENSE-APACHE全文已读取；其核心标准库双许可，具体将来复用文件仍遵循各自声明。Godot、YAHA的MIT许可证已读取。报告为机制转述和新的NativeWeave设计，不复制大段源码。
+Licensing: the full pinned Rust LICENSE-MIT and LICENSE-APACHE texts were read; the core standard library is dual-licensed, and particular files reused in future still follow their own declarations. Godot and YAHA MIT licenses were read. This report paraphrases mechanisms and presents new NativeWeave design rather than copy large source passages.
 
 ## Current completion review — Rust1.100 and actual fatal subprocess evidence
 

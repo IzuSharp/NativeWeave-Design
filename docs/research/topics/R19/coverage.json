@@ -6,7 +6,7 @@
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
   },
-  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "coverage_policy": "Actual reading scope at the pinned commit; fetching a complete file does not mean reading the whole file.",
   "paths": [
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -25,7 +25,7 @@
         ]
       ],
       "purpose": "PoolingDataSource.Get/Rent/Return",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -48,7 +48,7 @@
         ]
       ],
       "purpose": "Reset / PerformPostgresCancellation",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -63,7 +63,7 @@
         ]
       ],
       "purpose": "EnableDynamicJson / EnableRecordsAsTuples / EnableUnmappedTypes",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -78,7 +78,7 @@
         ]
       ],
       "purpose": "native AOT smoke sample",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -93,7 +93,7 @@
         ]
       ],
       "purpose": "pool exhaustion / cancellation / reset tests",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/transact-rs/sqlx",
@@ -116,7 +116,7 @@
         ]
       ],
       "purpose": "PoolConnection::drop / Floating::return_to_pool",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -131,7 +131,7 @@
         ]
       ],
       "purpose": "license notice",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -140,8 +140,8 @@
       "blob_sha": "60a1f09daf0c25733f3c9a3ff538c26ff192f20b",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "COPY完成/失败链需B06实施前补读并实测",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "The COPY completion/failure chain requires further reading and actual testing before B06 implementation",
+      "limitation": "The path was confirmed in the pinned tree; its content was not read."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -150,8 +150,8 @@
       "blob_sha": "c9448b19eeb96b3ce03115cde25a103bb74f6488",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "TLS/auth完整链未纳入本轮证据",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "The complete TLS/auth chain is outside this increment's evidence",
+      "limitation": "The path was confirmed in the pinned tree; its content was not read."
     },
     {
       "repository": "https://github.com/transact-rs/sqlx",
@@ -160,7 +160,7 @@
       "blob_sha": "861bf60855b35fa5a4815321c63b6c44fa469320",
       "read_state": "read_complete",
       "purpose": "license review",
-      "limitation": "未复制实现；不声称读过全部依赖许可证。"
+      "limitation": "No implementation was copied; there is no claim to have read all dependency licenses."
     },
     {
       "repository": "https://github.com/SeaQL/sea-orm",

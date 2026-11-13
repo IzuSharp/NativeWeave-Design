@@ -12,7 +12,7 @@
     "path": "research-tasks/R22.md",
     "packet_sha256": "4d1a2391ad586e528cc898985824bc3c3f27381685de53ffe3c5a8263b564b9a"
   },
-  "claim_status_policy": "设计结论可独立审查后解决；本记录不自授accepted，实现验证另列Delivery任务。",
+  "claim_status_policy": "Design conclusions may be resolved after independent review; this record does not grant itself accepted status, and implementation validation is listed separately in Delivery tasks.",
   "claims": [
     {
       "claim_id": "R22-C01",
@@ -33,8 +33,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/Converters/Temporal/PgTimestamp.cs#L1-L44"
         ]
       },
-      "supported_claim": "timestamp编码ticks/10截断额外精度，Infinity与越界有显式分支。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Timestamp encoding uses ticks/10 and truncates excess precision, with explicit branches for Infinity and out-of-range values.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -57,8 +57,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/Converters/Temporal/DateTimeConverterResolver.cs#L1-L120"
         ]
       },
-      "supported_claim": "UTC与timestamp/timestamptz的选择和非法Kind受检查；读取范围只到120行。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "UTC selection for timestamp/timestamptz and invalid Kind are checked; the reading range ends at line 120.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -81,8 +81,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/Converters/Primitive/GuidUuidConverter.cs#L1-L25"
         ]
       },
-      "supported_claim": "UUID二进制读写为16字节big-endian，不能直接复制CLR内部Guid内存布局。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "UUID binary reads/writes use 16-byte big-endian order; the CLR's internal Guid memory layout must not be copied directly.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -105,8 +105,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/test/Npgsql.Tests/Types/DateTimeTests.cs#L245-L281"
         ]
       },
-      "supported_claim": "上游测试覆盖UTC Kind及拒绝Local/Unspecified的timestamptz写入；未运行。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Upstream tests cover UTC Kind and rejection of Local/Unspecified timestamptz writes; they were not run.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -159,8 +159,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/NpgsqlDataReader.cs#L1077-L1227"
         ]
       },
-      "supported_claim": "早停或异常仍需要reader发送/消费/EndUserAction清理。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Early stopping or exceptions still require reader send/consume/EndUserAction cleanup.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -188,8 +188,8 @@
           "https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/src/Dapper.AOT/Internal/AsyncQueryState.cs#L76-L116"
         ]
       },
-      "supported_claim": "异步查询持有租借数组与reader；DisposeAsync归还数组并释放reader。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "An asynchronous query retains a rented array and reader; DisposeAsync returns the array and releases the reader.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -212,8 +212,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/NpgsqlDataSourceBuilder.cs#L140-L225"
         ]
       },
-      "supported_claim": "动态JSON扩展不是默认静态AOT映射保证。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Dynamic JSON extensions do not guarantee default static AOT mapping.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -241,9 +241,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/executor/select.rs#L869-L925"
         ]
       },
-      "supported_claim": "SeaORM Select可into_model/into_partial_model；one/all/stream通过ConnectionTrait/StreamTrait取得QueryResult并调用静态FromQueryResult，Rust ORM执行链是真实的。",
+      "supported_claim": "SeaORM Select supports into_model/into_partial_model; one/all/stream obtain QueryResult through ConnectionTrait/StreamTrait and invoke static FromQueryResult. The Rust ORM execution chain is real.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
@@ -275,9 +275,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_postgres.rs#L328-L354"
         ]
       },
-      "supported_claim": "SeaORM PG默认每query acquire；公开PgRow→QueryResult、PgQueryResult→ExecResult；内部binder使用公开SqlxValues+AssertSqlSafe。公开trait适配可行性是设计分析，不是已编译证明。",
+      "supported_claim": "SeaORM PG acquires per query by default; PgRow→QueryResult and PgQueryResult→ExecResult are public; the internal binder uses public SqlxValues+AssertSqlSafe. Public-trait adaptation feasibility is design analysis, not compiled proof.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
@@ -304,9 +304,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_sqlite.rs#L311-L337"
         ]
       },
-      "supported_claim": "SeaORM SQLite默认每query acquire，query_all用fetch_all；公开SqliteRow/QueryResult与result转换。NW须自己有界collect并保留固定Session lease。",
+      "supported_claim": "SeaORM SQLite acquires per query by default, and query_all uses fetch_all; SqliteRow/QueryResult and result conversions are public. NW must perform its own bounded collect and retain a pinned Session lease.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
@@ -328,9 +328,9 @@
           "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/types/uuid.rs#L1-L38"
         ]
       },
-      "supported_claim": "SQLx PG Uuid编码as_bytes，binary解码from_slice，text解码parse；NW wire需一致字节顺序与验证。",
+      "supported_claim": "SQLx PG Uuid encodes with as_bytes, decodes binary with from_slice and decodes text with parse; NW wire requires consistent byte order and validation.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
@@ -352,9 +352,9 @@
           "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/types/uuid.rs#L1-L86"
         ]
       },
-      "supported_claim": "SQLx SQLite Uuid默认编码16字节BLOB；另外Hyphenated/Simple提供TEXT映射，不能混用schema声明；已读无执行。",
+      "supported_claim": "SQLx SQLite Uuid encodes a 16-byte BLOB by default; Hyphenated/Simple additionally provide TEXT mappings, which must not be mixed with schema declarations; read but not executed.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
@@ -376,9 +376,9 @@
           "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/types/chrono/datetime.rs#L1-L112"
         ]
       },
-      "supported_claim": "SQLx PG chrono以相对PG epoch微秒编码，DateTime用naive_utc；精度/范围和binary日期加法仍需目标domain负例，不能以源码阅读保证全部日期无panic。",
+      "supported_claim": "SQLx PG chrono encodes microseconds relative to the PG epoch, and DateTime uses naive_utc; precision/range and binary date addition still require target-domain negative cases. Source reading cannot guarantee that all dates are panic-free.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {

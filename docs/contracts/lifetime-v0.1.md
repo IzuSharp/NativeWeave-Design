@@ -1,49 +1,49 @@
-# C-LIFETIME-001：所有权、资源租约与回收协议
+# C-LIFETIME-001: Ownership, resource leases and reclamation protocol
 
-版本：0.3.0。任务：D04；研究：R07–R12、R15/R16的完成证据。作者：interop_design。状态：**研究/设计候选已完成；registry记录精确审查版本、内容hash与接受状态；产品验证保留在Delivery阶段**。本文件选择v1协议；研究切片已有明确真实并发与Windows/Linux Native AOT证据，完整产品实施/平台/生产验收仍单独记录。只由整合者在独立审查后更新registry，不由作者自行接受。
+Version: 0.3.0. Task: D04; research: completion evidence for R07–R12 and R15/R16. Author: interop_design. Status: **research/design candidate completed; the registry records the exact reviewed version, content hash and acceptance state; product validation remains in the Delivery phase**. This document selects the v1 protocol; the research slices already have explicit evidence from actual concurrency tests and Windows/Linux Native AOT execution, while full product implementation, platform and production acceptance remain separately recorded. Only the integrator updates the registry after independent review; the author does not self-accept.
 
-## 1. 目标与非目标
+## 1. Goals and non-goals
 
-应用层获得自然的C#资源对象、确定性Dispose/DisposeAsync和取消行为；内部按每个Engine的真实需要管理native所有权。Database / ORM / Server核心底层必须Rust；不需要异步调度的Engine不启动native runtime。资源管理不能依靠调用者记住裸指针有效期，也不能让一个同步压缩函数承担异步服务器的全套调度成本。
+The application layer receives natural C# resource objects, deterministic Dispose/DisposeAsync and cancellation behavior; internally, native ownership is managed according to each Engine's actual needs. The core lower layers of Database / ORM / Server must be Rust; an Engine that does not need asynchronous scheduling does not start a native runtime. Resource management must not depend on callers remembering raw-pointer validity periods, nor impose the full scheduling cost of an asynchronous server on a synchronous compression function.
 
-本契约定义身份、拥有/借用、调用准入、父子引用、跨异步租约、回收条件和关闭责任。它不定义数据库事务已经提交/回滚，也不将native内存静默等同于连接可返池。进程内native代码是同一信任域；本协议不承诺隔离恶意native代码或修复任意内存破坏。
+This contract defines identity, ownership/borrowing, call admission, parent-child references, leases across asynchronous work, reclamation conditions and shutdown responsibilities. It does not define whether a database transaction has committed/rolled back, nor silently equate quiescence of native memory access with eligibility to return a connection to the pool. In-process native code shares the same trust domain; this protocol does not promise to isolate malicious native code or repair arbitrary memory corruption.
 
-## 2. 设计决定与候选比较
+## 2. Design decision and candidate comparison
 
-**v1选择：private opaque pointer + 每种资源的SafeHandle + 明确调用准入 + 按需异步租约。** 普通业务API不暴露`nint`、GCHandle或native allocator。所有权信息进入唯一ABI描述，生成器发射匹配释放路径。
+**v1 choice: private opaque pointer + a SafeHandle for each resource type + explicit call admission + asynchronous leases as needed.** Ordinary business APIs do not expose `nint`, GCHandle or a native allocator. Ownership information enters the single authoritative ABI description, and the generator emits matching release paths.
 
-| 候选 | 收益 | 成本/缺陷 | 决定 |
+| Candidate | Benefits | Costs/limitations | Decision |
 | --- | --- | --- | --- |
-| 每个操作都使用全局代际句柄表 | 可拒绝部分陈旧身份；适合显式复用/不可信整数句柄边界 | 查表、同步、额外间接访问、generation溢出与table生命周期 | 不作为通用v1默认；对池化或跨进程身份另立profile |
-| opaque pointer + SafeHandle | .NET已有拥有/最终释放机制；native布局完全私有 | SafeHandle不解决逻辑关闭、native异步留存和callback静默 | 采用，并补充本契约的独立职责 |
-| 仅托管对象引用或GC.KeepAlive | 低表面复杂度 | 显式Dispose仍可与使用竞争，不能自动保护native异步任务 | 不能作为单独安全机制 |
-| 每次API调用native retain/release | 可支持多个native owner | FFI和原子操作增加；本就同步借用的调用付出额外成本 | 仅共享/跨异步所有权需要时使用 |
+| Global generational handle table for every operation | Can reject some stale identities; suitable for explicit reuse or untrusted integer-handle boundaries | Table lookups, synchronization, extra indirection, generation overflow and table lifetime | Not the general v1 default; define a separate profile for pooled or cross-process identities |
+| opaque pointer + SafeHandle | Existing .NET ownership/final-release mechanism; native layout remains entirely private | SafeHandle does not resolve logical closure, native asynchronous retention or callback quiescence | Adopt, supplemented by the separate responsibilities in this contract |
+| Managed object references or GC.KeepAlive alone | Low surface complexity | Explicit Dispose can still race with use; cannot automatically protect native asynchronous tasks | Cannot serve as the sole safety mechanism |
+| Native retain/release on every API call | Can support multiple native owners | Additional FFI and atomic operations; extra cost for calls that already borrow synchronously | Use only when shared ownership or ownership across asynchronous work requires it |
 
-先采用可审阅的managed短临界区保护准入；以后若真实性能证据需要，可在保持同一线性化语义下替换为计数+关闭位的CAS协议。禁止只为了无锁而引入更复杂的回收机制。
+Initially, protect admission with a short, reviewable managed critical section; if actual performance evidence later requires it, a CAS protocol combining a count and a closing bit may replace it while preserving the same linearization semantics. Introducing a more complex reclamation mechanism solely to be lock-free is prohibited.
 
-## 3. 实际源码依据
+## 3. Actual source basis
 
-[R07报告](../research/topics/R07/report.md)记录固定SHA与行段。.NET11 `SafeHandle`把引用计数、Closed、Disposed放在同一状态字中。`DangerousAddRef`检查Closed，但未以Disposed位禁止所有新引用，因此当其他lease仍存在时，应用逻辑关闭需要自己的准入门。`DangerousGetHandle`只读取地址；单独调用它不会取得使用期引用。
+The [R07 report](../research/topics/R07/report.md) records pinned SHAs and line ranges. .NET 11 `SafeHandle` stores the reference count, Closed and Disposed in the same state word. `DangerousAddRef` checks Closed but does not use the Disposed bit to prohibit all new references, so application-level logical closure needs its own admission gate while other leases still exist. `DangerousGetHandle` only reads the address; calling it alone does not acquire a reference for the duration of use.
 
-Godot的托管对象、refcounted对象、signal awaiter和managed callable分别维护拥有、关联GCHandle、对象身份与释放；这些现实机制说明不同资源关系必须显式表达。其完整引擎对象模型、反射和热重载不作为NativeWeave公共运行时。YAHA的父引用、活动请求和TLS回调生命周期测试提供真实反例场景；其Unity终结器等待不作为本项目默认策略。
+Godot's managed objects, refcounted objects, signal awaiters and managed callables separately maintain ownership, associated GCHandles, object identity and release; these real mechanisms show that different resource relationships must be expressed explicitly. Its full engine object model, reflection and hot reload do not become NativeWeave's public runtime. YAHA's parent-reference, active-request and TLS callback lifetime tests provide actual counterexample scenarios; its Unity finalizer waiting behavior is not this project's default strategy.
 
-## 4. 三种身份与所有权
+## 4. Three forms of identity and ownership
 
-| 对象 | 表达 | 权威与有效期 |
+| Object | Representation | Authority and validity period |
 | --- | --- | --- |
-| native拥有资源 | 私有`nw_<engine>_<kind>*` | 由创建该资源的Engine释放；SafeHandle拥有一个release权 |
-| managed callback context | `uintptr_t cookie` | 由managed创建的强GCHandle标识；native只原样保存/回传，绝不解引用其位值 |
-| borrowed data | D07的pointer+length或领域typed view | 仅在声明的调用/回调范围内；异步留存需另有owner lease |
+| Native-owned resource | Private `nw_<engine>_<kind>*` | Released by the Engine that created the resource; SafeHandle owns one release right |
+| managed callback context | `uintptr_t cookie` | Identified by a strong GCHandle created by managed code; native code only stores/returns it unchanged and never dereferences its bit value |
+| borrowed data | D07 pointer+length or a domain-specific typed view | Only within the declared call/callback scope; asynchronous retention requires a separate owner lease |
 
-每次create成功只交付一个拥有权；失败时out pointer为null。共享所有权使用明确的clone/retain操作或native内部`Arc<State>`，不能以复制指针伪造第二owner。v1不提供公共Detach裸句柄；若特殊互操作profile需要，必须单独定义原子转移与接收者责任。
+Each successful create transfers exactly one ownership right; on failure, the out pointer is null. Shared ownership uses explicit clone/retain operations or a native-internal `Arc<State>`; copying a pointer must not fabricate a second owner. v1 provides no public Detach of a raw handle; if a specialized interop profile needs one, atomic transfer and recipient responsibilities must be defined separately.
 
-所有权保持创建器与释放器配对：不能用C# FreeHGlobal释放Rust Box/Vec，也不能用另一个Engine的release函数释放当前Engine资源。模块加载引用必须至少活到最后一个函数指针调用、callback和资源释放完成。
+Ownership preserves creator/releaser pairing: C# FreeHGlobal must not release a Rust Box/Vec, and another Engine's release function must not release the current Engine's resource. The module-load reference must live at least until the last function-pointer invocation, callback and resource release have completed.
 
-## 5. 准入门、调用租约与线性化点
+## 5. Admission gate, call leases and linearization points
 
-资源至少具有`Open / Closing / Released`逻辑状态。Open→Closing是新的业务调用停止被接受的线性化点。每次调用在同一同步协议下完成“检查Open并取得SafeHandle引用”；随后在锁外执行FFI，finally释放引用。Dispose在同一门下置Closing，再在锁外释放owner引用。
+A resource has at least the logical states `Open / Closing / Released`. Open→Closing is the linearization point after which new business calls stop being accepted. Each call performs “check Open and acquire a SafeHandle reference” under the same synchronization protocol, then executes FFI outside the lock and releases the reference in finally. Dispose sets Closing under the same gate, then releases the owner reference outside the lock.
 
-下面是**未编译的实现骨架**；生成器应生成等价的try/finally，不把可复制的value-type lease暴露给应用：
+The following is an **uncompiled implementation skeleton**; the generator should emit equivalent try/finally logic without exposing a copyable value-type lease to applications:
 
 ```csharp
 internal unsafe int InvokeGenerated(int argument)
@@ -78,66 +78,66 @@ public void Dispose()
 }
 ```
 
-骨架中的`RequestStopIfApplicable`不能取得已被关闭的普通业务准入；必须使用预先持有的内部关闭能力/owner引用，且异常路径仍执行拥有权释放。正式实现要把该方法和错误路径展开验证，不直接复制这个省略实现的示例。关闭标志判断与DangerousAddRef不能拆成两个无同步步骤。
+`RequestStopIfApplicable` in the skeleton cannot acquire ordinary business admission that is already closed; it must use a previously held internal shutdown capability/owner reference, and the exception path must still release ownership. The formal implementation must expand and verify this method and its error paths, rather than directly copy this example with its omitted implementation. The closing-flag check and DangerousAddRef must not be split into two unsynchronized steps.
 
-## 6. 父子资源与独立Engine
+## 6. Parent-child resources and independent Engines
 
-默认：一个成功创建的owned child持有其需要的native parent state引用。父包装对象Dispose拒绝新的父业务调用和新child创建，但已有child的合法访问由自己的owner/lease保持。若某领域定义级联取消，应在其API明确标为cascade，并提供异步drain；不能仅靠managed parent变量仍可达保证安全。
+Default: a successfully created owned child holds a reference to the native parent state it needs. Dispose on the parent wrapper rejects new parent business calls and creation of new children, while existing children's valid access is maintained by their own owners/leases. If a domain defines cascading cancellation, its API should explicitly label it as cascade and provide asynchronous drain; safety cannot rely solely on a managed parent variable remaining reachable.
 
-Rust实现可把对外opaque owner放在独立Box中，child持有内部`Arc<ParentState>`；每个Engine可以使用自己的等价引用机制。C#的一个parent SafeHandle长期DangerousAddRef也可实现同样关系，但所有失败/释放分支必须配平。v1每种child只选一个权威父lease机制，避免managed与native两边互相持有造成不可回收环。
+A Rust implementation may place the externally exposed opaque owner in a separate Box while children hold an internal `Arc<ParentState>`; each Engine may use its own equivalent reference mechanism. A long-lived DangerousAddRef on a C# parent SafeHandle can implement the same relationship, but all failure/release branches must be balanced. v1 selects only one authoritative parent-lease mechanism for each child type, avoiding unreclaimable cycles caused by mutual retention on the managed and native sides.
 
-父state的内存存活不表示父对新业务仍Open。线程亲和资源的最后释放必须交给所属线程/执行器；SafeHandle终结器线程不能直接调用任意GUI/GPU析构。
+A parent state remaining alive in memory does not mean the parent is still Open to new business operations. Final release of a thread-affine resource must be delegated to its owning thread/executor; the SafeHandle finalizer thread cannot directly invoke arbitrary GUI/GPU destructors.
 
-## 7. 异步资源及GCHandle
+## 7. Asynchronous resources and GCHandle
 
-异步操作持有自己需要的owner lease、输入内存lease、callback context强引用以及模块函数表引用。它们直到D06的退休条件成立才释放。托管Task成功/失败/取消是应用可见结果，资源退休是另一状态。
+An asynchronous operation holds the owner leases, input-memory leases, strong callback-context reference and module function-table reference it needs. They are released only when D06's retirement conditions hold. Managed Task success/failure/cancellation is the application-visible outcome; resource retirement is a separate state.
 
-GCHandle采用Normal强引用；它固定目标的可达性，不固定对象地址。native只持有cookie，不能把cookie当作managed对象指针。需要稳定native data地址时用D07明确的pin/owned copy，不从GCHandle的存在推导已经pin。
+GCHandle uses a Normal strong reference; it preserves the target's reachability, not its object address. Native code holds only the cookie and must not treat it as a managed-object pointer. A stable native-data address requires D07's explicit pin/owned copy; the existence of a GCHandle does not imply pinning.
 
-GCHandle可复用，因此“句柄值非零”或`Target != null`不能辨别迟到callback是否指向新的对象。v1通过禁止退休后的callback、确保全部在途回调退出、避免操作context池化来消除正常路径上的复用窗口。代际token只是额外检测，不能替代静默协议。
+GCHandle values can be reused, so “nonzero handle value” or `Target != null` cannot distinguish whether a late callback points to a new object. v1 eliminates the reuse window on normal paths by prohibiting callbacks after retirement, ensuring all in-flight callbacks exit, and avoiding operation-context pooling. A generational token is only an additional check and cannot replace the quiescence protocol.
 
-## 8. 回收不变量
+## 8. Reclamation invariants
 
-对每个资源r与操作o：
+For each resource r and operation o:
 
 - `free_count(r) <= 1`。
 - `native_access(r) => live(r) && valid_owner_or_lease(r)`。
-- `Closing(r)`后新的普通业务准入失败；先取得的租约仍可完成。
-- context回收需要：native已永久关闭callback来源并确认静默；所有managed callback退出；setup明确完成（start返回或从未调用的哨兵）；取消注册已外部排空或明确NoRegistration；在途control-call lease为0。notification订阅另排空/丢弃managed pending队列并等待active user handler结束。
-- 所有借用输入、result和callback参数的释放遵从其自己的ownership终点，不能因Task发布而提前归还ArrayPool或解除pin。
+- After `Closing(r)`, new ordinary business admission fails; previously acquired leases may still complete.
+- Context reclamation requires: native code has permanently closed callback sources and confirmed quiescence; all managed callbacks have exited; setup has explicitly settled (start returned or the sentinel for never called); cancellation registration has been externally drained or is explicitly NoRegistration; in-flight control-call leases are 0. Notification subscriptions also drain/discard the managed pending queue and wait for active user handlers to finish.
+- Every borrowed input, result and callback argument is released at its own ownership endpoint; publishing a Task must not cause an early return to ArrayPool or unpin.
 
-这里`native_obligations`只描述仍会访问当前资源内存或必须在该资源上执行的本地工作。数据库远端提交效果Unknown可以在独立恢复记录中继续存在；它不自动阻止本地安全回收。连接是否可返池由数据库协议另行确认。
+Here, `native_obligations` describes only local work that will still access the current resource's memory or must execute on that resource. An Unknown remote database commit outcome may persist in a separate recovery record; it does not automatically prevent safe local reclamation. The database protocol separately determines whether a connection may return to the pool.
 
-## 9. Dispose、DisposeAsync与终结器
+## 9. Dispose, DisposeAsync and finalizers
 
-同步资源的Dispose可直接完成非阻塞release。异步资源/订阅的Dispose关闭准入并请求停止，返回时允许原生清理仍在进行；公开文档必须说清。**成功完成的DisposeAsync保证本对象规定的callback、取消注册、控制调用和native资源清理均已完成。**
+Dispose on a synchronous resource may directly complete a nonblocking release. Dispose on an asynchronous resource/subscription closes admission and requests stop; native cleanup may still be in progress when it returns, and public documentation must state this clearly. **Successfully completed DisposeAsync guarantees that all callback, cancellation-registration, control-call and native-resource cleanup specified for this object has completed.**
 
-`CloseAsync(CancellationToken)`若提供可取消等待，取消只停止调用者等待；后台清理继续持有全部必要资源，不能强行free。没有进展时应暴露cleanup age、outstanding leases/bytes、pending retire和最后阶段，限制新准入，必要时poison Engine。不能让超时成为内存不安全的释放许可。
+If `CloseAsync(CancellationToken)` provides a cancellable wait, cancellation only stops the caller's wait; background cleanup continues to hold all necessary resources and must not force a free. When progress stops, expose cleanup age, outstanding leases/bytes, pending retirement and the last phase; restrict new admission and poison the Engine if necessary. A timeout must not authorize a memory-unsafe release.
 
-终结器不等待native工作，不运行用户代码，不阻塞执行器关闭。异步context由正在进行的操作/cleanup协调器强引用；终结器只可请求非阻塞停止并把已有拥有权交给预先存在的清理路径。若执行环境已经无法推进，保守保留/隔离资源并记录诊断；不能声称仍保证活性。依D02，v1 native模块保持加载至进程退出，实例关闭不卸载库；未来若提供热卸载，需单独证明无活动资源、函数指针、线程与回调。
+Finalizers do not wait for native work, execute user code or block executor shutdown. Asynchronous contexts are strongly referenced by ongoing operations/cleanup coordinators; a finalizer may only request a nonblocking stop and hand existing ownership to an already established cleanup path. If the execution environment can no longer make progress, conservatively retain/isolate resources and record diagnostics; do not claim that liveness is still guaranteed. Under D02, v1 native modules remain loaded until process exit, and closing an instance does not unload the library; any future hot-unload support must separately prove the absence of active resources, function pointers, threads and callbacks.
 
-## 10. 成本、现代C#与平台
+## 10. Cost, modern C# and platforms
 
-同步热路径成本为一个准入临界区、SafeHandle AddRef/Release、一个FFI调用；无每次GCHandle、全局表或必需native scheduler。异步操作使用一个稳定context及一次GCHandle，实际分配与TCS数量由D06记账。Span/ReadOnlySpan可表达同步借用，不能越过异步留存边界。
+The synchronous hot-path cost is one admission critical section, SafeHandle AddRef/Release and one FFI call; there is no per-call GCHandle, global table or mandatory native scheduler. An asynchronous operation uses one stable context and one GCHandle; D06 accounts for actual allocations and TCS counts. Span/ReadOnlySpan can express synchronous borrowing but cannot cross an asynchronous-retention boundary.
 
-初始真实验收目标为win-x64、linux-x64；指针宽度和自然对齐按D02目标矩阵验证。future Arm64/mobile/线程亲和profile不能套用桌面finalizer假设。函数表静态签名与生成元数据支持AOT；本文件没有实际C#/Rust编译结果。
+The initial actual acceptance targets are win-x64 and linux-x64; pointer width and natural alignment are verified against D02's target matrix. Future Arm64/mobile/thread-affine profiles cannot inherit desktop finalizer assumptions. Static function-table signatures and generated metadata support AOT; this document contains no actual C#/Rust compilation results.
 
-## 11. 实施与验收映射
+## 11. Implementation and acceptance mapping
 
-| 验证ID | 场景与判定 | Delivery |
+| Verification ID | Scenario and criterion | Delivery |
 | --- | --- | --- |
-| LT-01 | 调用取得lease与Dispose并发：旧调用完成，新调用拒绝，free恰好一次 | A03、A20 |
-| LT-02 | 父关闭时child仍活动；创建失败、双Dispose、最后child释放 | A03、A17、A18 |
-| LT-03 | GC压力、终结器、模块卸载；不得调用已卸载函数表或阻塞终结器 | A14、A15、A18 |
-| LT-04 | Task已完成但callback/控制调用/start尚未退出；buffer/context不得先释放 | A07、A19、A20 |
-| LT-05 | 迟到callback、GCHandle复用、错误release函数，隔离进程负例 | A06、A20 |
-| LT-06 | 长期取消/失败/关闭循环，稳定基准后资源计数回到预期界限 | A21、B22 |
+| LT-01 | Call lease acquisition races with Dispose: old calls complete, new calls are rejected, free occurs exactly once | A03, A20 |
+| LT-02 | Children remain active when the parent closes; creation failure, double Dispose, release of the last child | A03, A17, A18 |
+| LT-03 | GC pressure, finalizers, module unloading; no invocation through an unloaded function table or blocking of finalizers | A14, A15, A18 |
+| LT-04 | Task has completed but callback/control call/start has not yet exited; buffer/context must not be released first | A07, A19, A20 |
+| LT-05 | Late callbacks, GCHandle reuse, incorrect release function; negative cases in isolated processes | A06, A20 |
+| LT-06 | Long-running cancellation/failure/shutdown loops; resource counts return within expected bounds after the baseline stabilizes | A21, B22 |
 
-测试需要真实Windows/Linux AOT消费端、固定源码与二进制hash、原始日志、竞争种子和超时。R09有限模型仅支撑抽象协议；真实SafeHandle、内存模型、FFI与线程亲和仍由这些任务证明。
+Tests require actual Windows/Linux AOT consumers, pinned source and binary hashes, raw logs, race seeds and timeouts. R09's finite model supports only the abstract protocol; these tasks still need to demonstrate actual SafeHandle, memory-model, FFI and thread-affinity behavior.
 
-## 12. 决定状态
+## 12. Decision status
 
-Q04的资源安全设计部分可以在独立审查本文件、D05与D06后记录为design-resolved；本地内存静默与远端效果区分已明确。对应实施和生产验证保持pending。Q02中私有指针与代际表的v1选择已有明确建议，其完整ABI接受由D02及独立审查负责。
+The resource-safety design portion of Q04 may be recorded as design-resolved after independent review of this document, D05 and D06; the distinction between quiescence of local memory access and remote effects is now explicit. Corresponding implementation and production validation remain pending. Q02 now has an explicit recommendation for the v1 choice between private pointers and a generational table; D02 and independent review own acceptance of its complete ABI.
 
 
 ## Supplemental execution evidence — logical admission only
@@ -146,13 +146,13 @@ This non-normative update does not change the v0.1.0 admission protocol or accep
 
 See [R07 detailed study](../research/topics/R07/logical-admission.md) for exact source, traces, operation ordering, mutation-lock separation and future Codex test cases. The compiled fixture has no RequestStopIfApplicable, async callback, parent/child, finalizer or module-unload implementation, so those parts of this contract remain unverified by it. Keep native query mutation guards separate, avoid callbacks/await under them, and do not rely on Mutex poisoning for unsafe memory soundness. Research experiment success is not formal A03/A07/B11/B17 implementation or independent acceptance.
 
-## 15. 本次完成复核与实现义务分层（2026-11-13）
+## 15. Completion recheck and separation of implementation obligations (2026-11-13)
 
-保留既有 [logical-admission 证据](../../verification/logical-admission/primary-results.json)：它真实覆盖 Windows/Linux 普通与 Native AOT 的同步准入反例。新增 [interop-completion](../../verification/interop-completion/linux/result.json) 在 Linux 普通与 Native AOT 下控制 native worker 回调持续在途，验证 GCHandle 强根、native quiet 前不回收、一次 take、operation release 后独立 result owner 仍可读，以及 managed 转换抛出时 result release。研究 fixture 的私有状态码与部分手写协调代码不能充当产品 D08 ABI 或完整生成 wrapper。
+Retain the existing [logical-admission evidence](../../verification/logical-admission/primary-results.json): it actually covers the synchronous-admission counterexample in Windows/Linux normal and Native AOT execution. The added [interop-completion](../../verification/interop-completion/linux/result.json) controls native-worker callbacks to remain in flight in Linux normal and Native AOT execution, verifying GCHandle strong rooting, no reclamation before native quiet, one-time take, continued readability of an independent result owner after operation release, and result release when managed conversion throws. The research fixture's private status codes and partly handwritten coordination code cannot serve as the product D08 ABI or a fully generated wrapper.
 
-物理 lease、逻辑准入、可变对象单 writer、结果 ownership、Engine/module ownership 仍分别成立。不能用延迟 free 的 SafeHandle 代替 Open→Closing 准入锁，也不能仅凭 Arc 引用计数声称 worker OS thread 已 join。常规模块进程期常驻；特殊 thread-affine owner 采用 [D09](concurrency-v0.1.md) 专用释放调度，finalizer 不同步等待。
+Physical leases, logical admission, a single writer for mutable objects, result ownership and Engine/module ownership remain separate requirements. A SafeHandle that delays free cannot replace the Open→Closing admission lock, nor can Arc reference counts alone establish that a worker OS thread has joined. Ordinary modules remain resident for the process lifetime; specialized thread-affine owners use [D09](concurrency-v0.1.md)'s dedicated release scheduling, and finalizers do not wait synchronously.
 
-R07 已给出完整研究决策和 scope；非选中 Qt/Python 所有权机制不构成当前 C#/Rust 设计的无期限前置。经独立审查可接受本设计；A03/A04/A20/B01 的完整 parent-child、失配 owner、长期竞争、弱内存、资源归零与产品 package 测试仍是独立义务。
+R07 provides complete research decisions and scope; unselected Qt/Python ownership mechanisms do not constitute indefinite prerequisites for the current C#/Rust design. This design may be accepted after independent review; the full parent-child, mismatched-owner, sustained-race, weak-memory, resource-zeroing and product-package tests in A03/A04/A20/B01 remain separate obligations.
 
 
 ### Committed target evidence

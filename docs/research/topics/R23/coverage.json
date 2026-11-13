@@ -6,7 +6,7 @@
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
   },
-  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "coverage_policy": "Actual reading scope at the pinned commit; fetching a complete file does not mean reading the whole file.",
   "paths": [
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -25,7 +25,7 @@
         ]
       ],
       "purpose": "ExecuteCore / CompileQueryCore",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/DapperLib/DapperAOT",
@@ -48,7 +48,7 @@
         ]
       ],
       "purpose": "Initialize / operation classification / skip branches",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/DapperLib/DapperAOT",
@@ -67,7 +67,7 @@
         ]
       ],
       "purpose": "ExecuteReaderAsync / DisposeAsync",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/DapperLib/DapperAOT",
@@ -82,7 +82,7 @@
         ]
       ],
       "purpose": "license notice",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -91,16 +91,16 @@
       "blob_sha": "d291e0a6bb26bcdaaa59135ee0f671770a1b2307",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "未读完整EF预编译生成，不据局部QueryCompiler评判全部能力",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "Complete EF precompiled generation was not read; the partial QueryCompiler review does not assess its entire capability",
+      "limitation": "The path was confirmed in the pinned tree; its content was not read."
     },
     {
       "repository": "https://github.com/dotnet/roslyn",
       "commit": "b907b90240f9f22873227aa510794dd280d61f57",
       "path": "docs/features/incremental-generators.cookbook.md",
       "read_state": "cross_task_reference_only",
-      "purpose": "R06 generator约束",
-      "limitation": "本专题作者未独立复读。"
+      "purpose": "R06 generator constraints",
+      "limitation": "The author of this topic did not independently reread it."
     },
     {
       "repository": "https://github.com/SeaQL/sea-orm",

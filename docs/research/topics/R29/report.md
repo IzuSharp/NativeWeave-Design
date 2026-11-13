@@ -1,64 +1,64 @@
-# R29 — 字节预算、背压、取消与 graceful shutdown
+# R29 — Byte budgets, backpressure, cancellation and graceful shutdown
 
-历史研究始于 2026-11-12，本次补证至 2026-11-13。当前 packet 及固定输入 hash 见 [evidence.json](evidence.json)。有限 Python 模型、真实 Bytes/Tokio/Body/permit Windows/Linux 实验和新增 native 协议/network/TLS 探针分别有实际记录；完整产品桥与长期负载未实施。研究设计待独立审查。设计已写[D18](../../../server/hosting-and-streaming.md)，Q16建议在独立审查后按设计已解决关闭。
+Historical research began on 2026-11-12, with supplemental evidence through 2026-11-13. See [evidence.json](evidence.json) for the current packet and pinned input hashes. The finite Python model, actual Bytes/Tokio/Body/permit Windows/Linux experiments and new native protocol/network/TLS probes have separate actual records; the complete product bridge and sustained-load work have not been implemented. Research/design awaits independent review. The design is written in [D18](../../../server/hosting-and-streaming.md); Q16 is recommended for closure as resolved at the design level after independent review.
 
-## 1. 要建立的保证
+## 1. Guarantees to establish
 
-负载与恶意慢端不能导致无限body、producer等待、nativechunk、callback或shutdown等待。保证对象分为应用逻辑字节、metadata计数、nativeownedbytes与平台实际RSS；不能用一个channel capacity或request body总长度替代全部指标。
+Load and malicious slow peers must not cause unbounded bodies, producer waits, native chunks, callbacks or shutdown waits. The guarantees distinguish application logical bytes, metadata counts, native-owned bytes and actual platform RSS; a channel capacity or total request-body length cannot substitute for all metrics.
 
-非目标：以有限模型证明任意真实调度；把取消等同物理停止；给所有部署规定同一个RSS数值；本轮实现整个流框架。
+Non-goals: proving arbitrary real scheduling with a finite model; equating cancellation with physical stopping; specifying one RSS figure for every deployment; implementing the entire streaming framework in this round.
 
-## 2. 关键源码调用链
+## 2. Key source call chains
 
-| 固定源码 | 观察 | 设计含义 |
+| Pinned source | Observation | Design implication |
 | --- | --- | --- |
-| Tokio1.54.1 `bounded.rs` send765–825/reserve1070–1126 | send持有value等待reserve；cancel可dropvalue；未用Permit drop返容量 | 先credit再分配，限制等待者；不能只把channel改bounded |
-| Kestrel11 `Http1Connection.cs`110–155 | input/output完成取消RequestAborted；Abort还poison body | body EOF与transport完成/abort必须分开 |
-| Kestrel11 `TransportManager.cs`119–193 | unbind/accept-loop结束→close→abort fallback→dispose | listener、handler、nativecallback及buffer不是同一终点 |
-| Hyper1.12 HTTP1 conn125–149 | graceful要继续poll | 必须有总drain deadline与完成观察 |
+| Tokio1.54.1 `bounded.rs` send765–825/reserve1070–1126 | send holds the value while waiting for reserve; cancellation may drop the value; dropping an unused Permit returns capacity | Acquire credit before allocation and bound waiters; merely making the channel bounded is insufficient |
+| Kestrel11 `Http1Connection.cs`110–155 | Input/output completion cancels RequestAborted; Abort also poisons the body | Body EOF must be separate from transport completion/abort |
+| Kestrel11 `TransportManager.cs`119–193 | unbind/accept-loop completion→close→abort fallback→dispose | Listener, handler, native callbacks and buffers do not share one endpoint |
+| Hyper1.12 HTTP1 conn125–149 | Graceful shutdown requires continued polling | An overall drain deadline and completion observation are required |
 
-SHA/URL/blob均在evidence；本轮只读这些范围。KestrelHTTP2/3、内核socket、TLS、真实allocator未完全研究，见[coverage](coverage.json)。许可证固定识别MIT；无上游实现复制。
+SHAs/URLs/blobs are in evidence; this round read only these ranges. Kestrel HTTP2/3, kernel sockets, TLS and actual allocators were not comprehensively studied; see [coverage](coverage.json). Pinned licenses were identified as MIT; no upstream implementation was copied.
 
-## 3. 选择的资源算法
+## 3. Selected resource algorithm
 
-统一budget协调器同时限制：活动connection、HTTP2stream、应用request、metadatawaiter、每请求payload、全局managed/nativepayload、activeupload及DBlease。固定上限配置不是性能保证；引用D18 profile只是可复现实验起点。
+A unified budget coordinator simultaneously limits active connections, HTTP2 streams, application requests, metadata waiters, per-request payloads, global managed/native payloads, active uploads and DB leases. Configured fixed limits are not performance guarantees; the referenced D18 profile is only a reproducible experimental starting point.
 
-获得credit是允许分配/retain的线性化点。只把item从queue移到consumer不能返credit；必须等最后owner释放。native→managed或managed→nativecopy在两份buffer同时存活时双份计费。取消pendingwaiter归还reservations；取消in-flightconsumer只发意图，不归还仍被访问内存的credit。request完成但native尚未retire的bytes仍占budget。
+Acquiring credit is the linearization point permitting allocation/retention. Moving an item from a queue to a consumer cannot return credit; the last owner must release it first. Native→managed or managed→native copies are charged twice while both buffers are live. Cancelling pending waiters returns reservations; cancelling in-flight consumers conveys intent only and does not return credit for memory still being accessed. Bytes belonging to a completed request whose native resources have not retired still consume budget.
 
-全局/每请求两层资源不能“各拿一半后无限等待”。实现选择单协调器原子授予/取消，或全try-acquire失败时rollback；copy保留有界slack且一次申请两侧预算，禁止满credit状态互相等待copyroom。metadata等待队列有界且做租户公平；溢出在读取业务body前429/503，不创建额外大buffer来保存拒绝前输入。
+The global/per-request resource layers must not each acquire half and wait indefinitely. Implement either atomic grant/cancellation by one coordinator or rollback when an all-resources try-acquire fails; copies retain bounded slack and request both sides' budgets together, prohibiting mutual waits for copy room at full credit. Metadata wait queues are bounded and fair across tenants; overflow returns 429/503 before reading the business body, without allocating additional large buffers to retain pre-rejection input.
 
-pull提供背压：消费者只请求已有credit的最大字节数；read最多一项pending，responsewrite只一项pendingflush，释放ownedchunk/advance后才可继续。异步FFI结果按Corecallback外take_result取得；callbackcontext在native/managed所有义务静止前不得释放。默认安全adapter允许有界copy，不暴露会逃逸的nativeMemory跨await。
+Pull provides backpressure: consumers request at most the bytes for which credit is already available; reads have at most one pending operation, response writes have only one pending flush, and progress continues only after releasing owned chunks/advancing. Async FFI results follow Core's take_result outside callbacks; callback contexts must not be released before all native/managed obligations are quiescent. The default safe adapter permits bounded copies and does not expose escaping native Memory across await.
 
-## 4. 有限模型的实际结果
+## 4. Actual finite-model results
 
-[credit_model.py](credit_model.py)是本轮原创、可独立运行的逻辑模型。三producer尺寸1/2/2、全局credit3、queuecapacity1、单consumer，状态包括waiting/reserved/materialized/queued/consuming/done；cancelin-flight只记录意图，consumerrelease才返credit。
+[credit_model.py](credit_model.py) is an original, independently runnable logical model from this round. Three producers have sizes 1/2/2, global credit is 3, queue capacity is 1, and there is one consumer; states include waiting/reserved/materialized/queued/consuming/done. In-flight cancellation records intent only; credit returns on consumer release.
 
-复现命令：`python docs/research/topics/R29/credit_model.py > docs/research/topics/R29/experiment-result.json`，exit0，stderr为空。环境Python3.12.14、Linux6.18.57 x64/glibc2.41。为完整记录D12要求，最终结果经instrumented wrapper重新执行，实际argv、UTC起止时间和原始流hash在[run-manifest.json](run-manifest.json)，没有补造第一次运行的时间。脚本与stdoutSHA256在evidence的run_manifest；[原始结果](experiment-result.json)保留完整版本及限制。
+Reproduction command: `python docs/research/topics/R29/credit_model.py > docs/research/topics/R29/experiment-result.json`, exit 0, empty stderr. Environment: Python3.12.14, Linux6.18.57 x64/glibc2.41. To record D12 requirements completely, the final result was rerun through an instrumented wrapper; actual argv, UTC start/end times and raw stream hashes are in [run-manifest.json](run-manifest.json). The first run's times were not fabricated retrospectively. Script and stdout SHA256 are in evidence's run_manifest; the [raw result](experiment-result.json) preserves complete versions and limitations.
 
-实际枚举282个reachable states、895个transitions、8个terminal states。每个状态满足 `allocated <= reserved <= 3`、queue<=1、consumer<=1；取消正在消费的item不丢其credit。所有状态存在某条可完成路径。反例同时展示：capacity1、chunk4，queue一个+3个已构造payload的等待producer，保留16单位，而capacity×chunk只有4。
+The actual enumeration found 282 reachable states, 895 transitions and 8 terminal states. Every state satisfies `allocated <= reserved <= 3`, queue<=1 and consumer<=1; cancelling an item being consumed does not lose its credit. Every state has some path to completion. The counterexample also shows capacity 1, chunk 4, one queued item + 3 waiting producers with already-constructed payloads retaining 16 units, while capacity×chunk is only 4.
 
-这只是有限状态安全与存在性可完成路径，不证明任意scheduler公平、真实wake-up不会丢失、OS流量不会永久停滞、nativecopy预算或RSS上限。模型允许抽象原子资源转移，正式实现必须用真实同步原语与竞态测试兑现；不能把模型pass转换成Tokio/.NET/AOT已通过。
+This establishes only finite-state safety and existence of a completion path; it does not prove fairness of arbitrary schedulers, absence of actual lost wakeups, freedom from permanent OS traffic stalls, native copy budgets or RSS bounds. The model permits abstract atomic resource transfers; production implementations must realize them with actual synchronization primitives and race tests. A model pass cannot be converted into a Tokio/.NET/AOT pass.
 
-## 5. 取消、半关闭、期限与drain
+## 5. Cancellation, half-close, deadlines and draining
 
-正常body EOF只终止输入方向，仍可生成response；TCP半关闭/HTTP2reset由transport判定，不能只见read0就一律判请求成功或abort。headers未提交时可写规范错误，已提交后只终结stream；终结不证明客户端读到所有bytes。未读完body提前响应只允许受限drain，超过时限关闭/重置，避免无限吞攻击者数据。
+Normal body EOF ends only the input direction, and a response may still be generated; transport determines TCP half-close/HTTP2 reset. A read returning 0 alone must not always mean request success or abort. Before headers are committed, a standard error may be written; afterward, only the stream is terminated. Termination does not prove the client read all bytes. An early response before the entire body is read permits bounded draining only; close/reset when the limit expires to avoid consuming attacker-controlled data indefinitely.
 
-总request deadline以monotonic时钟计算，排队、DB等待、body与response共同消耗；progress/chunk不续总时间。子deadline取较小剩余额度。DBCOMMIT入线后用独立commitdeadline记录确认或Unknown，HTTPtoken不能改写效果。
+The overall request deadline uses a monotonic clock and is consumed jointly by queueing, DB waits, body and response; progress/chunks do not extend the total time. Child deadlines take the smaller remaining allowance. After DB COMMIT enters the wire, an independent commit deadline records acknowledgement or Unknown; the HTTP token cannot rewrite the effect.
 
-关闭先readiness=false/停止admission，再listenerstop，等待已接受工作至drain deadline；超时abort。nativecallbackquiescence、取消注册释放与controlcall计数仍须完成，无法完成则记录故障隔离并保留owner，不通过free活内存保证准时退出。重复stop共享关闭结果；exporter有最后单独小预算。
+Shutdown first sets readiness=false/stops admission, then stops the listener and waits for accepted work until the drain deadline; timeout triggers abort. Native callback quiescence, cancellation-registration release and control-call accounting must still complete. If they cannot, record fault isolation and retain owners rather than freeing live memory to guarantee timely exit. Repeated stop calls share the shutdown result; exporters receive a final, separate small budget.
 
-## 6. 成本、平台与正式验证
+## 6. Cost, platforms and formal validation
 
-每个creditlease/cancelwaiter有metadata成本，应按活动上限预留/有界分配；不要为每个retry创建Task或timer。较大chunk节省crossings却增驻留和cancel延迟。RSS还含GC、pool、nativeallocator碎片、线程栈、TLS/H2/kernelbuffers；需要观测斜率和稳定平台而不是一次快照。
+Every credit lease/cancellation waiter has metadata cost and should use reserved/bounded allocation based on active limits; do not create a Task or timer for every retry. Larger chunks save crossings but increase residency and cancellation latency. RSS also includes GC, pools, native allocator fragmentation, thread stacks and TLS/H2/kernel buffers; observe slopes and steady plateaus rather than a single snapshot.
 
-| 既有任务 | 必须兑现的反例/证明义务 |
+| Existing task | Counterexamples/proof obligations to satisfy |
 | --- | --- |
-| B16 | 分配前credit、byte与count边界、overflow、boundedwaiter；取消reserve/queue/consume每个窗口；partialconsume、slowclient、未读body、半关闭 |
-| B17 | copy双份计账、Rustownedchunk与managedslab转移、panic/超时、callbackretire；nativeallocator计数 |
-| B20 | admissionclose与completionrace、drain/abort/retire、COMMITUnknown、exporter故障；monotonicdeadline不重置 |
-| B22/B23 | Windows/Linux AOT真流量；24h/72h连接churn、取消风暴、资源趋势；logicalbytes/RSS/CPU/尾延迟分项 |
+| B16 | Credit before allocation, byte and count boundaries, overflow and bounded waiters; cancellation in every reserve/queue/consume window; partial consumption, slow clients, unread bodies and half-close |
+| B17 | Double accounting for copies, Rust-owned chunk/managed slab transfer, panic/timeouts and callback retirement; native allocator counts |
+| B20 | Admission-close/completion races, drain/abort/retire, COMMIT Unknown and exporter faults; monotonic deadlines do not reset |
+| B22/B23 | Actual Windows/Linux AOT traffic; 24h/72h connection churn, cancellation storms and resource trends; separate logical bytes/RSS/CPU/tail latency |
 
-交叉Review：R12核对pin/owner与bytecredit；R07/R08检查retire；R26/R27验证transport完成语义；数据库R21核对Unknown。产品实现状态保持 not-run；已执行研究探针保持其实际范围。设计选择无需等待全部产品测试才成立。
+Cross-review: R12 checks pin/owner and byte credit; R07/R08 examine retirement; R26/R27 validate transport-completion semantics; database R21 checks Unknown. Product implementation remains not-run; executed research probes retain their actual scope. Design choices need not await all product tests to be established.
 
 
 ## Current completion and architecture correction (2026-11-12)

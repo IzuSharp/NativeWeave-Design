@@ -6,7 +6,7 @@
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
   },
-  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "coverage_policy": "Actual reading scope at the pinned commit; fetching a complete file does not mean reading the whole file.",
   "paths": [
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -25,7 +25,7 @@
         ]
       ],
       "purpose": "Commit / Rollback / Dispose / DisposeAsync",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -48,7 +48,7 @@
         ]
       ],
       "purpose": "Reset / EndUserAction / PerformPostgresCancellation",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -87,7 +87,7 @@
         ]
       ],
       "purpose": "Close / Cleanup",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -106,7 +106,7 @@
         ]
       ],
       "purpose": "CheckIdleConnector / Return",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -121,7 +121,7 @@
         ]
       ],
       "purpose": "Clear",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -148,7 +148,7 @@
         ]
       ],
       "purpose": "commit / rollback / dispose tests",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/transact-rs/sqlx",
@@ -171,7 +171,7 @@
         ]
       ],
       "purpose": "PoolConnection::drop / return_to_pool",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/transact-rs/sqlx",
@@ -194,7 +194,7 @@
         ]
       ],
       "purpose": "wait_until_ready / ping",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -203,8 +203,8 @@
       "blob_sha": "0f91bad9d4e7faf2cb3137b13720b1b2d2bca5e1",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "网络read异常全部分支未完整读；实库断连注入待实施",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "Not every network-read exception branch was fully read; real-database disconnection injection remains to be implemented",
+      "limitation": "The path was confirmed in the pinned tree; its content was not read."
     },
     {
       "repository": null,
@@ -213,7 +213,7 @@
       "read_state": "read_document_sections",
       "locator": "61–88",
       "purpose": "§13.2.1 Read Committed",
-      "limitation": "网页可变，记录访问日期；非完整项目源码。"
+      "limitation": "The web page is mutable, so its access date is recorded; it is not the complete project source."
     },
     {
       "repository": null,
@@ -222,7 +222,7 @@
       "read_state": "read_document_sections",
       "locator": "43–56;120–128",
       "purpose": "INSERT RETURNING",
-      "limitation": "网页可变，记录访问日期；非完整项目源码。"
+      "limitation": "The web page is mutable, so its access date is recorded; it is not the complete project source."
     },
     {
       "repository": "https://github.com/transact-rs/sqlx",
@@ -231,7 +231,7 @@
       "blob_sha": "861bf60855b35fa5a4815321c63b6c44fa469320",
       "read_state": "read_complete",
       "purpose": "license review",
-      "limitation": "未复制实现；不声称读过全部依赖许可证。"
+      "limitation": "No implementation was copied; there is no claim to have read all dependency licenses."
     },
     {
       "repository": "https://github.com/SeaQL/sea-orm",

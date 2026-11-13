@@ -63,13 +63,13 @@ A04 tests zero/nonzero spans, no null-reference construction for empty input, al
 
 The actual Interop fixture is NativeWeave commit `4a4adc883b80719d2a9b2bfb03be5ec86b543f3c`, run43363045559. No already-successful original Rust API/SQLite query experiment was rerun for this document. The additional native database/Server source and results are tracked in the recovery checkpoint. These facts narrow design uncertainty without completing production or independent acceptance.
 
-## 13. 本次完成复核与真实复制边界（2026-11-13）
+## 13. Completion recheck and actual copy boundaries (2026-11-13)
 
-[R10 报告与 evidence](../research/topics/R10/report.md) 记录 Bytes1.12.1 精确 `Bytes::from_owner`：先转移 owner，再调用一次 AsRef 取得稳定 view，全部 clone 释放后才析构 owner；转成 BytesMut 会分配并复制。这个公开 API 可以复用 backing-owner 生命周期，却不使任意临时 managed Span 变成长期安全的 native input。
+The [R10 report and evidence](../research/topics/R10/report.md) record the exact Bytes 1.12.1 `Bytes::from_owner` behavior: ownership transfers first, then AsRef is called once to obtain a stable view, and the owner is destroyed only after all clones are released; conversion to BytesMut allocates and copies. This public API can reuse the backing-owner lifetime, but does not turn an arbitrary temporary managed Span into a safe long-lived native input.
 
-[本次 normal/AOT 试验](../../verification/interop-completion/linux/result.json) 验证 u64 extent 的溢出、isize 上界和有限预算，以及独立 owned result 在 operation 释放后仍有效、转换失败 finally 释放。既有 [source-lifecycle 证据](../../verification/source-lifecycle/results.json) 继续支撑 Body 结束与最后 Bytes backing owner 分离；不重复成功运行。
+The [normal/AOT experiment in this round](../../verification/interop-completion/linux/result.json) verifies u64 extent overflow, the isize upper bound and finite budgets, as well as validity of an independent owned result after operation release and finally release on conversion failure. Existing [source-lifecycle evidence](../../verification/source-lifecycle/results.json) continues to support the separation of Body completion from the last Bytes backing owner; successful runs are not repeated.
 
-owned buffer/result 的唯一 allocator/release 必须来自创建它的 Engine，view 只在显式 lease 内有效。native/managed 内存预算分别记录 queued、retained、pinned 和 transferred result，操作预算转移不允许丢失 held-result 字节。初始产品由明确 profile 控制 copy；没有测试证据的路线不得宣称零复制或完整 RSS 有界。经独立审查可接受本设计；A04/A20/B15/B22 的生产 buffer 样式和长期内存测试保留。
+The sole allocator/release pair for an owned buffer/result must come from the Engine that created it, and a view is valid only within an explicit lease. Native/managed memory budgets separately record queued, retained, pinned and transferred-result memory; transferring an operation budget must not lose held-result bytes. Explicit profiles control copying in the initial product; paths without test evidence must not claim zero-copy behavior or fully bounded RSS. This design may be accepted after independent review; production buffer forms and long-running memory tests in A04/A20/B15/B22 remain outstanding.
 
 
 ### Committed target evidence

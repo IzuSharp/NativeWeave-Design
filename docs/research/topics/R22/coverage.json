@@ -6,7 +6,7 @@
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
   },
-  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "coverage_policy": "Actual reading scope at the pinned commit; fetching a complete file does not mean reading the whole file.",
   "paths": [
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -21,7 +21,7 @@
         ]
       ],
       "purpose": "Encode / Decode",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -36,7 +36,7 @@
         ]
       ],
       "purpose": "Get / CreateResolver",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -51,7 +51,7 @@
         ]
       ],
       "purpose": "ReadCore / WriteCore",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -66,7 +66,7 @@
         ]
       ],
       "purpose": "Timestamptz_as_DateTime / Timestamptz_cannot_write_non_utc_DateTime",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -105,7 +105,7 @@
         ]
       ],
       "purpose": "Close / Cleanup",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/DapperLib/DapperAOT",
@@ -124,7 +124,7 @@
         ]
       ],
       "purpose": "ReadAsync / DisposeAsync",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -139,7 +139,7 @@
         ]
       ],
       "purpose": "EnableDynamicJson",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "No claim is made to have read unlisted lines, dependencies or tests."
     },
     {
       "repository": "https://github.com/npgsql/npgsql",
@@ -148,8 +148,8 @@
       "blob_sha": "79a82a1bfab698fe43f48cb3edf1f15fa6eb6e25",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "decimal完整codec及测试未读；本轮只限定设计与SQLite反例",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "The complete decimal codec and tests were not read; this increment is limited to the design and SQLite counterexamples",
+      "limitation": "The path was confirmed in the pinned tree; its content was not read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -158,8 +158,8 @@
       "blob_sha": "bff9059356cca37e74928a3425a959df73a3724c",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "完整migration恢复实现未读；B08须补真实事务与非事务DDL证据",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "The complete migration-recovery implementation was not read; B08 must add actual transactional and nontransactional DDL evidence",
+      "limitation": "The path was confirmed in the pinned tree; its content was not read."
     },
     {
       "repository": "https://github.com/SeaQL/sea-orm",

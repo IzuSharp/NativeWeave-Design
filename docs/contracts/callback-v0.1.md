@@ -1,22 +1,22 @@
-# C-CALLBACK-001：注册、回调准入、撤销与静默
+# C-CALLBACK-001: Registration, callback admission, revocation and quiescence
 
-版本：0.3.0；D05 / R08、R07、R09。作者：interop_design。状态：**研究/设计候选已完成；registry记录精确审查版本、内容hash与接受状态；产品验证保留在Delivery阶段**。本协议定义v1推荐设计，代码样例为未编译设计骨架。实现、AOT和跨平台证据另行验收。
+Version: 0.3.0; D05 / R08, R07, R09. Author: interop_design. Status: **research/design candidate completed; the registry records the exact reviewed version, content hash and acceptance state; product validation remains in the Delivery phase**. This protocol defines the recommended v1 design; code examples are uncompiled design skeletons. Implementation, AOT and cross-platform evidence undergo separate acceptance.
 
-## 1. 需要解决的问题
+## 1. Problems to resolve
 
-callback可能来自外部线程、发生在注册/启动返回前、与取消和Dispose竞争，也可能触发托管异常。注销成功、没有新业务事件、native不再访问cookie、已经进入的回调退出，是不同承诺。
+Callbacks may arrive from external threads, occur before registration/start returns, race with cancellation and Dispose, and trigger managed exceptions. Successful deregistration, absence of new business events, native code no longer accessing the cookie, and exit of callbacks that have already entered are different guarantees.
 
-v1将**请求停止**和**成功退休**分开：请求停止非阻塞、可重入；退休只有在所有相关访问来源永久停止后成功。不会通过在callback线程中同步等待自己退出来实现注销。
+v1 separates **requesting stop** from **successful retirement**: requesting stop is nonblocking and reentrant; retirement succeeds only after all relevant access sources have permanently stopped. Deregistration is not implemented by synchronously waiting for a callback to exit from its own callback thread.
 
-## 2. 来源及适用范围
+## 2. Sources and scope
 
-[R08报告](../research/topics/R08/report.md)提供完整来源。Godot的SignalAwaiter创建强GCHandle，native one-shot callable持有并在析构时释放；managed signal callback复制借用参数、处理普通异常并可能内联执行continuation。YAHA的TLS生命周期测试专门制造Dispose后GCHandle复用场景。这些实现为ownership和重入提供具体参考，但其线程和引擎假设不直接成为本协议。
+The [R08 report](../research/topics/R08/report.md) provides complete sources. Godot's SignalAwaiter creates a strong GCHandle that a native one-shot callable holds and releases on destruction; the managed signal callback copies borrowed arguments, handles ordinary exceptions and may execute continuations inline. YAHA's TLS lifetime tests deliberately create GCHandle reuse after Dispose. These implementations provide concrete references for ownership and reentrancy, but their threading and engine assumptions do not directly become part of this protocol.
 
-.NET11 CancellationTokenRegistration的Dispose/DisposeAsync在自身回调上下文中有避免自等待的例外，因此不能在其内部调用DisposeAsync后就宣布该callback已经退出。[D06](async-v0.1.md)要求清理由独立managed协调路径完成。
+.NET 11 CancellationTokenRegistration Dispose/DisposeAsync has an exception in its own callback context to avoid self-waiting, so calling DisposeAsync from inside that context does not establish that the callback has exited. [D06](async-v0.1.md) requires cleanup through an independent managed coordination path.
 
-## 3. ABI与cookie
+## 3. ABI and cookie
 
-wire类型、状态值和ErrorRecord分别以D02与[D08](error-v0.1.md)为权威。此处名称由生成器加Engine前缀；D02的直接版本化导出为默认入口。仅选择可选函数表profile的Engine通过其`get_api`协商函数表；下面的callback table是start输入记录，不强制Engine导出函数表。
+D02 and [D08](error-v0.1.md) are authoritative for wire types, status values and ErrorRecord, respectively. The generator prefixes names here with the Engine name; D02's directly versioned exports are the default entry points. Only Engines choosing the optional function-table profile negotiate a function table through their `get_api`; the callback table below is a start-input record and does not require an Engine to export a function table.
 
 ```c
 typedef struct nw_subscription nw_subscription;
@@ -40,35 +40,35 @@ uint32_t NW_CDECL nw_subscription_try_retire(nw_subscription *);
 void NW_CDECL nw_subscription_release(nw_subscription *);
 ```
 
-`NW_CDECL`为目标C调用约定宏。指针与表大小按目标ABI计算，不把这张表硬编码成跨32/64位相同尺寸。callback table由native在start提交前复制；不得留存managed栈上table地址。payload是当前回调范围内的借用，长度为D02固定u64字节数，转换为目标地址范围须checked；类型及序列化模式由event_kind对应领域契约定义。异步消费者必须在返回前复制；如领域需要owned结果，callback只记录通知，稍后通过D06的一次typed take接管，不能保留借用指针。
+`NW_CDECL` is the target C calling-convention macro. Pointer and table sizes follow the target ABI; do not hardcode the same table size for 32/64-bit targets. Native code copies the callback table before start commits; it must not retain the address of a table on the managed stack. The payload is borrowed for the current callback scope, with a fixed u64 byte count under D02; conversion to the target address range must be checked. The domain contract corresponding to event_kind defines its type and serialization schema. Asynchronous consumers must copy it before returning; if the domain needs an owned result, the callback only records a notification, and ownership is taken later through D06's one-time typed take, without retaining the borrowed pointer.
 
-cookie来自一个Normal强GCHandle。native只原样回传；不解引用、不做整数递增、不当安全身份或日志里的私人对象信息。非零cookie不构成有效性验证；正常协议保证它在全部可能回调期间有效。v1通用notification payload只借用；需要拥有结果的异步操作采用D06的显式take_result，不在callback成功/失败返回中隐式转交所有权。
+The cookie comes from a Normal strong GCHandle. Native code only returns it unchanged: it does not dereference it, increment it as an integer, use it as a security identity or log it as private object information. A nonzero cookie does not validate it; the normal protocol guarantees its validity throughout all possible callbacks. The general v1 notification payload is borrowed only; asynchronous operations requiring owned results use D06's explicit take_result rather than implicitly transferring ownership in callback success/failure returns.
 
-## 4. 创建、启动与失败原子性
+## 4. Creation, start and failure atomicity
 
-create成功返回一个拥有句柄，但不允许回调。managed随后初始化context、计数器、托管委托/静态函数指针及需要的取消注册，再调用start。start在所有可失败准备完成后执行一次提交：
+A successful create returns an owned handle but does not permit callbacks. Managed code then initializes the context, counters, managed delegates/static function pointers and any required cancellation registration before calling start. start performs one commit after all fallible preparation has completed:
 
-- 提交前失败：没有任何callback已经发生、排队或留存；返回失败，managed可按未启动资源路径释放。
-- 提交后：返回OK，即使业务立即失败；失败由正常事件/终态通道表达。可以在start返回前同步回调。
-- 不允许出现“已回调后start又返回失败且让managed按未接管路径free”的双重责任。
+- Failure before commit: no callback has occurred, been queued or been retained; failure is returned, and managed code may release through the never-started resource path.
+- After commit: return OK even if the business operation fails immediately; failure is conveyed through the normal event/terminal-state channel. A synchronous callback may occur before start returns.
+- The conflicting responsibilities of “a callback has already occurred, but start then returns failure and causes managed code to free through the path for ownership not taken over” are not allowed.
 
-v1不支持更换活动订阅的cookie或函数表。重新注册创建新的subscription/context，旧对象按自己的退休协议结束；避免热替换与ABA成为基础协议负担。
+v1 does not support replacing the cookie or function table of an active subscription. Re-registration creates a new subscription/context, and the old object ends through its own retirement protocol; hot replacement and ABA do not become burdens of the base protocol.
 
-## 5. native回调准入与停止
+## 5. Native callback admission and stop
 
-native具有`Created / Active / StopRequested / Retired`状态及work/callback义务计数。每次准备回调时，必须在native同步协议下确认允许此类回调并计入callback lease；离开临界区再调用managed。回调返回后释放lease。request_stop原子关闭新的普通事件生产，取消/停止在途来源；它不意味着已有callback已返回。
+Native code has `Created / Active / StopRequested / Retired` states and work/callback obligation counts. Before each callback, it must confirm under the native synchronization protocol that this callback class is permitted and account for a callback lease, then leave the critical section before invoking managed code. The lease is released after the callback returns. request_stop atomically closes production of new ordinary events and cancels/stops in-flight sources; it does not mean existing callbacks have returned.
 
-`try_retire`只返回OK或PENDING，除了无效调用等契约错误。OK的线性化点必须同时做到：关闭全部未来callback来源、确认在途callback为0、确认会访问cookie/payload的native work为0，并将Retired永久锁定。它不在锁内调用managed，不等待外部线程，也不触发回调。PENDING不写ErrorRecord。重复try_retire返回OK；Retired之后request_stop为幂等OK。
+`try_retire` returns only OK or PENDING, apart from contract errors such as invalid calls. At the OK linearization point it must simultaneously close all future callback sources, confirm that in-flight callbacks are 0, confirm that native work accessing cookie/payload is 0, and permanently lock in Retired. It does not call managed code under a lock, wait for external threads or trigger callbacks. PENDING does not write ErrorRecord. Repeated try_retire returns OK; after Retired, request_stop is idempotent OK.
 
-release只在Created且从未start，或Retired且没有control call lease时合法。它是非阻塞、不会回调的拥有权释放。违反前置条件是适配器缺陷；不能靠强制free掩盖它。
+release is legal only in Created with start never called, or in Retired with no control-call leases. It is a nonblocking ownership release that does not invoke callbacks. Violating these preconditions is an adapter defect and must not be concealed by forcing a free.
 
-## 6. managed回调入口与普通用户代码
+## 6. Managed callback entry points and ordinary user code
 
-默认notification profile的native入口只做有界校验、必要复制或take通知登记、状态更新与有界排队。公共Task使用异步continuation；公共事件/流由managed dispatcher/IAsyncEnumerable提供，不在外来线程上运行任意业务continuation。队列必须同时限制项数及字节，溢出策略明确为背压、拒绝或领域允许的丢弃，不能静默无限累积。
+The native entry point of the default notification profile performs only bounded validation, necessary copying or registration of a take notification, state updates and bounded enqueueing. Public Tasks use asynchronous continuations; public events/streams are provided by a managed dispatcher/IAsyncEnumerable, without running arbitrary business continuations on foreign threads. Queues must bound both item counts and bytes, with an explicit overflow policy of backpressure, rejection or domain-permitted dropping; silent unbounded accumulation is prohibited.
 
-TLS验证等必须同步返回决策的profile允许显式登记的同步managed handler。该profile要求快速返回、不得await/阻塞等待同一Engine关闭；异常按fail-closed决策返回。它不能自动继承普通通知的线程或吞吐保证。
+Profiles that must return a decision synchronously, such as TLS validation, permit explicitly registered synchronous managed handlers. Such a profile requires a prompt return and prohibits await or blocking while waiting for the same Engine to close; exceptions return a fail-closed decision. It does not automatically inherit the threading or throughput guarantees of ordinary notifications.
 
-领域公开API可返回实现IDisposable/IAsyncDisposable的NativeSubscription，或把它封装在IAsyncEnumerable的enumerator中。示意调用如下；类型及handler为未编译领域占位，不是已经发布的产品API：
+A domain's public API may return a NativeSubscription implementing IDisposable/IAsyncDisposable, or wrap it in an IAsyncEnumerable enumerator. The following illustrates a call; the types and handler are uncompiled domain placeholders, not already published product APIs:
 
 ```csharp
 await using var subscription = engine.Subscribe(HandleEvent, cancellationToken);
@@ -83,9 +83,9 @@ finally
 }
 ```
 
-重复Dispose/DisposeAsync返回同一清理结果，不能二次free。同步Subscribe参数错误可同步抛出，native启动失败由对应NativeEngineException表达；成功开始之后的handler失败经领域subscription completion/error通道可观察，不能只写日志后静默丢失。
+Repeated Dispose/DisposeAsync returns the same cleanup result and must not free twice. Invalid synchronous Subscribe arguments may throw synchronously; native-start failure is represented by the corresponding NativeEngineException. Handler failures after a successful start are observable through the domain subscription completion/error channel and must not be silently lost after only being logged.
 
-UCO入口使用静态、非泛型、精确blittable签名；bool/char不进入wire。普通异常在入口内处理，转换D08状态并记录managed失败；非法签名、内存破坏等致命错误不被宣传为可恢复。生成器必须验证整个函数签名，而非只在方法体加catch。
+UCO entry points use static, nongeneric, exactly blittable signatures; bool/char do not enter the wire format. Ordinary exceptions are handled inside the entry point, converted to D08 statuses and recorded as managed failures; fatal errors such as invalid signatures and memory corruption are not advertised as recoverable. The generator must validate the entire function signature rather than merely add a catch in the method body.
 
 ```csharp
 [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
@@ -116,65 +116,65 @@ private static unsafe uint OnEvent(
 }
 ```
 
-此骨架不证明helper永不抛出；正式实现须检查包含finally、日志、OOM和队列调度失败的路径。失效GCHandle可能指向其他对象甚至产生致命故障，不能把以上catch当作迟到callback的安全方案。
+This skeleton does not prove that helpers never throw; the formal implementation must inspect paths including finally, logging, OOM and queue-scheduling failures. An invalid GCHandle may point to another object or even cause a fatal failure; the catch above cannot serve as a safety strategy for late callbacks.
 
-## 7. 重入、关闭与清理调度
+## 7. Reentrancy, shutdown and cleanup scheduling
 
-在callback内调用Dispose/RequestStop允许：只关闭准入、设置stop请求并安排清理，不等待任何callback。native函数不能持有callback返回所需锁再调用managed；managed准入锁也不跨FFI持有。
+Calling Dispose/RequestStop inside a callback is permitted: it only closes admission, sets the stop request and schedules cleanup, without waiting for any callback. A native function must not call managed code while holding a lock required for the callback to return; the managed admission lock is likewise not held across FFI.
 
-同一订阅callback作用域内调用会等待自身退出的DisposeAsync是使用错误。同步callback profile用生成的线程内CallbackScope检测并拒绝该调用；notification dispatcher对自己的in-flight handler也要检测。若领域支持异步handler，其marker随该handler的异步执行上下文传播，例如专用AsyncLocal scope，不能只用ThreadStatic猜测跨await的身份；纯同步decision profile不收取此额外成本。检测不承诺发现用户主动SuppressFlow、跨线程构造的任意循环等待；文档和失败测试仍禁止callback中同步等待同一资源的drain。
+Calling DisposeAsync within the same subscription's callback scope when it would wait for that scope itself to exit is a usage error. The synchronous callback profile detects and rejects this call through a generated thread-local CallbackScope; the notification dispatcher must likewise detect it for its own in-flight handlers. If a domain supports asynchronous handlers, the marker propagates with the handler's asynchronous execution context, for example through a dedicated AsyncLocal scope; ThreadStatic alone cannot infer identity across await. The purely synchronous decision profile does not pay this additional cost. Detection does not promise to find arbitrary circular waits constructed through deliberate user SuppressFlow or across threads; documentation and failure tests still prohibit synchronously waiting inside a callback for the same resource to drain.
 
-cleanup在callback外执行：送出所需stop并关闭普通managed控制调用准入，保留协调器独占的lifetime capability；等setup明确Settled及注册结果发布；Registered分支调用CancellationTokenRegistration.DisposeAsync并等待它从外部真正结束，NoRegistration分支无需等待未创建的registration；等已取得的control-call lease归零；完成必要的typed结果接管；accepted分支调用native try_retire，Created未启动分支使用无callback义务释放规则；等managed callback计数与下述dispatcher义务归零；释放cookie/借用资源/句柄。Owner关闭不取消协调器处理既有操作的能力，最终release前其native调用也必须全部返回。所有阶段均不持有业务锁跨await。
+Cleanup executes outside callbacks: send any necessary stop and close admission to ordinary managed control calls while retaining the coordinator's exclusive lifetime capability; wait until setup is explicitly Settled and the registration result is published; the Registered branch calls CancellationTokenRegistration.DisposeAsync and waits externally for its actual completion, while NoRegistration does not wait for a registration that was never created; wait for acquired control-call leases to reach zero; complete any necessary typed-result takeover; the accepted branch calls native try_retire, while the never-started Created branch follows release rules with no callback obligations; wait for the managed callback count and the dispatcher obligations below to reach zero; release the cookie, borrowed resources and handle. Owner closure does not revoke the coordinator's ability to process existing operations; all of its native calls must also return before final release. No phase holds a business lock across await.
 
-### 7.1 托管dispatcher是独立的排空维度
+### 7.1 The managed dispatcher is a separate drain dimension
 
-native callback结束不表示已经复制并排队的用户handler已经结束。notification subscription另有`DispatchOpen / DispatchClosing / DispatchDrained`、pending条目/bytes与active-handler计数。dispatcher开始执行handler时，必须在与关闭相同的原子门下检查DispatchOpen并增加active-handler；关门后不得启动新的本订阅handler。
+A native callback ending does not mean a user handler already copied and queued has ended. A notification subscription additionally has `DispatchOpen / DispatchClosing / DispatchDrained`, pending item/byte counts and an active-handler count. When the dispatcher begins a handler, it must check DispatchOpen and increment active-handler under the same atomic gate used by shutdown; after the gate closes, it must not start another handler for this subscription.
 
-v1显式Dispose采用**discard-pending、join-active**：关门时取走所有尚未执行的普通事件条目，归还其已拥有copy/lease与预算；正在执行的handler允许退出，异步handler的计数直到其ValueTask实际完成才归还。已经关门后到达的native通知只完成所需copy/ack或丢弃协议，不调用应用；不能遗失必须交给内部协调器的terminal/error/credit清理消息。若领域要求正常stream EOF前drain所有事件，它可以另外定义drain模式，但不能暗中改变显式Dispose的v1语义。
+Explicit Dispose in v1 uses **discard-pending, join-active**: closing the gate removes all ordinary event entries not yet executed, returning their owned copies/leases and budget; handlers already executing may exit, and an asynchronous handler's count is returned only when its ValueTask actually completes. Native notifications arriving after the gate has closed only complete the required copy/ack or discard protocol and do not call the application; terminal/error/credit cleanup messages that must reach the internal coordinator must not be lost. A domain requiring all events to drain before normal stream EOF may define a separate drain mode, but must not silently change the v1 semantics of explicit Dispose.
 
-成功DisposeAsync同时保证native来源静默、managed取消/control/start清理完成、pending=0且active-handler=0，之后不再开始或继续执行本订阅的任何用户handler。等待active-handler在它自己的调用scope之外完成；检测自等待的规则不变。handler永久挂起时，关闭也不能假成功，须保留context/预算并暴露handler阶段与age；取消等待方不强制销毁仍在用的payload。
+Successful DisposeAsync simultaneously guarantees native-source quiescence, completion of managed cancellation/control/start cleanup, pending=0 and active-handler=0; thereafter no user handler for this subscription starts or continues executing. Waiting for active-handler completion occurs outside its own invocation scope; the self-wait detection rules remain unchanged. If a handler hangs permanently, shutdown must not falsely succeed: retain the context/budget and expose the handler phase and age; cancellation of the waiter does not forcibly destroy a payload still in use.
 
-原生decision profile没有独立排队handler，其user调用由native callback计数涵盖。普通Task的terminal通知不运行用户handler，使用D06预分配terminal latch；不能把订阅dispatcher与Task continuation混成同一个计数。用户自己启动并脱离handler的后台工作不属于框架能join的handler范围，其不得保留已结束借用。
+The native decision profile has no separately queued handler; its user invocation is covered by the native callback count. Terminal notification of an ordinary Task does not run a user handler and uses D06's preallocated terminal latch; the subscription dispatcher and Task continuations must not be conflated into one count. Background work that users start themselves and detach from a handler lies outside the handler scope that the framework can join, and must not retain an expired borrow.
 
-每个使用异步callback的Engine需要一个有界清理协调队列；同步Engine不需要。每个context最多有一个排队清理项，退避重试合并到Engine的一个计时源；不能每次PENDING创建一个无限制Task。调用完成路径和start返回路径都可通知协调器，但通知不是静默证据，最终仍查询try_retire。没有进展时保留拥有权、占用原有预算、暴露阶段与age，停止该Engine新准入；超时不能触发unsafe free。
+Each Engine using asynchronous callbacks needs a bounded cleanup-coordination queue; synchronous Engines do not. Each context has at most one queued cleanup item, and backoff retries are coalesced into one timer source per Engine; an unbounded Task must not be created for every PENDING. Both call-completion paths and start-return paths may notify the coordinator, but a notification is not evidence of quiescence; try_retire is still queried ultimately. If progress stops, retain ownership, continue charging the existing budget, expose phase and age, and stop new admission to that Engine; timeouts must not trigger unsafe free.
 
-## 8. 安全性质与活性假设
+## 8. Safety properties and liveness assumptions
 
-必要性质：`Retired => future_native_callbacks=0`；`callback_access(cookie) => cookie_live`；`free(cookie) => setup_settled && managed_cancel_drained && control_leases=0 && managed_callbacks=0 && native_retired`；每个cookie最多释放一次。notification订阅还要求`DisposeAsyncSuccess => DispatchDrained && pending=0 && active_handlers=0`；具体NoRegistration/StartSkipped初始化哨兵遵从D06，不等待没有发起的步骤。
+Required properties: `Retired => future_native_callbacks=0`; `callback_access(cookie) => cookie_live`; `free(cookie) => setup_settled && managed_cancel_drained && control_leases=0 && managed_callbacks=0 && native_retired`; each cookie is released at most once. Notification subscriptions additionally require `DisposeAsyncSuccess => DispatchDrained && pending=0 && active_handlers=0`; the specific NoRegistration/StartSkipped initialization sentinels follow D06, without waiting for steps never initiated.
 
-活性另外依赖native执行器继续推进、停止请求实际被处理、清理协调器可运行和通知/重试没有永久丢失。仅证明计数为0的安全条件不证明它们最终会达到0。恶意迟到callback不属于可恢复使用错误；生产适配器必须由实测证明不会产生它。
+Liveness additionally depends on the native executor continuing to make progress, stop requests actually being processed, the cleanup coordinator being runnable, and notifications/retries not being permanently lost. Proving only the safety condition that counts are 0 does not prove they will eventually reach 0. A malicious late callback is not a recoverable usage error; production adapters must demonstrate through actual tests that they do not produce one.
 
-## 9. 正常、失败与版本兼容
+## 9. Normal operation, failure and version compatibility
 
-正常：create→初始化→start→事件→request_stop→最后callback返回→try_retire OK→managed排空→release。start失败走未接管清理；handler异常映射失败且stop；Engine poison停止新事件但允许终态/清理通道按D08完成。
+Normal: create→initialize→start→events→request_stop→last callback returns→try_retire OK→managed drain→release. start failure follows cleanup for ownership not taken over; a handler exception maps to failure and stop; Engine poison stops new events but allows terminal/cleanup channels to complete under D08.
 
-callback table只允许追加字段与capability协商；新callback类型不能在旧调用方未声明支持时调用。v1 flags为0，非零保留位拒绝；不读取超出struct_size的字段。不以改变cookie含义或旧event payload布局进行兼容升级。
+The callback table permits only appended fields and capability negotiation; new callback types must not be invoked unless an old caller has declared support. v1 flags are 0, and nonzero reserved bits are rejected; fields beyond struct_size are not read. A compatible upgrade must not change the meaning of the cookie or the layout of an old event payload.
 
-## 10. 验证矩阵与Plan输入
+## 10. Verification matrix and Plan inputs
 
-| ID | 必须制造的交错/故障 | 通过条件 | Delivery |
+| ID | Required interleaving/failure | Pass criterion | Delivery |
 | --- | --- | --- | --- |
-| CB-01 | start内同步回调；回调先完成而start尚未返回 | context保持有效，start返回前不释放句柄 | A06、A07、A20 |
-| CB-02 | stop与callback准入竞争；多线程并发callback | 线性化点明确，全部in-flight计数配平，退役后无callback | A06、A19、A20 |
-| CB-03 | callback内部Dispose、嵌套callback、禁止的自等待、managed队列已有事件/异步handler仍在途 | 非阻塞停止；拒绝自等待；关门后不再启动handler；pending释放且active归零后才关闭成功 | A06、A18 |
-| CB-04 | 取消注册同步调用/回调内自DisposeAsync例外 | 从外部排空后再报告关闭完成 | A07、A19 |
-| CB-05 | GCHandle复用压力、迟到通知和重复终态 | 正常协议无错误目标调用；违规负例在隔离进程可诊断 | A20 |
-| CB-06 | 非blittable UCO、callback抛异常、诊断自身失败 | analyzer拒绝非法签名；普通异常不越ABI；致命负例按预期退出 | A12、A14、A15 |
-| CB-07 | PENDING长期不结束、队列满、执行器停止 | 不UAF、不无限排队，预算与pending年龄可观测 | A08、A21、B22 |
+| CB-01 | Synchronous callback inside start; callback completes before start returns | Context remains valid; handle is not released before start returns | A06, A07, A20 |
+| CB-02 | stop races with callback admission; concurrent callbacks on multiple threads | Explicit linearization point, all in-flight counts balanced, no callbacks after retirement | A06, A19, A20 |
+| CB-03 | Dispose inside a callback, nested callbacks, prohibited self-wait, events already in the managed queue/asynchronous handlers still in flight | Nonblocking stop; reject self-wait; no new handler starts after gate closure; shutdown succeeds only after pending entries are released and active reaches zero | A06, A18 |
+| CB-04 | Synchronous cancellation-registration invocation/self-DisposeAsync exception inside the callback | Report shutdown complete only after external drain | A07, A19 |
+| CB-05 | GCHandle reuse pressure, late notifications and duplicate terminal states | No invocation of the wrong target under the normal protocol; violating negative cases are diagnosable in isolated processes | A20 |
+| CB-06 | Nonblittable UCO, callback throws, diagnostics themselves fail | Analyzer rejects invalid signatures; ordinary exceptions do not cross the ABI; fatal negative cases exit as expected | A12, A14, A15 |
+| CB-07 | PENDING persists indefinitely, queue full, executor stopped | No UAF or unbounded enqueueing; budgets and pending age are observable | A08, A21, B22 |
 
-Windows/Linux真实AOT、CPU架构、compiler/ABI、原始日志和制品hash分别验收。已有Python模型和上游测试源码都不能替代这些记录。
+Actual Windows/Linux AOT, CPU architecture, compiler/ABI, raw logs and artifact hashes undergo separate acceptance. Neither existing Python models nor upstream test source can replace these records.
 
-## 11. 设计研究问题处置
+## 11. Disposition of design research questions
 
-Q04可在独立审查后关闭“采用什么callback回收协议”的设计问题：v1采用独立stop/retire、显式lease、外部managed取消排空和非阻塞清理。验证义务CB-01～07和LT/AS系列继续在A06/A07/A19/A20等任务保持pending。未来引擎只需实现对应能力profile；无需把全部Engine放入同一全局runtime。
+After independent review, Q04 may close the design question of “which callback reclamation protocol to use”: v1 uses separate stop/retire, explicit leases, external managed cancellation drain and nonblocking cleanup. Verification obligations CB-01–07 and the LT/AS series remain pending in tasks such as A06/A07/A19/A20. Future engines need only implement the corresponding capability profile; all Engines need not share one global runtime.
 
-## 14. 本次完成复核与调度边界（2026-11-13）
+## 14. Completion recheck and scheduling boundaries (2026-11-13)
 
-[R08 完成报告](../research/topics/R08/report.md) 保留已有 YAHA/Godot/.NET 源码链，并补入 UniFFI scheduler/future 的精确源码：其外部 continuation 在 mutex 外调用，free/cancel 也可能触发已保存通知，因此不能把某个框架的 free 直接套作 NativeWeave quiet 保证。
+The [R08 completion report](../research/topics/R08/report.md) retains the existing YAHA/Godot/.NET source chain and adds exact UniFFI scheduler/future source: its external continuations are invoked outside the mutex, and free/cancel may also trigger a saved notification, so a framework's free cannot be directly adopted as NativeWeave's quiet guarantee.
 
-[本次真实探针](../../verification/interop-completion/linux/result.json) 在 Linux 普通与 AOT 中各执行 32 次受控 native-thread callback/GC/退休交错；callback 在途时 retire 保持 pending，已返回且 managed 注册排空后才允许回收。探针为制造竞争临时阻塞 callback；生产 callback 必须维持本契约的非阻塞通知行为，不复制该测试屏障。取消 token 已取消时 Register 内同步回调，以及 DisposeAsync 等待在途取消回调也实际执行。
+The [actual probe in this completion round](../../verification/interop-completion/linux/result.json) executes 32 controlled native-thread callback/GC/retirement interleavings in each of Linux normal and AOT execution; retire remains pending while a callback is in flight, and reclamation is permitted only after it has returned and managed registrations have drained. The probe temporarily blocks the callback to construct the race; production callbacks must retain this contract's nonblocking notification behavior and must not copy this test barrier. Synchronous callbacks inside Register when the cancellation token is already cancelled, and DisposeAsync waiting for an in-flight cancellation callback, were also actually executed.
 
-通知 mailbox 的 dirty 与 scheduled 状态须在同一原子状态或同一短锁下修改。worker 清除 scheduled 前必须原子复查 dirty；旧快照不能覆盖新通知。[负例模型](../../verification/interop-completion/mailbox-model.json) 找到 stale-check 丢唤醒；候选仅在其有限顺序一致范围内无反例。完整容量、重试、关闭规则由 [D09](concurrency-v0.1.md) 唯一统筹。独立审查接受研究设计不要求 A06/A20/B14 已完成产品 dispatcher 和长时间压力测试。
+The notification mailbox's dirty and scheduled states must be modified in the same atomic state or under the same short lock. Before clearing scheduled, a worker must atomically recheck dirty; an old snapshot must not overwrite a new notification. The [negative model](../../verification/interop-completion/mailbox-model.json) found a stale-check lost wakeup; the candidate has no counterexample only within its finite sequentially consistent scope. [D09](concurrency-v0.1.md) is the single authority for the complete capacity, retry and shutdown rules. Independent review and acceptance of the research design do not require A06/A20/B14 to have completed the product dispatcher and long-running stress tests.
 
 
 ### Committed target evidence

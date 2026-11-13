@@ -259,9 +259,9 @@ required Rust DB layer. Every buffer/length uses the D07 checked arithmetic and 
 contract; in-process native code is trusted, not sandboxed by a safe language.
 R34 documents resource, malformed-input and diagnostic-data boundaries.
 
-## 5. Diagnostics: C# 默认、跨 FFI 小上下文
+## 5. Diagnostics: C# defaults and small contexts across FFI
 
-默认用 `ActivitySource`、`Meter` 与结构化日志接口；OpenTelemetry exporter 为选装包。dotnet/runtime 11 的 `ActivitySource` 无 listener 时直接不创建 activity，故昂贵 tags、links、formatted strings 应在 enabled/sampling 判断之后创建。`HasListeners` 只是快速判断，不能取代 sampling；无 listener 仍可按配置转发已有 trace context，不需要创建 Activity 对象。
+Use `ActivitySource`, `Meter` and structured logging interfaces by default; OpenTelemetry exporters are optional packages. dotnet/runtime 11 `ActivitySource` does not create an activity when there are no listeners, so expensive tags, links and formatted strings should be created only after enabled/sampling checks. `HasListeners` is only a fast check and cannot replace sampling; even without listeners, existing trace context may be forwarded according to configuration without creating an Activity object.
 
 ### Build configuration and explicit diagnostic modes
 
@@ -278,24 +278,24 @@ The existing cost fixture is a finite **Release Native AOT no-listener** observa
 measure Debug overhead, logging sinks, Meter listeners, enabled tracing, Rust dispatch or export.
 B20 implements this matrix; B23 measures the full selected product workload in these modes.
 
-Engine 入口仅传 optional `TraceContextV1`；不把 `Activity`、`ExecutionContext`、Rust span guard 或 GCHandle 当通用诊断数据跨边界。下面是领域扩展 metadata 的候选布局，非 Core 强制字段，D08 的 `ErrorRecord.correlation_id` 仍只是关联编号：
+Engine entry points pass only optional `TraceContextV1`; `Activity`, `ExecutionContext`, Rust span guards and GCHandles are not general diagnostics data transported across the boundary. The following is a candidate layout for domain-extension metadata, not mandatory Core fields; D08 `ErrorRecord.correlation_id` remains only a correlation number:
 
-| offset | 字段 | wire 类型/约束 |
+| offset | Field | Wire type/constraints |
 | --- | --- | --- |
-| 0 | size | u32，v1 为32，按有界 extension 读取 |
-| 4 | version | u16，v1 为1 |
-| 6 | trace_flags | u8，只保留该 profile 理解的 flags |
+| 0 | size | u32, 32 in v1, read as a bounded extension |
+| 4 | version | u16, 1 in v1 |
+| 6 | trace_flags | u8, retain only flags understood by this profile |
 | 7 | reserved | u8=0 |
-| 8 | trace_id | 16 bytes，W3C 字节次序；全零无效 |
-| 24 | parent_span_id | 8 bytes；全零无效 |
+| 8 | trace_id | 16 bytes, W3C byte order; all zero is invalid |
+| 24 | parent_span_id | 8 bytes; all zero is invalid |
 
-布局仅含固定字节，不含平台指针；本轮独立 C# Native AOT 与 Rust repr(C) 探针均已编译执行 size/offset assertions，原始结果见 `verification/server-completion/diagnostics-local-2` 与 `diagnostics-rust-layout`。它们没有通过真实 FFI 传输该结构，B20 仍需完成 golden bytes、非法字段与实际 callback 路径验证。Engine 不支持此 capability 时忽略，不影响业务结果。可选 tracestate 通过单独有界 UTF-8 元数据传入并在同步入口复制，默认不转发 baggage；完整格式校验按 [W3C Trace Context 1 推荐规范](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) §3.2/§3.3，畸形外部上下文开启新 root 并计数，不当作认证/授权依据。该32-byte layout是本项目领域Adapter选择，不是W3C定义的二进制ABI。跨 ABI 的结构越界仍是契约错误，不容忍非法指针。
+The layout contains only fixed bytes and no platform pointers; this round's independent C# Native AOT and Rust repr(C) probes both compiled and executed size/offset assertions, with raw results in `verification/server-completion/diagnostics-local-2` and `diagnostics-rust-layout`. They did not transfer this structure through actual FFI, so B20 still needs golden bytes, invalid-field and actual-callback-path validation. Engines without this capability ignore it without affecting business results. Optional tracestate is passed as separate bounded UTF-8 metadata and copied at the synchronous entry; baggage is not forwarded by default. Full format validation follows [W3C Trace Context 1 Recommendation](https://www.w3.org/TR/2021/REC-trace-context-1-20211123/) §3.2/§3.3; malformed external context starts a new root and increments a count, and is not used for authentication/authorization. This 32-byte layout is this project's domain Adapter choice, not a W3C-defined binary ABI. Structural out-of-bounds access across the ABI remains a contract error; invalid pointers are not tolerated.
 
-Rust 内部 tracing span 与 managed Activity 共享 trace/parent 关联，不假设 thread-local 能跨 callback/async 迁移；采用 tracing `Instrumented` 与显式 `WithDispatch` 在每次 Future poll 设置/退出 scope，禁止 Span::enter guard 跨 await。领域库不调用 set_global_default 抢占进程 subscriber；完成 callback 只带 operation/correlation ID，在 managed continuation 恢复该请求 scope。重试 child span 必须保留 attempt 编号，数据库 Unknown 为独立可观测事件，不写假 Rollback/Succeeded。采样只影响诊断，不影响资源释放或业务计数。
+Rust tracing spans and managed Activities share trace/parent correlation without assuming thread-local state can migrate across callbacks/async; use tracing `Instrumented` and explicit `WithDispatch` to enter/exit scope on every Future poll, and prohibit a Span::enter guard from spanning await. Domain libraries do not call set_global_default to take over the process subscriber; completion callbacks carry only operation/correlation IDs, with the request scope restored in the managed continuation. Retry child spans must retain attempt numbers; database Unknown is a separately observable event rather than a false Rollback/Succeeded. Sampling affects diagnostics only, not resource release or business counts.
 
-指标 tag 允许 route template、protocol profile、provider、规范化 error category；禁止 request ID、operation ID、SQL 字面值、任意 tool argument 成为无界维度。trace events/attributes 每项长度、每 span 数量、总 exporter queue 与批次大小有界；reference profile 例如每 span 32属性、字符串最大256 UTF-8 bytes、队列2048条，同时限制每条payload。数量界限不是字节/RSS界限。
+Metric tags permit route templates, protocol profiles, providers and normalized error categories; request IDs, operation IDs, SQL literals and arbitrary tool arguments must not become unbounded dimensions. Bound each trace event/attribute length, count per span, total exporter queue and batch size; an example reference profile is 32 attributes per span, strings limited to 256 UTF-8 bytes and a 2048-entry queue, also limiting each entry's payload. Count bounds are not byte/RSS bounds.
 
-OpenTelemetry `BatchExportProcessor.TryExport` 在队列满或自旋失败后 drop 并计数，shutdown 给 worker/exporter 传剩余 timeout。NativeWeave 采用相同故障隔离原则：网络 exporter 不在 FFI callback 或业务锁内阻塞；满队列丢诊断并计 drop，不阻止业务完成。必须实测 callback 最坏耗时与 exporter 故障时CPU，不把“有 bounded queue”当零成本保证。关闭先结束业务/资源，再给 telemetry 有限 flush deadline；无法导出的诊断不得造成永不退出。
+OpenTelemetry `BatchExportProcessor.TryExport` drops and counts entries when the queue is full or spinning fails, and shutdown passes remaining timeouts to the worker/exporter. NativeWeave follows the same fault-isolation principle: network exporters do not block inside FFI callbacks or business locks; full queues drop diagnostics and count drops without preventing business completion. Worst-case callback duration and CPU under exporter failure must be measured; “has a bounded queue” is not a zero-cost guarantee. Shutdown ends business work/resources first, then gives telemetry a finite flush deadline; unexportable diagnostics must not prevent exit indefinitely.
 
 
 ## 6. Acceptance inputs and future Codex implementation

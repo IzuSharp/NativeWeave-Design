@@ -12,7 +12,7 @@
     "path": "research-tasks/R19.md",
     "packet_sha256": "ff0d0303b2b0a58d8d9b7e07b89eecc807af79dd62c3c057a2ff50a504f5e019"
   },
-  "claim_status_policy": "设计结论可独立审查后解决；本记录不自授accepted，实现验证另列Delivery任务。",
+  "claim_status_policy": "Design conclusions may be resolved after independent review; this record does not grant itself accepted status, and implementation validation is listed separately in Delivery tasks.",
   "claims": [
     {
       "claim_id": "R19-C01",
@@ -38,8 +38,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/PoolingDataSource.cs#L445-L455"
         ]
       },
-      "supported_claim": "连接池区分idle取得、容量扩展、异步等待；失败/取消恢复计数，broken/旧generation不可正常复用。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "The connection pool distinguishes idle acquisition, capacity expansion and asynchronous waiting; failure/cancellation restores counters, and broken/old-generation connections cannot be reused normally.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -72,8 +72,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/NpgsqlConnector.cs#L2936-L2993"
         ]
       },
-      "supported_claim": "Reset可预置下一次发送的清理消息；取消请求的发送成功不等于最终取消结果。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Reset may prepare cleanup messages for the next send; successful transmission of a cancellation request does not establish the final cancellation result.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -96,8 +96,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/NpgsqlDataSourceBuilder.cs#L140-L225"
         ]
       },
-      "supported_claim": "已读动态映射扩展有动态代码或裁剪限制，AOT profile需显式选择。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "The dynamic mapping extensions that were read have dynamic-code or trimming restrictions; an AOT profile requires explicit selection.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -120,8 +120,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/test/Npgsql.NativeAotTests/Program.cs#L1-L20"
         ]
       },
-      "supported_claim": "上游有SlimDataSourceBuilder、SELECT、typed读取的小型AOT样例；仅阅读未运行。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Upstream has a small AOT example using SlimDataSourceBuilder, SELECT and typed reads; it was read but not run.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -144,8 +144,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/test/Npgsql.Tests/PoolTests.cs#L47-L143"
         ]
       },
-      "supported_claim": "测试源码覆盖耗尽超时、显式取消测试和会话reset；未执行。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "The test source covers exhaustion timeouts, explicit cancellation tests and session reset; it was not executed.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -178,8 +178,8 @@
           "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-core/src/pool/connection.rs#L271-L369"
         ]
       },
-      "supported_claim": "SQLx池回收涉及异步清理、ping和失败关闭，不是跨FFI免费替代。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "SQLx pool recycling involves asynchronous cleanup, ping and closure on failure; it is not a cost-free replacement across FFI.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null
     },
     {
@@ -201,8 +201,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/LICENSE#L1-L18"
         ]
       },
-      "supported_claim": "已读Npgsql许可保留copyright/permission notice条件；本交付仅原创分析。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "The Npgsql license requirement to retain copyright/permission notices was read; this delivery contains original analysis only.",
+      "limitations": "Only the source ranges actually listed are covered; the existence of source/upstream tests does not mean compilation, execution, Native AOT or production validation occurred in this increment.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -217,8 +217,8 @@
       "locator": {
         "url": "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/LICENSE-MIT"
       },
-      "supported_claim": "已读MIT许可要求保留copyright与permission notice；本交付不复制实现。",
-      "limitations": "不替代未来依赖发布的全部第三方许可证/资产审查。",
+      "supported_claim": "The MIT license that was read requires retaining copyright and permission notices; this delivery does not copy the implementation.",
+      "limitations": "This does not replace a complete third-party license/asset review for future dependency releases.",
       "run_manifest": null
     },
     {
@@ -235,8 +235,8 @@
         "latest_endpoint_tag": "v10.0.3",
         "published_at": "2026-05-27T15:35:59Z"
       },
-      "supported_claim": "所用tag v10.0.3已解析完整commit；latest release端点当前返回v10.0.3。",
-      "limitations": "只证明版本定位；EF11 tag与latest端点v10.0.15不同，不能以endpoint顺序证明最新稳定。SQLitePCL仅metadata，不证明源码、资产或许可审查。",
+      "supported_claim": "The tag used, v10.0.3, was resolved to a full commit; the latest release endpoint currently returns v10.0.3.",
+      "limitations": "This establishes only version identity; the EF11 tag differs from v10.0.15 at the latest endpoint, and endpoint ordering cannot establish the latest stable version. SQLitePCL metadata alone does not establish source, asset or license review.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -259,9 +259,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/Cargo.toml#L1-L195"
         ]
       },
-      "supported_claim": "SeaORM2.0.4声明edition2024/MSRV1.94、SQLx0.9/sea-query-sqlx0.9/SeaQuery~1.0.0及可选feature；这是源码依赖范围，不是已解析Cargo.lock。",
+      "supported_claim": "SeaORM2.0.4 declares edition2024/MSRV1.94, SQLx0.9/sea-query-sqlx0.9/SeaQuery~1.0.0 and optional features; these are source dependency ranges, not a resolved Cargo.lock.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
@@ -288,9 +288,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/connection.rs#L167-L251"
         ]
       },
-      "supported_claim": "公开非sealed ConnectionTrait/StreamTrait允许自有executor；TransactionTrait关联Transaction要求固定点及TransactionSession，nested能力必须显式实现或拒绝。",
+      "supported_claim": "Public, non-sealed ConnectionTrait/StreamTrait permit a custom executor; the Transaction associated type of TransactionTrait requires a fixed point and TransactionSession, and nested capability must be explicitly implemented or rejected.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
@@ -322,9 +322,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_postgres.rs#L328-L354"
         ]
       },
-      "supported_claim": "SeaORM PG默认每query acquire；公开PgRow→QueryResult、PgQueryResult→ExecResult；内部binder使用公开SqlxValues+AssertSqlSafe。公开trait适配可行性是设计分析，不是已编译证明。",
+      "supported_claim": "SeaORM PG acquires per query by default; PgRow→QueryResult and PgQueryResult→ExecResult are public; the internal binder uses public SqlxValues+AssertSqlSafe. Public-trait adaptation feasibility is design analysis, not compiled proof.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
@@ -346,9 +346,9 @@
           "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/transaction.rs#L1-L102"
         ]
       },
-      "supported_claim": "PG TransactionManager通过queue/execute及ready同步维护depth；commit错误不证明未发生提交；start_rollback只安排命令。",
+      "supported_claim": "PG TransactionManager maintains depth through queue/execute and ready synchronization; a commit error does not prove that no commit occurred, and start_rollback only schedules a command.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the listed actual reading ranges are covered; upstream or NativeWeave Rust, C# and AOT were not compiled/run, and design inferences are not upgraded to implementation validation.",
       "run_manifest": null
     },
     {
