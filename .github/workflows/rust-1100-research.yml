@@ -1,0 +1,80 @@
+name: Rust 1.100 source and stable toolchain research
+on:
+  push:
+    branches: [research/source-driven-integration-2026-11-12]
+    paths: [.github/workflows/rust-1100-research.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install exact released stable, not nightly
+        run: |
+          mkdir -p research-output/environment
+          rustup toolchain install 1.100.0 --profile minimal --component rust-src >research-output/environment/install.log 2>&1
+          rustc +1.100.0 -Vv >research-output/environment/rustc.txt
+          cargo +1.100.0 -Vv >research-output/environment/cargo.txt
+          rustup show >research-output/environment/rustup.txt
+          uname -a >research-output/environment/uname.txt
+      - name: Preserve current snapshots and selected primary source files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import datetime,hashlib,io,json,os,pathlib,tarfile,urllib.request
+          out=pathlib.Path('research-output');manifest={'created_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'workflow_head':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'sources':[],'errors':[]}
+          def get(url):
+              headers={'User-Agent':'NativeWeave-R01-research','Accept':'application/vnd.github+json'}
+              if url.startswith('https://api.github.com/'):headers['Authorization']='Bearer '+os.environ['GH_TOKEN']
+              return urllib.request.urlopen(urllib.request.Request(url,headers=headers),timeout=180).read()
+          def save(name,b):
+              p=out/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
+          def capture(url,name):
+              try:b=get(url);save(name,b);return json.loads(b)
+              except Exception as e:manifest['errors'].append({'url':url,'error':str(e)});return None
+          def archive(repo,sha,dest,keep=lambda p:True):
+              url=f'https://codeload.github.com/{repo}/tar.gz/{sha}';raw=get(url);files=[]
+              with tarfile.open(fileobj=io.BytesIO(raw),mode='r:gz') as t:
+                  for m in t.getmembers():
+                      if not m.isfile() or m.size>3000000:continue
+                      rel=pathlib.PurePosixPath(*pathlib.PurePosixPath(m.name).parts[1:])
+                      if not rel.parts or '..' in rel.parts or not keep(str(rel)):continue
+                      b=t.extractfile(m).read()
+                      try:b.decode('utf-8')
+                      except UnicodeDecodeError:continue
+                      save(dest+'/'+str(rel),b);files.append({'path':str(rel),'sha256':hashlib.sha256(b).hexdigest()})
+              manifest['sources'].append({'repo':repo,'commit':sha,'archive_url':url,'archive_sha256':hashlib.sha256(raw).hexdigest(),'files':files,'coverage':'downloaded; not automatically inspected'})
+          rust='0ef1bc386059596dada8fb65b50425aab2ea637a'
+          prefixes=('library/core/src/alloc/','library/core/src/mem/','library/alloc/src/vec/','library/alloc/src/raw_vec/','library/core/tests/','library/alloc/tests/','tests/ui/naked-functions/','tests/ui/never_type/','tests/ui/never-type/','compiler/rustc_abi/','compiler/rustc_session/src/options.rs')
+          exact={'RELEASES.md','library/alloc/src/boxed.rs','library/alloc/src/alloc.rs','library/alloc/src/sync.rs','library/alloc/src/rc.rs','library/alloc/src/lib.rs','library/core/src/convert/mod.rs','library/std/src/alloc.rs','library/std/src/mem.rs'}
+          archive('rust-lang/rust',rust,'upstream/rust',lambda p:p in exact or p.startswith(prefixes))
+          cargo=capture(f'https://api.github.com/repos/rust-lang/rust/contents/src/tools/cargo?ref={rust}','cargo-submodule.json')
+          if cargo and 'sha' in cargo:
+              archive('rust-lang/cargo',cargo['sha'],'upstream/cargo',lambda p:p.startswith(('src/cargo/core/','src/cargo/util/','src/doc/src/reference/','tests/testsuite/')) or p in ('Cargo.toml','Cargo.lock','CHANGELOG.md'))
+          for url,name in [('https://static.rust-lang.org/dist/channel-rust-stable.toml','environment/stable-channel.toml'),('https://static.rust-lang.org/dist/channel-rust-1.100.0.toml','environment/exact-channel.toml'),('https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/','environment/announcement.html')]:
+              try:save(name,get(url))
+              except Exception as e:manifest['errors'].append({'url':url,'error':str(e)})
+          for repo,sha in [('IzuSharp/NativeWeave-Design',os.environ['GITHUB_SHA']),('IzuSharp/Plan','f082d4542dcbb59dad344ae2ab7b4a1126a30988')]:archive(repo,sha,'baseline/'+repo.split('/')[1])
+          r=capture('https://api.github.com/repos/IzuSharp/NativeWeave/commits/main','native-main.json')
+          if r:archive('IzuSharp/NativeWeave',r['sha'],'baseline/NativeWeave')
+          for name in ['sea-query','sea-query-sqlx','sea-orm','sqlx','tokio','hyper','hyper-util','tower','axum','actix-web','actix-server','pingora']:
+              capture('https://crates.io/api/v1/crates/'+name,'registry/'+name+'.json')
+          for repo,pr in [('NativeWeave-Design',5),('Plan',2)]:
+              base='https://api.github.com/repos/IzuSharp/'+repo
+              for endpoint in ['rulesets?includes_parents=true','rules/branches/main','branches/main/protection',f'pulls/{pr}/reviews',f'pulls/{pr}/comments']:
+                  capture(base+'/'+endpoint,'github/'+repo+'/'+endpoint.replace('/','_').replace('?','_')+'.json')
+          save('manifest.json',(json.dumps(manifest,indent=2)+'\n').encode())
+          print(json.dumps({'archives':len(manifest['sources']),'errors':manifest['errors']},indent=2))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rust-1100-primary-inputs
+          path: research-output/
+          retention-days: 14
