@@ -2,23 +2,23 @@
 
 | 项目 | 值 |
 | --- | --- |
-| 契约 | C-SERVER-001，0.2.0-draft |
+| 契约 | C-SERVER-001，0.2.1-draft |
 | 输入任务 | R26、R27、R29；交叉接口 R07/R08/R12/R17/R21、D05/D06/D07/D13/D14/D15 |
 | 基线 | Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5` |
-| 决定状态 | 设计规范0.2.0-draft；本修订待独立Review；接受状态由 registry 中相同内容哈希与独立 Review 确定；所有代码样例未编译；产品实现、Native AOT 和生产验收尚未完成 |
+| 决定状态 | 设计规范0.2.1-draft，proposed；接受状态由 registry 中相同内容哈希与独立 Review 确定；本文 C# API 样例未编译；新增 Rust 有限实验见第9节；完整 Server 产品、Native AOT 和生产验收尚未完成 |
 | 日期 | 2026-11-12 |
 
 ## 1. 需求与边界
 
-默认 Server 使用 .NET 11 Kestrel、ASP.NET Core Minimal API、静态 endpoint 与序列化元数据。普通应用保留 C# `Task`、`async/await`、依赖注入、`HttpContext`、`PipeReader` / `PipeWriter` 体验。仅使用此路径的应用不需要任何 NativeWeave 原生运行时。Native AOT 是发布条件，不以 JIT 单元测试代替。
+.NET 11 Kestrel、ASP.NET Core Minimal API、静态 endpoint 与序列化元数据构成必须研究和实测的 managed 对照，也是候选产品 profile。普通应用保留 C# `Task`、`async/await`、依赖注入及自然的流式开发体验；Kestrel profile 保留 `HttpContext`、`PipeReader` / `PipeWriter`。独立使用该 Server profile 且不引用 Database 的应用不需要 NativeWeave 原生运行时。Native AOT 是发布条件，不以 JIT 单元测试代替。产品默认宿主仍待等价证据选择。
 
-可选 Rust Server 是独立 Engine 包：拥有自己的网络执行器、HTTP 实现和可选 TLS，实现经过能力协商的 portable handler 子集。它不模拟整个 ASP.NET Core feature collection，不承诺任意 middleware、gRPC 或 MCP 包可以无修改迁移。gRPC/MCP 初始正式设计采用 [D19](protocols-and-observability.md) 的 managed Kestrel profile。未来 Engine 不要求修改 Core，Server 专用 capability 也不能进入所有 Engine 的强制基类。
+Rust Server 是另一个候选独立 Engine 包：复用成熟原生网络执行器、HTTP 实现和可选 TLS，实现经过能力协商的 portable handler 子集。它不模拟整个 ASP.NET Core feature collection，不承诺任意 middleware、gRPC 或 MCP 包可以无修改迁移。[D19](protocols-and-observability.md) 中的 gRPC/MCP 方案描述 managed Kestrel profile 的能力；若未来选择其他宿主，这些能力须另外证明、明确替代或排除，不能由协议任务暗中决定全产品宿主。未来 Engine 不要求修改 Core，Server 专用 capability 也不能进入所有 Engine 的强制基类。
 
 非目标：本轮实现 HTTP 栈；默认开启 HTTP/3、WebSocket、CONNECT、动态插件或任意运行时路由发现；声称 Rust 一定更快；将 HTTP 取消解释为数据库回滚。
 
 ## 2. 源码依据与候选比较
 
-精确证据、blob、阅读范围与限制见 [R26](../research/topics/R26/report.md)、[R27](../research/topics/R27/report.md)、[R29](../research/topics/R29/report.md)。本规范没有执行上游 C#/Rust 测试。
+精确证据、blob、阅读范围与限制见 [R26](../research/topics/R26/report.md)、[R27](../research/topics/R27/report.md)、[R29](../research/topics/R29/report.md)及[本次 body retirement 研究](body-retirement-protocol.md)。上游测试源码的阅读不记为执行；本次另写的六项 Rust fixture 实际执行范围见第9节。
 
 | 决策依据 | 已读实现 | 对本设计的约束 |
 | --- | --- | --- |
@@ -29,11 +29,11 @@
 | Rust drain | Hyper 1.12.0 HTTP/1 graceful 要继续 poll connection；Axum 0.8.9 停 accept 后等待连接任务结束 | 必须有外层 monotonic drain deadline；不能 drop future 就声称 graceful |
 | ABI 选择 | Hyper Cargo 标记 C API unstable / no semver | NativeWeave 自己的版本化 Adapter 隔离 Hyper；不直接把 Hyper FFI 当稳定 Core ABI |
 
-Kestrel 是已选择默认方案。裸 sockets 只用于确有特殊协议的独立 Engine，不能以减少抽象为由重新承担 HTTP 安全和兼容成本。Rust/Tokio/Hyper 的架构扩展口保留，但是否发布为推荐后端由 B17/B23 的等价端到端证据决定；在此之前不作吞吐、延迟或内存收益承诺。Q15 的设计问题可按此决定关闭，性能适用范围保留为明确验收义务。
+Kestrel 与 Rust Server 均未被选择为默认产品宿主。R26/R17 的 managed 对照研究必须保留，B15/B17 的产品 profile 选择则由相同协议、功能、硬件和维护范围的证据决定，Q15 保持开放。完整 Server 组合至少选择一个宿主，也允许两个都选；未选 profile 不应成为无条件发布依赖。裸 sockets 只用于确有特殊协议的独立 Engine，不能以减少抽象为由重新承担 HTTP 安全和兼容成本。在比较完成前不作吞吐、延迟或内存收益承诺。
 
 ## 3. 公共 API 与最常见路径
 
-以下是设计草案，未编译或运行。`AddNativeWeaveServer`、`ServerBudgetOptions` 为候选 API；其余框架 API 仍须 B15 在固定 SDK 上编译核验。生成器只补充 NativeWeave 所需预算、契约和诊断，不再复制 RDG 路由绑定系统。
+以下是 Kestrel profile 的设计草案，未编译或运行，不表示已经选定全产品默认宿主。`AddNativeWeaveServer`、`ServerBudgetOptions` 为候选 API；其余框架 API 仍须 B15 在固定 SDK 上编译核验。生成器只补充 NativeWeave 所需预算、契约和诊断，不再复制 RDG 路由绑定系统。
 
 ```csharp
 var builder = WebApplication.CreateSlimBuilder(args);
@@ -85,7 +85,7 @@ public abstract class WeaveHttpContext
 | --- | --- | --- |
 | 收到请求 headers | 解析/鉴权、按 route 与身份做 admission；先拿请求槽，之后才读业务 body | 超额请求不建立 DB session、不积攒 body |
 | 正常处理 | 拉取有 credit 的 body chunk，消费后 advance；响应按 flush 的背压继续 | slow client 不导致无限 queued bytes |
-| body EOF | 只表示请求输入结束；handler 可以继续生成响应 | 上传结束后响应正常完整；不误取消 |
+| body EOF / `poll_frame(None)` | 记录该 Body 的 EndObserved；不能仅凭此推断精确 transport 终止原因、对端消费或全部 byte owner 释放；handler 可按已知协议状态继续响应 | 正常上传结束不误取消；reset/截断由可用 transport 信号分别验证 |
 | TCP 半关闭/stream reset | 由该协议 transport 判定；不能把所有 socket EOF 当 body 正常完成 | HTTP/1 与 HTTP/2 分别验证，无跨 stream 误伤 |
 | headers 尚未提交时出错 | 统一映射有界错误 response；不得泄漏内部 exception、SQL、secret | 状态码/错误码与 trace 关联正确 |
 | headers 已提交后出错 | 终止该 stream/connection，记录终态；不能追加第二个 JSON 错误正文 | 客户端观察截断/协议错误，服务端不假称成功 |
@@ -99,12 +99,13 @@ public abstract class WeaveHttpContext
 定义 `A` 为活动请求上限，`Q` 为仅 metadata 的等待请求上限，`C` 为活动连接上限；`Gm/Gn` 为 managed/native 应用 payload credit，`Br` 为每请求 credit，`K` 为 chunk 最大尺寸。所有计数及长度转换使用 checked 算术；native `size_t` 到 managed 长度不能截断。
 
 1. 创建、复制、pin、retain 任何受预算管理的 buffer **之前**，取得相应 `G` 与 `Br` credit；排队等待只持固定上限 metadata，不持 body。等待者数量也受 `Q` 限制。失去 admission 就尽早拒绝，不能先将 body 收满后拒绝。
-2. credit 绑定 buffer owner 生命周期；从队列移至 handler 不归还，转移所有权不重复增加 credit。只有最后 owner release/ack 后归还。排队条目数、应用 payload byte 数、native retained byte 数分别计数。
+2. credit 绑定 buffer owner 生命周期；从队列移至 handler 不归还，转移所有权不重复增加 credit。仍共享 owner 的 clone 或非空 slice 保留整个 backing allocation 的 charge，不按 slice 可见长度提前归还；空 slice 和深拷贝按真实 owner 关系处理。只有最后 owner release/ack 后归还。排队条目数、应用 payload byte 数、native retained byte 数分别计数。
 3. 跨边界复制时旧/新 buffer 同时存活，两侧都记账；不能将“源已提交给异步写”当作源已释放。读/写各保留一个有界 chunk 的临时 credit，避免拿满全局预算后等待复制 credit 的死锁；已拿一半资源时不得无限等待另一半。
 4. FIFO/租户公平等待只在有界小 metadata 队列中进行；取消移除 waiter 并归还所有 reservation。对既要全局又要请求配额的操作使用统一协调器或可回滚的 try-acquire，禁止循环占有导致死锁。
 5. 全局满时拒绝为 503、租户速率/配额拒绝为 429；适用时提供有界 Retry-After。若 HTTP/2 请求已可识别，仅拒绝其 stream，除非整个连接违反协议或连接预算。接受前的 TCP backlog 是 OS 资源，单独配置/测量。
+6. 关闭逻辑准入后，已发出的 queue permit、正在等待 byte credit 的 producer 和已转交的 byte owner 继续独立记账。`Receiver::close` 不撤销旧 permit，也不自动取消其 byte-credit wait。关闭协调器须显式取消/排空这些等待；期限届满仍 Pending 时保留 roots、budget 和 module owner，不能仅以 channel closed 或 Body EOF 报告资源退休。
 
-逻辑上，受计费 payload 在任意时刻满足 `managed_accounted <= Gm`、`native_accounted <= Gn`、`per_request <= Br`，metadata 至多 `(A + Q)` 份。它不推导 RSS：GC heap 尚未归还页、ArrayPool 保留、native allocator 碎片、线程栈、内核收发缓冲、TLS、HTTP/2 window、日志 exporter 都需要独立上限或观测。Kestrel 默认连接数为无限这一源码事实，正是部署必须显式设置 connection/stream/request 三类限制的原因。
+逻辑上，受计费 payload 在任意时刻满足 `managed_accounted <= Gm`、`native_accounted <= Gn`、`per_request <= Br`，metadata 至多 `(A + Q)` 份。这里 A 的计费槽包含 Closing/retirement-pending 请求：应用 Task 或 Body 终结不能提前归还仍承担 owner/cleanup metadata 的槽。若未来使用独立 retirement 队列，必须另有明确有限额度并相应修订此上界，不能把待清理项移出账本。它不推导 RSS：GC heap 尚未归还页、ArrayPool 保留、native allocator 碎片、线程栈、内核收发缓冲、TLS、HTTP/2 window、日志 exporter 都需要独立上限或观测。Kestrel 默认连接数为无限这一源码事实，正是部署必须显式设置 connection/stream/request 三类限制的原因。
 
 在最低可实现版本，Rust adapter 接收/发送均允许一次有界 copy，使用 managed owned slabs 与 Rust owned chunks。不得让 native 指针映射成可跨 `await` 逃逸的普通 `ReadOnlyMemory`。只有完成单独生命周期证明、生成器逃逸诊断及真实收益验证后，才增加显式 lease 的 zero-copy capability；不改变默认安全路径。
 
@@ -143,7 +144,7 @@ stateDiagram-v2
 
 `StopAsync` 幂等，多调用者等待同一关闭结果；停止后本实例不 restart。Draining 首先 readiness=false，然后关闭应用 admission、停止新连接/新请求，允许已获准工作在剩余 deadline 内完成。请求流、数据库 session/transaction、background outbox worker、diagnostic exporter 各有明确 owner。超时进入 Aborting，发取消/reset 并等待释放；不能为赶上 deadline 提前 free 正在 callback 的 context。若 native 不能达成 quiescence，关闭结果为失败，记录未释放资源并交由进程退出处理，不继续复用其地址或卸载动态库。Exporter 最后使用单独小预算 flush，不能无限延长业务关闭。
 
-TLS 每个入口只由一个层负责。默认 Kestrel 终止 TLS；可选 Rust profile 则 native TLS 负责握手、证书、ALPN、close-notify，并在预算中计其缓冲。代理终止必须显式配置可信代理、转发头及真实身份边界；不盲信任意 `X-Forwarded-*`。证书重载与活跃握手不得悬空引用。HTTP/1.1 与 HTTP/2 分 profile 验收，HTTP/3、QUIC、平台 crypto 差异独立 capability，不由 HTTP/2 成功推断。
+TLS 每个入口只由一个层负责。Kestrel profile 由 Kestrel 终止 TLS；Rust profile 由 native TLS 负责握手、证书、ALPN、close-notify，并在预算中计其缓冲。代理终止必须显式配置可信代理、转发头及真实身份边界；不盲信任意 `X-Forwarded-*`。证书重载与活跃握手不得悬空引用。HTTP/1.1 与 HTTP/2 分 profile 验收，HTTP/3、QUIC、平台 crypto 差异独立 capability，不由 HTTP/2 成功推断。
 
 ## 8. 成本模型、构建与验收
 
@@ -168,7 +169,15 @@ Windows/Linux 各在真实发布二进制上运行；TLS/证书链、socket clos
 | B20 | admission/close/abort 交错模型；drain deadline；服务停止时 in-flight COMMIT Unknown；导出器故障不得阻塞业务 |
 | B22/B23/B24 | 24 小时稳态与 72 小时 release soak 的资源趋势、故障注入、RSS/GC/native/socket 分项、等价性能和平台兼容；阈值基于冻结基线，回归需解释 |
 
-本轮设计已足以决定默认宿主、可选引擎边界、预算算法与关闭协议；真实调度公平、RSS 平台行为和 AOT runtime 仍是上述任务的开放验收项。独立 reviewer 应重点攻击“分配前 credit”“复制时双份记账”“DB Unknown 不被关闭清理改写”“callback quiescence 后才释放”四项，不以尚未运行全产品为由重新打开所有设计决定。
+本轮形成可审查的引擎边界、预算不变量与关闭协议，未决定默认宿主。真实调度公平、组合预算死锁、RSS 平台行为和 Server AOT runtime 仍是上述任务的开放验收项。独立 reviewer 应重点攻击“分配前 credit”“复制时双份记账”“旧 permit 不因关闭自动撤销”“DB Unknown 不被关闭清理改写”“callback quiescence 后才释放”，按实际证据接受局部设计，不将有限 fixture 升级为完整产品证明。
+
+## 9. 本次 source-lifecycle 研究的精确增量
+
+本修订继续 Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` / Plan `04c2f043c0ec60a2d49dd3ca8ea4ad1c8c888d89` 的现有 R27/R29/D18；旧输入版本与 review 仅作为历史来源，不接受本次新内容哈希。
+
+[Body retirement 协议](body-retirement-protocol.md)给出选定源码调用链、候选 Create/Start/Take/Release/Close 操作语义和 SR-LIFE-001–004。新增[六项实验](../../experiments/server-retained-bytes/README.md)实际使用 Bytes/Tokio/Hyper Body trait，验证末次非空 slice 释放、外部 frame 越过 Body EOF、已预留 permit 越过 close，以及取消 byte wait 恢复 slot 等行为。Linux 已执行并由不同 agent 独立复跑；后续 CI 平台结果按各自精确提交和原始记录登记。
+
+Hyper H2 的 `NO_ERROR` → `None` 只达到固定源码阅读级别；当前 fixture 关闭 transport features，没有执行 HTTP/2 网络路径。也没有实现 C# handler bridge、TLS、全局/请求预算协调器或 callback retirement。Public APIs 足以支持当前有限 owner seam，不据此要求默认 fork；如产品需要公共 Body 不暴露的精确终止原因，先定义单独 capability 与实际可用信号，再决定 adapter 或上游扩展。
 
 ## Source-driven native Server seam — D18 / B17
 

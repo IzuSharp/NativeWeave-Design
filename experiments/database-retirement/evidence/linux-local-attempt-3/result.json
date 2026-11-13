@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "scope": "finite-native-sqlite-retirement-research",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "ci": false,
+  "github_run_id": null,
+  "github_head_sha": null,
+  "expected_tests": 6,
+  "passed_test_names": [
+    "canceled_acquire_waiter_does_not_lose_the_only_pool_permit",
+    "dropped_transaction_rolls_back_before_same_connection_reuse",
+    "dropping_dispatched_commit_before_ack_can_still_commit",
+    "early_stream_drop_unblocks_bounded_row_queue_and_reuses_connection",
+    "pool_close_waits_for_checked_out_owner_and_rejects_new_acquire",
+    "progress_cancel_state_is_removed_before_next_operation"
+  ],
+  "tests_exit_code": 0,
+  "input_bytes_unchanged": true,
+  "passed": true,
+  "not_proven": [
+    "PostgreSQL",
+    "C# Native AOT",
+    "hard cancellation deadline",
+    "OS worker JoinHandle",
+    "weak-memory correctness",
+    "production acceptance"
+  ]
+}

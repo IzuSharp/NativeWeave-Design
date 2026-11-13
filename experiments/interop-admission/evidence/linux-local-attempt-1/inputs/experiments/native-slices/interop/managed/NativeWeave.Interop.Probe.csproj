@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PackageId>NativeWeave.Interop.Probe</PackageId>
+    <Version>0.0.1</Version>
+    <Description>Non-production NativeWeave R03/R04/R07/R10 research fixture; not a stable ABI.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(NativeAsset)' != ''">
+    <None Include="$(NativeAsset)" Pack="true" PackagePath="runtimes/$(ProbeRid)/native/" Visible="false" />
+  </ItemGroup>
+</Project>

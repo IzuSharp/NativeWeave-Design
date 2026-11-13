@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "scope": "finite-native-sqlite-retirement-research",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "ci": false,
+  "github_run_id": null,
+  "github_head_sha": null,
+  "expected_tests": 6,
+  "tests_exit_code": 0,
+  "input_bytes_unchanged": true,
+  "passed": true,
+  "not_proven": [
+    "PostgreSQL",
+    "C# Native AOT",
+    "hard cancellation deadline",
+    "OS worker JoinHandle",
+    "weak-memory correctness",
+    "production acceptance"
+  ]
+}

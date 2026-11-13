@@ -233,21 +233,24 @@
     },
     {
       "id": "C-TX-001",
-      "version": "0.2.0-draft",
+      "version": "0.2.1-draft",
       "status": "proposed",
       "title": "事务与迁移语义",
       "evidence": [
         "docs/research/topics/R25/source-driven-seaquery.md",
         "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md"
+        "docs/research/source-driven-evidence/README.md",
+        "docs/database/sqlx-retirement-study.md",
+        "experiments/database-retirement/README.md"
       ],
       "reviewers": [],
       "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "b1b3d710c30d08e927489680b02893e8bc627e23725556822e14164609e31ea5",
+      "content_sha256": "34788328a967205b6d139aa4d613fdb224cde1bf3dca5f4784acc4eb18c09cce",
       "author": "recovery_session",
       "spec_path": "docs/database/transactions-and-pooling.md",
       "dependencies": [],
-      "reviews": []
+      "reviews": [],
+      "version_note": "Source-lifecycle continuation; previous content hashes/reviews remain historical and cannot accept these bytes. Status stays proposed."
     },
     {
       "id": "C-QUERY-001",
@@ -288,21 +291,24 @@
     },
     {
       "id": "C-SERVER-001",
-      "version": "0.2.0-draft",
+      "version": "0.2.1-draft",
       "status": "proposed",
       "title": "服务端请求与生命周期",
       "evidence": [
         "docs/research/topics/R25/source-driven-seaquery.md",
         "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md"
+        "docs/research/source-driven-evidence/README.md",
+        "docs/server/body-retirement-protocol.md",
+        "experiments/server-retained-bytes/README.md"
       ],
       "reviewers": [],
       "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "dcccef2e3575ba328cdfafc63ce3a384e050f3c08babf4091301041503c793ce",
+      "content_sha256": "9acf2b3bd464815ac0bb66700ee0c5c8791fa3772f7b0fbe54736e59e2f47358",
       "author": "recovery_session",
       "spec_path": "docs/server/hosting-and-streaming.md",
       "dependencies": [],
-      "reviews": []
+      "reviews": [],
+      "version_note": "Source-lifecycle continuation; previous content hashes/reviews remain historical and cannot accept these bytes. Status stays proposed."
     },
     {
       "id": "C-PROTOCOL-001",

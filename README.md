@@ -2,9 +2,9 @@
 
 # NativeWeave Design
 
-> 2026-11-12 首次研究启动包，状态 **research-bootstrap / proposed**。这里是 NativeWeave 唯一正式研究与设计仓库，但本分支中的候选设计尚未成为 accepted 产品规范。
+> 2026-11-12 研究与详细设计续接，状态 **research / proposed**。这里保存源码研究、真实实验与证据；候选设计尚未成为 accepted 产品规范。当前进度见[生命周期续接检查点](docs/traceability/source-lifecycle-followup.md)。
 
-NativeWeave 的目标是让应用开发者主要使用现代 C#，通过 Native AOT 与按需选用的独立 Rust Native Engine，获得可测量的性能、内存与开发效率收益。纯 C# 路径是第一等公民；互操作基础设施按能力组合，不强制引入统一原生运行时。
+NativeWeave 的目标是让应用开发者主要使用现代 C#，通过 Native AOT 与独立 Rust Native Engine，获得可测量的性能、内存与开发效率收益。Database 底层必须使用 Rust，普通新增实体复用预编译原生资产；Server 的 Kestrel/Rust 产品宿主按实际证据选择。独立 managed 组件保留纯 C# 路径；互操作基础设施按能力组合，不强制引入统一原生运行时。
 
 ## 阅读入口
 
@@ -14,7 +14,7 @@ NativeWeave 的目标是让应用开发者主要使用现代 C#，通过 Native 
 4. [候选模块边界与关键问题](docs/architecture/candidate-boundaries.md)、[版本化契约登记](docs/contracts/registry.json)。
 5. [证据与验证政策](docs/verification/evidence-policy.md)、[范围覆盖](docs/requirements/coverage-matrix.md)、[待解决问题](docs/traceability/open-questions.md)。
 6. [首次独立审查](docs/traceability/initial-review.md)。
-7. [Plan 仓库](https://github.com/IzuSharp/Plan/tree/research/bootstrap-2026-11-12)：独立 Research、Documentation、Delivery 图，以及逐专题完整提示词。
+7. [Plan 仓库](https://github.com/IzuSharp/Plan)：既有34个 Research、32个 Documentation、48个候选 Delivery 任务及完整任务说明；任务数量不代表完成数量。
 
 ## 本批实际产出与状态
 
@@ -43,4 +43,4 @@ python3 tools/validate_graphs.py
 
 ## Source-driven integration continuation
 
-Existing PR #5 continues the interrupted research. Read [ADR-0002](docs/decisions/ADR-0002-source-driven-native-integration.md), [SeaQuery](docs/research/topics/R25/source-driven-seaquery.md), [Server](docs/research/topics/R27/source-driven-server.md), [Engine integration](docs/extension/engine-integration.md), [precompiled build/maintenance](docs/platforms/build-package-release.md), and [impact/recovery](docs/traceability/source-driven-impact.md). The finite Linux SQLite AOT probe was recovered, not rerun or promoted to production. Database is mandatory Rust; supported ordinary entity changes reuse precompiled native assets. Lifecycle, transaction safety and independent review remain mandatory.
+PRs #5–#7 preserve the preceding research, Rust 1.100 work and product-repository research-asset migration. Read [ADR-0002](docs/decisions/ADR-0002-source-driven-native-integration.md), [SeaQuery](docs/research/topics/R25/source-driven-seaquery.md), [Server](docs/research/topics/R27/source-driven-server.md), [Engine integration](docs/extension/engine-integration.md), [precompiled build/maintenance](docs/platforms/build-package-release.md), and [impact/recovery](docs/traceability/source-driven-impact.md). The finite Linux SQLite AOT query probe was recovered, not relabelled as new work or promoted to production. New finite experiments address [logical admission](docs/research/topics/R07/logical-admission-probe.md), [SQLx retirement](docs/database/sqlx-retirement-study.md), and [Body/retained-byte retirement](docs/server/body-retirement-protocol.md). Database is mandatory Rust; supported ordinary entity changes reuse precompiled native assets. Lifecycle, transaction safety and independent review remain mandatory.

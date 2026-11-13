@@ -1,0 +1,19 @@
+[package]
+name = "nw-interop-probe"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.100"
+publish = false
+
+[lib]
+name = "nw_interop_probe"
+crate-type = ["cdylib", "rlib"]
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[lints.cargo]
+unused_dependencies = "deny"
+
+[profile.release]
+panic = "unwind"

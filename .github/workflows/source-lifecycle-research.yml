@@ -1,0 +1,42 @@
+name: Source lifecycle research probes
+'on':
+  push:
+    branches: [research/source-lifecycle-2026-11-12]
+    paths:
+      - 'experiments/database-retirement/**'
+      - 'experiments/server-retained-bytes/**'
+      - '.github/workflows/source-lifecycle-research.yml'
+permissions:
+  contents: read
+jobs:
+  lifecycle:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+        fixture: [database-retirement, server-retained-bytes]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - run: rustup toolchain install 1.100.0 --profile minimal
+      - name: Execute the new finite lifecycle research fixture
+        run: python experiments/${{ matrix.fixture }}/run.py --out artifacts/source-lifecycle/${{ matrix.fixture }}-${{ matrix.os }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: lifecycle-${{ matrix.fixture }}-${{ matrix.os }}
+          retention-days: 30
+          include-hidden-files: true
+          path: |
+            artifacts/source-lifecycle/${{ matrix.fixture }}-${{ matrix.os }}/*.json
+            artifacts/source-lifecycle/${{ matrix.fixture }}-${{ matrix.os }}/*.stdout
+            artifacts/source-lifecycle/${{ matrix.fixture }}-${{ matrix.os }}/*.stderr
+            artifacts/source-lifecycle/${{ matrix.fixture }}-${{ matrix.os }}/*.log
+            artifacts/source-lifecycle/${{ matrix.fixture }}-${{ matrix.os }}/*.txt
+            artifacts/source-lifecycle/${{ matrix.fixture }}-${{ matrix.os }}/inputs/**
+            artifacts/source-lifecycle/${{ matrix.fixture }}-${{ matrix.os }}/binaries/**

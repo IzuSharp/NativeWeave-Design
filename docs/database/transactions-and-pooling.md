@@ -1,9 +1,9 @@
 # 事务、连接池与不确定结果恢复
 
-- Task：D15；契约：C-TX-001@0.2.0-draft；作者：database_design；2026-11-12。
+- Task：D15；契约：C-TX-001@0.2.1-draft；作者：database_design / source-lifecycle continuation；2026-11-12。
 - 输入packet：revision0.1.1，SHA-256 `cce4d00e3cc7983c2808cf7a5d47e4a08707885973c497ba5a929a78c5bd554c`，已与Plan图匹配。
 - 基线：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
-- 状态：**proposed；本修订待独立Review**；接受状态以registry中相同内容hash及独立Review为准。代码样例仍design-draft、未编译；实际C#/Rust/数据库故障与AOT验证尚未完成。
+- 状态：**proposed；本修订待独立Review**；接受状态以registry中相同内容hash及独立Review为准。契约代码样例仍design-draft、未编译；完整生产adapter、PostgreSQL故障与C# AOT验证尚未完成；有限Rust/SQLite回收与丢失COMMIT确认实验见第12节。
 - 输入：[R19](../research/topics/R19/report.md)、[R20](../research/topics/R20/report.md)、[R21](../research/topics/R21/report.md)；与[驱动规范](drivers.md)共享WeaveDataSource/DataSession命名。
 
 > 旧packet与Review仅为原版本历史溯源，不能接受本次新内容hash。
@@ -118,7 +118,7 @@ Unknown远端effect本身不强制丢弃已证明协议/事务干净的连接；
 
 ## 7. 保存点、隔离与session状态
 
-默认拒绝嵌套BeginTransaction，显式提供Savepoint/Release/RollbackTo。SeaORM TransactionTrait的关联Transaction实现固定点约束，但其nested begin在v1返回明确UnsupportedNestedTransaction错误；不能因trait要求存在该方法就隐式启动第二顶层事务。需要的保存点由NW显式API映射SQLx同连接保存点机制，维护栈及generation，拒绝乱序释放/rollback。保存点名称由框架生成安全标识，不把用户字符串直接拼接；作用域对象绑定当前事务generation。RollbackTo成功后是否回到Active取决于provider的真实语义。Dispose保存点不提交外层事务。
+默认拒绝嵌套BeginTransaction，显式提供Savepoint/Release/RollbackTo。只有选用SeaORM集成profile时，才需处理其TransactionTrait的关联Transaction实现固定点约束；该profile的nested begin在v1返回明确UnsupportedNestedTransaction错误，不能因trait要求存在该方法就隐式启动第二顶层事务。普通SeaQuery+SQLx路径不要求实现SeaORM trait。需要的保存点由NW显式API映射SQLx同连接保存点机制，维护栈及generation，拒绝乱序释放/rollback。保存点名称由框架生成安全标识，不把用户字符串直接拼接；作用域对象绑定当前事务generation。RollbackTo成功后是否回到Active取决于provider的真实语义。Dispose保存点不提交外层事务。
 
 PostgreSQL按请求传递ReadCommitted/RepeatableRead/Serializable能力；serialization failure/deadlock可提示“整事务可重试”，但不自动重放业务委托。SQLite的普通Serializable及BEGIN IMMEDIATE/DEFERRED选项分别表达，不能把SQLite模拟成具有PostgreSQL完整隔离矩阵；ReadUncommitted仅在明确profile中支持且标出共享缓存等前置条件。
 
@@ -156,7 +156,7 @@ Rust复用SQLx物理池；增加native Session对象、操作gate/lease、失败
 
 Engine-local执行器拥有SQLx futures和SQLite线程清理责任；这不强制其他Native Engine共享Tokio。关闭时先停止新准入、停止stream/事务、清理连接、排空callbacks/control，最后关闭pool/runtime实例。D02 v1的native module保持加载至进程退出，不热卸载。计入commit in-flight、quarantined connections、rollback pending和等待者的预算；不能用后台清理无限扩大容量。
 
-C# Outcome/异常及恢复DTO静态定义，serializer使用明确metadata；PG/SQLite provider均在Rust native资产。B23对比纯Rust SeaORM与C#→ABI→同SeaORM，另以managed驱动作benchmark对照；不把“Rust必须”作为无证据性能优越声明。
+C# Outcome/异常及恢复DTO静态定义，serializer使用明确metadata；PG/SQLite provider均在Rust native资产。B23对比同一固定原生候选栈的纯Rust调用与C#→ABI调用：普通候选是SeaQuery+SQLx，SeaORM动态或静态profile另行对照，不强制普通路径经过SeaORM。managed驱动作为独立benchmark对照；不把“Rust必须”作为无证据性能优越声明。
 
 ## 11. Verification / Delivery义务
 
@@ -170,3 +170,11 @@ C# Outcome/异常及恢复DTO静态定义，serializer使用明确metadata；PG/
 | TX-V06 / B05,B22 | start/commit/Dispose/Cancel交错模型及真实压力 | 终态唯一、无双重归还/死锁、资源计数恢复 |
 
 实库故障通过可控proxy切断COMMIT响应方向、server终止会话、事务内约束/死锁等方式注入；必须记录故障发生点、服务器观察和客户端分类。分别用win-x64/linux-x64 Native AOT二进制执行；Python或模型结果不能替代。长期资源指标包括未清理Session、等待者、物理连接、worker、buffer和Unknown恢复积压。
+
+## 12. 新增的有限SQLite回收与取消证据
+
+[R20/R21/R25续接研究](sqlx-retirement-study.md)及[真实研究fixture](../../experiments/database-retirement/README.md)使用固定SQLx0.9、SeaQuery1.0.2、Tokio1.54.1与Rust1.100。六项本地Linux测试已执行：事务Drop后同物理连接复用、提前停止stream、取消acquire不丢permit、COMMIT已dispatch但ack未交付时drop Future、progress handler状态隔离，以及Pool关闭等待借出owner。各次成功/失败输入和原始日志独立保存，Windows/CI以其实际运行记录另记。
+
+其中COMMIT测试在SQLite原生commit hook中进行受控暂停，丢弃应用等待Future后再放行，最终观察到已提交行。这个反例支持TX-D002/TX-D003：停止等待不能报告RolledBack；未知提交效果和本地清理继续分别记录。故障注入hook刻意阻塞，仅用于研究，不能复制到生产callback/finalizer。
+
+独立读取的六个SQLx源码文件与实际编译的registry文件逐字一致；包的VCS声明与历史研究Git pin不同，所以不声明整个包等同。SQLx worker Shutdown响应发生在其连接引用释放之后、线程闭包返回之前；该响应和Pool.size归零不等于取得OS JoinHandle。D02初始module常驻约束继续有效。上述有限Rust证据不接受生产adapter、PostgreSQL响应丢失、跨语言retirement或完整AOT契约。

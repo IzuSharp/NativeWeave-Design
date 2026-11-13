@@ -1,0 +1,147 @@
+[
+  {
+    "name": "rust-version",
+    "argv": [
+      "rustc",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:49:31.733910+00:00",
+    "ended_utc": "2026-11-13T05:49:31.761134+00:00",
+    "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "cargo-version",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:49:31.761353+00:00",
+    "ended_utc": "2026-11-13T05:49:31.781796+00:00",
+    "stdout_sha256": "43dfd9b07c0d268f1436e3229aa614fbf3349f3e848cde0b66cf6ade8918f693",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "dotnet-info",
+    "argv": [
+      "dotnet",
+      "--info"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:49:31.782663+00:00",
+    "ended_utc": "2026-11-13T05:49:31.859951+00:00",
+    "stdout_sha256": "1ad5db11faa82fed7609082c133df86c132dc6d2fefcb1a667dcf8377a394808",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "native-build",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "build",
+      "--locked",
+      "--offline",
+      "--release",
+      "--manifest-path",
+      "/tmp/nw-admission-b6az3fwc/native/Cargo.toml",
+      "--message-format=json"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:49:31.860338+00:00",
+    "ended_utc": "2026-11-13T05:49:32.414678+00:00",
+    "stdout_sha256": "bb091690ffb9290ff552e7410d262306d6c0959afb2564c17c723f7c1e98ac7e",
+    "stderr_sha256": "4f70448ec9d919ada6868c51c93b8c75ae115417f20f5a0d678f5dfe6971d413"
+  },
+  {
+    "name": "package-reused-managed",
+    "argv": [
+      "dotnet",
+      "pack",
+      "/tmp/nw-admission-b6az3fwc/managed/NativeWeave.Interop.Probe.csproj",
+      "-c",
+      "Release",
+      "-o",
+      "/tmp/nw-admission-b6az3fwc/feed",
+      "-p:NativeAsset=/tmp/nw-admission-b6az3fwc/target/release/libnw_interop_probe.so",
+      "-p:ProbeRid=linux-x64"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:49:32.418341+00:00",
+    "ended_utc": "2026-11-13T05:50:24.667191+00:00",
+    "stdout_sha256": "eed8e8ee11bd40d5880ceb4e8c87a8b9dad7936305cb0858960de797e17b1afd",
+    "stderr_sha256": "141a20e4265252570c0f5066f91ee15a7bb6557bb7ad3c9220d3a3c369e59f1c"
+  },
+  {
+    "name": "consumer-build-no-rid",
+    "argv": [
+      "dotnet",
+      "build",
+      "-c",
+      "Release"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc/consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:50:24.675125+00:00",
+    "ended_utc": "2026-11-13T05:50:54.568482+00:00",
+    "stdout_sha256": "fad925b332f7db5ffc651ae80cf403f99832bbc64a53fd533c5ce85c78249b5a",
+    "stderr_sha256": "d7583bee0ee828ca3f8cde2706bb62db25edcfa58258fadbb24241a756dc354e"
+  },
+  {
+    "name": "consumer-run-no-rid",
+    "argv": [
+      "dotnet",
+      "run",
+      "-c",
+      "Release",
+      "--no-build"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc/consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:50:54.569114+00:00",
+    "ended_utc": "2026-11-13T05:50:55.804878+00:00",
+    "stdout_sha256": "ef31a0f4c60efef885e4bb91adaa429e109dcbff747c09019ec4c6ffb1fdcfe8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "aot-publish",
+    "argv": [
+      "dotnet",
+      "publish",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-p:PublishAot=true",
+      "-o",
+      "/tmp/nw-admission-b6az3fwc/publish"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc/consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:50:55.808151+00:00",
+    "ended_utc": "2026-11-13T05:51:35.974670+00:00",
+    "stdout_sha256": "42b1ea6ac8f0c4a32eb129bcd18b250612aa32a829f5b1e46c889d93bebe6c28",
+    "stderr_sha256": "d7583bee0ee828ca3f8cde2706bb62db25edcfa58258fadbb24241a756dc354e"
+  },
+  {
+    "name": "aot-run",
+    "argv": [
+      "/tmp/nw-admission-b6az3fwc/publish/AdmissionProbe",
+      "--expect-aot"
+    ],
+    "cwd": "/tmp/nw-admission-b6az3fwc/publish",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:51:35.977152+00:00",
+    "ended_utc": "2026-11-13T05:51:36.064664+00:00",
+    "stdout_sha256": "864bcadde658f5de769a9f5166546113e66fd73c262871d66e6da98677bc6f60",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
