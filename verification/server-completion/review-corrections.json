@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "author": "/root/server_extensions",
+  "independent_reviewer": "/root/database_research",
+  "status": "author_fixes_applied_pending_independent_recheck",
+  "changes": [
+    {
+      "id": "cardinality",
+      "paths": [
+        "docs/server/protocols-and-observability.md",
+        "docs/research/topics/R28/report.md",
+        "docs/research/topics/R34/report.md",
+        "experiments/server-completion/protocol/src/lib.rs"
+      ],
+      "cause": "Tonic unary trailers drain silently discarded extra messages.",
+      "fix": "Fresh per-request single-message Decoder for unary/server-stream; preserves stream mode and native framing.",
+      "author_run": {
+        "path": "verification/server-completion/protocol-reviewed-local/run.json",
+        "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c"
+      },
+      "independent_run": {
+        "path": "verification/database-completion/server-review-cardinality/result.json",
+        "sha256": "fdec3c3f3ccffaf1072590ff94f6255676263e5845abcba93cdee2abeb37796d"
+      },
+      "review_finding_id": "DB-SERVER-01"
+    },
+    {
+      "id": "dispatch-transfer",
+      "paths": [
+        "docs/server/hosting-and-streaming.md"
+      ],
+      "fix": "Reverse notification borrows fixed fields/ticket only; typed take transfers owners outside callback under admitted lease; bounded queue/root/native-owner retirement explicit.",
+      "review_finding_id": "DB-SERVER-03"
+    },
+    {
+      "id": "routing-and-package-scope",
+      "paths": [
+        "docs/research/topics/R27/report.md"
+      ],
+      "fix": "C# declares routes/Handlers; Rust matches/dispatches. Only apps not using Server can omit native Server.",
+      "review_finding_id": "DB-SERVER-02"
+    },
+    {
+      "id": "source-eof",
+      "paths": [
+        "verification/server-completion/source-inspection.json",
+        "docs/research/topics/R33/report.md"
+      ],
+      "fix": "Mobile doc EOF91 and Android EOF72 recorded accurately.",
+      "review_finding_id": "DB-SERVER-04"
+    },
+    {
+      "id": "diagnostic-measurement",
+      "paths": [
+        "experiments/server-completion/diagnostics/Program.cs",
+        "docs/research/topics/R30/report.md"
+      ],
+      "fix": "Warm clock/counter outside measured allocation window, retain actual observation before assertion.",
+      "failed_windows": {
+        "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/run.json",
+        "sha256": "e65de673616e620a6da36efbf559733e17d13a9ceaa5139224c10bdc12817693"
+      },
+      "corrected_linux": {
+        "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+        "sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf"
+      },
+      "review_finding_id": "ROOT-CI-DIAGNOSTIC-01"
+    }
+  ],
+  "no_new_windows_claim": true,
+  "product_execution": false
+}

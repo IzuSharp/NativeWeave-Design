@@ -1,0 +1,132 @@
+{
+  "reviewer": "/root/interop_research",
+  "kind": "independent_evidence_reconciliation",
+  "run_id": 43388468172,
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "checks": [
+    {
+      "artifact": "completion-database-ubuntu-24.04",
+      "artifact_id": 14019189533,
+      "archive_manifest": "verification/completion-ci/43388468172/completion-database-ubuntu-24.04/archive-manifest.json",
+      "archive_manifest_sha256": "5dd1db92d7be81b3de2fad3d392ccd8a8182675580e861fbfe0f66162fd4780e",
+      "execution_manifest": "verification/completion-ci/43388468172/completion-database-ubuntu-24.04/artifacts/completion/database/manifest.json",
+      "execution_manifest_sha256": "54ea86302986807d4ba3bb8ae6c664a4fffe4546f49ab3b426ef47354d023a4b",
+      "archive_files_checked": 10,
+      "all_raw_hashes_match": true,
+      "snapshot_inputs_raw_equal_published_git": [
+        "experiments/database-completion/Cargo.toml",
+        "experiments/database-completion/Cargo.lock",
+        "experiments/database-completion/run.py",
+        "experiments/database-completion/tests/postgres.rs",
+        "experiments/database-completion/tests/runtime_metadata.rs",
+        "experiments/native-slices/database/Cargo.toml",
+        "experiments/native-slices/database/src/lib.rs"
+      ],
+      "snapshot_inputs_equal_after_crlf_normalization_only": [],
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--test",
+        "runtime_metadata",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "ba18b4d7d7ed06d7fea8b1edb51c94aefcd4a349c90d1192c67f341525a7dc1b",
+      "stderr_sha256": "b4d4f27fcd6095f5f8173dc97a4f282904624ab731277a6828ab60e76c6ce0e9",
+      "raw_stdout": "\nrunning 5 tests\ntest sqlite_foreign_key_and_savepoint_recovery_are_explicit ... ok\ntest native_join_aggregate_matches_independent_sql_oracle ... ok\ntest native_cas_preserves_tenant_and_not_set_null_distinction ... ok\ntest seaorm_public_dynamic_projection_needs_no_static_entity ... ok\ntest sqlx_migration_checksum_and_failed_ddl_are_native ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n"
+    },
+    {
+      "artifact": "completion-database-windows-2022",
+      "artifact_id": 14019567445,
+      "archive_manifest": "verification/completion-ci/43388468172/completion-database-windows-2022/archive-manifest.json",
+      "archive_manifest_sha256": "8624f3efe95dca6927537ab84157dfe3f3340be7bba4e7cfee24c52ef2b0ef33",
+      "execution_manifest": "verification/completion-ci/43388468172/completion-database-windows-2022/artifacts/completion/database/manifest.json",
+      "execution_manifest_sha256": "b9bc85f55b056c477255cf58abd373d687048955912d753c550fedf0cd055f93",
+      "archive_files_checked": 10,
+      "all_raw_hashes_match": true,
+      "snapshot_inputs_raw_equal_published_git": [
+        "experiments/native-slices/database/Cargo.toml",
+        "experiments/native-slices/database/src/lib.rs"
+      ],
+      "snapshot_inputs_equal_after_crlf_normalization_only": [
+        "experiments/database-completion/Cargo.toml",
+        "experiments/database-completion/Cargo.lock",
+        "experiments/database-completion/run.py",
+        "experiments/database-completion/tests/postgres.rs",
+        "experiments/database-completion/tests/runtime_metadata.rs"
+      ],
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--test",
+        "runtime_metadata",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "9299dad47ad4cc245eb3d1dab0e72641b1739ebc3d14a99458d103e358e57ae9",
+      "stderr_sha256": "bdfc8e69170bb2e41079a432b3e46fac851b9d17288c2e3ff3beb1c536d9fff9",
+      "raw_stdout": "\nrunning 5 tests\ntest native_join_aggregate_matches_independent_sql_oracle ... ok\ntest seaorm_public_dynamic_projection_needs_no_static_entity ... ok\ntest sqlx_migration_checksum_and_failed_ddl_are_native ... ok\ntest native_cas_preserves_tenant_and_not_set_null_distinction ... ok\ntest sqlite_foreign_key_and_savepoint_recovery_are_explicit ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s\n\n"
+    },
+    {
+      "artifact": "completion-postgres-ubuntu-24.04",
+      "artifact_id": 14019626601,
+      "archive_manifest": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/archive-manifest.json",
+      "archive_manifest_sha256": "913123ea1582118c49d587a79a9a50b2a80cdfe35770a4d0381399c84cca54fd",
+      "execution_manifest": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres/manifest.json",
+      "execution_manifest_sha256": "2657a79ccf8c11b351fafe23bd3f928c7b597d23cad7d22d89caa4a88cbf239e",
+      "archive_files_checked": 13,
+      "all_raw_hashes_match": true,
+      "snapshot_inputs_raw_equal_published_git": [
+        "experiments/database-completion/Cargo.toml",
+        "experiments/database-completion/Cargo.lock",
+        "experiments/database-completion/run.py",
+        "experiments/database-completion/tests/postgres.rs",
+        "experiments/database-completion/tests/runtime_metadata.rs",
+        "experiments/native-slices/database/Cargo.toml",
+        "experiments/native-slices/database/src/lib.rs"
+      ],
+      "snapshot_inputs_equal_after_crlf_normalization_only": [],
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--test",
+        "postgres",
+        "--",
+        "--ignored",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "c88f13af32e481fee2f8214a6e1bb68ab84cdc744522ed99704fdf7c227fd1c7",
+      "stderr_sha256": "234fa9f920527ff7f5d31e97a3469af4db154b0a89570c6c3548e609e9f2af97",
+      "raw_stdout": "\nrunning 6 tests\ntest codec_roundtrip_and_loss_are_observed ... ok\ntest conflict_cte_old_snapshot_needs_separate_recovery_statement ... ok\ntest early_row_stream_drop_drains_before_next_query ... ok\ntest lost_commit_response_is_error_with_durable_effect ... ok\ntest migration_error_keeps_session_lock_until_dedicated_connection_closes ... ok\ntest statement_timeout_needs_rollback_before_same_connection_reuse ... PostgreSQL server: PostgreSQL 18.0 (Debian 18.0-1.pgdg13+3) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit\nok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.88s\n\n"
+    }
+  ],
+  "postgres_environment": [
+    {
+      "path": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/server-version.txt",
+      "sha256": "54f9bde921e8a5e3860cfa78252e0c5aba8e20e3f68fe9c500870d22ffb3e703",
+      "contents": "                                                      version                                                       \n--------------------------------------------------------------------------------------------------------------------\n PostgreSQL 18.0 (Debian 18.0-1.pgdg13+3) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit\n(1 row)\n\n"
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/image-digests.json",
+      "sha256": "4a2c3d2aa701b9f8fc7df150993296da1d0459be27c5203079c701b5c368398e",
+      "contents": "[\"postgres@sha256:41fc5342eefba6cc2ccda736aaf034bbbb7c3df0fdb81516eba1ba33f360162c\"]\n"
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-postgres-ubuntu-24.04/postgres-environment/image-id.txt",
+      "sha256": "3edfd2dd8089f0439d3763edc2219e5b3904758b67fc1f3748f0685d9e8500bd",
+      "contents": "sha256:6cb75ec20a1d7a81c2c92b9a0ab681ffa4d540a5ec404a977def81ffd0138eca\n"
+    }
+  ],
+  "limits": [
+    "Artifact contents and their pinned Git source were independently verified; CI execution performed by GitHub Actions, not rerun by this reviewer.",
+    "Windows new-fixture CRLF bytes remain preserved; normalization only compares semantics to published Git.",
+    "33 archived files, 21 input snapshots; five+five metadata and six PostgreSQL cases, no C# Native AOT or production TLS in this fixture."
+  ]
+}

@@ -1,0 +1,38 @@
+name: Real synchronous Engine and independent NuGet research
+on:
+  push:
+    branches: [research/rd-completion-2026-11-12]
+    paths:
+      - 'experiments/engine-completion/**'
+      - '.github/workflows/engine-completion.yml'
+permissions:
+  contents: read
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  DOTNET_NOLOGO: '1'
+jobs:
+  codec:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
+        with:
+          dotnet-version: '11.0.100'
+      - run: rustup toolchain install 1.100.0 --profile minimal
+      - run: rustup default 1.100.0
+      - name: Real codec with independent NuGet and no Rust tool discovery
+        run: python experiments/engine-completion/run.py --out artifacts/engine-completion --aot
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: engine-completion-${{ matrix.os }}
+          retention-days: 90
+          path: artifacts/engine-completion/

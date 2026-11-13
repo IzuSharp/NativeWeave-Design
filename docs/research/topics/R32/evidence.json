@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R32",
+  "claims": [
+    {
+      "claim_id": "R32-COMPLETE-WINIT-LOOP",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/event_loop.rs",
+      "locator": "28-47;80-122;238-273;549-572",
+      "url": "https://github.com/rust-windowing/winit/blob/e9809ef54b18499bb4f2cac945719ecc2a61061b/src/event_loop.rs",
+      "source_sha256": "f84209476849188122139926697f1fe97e17409a41ef0e8dfadf9bd4718108c7",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "WINIT-LOOP",
+      "supported_claim": "EventLoop is owner-thread/!Send/!Sync; EventLoopProxy is the cross-thread wakeup seam and returns a failed undelivered event.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R32-COMPLETE-WINIT-LIFECYCLE",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/application.rs",
+      "locator": "19-83;125-187;193-219",
+      "url": "https://github.com/rust-windowing/winit/blob/e9809ef54b18499bb4f2cac945719ecc2a61061b/src/application.rs",
+      "source_sha256": "993ddc2bbffca969224b2045dfd6cefd6cadd923df83f8ba24da8da8e5ab3fb4",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "WINIT-LIFECYCLE",
+      "supported_claim": "Platform-specific resumed/suspended lifetime requires urgent Android SurfaceView-derived surface cleanup before callback return.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R32-COMPLETE-WGPU-SURFACE",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/surface.rs",
+      "locator": "28-52;90-124;130-228",
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/surface.rs",
+      "source_sha256": "13df4577966d4bcc10aba4b8950023ec17a7cd3933019df1cf1f7f139e92b9a3",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "WGPU-SURFACE",
+      "supported_claim": "Surface retains its window source, requires nonzero configuration and rejects reconfiguration with old acquired textures.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R32-COMPLETE-WGPU-BUFFER",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/buffer.rs",
+      "locator": "300-337;356-410;547-632",
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/buffer.rs",
+      "source_sha256": "a304040166251cb1f1e60d6e1407b2e951dc3836144b40b95852749005095042",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "WGPU-BUFFER",
+      "supported_claim": "Map callbacks and CPU-view lifetimes exclude simultaneous GPU use; callbacks require native progress.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R32-COMPLETE-WGPU-POLL",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/device.rs",
+      "locator": "70-115",
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/device.rs",
+      "source_sha256": "6adbd3b5bb966fb20601cd55f0cf1b0cffd48fc615c72029dfe3c116b9c88e8f",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "WGPU-POLL",
+      "supported_claim": "Device polling drives pending work/callback progress and does not imply a managed global runtime.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    }
+  ],
+  "observed_date": "2026-11-13",
+  "status": "evidenced_pending_independent_review",
+  "input_baseline": {
+    "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "packet_revision": "0.2.0",
+    "packet_sha256": "04872d0d8b7744747380c51819bd9c711ea7c7e6ed9b45e60e62e2fd30bfa63c"
+  },
+  "selected_design": {
+    "decision": "Optional engine-local affinity/progress tables reuse native event loops and GPU ownership; no Core GUI/runtime or current GUI product support.",
+    "design_research_status": "complete_for_declared_scope_pending_independent_review",
+    "contract_acceptance": "not_self_accepted",
+    "documentation_tasks": [
+      "D21"
+    ],
+    "verification_delivery_tasks": [
+      "A23",
+      "A24"
+    ]
+  },
+  "independent_review": {
+    "status": "pending",
+    "required_scope": "Exact revised report/evidence/coverage and linked D18/D19/D21 content; author self-check is not independent review."
+  },
+  "research_blockers": [],
+  "future_product_obligations": [
+    "Future GUI/GPU engine requires actual backend/device execution for affinity, device/window loss, mapping/fence and loop-closure scenarios."
+  ],
+  "baseline_audit": "No report/evidence/coverage existed; now bounded source-derived extension contract and counterexamples completed.",
+  "execution": {
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [],
+    "rust_protocol_fixture": "not_claimed_for_this_task",
+    "csharp_native_aot": "not_claimed_for_this_task",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete"
+  }
+}

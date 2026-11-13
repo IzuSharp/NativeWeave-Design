@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAotCompatible>true</IsAotCompatible>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PackageId>NativeWeave.Research.Codec</PackageId>
+    <Version>0.0.1</Version>
+    <Description>R13 R14 R18 research fixture, never a production package.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(NativeAsset)' != ''">
+    <None Include="$(NativeAsset)" Pack="true" PackagePath="runtimes/$(NativeRid)/native/" />
+  </ItemGroup>
+</Project>

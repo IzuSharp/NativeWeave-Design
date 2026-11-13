@@ -1,41 +1,37 @@
-# R21 — Rust事务、返池与Unknown恢复
+# R21 — Native transaction outcome, protocol reuse and cleanup
 
-- 日期：2026-11-12；执行者：database_design（真实协作子代理）。
-- 状态：**partially_evidenced**；设计决定已有明确建议，正式接受需独立Review；产品实现与生产验收未完成。
-- 输入：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
-- Task packet：revision0.1.1，SHA-256 `1f7c1b4bb1baaf188e3da40b1286e20d334fac10d941f04f103f00b80ecf7ab4`；不伪造后续packet修订为本次原始输入。
-- 当前需求：Rust Database + Rust ORM必须；C#只上层语法/请求/API/DTO。旧managed默认决策明确superseded，已有源码观察和实际实验保留。
-- 逐结论：[evidence.json](evidence.json)；实际/未读范围与真实reader：[coverage.json](coverage.json)。完整fetch不等于完整阅读。
+Research consolidation: 2026-11-12 (America/Los_Angeles); author `/root/database_research`. Baselines Design `ba21ecb5c2299b303584b120f2e6bd1c6d74783a`, Plan `5b346ebb5acdb387077d0faae16b00bbc77cb299`. **Independent acceptance review pending; no product implementation or performance acceptance claimed.** Current evidence and explicit stage obligations are in [evidence.json](evidence.json), [coverage.json](coverage.json), and [completion record](../../../../verification/database-completion/task-status.json).
 
-## 1. 已收敛的设计问题
 
-Q12以D15明确解决设计层：事务effect、操作结果、可返池状态、本地资源四维分离；CommitAsync token只控制commit admission，之后根据真实终态/Unknown；默认不自动重试写入。未完成实库fault/AOT压力是独立Verification义务，不使该技术决定永远open。
+## Current design decision
 
-Rust路径选SeaORM+SQLx；原Npgsql默认清理策略superseded，仅保留其受控reset机制作为比较。Rust SessionExecutor持有PoolConnection，事务协调器保存CommitAttempted/Outcome/Cleanup快照，C#只是外观与immutable结果。
+Rust SQLx owns execution and the physical pool; the ordinary profile does not require a custom SeaORM TransactionTrait implementation. The native transaction coordinator wraps SQLx's public transaction/connection mechanisms. C# exposes immutable result/cleanup snapshots and async application APIs. Keep four independent facts: transaction lifecycle, known durable outcome, connection disposition and local resource lifetime, as specified by [D15](../../../database/transactions-and-pooling.md).
 
-## 2. API→实现→错误→释放链
+A COMMIT call crosses a conservative local dispatch boundary. Before that boundary cancellation can establish not-dispatched. After it, lack of a trustworthy response means Unknown unless independent evidence establishes the outcome. Dropping the wait, receiving a cancellation token, subsequent rollback cleanup and freeing local resources cannot establish that the previous COMMIT rolled back. A known failed PostgreSQL transaction cannot be reported as committed merely because a later COMMIT command returned without a transport exception.
 
-SeaORM公开Connection/Transaction traits允许自有适配器，但默认DatabaseTransaction commit/rollback消费self，仅成功置open=false，Drop会try_lock并expect start_rollback。已有stream持锁时不能无条件Drop；跨FFI清理更不能依靠这个Drop。选自有RustSessionExecutor/B05coordinator，先drain reader再事务终结，SQLxTransactionManager只在实现Connection的driver适配层使用。
+## Source and real experiment chain
 
-SQLx PG manager发送commit/rollback并维护depth；PoolConnection.close保留permit，Drop回收含after_release/ping与失败关闭。SQLite worker有commit/rollback lost-ack特殊状态以及可能阻塞的start_rollback/shutdown。读取这些路径不证明NW已满足quiescence，B04/B05必须真正实现并运行fixture。
+Historical Npgsql, SeaORM and SQLx source evidence is preserved below. The source-lifecycle study's SQLite commit-hook experiment already demonstrated a committed row after dropping the commit future. This continuation adds the SQLx PG `run`/ReadyForQuery path and a real protocol proxy fixture: forward COMMIT, consume server COMMIT plus idle ReadyForQuery, discard those bytes to the client, and query durable state through a separate connection. This distinguishes response loss from a synthetic exception after the client observed success.
 
-## 3. 成功、失败和Unknown
+The PG fixture separately tests statement timeout SQLSTATE57014, failed transaction SQLSTATE25P02, explicit ROLLBACK and same-backend reuse. Early row-stream cancellation is tested against actual unread rows and a subsequent query. These characterize the selected engine; they are not evidence that NativeWeave's future C# operation wrapper is already implemented.
 
-CommitInFlight是本地保守“可能已发送”边界；真实提交确认才Committed，明确回滚才RolledBack，无可信终态且可能发送则Unknown，不能被OperationCanceledException或Dispose覆盖。已知事务Failed时拒绝commit，不把无异常COMMIT返回自动等同成功业务写入。
+## Disposal and pool invariant
 
-独立review DB-CR01要求补齐rollback失败oracle，已落D15：从未commit而rollback未确认→TxLifecycle Closed/Outcome InProgress/CommitAttempted=false/Cleanup RollbackUnconfirmed；不再可用，不声称服务器rollback完成。曾可能commit则Unknown保持。local调用仍运行→Closing/Pending，保留roots/budget；安全丢弃连接后可完成local cleanup，但effect不能伪改。
+Session admission closes first. Existing operation/reader/transaction work retains its parent connection; cleanup has a bounded reserved control path and can proceed after public closure. `DisposeAsync` joins local safety; `CloseAsync(deadline)` can return Pending without claiming resource release. Neither overwrites the primary business error or Unknown outcome. Unknown recovery identifiers outlive native handles without keeping every uncertain transaction's native memory indefinitely.
 
-DisposeAsync成功必须local safe，普通cleanup错误锁存Cleanup不覆盖主业务/CommitUnknown异常；deadline未静默时继续join。需有限等待用CloseAsync(deadline)返回Pending/Quarantined快照，不能用成功void Task暗示释放。同步Dispose只移交cleanupowner，runtime关闭必须后于所有待清理工作；native模块按D02常驻。
+SQLx can queue known rollback maintenance before the next user command; this differs from unknown protocol bytes. Return to the pool requires trustworthy protocol and session state. `close_on_drop` is a requested disposition, not observed completion. Physical connection/worker/permit/retirement memory remain accounted until ownership actually transfers or is released.
 
-## 4. 返池与幂等
+The new migration inspection exposes another session-state hazard: PG Migrator acquires a session advisory lock and returns some errors before calling unlock. The design uses a dedicated administrative connection, closes it on any failure/timeout and never returns it to the application pool. The matching PG negative control observes the retained lock after checksum mismatch and its disappearance after connection close. SQLx owns locking implementation; NativeWeave owns safe administrative lifetime.
 
-ProviderResetPending只容纳被provider顺序化、下一用户命令前会执行的maintenance，未知协议损坏必须剔除。SQLxclose_on_drop是意图不是完成；detach会允许池补开连接，不能用它绕过总在用预算。Unknown恢复与本地handle分离，不能永远持有native内存等待业务恢复。
+## Recovery and orchestration
 
-幂等记录(scope,key)+request_hash+operation_id+business writes+result+outbox同事务；PG ReadCommitted的ON CONFLICT DO NOTHING返回0行后必须下一statement SELECT，单CTE可能读不到冲突行。一条“未找到”不证明旧事务不能提交；retention/tombstone窗口、主库一致性和同key重试约束明确，外部副作用经outbox不承诺跨系统exactly-once。官方PG18INSERT/隔离页面已实际读取，详见evidence。
+Scoped idempotency key, normalized request hash, business mutation, response and outbox row share one database transaction. Same-key conflict is serialized by the unique constraint. In PG ReadCommitted, `ON CONFLICT DO NOTHING` may observe a row invisible to its statement snapshot. The new contention fixture synchronizes on a real `pg_locks` wait and verifies that a CTE fallback SELECT can return no row while a subsequent independent statement finds the committed operation. That is why D15/D20 use a second statement and never treat a single missing row as proof of rollback.
 
-## 5. 对Codex的具体交接
+Retrying a transaction remains an explicit business decision; no transparent replay of arbitrary C# delegates. Savepoints are explicit and generation-bound. Recovery/tombstone retention is a business protocol, not another Core runtime. B05/B21/B22 implement the final coordinator and C# AOT tests; design acceptance is not blocked on completion of that future product code.
 
-B05实施state/CAS、commit admission、固定lease、savepoint stack/generation、Unknown异常/恢复标识、RollbackUnconfirmed/Cleanup快照；v1nested begin与已有外层transaction的ChangeSet SaveChanges明确拒绝。B02/03真实断连/超时/清理，B22切断COMMIT响应方向并观察服务器/客户端记录；多key/同key并发、失败事务commit、latecancel、streamlock、shutdown依赖。Python模型和上游测试阅读不能替代Windows/Linux实库NativeAOT。
+## Historical source citations retained
+
+The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
 ## 固定源码入口与实际阅读
 
@@ -62,4 +58,6 @@ B05实施state/CAS、commit admission、固定lease、savepoint stack/generation
 | R21-SQ09-SQLITE-04 | [sqlx-sqlite/src/connection/mod.rs](https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/mod.rs) | 214-287; cross-task-source-evidence; reader=/root/interop_design |
 | R21-SQ09-SQLITE-07 | [sqlx-sqlite/src/transaction.rs](https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/transaction.rs) | complete; cross-task-source-evidence; reader=/root/interop_design |
 
-所有新C#/Rust接口均design-draft、未编译；source/test-source与跨任务源码证据不是执行结果。此前R24的Python/SQLite实验范围及原始hash不变。精确缺口转入现有B任务，不新增元规划体系。
+## CI confirmation at the published fixture commit
+
+GitHub run `43388468172`, source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, independently executed the same five metadata/SQLite cases on Windows and Linux and all six PostgreSQL cases on Linux PostgreSQL 18.0. The author read raw suite logs and verified every archived file, input snapshot and stream hash; the [confirmation](../../../../verification/database-completion/ci-confirmation.json) records exact artifact identities, image digest and CRLF/LF differences. These are 11 unique native research cases with 16 CI executions, not new product/AOT tests or a second technical reviewer. This task claims only its mapped cases above.

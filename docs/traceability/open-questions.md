@@ -1,39 +1,29 @@
-# 未决问题与证据缺口
+# 技术问题的设计结论与未来验证
 
-状态：设计回答、实现验证、生产接受分别记录；2026-11-12。这里记录实际未解决事项；每项只阻断依赖该事实的正式契约，不阻断其他专题开始研究/写草稿。
+2026-11-13。既有Q01–Q21保留；技术结论/研究接受与产品验证分开。最终正式接受以精确registry和独立审查记录为准，不能因产品尚未实现把已解决设计永久留为open。
 
-| ID | 问题 | 负责研究 / 文档 | 关闭依据 | 当前影响 |
-| --- | --- | --- | --- | --- |
-| Q01 | win/linux实际AOT工具链与目标矩阵 | R01/R02/R13 → D01/D10 | 固定SDK/rustc/链接器、真实publish/运行 | 正式平台支持待证 |
-| Q02 | pointer或代际token、长度宽度、ABI协商 | R03/R07 → D02/D04 | 布局/调用/兼容/失效句柄实验与成本 | ABI未接受 |
-| Q03 | 唯一ABI描述来源与生成器复用范围 | R05/R06 → D03 | 对比真实输入/输出/诊断、AOT负例 | 不预选csbindgen全栈 |
-| Q04 | callback/context回收与managed取消注册静默 | R07–R09/R15 → D04–D06 | 反例、模型、实机并发与shutdown | 生命周期核心待证明 |
-| Q05 | Task或ValueTask、池化和迟到通知 | R09/R17 → D06/D13 | 正确性先行，分配与收益实测 | 无默认复用池 |
-| Q06 | shared runtime是否必要，线程亲和怎样组合 | R12/R18 → D09/D11 | 两异质引擎、无Rust路径、线程/RSS账目 | 不引入巨型Core |
-| Q07 | buffer transfer、Pinning、复制/零拷贝 | R10/R16/R17 → D07 | 所有权/别名/溢出/异常/吞吐实验 | 不承诺零拷贝 |
-| Q08 | Rust panic与C#callback异常、fatal边界 | R11/R04 → D08/D03 | subprocess负例；unwind/abort和UCO签名分析 | 无“捕获所有异常”承诺 |
-| Q09 | 包/RID/静态链接/加载路径与来源 | R13/R14 → D10 | clean consumer、ABI版本、资产/依赖、SBOM | 未发布包 |
-| Q10 | 两个真实Engine的选择 | R17/R18 → D11 | 同步/异步差异与当前C#基线对照 | 不以mock代真引擎验收 |
-| Q11 | Rust动态数据库与预编译复用 | R19–R25 → D14/D15 | SeaQuery+SQLx候选及有限Linux查询AOT，无逐实体native构建；有限Rust fixture已有Windows/Linux执行 | 设计回答形成；独立接受/PG/完整C#数据库Windows AOT验证pending |
-| Q12 | Unknown事务效果、pool恢复与幂等 | R21/R31 → D15/D20 | COMMIT响应丢失、原子幂等、实库故障 | 不能取消即视为回滚 |
-| Q13 | Typed Fluent及static metadata/DTO | R23/R25/R06 → D16/D17 | 普通native-backed Fluent，不要求完整LINQ Provider | 设计问题已回答；SG/全能力/跨平台验证pending |
-| Q14 | NULL/Join/分页/collation/类型语义 | R22/R24 → D16 | 真实PG/SQLite差分与属性测试 | SQL正确性未验收 |
-| Q15 | Kestrel或Rust server在何种负载有价值 | R26/R27/R17 → D18/D13 | 同协议/功能/硬件端到端对照 | 不预设Rust/Tokio |
-| Q16 | server整体预算与graceful shutdown | R29/R12 → D18 | 逻辑预算+RSS实测、慢端/断流/长跑 | channel容量不证明总内存 |
-| Q17 | gRPC/MCP、静态JSON注册与版本支持 | R28/R30 → D19 | 准确协议版本、AOT二进制端到端 | 只为选择的协议放行 |
-| Q18 | GUI/GPU/mobile扩展边界 | R32/R33 → D21 | 官方约束与必要平台探针 | 不能阻塞无关win/linux基线 |
-| Q19 | 正式接受门禁与图语义 | R15/R16/R34 → D31/D32 | 图反例测试、精确hash/版本/证据/独立review | 本轮只完成bootstrap检查 |
-| Q20 | 外部库准确版本license与供应链 | R14/R34 → D10 | 固定LICENSE、依赖树、SBOM、来源审查 | 不改变现有仓库许可证 |
-| Q21 | 最新工具链预览机制与稳定替代 | R01/R02 → D01 | C# union代码生成、Runtime Async状态和实测 | preview不成为必要依赖 |
+| ID | 问题 | 当前设计/研究回答 | 未来产品义务 |
+| --- | --- | --- | --- |
+| Q01 | 工具链/平台 | Rust1.100/.NET11/C#15与双OS真实研究；D01选择明确初始profile | A14/A15完整产品与运行机器矩阵 |
+| Q02 | ABI/句柄 | 固定C ABI/size-prefix协商；logical admission+physical lease；D02/D04 | A01/A02/A03完整布局/旧新版本/失效路径 |
+| Q03 | 绑定唯一来源 | D03最小inventory；实际generator对照与silent omission负例 | A09–A12正式工具/导出漂移验证 |
+| Q04 | callback退休 | D04–D06 native quiescence+managed queued/running双屏障 | A06/A07/A20完整竞争/weak-memory相关工具范围 |
+| Q05 | async表面 | Task优先；take-once终态，ValueTask池化须成本及寿命证明 | A07/A21正式实现和实际收益 |
+| Q06 | 共享runtime | 无需统一runtime；同步miniz与异步Hyper为异质证据 | A08/A17/A18局部能力与线程/RSS |
+| Q07 | Buffer | D07 owner/extent/stride/borrow/pin/copy；真实溢出/GC研究 | A04/A20产品fuzz/retained allocation |
+| Q08 | 错误fatal | D08精确ErrorRecord；Rust panic及无效UCO子进程事实 | A05 poison/失败注入与可恢复范围 |
+| Q09 | 打包来源 | 真实双OS独立NuGet/RID-free/AOT，消费有效环境无Rust工具 | A16真正pristine no-Rust、发布签名和runtime-only机器 |
+| Q10 | 两真实Engine | miniz_oxide同步codec与Tokio/Hyper异步network | A17/A18正式Core facade conformance |
+| Q11 | 原生DB/ORM | 预编译SeaQuery+SQLx动态metadata；SeaORM有条件复用 | B01–B14完整产品API/闭包与双OS AOT |
+| Q12 | 事务Unknown | 实际PG丢COMMIT响应/失败tx/迁移锁；SQLite深度正反例 | B05/B08/B21/B22 durable reconciliation/长负载 |
+| Q13 | 自然强类型查询 | Fluent/static metadata/DTO，SG可选，无全LINQ/逐实体Cargo | B09–B14正式完整能力与编译负例 |
+| Q14 | SQL语义 | D16 fallible native binder/后端拒绝/SQL3VL/shape严格区分 | B02/B03/B07/B11完整真实backend差分矩阵 |
+| Q15 | Rust Server组合 | 必需Rust；Tokio/Hyper/Tower/Axum foreign service；Kestrel仅对照 | B17正式Host，A21/B23公平成本数据 |
+| Q16 | Server预算/关闭 | D18 Body/Bytes/许可/两侧预算及退役；真实HTTP2/TLS和owner实验 | B16/B17/B20/B22完整C#桥与soak/RSS |
+| Q17 | gRPC/MCP | D19 Rust Tonic/rmcp+静态C#DTO/Handler；明确公开API验证/超时缺口 | B18/B19实际AOT transport/消息/流/取消/协议互通 |
+| Q18 | 未来平台 | R32/R33/D21真实源码和可用性，亲和性/device loss/静态链接边界 | A23目标设备/平台专项，不阻塞当前桌面 |
+| Q19 | 正式接受 | R34/D31/D32精确来源/内容/依赖及真实独立审查；三图保留 | 未来产品阶段授权与实际产品接受 |
+| Q20 | 供应链 | D10/R14准确crate/source/lock/license/provenance差异与更新策略 | A16/A22/B24最终闭包/签名/组织发布政策 |
+| Q21 | 最新特性 | 稳定union/closed与preview内存安全区分；实际RuntimeAsync lowering/AOT | A21成本测量、A22后续版本升级 |
 
-## 结果声明的边界
-
-工具链版本事实、源码局部行为和Python模型/图检查可以独立成立；它们不能取代以上产品验收。正式结论以证据和契约版本为单位逐步接受，不把“研究报告已写”计成“完整产品可发布”。
-
-后续任务拆分或否定候选时保留历史ID、理由及replacement关系。新Engine沿同一接入规范加入独立任务，不要求所有已有领域同步重做。
-
-## Scope of design answers and remaining verification
-
-The Q11/Q13 questions “must every ordinary C# entity compile Rust?” and “must this be a full LINQ SQL Provider?” are answered **no for the dynamic profile** by R25 and ADR-0002. They no longer remain open language-feasibility questions. SeaORM's static-profile restrictions remain real but do not generalize to all native database access. Contracts still require independent acceptance.
-
-Q01/Q09 now have the recovered and migrated Windows/Linux Interop NuGet consumer, RID-free ordinary build/run and explicit-RID Native AOT execution, in addition to the earlier Linux/SQLite query AOT and unchanged-native-hash evidence. Clean Rust-free consumer hosts, full product packaging and Database/Server C# AOT closure remain pending; do not replace these narrower gaps with the obsolete claim that there is no Windows or RID-free evidence. Q14 retains SQL differential, silent-no-op rejection and fallible binder gates. Q15's Server benefit choice remains open for both Kestrel and Rust: the managed comparator is mandatory research, not an already-selected product default. Q16 now has finite native Body/Bytes/permit executions as well as its prior model, not a verified full network, RSS or shutdown implementation. Q04/Q12's existing safety distinctions remain; new logical-admission and SQLite lost-COMMIT-ack probes refine them without accepting product contracts. See the [source-lifecycle checkpoint](source-lifecycle-followup.md). Continue through existing R07/R14/R17/R20/R21/R25/R27/R29, D04/D10/D11/D14–D18 and Plan's independent-review prompt, not a new graph.
+研究仍发现的新反例必须修复并重审当前精确输入，不能仅移动到未来义务掩盖设计错误。当前没有因Kestrel/Rust二选一、全LINQ或逐实体Rust编译而继续开放的反向架构问题。GPU/mobile的具体产品目标尚未纳入正式桌面发布，不伪称已运行所有设备。

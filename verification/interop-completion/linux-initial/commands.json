@@ -1,0 +1,112 @@
+[
+  {
+    "name": "rust-version",
+    "argv": [
+      "rustc",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:26:30.914570+00:00",
+    "ended_utc": "2026-11-13T07:26:30.949143+00:00",
+    "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "dotnet-info",
+    "argv": [
+      "dotnet",
+      "--info"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:26:30.949661+00:00",
+    "ended_utc": "2026-11-13T07:26:31.001449+00:00",
+    "stdout_sha256": "55a4f3df33258bbd16cdb3dc9bc9abc6d241a04b3b4870a2566f29fb07d99519",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "native-test",
+    "argv": [
+      "cargo",
+      "test",
+      "--manifest-path",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/native/Cargo.toml",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:26:31.002555+00:00",
+    "ended_utc": "2026-11-13T07:26:31.905357+00:00",
+    "stdout_sha256": "2bd88a02292a2773d97e7b9bb51da3ac826ec3970e0925798675161c70423843",
+    "stderr_sha256": "af2bdabd9e81beb2a35bc194641c1a60518c850b7e4a4a46818f007b3c265783"
+  },
+  {
+    "name": "native-build",
+    "argv": [
+      "cargo",
+      "build",
+      "--manifest-path",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/native/Cargo.toml",
+      "--locked",
+      "--offline",
+      "--release",
+      "--message-format=json"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:26:31.906688+00:00",
+    "ended_utc": "2026-11-13T07:26:32.598692+00:00",
+    "stdout_sha256": "f0e18f9f8129d4aa813a31a2660d5c6cd7f98d01d034ce4dc4508726f69d861e",
+    "stderr_sha256": "cad89623ede5197f3ec1ea7b69b1d27b63fffb56e3d1a4ab4a7b74f3b838debe"
+  },
+  {
+    "name": "normal-run",
+    "argv": [
+      "dotnet",
+      "run",
+      "--project",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/Completion.csproj",
+      "-c",
+      "Release",
+      "-p:NativeAsset=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/target/release/libnw_interop_completion_probe.so",
+      "-p:NuGetAudit=false"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:26:32.599348+00:00",
+    "ended_utc": "2026-11-13T07:27:05.439333+00:00",
+    "stdout_sha256": "7310f700f03838a723be04909ecb714c939bc1eaa8690777baef1ff7dc67de2e",
+    "stderr_sha256": "d7583bee0ee828ca3f8cde2706bb62db25edcfa58258fadbb24241a756dc354e"
+  },
+  {
+    "name": "aot-publish",
+    "argv": [
+      "dotnet",
+      "publish",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/Completion.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-p:PublishAot=true",
+      "-p:NuGetAudit=false",
+      "-p:NativeAsset=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/target/release/libnw_interop_completion_probe.so",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/publish"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:27:05.440941+00:00",
+    "ended_utc": "2026-11-13T07:28:00.841951+00:00",
+    "stdout_sha256": "0d8b968c720b7f289ab10dc36352842a9d029cb6e8f40ebd948ed21828222e10",
+    "stderr_sha256": "d7583bee0ee828ca3f8cde2706bb62db25edcfa58258fadbb24241a756dc354e"
+  },
+  {
+    "name": "aot-run",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/publish/Completion",
+      "--expect-aot"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:28:00.842800+00:00",
+    "ended_utc": "2026-11-13T07:28:00.888158+00:00",
+    "stdout_sha256": "9aabd8d66358c222707ca2659415ccf97f89c6e33128a98c591553a98abaea1c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

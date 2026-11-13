@@ -1,0 +1,17 @@
+{
+  "command": [
+    "dotnet",
+    "publish",
+    "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/server-completion/kestrel/KestrelComparator.csproj",
+    "-c",
+    "Release",
+    "-r",
+    "linux-x64",
+    "-p:PublishAot=true",
+    "-o",
+    "/workspace/scratch/1b611a39541d/kestrel-aot-out"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 46.72438049316406,
+  "kind": "compile_attempt_native_aot"
+}

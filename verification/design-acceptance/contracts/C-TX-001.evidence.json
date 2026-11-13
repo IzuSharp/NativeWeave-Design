@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-TX-001",
+    "version": "0.3.0",
+    "content_sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-13T13:11:37.712400+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-TX-001.inputs.json",
+    "sha256": "892323fc1878457f69c04d40dd64f549fb474be57edf4a76641906750f3a9963"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

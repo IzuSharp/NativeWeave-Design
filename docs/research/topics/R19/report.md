@@ -1,39 +1,37 @@
-# R19 — PostgreSQL Rust驱动与managed对照
+# R19 — PostgreSQL native execution, recovery and managed comparison
 
-- 日期：2026-11-12；执行者：database_design（真实协作子代理）。
-- 状态：**partially_evidenced**；设计决定已有明确建议，正式接受需独立Review；产品实现与生产验收未完成。
-- 输入：Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`；Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`。
-- Task packet：revision0.1.1，SHA-256 `ff0d0303b2b0a58d8d9b7e07b89eecc807af79dd62c3c057a2ff50a504f5e019`；不伪造后续packet修订为本次原始输入。
-- 当前需求：Rust Database + Rust ORM必须；C#只上层语法/请求/API/DTO。旧managed默认决策明确superseded，已有源码观察和实际实验保留。
-- 逐结论：[evidence.json](evidence.json)；实际/未读范围与真实reader：[coverage.json](coverage.json)。完整fetch不等于完整阅读。
+Research consolidation: 2026-11-12 (America/Los_Angeles); author `/root/database_research`. Baselines Design `ba21ecb5c2299b303584b120f2e6bd1c6d74783a`, Plan `5b346ebb5acdb387077d0faae16b00bbc77cb299`. **Independent acceptance review pending; no product implementation or performance acceptance claimed.** Current evidence and explicit stage obligations are in [evidence.json](evidence.json), [coverage.json](coverage.json), and [completion record](../../../../verification/database-completion/task-status.json).
 
-## 1. 当前决定：Rust PostgreSQL，不再默认 managed provider
 
-DB-D004选择SeaORM2.0.4作为Rust ORM、SQLx0.9作为PG驱动与池，C#只保留公共API/请求/DTO。原Npgsql默认路线因用户明确边界被superseded，Npgsql深读仍有价值但只作对照。这里不是根据未经执行的基准宣称Rust更快；Rust后端/ORM是既定产品方向，性能由B23同负载测量。
+## Current conclusion
 
-## 2. 实际调用链与适配点
+The ordinary database profile uses maintainer-precompiled **SeaQuery 1.0.2 + SQLx 0.9.0**. Rust owns SQL rendering, connection/protocol, pool, transactions and database codecs. Npgsql remains source and workload comparison evidence. SeaORM is evaluated for specific reusable capabilities; it is not imposed as a schema-specific build dependency. The old DB-D004 selection of generated SeaORM models for every application is superseded.
 
-SeaORM Entity查询/ActiveModel→SeaQuery Statement→ConnectionTrait→SQLx query_with + SqlxValues→PG connection→QueryResult→Rust Model/Projection。已读SeaORM PG driver默认每条execute/query acquire一个pool connection；因此直接包装DatabaseConnection不能实现DataSession固定lease。公开ConnectionTrait/StreamTrait及PgRow/PgQueryResult的From转换提供可用扩展点。
+C# supplies typed API, static metadata/DTO mapping and business code. An ordinary new entity does not change the Rust binary. A native Session holds one SQLx physical connection lease and admits one active operation; stream/transaction/cleanup retain that lease. A public Rust connection or trait object never crosses the ABI.
 
-选择Rust SessionExecutor持有PoolConnection，实现这些公开traits并受单active-operation gate约束。关系/模型/SQL仍归SeaORM；只实现薄执行与所有权适配，不复制数据库协议。TransactionTrait关联类型有固定点要求，v1普通nested begin明确拒绝，显式savepoint独立定义。此组合尚未编译，B04/B05必须以真实Entity查询/事务/stream fixture验证Send/borrow/trait约束。
+## Source to behavior
 
-SQLx PG TransactionManager的begin排命令并等ReadyForQuery、维护depth；commit/rollback调用后失败不能推断旧effect没有发生。池close保留permit；Drop可spawn清理；取消/早停需保持connection到协议安全，不把Task取消当池可重用。
+The additional fixed-source inspection is in [the ten-file source manifest](../../../../verification/database-completion/source-inspection.json). SQLx PG `run` checks the parameter count with `u16::try_from`, prepares/binds native arguments, sends Execute with `limit: 0`, closes the unnamed portal and waits through ReadyForQuery. Its connection tracks pending ReadyForQuery messages and updates server transaction status. Dropping a row stream stops application consumption; it does not itself prove that unread protocol bytes or server work vanished. Native cleanup must finish protocol synchronization or discard the connection before reuse.
 
-## 3. 与Npgsql比较所得的具体约束
+`limit: 0` means the provider asks the server to execute the complete query. A bounded NativeWeave row batch is not a PostgreSQL portal fetch-size limit. SQL/result limits, large-field policy and admission bounds remain explicit. Whole RSS and server working memory cannot be guaranteed by counting exported batches. SQLx owns protocol implementation; NativeWeave must not create a second PostgreSQL wire driver.
 
-Npgsql PoolingDataSource的容量/等待取消/坏连接与generation剔除是真实实现。Connector受控延迟reset可以将清理排入下一次发送，因此“尚有待发维护消息”不能一概叫协议污染；未知用户结果/未归属字节/并发发送则不同。其取消请求发送成功不是取消完成。DataReader Close消费余结果并等待发送任务，支持不能跳过清理的决定。
+The pin keeps backend process ID/secret private and has no demonstrated public immediate CancelRequest path. The accepted design behavior is cooperative cancellation before dispatch, configured native `statement_timeout` for ordinary long queries, and safe connection close/quarantine when required. An interruption request never implies rollback. A future public cancel extension must bind the backend identity and operation generation and drain before a later command; it is an optional engine capability, not an invented current API.
 
-Npgsql动态JSON/tuple/unmapped API的裁剪限制和SlimDataSourceBuilder的AOT小例子说明逐特性验证的重要性；不能把一个例子当全库AOT证明。这些文件只读未运行，不进入默认NuGet依赖。
+## TLS and unsupported behavior
 
-## 4. 取消、错误与资源
+The inspected TLS implementation allows `Prefer` to fall back to plaintext and `Require` does not validate certificate/hostname like `VerifyFull`. The production remote profile therefore selects VerifyFull with explicit trust configuration and rejects absent TLS support, invalid chains and hostname mismatch. Plaintext is allowed only through an explicitly named local/test configuration. The research fault proxy disables TLS to observe protocol frames; it proves nothing about TLS/auth interoperability. Credential/payload logging stays off by default.
 
-本次没有从SQLx已读公开接口证明Npgsql式即时CancelRequest能力，v1只承诺取消请求：入线前可拒绝，运行中用声明的statement_timeout/受控结束策略，最终结果以真实执行为准。任何未来remote cancel实现必须单列后端身份/代际/新操作竞态，不凭空命名API。
+Unknown types, incompatible result shapes, oversized parameter sets, encoding errors, failed transaction status and transport failure are distinct errors. Provider SQLSTATE is preserved without credentials. Identifiers come from validated metadata; parameter binding does not authorize table access. Administrative migration names are trusted constants or validated/quoted native identifiers.
 
-SessionExecutor不照抄query_all的fetch_all；用stream逐行计费、有界收集。未知损坏用公开close/close_on_drop剔除，close_on_drop只是意图；D15分别记录effect、connection disposition和local cleanup。COMMIT入线之后无确认返回Unknown，恢复标识不要求保活native pointer。
+## Concrete research and remaining implementation obligations
 
-## 5. 版本、成本及验证
+The new [fixture](../../../../experiments/database-completion/README.md) contains real PG timeout→failed transaction→rollback recovery, partial-row-stream drain, decimal/UUID/time boundary, COMMIT-response-loss, concurrent conflict-snapshot and migration-lock probes. Actual runs and source hashes are recorded separately in `verification/database-completion`; an ignored PG test is not a run. Prior Npgsql source findings remain comparative, not SQLx execution evidence.
 
-固定SeaORM2.0.4与SQLx0.9研究pin，实际crate checksum/Cargo.lock/features/TLS/RID仍由B02/B04/A13落地。普通应用不写Rust，但schema专属native包需由SDK/CI编译。B02必须测试TLS/认证/参数/NULL/长语句/取消/断线/协议清理；B04固定lease、parent lifetime、stream先drain；B05commit应答丢失；B23同SQL/事务对比纯RustSeaORM与完整FFI，managed对照仅测试依赖。Windows/Linux真实AOT运行仍pending。
+B02 implements this native provider contract, TLS validation and actual Windows/Linux C# AOT consumption. B05 implements outcome/cleanup state and B06 the bounded output policy. B23 supplies like-for-like measured Npgsql/SQLx/native-versus-FFI workloads; this research does not claim Rust is faster. These product obligations do not reopen the fixed Rust ownership decision.
+
+## Historical source citations retained
+
+The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
 ## 固定源码入口与实际阅读
 
@@ -53,4 +51,6 @@ SessionExecutor不照抄query_all的fetch_all；用stream逐行计费、有界�
 | R19-RU03 | [src/driver/sqlx_postgres.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_postgres.rs#L180-L275) | [[180, 275], [828, 898], [328, 354]]; source-observed; reader=/root/database_design |
 | R19-RU04 | [sqlx-postgres/src/transaction.rs](https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/transaction.rs#L1-L102) | [[1, 102]]; source-observed; reader=/root/database_design |
 
-所有新C#/Rust接口均design-draft、未编译；source/test-source与跨任务源码证据不是执行结果。此前R24的Python/SQLite实验范围及原始hash不变。精确缺口转入现有B任务，不新增元规划体系。
+## CI confirmation at the published fixture commit
+
+GitHub run `43388468172`, source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, independently executed the same five metadata/SQLite cases on Windows and Linux and all six PostgreSQL cases on Linux PostgreSQL 18.0. The author read raw suite logs and verified every archived file, input snapshot and stream hash; the [confirmation](../../../../verification/database-completion/ci-confirmation.json) records exact artifact identities, image digest and CRLF/LF differences. These are 11 unique native research cases with 16 CI executions, not new product/AOT tests or a second technical reviewer. This task claims only its mapped cases above.

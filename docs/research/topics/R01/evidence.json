@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R01",
+  "recorded_at": "2026-11-13T08:23:00.169382+00:00",
+  "author": "/root",
+  "scope": "research/design; independent acceptance tracked separately",
+  "entries": [
+    {
+      "claim_id": "R01-SRC-01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs",
+      "file_sha256": "a7021e42f48c5dfa1e2d8d90a121e02301cdf5d21b333e06148af4430c74b079",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            100
+          ],
+          [
+            3068,
+            3108
+          ],
+          [
+            4915,
+            5007
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L1-L100",
+          "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L3068-L3108",
+          "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L4915-L5007"
+        ]
+      },
+      "supported_claim": "union syntax/custom generic boxing/compiler diagnostics; upstream tests read not executed",
+      "limitations": "Listed source scope only."
+    },
+    {
+      "claim_id": "R01-SRC-02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/CSharp/Portable/Compiler/MethodCompiler.cs",
+      "file_sha256": "34ebfc009ffe2dae607f4026eebc1967d32f45d11186a39ba8f9c4d61fbf5f7e",
+      "locator": {
+        "line_ranges": [
+          [
+            766,
+            795
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Portable/Compiler/MethodCompiler.cs#L766-L795"
+        ]
+      },
+      "supported_claim": "RuntimeAsyncRewriter versus generated state-machine branch",
+      "limitations": "Listed source scope only."
+    },
+    {
+      "claim_id": "R01-SRC-03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/CSharp/Portable/Symbols/Source/SourceMethodSymbol.cs",
+      "file_sha256": "33795f806655eed0d97e592fd3f00f952c4b86c5af50882008a90eb26a6c5141",
+      "locator": {
+        "line_ranges": [
+          [
+            198,
+            230
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Portable/Symbols/Source/SourceMethodSymbol.cs#L198-L230"
+        ]
+      },
+      "supported_claim": "runtime async lacks generated state machine and DebuggerStepThrough",
+      "limitations": "Listed source scope only."
+    },
+    {
+      "claim_id": "R01-EXEC-01",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/platform-completion/linux/results.json",
+      "sha256": "f4b875d286d33f2b5a77cf6a9d241f5d4b5b78c96f1cc41b6b44719382719504",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    },
+    {
+      "claim_id": "R01-EXEC-02",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/platform-completion/linux-isolated/results.json",
+      "sha256": "1d5b9ec1695a35b05fa350be56e0eebb2fa2f622bc50c6c80186683ec3e204d5",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    },
+    {
+      "claim_id": "R01-EXEC-03",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/platform-completion/linux-final/results.json",
+      "sha256": "3e2793ffc37f40e56cb88581a2e2bec7aa4cbc811c76c1a5362b00625b171c16",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    }
+  ],
+  "reused_evidence": [
+    {
+      "path": "docs/research/topics/R01/rust-1.100.md",
+      "sha256": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d"
+    },
+    {
+      "path": "verification/source-lifecycle/toolchain-observation.json",
+      "sha256": "41fb2095979479047605b48bd8f523b565c9d7ff30011fecec16cb7216855706"
+    }
+  ],
+  "ci_artifacts": [
+    {
+      "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/archive-manifest.json",
+      "sha256": "52f093c72d4efaf3e2a7feb0383fcf6e0ea1eeee3952f689c4a4bdc53fda426b",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "artifact_id": 14020031127,
+      "zip_sha256": "8db2298c74970ebb6e168cd71bb2e8f795f7ca74fd2135ba90c31e50bf00c946"
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/archive-manifest.json",
+      "sha256": "79a2adb8f053e5f6ba508a7521404efbaf61c9e0c9e537a0a85ed3fd434f9715",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "artifact_id": 14020016012,
+      "zip_sha256": "03bc247e51865e2f4e2f61f1131402683ba6680a8b96bc128094a99b9f7fee99"
+    },
+    {
+      "path": "verification/completion-ci/43390177574/completion-platform-windows-2022/archive-manifest.json",
+      "sha256": "07d6e33366fa4f0991bca7dff84549d5b8f661fe91d3e5bf09db1369f49bf85b",
+      "source_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec",
+      "artifact_id": 14020278314,
+      "zip_sha256": "76694df4db46922a96e26dcf4fcbe0d6170fe36187240b2f643ab6f51501c5d2"
+    },
+    {
+      "path": "verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/archive-manifest.json",
+      "sha256": "83c316f7f9eb2160bcfe2503f184247734f45ba1dd58daa6c079bf9aa2472d29",
+      "source_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec",
+      "artifact_id": 14019884164,
+      "zip_sha256": "b37bb4f1e069378065b498dd71d9a3c621a1216ac33948588370649c8ca50bd7"
+    }
+  ],
+  "product_obligations": [
+    "A14/A15 whole product closure on each OS",
+    "A21 actual cost comparison before adopting Runtime Async",
+    "A22 next release upgrade investigation"
+  ],
+  "unresolved_research_blockers": []
+}

@@ -1,0 +1,1860 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "independent-interop-completion-by-database-2026-11-13",
+  "reviewer": "/root/database_research",
+  "author": "/root/interop_research",
+  "independent_technical_review": true,
+  "separate_github_approval_identity": false,
+  "date_utc": "2026-11-13",
+  "status": "accepted_for_research_and_design",
+  "acceptance_scope": "Only the listed 13R/9D and exact output hashes; product implementation, release and production acceptance are not granted. Root controls registry and Plan transitions.",
+  "initial_assessment_sha256": "9ef98ea8b726153160810550ad2f0c6016f88b9c3082df2115fe6b9280c9445e",
+  "final_assessment": {
+    "path": "verification/interop-completion/task-assessment.json",
+    "sha256": "49893dbeff42033b4867efeb53e8ca1f0aaeec2ba29bc9efdff5fb5c67d59f08"
+  },
+  "research_tasks": [
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R15",
+    "R16"
+  ],
+  "documentation_tasks": [
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D12"
+  ],
+  "contract_version": "0.3.0",
+  "reviewed_outputs": [
+    {
+      "task": "R02",
+      "path": "docs/research/topics/R02/report.md",
+      "sha256": "a7843818835bb8d0c760b8db7aa1f527ac347fc5e5ba65b663d28d6c08ac77e2",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R02",
+      "path": "docs/research/topics/R02/evidence.json",
+      "sha256": "bf9cb53ba57e5a752e78c10496317834dd76ff0b9249449207dade5b6c85401b",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R02",
+      "path": "docs/research/topics/R02/coverage.json",
+      "sha256": "e792f4386fa45895634d3c6c0d6ffd3433c6c25083f443392d86c1a289052f82",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R03",
+      "path": "docs/research/topics/R03/report.md",
+      "sha256": "23d2c9e1e615772482db4a67c5ffa9e860f4968092e0bb7406306c1259f53845",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R03",
+      "path": "docs/research/topics/R03/evidence.json",
+      "sha256": "65dd957c58220cd2070640f67abd46eb2a27ee2cd5bc7d0ed5e633fa9f4e2cd7",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R03",
+      "path": "docs/research/topics/R03/coverage.json",
+      "sha256": "f9f41cad606353ad21a9ec7b46d18bf6c2178bdd161ede550df08a8793d57fcb",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R04",
+      "path": "docs/research/topics/R04/report.md",
+      "sha256": "f4269b31a55b74522e50f290519be930d0a34db3e58cccb3364a2ace5f330b56",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R04",
+      "path": "docs/research/topics/R04/evidence.json",
+      "sha256": "666168e9999e541a07170b4a9558344e732d8dcfc9d8d5ac1c316f51bfc19a79",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R04",
+      "path": "docs/research/topics/R04/coverage.json",
+      "sha256": "415232db624ce555e3ea40263ea923a72055e78c68cfa6abd1efedcbc02b2d7a",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R05",
+      "path": "docs/research/topics/R05/report.md",
+      "sha256": "5f0aadd52dcd8c060397d749752744d9046443d13d6ed1f27860b357532bed16",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R05",
+      "path": "docs/research/topics/R05/evidence.json",
+      "sha256": "da41a6fe7d1a6c8d2a860dcf9ac784d05e1b0041c31d825c64f8eb10f2c246db",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R05",
+      "path": "docs/research/topics/R05/coverage.json",
+      "sha256": "f842b8b7b8ae54c33cfb783992a25e24f7362efa4d2ae0236dacfaf0f5c8a791",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R06",
+      "path": "docs/research/topics/R06/report.md",
+      "sha256": "eb0c840f0ebb5d4f3eae2c0839af473dba9b7117fe0ea123fe60bf1d17aa4bb7",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R06",
+      "path": "docs/research/topics/R06/evidence.json",
+      "sha256": "cf849f36922563caf82863551789e91d8cbb16f778a0708a19da108ba0ddb452",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R06",
+      "path": "docs/research/topics/R06/coverage.json",
+      "sha256": "e63788b0742f73f46e388d05be284055ab8b89084b808f9081bdb0bcd0addd81",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R07",
+      "path": "docs/research/topics/R07/report.md",
+      "sha256": "cc301c5150289575bed36514fee1252632e358f6e6ca3510ca6d61cbff29a615",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R07",
+      "path": "docs/research/topics/R07/evidence.json",
+      "sha256": "fde3ab20a65bec93343e4bc655754fed910405a1ff616f9535cf1568e31b5365",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R07",
+      "path": "docs/research/topics/R07/coverage.json",
+      "sha256": "ad4dafdaebb9c828fea953ea8e60145a4dcc6c03f8579d28c9a3444beb78dc5d",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R08",
+      "path": "docs/research/topics/R08/report.md",
+      "sha256": "a96b580cb861ab4bea9b7e10370ead61992ea57cd98f7c10901a7eba6670c1c8",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R08",
+      "path": "docs/research/topics/R08/evidence.json",
+      "sha256": "44df97a6dcd4ae51fb106df4d1ff94a2753eb099d47d8fc9d784e3033d922907",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R08",
+      "path": "docs/research/topics/R08/coverage.json",
+      "sha256": "25354de73b1b98bc5920a18109703226b427fc5f28fa6b1621f68fb65f127607",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R09",
+      "path": "docs/research/topics/R09/report.md",
+      "sha256": "89ad565e1dd2ab0c3c1a7824d86d9b39adb0b2ee270a7483c1c56ff49870866c",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R09",
+      "path": "docs/research/topics/R09/evidence.json",
+      "sha256": "d000e017857bd58f4de530ac60e635120c14c33715e36e173cadc6d0edb3b971",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R09",
+      "path": "docs/research/topics/R09/coverage.json",
+      "sha256": "d557fb45c113a4048b6c2fde421bc2402a5341bfbb006d56b783c5234de83a48",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R10",
+      "path": "docs/research/topics/R10/report.md",
+      "sha256": "bce20015ca5ce00e74aee6c5f542591918b89e971367ba2bde5c4edf131dc59e",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R10",
+      "path": "docs/research/topics/R10/evidence.json",
+      "sha256": "3f933c72d4c9a7631488592b097df776a20d659a83b4532fa462468e4d3e78e5",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R10",
+      "path": "docs/research/topics/R10/coverage.json",
+      "sha256": "74080381ee38da43014f1a4b7c11b6aa578a8774ddc521df5fb94fe953ffd658",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R11",
+      "path": "docs/research/topics/R11/report.md",
+      "sha256": "c3788b3fe9f0e698e862b7d43b53a03be1f789c4a9ea39d87a1cf934c9db7902",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R11",
+      "path": "docs/research/topics/R11/evidence.json",
+      "sha256": "7b6127f985a2726c66d3528c2b9a7808a0ce52541e317e60536d76393614dda1",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R11",
+      "path": "docs/research/topics/R11/coverage.json",
+      "sha256": "0bac265d6d0ad11529f40d1ae6df298fd77d4782e29626e1ad8db221c6f9241c",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R12",
+      "path": "docs/research/topics/R12/report.md",
+      "sha256": "8567a860b17da594c63845cb0f627ad2517222cf4032f50aba25e58f94f4b2c0",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R12",
+      "path": "docs/research/topics/R12/evidence.json",
+      "sha256": "b59bfa5dfd4db9311045a4b9b411c43255089382b8adae3bd2b34b729f13fde4",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R12",
+      "path": "docs/research/topics/R12/coverage.json",
+      "sha256": "65e1e2e17d60a44a00e8d3655af43866a2f6df6e406cd39a0fd6fe20c3573af3",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R15",
+      "path": "docs/research/topics/R15/report.md",
+      "sha256": "9647f4658cd32c1d66ef3138ff27a42d5bde68223bc64a5729b8838e6b872de6",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R15",
+      "path": "docs/research/topics/R15/evidence.json",
+      "sha256": "4b5357abae74001b41a67350eb88d3f6841eccbb52039ac7391c15730b932ecf",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R15",
+      "path": "docs/research/topics/R15/coverage.json",
+      "sha256": "f6c44ec7e9d54a7603f929804e52d968b4e87d7126d794b145d4f214ead4c484",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R16",
+      "path": "docs/research/topics/R16/report.md",
+      "sha256": "fb220a379dfd8ade2716da031981cf4aa1860c50d57b941a2457f7a532840502",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R16",
+      "path": "docs/research/topics/R16/evidence.json",
+      "sha256": "4a3f048987794eef9b625ee61d6919be860ee21b349f6b8c4c446ee6c20936da",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "R16",
+      "path": "docs/research/topics/R16/coverage.json",
+      "sha256": "d0b9231eb1f726c4e756312750b31585046b00f244efc2fddc3bd9de513b2d97",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D02",
+      "path": "docs/contracts/abi-v0.1.md",
+      "sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D03",
+      "path": "docs/generators/binding-pipeline.md",
+      "sha256": "469f7d6f03f1ea49c54807742d99a6bd5bc69fe6ef88bc89435c3607d2c33f8d",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D04",
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "sha256": "03c9262018f9ab9f2b66f32ccddc4010d89565b2dbff6d108221b5b4d9542558",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D05",
+      "path": "docs/contracts/callback-v0.1.md",
+      "sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D06",
+      "path": "docs/contracts/async-v0.1.md",
+      "sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D07",
+      "path": "docs/contracts/buffer-v0.1.md",
+      "sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D08",
+      "path": "docs/contracts/error-v0.1.md",
+      "sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D09",
+      "path": "docs/contracts/concurrency-v0.1.md",
+      "sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "frozen_hash_match": true
+    },
+    {
+      "task": "D12",
+      "path": "docs/verification/models-and-matrix.md",
+      "sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+      "frozen_hash_match": true
+    }
+  ],
+  "reviewed_fixture_sources": [
+    {
+      "path": "experiments/interop-completion/native/src/lib.rs",
+      "sha256": "d544148adc2784bea52d854a9077145b147f43e4f311f75d86fb33763af4dd69",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/Program.cs",
+      "sha256": "f07c1a1f70340171bf58ede484b199405197c8acf79093cb4deb2c9bff98d786",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/AotRestrictions.cs",
+      "sha256": "f27e1d2fdca73ac16d16dca03d627f4ecf3a1382314184c2d33e344d56883d7e",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/GeneratorProbe.cs",
+      "sha256": "339033be553ce7b25e45eac541e0a12ac928bfe763066dce5ac43bef64ab803d",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/BindingConsumer.cs",
+      "sha256": "8b820a7de25f7b1be27b21c7584b8512ac7f91d3d9ceabd5638af4f74ef08889",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/panic_probe.rs",
+      "sha256": "3cbd47b099f3b06769ec53718fcbeccafd8a2673efc877b554478fa1165410be",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/UcoInvalid.cs",
+      "sha256": "6b4aee944bd445f16d4f9a3e7263c4f07a87d4e9a23f485670640b8c16a7139b",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/uco_invalid.rs",
+      "sha256": "dbc7edcc96edbad714a557dd307332fe8b4a7f03bff6b5ba99849a56e20450f6",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/mailbox_model.py",
+      "sha256": "5049c708a75a1bbcb27364fd7ee964266796563100400875de7fc2f477d5dd0e",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/run.py",
+      "sha256": "63f13767f62747bfe8aef2797ec63b18fae875eda8497305eb86999b9776d90c",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/binding_probe.py",
+      "sha256": "1f99b3e05b151ff269f219243f8ba999ffdbe59c6331f9d1ac8f50547a13af5b",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/panic_probe.py",
+      "sha256": "59f4fe4e1f84a0e3520c60f162945e0c61baff02eca47c26102376ca1c8b2f05",
+      "scope": "complete source read"
+    },
+    {
+      "path": "experiments/interop-completion/uco_invalid_probe.py",
+      "sha256": "852ed153cd44f4b5cc6ebf908c2bf20845118a41b0f2606633d4bc8a61a2df30",
+      "scope": "complete source read"
+    }
+  ],
+  "independently_inspected_upstream": [
+    {
+      "repository": "https://github.com/Cysharp/csbindgen",
+      "commit": "b9eb1e84bb8185b78a4e8364fd948fee300329a7",
+      "path": "csbindgen/src/parser.rs",
+      "blob_sha": "8ea6c16b83743fac07ade565630739e699213da1",
+      "url": "https://github.com/Cysharp/csbindgen/blob/b9eb1e84bb8185b78a4e8364fd948fee300329a7/csbindgen/src/parser.rs",
+      "read_ranges": "1-210",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/Core/Portable/SourceGeneration/GeneratorDriver.cs",
+      "blob_sha": "1da3d4e378f5ab0082fa6b6ddbd330c7805b5082",
+      "url": "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/Core/Portable/SourceGeneration/GeneratorDriver.cs",
+      "read_ranges": "1-180",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "blob_sha": "e0a8747d9081ba724b063c72e11e22c53f4ebb79",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "read_ranges": "1-170",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Sources/ManualResetValueTaskSourceCore.cs",
+      "blob_sha": "f7434075c95d6b873945a373d0958d0b9c77b8c7",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Sources/ManualResetValueTaskSourceCore.cs",
+      "read_ranges": "1-230",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "tool/templates/dotnet/opaque.raw.cs.jinja",
+      "blob_sha": "d1ae7029ead79e77460d64cf6db5f2e4e912f978",
+      "url": "https://github.com/rust-diplomat/diplomat/blob/f8259ad0e37ff2f9187739622443dfaa12e32937/tool/templates/dotnet/opaque.raw.cs.jinja",
+      "read_ranges": "1-20",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "tool/templates/dotnet/raw_extern.cs.jinja",
+      "blob_sha": "8af3745153d9fb0ee536da144ff60ee65e225c7a",
+      "url": "https://github.com/rust-diplomat/diplomat/blob/f8259ad0e37ff2f9187739622443dfaa12e32937/tool/templates/dotnet/raw_extern.cs.jinja",
+      "read_ranges": "1-35",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/ralfbiedert/interoptopus",
+      "commit": "c67748791c158ce1b9c0323d3ca32da3d4fc9e92",
+      "path": "crates/backend_csharp/src/pass/model/common/fns/originals.rs",
+      "blob_sha": "89d6db12894a468e8806c87f4887ec67ce6912ae",
+      "url": "https://github.com/ralfbiedert/interoptopus/blob/c67748791c158ce1b9c0323d3ca32da3d4fc9e92/crates/backend_csharp/src/pass/model/common/fns/originals.rs",
+      "read_ranges": "1-89",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/model-checking/kani",
+      "commit": "0aac16ef62da9e9d5645782d458593e5d78143ba",
+      "path": "docs/src/tutorial-loop-unwinding.md",
+      "blob_sha": "1f07f6050c9a8990f85b60c2405d146e40303f53",
+      "url": "https://github.com/model-checking/kani/blob/0aac16ef62da9e9d5645782d458593e5d78143ba/docs/src/tutorial-loop-unwinding.md",
+      "read_ranges": "1-170",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/proptest-rs/proptest",
+      "commit": "70cf37d46b7d83393b6ed94c611f8c52209f585d",
+      "path": "proptest/src/test_runner/failure_persistence/mod.rs",
+      "blob_sha": "f48d571b6c3e2bf71e3a01d7b1442ad1ef47e6c7",
+      "url": "https://github.com/proptest-rs/proptest/blob/70cf37d46b7d83393b6ed94c611f8c52209f585d/proptest/src/test_runner/failure_persistence/mod.rs",
+      "read_ranges": "1-115",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Cached file has one additional EOF LF; removing exactly that extra byte reproduces the reported Git blob. No raw-byte equivalence claimed."
+    },
+    {
+      "repository": "https://github.com/rust-fuzz/cargo-fuzz",
+      "commit": "bf2fc668dafda5295aa6fd01825ee67b885f0f2b",
+      "path": "src/options/run.rs",
+      "blob_sha": "93929352cbd940a0e1ae608e844a4ad1ef062bfa",
+      "url": "https://github.com/rust-fuzz/cargo-fuzz/blob/bf2fc668dafda5295aa6fd01825ee67b885f0f2b/src/options/run.rs",
+      "read_ranges": "1-42",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Cached file has one additional EOF LF; removing exactly that extra byte reproduces the reported Git blob. No raw-byte equivalence claimed."
+    },
+    {
+      "repository": "https://github.com/tokio-rs/loom",
+      "commit": "9d549cd5357a5485900f4c53951fc1726319659f",
+      "path": "src/model.rs",
+      "blob_sha": "4e7d2672e183b19aacd31d86dfe8f10a89c4b2ff",
+      "url": "https://github.com/tokio-rs/loom/blob/9d549cd5357a5485900f4c53951fc1726319659f/src/model.rs",
+      "read_ranges": "1-278",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Cached file has one additional EOF LF; removing exactly that extra byte reproduces the reported Git blob. No raw-byte equivalence claimed."
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+      "path": "uniffi_core/src/ffi/rustfuture/future.rs",
+      "blob_sha": "95a9c6c0fddb201580a6f0533aa14ec4b43ce712",
+      "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/future.rs",
+      "read_ranges": "1-310",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Cached file has one additional EOF LF; removing exactly that extra byte reproduces the reported Git blob. No raw-byte equivalence claimed."
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+      "path": "uniffi_core/src/ffi/rustfuture/scheduler.rs",
+      "blob_sha": "eaf00042ef7d80dacdb396f057e22adbdee1537d",
+      "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/scheduler.rs",
+      "read_ranges": "1-154",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "tool/src/dotnet/gen/callback.rs",
+      "blob_sha": "276e2702cde84cd16824038c899258b07560ffe4",
+      "url": "https://github.com/rust-diplomat/diplomat/blob/f8259ad0e37ff2f9187739622443dfaa12e32937/tool/src/dotnet/gen/callback.rs",
+      "read_ranges": "1-71",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Cached file has one additional EOF LF; removing exactly that extra byte reproduces the reported Git blob. No raw-byte equivalence claimed."
+    },
+    {
+      "repository": "https://github.com/rust-lang/miri",
+      "commit": "443c623168241a94b629ddb3ae611b54eb743590",
+      "path": "README.md",
+      "blob_sha": "66971d5fa7cccc7514ecbf816047c6a9eec80761",
+      "url": "https://github.com/rust-lang/miri/blob/443c623168241a94b629ddb3ae611b54eb743590/README.md",
+      "read_ranges": "1-140",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Cached file has one additional EOF LF; removing exactly that extra byte reproduces the reported Git blob. No raw-byte equivalence claimed."
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/runtime/runtime.rs",
+      "blob_sha": "52c06e53a34c1acfb0b1de499d32acf012a684c3",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/runtime/runtime.rs",
+      "read_ranges": "1-110;420-525",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/std/src/panic.rs",
+      "blob_sha": "3ef786c294187ea9251415301d59a3684414f899",
+      "url": "https://github.com/rust-lang/rust/blob/0ef1bc386059596dada8fb65b50425aab2ea637a/library/std/src/panic.rs",
+      "read_ranges": "315-410",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/tokio-rs/bytes",
+      "commit": "76c0fbb54ed4336caf9d2311658a2f4a5627c21d",
+      "path": "src/bytes.rs",
+      "blob_sha": "0f1aaed4ee1674ba3946fdd986ac32cead808689",
+      "url": "https://github.com/tokio-rs/bytes/blob/76c0fbb54ed4336caf9d2311658a2f4a5627c21d/src/bytes.rs",
+      "read_ranges": "207-290",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/sync/mpsc/bounded.rs",
+      "blob_sha": "273e5ae433c35e314dd758a616a0585786e6f147",
+      "url": "https://github.com/tokio-rs/tokio/blob/b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8/tokio/src/sync/mpsc/bounded.rs",
+      "read_ranges": "443-480",
+      "inspection": "Independent source read and fixed Git blob identity checked",
+      "local_identity_note": "Direct fixed-commit GitHub response or exact cached crate/checkout Git blob."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "blob_sha": "2d1f9313b485c57afab1f187e00a180df7fad3ba",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "read_ranges": "1-263",
+      "inspection": "Independent source read",
+      "local_identity_note": "Preserved upstream source / direct pinned GitHub response; no claim of whole repository coverage."
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "blob_sha": "345b41a32acff711897868ffce28e6af287c431b",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "read_ranges": "20-160",
+      "inspection": "Independent source read",
+      "local_identity_note": "Preserved upstream source / direct pinned GitHub response; no claim of whole repository coverage."
+    }
+  ],
+  "source_scope_note": "21 concrete source files/ranges independently read; other author records were checked for scoped provenance and consistency, not represented as another whole-repository audit.",
+  "findings": [
+    {
+      "id": "DB-CORE-01",
+      "severity": "medium",
+      "was_blocking": true,
+      "path": "docs/contracts/error-v0.1.md",
+      "section": "3",
+      "problem": "ErrorRecord short-prefix/struct_size semantics did not specify complete storage preconditions, write extent, or whether diagnostics could replace the original failure status.",
+      "resolution": "Strict 24-byte v1 record; optional null output; nonnull at least initialized four-byte header; capacity0-23 no writes/original status retained; capacity>=24 writes exactly24 with size24 and flags0, preserves tail; OK/PENDING no writes; checked before full-struct reference; ER-01 canary matrix.",
+      "status": "resolved_independently_rechecked"
+    },
+    {
+      "id": "DB-CORE-02",
+      "severity": "medium",
+      "was_blocking": true,
+      "path": "docs/contracts/error-v0.1.md",
+      "section": "6",
+      "problem": "Generic CALLBACK_FAILED failure mapping could publish a second terminal or rewrite an already committed native outcome/Unknown remote effect, contradicting D06.",
+      "resolution": "Decision/ordinary/terminal roles separated. Terminal callback uses preallocated managed fault latch and existing cleanup slot; immutable native outcome/effect retained; once-only take/forfeit plus full retire/drain continues.",
+      "status": "resolved_independently_rechecked"
+    },
+    {
+      "id": "DB-CORE-03",
+      "severity": "low",
+      "was_blocking": false,
+      "path": "docs/contracts/callback-v0.1.md",
+      "section": "3",
+      "problem": "Unqualified get_api language implied a mandatory module function table, conflicting with D02 direct exports and minimal adapter goal.",
+      "resolution": "Direct exports remain default; get_api only for explicit optional profile. Start callback table is distinguished; payload bytes use the common uint64/ulong wire width.",
+      "status": "resolved_independently_rechecked"
+    },
+    {
+      "id": "DB-CORE-04",
+      "severity": "low",
+      "was_blocking": false,
+      "path": "docs/contracts/error-v0.1.md",
+      "section": "8,10",
+      "problem": "Residual prefix-extension and conditional hot-unload wording could be misread as weakening the fixed-v1 record and permanently loaded module decisions.",
+      "resolution": "Section10 now explicitly points to full-v1 capacity rules; new fields require new ABI/capability. Section8 prohibits v1 module unload and limits the stated quiescence requirement to a future separately designed profile.",
+      "status": "resolved_independently_rechecked"
+    }
+  ],
+  "remaining_blocking_findings": [],
+  "verification": {
+    "frozen_outputs_verified": 48,
+    "embedded_local_hash_references_verified": 123,
+    "embedded_reference_records": [
+      {
+        "origin": "docs/research/topics/R02/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R02/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R02/evidence.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R02/evidence.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R02/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R02/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R02/coverage.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R02/coverage.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R02/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/evidence.json",
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "recorded_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "actual_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/evidence.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/evidence.json",
+        "path": "docs/research/topics/R03/native-slice-validation.md",
+        "recorded_sha256": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997",
+        "actual_sha256": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/evidence.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/coverage.json",
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "recorded_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "actual_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/coverage.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/coverage.json",
+        "path": "docs/research/topics/R03/native-slice-validation.md",
+        "recorded_sha256": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997",
+        "actual_sha256": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/coverage.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R03/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/evidence.json",
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "recorded_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "actual_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/evidence.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/evidence.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/evidence.json",
+        "path": "docs/research/topics/R08/evidence.json",
+        "recorded_sha256": "44df97a6dcd4ae51fb106df4d1ff94a2753eb099d47d8fc9d784e3033d922907",
+        "actual_sha256": "44df97a6dcd4ae51fb106df4d1ff94a2753eb099d47d8fc9d784e3033d922907",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/coverage.json",
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "recorded_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "actual_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/coverage.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/coverage.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/coverage.json",
+        "path": "docs/research/topics/R08/evidence.json",
+        "recorded_sha256": "44df97a6dcd4ae51fb106df4d1ff94a2753eb099d47d8fc9d784e3033d922907",
+        "actual_sha256": "44df97a6dcd4ae51fb106df4d1ff94a2753eb099d47d8fc9d784e3033d922907",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R04/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R05/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R05/evidence.json",
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "recorded_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "actual_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R05/coverage.json",
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "recorded_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "actual_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R06/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R06/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R06/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R06/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R06/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/evidence.json",
+        "path": "verification/logical-admission/primary-results.json",
+        "recorded_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "actual_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/evidence.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/coverage.json",
+        "path": "verification/logical-admission/primary-results.json",
+        "recorded_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "actual_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/coverage.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R07/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R08/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R08/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R08/evidence.json",
+        "path": "verification/logical-admission/primary-results.json",
+        "recorded_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "actual_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R08/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R08/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R08/coverage.json",
+        "path": "verification/logical-admission/primary-results.json",
+        "recorded_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "actual_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R08/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/evidence.json",
+        "path": "verification/interop-completion/mailbox-run.json",
+        "recorded_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "actual_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/evidence.json",
+        "path": "docs/research/topics/R09/model-run.json",
+        "recorded_sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "actual_sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/evidence.json",
+        "path": "docs/research/topics/R09/retirement-result.json",
+        "recorded_sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "actual_sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/coverage.json",
+        "path": "verification/interop-completion/mailbox-run.json",
+        "recorded_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "actual_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/coverage.json",
+        "path": "docs/research/topics/R09/model-run.json",
+        "recorded_sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "actual_sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/coverage.json",
+        "path": "docs/research/topics/R09/retirement-result.json",
+        "recorded_sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "actual_sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R09/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/evidence.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/evidence.json",
+        "path": "verification/source-lifecycle/results.json",
+        "recorded_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "actual_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/coverage.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/coverage.json",
+        "path": "verification/source-lifecycle/results.json",
+        "recorded_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "actual_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R10/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/evidence.json",
+        "path": "verification/interop-completion/panic-linux/result.json",
+        "recorded_sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "actual_sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/evidence.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/coverage.json",
+        "path": "verification/interop-completion/panic-linux/result.json",
+        "recorded_sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "actual_sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/coverage.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R11/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/evidence.json",
+        "path": "verification/interop-completion/mailbox-run.json",
+        "recorded_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "actual_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/evidence.json",
+        "path": "verification/source-lifecycle/results.json",
+        "recorded_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "actual_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/coverage.json",
+        "path": "verification/interop-completion/mailbox-run.json",
+        "recorded_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "actual_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/coverage.json",
+        "path": "verification/source-lifecycle/results.json",
+        "recorded_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "actual_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R12/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/evidence.json",
+        "path": "verification/interop-completion/mailbox-run.json",
+        "recorded_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "actual_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/evidence.json",
+        "path": "docs/research/topics/R09/model-run.json",
+        "recorded_sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "actual_sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/evidence.json",
+        "path": "docs/research/topics/R09/retirement-result.json",
+        "recorded_sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "actual_sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/evidence.json",
+        "path": "verification/source-lifecycle/results.json",
+        "recorded_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "actual_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/coverage.json",
+        "path": "verification/interop-completion/mailbox-run.json",
+        "recorded_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "actual_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/coverage.json",
+        "path": "docs/research/topics/R09/model-run.json",
+        "recorded_sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "actual_sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/coverage.json",
+        "path": "docs/research/topics/R09/retirement-result.json",
+        "recorded_sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "actual_sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R15/coverage.json",
+        "path": "verification/source-lifecycle/results.json",
+        "recorded_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "actual_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/interop-completion/source-inspection.json",
+        "recorded_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "actual_sha256": "5e5c1d2073fa4f5efdd491d83de428a7643028fae1b776c945ffd39edd9c15a8",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "recorded_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "actual_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/interop-completion/panic-linux/result.json",
+        "recorded_sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "actual_sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/interop-completion/mailbox-run.json",
+        "recorded_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "actual_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/logical-admission/primary-results.json",
+        "recorded_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "actual_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/evidence.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/coverage.json",
+        "path": "verification/interop-completion/linux/result.json",
+        "recorded_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "actual_sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/coverage.json",
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "recorded_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "actual_sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/coverage.json",
+        "path": "verification/interop-completion/panic-linux/result.json",
+        "recorded_sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "actual_sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/coverage.json",
+        "path": "verification/interop-completion/mailbox-run.json",
+        "recorded_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "actual_sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/coverage.json",
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "recorded_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "actual_sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/coverage.json",
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "recorded_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "actual_sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/coverage.json",
+        "path": "verification/logical-admission/primary-results.json",
+        "recorded_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "actual_sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "match": true
+      },
+      {
+        "origin": "docs/research/topics/R16/coverage.json",
+        "path": "verification/interop-completion/ci-evidence-read.json",
+        "recorded_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "actual_sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+        "match": true
+      }
+    ],
+    "ci": [
+      {
+        "archive": "verification/completion-ci/43388468172/completion-interop-ubuntu-24.04",
+        "manifest_sha256": "009a937543fdf8e3c16f5c8b7ac994f1a01e8d52db93655e38ce9b4d0cb6aca6",
+        "archive_files": 24,
+        "command_streams": 22,
+        "source_raw_matches": 13,
+        "source_crlf_matches": 0,
+        "logs": {
+          "normal-run": "SUCCESS interop-completion assertions=10528 aot=False callback_rounds=32\n",
+          "aot-run": "SUCCESS interop-completion assertions=10529 aot=True callback_rounds=32\n",
+          "generator-run": "SUCCESS generator-probe assertions=9 compiler=5.12.0.0\n",
+          "restrictions-normal": "SUCCESS aot-restrictions assertions=4 aot=False\n",
+          "restrictions-aot-run": "SUCCESS aot-restrictions assertions=6 aot=True\n",
+          "native-test": "\nrunning 1 test\ntest tests::terminal_and_transfer_are_independent_of_operation_release ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n"
+        },
+        "commands": [
+          {
+            "name": "rust-version",
+            "exit_code": 0
+          },
+          {
+            "name": "dotnet-info",
+            "exit_code": 0
+          },
+          {
+            "name": "native-test",
+            "exit_code": 0
+          },
+          {
+            "name": "native-build",
+            "exit_code": 0
+          },
+          {
+            "name": "normal-run",
+            "exit_code": 0
+          },
+          {
+            "name": "generator-run",
+            "exit_code": 0
+          },
+          {
+            "name": "restrictions-normal",
+            "exit_code": 0
+          },
+          {
+            "name": "aot-publish",
+            "exit_code": 0
+          },
+          {
+            "name": "aot-run",
+            "exit_code": 0
+          },
+          {
+            "name": "restrictions-aot-publish",
+            "exit_code": 0
+          },
+          {
+            "name": "restrictions-aot-run",
+            "exit_code": 0
+          }
+        ],
+        "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "source_commit_field_preserved": null,
+        "run_id": 43388468172
+      },
+      {
+        "archive": "verification/completion-ci/43388468172/completion-interop-windows-2022",
+        "manifest_sha256": "18986ca20667685a678aafc93201968444352b50d6a3b3836dab4226f3a75a86",
+        "archive_files": 24,
+        "command_streams": 22,
+        "source_raw_matches": 0,
+        "source_crlf_matches": 13,
+        "logs": {
+          "normal-run": "SUCCESS interop-completion assertions=10528 aot=False callback_rounds=32\n",
+          "aot-run": "SUCCESS interop-completion assertions=10529 aot=True callback_rounds=32\n",
+          "generator-run": "SUCCESS generator-probe assertions=9 compiler=5.12.0.0\n",
+          "restrictions-normal": "SUCCESS aot-restrictions assertions=4 aot=False\n",
+          "restrictions-aot-run": "SUCCESS aot-restrictions assertions=6 aot=True\n",
+          "native-test": "\nrunning 1 test\ntest tests::terminal_and_transfer_are_independent_of_operation_release ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n"
+        },
+        "commands": [
+          {
+            "name": "rust-version",
+            "exit_code": 0
+          },
+          {
+            "name": "dotnet-info",
+            "exit_code": 0
+          },
+          {
+            "name": "native-test",
+            "exit_code": 0
+          },
+          {
+            "name": "native-build",
+            "exit_code": 0
+          },
+          {
+            "name": "normal-run",
+            "exit_code": 0
+          },
+          {
+            "name": "generator-run",
+            "exit_code": 0
+          },
+          {
+            "name": "restrictions-normal",
+            "exit_code": 0
+          },
+          {
+            "name": "aot-publish",
+            "exit_code": 0
+          },
+          {
+            "name": "aot-run",
+            "exit_code": 0
+          },
+          {
+            "name": "restrictions-aot-publish",
+            "exit_code": 0
+          },
+          {
+            "name": "restrictions-aot-run",
+            "exit_code": 0
+          }
+        ],
+        "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "source_commit_field_preserved": null,
+        "run_id": 43388468172
+      }
+    ],
+    "supplemental": [
+      {
+        "path": "verification/interop-completion/linux/result.json",
+        "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "source_matches": [
+          {
+            "path": "experiments/interop-completion/native/Cargo.toml",
+            "kind": "exact_preserved_snapshot"
+          },
+          {
+            "path": "experiments/interop-completion/native/Cargo.lock",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/native/src/lib.rs",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/Completion.csproj",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/Program.cs",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/global.json",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/rust-toolchain.toml",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/run.py",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/GeneratorProbe.csproj",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/GeneratorProbe.cs",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/AotRestrictions.csproj",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/AotRestrictions.cs",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/Directory.Build.props",
+            "kind": "exact"
+          }
+        ],
+        "verified_command_streams": 22
+      },
+      {
+        "path": "verification/interop-completion/binding-linux/result.json",
+        "sha256": "0358a43e77521c101750678e3209a7cda025276085fe512dbbafa36ce33ce021",
+        "source_matches": [
+          {
+            "path": "experiments/interop-completion/binding_probe.py",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/binding-api.rs",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/BindingConsumer.cs",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/BindingConsumer.csproj",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/Directory.Build.props",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/native/src/lib.rs",
+            "kind": "exact"
+          }
+        ],
+        "verified_command_streams": 10
+      },
+      {
+        "path": "verification/interop-completion/panic-linux/result.json",
+        "sha256": "0dce8cdf3e82655bd6741e54f17272f8c83af821b3510eb104345bd882820c10",
+        "source_matches": [
+          {
+            "path": "experiments/interop-completion/panic_probe.py",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/panic_probe.rs",
+            "kind": "exact"
+          }
+        ],
+        "verified_command_streams": 20
+      },
+      {
+        "path": "verification/interop-completion/uco-invalid-linux/result.json",
+        "sha256": "1a8970d749d710cf82afaeccd43d225309027bb320c7c019d2e9e3920e83ad15",
+        "source_matches": [
+          {
+            "path": "experiments/interop-completion/uco_invalid_probe.py",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/UcoInvalid.cs",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/UcoInvalid.csproj",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/uco_invalid.rs",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/Directory.Build.props",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/global.json",
+            "kind": "exact"
+          },
+          {
+            "path": "experiments/interop-completion/rust-toolchain.toml",
+            "kind": "exact"
+          }
+        ],
+        "verified_command_streams": 10
+      }
+    ],
+    "mailbox_model_manifest": {
+      "path": "verification/interop-completion/mailbox-model.json",
+      "sha256": "fc282fd701b477f2e148a1ad13e0ad6da62826f79c2179f65fa1bdf3234db390",
+      "negative_states": 17,
+      "candidate_states": 11,
+      "reviewer_action": "Read full model source and actual result; did not rerun successful historical probe."
+    }
+  },
+  "evidence_interpretation": [
+    "Main fixture genuinely executed normal10528/AOT10529 assertions,32 callback rounds per profile on Windows/Linux; one native Rust unit test,9 Roslyn assertions,4/6 restrictions assertions are scoped tests.",
+    "10,000 deterministic arithmetic cases compare against BigInteger; repeated assertions or operating systems do not become independent protocols or a production test suite.",
+    "Supplemental csbindgen source-generated calls agree with direct LibraryImport for60 normal+60AOT cases, and unsupported tuple omission is real. This compares bindings, not two independent native implementations.",
+    "Seven Rust panic child cases preserve two surviving and five unsuccessful process outcomes; invalid UCO normal/AOT failed before body with unhandled InvalidProgramException; no outer-catch recovery was tested.",
+    "Main native fixture uses private statuses; its blocking callback is a deliberate test barrier, not a production callback implementation.",
+    "Mailbox/retirement models cover stated finite sequentially consistent abstractions. Loom/Kani/Miri and broad fuzz/sanitizers were not falsely claimed executed.",
+    "Original source_commit null fields and Windows CRLF source identities remain unchanged; CI archive metadata plus verified source bytes bind the published experiment commit."
+  ],
+  "future_obligations": {
+    "R02": [
+      "Clean Rust-free NuGet consumer and complete supported RID matrix in A14/A15/A21; linker and metadata negative gates in real packages."
+    ],
+    "R03": [
+      "Complete generated C/Rust/C# size/offset/version/unknown-capability golden matrix in A01/A02/A12; unsupported RID remains unsupported until executed."
+    ],
+    "R04": [
+      "Measured transition/copy/allocation costs on product kernels in R30/A21; Direct P/Invoke loader paths and whole callback signature diagnostic suite in A12/A14/A15."
+    ],
+    "R05": [
+      "Production generator inventory/hash gate, package reproducibility and all unsupported signatures in A09-A12; alternative repositories are scoped comparisons, not adopted product dependencies."
+    ],
+    "R06": [
+      "Production IDE/CLI/multi-target snapshot, diagnostic span, incremental performance and package consumption tests in A10-A12/B10/B12."
+    ],
+    "R07": [
+      "Complete product parent/child transfer, mutable builder writer, finalizer and worker-affine cleanup matrices in A03/A04/A20/B01; weak-memory proof at actual atomics."
+    ],
+    "R08": [
+      "Full product registration generations, dispatcher saturation/reentrancy and long concurrent unregister matrix in A06/A20/B14; prototype is not the product scheduler."
+    ],
+    "R09": [
+      "Every setup failure/control lease/take/quarantine interleaving mapped to implementation in A07/A19/A20; no progress under permanently stopped executor is promised."
+    ],
+    "R10": [
+      "Product backing-byte/pin/held-result budget accounting, zero-copy eligibility and retained-buffer memory load in A04/A20/B15/B22; no whole-RSS bound inferred."
+    ],
+    "R11": [
+      "Complete Engine poison/supervisor/error mapping/allocator failure tests and Windows fatal fixtures in A05/A14/A15/A20; unknown damaged resources stay quarantined."
+    ],
+    "R12": [
+      "Product waiter/permit/cleanup budget and weak-memory lost-wake tests; engine close OS-thread join, fairness and long shutdown loads in A08/A18/B22."
+    ],
+    "R15": [
+      "Loom/Kani/Miri execution only when actual product code is mapped to stated properties; report exact bound/coverage/fairness and negative control in A19/A20."
+    ],
+    "R16": [
+      "Product coverage-guided fuzz corpus, applicable sanitizer builds, all-RID artifact replay, real DB/network differential and sustained failure stress in A20/B22."
+    ]
+  },
+  "acceptance_reasoning": [
+    "Mature framework imports, Rust Engine ownership and narrow adapters satisfy source-driven reuse without a global Core runtime.",
+    "Logical admission, physical SafeHandle lease, native/managed quiescence, result ownership and remote effect are explicitly distinct and match source counterexamples.",
+    "Errors/cancellation/cleanup are specified at the ABI and wrapper boundary with finite test oracles; no future product completion is required to accept the design that guides it.",
+    "Versioned contracts and delivery obligations can now be accepted at design scope after the resolved independent findings."
+  ]
+}

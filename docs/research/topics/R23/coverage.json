@@ -152,14 +152,51 @@
     }
   ],
   "other_candidates_not_read": [],
-  "decision_revision": "rust-orm-required-2026-11-12",
-  "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+  "decision_revision": "precompiled-native-database-completion-2026-11-12",
+  "selected_orm": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
   "not_executed": [
-    "NativeWeave generated SeaORM model build",
-    "SQLx PG/SQLite target execution",
-    "C# Native AOT calling Rust ORM"
+    "B10/B13: product incremental generator, complete typed Fluent API and compile/runtime negatives",
+    "B24: no-Rust RID-free build/run and both-OS Native AOT unchanged native hash for new entity"
   ],
   "remaining_source_work": [
-    "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
-  ]
+    "No claim of reading full upstream repositories. Listed ranges resolve the selected research/design questions; source/feature changes require scoped re-review."
+  ],
+  "historical_integration_metadata": {
+    "selected_orm": "SeaORM 2.0.4 generated static models; Rust required",
+    "decision_revision": "rust-orm-required-2026-11-12",
+    "not_executed": [
+      "NativeWeave generated SeaORM model build",
+      "SQLx PG/SQLite target execution",
+      "C# Native AOT calling Rust ORM"
+    ],
+    "remaining_source_work": [
+      "Precise not-read areas retain partial status: all upstream paths outside listed ranges, complete driver codec/fault/SQLite VM and feature matrices; not required to invent product validation for current design decision."
+    ]
+  },
+  "completion_coverage": {
+    "source_manifest": "verification/database-completion/source-inspection.json",
+    "source_ids": [
+      "seaorm-dynamic-model",
+      "seaorm-loader"
+    ],
+    "actual_cases": [
+      "seaorm_public_dynamic_projection_needs_no_static_entity"
+    ],
+    "normal_error_boundary_coverage": "See current report and exact test names; original negative-control failure retained.",
+    "unsupported_scope": "Complete NativeWeave production wrappers, every upstream feature, both-OS new C# AOT, TLS/auth, performance and long-load are not established.",
+    "research_blockers": [],
+    "independent_review_pending": true,
+    "future_delivery_obligations": [
+      "B10/B13: product incremental generator, complete typed Fluent API and compile/runtime negatives",
+      "B24: no-Rust RID-free build/run and both-OS Native AOT unchanged native hash for new entity"
+    ],
+    "ci_confirmation": {
+      "manifest": "verification/database-completion/ci-confirmation.json",
+      "run_id": 43388468172,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "metadata": "Windows and Linux: 5/5 each",
+      "postgres": "Linux PostgreSQL18.0: 6/6",
+      "scope": "Use only the task-specific cases already listed; repeated platforms are not additional unique cases. No C# or product acceptance claim."
+    }
+  }
 }

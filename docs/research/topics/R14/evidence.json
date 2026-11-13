@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R14",
+  "recorded_at": "2026-11-13T08:23:00.198692+00:00",
+  "author": "/root",
+  "scope": "research/design; independent acceptance tracked separately",
+  "entries": [
+    {
+      "claim_id": "R14-SRC-01",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/external-tools.md",
+      "file_sha256": "67a22a8ca329d223483a7a6056ed4877ba9e4bfa46f8fa6f945743edd4dcdd78",
+      "locator": {
+        "line_ranges": [
+          [
+            95,
+            205
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/rust-lang/cargo/blob/3acc79c0c841844675bc53a605922dbfc441e750/doc/book/src/reference/external-tools.md#L95-L205"
+        ]
+      },
+      "supported_claim": "compiler-artifact identity/profile/features/filenames/fresh fields",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R14-SRC-02",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/specifying-dependencies.md",
+      "file_sha256": "c59e3a7489d1f28208648a36e44698a48b695d40051b92e88b463af73a35404e",
+      "locator": {
+        "line_ranges": [
+          [
+            300,
+            360
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/rust-lang/cargo/blob/3acc79c0c841844675bc53a605922dbfc441e750/doc/book/src/reference/specifying-dependencies.md#L300-L360"
+        ]
+      },
+      "supported_claim": "git/registry/path and publication/submodule constraints",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R14-SRC-03",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/NuGet/NuGet.Client",
+      "commit": "7e935f9c72b287adc13b9f42fd7b3bdcaa1500e7",
+      "path": "src/NuGet.Core/NuGet.Packaging/PackageArchiveReader.cs",
+      "file_sha256": "310c27e2c1119143f7f18e9d75dee335a214b66cc7088afc84e8e6787ebbd7fd",
+      "locator": {
+        "line_ranges": [
+          [
+            80,
+            175
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/NuGet/NuGet.Client/blob/7e935f9c72b287adc13b9f42fd7b3bdcaa1500e7/src/NuGet.Core/NuGet.Packaging/PackageArchiveReader.cs#L80-L175"
+        ]
+      },
+      "supported_claim": "archive stream ownership/error and file enumeration",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R14-SRC-04",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/sigstore/cosign",
+      "commit": "6181e75677cc4719e845fa23d0ef8a936e883aa0",
+      "path": "cmd/cosign/cli/verify/verify.go",
+      "file_sha256": "0745f57e5e012d66a3c7c4417e22718257b23ad328576f2e6bbf92c2980dc612",
+      "locator": {
+        "line_ranges": [
+          [
+            90,
+            230
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/sigstore/cosign/blob/6181e75677cc4719e845fa23d0ef8a936e883aa0/cmd/cosign/cli/verify/verify.go#L90-L230"
+        ]
+      },
+      "supported_claim": "signature/identity/trust material/claim/offline/transparency policy separation",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R14-SRC-05",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/anchore/syft",
+      "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+      "path": "README.md",
+      "file_sha256": "b072fd6c75f6ba759933b4f035bb9e263309f535e2128f13e6ed50860c328aef",
+      "locator": {
+        "line_ranges": [
+          [
+            30,
+            100
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/README.md#L30-L100"
+        ]
+      },
+      "supported_claim": "Syft optional SBOM commands and formats; documentation, not tool execution",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R14-SRC-06",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/anchore/syft",
+      "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+      "path": "syft/pkg/cataloger/rust/cataloger.go",
+      "file_sha256": "3ba5d63aa79674a428a27cd91530e014e5995129c0fa22eed423813fec8cb39d",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            23
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/syft/pkg/cataloger/rust/cataloger.go#L1-L23"
+        ]
+      },
+      "supported_claim": "Cargo.lock versus auditable binary cataloger",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R14-SRC-07",
+      "evidence_kind": "source-observed",
+      "repository": "https://github.com/anchore/syft",
+      "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+      "path": "syft/pkg/cataloger/rust/parse_cargo_lock.go",
+      "file_sha256": "bc5008609a49b8326b54d87e57f80c62297e46b73cf42762bee311d74e2ff0d1",
+      "locator": {
+        "line_ranges": [
+          [
+            1,
+            90
+          ]
+        ],
+        "permalinks": [
+          "https://github.com/anchore/syft/blob/af5b1fa52ff415605886ebb22e2bc2bd5dff7151/syft/pkg/cataloger/rust/parse_cargo_lock.go#L1-L90"
+        ]
+      },
+      "supported_claim": "Cargo package identity and dependency-string graph resolution",
+      "limitations": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "claim_id": "R14-EXEC-01",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/engine-completion/linux/result.json",
+      "sha256": "6b925d9b5eb1f0b9d05984732137b08939717e60f4f4e30b14bd63c5c0089727",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    },
+    {
+      "claim_id": "R14-EXEC-02",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/engine-completion/linux-reviewed/result.json",
+      "sha256": "5e7f11d0f6609fa8d37251235deda5570462c6ddceaaa2590ab01e76cab0f082",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    },
+    {
+      "claim_id": "R14-EXEC-03",
+      "evidence_kind": "executed-research-or-inventory",
+      "path": "verification/engine-completion/linux/dependency-inventory.json",
+      "sha256": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3",
+      "supported_claim": "Exact bounded command/result scope in the referenced artifact, including expected negatives and preserved unsuccessful assumptions.",
+      "limitations": "Local source_commit may be pre-edit parent; actual source snapshot hashes bind compiled inputs. Finite research, not product acceptance."
+    }
+  ],
+  "reused_evidence": [
+    {
+      "path": "docs/research/topics/R01/rust-1.100.md",
+      "sha256": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d"
+    }
+  ],
+  "ci_artifacts": [
+    {
+      "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/archive-manifest.json",
+      "sha256": "cd49b2874a327b61d3b7ea37cfa852a31337981e0d6f66b4b7bb88da2b084293",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "artifact_id": 14019812346,
+      "zip_sha256": "4c2ad966682ef18e0fabcc5224223377e6b505f3c81bf171a9d1b91f15c5f57e"
+    },
+    {
+      "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/archive-manifest.json",
+      "sha256": "6328b1d0eccc2c987cccc6b689410eca34c2e7db817b933b005f3fdccc9cd4e7",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "artifact_id": 14019571659,
+      "zip_sha256": "f6ec172c3978ec34e880c068bef5326567ff9261d254df7436bd64e6a5bf38c8"
+    }
+  ],
+  "product_obligations": [
+    "A16 actual signed release and whole native closure",
+    "A22 old/new product compatibility and provenance",
+    "B24 immutable package/release rollback verification"
+  ],
+  "unresolved_research_blockers": [],
+  "final_nuget_source_review": {
+    "path": "verification/platform-completion/nuget-final-source-review.json",
+    "sha256": "bce13b950e7d632ff51aef8db2b32efd44a36ecf6fd509649aa4834944be0126",
+    "kind": "official_documentation",
+    "read_date": "2026-11-13",
+    "product_execution": false
+  }
+}

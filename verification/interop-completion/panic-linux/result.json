@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "source_commit": null,
+  "baseline_commit": "9e1dfdd3816930b6adc7d4c8d86bbd55cbc7e747",
+  "source_files": {
+    "experiments/interop-completion/panic_probe.py": "59f4fe4e1f84a0e3520c60f162945e0c61baff02eca47c26102376ca1c8b2f05",
+    "experiments/interop-completion/panic_probe.rs": "3cbd47b099f3b06769ec53718fcbeccafd8a2673efc877b554478fa1165410be"
+  },
+  "cases": 7,
+  "independent_review": false,
+  "limits": [
+    "Linux process outcomes only; not full engine poison or allocator OOM proof",
+    "Payload quarantine intentionally retains the caught payload; not leak-free recovery"
+  ]
+}

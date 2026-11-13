@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R15",
+  "observed_date": "2026-11-13",
+  "author": "/root/interop_research",
+  "input_pin": {
+    "design_baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "task_revision": "0.2.0",
+    "packet_path": "research-tasks/R15.md",
+    "packet_sha256": "22a89d230fd6ed7e2e7f81ff6b7cfb6566abbe551ac49342a8835846c20ff676",
+    "graph_packet_sha256": "22a89d230fd6ed7e2e7f81ff6b7cfb6566abbe551ac49342a8835846c20ff676",
+    "graph_packet_hash_matches": true
+  },
+  "status": "research_complete_independent_review_pending",
+  "decision": "Small negative-control finite models for protocol ordering, Loom for applicable Rust memory ordering, Kani for bounded pure properties, Miri for executed Rust unsafe paths; no whole-system proof claim.",
+  "source_manifest": {
+    "path": "verification/interop-completion/source-inspection.json",
+    "sha256": "e947a2afad71949bb04a228bef07a04a3a3e383cd31a31c626efa57172b21096"
+  },
+  "sources": [
+    {
+      "repository": "https://github.com/model-checking/kani",
+      "commit": "0aac16ef62da9e9d5645782d458593e5d78143ba",
+      "path": "docs/src/tutorial-loop-unwinding.md",
+      "blob_sha": "1f07f6050c9a8990f85b60c2405d146e40303f53",
+      "read_ranges": "1-148",
+      "evidence_kind": "upstream_documentation_read",
+      "supported_claim": "Unwinding assertions and problem bounds are part of bounded-proof interpretation.",
+      "url": "https://github.com/model-checking/kani/blob/0aac16ef62da9e9d5645782d458593e5d78143ba/docs/src/tutorial-loop-unwinding.md",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "Kani unwind assertions"
+    },
+    {
+      "repository": "https://github.com/tokio-rs/loom",
+      "commit": "9d549cd5357a5485900f4c53951fc1726319659f",
+      "path": "src/model.rs",
+      "blob_sha": "4e7d2672e183b19aacd31d86dfe8f10a89c4b2ff",
+      "read_ranges": "1-130;220-278",
+      "evidence_kind": "source_confirmed",
+      "supported_claim": "Bounded scheduling configuration and checkpoint mechanism.",
+      "url": "https://github.com/tokio-rs/loom/blob/9d549cd5357a5485900f4c53951fc1726319659f/src/model.rs",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "Builder::check and limits"
+    },
+    {
+      "repository": "https://github.com/rust-lang/miri",
+      "commit": "443c623168241a94b629ddb3ae611b54eb743590",
+      "path": "README.md",
+      "blob_sha": "66971d5fa7cccc7514ecbf816047c6a9eec80761",
+      "read_ranges": "1-140",
+      "evidence_kind": "upstream_documentation_read",
+      "supported_claim": "UB interpretation, finite executions and incomplete FFI/weak memory coverage.",
+      "url": "https://github.com/rust-lang/miri/blob/443c623168241a94b629ddb3ae611b54eb743590/README.md",
+      "not_claimed": "Whole repository audit or upstream suite execution.",
+      "symbol": "Miri unsupported operation and proof limits"
+    }
+  ],
+  "executed_experiments": [
+    {
+      "manifest": "verification/interop-completion/mailbox-run.json",
+      "sha256": "83f30552ce73b254e3a36c86fdffb5525b9f9e278f8370e2757960b537791579",
+      "evidence_kind": "bounded_model_executed",
+      "supported_claim": "Explicit bounded SC model: stale-check negative finds lost-wake trace in 17 reachable states; atomic candidate explores 11 without violation. One worker/one extra wake; not weak-memory or general liveness proof."
+    }
+  ],
+  "inherited_evidence": [
+    {
+      "path": "docs/research/topics/R09/model-run.json",
+      "sha256": "bd74bcc0fc55763650df82b54137128446338ab3382ff5c78a9b522fe5d700c9",
+      "status": "existing_evidence_reused_not_reexecuted"
+    },
+    {
+      "path": "docs/research/topics/R09/retirement-result.json",
+      "sha256": "96e6175968e71f50f16ad2d5f0359f72f549f08c93ba26939172d22c02ae8649",
+      "status": "existing_evidence_reused_not_reexecuted"
+    },
+    {
+      "path": "verification/source-lifecycle/results.json",
+      "sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+      "status": "existing_evidence_reused_not_reexecuted"
+    }
+  ],
+  "independent_review": {
+    "status": "pending",
+    "reviewer": null
+  },
+  "research_blockers": [],
+  "future_implementation_obligations": [
+    "Loom/Kani/Miri execution only when actual product code is mapped to stated properties; report exact bound/coverage/fairness and negative control in A19/A20."
+  ],
+  "upstream_tests_executed": false,
+  "product_implementation_verified": false,
+  "production_acceptance_complete": false
+}

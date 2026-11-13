@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
   "task_id": "R30",
-  "observed_date": "2026-11-12",
-  "status": "partially_evidenced",
+  "observed_date": "2026-11-13",
+  "status": "evidenced_pending_independent_review",
   "input_baseline": {
-    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
-    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
-    "packet_revision": "0.1.1",
-    "packet_sha256": "ffa4dd8840a5e2f68a1a6c2eea01fa1e83b07f241410985274068db97170779d"
+    "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "packet_revision": "0.2.0",
+    "packet_sha256": "ada8b0bfd24280b6ca831c958c137cb68ed955362e43da06e47fea5d612b3936"
   },
   "claims": [
     {
@@ -68,15 +68,119 @@
       "limitations": "The32-byte NativeWeave adapter layout is an original design choice, not a W3C-defined binary ABI; no layout compilation was performed.",
       "observed_date": "2026-11-12",
       "run_manifest": null
+    },
+    {
+      "claim_id": "R30-COMPLETE-TRACING-SPAN",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/span.rs",
+      "locator": "596-641;780-790",
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/span.rs",
+      "source_sha256": "b87686c0ff6b55193a9377f3a0c978e0368edb6f46cd4d5a5b395c169df2f658",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TRACING-SPAN",
+      "supported_claim": "Holding Span::enter guard over await can attribute unrelated task execution to the wrong span.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R30-COMPLETE-TRACING-INSTRUMENT",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/instrument.rs",
+      "locator": "176-231;277-324;378-389",
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/instrument.rs",
+      "source_sha256": "9266d792bd9b6678baa49728704c5f38003bbc24755eac16a9e0bffcb2728010",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TRACING-INSTRUMENT",
+      "supported_claim": "Instrumented Future and WithDispatch establish span/dispatcher per poll, including migrated async work.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R30-COMPLETE-TRACING-SUBSCRIBER",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/tokio-rs/tracing",
+      "commit": "2d55f6faf9be83e7e4634129fb96813241aac2b8",
+      "path": "tracing/src/subscriber.rs",
+      "locator": "1-63",
+      "url": "https://github.com/tokio-rs/tracing/blob/2d55f6faf9be83e7e4634129fb96813241aac2b8/tracing/src/subscriber.rs",
+      "source_sha256": "51d9e23098b81cab911d2e7c2e4590bce75c61337c83d73b0a0af3dedc0fe7a7",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TRACING-SUBSCRIBER",
+      "supported_claim": "Per-thread subscribers do not create global propagation; reusable libraries must not seize global default.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R30-COMPLETE-RUN1",
+      "evidence_kind": "executed_research_experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/diagnostics-local-2/run.json",
+      "sha256": "a2081f7fe288071b45e0426a8671a302ec5eb5906e891e04e631980e89151f15",
+      "supported_claim": "11 actual Linux .NET11 Native AOT diagnostics assertions, including no-observer allocation observation and managed async parent propagation.",
+      "limitations": [
+        "Not a cross-language propagation test.",
+        "Single-process no-observer timing is not a production benchmark.",
+        "Current-thread allocation counter excludes native memory."
+      ],
+      "run_manifest": "verification/server-completion/diagnostics-local-2/run.json"
+    },
+    {
+      "claim_id": "R30-COMPLETE-RUN2",
+      "evidence_kind": "executed_research_experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/diagnostics-rust-layout/run.json",
+      "sha256": "53948800bfb19521a7b3209e92d24603114e86093b8ef4e2f074db2454ba6a8e",
+      "supported_claim": "Actual Rust1.100 repr(C) layout size32 and offsets8/24 assertions.",
+      "limitations": [
+        "Individual compiled layouts match; no FFI transport/serialization golden executed by this layout witness."
+      ],
+      "run_manifest": "verification/server-completion/diagnostics-rust-layout/run.json"
+    },
+    {
+      "claim_id": "R30-REVIEW-MEASUREMENT",
+      "evidence_kind": "executed_research_experiment",
+      "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+      "sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf",
+      "supported_claim": "All 11 Linux NativeAOT assertions pass with corrected measurement window and pre-assert observation logging.",
+      "limitations": [
+        "Corrected warmed-clock/counter measurement, allocation window contains only StartActivity loop.",
+        "200000 null Activity returns, zero current-thread bytes and 12.437ns/call observed on this Linux AOT run; not cross-platform timing/zero-allocation promise."
+      ],
+      "run_manifest": "verification/server-completion/diagnostics-reviewed-local/run.json"
+    },
+    {
+      "claim_id": "R30-FAILED-WINDOWS-MEASUREMENT",
+      "evidence_kind": "executed_research_experiment_failed",
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/run.json",
+      "sha256": "e65de673616e620a6da36efbf559733e17d13a9ceaa5139224c10bdc12817693",
+      "success": false,
+      "supported_claim": "Original Windows run passed layout/listener/null checks but failed allocation assertion; first clock calls were inside measured region and numerical output was not reached.",
+      "limitations": "No number or ActivitySource-specific allocation cause can be inferred; not a passed Windows result. Corrected Windows run remains separate.",
+      "run_manifest": "verification/completion-ci/43390177287/diagnostics-windows-2022/run.json"
+    },
+    {
+      "claim_id": "R30-FINAL-CORRECTED-CI",
+      "evidence_kind": "retrieved_executed_research_experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "commit": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+      "path": "verification/server-completion/diagnostics-final-ci.json",
+      "sha256": "4e63df245f3e342a97844cabcfcc06252c9a8b6f48110a07abfaccf2d2c47933",
+      "run_manifest": "verification/server-completion/diagnostics-final-ci.json",
+      "supported_claim": "Both actual Windows/Linux Release Native AOT runs pass11 assertions; scoped warm-loop current-thread allocation is0.",
+      "limitations": [
+        "No new execution in final review.",
+        "Not Debug cost, enabled tracing/export, native memory, cross-language propagation or product performance."
+      ]
     }
   ],
   "selected_design": {
-    "decision": "Activity/Meter default; optional bounded exporter; typed small trace context across FFI and correlation distinct from identity; bounded shutdown.",
-    "design_research_status": "resolved_pending_independent_review",
-    "contract_acceptance": "proposed_not_self_accepted",
-    "question_closure_recommendations": [
-      "Q17"
-    ],
+    "decision": "C# Activity/Meter surface with bounded optional exporter; small value trace metadata and explicit native instrumented-future dispatcher propagation.",
+    "design_research_status": "complete_for_declared_scope_pending_independent_review",
+    "contract_acceptance": "not_self_accepted",
     "documentation_tasks": [
       "D19"
     ],
@@ -88,13 +192,88 @@
     ]
   },
   "execution": {
-    "upstream_tests": "not_run",
-    "csharp_compilation": "not_run",
-    "rust_compilation": "not_run",
-    "native_aot": "not_run",
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [
+      {
+        "path": "verification/server-completion/diagnostics-local-2/run.json",
+        "sha256": "a2081f7fe288071b45e0426a8671a302ec5eb5906e891e04e631980e89151f15",
+        "success": true,
+        "scope": [
+          "Not a cross-language propagation test.",
+          "Single-process no-observer timing is not a production benchmark.",
+          "Current-thread allocation counter excludes native memory."
+        ]
+      },
+      {
+        "path": "verification/server-completion/diagnostics-rust-layout/run.json",
+        "sha256": "53948800bfb19521a7b3209e92d24603114e86093b8ef4e2f074db2454ba6a8e",
+        "success": true,
+        "scope": [
+          "Individual compiled layouts match; no FFI transport/serialization golden executed by this layout witness."
+        ]
+      },
+      {
+        "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+        "sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf",
+        "success": true,
+        "scope": [
+          "Corrected warmed-clock/counter measurement, allocation window contains only StartActivity loop.",
+          "200000 null Activity returns, zero current-thread bytes and 12.437ns/call observed on this Linux AOT run; not cross-platform timing/zero-allocation promise."
+        ]
+      }
+    ],
+    "rust_protocol_fixture": "not_claimed_for_this_task",
+    "csharp_native_aot": "executed_linux_diagnostics",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
     "product_runtime": "not_implemented",
-    "production_acceptance": "not_complete",
-    "research_experiments": "none"
+    "production_acceptance": "not_complete"
   },
-  "independent_review": "required_by_other_author_not_claimed_here"
+  "independent_review": {
+    "status": "pending",
+    "required_scope": "Exact revised report/evidence/coverage and linked D18/D19/D21 content; author self-check is not independent review."
+  },
+  "historical_baseline": {
+    "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "prior_status": "partially_evidenced",
+    "prior_input_baseline": {
+      "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+      "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+      "packet_revision": "0.1.1",
+      "packet_sha256": "ffa4dd8840a5e2f68a1a6c2eea01fa1e83b07f241410985274068db97170779d"
+    },
+    "prior_selected_design": {
+      "decision": "Activity/Meter default; optional bounded exporter; typed small trace context across FFI and correlation distinct from identity; bounded shutdown.",
+      "design_research_status": "resolved_pending_independent_review",
+      "contract_acceptance": "proposed_not_self_accepted",
+      "question_closure_recommendations": [
+        "Q17"
+      ],
+      "documentation_tasks": [
+        "D19"
+      ],
+      "verification_delivery_tasks": [
+        "B20",
+        "B22",
+        "B23",
+        "B24"
+      ]
+    },
+    "prior_execution": {
+      "upstream_tests": "not_run",
+      "csharp_compilation": "not_run",
+      "rust_compilation": "not_run",
+      "native_aot": "not_run",
+      "product_runtime": "not_implemented",
+      "production_acceptance": "not_complete",
+      "research_experiments": "none"
+    },
+    "interpretation": "Preserved prior source findings. Architectural choices conflicting with the current user mission are superseded by selected_design below; managed-host sources serve as comparators only."
+  },
+  "research_blockers": [],
+  "future_product_obligations": [
+    "B20 executes actual FFI context golden bytes, malformed fields and callback parent restoration.",
+    "B20/B23 validate exporter saturation/fault/shutdown and disabled/sampled/full costs under product load."
+  ],
+  "baseline_audit": "Existing Activity/OpenTelemetry source/test reading and detailed D19 existed under planned; Rust tracing and actual no-observer cost/layout probes were missing.",
+  "final_diagnostics_ci": "verification/server-completion/diagnostics-final-ci.json"
 }

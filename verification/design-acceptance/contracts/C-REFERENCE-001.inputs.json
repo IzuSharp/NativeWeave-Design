@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-REFERENCE-001",
+    "version": "0.3.0",
+    "content_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/database/drivers.md",
+      "sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "bytes": 25811,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/database/query-semantics.md",
+      "sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "bytes": 14280,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/database/transactions-and-pooling.md",
+      "sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "bytes": 27042,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/generators/query-generation.md",
+      "sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "bytes": 12321,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R17/coverage.json",
+      "sha256": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878",
+      "bytes": 5543,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R17/evidence.json",
+      "sha256": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f",
+      "bytes": 6503,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R17/report.md",
+      "sha256": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+      "bytes": 4920,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R21/coverage.json",
+      "sha256": "db81b7d4369281576a4815b0ae1c37fb93892d1f998564be89da3abaa51a0a3b",
+      "bytes": 14562,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R21/evidence.json",
+      "sha256": "f7441bb4b438531fbf5a69f9ef557b61e173b1b9ba5aa6a4185bfabb0c59ae2e",
+      "bytes": 34971,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R21/report.md",
+      "sha256": "519460fedfa3918381541d7665a0391bfc8060a89f1ff83c705397123191d614",
+      "bytes": 10781,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R31/coverage.json",
+      "sha256": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745",
+      "bytes": 4839,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R31/evidence.json",
+      "sha256": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301",
+      "bytes": 14766,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R31/report.md",
+      "sha256": "2df3f72bea0b8b48b9e895ba7496918da2288312838633f54733311b35cf4ac1",
+      "bytes": 13534,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/server/hosting-and-streaming.md",
+      "sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "bytes": 26430,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/server/protocols-and-observability.md",
+      "sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "bytes": 27504,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/verification/reference-application.md",
+      "sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "bytes": 24653,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {
+    "C-DB-001@0.3.0": {
+      "spec_path": "docs/database/drivers.md",
+      "content_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "evidence_sha256": [
+        "5d73cbf5c62c59a19d831cd39cab1a3d6ec8cdc525abac51d4f1fab5ece26f85"
+      ],
+      "review_sha256": [
+        "fddc0d18102e84795f0d858774740adfaf267a6d535f1a804b66c2205a4f9981"
+      ]
+    },
+    "C-TX-001@0.3.0": {
+      "spec_path": "docs/database/transactions-and-pooling.md",
+      "content_sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "evidence_sha256": [
+        "2745f2600d7023985cd7bd3532bfd90c6a7abeb633be488e3ce0d15c8e010e8c"
+      ],
+      "review_sha256": [
+        "14b96d2b8c53753a942796c7bdb09dedd598d42b0b84ae21de87db4872e9fbd4"
+      ]
+    },
+    "C-QUERY-001@0.3.0": {
+      "spec_path": "docs/database/query-semantics.md",
+      "content_sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "evidence_sha256": [
+        "555f1fa9c19641823e300757a4d9f04ec4be7d746bbf63a43c3d0dc492212816"
+      ],
+      "review_sha256": [
+        "cf947adf9e4a1abef7db9d68f11cae25e968de1a25e64733d1cb35994707ce4e"
+      ]
+    },
+    "C-QUERYGEN-001@0.3.0": {
+      "spec_path": "docs/generators/query-generation.md",
+      "content_sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "evidence_sha256": [
+        "9a390ef2edeadfde45263f4aab83d0b7dfdc0f157ffb68edecf7122d4baca026"
+      ],
+      "review_sha256": [
+        "be3771dc9581cff5e616974f195ded3b3a011255985c908a26abe5f15328a951"
+      ]
+    },
+    "C-SERVER-001@0.3.0": {
+      "spec_path": "docs/server/hosting-and-streaming.md",
+      "content_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "evidence_sha256": [
+        "d304d600b38453303cecfa5761e5ff79f109c6662c14b2cd713103de27c27b9e"
+      ],
+      "review_sha256": [
+        "851c76fbcb415c6949e87d42147913d250f506fd2b657fdd22213e22ee9346a2"
+      ]
+    },
+    "C-PROTOCOL-001@0.3.0": {
+      "spec_path": "docs/server/protocols-and-observability.md",
+      "content_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "evidence_sha256": [
+        "71029a0eb15807aa23bf8940a49b0d0227ff0872ed4ad90ea8afae90fdefd9d0"
+      ],
+      "review_sha256": [
+        "b725866ee1c2a7912b030dd94e1dfc13e893cb60aa65acc388fadd1a09dc41ef"
+      ]
+    }
+  }
+}

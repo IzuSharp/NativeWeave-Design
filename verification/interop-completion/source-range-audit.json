@@ -1,0 +1,352 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "/root/interop_research",
+  "kind": "source-range-metadata-audit",
+  "scope": "Full-file retrieval used only to verify exact blob identity and EOF; not a claim to have semantically reviewed additional source lines.",
+  "records": [
+    {
+      "repository": "https://github.com/Cysharp/csbindgen",
+      "commit": "b9eb1e84bb8185b78a4e8364fd948fee300329a7",
+      "path": "csbindgen/src/parser.rs",
+      "blob_sha": "8ea6c16b83743fac07ade565630739e699213da1",
+      "blob_matches_existing": true,
+      "file_line_count": 762,
+      "original_read_ranges": "1-180",
+      "correct_read_ranges": "1-180"
+    },
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/Core/Portable/SourceGeneration/GeneratorDriver.cs",
+      "blob_sha": "1da3d4e378f5ab0082fa6b6ddbd330c7805b5082",
+      "blob_matches_existing": true,
+      "file_line_count": 478,
+      "original_read_ranges": "1-180",
+      "correct_read_ranges": "1-180"
+    },
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "docs/features/incremental-generators.cookbook.md",
+      "blob_sha": "1057e8a56ec3900e5caaf65c324726eff28fd809",
+      "blob_matches_existing": true,
+      "file_line_count": 897,
+      "original_read_ranges": "1-170",
+      "correct_read_ranges": "1-170"
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "blob_sha": "e0a8747d9081ba724b063c72e11e22c53f4ebb79",
+      "blob_matches_existing": true,
+      "file_line_count": 503,
+      "original_read_ranges": "1-170",
+      "correct_read_ranges": "1-170"
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Diagnostics/CodeAnalysis/RequiresDynamicCodeAttribute.cs",
+      "blob_sha": "fa36f95c0527c6a78389b83f374760735786d32a",
+      "blob_matches_existing": true,
+      "file_line_count": 49,
+      "original_read_ranges": "1-49",
+      "correct_read_ranges": "1-49"
+    },
+    {
+      "repository": "https://github.com/dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Sources/ManualResetValueTaskSourceCore.cs",
+      "blob_sha": "f7434075c95d6b873945a373d0958d0b9c77b8c7",
+      "blob_matches_existing": true,
+      "file_line_count": 400,
+      "original_read_ranges": "1-230",
+      "correct_read_ranges": "1-230"
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+      "path": "README.md",
+      "blob_sha": "4049d965d857c92ef287130add49ea99b58dd732",
+      "blob_matches_existing": true,
+      "file_line_count": 94,
+      "original_read_ranges": "1-65",
+      "correct_read_ranges": "1-65"
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "book/src/backends/dotnet.md",
+      "blob_sha": "39dde30a0858f5532da6bc732b569e7976e418af",
+      "blob_matches_existing": true,
+      "file_line_count": 234,
+      "original_read_ranges": "1-140",
+      "correct_read_ranges": "1-140"
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "tool/src/dotnet/mod.rs",
+      "blob_sha": "ef22c1423cdb07c602e6f463bdf6a61f8898dc92",
+      "blob_matches_existing": true,
+      "file_line_count": 4660,
+      "original_read_ranges": "1-180",
+      "correct_read_ranges": "1-180"
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "tool/templates/dotnet/opaque.raw.cs.jinja",
+      "blob_sha": "d1ae7029ead79e77460d64cf6db5f2e4e912f978",
+      "blob_matches_existing": true,
+      "file_line_count": 20,
+      "original_read_ranges": "1-20",
+      "correct_read_ranges": "1-20"
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "tool/templates/dotnet/raw_extern.cs.jinja",
+      "blob_sha": "8af3745153d9fb0ee536da144ff60ee65e225c7a",
+      "blob_matches_existing": true,
+      "file_line_count": 35,
+      "original_read_ranges": "1-35",
+      "correct_read_ranges": "1-35"
+    },
+    {
+      "repository": "https://github.com/ralfbiedert/interoptopus",
+      "commit": "c67748791c158ce1b9c0323d3ca32da3d4fc9e92",
+      "path": "README.md",
+      "blob_sha": "019228218bcc0b2d9476a12ae2a459505785f304",
+      "blob_matches_existing": true,
+      "file_line_count": 99,
+      "original_read_ranges": "1-90",
+      "correct_read_ranges": "1-90"
+    },
+    {
+      "repository": "https://github.com/ralfbiedert/interoptopus",
+      "commit": "c67748791c158ce1b9c0323d3ca32da3d4fc9e92",
+      "path": "crates/backend_csharp/src/pass/model/common/fns/originals.rs",
+      "blob_sha": "89d6db12894a468e8806c87f4887ec67ce6912ae",
+      "blob_matches_existing": true,
+      "file_line_count": 87,
+      "original_read_ranges": "1-89",
+      "correct_read_ranges": "1-87"
+    },
+    {
+      "repository": "https://github.com/ralfbiedert/interoptopus",
+      "commit": "c67748791c158ce1b9c0323d3ca32da3d4fc9e92",
+      "path": "crates/backend_csharp/src/lang/types/kind/task.rs",
+      "blob_sha": "8e2ef7e6ec72a8de0d06cf04f1d627837aced020",
+      "blob_matches_existing": true,
+      "file_line_count": 8,
+      "original_read_ranges": "1-8",
+      "correct_read_ranges": "1-8"
+    },
+    {
+      "repository": "https://github.com/mozilla/cbindgen",
+      "commit": "2b757a22bab77981e5d414d554db7a5d6109e727",
+      "path": "README.md",
+      "blob_sha": "d6d7673d6ad80356c518cae5d3b4e6c6d15bdfcc",
+      "blob_matches_existing": true,
+      "file_line_count": 99,
+      "original_read_ranges": "1-115",
+      "correct_read_ranges": "1-99"
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust-bindgen",
+      "commit": "0d213bc3dbad03e27fe729b7fb1bb5c77cffda1d",
+      "path": "README.md",
+      "blob_sha": "9c8b7b28725ed8356f51ec1988dbfb8a28d6f8b3",
+      "blob_matches_existing": true,
+      "file_line_count": 89,
+      "original_read_ranges": "1-90",
+      "correct_read_ranges": "1-89"
+    },
+    {
+      "repository": "https://github.com/model-checking/kani",
+      "commit": "0aac16ef62da9e9d5645782d458593e5d78143ba",
+      "path": "docs/src/tutorial-loop-unwinding.md",
+      "blob_sha": "1f07f6050c9a8990f85b60c2405d146e40303f53",
+      "blob_matches_existing": true,
+      "file_line_count": 148,
+      "original_read_ranges": "1-170",
+      "correct_read_ranges": "1-148"
+    },
+    {
+      "repository": "https://github.com/proptest-rs/proptest",
+      "commit": "70cf37d46b7d83393b6ed94c611f8c52209f585d",
+      "path": "proptest/src/test_runner/failure_persistence/mod.rs",
+      "blob_sha": "f48d571b6c3e2bf71e3a01d7b1442ad1ef47e6c7",
+      "blob_matches_existing": true,
+      "file_line_count": 156,
+      "original_read_ranges": "1-115",
+      "correct_read_ranges": "1-115"
+    },
+    {
+      "repository": "https://github.com/rust-fuzz/cargo-fuzz",
+      "commit": "bf2fc668dafda5295aa6fd01825ee67b885f0f2b",
+      "path": "src/options/run.rs",
+      "blob_sha": "93929352cbd940a0e1ae608e844a4ad1ef062bfa",
+      "blob_matches_existing": true,
+      "file_line_count": 42,
+      "original_read_ranges": "1-42",
+      "correct_read_ranges": "1-42"
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+      "path": "uniffi_core/src/ffi/rustfuture/tests.rs",
+      "blob_sha": "78aaadb56152c423bedd11d98881745451449897",
+      "blob_matches_existing": true,
+      "file_line_count": 268,
+      "original_read_ranges": "1-268",
+      "correct_read_ranges": "1-268"
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "tool/src/dotnet/gen/opaque.rs",
+      "blob_sha": "cf70d13a5ec506fb93cc0097e95f9af37b2af1b8",
+      "blob_matches_existing": true,
+      "file_line_count": 92,
+      "original_read_ranges": "1-92",
+      "correct_read_ranges": "1-92"
+    },
+    {
+      "repository": "https://github.com/tokio-rs/loom",
+      "commit": "9d549cd5357a5485900f4c53951fc1726319659f",
+      "path": "src/model.rs",
+      "blob_sha": "4e7d2672e183b19aacd31d86dfe8f10a89c4b2ff",
+      "blob_matches_existing": true,
+      "file_line_count": 278,
+      "original_read_ranges": "1-130;220-278",
+      "correct_read_ranges": "1-130;220-278"
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+      "path": "uniffi_core/src/ffi/rustfuture/future.rs",
+      "blob_sha": "95a9c6c0fddb201580a6f0533aa14ec4b43ce712",
+      "blob_matches_existing": true,
+      "file_line_count": 310,
+      "original_read_ranges": "1-310",
+      "correct_read_ranges": "1-310"
+    },
+    {
+      "repository": "https://github.com/mozilla/uniffi-rs",
+      "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+      "path": "uniffi_core/src/ffi/rustfuture/scheduler.rs",
+      "blob_sha": "eaf00042ef7d80dacdb396f057e22adbdee1537d",
+      "blob_matches_existing": true,
+      "file_line_count": 154,
+      "original_read_ranges": "1-154",
+      "correct_read_ranges": "1-154"
+    },
+    {
+      "repository": "https://github.com/rust-diplomat/diplomat",
+      "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+      "path": "tool/src/dotnet/gen/callback.rs",
+      "blob_sha": "276e2702cde84cd16824038c899258b07560ffe4",
+      "blob_matches_existing": true,
+      "file_line_count": 71,
+      "original_read_ranges": "1-71",
+      "correct_read_ranges": "1-71"
+    },
+    {
+      "repository": "https://github.com/rust-lang/miri",
+      "commit": "443c623168241a94b629ddb3ae611b54eb743590",
+      "path": "README.md",
+      "blob_sha": "66971d5fa7cccc7514ecbf816047c6a9eec80761",
+      "blob_matches_existing": true,
+      "file_line_count": 699,
+      "original_read_ranges": "1-140",
+      "correct_read_ranges": "1-140"
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/runtime/runtime.rs",
+      "blob_sha": "52c06e53a34c1acfb0b1de499d32acf012a684c3",
+      "blob_matches_existing": true,
+      "file_line_count": 593,
+      "original_read_ranges": "1-110;420-525",
+      "correct_read_ranges": "1-110;420-525"
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/std/src/panic.rs",
+      "blob_sha": "3ef786c294187ea9251415301d59a3684414f899",
+      "blob_matches_existing": true,
+      "file_line_count": 534,
+      "original_read_ranges": "315-410",
+      "correct_read_ranges": "315-410"
+    },
+    {
+      "repository": "https://github.com/tokio-rs/bytes",
+      "commit": "76c0fbb54ed4336caf9d2311658a2f4a5627c21d",
+      "path": "src/bytes.rs",
+      "blob_sha": "0f1aaed4ee1674ba3946fdd986ac32cead808689",
+      "blob_matches_existing": true,
+      "file_line_count": 1657,
+      "original_read_ranges": "207-290",
+      "correct_read_ranges": "207-290"
+    },
+    {
+      "repository": "https://github.com/tokio-rs/tokio",
+      "commit": "b53b2001ed2ccfd9b87e32a0c6da1a1eebdc80b8",
+      "path": "tokio/src/sync/mpsc/bounded.rs",
+      "blob_sha": "273e5ae433c35e314dd758a616a0585786e6f147",
+      "blob_matches_existing": true,
+      "file_line_count": 1967,
+      "original_read_ranges": "443-480",
+      "correct_read_ranges": "443-480"
+    }
+  ],
+  "corrections": [
+    {
+      "repository": "https://github.com/ralfbiedert/interoptopus",
+      "commit": "c67748791c158ce1b9c0323d3ca32da3d4fc9e92",
+      "path": "crates/backend_csharp/src/pass/model/common/fns/originals.rs",
+      "blob_sha": "89d6db12894a468e8806c87f4887ec67ce6912ae",
+      "blob_matches_existing": true,
+      "file_line_count": 87,
+      "original_read_ranges": "1-89",
+      "correct_read_ranges": "1-87"
+    },
+    {
+      "repository": "https://github.com/mozilla/cbindgen",
+      "commit": "2b757a22bab77981e5d414d554db7a5d6109e727",
+      "path": "README.md",
+      "blob_sha": "d6d7673d6ad80356c518cae5d3b4e6c6d15bdfcc",
+      "blob_matches_existing": true,
+      "file_line_count": 99,
+      "original_read_ranges": "1-115",
+      "correct_read_ranges": "1-99"
+    },
+    {
+      "repository": "https://github.com/rust-lang/rust-bindgen",
+      "commit": "0d213bc3dbad03e27fe729b7fb1bb5c77cffda1d",
+      "path": "README.md",
+      "blob_sha": "9c8b7b28725ed8356f51ec1988dbfb8a28d6f8b3",
+      "blob_matches_existing": true,
+      "file_line_count": 89,
+      "original_read_ranges": "1-90",
+      "correct_read_ranges": "1-89"
+    },
+    {
+      "repository": "https://github.com/model-checking/kani",
+      "commit": "0aac16ef62da9e9d5645782d458593e5d78143ba",
+      "path": "docs/src/tutorial-loop-unwinding.md",
+      "blob_sha": "1f07f6050c9a8990f85b60c2405d146e40303f53",
+      "blob_matches_existing": true,
+      "file_line_count": 148,
+      "original_read_ranges": "1-170",
+      "correct_read_ranges": "1-148"
+    }
+  ],
+  "technical_conclusions_changed": false,
+  "experiments_changed": false
+}

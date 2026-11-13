@@ -1,0 +1,43 @@
+[
+  {
+    "label": "rustc",
+    "argv": [
+      "rustc",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T08:16:46.834467+00:00",
+    "ended_utc": "2026-11-13T08:16:46.887245+00:00",
+    "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "lock",
+    "argv": [
+      "cargo",
+      "generate-lockfile",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T08:16:46.887490+00:00",
+    "ended_utc": "2026-11-13T08:16:47.058305+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "a2c0fc13e348ee20e6b8e527fcb8d3abf62556cc1ae66e5040eef1671fdb0c11"
+  },
+  {
+    "label": "test",
+    "argv": [
+      "cargo",
+      "test",
+      "--locked",
+      "--offline",
+      "--",
+      "--nocapture"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T08:16:47.058680+00:00",
+    "ended_utc": "2026-11-13T08:16:56.722287+00:00",
+    "stdout_sha256": "807cb602da3633c7993b17429943eddffb8eeeb9685186ebfcc59bae55e0b119",
+    "stderr_sha256": "3515ebcb1cb1fda0778acb3445077948ed46940e1b449eca9a46e688faa9f80a"
+  }
+]

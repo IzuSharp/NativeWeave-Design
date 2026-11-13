@@ -1,0 +1,280 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "NW-DB-INDEPENDENT-2026-11-13",
+  "reviewer": "/root/interop_research",
+  "reviewed_author": "/root/database_research",
+  "review_date_utc": "2026-11-13T08:15:06.111713+00:00",
+  "decision": "accepted_for_research_and_design_scope",
+  "unresolved_blocking_findings": 0,
+  "github_approval_identity": null,
+  "not_a_second_github_account_approval": true,
+  "baseline_design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+  "baseline_plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+  "published_fixture_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "frozen_author_manifest": {
+    "path": "verification/database-completion/task-status.json",
+    "sha256": "3081f663362d51b3f836f57b4aa6052b2e8b1dbbd2fd061602addb52bd5e222a"
+  },
+  "contract_version": "0.3.0",
+  "review_inputs_sha256": {
+    "docs/research/topics/R19/report.md": "7463a51d2f413085beecd52ed67dc7ee52c01a7ad3a9ac9e72deef631838b006",
+    "docs/research/topics/R19/evidence.json": "021e7c8283af7d8771b7eec7c6e300725ff1bec30765d7b4d9b10065faa61078",
+    "docs/research/topics/R19/coverage.json": "911d62e6075f147fca5cd83dec011e8727323060ffbddefe0b41f66e7252553f",
+    "docs/research/topics/R20/report.md": "5a31c55bf5e7deea359752c8fb537aebd36a835d58a1de81d2ffc120b05d3282",
+    "docs/research/topics/R20/evidence.json": "4f100de2fbe7e8ac39ab0c325f113de37953483b813461a423781dbe7aa93828",
+    "docs/research/topics/R20/coverage.json": "3c45d8d93fe10b0da6f7ebeac149ec6fe17e1279494af6918fb2371c0365e464",
+    "docs/research/topics/R21/report.md": "519460fedfa3918381541d7665a0391bfc8060a89f1ff83c705397123191d614",
+    "docs/research/topics/R21/evidence.json": "f7441bb4b438531fbf5a69f9ef557b61e173b1b9ba5aa6a4185bfabb0c59ae2e",
+    "docs/research/topics/R21/coverage.json": "db81b7d4369281576a4815b0ae1c37fb93892d1f998564be89da3abaa51a0a3b",
+    "docs/research/topics/R22/report.md": "3de6debaf443ef27c4db3ca4ca9ca9f0bd2d267eb39f73712e884799e28ad3dc",
+    "docs/research/topics/R22/evidence.json": "745bd943a14145075ab0652c6c11bb95fd1cab6dd8400d4dcc73482021e4dbcc",
+    "docs/research/topics/R22/coverage.json": "293319f83dbc15c6f6f3b02bffe8d99aee5ab30767489816b02a8310de643afd",
+    "docs/research/topics/R23/report.md": "43eb13aa88a26e08697388d643ddd88a125179238b1a11af9b634537f1b458c1",
+    "docs/research/topics/R23/evidence.json": "bb4c030de2191ecaedafdce7a01236889955742e4b1ec8bb76582d8628d99257",
+    "docs/research/topics/R23/coverage.json": "f50130005da98adacf82a7e0b837c9c7d8fc8a9912621d01a20895a570cc89aa",
+    "docs/research/topics/R24/report.md": "4373edb0f171ef00125ac1e5454c0666b42db52150446ce82f594852b907ed08",
+    "docs/research/topics/R24/evidence.json": "eac88a7abdc6136d44ccb4719926a218f153439453cd7175c8677617905494c1",
+    "docs/research/topics/R24/coverage.json": "4f4a42439e23e8b83a37c56e1bb680c3acd5e1294de3a7dcadb2c0a073dd0605",
+    "docs/research/topics/R25/report.md": "a6f011f73bed1022fe24cd60a855c9553cedeb2a1c0ad65082ff9942a55d0c5d",
+    "docs/research/topics/R25/evidence.json": "de4b517a8c6a01408b216b91f6492acbbaa9767864dcac32b9a938dda4f103f5",
+    "docs/research/topics/R25/coverage.json": "87b06243d2a7646dc71a07de4ad1676276fba93b4ba6148d20cb448e9b76db52",
+    "docs/research/topics/R31/report.md": "2df3f72bea0b8b48b9e895ba7496918da2288312838633f54733311b35cf4ac1",
+    "docs/research/topics/R31/evidence.json": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301",
+    "docs/research/topics/R31/coverage.json": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745",
+    "docs/research/topics/R25/source-driven-seaquery.md": "d2bd3c03a92debc4e8d935eaf156d848e4ff6d9a13a68d2017bb6ec1f3a8ac7a",
+    "docs/research/topics/R25/seaorm-dynamic-boundary.md": "b52c234987169ae2d55b1f561ffc080d2f5265f45ade5f8c80e6fdfda75c7198",
+    "docs/database/drivers.md": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+    "docs/database/transactions-and-pooling.md": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+    "docs/database/query-semantics.md": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+    "docs/generators/query-generation.md": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+    "docs/verification/reference-application.md": "7001fc3c44f68b4e6b44b1a8c03143bba0a659a1b7a31f27513b71b66930bfcf",
+    "verification/database-completion/source-inspection.json": "3460b9adf3bb5dbd86e03917f35a759df92eaca94d0d8e99090e5739e03c6622",
+    "verification/database-completion/README.md": "e93e21ffbf14865811ccb94dab7d1f62819c15863b04d6a2be286d8c58644505",
+    "experiments/database-completion/Cargo.toml": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+    "experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "experiments/database-completion/run.py": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+    "experiments/database-completion/tests/postgres.rs": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+    "experiments/database-completion/tests/runtime_metadata.rs": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+    "experiments/database-completion/README.md": "3c74b065afcc1094e809e6c1516990ee1a8c46d0a1d573d762ee4f0acd789312",
+    "verification/database-completion/ci-confirmation.json": "b1aa4f8e4bcc3a56c876ef6f75566656a1aa739b8e8e30eb882366021a8c94fc",
+    "verification/interop-completion/db-review-migration/result.json": "a4f525e49684df8a3d44068a08485b830091f368f73a52126b1491434f221d55"
+  },
+  "all_41_input_hashes_match": true,
+  "task_decisions": [
+    {
+      "id": "R19",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Rust SQLx provider execution, PostgreSQL protocol/cancel/COMMIT uncertainty and remote TLS capability limits resolved for selected design.",
+      "future_delivery_obligations": [
+        "B02: product TLS/auth/real Windows/Linux C# Native AOT provider integration",
+        "B23/R17: matched full-workload managed/native/FFI measurement; no performance superiority claimed"
+      ]
+    },
+    {
+      "id": "R20",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "SQLite worker and cooperative cancellation limits retained; migration admission corrected and public tracked BEGIN path executed independently.",
+      "future_delivery_obligations": [
+        "B03: actual C# adapter busy/file-fault/worker/late-cancel and both-OS Native AOT validation",
+        "B08: concurrent-process outer BEGIN IMMEDIATE migration serialization, crash and nontransactional admin conformance"
+      ]
+    },
+    {
+      "id": "R21",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Transaction outcome/protocol/connection/local retirement separated; real PG failed transaction, drain, response loss and lock cases support design.",
+      "future_delivery_obligations": [
+        "B05: implement exact C# operation/transaction state mapping, same-session lease and cleanup retirement",
+        "B22: product fault/soak and both-OS Native AOT under cancellation/shutdown"
+      ]
+    },
+    {
+      "id": "R22",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Explicit codecs, missing-vs-NULL shape preflight, bounded result ownership, native migration checksum and cleanup reuse specified.",
+      "future_delivery_obligations": [
+        "B06/B07/B12: full supported-codec and malformed-wire/large-value/mapping cleanup tests in real C# AOT wrapper",
+        "B08: dedicated admin connection and migration locking implementation/recovery validation"
+      ]
+    },
+    {
+      "id": "R23",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Static managed metadata/DTO generation and no per-entity Rust rebuild route defined; full generator product tests remain Delivery.",
+      "future_delivery_obligations": [
+        "B10/B13: product incremental generator, complete typed Fluent API and compile/runtime negatives",
+        "B24: no-Rust RID-free build/run and both-OS Native AOT unchanged native hash for new entity"
+      ]
+    },
+    {
+      "id": "R24",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Typed Fluent scope, SQL null semantics, explicit joins/CAS and native dialect capability rejection defined without full IQueryable.",
+      "future_delivery_obligations": [
+        "B11/B13: promised operator/backend full differential matrix through actual C# wrapper; no full IQueryable requirement",
+        "B14: relation/CAS multiuser and tenant authorization conformance"
+      ]
+    },
+    {
+      "id": "R25",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "SeaQuery/SQLx ordinary default, actual SeaORM dynamic projection and static loader capability comparison evidenced; no arbitrary mandatory ORM.",
+      "future_delivery_obligations": [
+        "B04/B09–B14: implement chosen native reuse profile and static managed facade",
+        "If adding eager-loading beyond explicit joins: first validate a controlled dynamic extraction of native SeaORM loader; no required baseline fork"
+      ]
+    },
+    {
+      "id": "R31",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Mandatory Rust Server plus Rust DB reference design; actual PG idempotency snapshot/COMMIT unknown evidence; product implementation separate.",
+      "future_delivery_obligations": [
+        "B21/B22: implement reference app, product faults including outbox/filesystem/HTTP and actual C# AOT",
+        "B23/B24: long load/performance and independent package acceptance"
+      ]
+    },
+    {
+      "id": "D14",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Rust provider/host/ABI ownership/module seams, native metadata and errors/budgets; exact tracked migration recipe and public row preflight.",
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    },
+    {
+      "id": "D15",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Session/transaction state machines, Unknown effect, cleanup and retention, pool admission, savepoint and migration semantics implementable.",
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    },
+    {
+      "id": "D16",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "SQL semantic subset, typed metadata/Fluent and backend rejections, null/value/parameter scope and native reuse obligations explicit.",
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    },
+    {
+      "id": "D17",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Static typed metadata/DTO generation and thin ABI integration, compile negatives and no managed SQL compiler/per-entity Cargo.",
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    },
+    {
+      "id": "D20",
+      "decision": "accepted_for_research_and_design_scope",
+      "rationale": "Concrete reference application boundaries, tenant idempotency, outbox/blob recovery, mandatory native engines and acceptance requirements.",
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    }
+  ],
+  "findings": [
+    {
+      "id": "DB-IR-01",
+      "severity": "medium",
+      "status": "resolved",
+      "issue": "SQLite raw BEGIN IMMEDIATE bypasses SQLx transaction depth and breaks nested Migrator BEGIN.",
+      "fix": "Tracked Connection::begin_with -> Transaction -> Migrator::run(&mut *tx); pre-reject no_tx, commit/rollback mapping and cleanup isolation.",
+      "files": [
+        "docs/database/drivers.md",
+        "docs/database/transactions-and-pooling.md",
+        "docs/research/topics/R20/report.md",
+        "docs/research/topics/R22/report.md"
+      ],
+      "verification": "13-file source review plus 3 actual independent Linux Rust regressions."
+    },
+    {
+      "id": "DB-IR-02",
+      "severity": "medium",
+      "status": "resolved",
+      "issue": "R31 retained NativeWeave Server examples without Rust Server native asset.",
+      "fix": "Mandatory Rust Server asset in all product Server profiles; managed routes external comparison only.",
+      "files": [
+        "docs/research/topics/R31/report.md"
+      ],
+      "verification": "Final text read against D20 and mission."
+    },
+    {
+      "id": "DB-IR-03",
+      "severity": "low",
+      "status": "resolved",
+      "issue": "Current evidence status and R31 leftover coverage contradicted actual new PG execution.",
+      "fix": "Historical fields preserve old state; current research-ready status and future Delivery obligations separated.",
+      "files": [
+        "docs/research/topics/R19/evidence.json",
+        "docs/research/topics/R20/evidence.json",
+        "docs/research/topics/R21/evidence.json",
+        "docs/research/topics/R22/evidence.json",
+        "docs/research/topics/R23/evidence.json",
+        "docs/research/topics/R24/evidence.json",
+        "docs/research/topics/R25/evidence.json",
+        "docs/research/topics/R31/evidence.json",
+        "docs/research/topics/R31/coverage.json",
+        "docs/research/topics/R31/report.md"
+      ],
+      "verification": "All eight final status records and R31 current/historical coverage inspected."
+    },
+    {
+      "id": "DB-IR-04",
+      "severity": "low",
+      "status": "resolved",
+      "issue": "Two claimed upstream source range endpoints extended beyond EOF.",
+      "fix": "PG TLS end100 and migration end374; exact final ranges checked.",
+      "files": [
+        "verification/database-completion/source-inspection.json"
+      ],
+      "verification": "Computed source Git blob/SHA256 identities and range limits."
+    },
+    {
+      "id": "DB-IR-05",
+      "severity": "improvement",
+      "status": "resolved",
+      "issue": "SeaORM type/shape preflight lacked a concrete public provider-row access seam.",
+      "fix": "Public try_as_pg_row / try_as_sqlite_row -> SQLx Row::columns / Column::type_info with owner lifetime.",
+      "files": [
+        "docs/database/drivers.md",
+        "docs/generators/query-generation.md"
+      ],
+      "verification": "Independently read QueryResult public methods and reviewed final normative clauses."
+    }
+  ],
+  "review_work": {
+    "current_reports_read": 8,
+    "current_evidence_and_coverage_records_read": 16,
+    "normative_specifications_read": 5,
+    "r25_appendices_read": 2,
+    "fixture_sources_and_runner_read": true,
+    "cargo_lock_parsed_for_dependency_identity": true,
+    "selected_upstream_source_files_independently_read": 13,
+    "historical_upstream_citations_all_reread": false,
+    "upstream_test_suites_executed": false,
+    "ci_archive_files_independently_hashed": 33,
+    "ci_input_snapshots_compared_to_published_git": 21,
+    "ci_metadata_passed_windows": 5,
+    "ci_metadata_passed_linux": 5,
+    "ci_postgres_passed_linux": 6,
+    "ci_original_unique_cases": 11,
+    "independent_new_native_linux_cases_passed": 3
+  },
+  "supporting_evidence_sha256": {
+    "verification/interop-completion/db-independent-source-review.json": "b576f3a0c531ada713f0ac3463b6a1981fad6ae5ae70a339556f742614c44a6b",
+    "verification/interop-completion/db-independent-ci-review.json": "f84cf7f8ebfb4ec85ec0b443c5d77e6c49bac49bfd767bbc41c0f14b70333dba",
+    "verification/interop-completion/db-review-additional-source.json": "078c701a93a50a279c600d419f981d2cbeb163ddad9d7d96571da89a29915ef4",
+    "verification/interop-completion/db-review-migration/result.json": "a4f525e49684df8a3d44068a08485b830091f368f73a52126b1491434f221d55",
+    "verification/interop-completion/db-review-migration/commands.json": "df0d0f65e55f89dd67d935613f3a86fc567d3df70edc9a13923dfd6546492dff",
+    "verification/interop-completion/db-review-migration/lock.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/interop-completion/db-review-migration/lock.stderr": "9c5c61bcd0dfb118214715f6347b89a0ba7fe97c30dbb305d9584d377a982861",
+    "verification/interop-completion/db-review-migration/test.stdout": "422a8e833a8352edd8417aee0c76e8cc6202fbaafa9ec6faa0ce8a377aa664e9",
+    "verification/interop-completion/db-review-migration/test.stderr": "9480f166869516cdce0ea4c9a24323194b9d09b7f5807d94109e93e67962c6b3",
+    "experiments/interop-completion/db-review/Cargo.toml": "d961cf2f0021615021d21f12e32744db73c74b097f8fe1fbeafb1d36d94f60c8",
+    "experiments/interop-completion/db-review/Cargo.lock": "696768f36415c3f5682d05dc15479ae13b2670bf78769a70606ba434ff756b50",
+    "experiments/interop-completion/db-review/migration_admission.rs": "3337c33340dafc154b6aa312165475e87decd50c4880d515e03a345ba0fee207",
+    "experiments/interop-completion/db-review/README.md": "98f57907ab8e4499f997ae9a0db38e0d285374cb0658e9e775a4dd63ec383286",
+    "verification/interop-completion/database-independent-review.md": "7f0fd0d29980aa02903282bb71088cd82751e0cd4f97c07ff0ea1ddcf9cf710c"
+  },
+  "product_implementation_accepted": false,
+  "limits": [
+    "Technical review covers only the listed eight Research/five Documentation tasks and exact final hashes.",
+    "Full historical upstream source or test suites were not re-audited; original evidence retains its original authorship and limits.",
+    "CI artifacts were independently read/hashed; successful GitHub CI was not rerun by reviewer.",
+    "New reviewer regression is Linux native Rust only: no C#/AOT/Windows, concurrent process, nontransactional migration or crash guarantee.",
+    "Future product ABI/provider/server implementation, broad conformance, TLS/auth, package consumption, performance and soak remain Delivery.",
+    "Formal graph/registry promotion and GitHub checks/merge belong to root integrator; this agent made no remote mutations."
+  ]
+}

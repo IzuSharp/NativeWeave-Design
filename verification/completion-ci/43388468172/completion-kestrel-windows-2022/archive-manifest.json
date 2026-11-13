@@ -1,0 +1,85 @@
+{
+  "artifact_id": 14020055993,
+  "name": "completion-kestrel-windows-2022",
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "run_id": 43388468172,
+  "zip_sha256": "2dbcd5a694d893b5fa9e28a9a467d8cd5b4fe8f9cb9a87729e18f39fee98ccdc",
+  "zip_bytes": 16423033,
+  "files": [
+    {
+      "path": "artifacts/completion/kestrel/inputs/kestrel/KestrelComparator.csproj",
+      "sha256": "a6ad2fe3b3531fbb3f3a0d9b5954a5a4ed973739054b95b3608d71dd9317ce2c",
+      "bytes": 332,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/dotnet-info.stdout.txt",
+      "sha256": "d56ea3dfc840ba3e04ad581f5abd4c99e6649fe089ba94d22ede5c7ad298087c",
+      "bytes": 6101,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/dotnet-info.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/inputs/kestrel/Program.cs",
+      "sha256": "8d5089166c1ff720c32b278e21b1a5fcb2157bd3cc07d5126a04a941c8d0d8b8",
+      "bytes": 2888,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/native-aot-run.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/native-aot-run.stdout.txt",
+      "sha256": "d1f80f4aff5c173ba5c8d9f0c37349e08549eb44c96f0abbe83cd8961d2f5f27",
+      "bytes": 2465,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/publish/KestrelComparator.exe",
+      "sha256": "0e68363445c7069d9b9082fe0f86743b6815666abadcd1847da286658fd43b72",
+      "bytes": 12326912,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/kestrel/publish/KestrelComparator.pdb",
+      "sha256": "577b462ed543b772eb32159c8c9653a76887d67deadd73c690cd7e6ebcb62a28",
+      "bytes": 51441664,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json",
+      "sha256": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac",
+      "bytes": 53,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/publish.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/publish.stdout.txt",
+      "sha256": "a99a43bfd77921e736bb289b79494ec6d1ec23180674d82c071f5f27142271be",
+      "bytes": 457,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/kestrel/run.json",
+      "sha256": "b86ae545f625319bcfc3c53ac964cfb2047c0548db7720a19ce130679e4d1c36",
+      "bytes": 2438,
+      "preserved": true
+    }
+  ],
+  "results": []
+}

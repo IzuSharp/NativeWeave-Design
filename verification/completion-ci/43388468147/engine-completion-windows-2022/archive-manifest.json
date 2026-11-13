@@ -1,0 +1,250 @@
+{
+  "artifact_id": 14019571659,
+  "name": "engine-completion-windows-2022",
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "run_id": 43388468147,
+  "zip_sha256": "f6ec172c3978ec34e880c068bef5326567ff9261d254df7436bd64e6a5bf38c8",
+  "zip_bytes": 2888949,
+  "files": [
+    {
+      "path": "actual-aot.stdout",
+      "sha256": "3abe15e1fd851d99eb78ef2b818501d85574fb20790980ea7ab6182979b0bf3c",
+      "bytes": 26,
+      "preserved": true
+    },
+    {
+      "path": "actual-aot.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "aot-publish-no-rust.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "aot-publish-no-rust.stdout",
+      "sha256": "de8aba4fbf66af939e5f8f9025bb293f7bf7845ec71b474b0e385d350c8893d9",
+      "bytes": 458,
+      "preserved": true
+    },
+    {
+      "path": "cargo-metadata.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "cargo-metadata.stdout",
+      "sha256": "1cb4f721a3948ed0178e8a151cb7a9b7b1ba40f188965e12733f9e93a5351756",
+      "bytes": 7691,
+      "preserved": true
+    },
+    {
+      "path": "consumer-build-no-rid-no-rust.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "consumer-build-no-rid-no-rust.stdout",
+      "sha256": "302b7d278a1a144b07de4ae95ad5e6908cdb6ac6363f31388c8663940788b2b4",
+      "bytes": 409,
+      "preserved": true
+    },
+    {
+      "path": "consumer-change-offline.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "consumer-change-offline.stdout",
+      "sha256": "322b703d416ca1a0d1490ff4a79417ed1ef71c5b7507f52b6b2810cc24ac3a7d",
+      "bytes": 230,
+      "preserved": true
+    },
+    {
+      "path": "consumer-run-no-rid-no-rust.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "consumer-run-no-rid-no-rust.stdout",
+      "sha256": "2d5249bad4e65bbb45e2eeaaccd02053cd906016758e6c9e6fef926bcff3bb8c",
+      "bytes": 27,
+      "preserved": true
+    },
+    {
+      "path": "dependency-inventory.json",
+      "sha256": "af0afd34f1bd486ea1534a344b320894ed47c47ae7203393182917d4c2bebbbf",
+      "bytes": 1014,
+      "preserved": true
+    },
+    {
+      "path": "inputs/consumer/Consumer.csproj",
+      "sha256": "50f0e2a945912089da8342aad7a1cc0c882c5308fa3e18edf490586d74641db2",
+      "bytes": 430,
+      "preserved": true
+    },
+    {
+      "path": "inputs/consumer/Program.cs",
+      "sha256": "c9344d246548e01ee581fd9ce6414cd27f22210f9b8d4c3e1740bf980170fa0c",
+      "bytes": 1359,
+      "preserved": true
+    },
+    {
+      "path": "inputs/managed/Codec.csproj",
+      "sha256": "f73ced97b21d9f0f9515dfecce90204f70fa356a28f07d77e07cc0b6c0c35051",
+      "bytes": 761,
+      "preserved": true
+    },
+    {
+      "path": "inputs/managed/Codec.cs",
+      "sha256": "179ccb6ef010bac4016856c5cd84793891da379bc7a165ffdda75b7cfeb353d7",
+      "bytes": 1667,
+      "preserved": true
+    },
+    {
+      "path": "inputs/native/Cargo.lock",
+      "sha256": "9e17d190a5385ec98738a562f2d70561d5d9a40556b1e5e2235ce9c6d9bc0bb5",
+      "bytes": 636,
+      "preserved": true
+    },
+    {
+      "path": "inputs/native/Cargo.toml",
+      "sha256": "39bbd25a60f005c3a771c2c5217ec358e2ad938aee3a1e724e42dc35261eb500",
+      "bytes": 216,
+      "preserved": true
+    },
+    {
+      "path": "inputs/native/src/lib.rs",
+      "sha256": "57dd3920878100b9d291c1900a0d9534595842c8bd89689e3a89579233ff873b",
+      "bytes": 3089,
+      "preserved": true
+    },
+    {
+      "path": "native-build.stderr",
+      "sha256": "9e8bdc790d60bd15a8f39d577459de33362c72c42f383f15a7fc206786f1c904",
+      "bytes": 241,
+      "preserved": true
+    },
+    {
+      "path": "native-build.stdout",
+      "sha256": "6a5b4e45c77f50c3dfbcbd62cb391c2f72f9850274da00dff1272956f3546cc7",
+      "bytes": 3463,
+      "preserved": true
+    },
+    {
+      "path": "native-test.stderr",
+      "sha256": "450d9ae67e51fff9c2dac580f39441858168e95197888efb645c2e7cf9de255a",
+      "bytes": 541,
+      "preserved": true
+    },
+    {
+      "path": "native-test.stdout",
+      "sha256": "eab7d2fd6c353711d39835f4f0668c5115cb6257b7fe3181366c2d5f04b13e40",
+      "bytes": 363,
+      "preserved": true
+    },
+    {
+      "path": "NativeWeave.Research.Codec.0.0.1.nupkg",
+      "sha256": "8ce154f0283e8520cf9102e122919da35d3e884f3519032fa85caea76609223c",
+      "bytes": 92223,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "pack.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "pack.stdout",
+      "sha256": "17965cf288f6acd7ce5f5a70b15288b9a6eb81d891d2dc002d722f047c5564bd",
+      "bytes": 610,
+      "preserved": true
+    },
+    {
+      "path": "publish/Consumer.exe",
+      "sha256": "24ad9e46f790f34d672a0f2e7e3444077c563182be8f2ab7a55315460bc05846",
+      "bytes": 1337344,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "publish/Consumer.pdb",
+      "sha256": "7977a2786b1f1c54d6533e36abf3d9c13a9dbcd82b703e12a7e7e68ee08f4aae",
+      "bytes": 7417856,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "publish/nw_codec_research.dll",
+      "sha256": "16f6239c30022e684f9a1394fce778074328db9bbe226786d2f870be3e858b99",
+      "bytes": 163328,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "result.json",
+      "sha256": "234314f10c21b48afb5b5fb94a68a626a04f002d6f3d23254b4c3640666a1ce3",
+      "bytes": 8414,
+      "preserved": true
+    },
+    {
+      "path": "rustc.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "rustc.stdout",
+      "sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+      "bytes": 196,
+      "preserved": true
+    },
+    {
+      "path": "sdk.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "sdk.stdout",
+      "sha256": "2a91caa34114f97b4569e7d15931f36831458ce2d53533d39dbddaaf9f38a829",
+      "bytes": 6049,
+      "preserved": true
+    }
+  ],
+  "results": [
+    {
+      "path": "result.json",
+      "passed": true,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "keys": [
+        "scope",
+        "source_commit",
+        "platform",
+        "rid",
+        "commands",
+        "source_files",
+        "passed",
+        "clean_operating_system",
+        "consumer_rust_toolchain_discoverable",
+        "package_entries",
+        "native_sha256",
+        "package_sha256",
+        "rid_free_consumer",
+        "application_change_reuses_native",
+        "aot_executed",
+        "aot_binary_sha256",
+        "finished_at"
+      ]
+    }
+  ]
+}

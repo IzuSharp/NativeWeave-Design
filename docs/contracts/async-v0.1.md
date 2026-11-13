@@ -1,6 +1,6 @@
 # C-ASYNC-001：异步操作、取消、结果与退休
 
-版本：0.1.0；D06 / R09、R08、R07。作者：interop_design。状态：**review-ready；正式接受以registry为准；产品实施与生产验收未验证**。本文件作出v1实现选择，保留真实语言、AOT与生产验证义务。源码证据见[R09报告](../research/topics/R09/report.md)。
+版本：0.3.0；D06 / R09、R08、R07。作者：interop_design。状态：**研究/设计候选已完成；registry记录精确审查版本、内容hash与接受状态；产品验证保留在Delivery阶段**。本文件作出v1实现选择，保留真实语言、AOT与生产验证义务。源码证据见[R09报告](../research/topics/R09/report.md)。
 
 ## 1. 公共编程模型与范围
 
@@ -204,3 +204,15 @@ native执行器已经损坏或无法再证明静默时，Engine进入隔离，�
 
 Q05的v1Task/ValueTask/池化选择已有明确决定；Q04的async完成、取消与回收协议已有具体偏序和不变量。独立审查通过后可关闭这些设计研究问题，并保留AS/CB/LT系列实际验证。R12执行器公平性与特殊线程profile、R10具体Buffer映射、R15弱内存模型进一步补证，不阻止当前协议草案被审查或不相关文档推进。
 
+## 15. 本次完成复核与版本约束（2026-11-13）
+
+[R09 完成报告](../research/topics/R09/report.md) 继续使用已经成功的退休有限模型，不重跑充数；补入 .NET 11 `ManualResetValueTaskSourceCore`、UniFFI future/scheduler 的固定源码，以及 [真实 normal/AOT 探针](../../verification/interop-completion/linux/result.json)。后者实际覆盖同步/外来 native thread 完成、预取消、注册期间同步回调、晚到取消不篡改成功、重复 terminal/take 拒绝、转换抛出后结果释放和 callback 在途退休失败。它验证指定控制边界，未实现整个产品协调器。
+
+v1 首选 Task 与异步 continuation；ValueTask 池化必须等待具体测量和额外证明。`ManualResetValueTaskSourceCore` 的 short 版本与 Reset 并不证明旧 native cookie 已静默，也不允许单靠 token 回卷检测保证无限复用。当前 .NET 11 Runtime Async 特性状态与编译配置以 R01/D01 最新证据为准；历史“preview”描述不能继续成为当前限制，也不改变本协议的 native quiet 义务。
+
+清理通知采用 [D09](concurrency-v0.1.md) 的有限 mailbox 和单一重试源；dirty 检查与取消 scheduled 必须原子。设计接受与 A07/A19/A20 的实现测试独立：本规范已经定义每个需要实现的状态、失败原子性与释放偏序；正式实现再逐项将真实 CAS、GC roots、native引用和各平台行为映射到这些不变量。
+
+
+### Committed target evidence
+
+The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.

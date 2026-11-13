@@ -1,0 +1,13 @@
+{
+  "author": "/root/database_research",
+  "scope": "Repository location fix only; no research/specification/evidence/coverage source input changed.",
+  "file": "docs/traceability/reviews/completion/interop-independent-review-addendum.json",
+  "old_sha256": "8f9c1abf36b4a6cc634e616feb624a96a328f82b3651444b45eaa6e2c71b775e",
+  "new_sha256": "a0a09a2eadc16f0779595601d8bf027c239bfce26af354bc14605eca3aa51d4e",
+  "only_changed_field": "prior_review.path",
+  "old_value": "work/interop-independent-review.json",
+  "new_value": "docs/traceability/reviews/completion/interop-independent-review.json",
+  "referenced_review_sha256_verified": "286aad42839033bdbc8340815e63a114596d21caa797b7dcdff32059281291e9",
+  "exact_reverse_restores_prior_bytes": true,
+  "other_scratch_references": "No scratch file-link fields in the three reviewer JSON documents; original command/log strings remain untouched."
+}

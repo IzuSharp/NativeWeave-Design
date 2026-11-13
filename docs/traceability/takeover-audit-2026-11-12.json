@@ -1,0 +1,1444 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "research_design_planning",
+  "design_base": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+  "plan_base": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+  "product_main": "658ed6a410783de356a7b9b2cd6601336fff5148",
+  "product_pr1": "closed_unmerged",
+  "tasks": [
+    {
+      "id": "R01",
+      "title": "稳定工具链与现代语言机制",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R01/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R01/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R01/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R01/rust-1.100.md",
+          "exists": true,
+          "bytes": 20256,
+          "sha256": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d"
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R02",
+      "title": "Native AOT、裁剪与平台支持",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R02/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R02/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R02/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R03",
+      "title": "C ABI、布局与版本协商",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R03/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R03/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R03/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R03/native-slice-validation.md",
+          "exists": true,
+          "bytes": 5829,
+          "sha256": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997"
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R04",
+      "title": "P/Invoke、回调入口与FFI调用成本",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R04/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R04/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R04/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R05",
+      "title": "绑定生成器与契约描述来源",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R05/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R05/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R05/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R06",
+      "title": "Roslyn增量生成与分析器",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R06/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R06/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R06/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R07",
+      "title": "句柄、所有权、GC与父子资源",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R07/report.md",
+          "exists": true,
+          "bytes": 13092,
+          "sha256": "fad293395abf417fb5560316cc13ef284f4c0fbe6e021aaa30cb4b38748c65cd"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R07/evidence.json",
+          "exists": true,
+          "bytes": 13705,
+          "sha256": "db1cbdcc3c9e82d52d991c61478a7697873cfec736d6ced1b69b1bb67c66eb1e"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R07/coverage.json",
+          "exists": true,
+          "bytes": 9656,
+          "sha256": "23dbf4ac77428e696d7323b6aa3dfde986d44975e6c0dd9481a4327f30b55d11"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R08",
+      "title": "Callback注销、重入与释放竞态",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R08/report.md",
+          "exists": true,
+          "bytes": 11650,
+          "sha256": "6368243c887cd9eb94532ebc98214a27bf362db4e473829c9b6b6297c0cfa6bb"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R08/evidence.json",
+          "exists": true,
+          "bytes": 13949,
+          "sha256": "8effd8aa49db9eeeac3b07e93392958f0a226e491b24b36e19e096255bdcaddf"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R08/coverage.json",
+          "exists": true,
+          "bytes": 10042,
+          "sha256": "0feed7c530a11c8cac827c5cfc9f729fb5f9d9206d89726c3d34a09e087aab85"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R09",
+      "title": "异步、取消与完成状态机",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R09/report.md",
+          "exists": true,
+          "bytes": 14750,
+          "sha256": "6ec6e55047d4d1ac22ce0488638e05abe974a14aa5b487a52976f3f114121f69"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R09/evidence.json",
+          "exists": true,
+          "bytes": 11854,
+          "sha256": "45b48de8f420504bf3a355ac38bdfee72829df45b803439baaf6445dc48db94f"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R09/coverage.json",
+          "exists": true,
+          "bytes": 9025,
+          "sha256": "8bef3f84051a199ca9dc9753e1365b57c064a252b72875d6ff159f5abc77d6c2"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R10",
+      "title": "Buffer、Pinning、批处理与数据传输",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R10/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R10/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R10/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R11",
+      "title": "Error、panic、异常与故障隔离",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R11/report.md",
+          "exists": true,
+          "bytes": 12121,
+          "sha256": "32ffce293eb9fd8c2d329e1d9fea790050ff7b806d858bb3a57250c7637f8d7b"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R11/evidence.json",
+          "exists": true,
+          "bytes": 13235,
+          "sha256": "adff839f03208442d7a520e753ed02842850234bcca4435fcacf29a604a98944"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R11/coverage.json",
+          "exists": true,
+          "bytes": 8835,
+          "sha256": "3e5bcdcf5965a8c8aa82244e0b33c37a3d7843a75201bf9a74be92102f056648"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R12",
+      "title": "并发、执行器、线程亲和与关闭",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R12/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R12/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R12/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R13",
+      "title": "MSBuild/Cargo、链接与目标平台",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R13/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R13/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R13/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R14",
+      "title": "打包、兼容性、独立发布与来源",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R14/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R14/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R14/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R15",
+      "title": "形式化与并发证明义务",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R15/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R15/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R15/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R16",
+      "title": "差分、属性、模糊与故障测试",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R16/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R16/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R16/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R17",
+      "title": "端到端性能、内存与开发成本",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R17/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R17/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R17/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R18",
+      "title": "按能力组合的Engine接入与通用性",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R18/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R18/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R18/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R19",
+      "title": "PostgreSQL驱动与纯C#对照",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R19/report.md",
+          "exists": true,
+          "bytes": 7554,
+          "sha256": "cf45f06983a21d83e082029a31e43389fb4edd6e6846be10e4224d698112d8e2"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R19/evidence.json",
+          "exists": true,
+          "bytes": 16123,
+          "sha256": "0168e2e6baaa6a4683119ad854c2403cbc489f548a886a64389cbb8505880c19"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R19/coverage.json",
+          "exists": true,
+          "bytes": 8082,
+          "sha256": "07a68cc437b4958d050d36899492874c9951c85bbd1d388bf6109bf6b46d1e93"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R20",
+      "title": "SQLite适配、并发与线程限制",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R20/report.md",
+          "exists": true,
+          "bytes": 9152,
+          "sha256": "089231e3cb57744ed7cf97ca3bb941f0bf703eca64a230012d6674a1928a7b93"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R20/evidence.json",
+          "exists": true,
+          "bytes": 22979,
+          "sha256": "c0cfa922797987acf7deb740bc261fdd458c5dda98a74df9d4ab27144024ea8b"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R20/coverage.json",
+          "exists": true,
+          "bytes": 10176,
+          "sha256": "92d3ccd1242a6fdcaa7f7c18d80ad249aa61b9d993ace503401b8a80ce0bfd58"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R21",
+      "title": "连接池、事务、取消与恢复",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R21/report.md",
+          "exists": true,
+          "bytes": 9824,
+          "sha256": "7ebc9f3c642f8942b42a4f0a3f21ea38fff688ab390cb900052fe2ca0ac24f5e"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R21/evidence.json",
+          "exists": true,
+          "bytes": 26196,
+          "sha256": "1f8fa6fa6fdcd905c006b155d6625df2cb32936675dce4def99a70626e5319f8"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R21/coverage.json",
+          "exists": true,
+          "bytes": 12102,
+          "sha256": "ee90d1c86e5e5a1f8823ef6b6ac18667aa9dcd595caf91a3db0078ce6c3b6a0b"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R22",
+      "title": "类型映射、批量流与Schema演进",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R22/report.md",
+          "exists": true,
+          "bytes": 7809,
+          "sha256": "c5fb82d43689b453064c96724f07d910e35d25a0e99ae833ef281e85807130cc"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R22/evidence.json",
+          "exists": true,
+          "bytes": 17155,
+          "sha256": "56d520b40df464bbef0b12206bd9bb75453ca7f06deb9cd7e79b61f1b83163c6"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R22/coverage.json",
+          "exists": true,
+          "bytes": 9029,
+          "sha256": "1f7c6102be7d5c6d5e36e5d8ec76c831d9824396b0141dae610e529c2804d0a3"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R22/native-slice-validation.md",
+          "exists": true,
+          "bytes": 4506,
+          "sha256": "ed63b45332c83accc367fd17d34e844ddf9067a9083801dce59469b208e9c203"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R23",
+      "title": "LINQ、Expression与编译期查询捕获",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R23/report.md",
+          "exists": true,
+          "bytes": 6602,
+          "sha256": "7f978180b5ef37952baa7acffc470875b17cb0a603b67278a81e030a7491277a"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R23/evidence.json",
+          "exists": true,
+          "bytes": 11711,
+          "sha256": "d817eeb121440d6a65ef2d7eb632d4dac2b3efa103f0589c186a5d98b6a93be5"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R23/coverage.json",
+          "exists": true,
+          "bytes": 5538,
+          "sha256": "4c5fef74a31f96dad9e1994aa037fdae6c40c4e2d219025c2e367298800ed9dc"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R24",
+      "title": "SQL语义、关系代数与参数安全",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R24/report.md",
+          "exists": true,
+          "bytes": 7735,
+          "sha256": "a09a093f54085c04d713b0a27e9e2b40a57fc79eae1d3e5dc9c4e403017d5754"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R24/evidence.json",
+          "exists": true,
+          "bytes": 20078,
+          "sha256": "43f59744c93f9fbbd498e006369a6845f2f294d2bcd3a35c4d863410ad793b41"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R24/coverage.json",
+          "exists": true,
+          "bytes": 8481,
+          "sha256": "597fe98de9ec05fb5ee5392f4541cb65d6a45164491f9a1c501c7550efcdd5c5"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R25",
+      "title": "ORM特性、跟踪与现成方案比较",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R25/report.md",
+          "exists": true,
+          "bytes": 11062,
+          "sha256": "3e4710218054346b44848d11073b7a8cfb34de20a7709d060e5fdbc6e763e977"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R25/evidence.json",
+          "exists": true,
+          "bytes": 27117,
+          "sha256": "fadcd70237ab6c763afaab12452d80d7ada82d9b5b1fefeb23e676fbfd445081"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R25/coverage.json",
+          "exists": true,
+          "bytes": 14529,
+          "sha256": "8054d64c7edfe40083e0c42482e7dd076d9611a63290fddba7acb62a6238cccd"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R25/source-driven-seaquery.md",
+          "exists": true,
+          "bytes": 14784,
+          "sha256": "8f0a964dfb60b479020c3407aaf8400efd150a4be831b494efb0fdfda6146da3"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R26",
+      "title": "Kestrel与纯C# AOT服务器基线",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R26/report.md",
+          "exists": true,
+          "bytes": 8274,
+          "sha256": "b0d94647ec9ec84cff4667604026e3aa8aec2eac0935fb9e0a7f19721b5c8388"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R26/evidence.json",
+          "exists": true,
+          "bytes": 7644,
+          "sha256": "91c2e3851d138ff43d0ee5b632e9a0715455780d440fb7509e44baa2735825fb"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R26/coverage.json",
+          "exists": true,
+          "bytes": 5032,
+          "sha256": "cf142929f96138761e4d36dcc8e65feca6b8431247448ba5a2a9eccb0f4c5be7"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R27",
+      "title": "Rust网络引擎与C# Handler边界",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R27/report.md",
+          "exists": true,
+          "bytes": 8022,
+          "sha256": "90d202684085e31ab9f8a673c75ef5af35a18f945ec8b7e91af25cdae17670d6"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R27/evidence.json",
+          "exists": true,
+          "bytes": 4618,
+          "sha256": "fb16e3a58c1a97fb06fc863fce892b6b9cf5951c08bb04471253198f53e3fe6a"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R27/coverage.json",
+          "exists": true,
+          "bytes": 3778,
+          "sha256": "17e2fa622cbdb961499c1277e6bc82b8fd2f420f5dcd6c28c2fe1a0cb541c906"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R27/source-driven-server.md",
+          "exists": true,
+          "bytes": 10117,
+          "sha256": "8ab1ca074871dd6b522b1d13f48eabde95ba7fafd2abc6b87b33d0beb35a9b53"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R27/native-slice-validation.md",
+          "exists": true,
+          "bytes": 3813,
+          "sha256": "50a91715daf76e0fe96a56a7dc668bb94adf145198684ab6dc338727276c89ae"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R28",
+      "title": "gRPC、MCP、TLS与协议适配",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R28/report.md",
+          "exists": true,
+          "bytes": 8617,
+          "sha256": "51c163dda1d0b60bfdd842a360861cdacb0fbdb7443de4ffba873ff6914afb27"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R28/evidence.json",
+          "exists": true,
+          "bytes": 17362,
+          "sha256": "0ed32ad3d1cdec8cc57b12fc8a6d4c89542bc442e251baa15b920194ce4b5b0a"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R28/coverage.json",
+          "exists": true,
+          "bytes": 10893,
+          "sha256": "1cfe15fcc808d15e0fbdc3a31f9f7a1e210a369d6e4924f748423af6a8e870d0"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R29",
+      "title": "请求流、背压、超时与优雅关闭",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R29/report.md",
+          "exists": true,
+          "bytes": 7030,
+          "sha256": "3890e5c32a79a6f27414e8d20c10267c7fe0ec2f718a9bc4c1db335cda536e7b"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R29/evidence.json",
+          "exists": true,
+          "bytes": 7338,
+          "sha256": "01c963c84c227e0e51cc0578d8cbb910447aade48da1a61e245be03e30bbe690"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R29/coverage.json",
+          "exists": true,
+          "bytes": 4234,
+          "sha256": "ce3c31f1cd26e4523104123f5955b691785ca56bff03ea2d4f4dd59efa674ba9"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R30",
+      "title": "可观测性、诊断关联与成本",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R30/report.md",
+          "exists": true,
+          "bytes": 6539,
+          "sha256": "50c893bf06a68043f32d4babfffcc13999da0bc08b10cb26f1b38350d2f8d13f"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R30/evidence.json",
+          "exists": true,
+          "bytes": 5020,
+          "sha256": "dcbcf230ef6d7f5c61cb19ef1896908c6f75bc7cd4957edbb58d9b40538782e3"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R30/coverage.json",
+          "exists": true,
+          "bytes": 3586,
+          "sha256": "98f4616e46dc20e0ef70222a298b2a4f19ed174a02b58d81027e834a3649c864"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R31",
+      "title": "数据库+服务器参考应用与故障恢复",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R31/report.md",
+          "exists": true,
+          "bytes": 11634,
+          "sha256": "0a49dbdf31b83fae2156ec9ce4fd2abc76d9b3d8164872ecd2332e606d7952c0"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R31/evidence.json",
+          "exists": true,
+          "bytes": 7045,
+          "sha256": "667158eb032937dc2d7a76b6e309467ee47791fd2c00daa39eb9fac2c361c4e2"
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R31/coverage.json",
+          "exists": true,
+          "bytes": 2076,
+          "sha256": "d633f3a7435a82de8c5ce93d0f14ee53f4f31dcd3cb2dba2c51297319af8ffe1"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R32",
+      "title": "桌面GUI/GPU与线程亲和扩展",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R32/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R32/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R32/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R33",
+      "title": "iOS/Android、静态链接与平台生命周期",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R33/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R33/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R33/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "R34",
+      "title": "边界安全、输入验证与资源滥用",
+      "registered_status": "planned",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R34/report.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R34/evidence.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        },
+        {
+          "path": "NativeWeave-Design:docs/research/topics/R34/coverage.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D01",
+      "title": "工具链、AOT与平台规范",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/platforms/support-and-aot.md",
+          "exists": true,
+          "bytes": 5298,
+          "sha256": "7b65c9516a0a5ffbd013a14875e7c883fdbc5a567bfd78477d75aa8999e75587"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D02",
+      "title": "ABI及类型布局契约",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/contracts/abi-v0.1.md",
+          "exists": true,
+          "bytes": 9633,
+          "sha256": "e3451642062c1e8f9489fbb24fc85323735ad3189035762cbbf6330264e5de02"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D03",
+      "title": "绑定IR、生成器与分析器规范",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/generators/binding-pipeline.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D04",
+      "title": "所有权与资源生命周期契约",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/contracts/lifetime-v0.1.md",
+          "exists": true,
+          "bytes": 13522,
+          "sha256": "d527369dfd97a2d97ecd0930e25effc523791eb5e22586b1d9e18ac6f4aa31c9"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D05",
+      "title": "Callback注册撤销与静默契约",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/contracts/callback-v0.1.md",
+          "exists": true,
+          "bytes": 15602,
+          "sha256": "596679cf7950d4a9146cb7a5d7a51819b2d953bda580a6722da81649af469700"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D06",
+      "title": "异步完成与取消契约",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/contracts/async-v0.1.md",
+          "exists": true,
+          "bytes": 22491,
+          "sha256": "8f09504a07632fe53ca6e5d2861cf70a3c2d7cea9ff1e4e3035a6a8beaec8672"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D07",
+      "title": "Buffer、传输及内存契约",
+      "registered_status": "partially_evidenced",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/contracts/buffer-v0.1.md",
+          "exists": true,
+          "bytes": 9835,
+          "sha256": "007751a802554f0e75760bef2d3103e93e01c5f51245325939de64cdac18e5d4"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D08",
+      "title": "Error、panic与异常边界契约",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/contracts/error-v0.1.md",
+          "exists": true,
+          "bytes": 13450,
+          "sha256": "fc665d6ac0328b7c524687191d547bd3792dcb43f36124bc10b9144bb42c4797"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D09",
+      "title": "并发、Runtime与关闭规范",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/contracts/concurrency-v0.1.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D10",
+      "title": "构建打包、版本与来源规范",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/platforms/build-package-release.md",
+          "exists": true,
+          "bytes": 9636,
+          "sha256": "5f94867c4eac70ac2bffb410b7a1c7bc7595c42d774e4180ab914e5b79b6087a"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D11",
+      "title": "Engine接入规范与双模块验证",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/extension/engine-integration.md",
+          "exists": true,
+          "bytes": 12503,
+          "sha256": "eb6f2dd8249c43687b95a11f5064cc47c9d3b23ad3adcd1cbd9326b297b3bd6d"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D12",
+      "title": "证明义务与真实验证规范",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/verification/models-and-matrix.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D13",
+      "title": "性能、内存与开发体验方法",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/performance/methodology.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D14",
+      "title": "数据库驱动能力与适配规范",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/database/drivers.md",
+          "exists": true,
+          "bytes": 16833,
+          "sha256": "add9153b6afb711be7e408c9439c39553e9eed15373df882a83425e6c9102ce4"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D15",
+      "title": "连接池、事务与恢复契约",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/database/transactions-and-pooling.md",
+          "exists": true,
+          "bytes": 22555,
+          "sha256": "34788328a967205b6d139aa4d613fdb224cde1bf3dca5f4784acc4eb18c09cce"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D16",
+      "title": "查询IR、SQL语义与ORM范围",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/database/query-semantics.md",
+          "exists": true,
+          "bytes": 11640,
+          "sha256": "d5afd6b8c7d169fb5388ad61db37626a7f926fdcf012d82fdf0383abbbb16710"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D17",
+      "title": "AOT查询捕获、生成与安全动态API",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/generators/query-generation.md",
+          "exists": true,
+          "bytes": 8888,
+          "sha256": "999857e297850784058c526f5a6c0d27036022891e2a139eedc55173521b6b91"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D18",
+      "title": "Server生命周期与适配规范",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/server/hosting-and-streaming.md",
+          "exists": true,
+          "bytes": 23200,
+          "sha256": "9acf2b3bd464815ac0bb66700ee0c5c8791fa3772f7b0fbe54736e59e2f47358"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D19",
+      "title": "协议、可观测性与安全规范",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/server/protocols-and-observability.md",
+          "exists": true,
+          "bytes": 16306,
+          "sha256": "36fec912e6e9511fc28dddb03c06888f07c9c2286e761074c90ffdc09d24c6d9"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D20",
+      "title": "生产级参考应用与验收设计",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/verification/reference-application.md",
+          "exists": true,
+          "bytes": 21474,
+          "sha256": "257ef6112e4ce05d618f0f212cbbaa572a9a33b0014605b7040ed3c1b049aa76"
+        }
+      ],
+      "audit_class": "existing_requires_evidence_and_current_review",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D21",
+      "title": "未来引擎和移动平台扩展边界",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "NativeWeave-Design:docs/extension/future-platforms.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D22",
+      "title": "ABI、内存与资源开发任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/interop-foundation.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D23",
+      "title": "生成器与分析器开发任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/generation.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D24",
+      "title": "Callback、async与Runtime任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/async-runtime.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D25",
+      "title": "构建、打包与独立发布任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/build-release.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D26",
+      "title": "Engine、证明、测试与基准任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/verification-engines.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D27",
+      "title": "Database完整实现任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/database.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D28",
+      "title": "ORM与LINQ AOT实现任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/orm.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D29",
+      "title": "Server与协议实现任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/server.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D30",
+      "title": "端到端、长期负载与领域发布任务编制",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/end-to-end.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D31",
+      "title": "全局追溯、版本兼容与后续Engine任务规范",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:fragments/evolution.json",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    },
+    {
+      "id": "D32",
+      "title": "独立交叉Review与交付准备审查",
+      "registered_status": "draft_ready",
+      "outputs": [
+        {
+          "path": "Plan:ledger/reviews/D32.md",
+          "exists": false,
+          "bytes": 0,
+          "sha256": null
+        }
+      ],
+      "audit_class": "partial_artifact_or_missing",
+      "review_status": "not_inferred_from_file_existence"
+    }
+  ]
+}

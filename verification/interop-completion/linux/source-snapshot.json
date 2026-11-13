@@ -1,0 +1,71 @@
+{
+  "source_commit": null,
+  "inputs": [
+    {
+      "source_path": "experiments/interop-completion/native/Cargo.toml",
+      "snapshot_path": "verification/interop-completion/linux/source/native/Cargo.toml",
+      "sha256": "2c4e195d554a425897bdb25d9ea2914691a6593b5b326c366326be363b25498f"
+    },
+    {
+      "source_path": "experiments/interop-completion/native/Cargo.lock",
+      "snapshot_path": "verification/interop-completion/linux/source/native/Cargo.lock",
+      "sha256": "717a26f10088028a99af7fae8874f9dee75486fcdf53eaac17f82fcc104ab642"
+    },
+    {
+      "source_path": "experiments/interop-completion/native/src/lib.rs",
+      "snapshot_path": "verification/interop-completion/linux/source/native/src/lib.rs",
+      "sha256": "d544148adc2784bea52d854a9077145b147f43e4f311f75d86fb33763af4dd69"
+    },
+    {
+      "source_path": "experiments/interop-completion/Completion.csproj",
+      "snapshot_path": "verification/interop-completion/linux/source/Completion.csproj",
+      "sha256": "151b2876c5cba1800b654d8cd4215a381feb758ffacf57145eb99098d42847a3"
+    },
+    {
+      "source_path": "experiments/interop-completion/Program.cs",
+      "snapshot_path": "verification/interop-completion/linux/source/Program.cs",
+      "sha256": "f07c1a1f70340171bf58ede484b199405197c8acf79093cb4deb2c9bff98d786"
+    },
+    {
+      "source_path": "experiments/interop-completion/global.json",
+      "snapshot_path": "verification/interop-completion/linux/source/global.json",
+      "sha256": "177ca4cd7ebe5dedc790036a165afc2c7d8ffff5a8a09a6679a93b3b0ceb3c0e"
+    },
+    {
+      "source_path": "experiments/interop-completion/rust-toolchain.toml",
+      "snapshot_path": "verification/interop-completion/linux/source/rust-toolchain.toml",
+      "sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e"
+    },
+    {
+      "source_path": "experiments/interop-completion/run.py",
+      "snapshot_path": "verification/interop-completion/linux/source/run.py",
+      "sha256": "63f13767f62747bfe8aef2797ec63b18fae875eda8497305eb86999b9776d90c"
+    },
+    {
+      "source_path": "experiments/interop-completion/GeneratorProbe.csproj",
+      "snapshot_path": "verification/interop-completion/linux/source/GeneratorProbe.csproj",
+      "sha256": "e48b11bfa82b1210d8450ebddd83e7d984b0adb83176ff65afb1cea3835eeb4c"
+    },
+    {
+      "source_path": "experiments/interop-completion/GeneratorProbe.cs",
+      "snapshot_path": "verification/interop-completion/linux/source/GeneratorProbe.cs",
+      "sha256": "339033be553ce7b25e45eac541e0a12ac928bfe763066dce5ac43bef64ab803d"
+    },
+    {
+      "source_path": "experiments/interop-completion/AotRestrictions.csproj",
+      "snapshot_path": "verification/interop-completion/linux/source/AotRestrictions.csproj",
+      "sha256": "da5c22071e79bca5aca697d497f8e8bb18e25f01fcf19e1df1ef6209975df257"
+    },
+    {
+      "source_path": "experiments/interop-completion/AotRestrictions.cs",
+      "snapshot_path": "verification/interop-completion/linux/source/AotRestrictions.cs",
+      "sha256": "f27e1d2fdca73ac16d16dca03d627f4ecf3a1382314184c2d33e344d56883d7e"
+    },
+    {
+      "source_path": "experiments/interop-completion/Directory.Build.props",
+      "snapshot_path": "verification/interop-completion/linux/source/Directory.Build.props",
+      "sha256": "c1b371ad88fb8e78e8fb2ae36f0eac2519aeab353609f75e5ca98ebee3be419e"
+    }
+  ],
+  "note": "Exact local executed inputs; Cargo.toml had one extra final blank line compared with subsequent normalized committed source. Raw result.json unchanged."
+}

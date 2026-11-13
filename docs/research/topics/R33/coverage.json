@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R33",
+  "paths": [
+    {
+      "repo": "rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/event_loop.rs",
+      "scope": "28-47;80-122;238-273;549-572",
+      "sha256": "f84209476849188122139926697f1fe97e17409a41ef0e8dfadf9bd4718108c7",
+      "url": "https://github.com/rust-windowing/winit/blob/e9809ef54b18499bb4f2cac945719ecc2a61061b/src/event_loop.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "WINIT-LOOP"
+    },
+    {
+      "repo": "rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/application.rs",
+      "scope": "19-83;125-187;193-219",
+      "sha256": "993ddc2bbffca969224b2045dfd6cefd6cadd923df83f8ba24da8da8e5ab3fb4",
+      "url": "https://github.com/rust-windowing/winit/blob/e9809ef54b18499bb4f2cac945719ecc2a61061b/src/application.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "WINIT-LIFECYCLE"
+    },
+    {
+      "repo": "dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "scope": "20;32;64-90;209-213;377-442 (selected linker/property lines only)",
+      "sha256": "afc83bf8f87de77200d0bede93aadc7341ff7d7127a44f5131cc129bbf7cf887",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "read_state": "read_as_scoped",
+      "source_id": "NATIVEAOT-TARGETS"
+    },
+    {
+      "repo": "dotnet/runtime",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/coreclr/nativeaot/docs/compiling.md",
+      "scope": "1-130",
+      "sha256": "58f685092bfc27911b2f9c72c9aec3279852e1ee6104b49f8c0c840f3b7acc0e",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/coreclr/nativeaot/docs/compiling.md",
+      "read_state": "read_as_scoped",
+      "source_id": "NATIVEAOT-COMPILE"
+    },
+    {
+      "repo": "dotnet/docs",
+      "commit": "c3377f5f732f604c8f9bffc14d814dd35c99f3c0",
+      "path": "docs/core/deploying/native-aot/index.md",
+      "scope": "20-72;98-165;177-231",
+      "sha256": "d4ebc75350055c421aa6dfafb02221ad1bc2cc7a06f13ece632aad832db73bee",
+      "url": "https://github.com/dotnet/docs/blob/c3377f5f732f604c8f9bffc14d814dd35c99f3c0/docs/core/deploying/native-aot/index.md",
+      "read_state": "read_as_scoped",
+      "source_id": "DOTNET-AOT-PLATFORMS"
+    },
+    {
+      "repo": "dotnet/docs",
+      "commit": "c3377f5f732f604c8f9bffc14d814dd35c99f3c0",
+      "path": "docs/core/compatibility/maui/11/mobile-code-generation.md",
+      "scope": "1-91",
+      "sha256": "59fce432afbcc375b04babf6384d8162944077aa182570643e608b85c43ad3a2",
+      "url": "https://github.com/dotnet/docs/blob/c3377f5f732f604c8f9bffc14d814dd35c99f3c0/docs/core/compatibility/maui/11/mobile-code-generation.md",
+      "read_state": "read_as_scoped",
+      "source_id": "DOTNET-MOBILE11"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "src/doc/rustc/src/platform-support/apple-ios.md",
+      "scope": "1-100",
+      "sha256": "aa4469775d8b1a02ccd2acfa671f8c25f1c362e76ac0168d5abed90097a8375e",
+      "url": "https://github.com/rust-lang/rust/blob/0ef1bc386059596dada8fb65b50425aab2ea637a/src/doc/rustc/src/platform-support/apple-ios.md",
+      "read_state": "read_as_scoped",
+      "source_id": "RUST-IOS"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "src/doc/rustc/src/platform-support/android.md",
+      "scope": "1-72",
+      "sha256": "443c9744c8711492e006238dd4dd32ff490d401cee4725efbdd2c5f5e89be8c9",
+      "url": "https://github.com/rust-lang/rust/blob/0ef1bc386059596dada8fb65b50425aab2ea637a/src/doc/rustc/src/platform-support/android.md",
+      "read_state": "read_as_scoped",
+      "source_id": "RUST-ANDROID"
+    }
+  ],
+  "licenses": [],
+  "code_reuse": "Original analysis and research probes; upstream implementation not copied into a product.",
+  "observed_date": "2026-11-13",
+  "coverage_statement": "Exact scoped source reads and separately identified actual research executions; historical source and execution identities retained.",
+  "explicit_remaining_coverage": [
+    "iOS needs macOS/Xcode/signing plus separate physical-device and simulator execution.",
+    "Android Native AOT requires explicit experimental target/JNI/NDK validation; no current product support claim."
+  ],
+  "test_state": {
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [],
+    "rust_protocol_fixture": "not_claimed_for_this_task",
+    "csharp_native_aot": "not_claimed_for_this_task",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete"
+  },
+  "scope_completion": "Research questions and design counterexamples resolved for declared scope; independent acceptance pending; product validation remains separate.",
+  "package_inventory": "verification/server-completion/dependency-inventory.json",
+  "package_identity_checks": "verification/server-completion/package-identities.json"
+}

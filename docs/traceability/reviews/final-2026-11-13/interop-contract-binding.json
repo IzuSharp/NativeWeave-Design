@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/interop_review",
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "reviewed_at_utc": "2026-11-13T13:26:41.416404+00:00",
+  "subjects": [
+    {
+      "kind": "contract",
+      "id": "C-ABI-001",
+      "evidence_sha256": [
+        "9fc436bbc2bed8b1f91270b9331abf8d591778828cd796df63505b2a899938d9"
+      ],
+      "review_sha256": [
+        "96dc29d3b088d4ec8881dff5989924200dc2b6e9336fd0958b1bf84bf12610e6"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-BINDING-001",
+      "evidence_sha256": [
+        "a09d95ad0aa6f8107eccb30e7310a3349e4205c2087421302fa6929ba3e2ca37"
+      ],
+      "review_sha256": [
+        "100eeb369dcfabcc8f59fb24f0deafc8eb567b8df54a835218957ebfa683025c"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-LIFETIME-001",
+      "evidence_sha256": [
+        "7c0e4a0cda29ac811bfa671b2b3305e074a101be05264b326eb617198aeeed1c"
+      ],
+      "review_sha256": [
+        "e8fad319335c30b0e23e285d31f9d3eb4b455c3e47e55b9f5f9aaf761dd08d6b"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-CALLBACK-001",
+      "evidence_sha256": [
+        "159ad7eed71db9e050bd51d7cf21b855b628daa2d45a991abf2ebe48f5b8bc68"
+      ],
+      "review_sha256": [
+        "123b63d0542fa2fb5939f37649a91898ed6092a00d44e357c9f59084f65f3459"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ASYNC-001",
+      "evidence_sha256": [
+        "8b5ffacfca4892ab91c090c0930218af27b3cb185f762579b5569476b87b59c0"
+      ],
+      "review_sha256": [
+        "5873f7714a76ae94d8c30c63c46e0b77d5cc9d441edfbf0f726ace69839a3617"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-BUFFER-001",
+      "evidence_sha256": [
+        "0dffe09a81c5128dbc560df36655a3b56203ccfb0e467d738209421d2a9641fb"
+      ],
+      "review_sha256": [
+        "a36ac5e00c5a20327c3ce20417822aa01a8217139a6b38f92f93531afb8fe632"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ERROR-001",
+      "evidence_sha256": [
+        "2bf1e6ded2464bdcce32b3ef1239e8de8f1e4a2abae842c32c40cc2920176233"
+      ],
+      "review_sha256": [
+        "0d08b21977360a5ebac8c74ff280f244715af5e7290747ebf24831f94bc6a928"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-CONCURRENCY-001",
+      "evidence_sha256": [
+        "3345d78a02997d299286a9224a1903334aa1a626f94aac50fbd207f251287b6e"
+      ],
+      "review_sha256": [
+        "7852e93f1d79afb1f1f94a78c9e334883b2ee26e190750e684b0900158109b20"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-VERIFY-001",
+      "evidence_sha256": [
+        "e6a1151dd94928744c47efc29adda0f7abdcb3c4b9a87ccaebb84d5f75c2a662"
+      ],
+      "review_sha256": [
+        "79163ea51da801f8ad19bf44573e5ea162b8599d9b871eac2df22dde37a0d972"
+      ]
+    }
+  ],
+  "scope": "Independent exact binding of nine previously substantively reviewed Interop contract designs. Complete snapshots, source bytes, required paths, dependency identities, evidence/review hashes and actual original review scope/decision were personally checked. This attestation does not mutate registry status.",
+  "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+  "original_independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/interop-review.json",
+    "sha256": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f"
+  },
+  "input_entries_checked": 106,
+  "unique_input_files_checked": 53,
+  "github_separate_approval_identity_claimed": false,
+  "product_implementation_or_verification_accepted": false,
+  "native_experiments_rerun": false
+}

@@ -1,0 +1,7 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.41s
+     Running tests/runtime_metadata.rs (/workspace/scratch/1b611a39541d/db-target/debug/build/nw-database-completion-study/a322da2c9680230e/out/runtime_metadata-a322da2c9680230e)
+
+thread 'seaorm_public_dynamic_projection_needs_no_static_entity' (12) panicked at tests/runtime_metadata.rs:28:9:
+assertion failed: missing.from_query_result(&row, "").is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test runtime_metadata`

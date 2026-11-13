@@ -1,0 +1,33 @@
+[
+  {
+    "label": "lock",
+    "argv": [
+      "cargo",
+      "generate-lockfile",
+      "--offline"
+    ],
+    "started_utc": "2026-11-13T08:04:18.405424+00:00",
+    "ended_utc": "2026-11-13T08:04:18.896932+00:00",
+    "exit_code": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "9c5c61bcd0dfb118214715f6347b89a0ba7fe97c30dbb305d9584d377a982861"
+  },
+  {
+    "label": "test",
+    "argv": [
+      "cargo",
+      "test",
+      "--locked",
+      "--offline",
+      "--test",
+      "migration_admission",
+      "--",
+      "--nocapture"
+    ],
+    "started_utc": "2026-11-13T08:04:18.897281+00:00",
+    "ended_utc": "2026-11-13T08:04:35.836585+00:00",
+    "exit_code": 0,
+    "stdout_sha256": "422a8e833a8352edd8417aee0c76e8cc6202fbaafa9ec6faa0ce8a377aa664e9",
+    "stderr_sha256": "9480f166869516cdce0ea4c9a24323194b9d09b7f5807d94109e93e67962c6b3"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "name": "rust-version",
+    "argv": [
+      "rustc",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:30:41.105576+00:00",
+    "ended_utc": "2026-11-13T07:30:41.139662+00:00",
+    "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "dotnet-info",
+    "argv": [
+      "dotnet",
+      "--info"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:30:41.139939+00:00",
+    "ended_utc": "2026-11-13T07:30:41.188178+00:00",
+    "stdout_sha256": "dcbef9a89121a02e03a98af99228b28afd1e23810651173b517e501470a9c278",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "native-test",
+    "argv": [
+      "cargo",
+      "test",
+      "--manifest-path",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/native/Cargo.toml",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:30:41.188584+00:00",
+    "ended_utc": "2026-11-13T07:30:43.944022+00:00",
+    "stdout_sha256": "28c306352c0bc3b4af55e6cd0d897578ac068d0c7c6208e77643476645116e49",
+    "stderr_sha256": "23bac61e886d80d75e44975816132304bfbe86347cba21e3e81853751a4946b2"
+  },
+  {
+    "name": "native-build",
+    "argv": [
+      "cargo",
+      "build",
+      "--manifest-path",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/native/Cargo.toml",
+      "--locked",
+      "--offline",
+      "--release",
+      "--message-format=json"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:30:43.944448+00:00",
+    "ended_utc": "2026-11-13T07:30:44.476687+00:00",
+    "stdout_sha256": "c660017b503bd14bbe375b6a373eaddcf969688307e0746d3b689ace4c0e228d",
+    "stderr_sha256": "1cd29441e2a2a3b3c6afbe44158a2c5d11a3782ac97f55b65071ec821b36ea20"
+  },
+  {
+    "name": "normal-run",
+    "argv": [
+      "dotnet",
+      "run",
+      "--project",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/Completion.csproj",
+      "-c",
+      "Release",
+      "-p:NativeAsset=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/target/release/libnw_interop_completion_probe.so",
+      "-p:NuGetAudit=false"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:30:44.477456+00:00",
+    "ended_utc": "2026-11-13T07:30:55.865466+00:00",
+    "stdout_sha256": "ff631a06b5f1e54ec0a2e6fb1074046decf7d171669d4bde6acf1f4624c31804",
+    "stderr_sha256": "d7583bee0ee828ca3f8cde2706bb62db25edcfa58258fadbb24241a756dc354e"
+  },
+  {
+    "name": "generator-run",
+    "argv": [
+      "dotnet",
+      "run",
+      "--project",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/GeneratorProbe.csproj",
+      "-c",
+      "Release",
+      "-p:NuGetAudit=false",
+      "--disable-build-servers"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:30:55.871926+00:00",
+    "ended_utc": "2026-11-13T07:31:04.393097+00:00",
+    "stdout_sha256": "32453c70e80736bfcfb95590eaed24ca36379ba20899406c3dee562d3ce70595",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "restrictions-normal",
+    "argv": [
+      "dotnet",
+      "run",
+      "--project",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/AotRestrictions.csproj",
+      "-c",
+      "Release",
+      "-p:NuGetAudit=false",
+      "--disable-build-servers"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:31:04.393543+00:00",
+    "ended_utc": "2026-11-13T07:31:10.761490+00:00",
+    "stdout_sha256": "6fdf9cd2fbc3bb33bbf9f882ebe49b49630e87f96ef73dca84fe1d49d8d9f734",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "aot-publish",
+    "argv": [
+      "dotnet",
+      "publish",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/Completion.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-p:PublishAot=true",
+      "-p:NuGetAudit=false",
+      "-p:NativeAsset=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/target/release/libnw_interop_completion_probe.so",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/publish"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:31:10.762217+00:00",
+    "ended_utc": "2026-11-13T07:31:28.041131+00:00",
+    "stdout_sha256": "ae92de9481a674f16c226c8ec5234aeeef844e7c014cf9b5ddc7d44240d70ecc",
+    "stderr_sha256": "d7583bee0ee828ca3f8cde2706bb62db25edcfa58258fadbb24241a756dc354e"
+  },
+  {
+    "name": "aot-run",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/publish/Completion",
+      "--expect-aot"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:31:28.041829+00:00",
+    "ended_utc": "2026-11-13T07:31:28.082073+00:00",
+    "stdout_sha256": "30588ba4dfe045f8da19e3c412bace250faf48a4c291dec061e926c8ac1fce7d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "restrictions-aot-publish",
+    "argv": [
+      "dotnet",
+      "publish",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/AotRestrictions.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-p:PublishAot=true",
+      "-p:NuGetAudit=false",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/restrictions-aot",
+      "--disable-build-servers"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:31:28.086541+00:00",
+    "ended_utc": "2026-11-13T07:31:38.710621+00:00",
+    "stdout_sha256": "0e528fd9d795838be373f0a732e7c1883a97bc38b4d953e377b159690e92ae21",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "restrictions-aot-run",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/restrictions-aot/AotRestrictions",
+      "--expect-aot"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-11-13T07:31:38.711298+00:00",
+    "ended_utc": "2026-11-13T07:31:38.715375+00:00",
+    "stdout_sha256": "a059bca07ddec320cb9cbd1da03d8fe8454f658b9c20555680f875f8b2fb1042",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

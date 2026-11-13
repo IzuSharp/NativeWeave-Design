@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "R32",
+  "paths": [
+    {
+      "repo": "rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/event_loop.rs",
+      "scope": "28-47;80-122;238-273;549-572",
+      "sha256": "f84209476849188122139926697f1fe97e17409a41ef0e8dfadf9bd4718108c7",
+      "url": "https://github.com/rust-windowing/winit/blob/e9809ef54b18499bb4f2cac945719ecc2a61061b/src/event_loop.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "WINIT-LOOP"
+    },
+    {
+      "repo": "rust-windowing/winit",
+      "commit": "e9809ef54b18499bb4f2cac945719ecc2a61061b",
+      "path": "src/application.rs",
+      "scope": "19-83;125-187;193-219",
+      "sha256": "993ddc2bbffca969224b2045dfd6cefd6cadd923df83f8ba24da8da8e5ab3fb4",
+      "url": "https://github.com/rust-windowing/winit/blob/e9809ef54b18499bb4f2cac945719ecc2a61061b/src/application.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "WINIT-LIFECYCLE"
+    },
+    {
+      "repo": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/surface.rs",
+      "scope": "28-52;90-124;130-228",
+      "sha256": "13df4577966d4bcc10aba4b8950023ec17a7cd3933019df1cf1f7f139e92b9a3",
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/surface.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "WGPU-SURFACE"
+    },
+    {
+      "repo": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/buffer.rs",
+      "scope": "300-337;356-410;547-632",
+      "sha256": "a304040166251cb1f1e60d6e1407b2e951dc3836144b40b95852749005095042",
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/buffer.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "WGPU-BUFFER"
+    },
+    {
+      "repo": "gfx-rs/wgpu",
+      "commit": "2b38d994b38dd001157d31fd3321111103a8dd80",
+      "path": "wgpu/src/api/device.rs",
+      "scope": "70-115",
+      "sha256": "6adbd3b5bb966fb20601cd55f0cf1b0cffd48fc615c72029dfe3c116b9c88e8f",
+      "url": "https://github.com/gfx-rs/wgpu/blob/2b38d994b38dd001157d31fd3321111103a8dd80/wgpu/src/api/device.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "WGPU-POLL"
+    }
+  ],
+  "licenses": [],
+  "code_reuse": "Original analysis and research probes; upstream implementation not copied into a product.",
+  "observed_date": "2026-11-13",
+  "coverage_statement": "Exact scoped source reads and separately identified actual research executions; historical source and execution identities retained.",
+  "explicit_remaining_coverage": [
+    "Future GUI/GPU engine requires actual backend/device execution for affinity, device/window loss, mapping/fence and loop-closure scenarios."
+  ],
+  "test_state": {
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [],
+    "rust_protocol_fixture": "not_claimed_for_this_task",
+    "csharp_native_aot": "not_claimed_for_this_task",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
+    "product_runtime": "not_implemented",
+    "production_acceptance": "not_complete"
+  },
+  "scope_completion": "Research questions and design counterexamples resolved for declared scope; independent acceptance pending; product validation remains separate.",
+  "package_inventory": "verification/server-completion/dependency-inventory.json",
+  "package_identity_checks": "verification/server-completion/package-identities.json"
+}

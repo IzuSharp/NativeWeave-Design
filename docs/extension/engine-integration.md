@@ -1,10 +1,10 @@
 # D11 — Source-driven deep native integration
 
-Contract: **C-ENGINE-001@0.2.1-draft**. Status: proposed; author-side source review and limited database prototype evidence; independent acceptance pending. This revision extends existing R18/D11/A24 rather than creating another coordination system. Source reports: [SeaQuery](../research/topics/R25/source-driven-seaquery.md), [Server](../research/topics/R27/source-driven-server.md). Build/maintenance: [D10](../platforms/build-package-release.md).
+Contract: **C-ENGINE-001@0.3.0**. Status: complete design candidate; the registry records exact reviewed version/hash and acceptance. Actual product conformance remains with Delivery. This revision extends existing R18/D11/A24 rather than creating another coordination system. Source reports: [SeaQuery](../research/topics/R25/source-driven-seaquery.md), [Server](../research/topics/R27/source-driven-server.md). Build/maintenance: [D10](../platforms/build-package-release.md).
 
 ## 1. Goal and non-goals
 
-Expose mature native capabilities through a modern, typed C# application surface without porting the native engine into C#. Database execution is Rust by user requirement; Server remains an evidence-dependent choice. C# First describes application development, not a managed database fallback. Ordinary applications must not require Rust syntax or a Rust toolchain merely to add a business entity supported by the precompiled Engine's existing types and operators.
+Expose mature native capabilities through a modern, typed C# application surface without porting the native engine into C#. Database/ORM execution and Server network/protocol/runtime are Rust by user requirement; research chooses the appropriate mature Rust composition. C# First describes application development, not a managed database fallback. Ordinary applications must not require Rust syntax or a Rust toolchain merely to add a business entity supported by the precompiled Engine's existing types and operators.
 
 “Equivalent to writing Rust” is a direction for semantic fidelity, low adaptation cost and developer productivity, not an assertion of identical machine code, zero FFI overhead or identical memory behavior. Native AOT still has a managed runtime/GC. Fixed layouts, ownership and quiescence are necessary, not objections to the overall integration method.
 
@@ -75,17 +75,17 @@ For SeaQuery, reuse native Expr/Condition/CRUD/CTE/window/dialect builders and S
 
 Record FFI calls per operation, bytes copied in both directions, native and managed allocations/objects, metadata/query cache occupancy, runtime/thread counts, buffer retention, idle/peak RSS, cold start/package size, throughput and latency distribution. Compare a direct native binding, a batched binding and generated static fast paths before choosing an optimization. A batch adds a decoder and temporary command storage; a handle-per-node binding adds handles/calls. Neither is “free.”
 
-Retain a pure native engine baseline and a feature-equivalent C# Native AOT baseline where applicable. Database's Rust mandate is a product boundary, not permission to assert it wins every metric. Server adoption requires a documented capability, cost or engineering advantage. A micro-FFI win does not establish end-to-end superiority.
+Retain a pure native engine baseline and a feature-equivalent C# Native AOT baseline where applicable. Database's Rust mandate is a product boundary, not permission to assert it wins every metric. Server composition and adapter choices require documented source semantics and measured costs; Kestrel is a comparator, never a product host alternative. A micro-FFI win does not establish end-to-end superiority.
 
 ## 10. Extension profiles and limits
 
-Synchronous SIMD/codec operations may use borrowed spans for a call; streaming codecs need bounded chunks and state handles. GPU operations require device/fence ownership and asynchronous release. GUI/NSH may require main-thread dispatch and platform event-loop integration. These are capability combinations, not reasons to embed all domains in Core. R32/R33 still owe actual platform/source probes; this report does not certify GPU/mobile support.
+Synchronous SIMD/codec operations may use borrowed spans for a call; streaming codecs need bounded chunks and state handles. GPU operations require device/fence ownership and asynchronous release. GUI/NSH may require main-thread dispatch and platform event-loop integration. These are capability combinations, not reasons to embed all domains in Core. R32/R33 document actual source/platform feasibility and explicit capability limits; their design completion does not certify GPU/mobile production support.
 
 ## 11. Verification and implementation tasks
 
-A17/A18 must exercise two genuinely different real engines, not two wrappers around the same synchronous mock. A01–A12 own layout/ownership/error/generation tests; A13–A16 build and clean consumption; A19/A20 model/property/fuzz/race checks; A21 benchmarks; A22 upgrade compatibility; A24 reproducible integration scaffolding. B01–B14 implement the mandatory Rust database profile, B17 the optional native Server bridge. Unrelated drafts remain parallel.
+A17/A18 must exercise two genuinely different real engines, not two wrappers around the same synchronous mock. A01–A12 own layout/ownership/error/generation tests; A13–A16 build and clean consumption; A19/A20 model/property/fuzz/race checks; A21 benchmarks; A22 upgrade compatibility; A24 reproducible integration scaffolding. B01–B14 implement the mandatory Rust database profile, B15 the complementary C# application/Handler surface and B17 the required Rust Server bridge. Unrelated drafts remain parallel.
 
-Production acceptance requires real Windows/Linux AOT consumer execution, compatible old/new binaries, wrong RID/ABI/feature negatives, overflow and malformed descriptor fuzzing, callback/close races, native sanitizers/model tools as applicable, long load/failure recovery and resource accounting. The recovered Linux SQLite example establishes only a bounded feasibility slice. An independent review must check source fidelity and whether added adaptation is smaller and safer than the avoided reimplementation.
+Production acceptance requires real Windows/Linux AOT consumer execution, compatible old/new binaries, wrong RID/ABI/feature negatives, overflow and malformed descriptor fuzzing, callback/close races, native sanitizers/model tools as applicable, long load/failure recovery and resource accounting. The recovered Linux SQLite example establishes a bounded database slice. R18 adds the real synchronous miniz_oxide codec with independent NuGet ordinary/AOT consumers, and R27–R29 add real asynchronous native HTTP/body/HTTP2/TLS evidence. These are heterogeneous integration evidence, not completed A17/A18/B17 products. An independent review must check source fidelity and whether added adaptation is smaller and safer than the avoided reimplementation.
 
 
 ## Rust 1.100 simplification boundaries
@@ -93,3 +93,43 @@ Production acceptance requires real Windows/Linux AOT consumer execution, compat
 Use std::mem::DropGuard instead of duplicate local synchronous rollback guard types when equivalent, with non-panicking/non-blocking actions. It does not retire callbacks or await I/O. Allocator/Vec/Box APIs can retain a per-resource owner; all allocator operations and allocator Drop must not unwind. Preserve the original allocator and layout through raw transfers and native destruction. Outer custom Vec allocation does not account for nested upstream allocations or whole RSS.
 
 Box::map/Arc::map may reduce private conversion glue, but allocation reuse is conditional and cannot preserve a published opaque handle identity or update all shared holders. Vec::from_fn simplifies trusted-size initialization; untrusted sizes still use checked/fallible allocation. `!` is internal only; `extern "custom"` is not the C ABI. Arc::new_in and try_map extensions remain outside the stable core. These rules preserve, rather than replace, D04–D08 ownership and retirement. [R01 source and two-OS probes](../research/topics/R01/rust-1.100.md).
+
+## 12. Minimum Engine descriptor and admission
+
+A24 emits an engine-specific descriptor with identity/version, bootstrap symbol, supported RID/CPU,
+required Core capability subset, native owner kinds, error domain, static import inventory, upstream
+source/crate/features and build provenance. Each operation declares input validity and borrow end,
+output transfer, cancellation behavior, maximum input/output/work, allowed thread/affinity,
+reentrancy and close/quiescence obligations. Domain metadata stays in a domain schema; Core sees
+only fixed ABI records and opaque resource kinds.
+
+A synchronous codec declares no executor/callback capability. A database or HTTP Engine opts into
+operation/callback retirement and configures its own Tokio/pool/host lifetimes. A UI Engine may
+require an affinity dispatcher and device/window lifecycle. Loading a synchronous Engine must not
+start Tokio, a timer thread or a global service locator. Unsupported optional capabilities fail
+before allocating dependent state. A shared public handle does not authorize concurrent mutable
+access unless that Engine's source and contract explicitly permit it.
+
+## 13. Concrete integration examples and conformance
+
+The R18 codec fixture's native `nw_codec_run` uses borrowed input and one opaque owned result;
+C# exposes array/span-oriented methods backed by a private SafeHandle. It reuses native compression
+and bounded decompression, including native error behavior. The real HTTP example binds runtime
+route IDs to one compiled foreign Service implementation; C# supplies static dispatcher methods,
+while Hyper/Tokio retain protocol and task control. Neither example needs a managed copy of the
+native algorithm. Neither exports native Vec/Future/trait-object layout.
+
+A new Engine follows these steps: inspect exact upstream seams/tests; write the smallest operation
+inventory; choose only necessary common capabilities; produce native/C/C# layout/import goldens;
+implement the adapter's ownership/error boundary; create direct-native and public-C# behavioral
+oracles; package prebuilt native assets; run independent ordinary/AOT consumption on each supported
+OS; review upstream upgrade/patch obligations. Record changes to existing Core modules. A domain-only
+addition should normally require none; a proposed common extension must show two actual users and
+backward compatibility before it is added.
+
+A17/A18 exercise empty/normal/malformed/oversized/fault/cancel/close paths appropriate to each real
+Engine. A synchronous algorithm with no cancellation point documents that limitation rather than
+advertising interruptibility. Async close admits no new work, requests cancellation, waits for both
+native and managed retirement and only then releases callback roots. Timeout reports incomplete
+cleanup while preserving safety; it does not force-free live owners. All diagnostics and benchmarks
+state their observation scope and count copies, retained allocations and adaptation code honestly.

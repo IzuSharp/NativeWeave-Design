@@ -1,0 +1,9 @@
+
+running 3 tests
+RAW_BEGIN_NEGATIVE: while executing migrations: error returned from database: (code: 1) cannot start a transaction within a transaction
+test raw_begin_negative_fails_nested_migrator_begin ... ok
+test failed_nested_migration_rolls_back_whole_outer_batch ... ok
+test tracked_begin_with_keeps_migrator_nested_and_outer_atomic ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

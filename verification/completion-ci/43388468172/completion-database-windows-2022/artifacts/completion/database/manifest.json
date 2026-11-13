@@ -1,0 +1,43 @@
+{
+  "kind": "actual-research-execution",
+  "suite": "metadata",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--test",
+    "runtime_metadata",
+    "--",
+    "--nocapture"
+  ],
+  "cwd": "experiments/database-completion",
+  "exit_code": 0,
+  "started_at_utc": "2026-11-13T07:49:51.855299+00:00",
+  "finished_at_utc": "2026-11-13T07:50:53.129764+00:00",
+  "environment": {
+    "os": "Windows",
+    "arch": "AMD64",
+    "kernel": "2022Server",
+    "python": "3.12.10",
+    "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-pc-windows-msvc\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+    "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)\n"
+  },
+  "repository_head": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "source_sha256": {
+    "experiments\\database-completion\\Cargo.toml": "939173c62c85a0d0e67bb7772cd36c776f59b4b656d1e9ba1c07dc9b8745f46a",
+    "experiments\\database-completion\\Cargo.lock": "8de967ba203d829a734591b2c7d0af30578518b396e4f2ca4d544203cc6f454a",
+    "experiments\\database-completion\\run.py": "511be33e3be404a05126a8eb0ceb18a6a492ef507fe5a25e9985c290a758f968",
+    "experiments\\database-completion\\tests\\postgres.rs": "09127e713b177bcaaa24b0879d4c77b483323740b72a4b8ec17c26fda30c2c71",
+    "experiments\\database-completion\\tests\\runtime_metadata.rs": "96e1b00983cf76564520febc670085ea5be40723f43f164ad5bab177cd0092c7",
+    "experiments\\native-slices\\database\\Cargo.toml": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+    "experiments\\native-slices\\database\\src\\lib.rs": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9"
+  },
+  "stdout_sha256": "9299dad47ad4cc245eb3d1dab0e72641b1739ebc3d14a99458d103e358e57ae9",
+  "stderr_sha256": "bdfc8e69170bb2e41079a432b3e46fac851b9d17288c2e3ff3beb1c536d9fff9",
+  "limits": [
+    "finite research fixture, not product implementation",
+    "no C# or Native AOT execution in this fixture",
+    "PostgreSQL TLS disabled only for explicit local fault-proxy testing",
+    "source hashes identify actual inputs even if repository worktree is dirty"
+  ]
+}

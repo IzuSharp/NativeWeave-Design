@@ -1,0 +1,18 @@
+
+running 4 tests
+test codec_roundtrip_and_loss_are_observed ... ignored, requires disposable PostgreSQL; run --test postgres -- --ignored
+test early_row_stream_drop_drains_before_next_query ... ignored, requires disposable PostgreSQL; run --test postgres -- --ignored
+test lost_commit_response_is_error_with_durable_effect ... ignored, requires disposable PostgreSQL; run --test postgres -- --ignored
+test statement_timeout_needs_rollback_before_same_connection_reuse ... ignored, requires disposable PostgreSQL; run --test postgres -- --ignored
+
+test result: ok. 0 passed; 0 failed; 4 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 4 tests
+test native_cas_preserves_tenant_and_not_set_null_distinction ... ok
+test native_join_aggregate_matches_independent_sql_oracle ... ok
+test sqlite_foreign_key_and_savepoint_recovery_are_explicit ... ok
+test seaorm_public_dynamic_projection_needs_no_static_entity ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R01",
+  "recorded_at": "2026-11-13",
+  "coverage_policy": "Actually read fixed-source ranges; downloaded files not automatically read; tests observed versus executed distinct.",
+  "paths": [
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs",
+      "file_sha256": "a7021e42f48c5dfa1e2d8d90a121e02301cdf5d21b333e06148af4430c74b079",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1,
+          100
+        ],
+        [
+          3068,
+          3108
+        ],
+        [
+          4915,
+          5007
+        ]
+      ],
+      "purpose": "union syntax/custom generic boxing/compiler diagnostics; upstream tests read not executed",
+      "permalinks": [
+        "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L1-L100",
+        "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L3068-L3108",
+        "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs#L4915-L5007"
+      ]
+    },
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/CSharp/Portable/Compiler/MethodCompiler.cs",
+      "file_sha256": "34ebfc009ffe2dae607f4026eebc1967d32f45d11186a39ba8f9c4d61fbf5f7e",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          766,
+          795
+        ]
+      ],
+      "purpose": "RuntimeAsyncRewriter versus generated state-machine branch",
+      "permalinks": [
+        "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Portable/Compiler/MethodCompiler.cs#L766-L795"
+      ]
+    },
+    {
+      "repository": "https://github.com/dotnet/roslyn",
+      "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+      "path": "src/Compilers/CSharp/Portable/Symbols/Source/SourceMethodSymbol.cs",
+      "file_sha256": "33795f806655eed0d97e592fd3f00f952c4b86c5af50882008a90eb26a6c5141",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          198,
+          230
+        ]
+      ],
+      "purpose": "runtime async lacks generated state machine and DebuggerStepThrough",
+      "permalinks": [
+        "https://github.com/dotnet/roslyn/blob/3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609/src/Compilers/CSharp/Portable/Symbols/Source/SourceMethodSymbol.cs#L198-L230"
+      ]
+    }
+  ],
+  "reused_research": [
+    {
+      "path": "docs/research/topics/R01/rust-1.100.md",
+      "sha256": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d"
+    },
+    {
+      "path": "verification/source-lifecycle/toolchain-observation.json",
+      "sha256": "41fb2095979479047605b48bd8f523b565c9d7ff30011fecec16cb7216855706"
+    }
+  ],
+  "normal_error_boundary_coverage": "See report and exact run manifests; unsupported platform/production claims remain explicit Delivery obligations.",
+  "product_obligations": [
+    "A14/A15 whole product closure on each OS",
+    "A21 actual cost comparison before adopting Runtime Async",
+    "A22 next release upgrade investigation"
+  ]
+}

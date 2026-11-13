@@ -1,6 +1,6 @@
 # C-CALLBACK-001：注册、回调准入、撤销与静默
 
-版本：0.1.0；D05 / R08、R07、R09。作者：interop_design。状态：**review-ready；正式接受以registry为准；产品实施与生产验收未验证**。本协议定义v1推荐设计，代码样例为未编译设计骨架。实现、AOT和跨平台证据另行验收。
+版本：0.3.0；D05 / R08、R07、R09。作者：interop_design。状态：**研究/设计候选已完成；registry记录精确审查版本、内容hash与接受状态；产品验证保留在Delivery阶段**。本协议定义v1推荐设计，代码样例为未编译设计骨架。实现、AOT和跨平台证据另行验收。
 
 ## 1. 需要解决的问题
 
@@ -16,13 +16,13 @@ v1将**请求停止**和**成功退休**分开：请求停止非阻塞、可重�
 
 ## 3. ABI与cookie
 
-wire类型、状态值和ErrorRecord分别以D02与[D08](error-v0.1.md)为权威。此处名称由生成器加Engine前缀；函数表本身由引擎`get_api`协商。
+wire类型、状态值和ErrorRecord分别以D02与[D08](error-v0.1.md)为权威。此处名称由生成器加Engine前缀；D02的直接版本化导出为默认入口。仅选择可选函数表profile的Engine通过其`get_api`协商函数表；下面的callback table是start输入记录，不强制Engine导出函数表。
 
 ```c
 typedef struct nw_subscription nw_subscription;
 typedef uint32_t (NW_CDECL *nw_on_event_fn)(
     uintptr_t cookie, uint32_t event_kind,
-    const void *payload, uintptr_t payload_bytes);
+    const void *payload, uint64_t payload_bytes);
 
 typedef struct nw_callbacks_v1 {
     uint32_t struct_size;
@@ -40,7 +40,7 @@ uint32_t NW_CDECL nw_subscription_try_retire(nw_subscription *);
 void NW_CDECL nw_subscription_release(nw_subscription *);
 ```
 
-`NW_CDECL`为目标C调用约定宏。指针与表大小按目标ABI计算，不把这张表硬编码成跨32/64位相同尺寸。callback table由native在start提交前复制；不得留存managed栈上table地址。payload是当前回调范围内的借用，长度为字节；类型及序列化模式由event_kind对应领域契约定义。异步消费者必须在返回前复制；如领域需要owned结果，callback只记录通知，稍后通过D06的一次typed take接管，不能保留借用指针。
+`NW_CDECL`为目标C调用约定宏。指针与表大小按目标ABI计算，不把这张表硬编码成跨32/64位相同尺寸。callback table由native在start提交前复制；不得留存managed栈上table地址。payload是当前回调范围内的借用，长度为D02固定u64字节数，转换为目标地址范围须checked；类型及序列化模式由event_kind对应领域契约定义。异步消费者必须在返回前复制；如领域需要owned结果，callback只记录通知，稍后通过D06的一次typed take接管，不能保留借用指针。
 
 cookie来自一个Normal强GCHandle。native只原样回传；不解引用、不做整数递增、不当安全身份或日志里的私人对象信息。非零cookie不构成有效性验证；正常协议保证它在全部可能回调期间有效。v1通用notification payload只借用；需要拥有结果的异步操作采用D06的显式take_result，不在callback成功/失败返回中隐式转交所有权。
 
@@ -90,7 +90,7 @@ UCO入口使用静态、非泛型、精确blittable签名；bool/char不进入wi
 ```csharp
 [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
 private static unsafe uint OnEvent(
-    nuint cookie, uint kind, void* payload, nuint bytes)
+    nuint cookie, uint kind, void* payload, ulong bytes)
 {
     // Design skeleton: all helpers must have tested non-throwing exit paths.
     CallbackState? state = null;
@@ -168,3 +168,15 @@ Windows/Linux真实AOT、CPU架构、compiler/ABI、原始日志和制品hash分
 
 Q04可在独立审查后关闭“采用什么callback回收协议”的设计问题：v1采用独立stop/retire、显式lease、外部managed取消排空和非阻塞清理。验证义务CB-01～07和LT/AS系列继续在A06/A07/A19/A20等任务保持pending。未来引擎只需实现对应能力profile；无需把全部Engine放入同一全局runtime。
 
+## 14. 本次完成复核与调度边界（2026-11-13）
+
+[R08 完成报告](../research/topics/R08/report.md) 保留已有 YAHA/Godot/.NET 源码链，并补入 UniFFI scheduler/future 的精确源码：其外部 continuation 在 mutex 外调用，free/cancel 也可能触发已保存通知，因此不能把某个框架的 free 直接套作 NativeWeave quiet 保证。
+
+[本次真实探针](../../verification/interop-completion/linux/result.json) 在 Linux 普通与 AOT 中各执行 32 次受控 native-thread callback/GC/退休交错；callback 在途时 retire 保持 pending，已返回且 managed 注册排空后才允许回收。探针为制造竞争临时阻塞 callback；生产 callback 必须维持本契约的非阻塞通知行为，不复制该测试屏障。取消 token 已取消时 Register 内同步回调，以及 DisposeAsync 等待在途取消回调也实际执行。
+
+通知 mailbox 的 dirty 与 scheduled 状态须在同一原子状态或同一短锁下修改。worker 清除 scheduled 前必须原子复查 dirty；旧快照不能覆盖新通知。[负例模型](../../verification/interop-completion/mailbox-model.json) 找到 stale-check 丢唤醒；候选仅在其有限顺序一致范围内无反例。完整容量、重试、关闭规则由 [D09](concurrency-v0.1.md) 唯一统筹。独立审查接受研究设计不要求 A06/A20/B14 已完成产品 dispatcher 和长时间压力测试。
+
+
+### Committed target evidence
+
+The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.

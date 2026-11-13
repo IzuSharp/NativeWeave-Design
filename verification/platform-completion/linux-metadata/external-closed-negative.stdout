@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored /workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/negative/External.csproj (in 158 ms).
+  1 of 2 projects are up-to-date for restore.
+  Modern -> /workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/platform-completion/modern/bin/Debug/net11.0/Modern.dll
+/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/negative/External.cs(2,22): error CS9382: 'ExternalGate': cannot use a closed type 'Gate' from another assembly as a base type. [/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/negative/External.csproj]
+
+Build FAILED.
+
+/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/negative/External.cs(2,22): error CS9382: 'ExternalGate': cannot use a closed type 'Gate' from another assembly as a base type. [/workspace/scratch/1b611a39541d/NativeWeave-Design/verification/platform-completion/linux-metadata/negative/External.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:03.65

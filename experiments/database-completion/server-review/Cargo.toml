@@ -1,0 +1,17 @@
+[package]
+name = "nw-independent-server-cardinality-review"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.100"
+publish = false
+
+[dependencies]
+bytes = "=1.12.1"
+tonic = { version = "=0.14.9", default-features = false, features = ["codegen"] }
+
+[dev-dependencies]
+http = "=1.5.0"
+http-body-util = "=0.1.5"
+tokio = { version = "=1.54.1", features = ["rt", "macros"] }
+tokio-stream = "=0.1.19"
+tower = { version = "=0.5.3", features = ["util"] }

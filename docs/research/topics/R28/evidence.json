@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
   "task_id": "R28",
-  "observed_date": "2026-11-12",
-  "status": "partially_evidenced",
+  "observed_date": "2026-11-13",
+  "status": "evidenced_pending_independent_review",
   "input_baseline": {
-    "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
-    "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
-    "packet_revision": "0.1.1",
-    "packet_sha256": "66b0e922eed53c7d69cf7add9f9b303bacf20b64217f500d0b8a8110c0b11bdb"
+    "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "packet_revision": "0.2.0",
+    "packet_sha256": "3bf07b4e3777487dbda0c68ae47d3108fdafc91a6661a654108068500c906747"
   },
   "claims": [
     {
@@ -264,33 +264,326 @@
       "supported_claim": "Modern versions carry version metadata per request and return a structured unsupported-version error; legacy versions use initialize handshake.",
       "limitations": "Scoped source reading; upstream tests and NativeWeave implementation were not run.",
       "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-TONIC-CODEC",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/mod.rs",
+      "locator": "128-184",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/codec/mod.rs",
+      "source_sha256": "9ddbf6d9b944736b9c47f2c031ac055d29c6169de2be10a69ae37c3810819e64",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TONIC-CODEC",
+      "supported_claim": "Public Codec/Encoder/Decoder receive complete message bytes; a single native byte codec avoids per-service Rust compilation.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-TONIC-SERVER",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/server/grpc.rs",
+      "locator": "49-83;186-240;260-338;360-430",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/server/grpc.rs",
+      "source_sha256": "c5f6e6a1d34f3b4e2214d080c0a53de59dea7718293fb60308627581daf117cb",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TONIC-SERVER",
+      "supported_claim": "Public Grpc methods provide four method kinds; unary/server-streaming read one request then drain trailers, so raw Decoder must enforce single-message cardinality per request.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-TONIC-SERVICE",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/server/service.rs",
+      "locator": "25-145",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/server/service.rs",
+      "source_sha256": "6419d3490769db525eed2a4e1020c2722b9ddc51e1ebbe2bdc401379587ab261",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TONIC-SERVICE",
+      "supported_claim": "Public service traits admit dynamic Handler-id adapters without generated service-specific Rust types.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-TONIC-DECODE",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/codec/decode.rs",
+      "locator": "190-274;365-410",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/codec/decode.rs",
+      "source_sha256": "46688c06b3becce361716c10559e70ba8fe2423e8d0fae93ca575c1fcc5e5173",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TONIC-DECODE",
+      "supported_claim": "Framed length is checked before reserve; statuses are preserved; Streaming::trailers drains remaining messages and does not itself enforce unary cardinality.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-RMCP-HANDLER",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/handler/server.rs",
+      "locator": "81-96;213-255;382-414;550-618;664-686;737-746",
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/handler/server.rs",
+      "source_sha256": "def2157d3e702aaa256bc5fa304dbd71faec0a624c55aac83edb4d7b195f958d",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "RMCP-HANDLER",
+      "supported_claim": "Runtime ServerHandler supports tool enumeration/lookup/invocation; default get_tool None is not a validation guarantee.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-RMCP-TOWER",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/transport/streamable_http_server/tower.rs",
+      "locator": "219-350;357-425;1473-1574;1734-1778;1955-1985;2050-2105;2220-2255;2398-2412;2571-2612",
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/transport/streamable_http_server/tower.rs",
+      "source_sha256": "8a01370513389994bc675d5bd58dbae3dadf5383c916a7f122a9f2a37ff4fdb0",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "RMCP-TOWER",
+      "supported_claim": "Native Tower transport checks Host/Origin/body limits; explicit modern/no-event-store profile differs from legacy/resumable behavior; get_tool schema informs SEP-2243 header validation, not complete JSON Schema argument validation.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-TONIC-TIMEOUT",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/transport/service/grpc_timeout.rs",
+      "locator": "1-179;181-261",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/transport/service/grpc_timeout.rs",
+      "source_sha256": "ce83ea986f8c2ff6d52291a0cf821aa6561fb9b2bd69a2b4c2ebd4f2edaf8449",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TONIC-TIMEOUT",
+      "supported_claim": "GrpcTimeout and its parser are private; timeout wraps response future, so the selected raw Grpc seam needs explicit native Adapter deadline policy through streaming lifetime.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-TONIC-TRANSPORT",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/transport/server/mod.rs",
+      "locator": "1075-1124",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/transport/server/mod.rs",
+      "source_sha256": "32417ecbba9d995499b1020ac24411366f74ed6763a58f482ff965e52c2554a5",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "TONIC-TRANSPORT",
+      "supported_claim": "Public incoming transport service API is distinct from the raw Grpc Codec seam and does not expose private timeout middleware.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-RMCP-TOOL",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/model/tool.rs",
+      "locator": "1-54;145-195;225-259",
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/model/tool.rs",
+      "source_sha256": "5251faf9065961e2a8521ef5e91eb8466885c609e1c5d2ea716604b51392f47e",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "RMCP-TOOL",
+      "supported_claim": "Tool names and input-schema metadata are runtime values in the native SDK.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-RMCP-MODEL",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/model.rs",
+      "locator": "1288-1375;3460-3518;4380-4415",
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/model.rs",
+      "source_sha256": "ac438543401b6b9d60021fc044dcf27b446df9539e837c6fecdf16a670091b9a",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "RMCP-MODEL",
+      "supported_claim": "Native models represent protocol capabilities, tool calls and content results used by the executed generic Handler.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-RMCP-META",
+      "evidence_kind": "source_confirmed",
+      "repository": "https://github.com/modelcontextprotocol/rust-sdk",
+      "commit": "53e64a93c8e32d8f7699af587b9e28566929940c",
+      "path": "crates/rmcp/src/model/meta.rs",
+      "locator": "390-440;565-608",
+      "url": "https://github.com/modelcontextprotocol/rust-sdk/blob/53e64a93c8e32d8f7699af587b9e28566929940c/crates/rmcp/src/model/meta.rs",
+      "source_sha256": "66cdccb21870babfe4c5c8bf952d6ed019d0ec909080c28335d12dcfd7ee8ec4",
+      "source_manifest": "verification/server-completion/source-inspection.json",
+      "source_id": "RMCP-META",
+      "supported_claim": "Modern protocol request metadata is explicit in native types and must match configured protocol profile.",
+      "limitations": "Only declared ranges read; source findings are not whole-upstream audit or execution of upstream tests.",
+      "run_manifest": null
+    },
+    {
+      "claim_id": "R28-COMPLETE-RUN1",
+      "evidence_kind": "executed_research_experiment",
+      "repository": "https://github.com/IzuSharp/NativeWeave-Design",
+      "path": "verification/server-completion/protocol-local-4/run.json",
+      "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+      "supported_claim": "13 actual pinned Rust cases: Tonic byte codec/framing negatives/streaming, rmcp runtime tool registration/headers/body cap, real TCP HTTP1/HTTP2, rustls ALPN/close/trust/name rejection.",
+      "limitations": [
+        "No NativeWeave product implementation.",
+        "Protocol Rust tests do not execute a C# FFI Handler.",
+        "Kestrel is solely the managed comparator.",
+        "Finite tests do not establish long-load performance or platform certification."
+      ],
+      "run_manifest": "verification/server-completion/protocol-local-4/run.json"
+    },
+    {
+      "claim_id": "R28-COMPLETE-CI",
+      "evidence_kind": "executed_research_ci",
+      "path": "verification/server-completion/ci-verification.json",
+      "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "github_run_id": 43388468172,
+      "supported_claim": "Protocol13/13 and Kestrel Native AOT5/5 pass Windows2022 and Ubuntu24.04; same distinct cases, extra actual platform coverage.",
+      "limitations": "No product Handler bridge, full protocol+TLS integration, soak or independent architecture review."
+    },
+    {
+      "claim_id": "R28-REVIEW-CARDINALITY-AUTHOR",
+      "evidence_kind": "executed_research_experiment",
+      "path": "verification/server-completion/protocol-reviewed-local/run.json",
+      "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+      "supported_claim": "19 Linux tests pass, including concrete Tonic default permissive counterexample and corrected single-request Decoder with multi-message streaming contrast.",
+      "limitations": [
+        "19 actual Linux protocol cases; old 13-case two-OS CI remains distinct.",
+        "Review correction adds cardinality default counterexample, strict unary/server-streaming, zero versus empty, per-request counter reset and client-stream mode.",
+        "No C# product bridge or full protocol/TLS end-to-end certification."
+      ],
+      "run_manifest": "verification/server-completion/protocol-reviewed-local/run.json"
+    },
+    {
+      "claim_id": "R28-REVIEW-CARDINALITY-INDEPENDENT",
+      "evidence_kind": "executed_independent_research_experiment",
+      "path": "verification/database-completion/server-review-cardinality/result.json",
+      "sha256": "fdec3c3f3ccffaf1072590ff94f6255676263e5845abcba93cdee2abeb37796d",
+      "producer": "/root/database_research",
+      "supported_claim": "Independent minimal public Tonic Codec reproduces default acceptance of extra unary messages and verifies strict unary/server-stream rejection, binary/empty success and no-message error in five Linux tests.",
+      "limitations": "Not a separate GitHub approval identity; not Windows/network/TLS/C# product conformance.",
+      "run_manifest": "verification/database-completion/server-review-cardinality/result.json"
     }
   ],
   "selected_design": {
-    "decision": "Independent managed gRPC/MCP packages, generated or constrained generic registration, explicit MCP modern/legacy profiles and no silent downgrade.",
-    "design_research_status": "resolved_pending_independent_review",
-    "contract_acceptance": "proposed_not_self_accepted",
-    "question_closure_recommendations": [
-      "Q17"
-    ],
+    "decision": "Native Tonic byte codec/runtime method registry, rmcp runtime tool Handler with explicit 2026-07-28/no-replay profile, and rustls share required Rust Server.",
+    "design_research_status": "complete_for_declared_scope_pending_independent_review",
+    "contract_acceptance": "not_self_accepted",
     "documentation_tasks": [
       "D19"
     ],
     "verification_delivery_tasks": [
       "B18",
       "B19",
+      "B20",
       "B22",
       "B24"
     ]
   },
   "execution": {
-    "upstream_tests": "not_run",
-    "csharp_compilation": "not_run",
-    "rust_compilation": "not_run",
-    "native_aot": "not_run",
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [
+      {
+        "path": "verification/server-completion/protocol-local-4/run.json",
+        "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+        "success": true,
+        "scope": [
+          "No NativeWeave product implementation.",
+          "Protocol Rust tests do not execute a C# FFI Handler.",
+          "Kestrel is solely the managed comparator.",
+          "Finite tests do not establish long-load performance or platform certification."
+        ]
+      },
+      {
+        "path": "verification/server-completion/ci-verification.json",
+        "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+        "success": true,
+        "scope": [
+          "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+        ]
+      },
+      {
+        "path": "verification/server-completion/protocol-reviewed-local/run.json",
+        "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+        "success": true,
+        "scope": [
+          "19 actual Linux protocol cases; old 13-case two-OS CI remains distinct.",
+          "Review correction adds cardinality default counterexample, strict unary/server-streaming, zero versus empty, per-request counter reset and client-stream mode.",
+          "No C# product bridge or full protocol/TLS end-to-end certification."
+        ]
+      }
+    ],
+    "rust_protocol_fixture": "executed_native_windows_linux",
+    "csharp_native_aot": "not_claimed_for_this_task",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
     "product_runtime": "not_implemented",
-    "production_acceptance": "not_complete",
-    "research_experiments": "none"
+    "production_acceptance": "not_complete"
   },
-  "independent_review": "required_by_other_author_not_claimed_here"
+  "independent_review": {
+    "status": "pending",
+    "required_scope": "Exact revised report/evidence/coverage and linked D18/D19/D21 content; author self-check is not independent review."
+  },
+  "historical_baseline": {
+    "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "prior_status": "partially_evidenced",
+    "prior_input_baseline": {
+      "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
+      "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+      "packet_revision": "0.1.1",
+      "packet_sha256": "66b0e922eed53c7d69cf7add9f9b303bacf20b64217f500d0b8a8110c0b11bdb"
+    },
+    "prior_selected_design": {
+      "decision": "Independent managed gRPC/MCP packages, generated or constrained generic registration, explicit MCP modern/legacy profiles and no silent downgrade.",
+      "design_research_status": "resolved_pending_independent_review",
+      "contract_acceptance": "proposed_not_self_accepted",
+      "question_closure_recommendations": [
+        "Q17"
+      ],
+      "documentation_tasks": [
+        "D19"
+      ],
+      "verification_delivery_tasks": [
+        "B18",
+        "B19",
+        "B22",
+        "B24"
+      ]
+    },
+    "prior_execution": {
+      "upstream_tests": "not_run",
+      "csharp_compilation": "not_run",
+      "rust_compilation": "not_run",
+      "native_aot": "not_run",
+      "product_runtime": "not_implemented",
+      "production_acceptance": "not_complete",
+      "research_experiments": "none"
+    },
+    "interpretation": "Preserved prior source findings. Architectural choices conflicting with the current user mission are superseded by selected_design below; managed-host sources serve as comparators only."
+  },
+  "research_blockers": [],
+  "future_product_obligations": [
+    "B18 integrates all gRPC method kinds with generated C# protobuf DTOs, deadlines and ownership on Windows/Linux AOT.",
+    "B19 integrates typed C# mapping/authz and fixed rmcp profile; arbitrary JSON Schema support needs explicit native validator selection if added.",
+    "Full protocol+TLS+real-network+C# bridge conformance remains future implementation acceptance."
+  ],
+  "baseline_audit": "Existing 17-claim managed protocol report was hidden by planned state but selected the wrong production transport; native source/seam experiments were missing.",
+  "final_json_admission_source": {
+    "path": "verification/server-completion/rmcp-json-admission-source.json",
+    "sha256": "279507a1f953ea6a923bf552faf44765a4cf2d095dd01608f3c6b043212c3bfa",
+    "source_read_only": true
+  }
 }

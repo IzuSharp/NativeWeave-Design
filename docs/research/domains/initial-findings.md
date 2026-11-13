@@ -1,3 +1,5 @@
+> Historical checkpoint. Current product constraints and acceptance boundaries are in [ADR-0003](../../decisions/ADR-0003-rust-engine-mandate-and-design-acceptance.md). Any optional Rust Server/Kestrel product-host wording below describes the prior snapshot, not current authorization. Original evidence retains its recorded scope.
+
 # Database、AOT ORM 与 Server：首次源码调查与研究边界
 
 - 记录日期：2026-11-12（用户会话日期）。

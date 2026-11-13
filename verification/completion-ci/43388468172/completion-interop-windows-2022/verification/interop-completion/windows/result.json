@@ -1,0 +1,31 @@
+{
+  "scope": "R02/R04/R07/R08/R09/R10/R11: bounded research fixture, not product or performance acceptance",
+  "platform": "Windows-2022Server-10.0.20348-SP0",
+  "independent_review": false,
+  "success": true,
+  "source_commit": null,
+  "baseline_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "github_run_id": "43388468172",
+  "aot_requested": true,
+  "normal_executed": true,
+  "native_sha256": "c15e5025d9743f4a199bd6b139ca7b39ce7e00c0354306dbd580795db4dc5811",
+  "aot_executed": true,
+  "aot_publish_exit_code": 0,
+  "aot_executable_sha256": "e5bbad2e5300eae765506c0338f82f86bd3f113370c246fa4f180bf28e2ae789",
+  "restrictions_aot_sha256": "5971ada6c9f7bab11828bfe72a367120d470c917254faa738f44f36fabd8350c",
+  "source_files": {
+    "experiments\\interop-completion\\native\\Cargo.toml": "f0f68615945e33826370dd70a10b1978d61ad39c4287f407a8272a29bffc6f4c",
+    "experiments\\interop-completion\\native\\Cargo.lock": "d18fb4c1f7684303f9ee1cee0090dff6ba945dd5f292e56279aa0ec748b4393b",
+    "experiments\\interop-completion\\native\\src\\lib.rs": "731ce918dd8dfa3cd9c7223a48477b7af5dd1620512d7f27248cb358a5090426",
+    "experiments\\interop-completion\\Completion.csproj": "2711774317ff03858efea850d1f06a995f33173c8a8ca3f9cade9e5c0b939d23",
+    "experiments\\interop-completion\\Program.cs": "98e992fd6f94b0ffd9c1328ba8cc8c374a9c5173941b73b91c3de850a5f6b43e",
+    "experiments\\interop-completion\\global.json": "6df61fc09c373c0f13b242e56e7c90789af3c3600a3034f767bf097cfb3beb40",
+    "experiments\\interop-completion\\rust-toolchain.toml": "0ce99f0775a7799b6b4244c677eccd97c4aa98b74b3b803fbfd1b5fc2f3f95be",
+    "experiments\\interop-completion\\run.py": "bb5b3bd107c0328ed1c7382431052f054cbb7b4a63cb39bd0c6090ccd32495c9",
+    "experiments\\interop-completion\\GeneratorProbe.csproj": "1d8395a2a6ee08883a6dfd3867a83ff3babc12f6721b1a0d4b04bdc2e53d74c2",
+    "experiments\\interop-completion\\GeneratorProbe.cs": "e32b59e3d80cc67eb91ef295d6f083145dd8c782a1b12b96696dee12af8bb884",
+    "experiments\\interop-completion\\AotRestrictions.csproj": "998b21bb18a2cb6b1db4e0b158529e660ddcd00acc00990ec58cf5587fcd84ca",
+    "experiments\\interop-completion\\AotRestrictions.cs": "3a7bcfb545500a196479bfedd6dd766627f1a94481a9bbc3a0f7b282e49dee12",
+    "experiments\\interop-completion\\Directory.Build.props": "fcb199efe07e377073ff6fd32ab973762b256bcc0d64fcd5e4c5eed704a2fa05"
+  }
+}

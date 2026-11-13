@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "retrieved_existing_ci_evidence",
+  "run_id": 43401371233,
+  "source_commit": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+  "observed_at": "2026-11-13T12:52:31.407240+00:00",
+  "new_execution": false,
+  "both_platforms_passed": true,
+  "scope": "Finite Release Native AOT diagnostics/layout/managed-parent probe; not Debug cost, native callback propagation, enabled exporter or product performance.",
+  "records": [
+    {
+      "artifact_id": 14025576346,
+      "artifact_name": "diagnostics-windows-2022",
+      "archive_sha256": "3a0d32eed4e544d471e3e44e0d8d4840fd2050c7534503fb380588d9f8c4c27d",
+      "artifact_url": "https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43401371233/artifacts/14025576346",
+      "os": "Windows",
+      "source_commit": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+      "source_binding": [
+        {
+          "path": "experiments/server-completion/diagnostics/DiagnosticsProbe.csproj",
+          "git_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+          "executed_sha256": "8e95e5ea1af7d0f015798020f23febe234f52324c2f75e74784d99009e6aad9e",
+          "transformation": "git_checkout_LF_to_CRLF"
+        },
+        {
+          "path": "experiments/server-completion/diagnostics/Program.cs",
+          "git_sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+          "executed_sha256": "ebcaad4372c7b9aa341e7749875efacbc07c53383f957e1b4aad4f047223639b",
+          "transformation": "git_checkout_LF_to_CRLF"
+        },
+        {
+          "path": "experiments/server-completion/run_diagnostics.py",
+          "git_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+          "executed_sha256": "d68e5da6ac95f4390ff8c58d3e30bf48b84b7f14fae871712b579098e2c6bf43",
+          "transformation": "git_checkout_LF_to_CRLF"
+        }
+      ],
+      "run_manifest": "verification/completion-ci/43401371233/diagnostics-windows-2022/run.json",
+      "files": [
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/dotnet-info.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/dotnet-info.stdout.txt",
+          "sha256": "f170989b6d9b73672423252cb85923cda7b4ce099714f35862a17c0d6de18c07",
+          "bytes": 6149
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/diagnostics/DiagnosticsProbe.csproj",
+          "sha256": "8e95e5ea1af7d0f015798020f23febe234f52324c2f75e74784d99009e6aad9e",
+          "bytes": 446
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/diagnostics/Program.cs",
+          "sha256": "ebcaad4372c7b9aa341e7749875efacbc07c53383f957e1b4aad4f047223639b",
+          "bytes": 3689
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/run_diagnostics.py",
+          "sha256": "d68e5da6ac95f4390ff8c58d3e30bf48b84b7f14fae871712b579098e2c6bf43",
+          "bytes": 3327
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/native-aot-run.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/native-aot-run.stdout.txt",
+          "sha256": "d96d45cc5b69ebfe877f142cef6337acde7cf9926d728439ce550623174b2b5c",
+          "bytes": 715
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/publish.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/publish.stdout.txt",
+          "sha256": "cf60e8df2ad465900d04179d74203c7ce6c37b3f3a70fc72c88f5cdd81630dff",
+          "bytes": 455
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/run.json",
+          "sha256": "12500105dc8785a31fa4c3727086af75aa5f01926c35eacdc7db0306f6f62f0f",
+          "bytes": 2302
+        }
+      ],
+      "omitted_archive_entries": [
+        {
+          "archive_path": "publish/DiagnosticsProbe.exe",
+          "sha256": "17eb1d987c0a34e7cb56d83af94affa82fb0e776bb31595803e7babb5bb56d77",
+          "bytes": 1490944
+        },
+        {
+          "archive_path": "publish/DiagnosticsProbe.pdb",
+          "sha256": "0990cbfaf85d9b3c622476fa02909a4e03627cb8ec51cbc29904bb002e446c93",
+          "bytes": 7811072
+        }
+      ],
+      "binary_omission": "Executable and symbols retained in GitHub artifact; exact archive and binary hashes are recorded. Reproduce with the source-bound run_diagnostics.py. No binary is relabelled as a committed artifact.",
+      "native_aot": true,
+      "build_configuration": "Release",
+      "assertions": 11,
+      "stdout": "PASS trace_context_size_32\r\nPASS trace_id_offset_8\r\nPASS parent_span_offset_24\r\nPASS no_observer_before_registration\r\nOBSERVATION samples=200000 elapsed_ns=3326800 ns_per_call=16.634 allocated_bytes=0 null_count=200000 allocation_scope=StartActivity_loop_only\r\nPASS no_observer_returns_null\r\nPASS no_observer_steady_loop_zero_thread_allocations\r\nPASS observer_gate_does_not_format_tags\r\nPASS explicit_remote_parent_preserved\r\nPASS managed_async_context_preserved\r\nPASS managed_task_child_parent_preserved\r\nPASS observer_disposal_restores_disabled_state\r\nRESEARCH_ONLY: thread-local allocation counter excludes native memory; single-process timing is not a production benchmark or cross-language propagation proof.\r\n"
+    },
+    {
+      "artifact_id": 14025007949,
+      "artifact_name": "diagnostics-ubuntu-24.04",
+      "archive_sha256": "173fa55d83a50624891819a421a676532af17977e1db315724e8363a1200ff17",
+      "artifact_url": "https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43401371233/artifacts/14025007949",
+      "os": "Linux",
+      "source_commit": "5bb128424259f3d9cf594b4e50d7688ad5b6541e",
+      "source_binding": [
+        {
+          "path": "experiments/server-completion/diagnostics/DiagnosticsProbe.csproj",
+          "git_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+          "executed_sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+          "transformation": "byte_exact"
+        },
+        {
+          "path": "experiments/server-completion/diagnostics/Program.cs",
+          "git_sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+          "executed_sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+          "transformation": "byte_exact"
+        },
+        {
+          "path": "experiments/server-completion/run_diagnostics.py",
+          "git_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+          "executed_sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+          "transformation": "byte_exact"
+        }
+      ],
+      "run_manifest": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/run.json",
+      "files": [
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/dotnet-info.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/dotnet-info.stdout.txt",
+          "sha256": "c69203d1c919596ba84f61ab2b82fc2e61805f7434451463f7b328903fc14924",
+          "bytes": 3187
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/diagnostics/DiagnosticsProbe.csproj",
+          "sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+          "bytes": 434
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/diagnostics/Program.cs",
+          "sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+          "bytes": 3609
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/run_diagnostics.py",
+          "sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+          "bytes": 3265
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/native-aot-run.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/native-aot-run.stdout.txt",
+          "sha256": "4f385b142f771f31ed8a0df4b4a1e1b0ab5cfde9c29c9b088cfd17566c909f17",
+          "bytes": 702
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/publish.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/publish.stdout.txt",
+          "sha256": "cb1912c7da193558fd5f9e5f946365e3af010a540becc531453e3a92e64fa7a2",
+          "bytes": 490
+        },
+        {
+          "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/run.json",
+          "sha256": "500bbc71348c86badb91387f5a5d5bd34d58df195db2ec6b21d53862d2654b17",
+          "bytes": 2254
+        }
+      ],
+      "omitted_archive_entries": [
+        {
+          "archive_path": "publish/DiagnosticsProbe",
+          "sha256": "7ac76a9cf1943638f9a09c26959665989a3bb818d5469908a97c87fe306f3b21",
+          "bytes": 1705592
+        },
+        {
+          "archive_path": "publish/DiagnosticsProbe.dbg",
+          "sha256": "6065ee93d923633fb93be858d8b6fb6c74327f69468c6db298993503ea4ab7fd",
+          "bytes": 2888872
+        }
+      ],
+      "binary_omission": "Executable and symbols retained in GitHub artifact; exact archive and binary hashes are recorded. Reproduce with the source-bound run_diagnostics.py. No binary is relabelled as a committed artifact.",
+      "native_aot": true,
+      "build_configuration": "Release",
+      "assertions": 11,
+      "stdout": "PASS trace_context_size_32\nPASS trace_id_offset_8\nPASS parent_span_offset_24\nPASS no_observer_before_registration\nOBSERVATION samples=200000 elapsed_ns=4093500 ns_per_call=20.468 allocated_bytes=0 null_count=200000 allocation_scope=StartActivity_loop_only\nPASS no_observer_returns_null\nPASS no_observer_steady_loop_zero_thread_allocations\nPASS observer_gate_does_not_format_tags\nPASS explicit_remote_parent_preserved\nPASS managed_async_context_preserved\nPASS managed_task_child_parent_preserved\nPASS observer_disposal_restores_disabled_state\nRESEARCH_ONLY: thread-local allocation counter excludes native memory; single-process timing is not a production benchmark or cross-language propagation proof.\n"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "task_id": "R29",
-  "observed_date": "2026-11-12",
-  "coverage_statement": "Only listed scopes were read; repository enumeration or retrieval alone is not source coverage.",
+  "observed_date": "2026-11-13",
+  "coverage_statement": "Exact scoped source reads and separately identified actual research executions; historical source and execution identities retained.",
   "paths": [
     {
       "repo": "dotnet/aspnetcore",
@@ -47,11 +47,17 @@
       "scope": "complete",
       "read_state": "authored_and_executed_research_only",
       "sha256": "3b6d749459695c3b33c9394ccb79129237e0e563ff8852a02e9577f9e4fbe519"
+    },
+    {
+      "repo": "grpc/grpc-rust",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/transport/service/grpc_timeout.rs",
+      "scope": "1-179;181-261",
+      "sha256": "ce83ea986f8c2ff6d52291a0cf821aa6561fb9b2bd69a2b4c2ebd4f2edaf8449",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/transport/service/grpc_timeout.rs",
+      "read_state": "read_as_scoped",
+      "source_id": "TONIC-TIMEOUT"
     }
-  ],
-  "explicit_remaining_coverage": [
-    "Finite abstract model excludes real scheduler, allocator fragmentation, protocol buffers and RSS.",
-    "HTTP2/3, actual socket half-close, native double-credit copy and callback races require product verification."
   ],
   "licenses": [
     {
@@ -84,12 +90,53 @@
   ],
   "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
   "test_state": {
-    "upstream_tests": "not_run",
-    "csharp_compilation": "not_run",
-    "rust_compilation": "not_run",
-    "native_aot": "not_run",
+    "upstream_tests": "not_run_as_whole_suite",
+    "research_experiments": [
+      {
+        "path": "verification/server-completion/protocol-local-4/run.json",
+        "sha256": "7d5f4c50a7f3368f9ed93d2e86bf51132a4edede98c1539ac7770ccd928d3dae",
+        "success": true,
+        "scope": [
+          "No NativeWeave product implementation.",
+          "Protocol Rust tests do not execute a C# FFI Handler.",
+          "Kestrel is solely the managed comparator.",
+          "Finite tests do not establish long-load performance or platform certification."
+        ]
+      },
+      {
+        "path": "verification/server-completion/ci-verification.json",
+        "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+        "success": true,
+        "scope": [
+          "Windows/Linux scoped native protocol and Native AOT managed comparator, not product acceptance."
+        ]
+      },
+      {
+        "path": "verification/server-completion/protocol-reviewed-local/run.json",
+        "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+        "success": true,
+        "scope": [
+          "19 actual Linux protocol cases; old 13-case two-OS CI remains distinct.",
+          "Review correction adds cardinality default counterexample, strict unary/server-streaming, zero versus empty, per-request counter reset and client-stream mode.",
+          "No C# product bridge or full protocol/TLS end-to-end certification."
+        ]
+      }
+    ],
+    "rust_protocol_fixture": "executed_native_windows_linux",
+    "csharp_native_aot": "not_claimed_for_this_task",
+    "gpu_mobile_device_execution": "not_run_not_claimed",
     "product_runtime": "not_implemented",
-    "production_acceptance": "not_complete",
-    "research_experiments": "executed_see_manifest"
-  }
+    "production_acceptance": "not_complete"
+  },
+  "historical_explicit_remaining_coverage": [
+    "Finite abstract model excludes real scheduler, allocator fragmentation, protocol buffers and RSS.",
+    "HTTP2/3, actual socket half-close, native double-credit copy and callback races require product verification."
+  ],
+  "explicit_remaining_coverage": [
+    "Run actual generated Server budget coordinator, socket half-close/reset/cancel races and process resource trends in B16/B17/B22.",
+    "Finite models and retained-byte probes do not certify scheduler fairness, weak memory or RSS."
+  ],
+  "scope_completion": "Research questions and design counterexamples resolved for declared scope; independent acceptance pending; product validation remains separate.",
+  "package_inventory": "verification/server-completion/dependency-inventory.json",
+  "package_identity_checks": "verification/server-completion/package-identities.json"
 }

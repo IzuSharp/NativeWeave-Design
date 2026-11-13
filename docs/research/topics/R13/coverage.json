@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R13",
+  "recorded_at": "2026-11-13",
+  "coverage_policy": "Actually read fixed-source ranges; downloaded files not automatically read; tests observed versus executed distinct.",
+  "paths": [
+    {
+      "repository": "https://github.com/dotnet/sdk",
+      "commit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+      "path": "src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs",
+      "file_sha256": "bf4e7fcd034ed8206fd8eaff42d5f1217f9d0c8f24a0bbf5700da628bf6d7c0b",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          1340,
+          1370
+        ],
+        [
+          1695,
+          1735
+        ]
+      ],
+      "purpose": "native assets and RID runtime target copy metadata",
+      "permalinks": [
+        "https://github.com/dotnet/sdk/blob/b8600c8854f5d1ac1442d717211d968f69a53acd/src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs#L1340-L1370",
+        "https://github.com/dotnet/sdk/blob/b8600c8854f5d1ac1442d717211d968f69a53acd/src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs#L1695-L1735"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/dotnet/sdk",
+      "commit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+      "path": "src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets",
+      "file_sha256": "7a54e00724d8afe42e72482878de7b152369441e76eac7c543b35e83aa11ce09",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          43,
+          90
+        ],
+        [
+          170,
+          220
+        ]
+      ],
+      "purpose": "PublishAot/self-contained and architecture/RID inference",
+      "permalinks": [
+        "https://github.com/dotnet/sdk/blob/b8600c8854f5d1ac1442d717211d968f69a53acd/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets#L43-L90",
+        "https://github.com/dotnet/sdk/blob/b8600c8854f5d1ac1442d717211d968f69a53acd/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets#L170-L220"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/external-tools.md",
+      "file_sha256": "67a22a8ca329d223483a7a6056ed4877ba9e4bfa46f8fa6f945743edd4dcdd78",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          95,
+          205
+        ]
+      ],
+      "purpose": "compiler-artifact identity/profile/features/filenames/fresh fields",
+      "permalinks": [
+        "https://github.com/rust-lang/cargo/blob/3acc79c0c841844675bc53a605922dbfc441e750/doc/book/src/reference/external-tools.md#L95-L205"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    },
+    {
+      "repository": "https://github.com/rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/specifying-dependencies.md",
+      "file_sha256": "c59e3a7489d1f28208648a36e44698a48b695d40051b92e88b463af73a35404e",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          300,
+          360
+        ]
+      ],
+      "purpose": "git/registry/path and publication/submodule constraints",
+      "permalinks": [
+        "https://github.com/rust-lang/cargo/blob/3acc79c0c841844675bc53a605922dbfc441e750/doc/book/src/reference/specifying-dependencies.md#L300-L360"
+      ],
+      "limitation": "Only listed ranges are claimed read; upstream tests/tool commands are not claimed executed."
+    }
+  ],
+  "reused_research": [
+    {
+      "path": "docs/research/topics/R03/native-slice-validation.md",
+      "sha256": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997"
+    },
+    {
+      "path": "docs/research/topics/R05/report.md",
+      "sha256": "5f0aadd52dcd8c060397d749752744d9046443d13d6ed1f27860b357532bed16"
+    }
+  ],
+  "normal_error_boundary_coverage": "See report and exact run manifests; unsupported platform/production claims remain explicit Delivery obligations.",
+  "product_obligations": [
+    "A14/A15 runtime-only target execution",
+    "A16 pristine no-Rust image",
+    "A13 final export/layout/generator drift matrix"
+  ]
+}

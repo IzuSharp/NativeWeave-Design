@@ -1,5 +1,7 @@
 # R07：拥有权、SafeHandle、GCHandle与父子资源
 
+**Current completion (2026-11-13):** source-driven research/design is ready for exact-content independent review. The original dated report below is preserved as a historical increment; its unexecuted statements describe that increment. Current evidence/coverage contain `completion_2026_11_13` and immutable later execution records.
+
 研究日期：2026-11-12。作者：interop_design。状态：**partially_evidenced；v1 design decision recorded；independent review pending**。本报告给出可审查的实现选择，不代表真实产品、全部来源或生产平台已验证。
 
 ## 1. 输入与交付边界
@@ -95,3 +97,16 @@ R08核对callback内Dispose、cookie最终释放与late-callback反例；R09核�
 ## Post-migration executed logical-admission evidence
 
 The original report above is a historical source-analysis snapshot. [The new R07/D04 study](logical-admission.md) adds actual Windows/Linux normal and Native AOT negative/positive admission evidence: run43373306474,653 assertions and64 guided gate/Dispose rounds per invocation. It distinguishes logical admission, physical lifetime, native mutation and async retirement, and includes checked SeaQuery/Tower/Rust source implications. The local SafeHandle-only admission question is resolved; full task/contract acceptance and independent review remain pending. Research code and raw outputs are Design-owned, not product implementation.
+
+## Current completion review — ownership beyond synchronous admission
+
+The original report, source identities and logical-admission execution remain valid historical evidence. New `verification/interop-completion/linux/result.json` adds actual native-thread UCO/GC-root retirement and an independent transferred-result owner. A ResultOwner remains valid after operation release, second take produces no owner, and an injected DTO conversion failure releases exactly the transferred result. Thirty-two controlled callback/GC rounds execute in normal and actual Native AOT modes; the native callback must exit before try_retire succeeds. These are finite research fixtures, not full A03/A07 code.
+
+The chosen default remains private opaque pointer + SafeHandle + explicit logical gate, with native Arc/state retention only where the engine requires it. No default global handle table or per-call native retain/release is added. Core lifetime mechanisms are reusable by mandatory Rust Database/ORM/Server and future synchronous/affine engines; a synchronous engine does not need an async runtime. D04/D09 identify internal cleanup authority after ordinary admission closes.
+
+This task's current design questions have concrete answers and executable counterexamples. New exact-content independent review is still required before acceptance. Full parent/child product wrappers, finalizer scheduling, affine release, supported-target weak memory and long-load conformance are future A03/A07/A20/A23 obligations, not proof that no ownership design can be accepted now. Historical 'not executed' lists describe their original increments; consult the current supplemental manifest for actual later execution.
+
+
+## Committed Windows/Linux completion execution
+
+[CI evidence readback](../../../../verification/interop-completion/ci-evidence-read.json) verifies actual GitHub run `43388468172` at source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`: Windows x64 MSVC and Linux x64 GNU each executed normal 10,528 assertions and Native AOT 10,529, 32 controlled callback rounds per mode, nine Roslyn checks and static metadata/AOT restriction checks. All command exits and source hashes were verified; Windows checkout CRLF accounts for its distinct input hashes. This extends the main fixture only. Linux-only generator-comparison/panic/invalid-UCO supplemental studies are not mislabeled as Windows results. Deliberate reflection fallback negative cases retain their IL2026/IL3050 diagnostics. Product package/full-protocol/long-load obligations remain separate.

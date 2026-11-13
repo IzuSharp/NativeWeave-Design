@@ -29,14 +29,55 @@
       "sha256": "5a8b7608be6c58648964eb8a4b9ddabfba2d7321d907fc08f8026d0db4a5d157"
     }
   ],
-  "explicit_remaining_coverage": [
+  "licenses": [],
+  "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
+  "historical_integration_metadata": {},
+  "selected_orm": "Maintainer-precompiled SeaQuery1.0.2 + SQLx0.9.0 ordinary native profile; optional public SeaORM2.0.4 dynamic projection, separately maintained static profile; no ordinary per-entity Cargo; C# typed Fluent/static metadata/DTO only.",
+  "decision_revision": "precompiled-native-database-completion-2026-11-12",
+  "not_executed": [
+    "B21/B22: implement reference app, product faults including outbox/filesystem/HTTP and actual C# AOT",
+    "B23/B24: long load/performance and independent package acceptance"
+  ],
+  "remaining_source_work": [
+    "No claim of reading full upstream repositories. Listed ranges resolve the selected research/design questions; source/feature changes require scoped re-review."
+  ],
+  "completion_coverage": {
+    "source_manifest": "verification/database-completion/source-inspection.json",
+    "source_ids": [
+      "sqlx-pg-connection",
+      "sqlx-pg-executor"
+    ],
+    "actual_cases": [
+      "lost_commit_response_is_error_with_durable_effect",
+      "conflict_cte_old_snapshot_needs_separate_recovery_statement"
+    ],
+    "normal_error_boundary_coverage": "See current report and exact test names; original negative-control failure retained.",
+    "unsupported_scope": "Complete NativeWeave production wrappers, every upstream feature, both-OS new C# AOT, TLS/auth, performance and long-load are not established.",
+    "research_blockers": [],
+    "independent_review_pending": true,
+    "future_delivery_obligations": [
+      "B21/B22: implement reference app, product faults including outbox/filesystem/HTTP and actual C# AOT",
+      "B23/B24: long load/performance and independent package acceptance"
+    ],
+    "ci_confirmation": {
+      "manifest": "verification/database-completion/ci-confirmation.json",
+      "run_id": 43388468172,
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "metadata": "Windows and Linux: 5/5 each",
+      "postgres": "Linux PostgreSQL18.0: 6/6",
+      "scope": "Use only the task-specific cases already listed; repeated platforms are not additional unique cases. No C# or product acceptance claim."
+    }
+  },
+  "historical_explicit_remaining_coverage": [
     "PostgreSQL idempotency concurrency was studied from official semantics, not executed.",
     "Production C#/Rust APIs, networking, NativeAOT, physical power loss and long-run/load were not executed.",
     "Mandatory Rust DB execution engine correctness and integration must be established by R18-R21/D14-D15 and product B01-B06; this R31 SQLite prototype does not execute or validate SQLx/Rust."
   ],
-  "licenses": [],
-  "code_reuse": "Original analysis/design and local research prototypes only; upstream implementations were not copied into product files.",
-  "test_state": {
+  "explicit_remaining_coverage": [
+    "B21/B22: implement reference app, product faults including outbox/filesystem/HTTP and actual C# AOT",
+    "B23/B24: long load/performance and independent package acceptance"
+  ],
+  "historical_test_state": {
     "upstream_tests": "not_run",
     "csharp_compilation": "not_run",
     "rust_compilation": "not_run",
@@ -44,5 +85,12 @@
     "product_runtime": "not_implemented",
     "production_acceptance": "not_complete",
     "research_experiments": "executed_see_manifest"
+  },
+  "test_state": {
+    "rust_compilation": "executed_database_completion_fixture",
+    "research_postgres_concurrency": "executed_real_postgres18_see_completion_ci",
+    "historical_python_probe": "preserved_historical_test_state",
+    "csharp_product_native_aot": "not_implemented_delivery_obligation",
+    "production_acceptance": "future_delivery"
   }
 }

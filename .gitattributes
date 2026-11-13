@@ -1,2 +1,5 @@
 
 verification/native-slices/** -text
+
+# Preserve raw evidence bytes, including Windows CRLF logs, on every checkout.
+verification/** -text -whitespace

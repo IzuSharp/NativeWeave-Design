@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-BUILD-001",
+    "version": "0.3.0",
+    "content_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-13T13:11:37.712400+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUILD-001.inputs.json",
+    "sha256": "af8c6740a9fb544a22260fb1b804bbb8bb36de415baac4834813fabef1945bc1"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

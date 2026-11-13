@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "task_id": "R18",
+  "recorded_at": "2026-11-13",
+  "coverage_policy": "Actually read fixed-source ranges; downloaded files not automatically read; tests observed versus executed distinct.",
+  "paths": [
+    {
+      "repository": "https://github.com/Frommi/miniz_oxide",
+      "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+      "crate": "miniz_oxide@0.9.1",
+      "path": "miniz_oxide/src/deflate/mod.rs",
+      "file_sha256": "adedff53960b3fbef46cc83d907131c69b379e72668a116d1cc090fec4276504",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          130,
+          205
+        ]
+      ],
+      "purpose": "native compression growth and panic path",
+      "identity_scope": "Source read from locked registry crate; VCS metadata is declared crate source identity, not independently signature verified.",
+      "permalinks": [
+        "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/deflate/mod.rs#L130-L205"
+      ]
+    },
+    {
+      "repository": "https://github.com/Frommi/miniz_oxide",
+      "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+      "crate": "miniz_oxide@0.9.1",
+      "path": "miniz_oxide/src/inflate/mod.rs",
+      "file_sha256": "24a041eeb9404079395fd8ac5a51b8e2494fdf46a511681bb727e0b2b7017b57",
+      "read_state": "read_partial",
+      "line_ranges": [
+        [
+          135,
+          251
+        ],
+        [
+          332,
+          365
+        ]
+      ],
+      "purpose": "bounded/unbounded decompression and partial-output error ownership",
+      "identity_scope": "Source read from locked registry crate; VCS metadata is declared crate source identity, not independently signature verified.",
+      "permalinks": [
+        "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/inflate/mod.rs#L135-L251",
+        "https://github.com/Frommi/miniz_oxide/blob/4e582392df3a739d2b0dfd2c537dc33e8942be38/miniz_oxide/src/inflate/mod.rs#L332-L365"
+      ]
+    }
+  ],
+  "reused_research": [
+    {
+      "path": "docs/research/topics/R05/report.md",
+      "sha256": "5f0aadd52dcd8c060397d749752744d9046443d13d6ed1f27860b357532bed16"
+    },
+    {
+      "path": "docs/research/topics/R27/report.md",
+      "sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9"
+    },
+    {
+      "path": "docs/research/topics/R29/report.md",
+      "sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe"
+    },
+    {
+      "path": "docs/research/topics/R32/report.md",
+      "sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f"
+    },
+    {
+      "path": "docs/research/topics/R33/report.md",
+      "sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49"
+    }
+  ],
+  "normal_error_boundary_coverage": "See report and exact run manifests; unsupported platform/production claims remain explicit Delivery obligations.",
+  "product_obligations": [
+    "A17/A18 final two-engine conformance through product facade",
+    "A24 template and exact generated-binding tests",
+    "B15/B17 actual managed handler bridge and shutdown soak"
+  ]
+}

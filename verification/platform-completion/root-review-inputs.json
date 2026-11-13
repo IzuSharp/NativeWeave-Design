@@ -1,0 +1,127 @@
+{
+  "author": "/root",
+  "research": [
+    "R01",
+    "R13",
+    "R14",
+    "R17",
+    "R18"
+  ],
+  "documentation": [
+    "D01",
+    "D10",
+    "D11",
+    "D13"
+  ],
+  "scope": "Research/design; no production acceptance",
+  "inputs": [
+    {
+      "path": "docs/research/topics/R01/report.md",
+      "sha256": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11"
+    },
+    {
+      "path": "docs/research/topics/R01/evidence.json",
+      "sha256": "c9696e64ed82c383cde5c10b0a8dda49fb990a0e7dbc11bb5cfee6ee90695425"
+    },
+    {
+      "path": "docs/research/topics/R01/coverage.json",
+      "sha256": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a"
+    },
+    {
+      "path": "docs/research/topics/R13/report.md",
+      "sha256": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7"
+    },
+    {
+      "path": "docs/research/topics/R13/evidence.json",
+      "sha256": "f891c8d8b2e7f50e3ba7ca16005bad630c8c4cc6add49573bb4ae4af3f9b7874"
+    },
+    {
+      "path": "docs/research/topics/R13/coverage.json",
+      "sha256": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696"
+    },
+    {
+      "path": "docs/research/topics/R14/report.md",
+      "sha256": "2cd775919c3b9cc88fb1f3c12785f7941656e0da0ead36a0bd3e8c57f4a3706c"
+    },
+    {
+      "path": "docs/research/topics/R14/evidence.json",
+      "sha256": "91e0545f8aa02138a890b7e401054b454811139615ee0b13b66dfd66e5c972a7"
+    },
+    {
+      "path": "docs/research/topics/R14/coverage.json",
+      "sha256": "2b2817a516136c16099ac0f4f566392359487868dc2e5e1aaf60cad7c72cb222"
+    },
+    {
+      "path": "docs/research/topics/R17/report.md",
+      "sha256": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4"
+    },
+    {
+      "path": "docs/research/topics/R17/evidence.json",
+      "sha256": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f"
+    },
+    {
+      "path": "docs/research/topics/R17/coverage.json",
+      "sha256": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878"
+    },
+    {
+      "path": "docs/research/topics/R18/report.md",
+      "sha256": "bdf46e37799950570583df4bc31382b3d4253658c98bc14031bbae1c31de557d"
+    },
+    {
+      "path": "docs/research/topics/R18/evidence.json",
+      "sha256": "72199f94b832bd02bba96a72f8d0561f17b82cc8ff88e36ffa05d601c0827888"
+    },
+    {
+      "path": "docs/research/topics/R18/coverage.json",
+      "sha256": "c73e6b3ddafe23aa831b7b82f5733e767a23f84c17b2ea60dafad2b89bfd181f"
+    },
+    {
+      "path": "docs/platforms/support-and-aot.md",
+      "sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470"
+    },
+    {
+      "path": "docs/platforms/build-package-release.md",
+      "sha256": "5e109ca696476c852e516c76380222699ee30827d49beefc96daa3a872fe1a69"
+    },
+    {
+      "path": "docs/extension/engine-integration.md",
+      "sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4"
+    },
+    {
+      "path": "docs/performance/methodology.md",
+      "sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0"
+    },
+    {
+      "path": "verification/platform-completion/root-source-inspection.json",
+      "sha256": "727855ed7576a70775d1cd23101497b1d66f25692d9b89f218855b6c61d373c9"
+    },
+    {
+      "path": "verification/platform-completion/linux-final/results.json",
+      "sha256": "3e2793ffc37f40e56cb88581a2e2bec7aa4cbc811c76c1a5362b00625b171c16"
+    },
+    {
+      "path": "verification/engine-completion/linux/result.json",
+      "sha256": "6b925d9b5eb1f0b9d05984732137b08939717e60f4f4e30b14bd63c5c0089727"
+    },
+    {
+      "path": "verification/engine-completion/linux/dependency-inventory.json",
+      "sha256": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3"
+    },
+    {
+      "path": "verification/performance-completion/omission.stdout",
+      "sha256": "32a8d8864ee4ce98aecd4d0ad99192edd860aeaf06225554f64f79d478d55954"
+    },
+    {
+      "path": "verification/engine-completion/linux-reviewed/result.json",
+      "sha256": "5e7f11d0f6609fa8d37251235deda5570462c6ddceaaa2590ab01e76cab0f082"
+    },
+    {
+      "path": "verification/completion-ci/43390177574/completion-platform-windows-2022/archive-manifest.json",
+      "sha256": "07d6e33366fa4f0991bca7dff84549d5b8f661fe91d3e5bf09db1369f49bf85b"
+    },
+    {
+      "path": "verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/archive-manifest.json",
+      "sha256": "83c316f7f9eb2160bcfe2503f184247734f45ba1dd58daa6c079bf9aa2472d29"
+    }
+  ]
+}

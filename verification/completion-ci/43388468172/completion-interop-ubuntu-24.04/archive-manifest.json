@@ -1,0 +1,178 @@
+{
+  "artifact_id": 14019253009,
+  "name": "completion-interop-ubuntu-24.04",
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "run_id": 43388468172,
+  "zip_sha256": "23028b7fbf27d91a82128dccd4dd7ab77c94a35a6102ea6f1c6afa86f108986a",
+  "zip_bytes": 10400,
+  "files": [
+    {
+      "path": "verification/interop-completion/linux/aot-publish.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/aot-publish.stdout",
+      "sha256": "0bb388b4e37ec77b3880c6c5d94ba66a486f920643d0591252924670de347e0d",
+      "bytes": 476,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/aot-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/aot-run.stdout",
+      "sha256": "30588ba4dfe045f8da19e3c412bace250faf48a4c291dec061e926c8ac1fce7d",
+      "bytes": 72,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/commands.json",
+      "sha256": "33811e5ea26237f49932934f4b691ad0236cc6a17322a827a2398a98e489e870",
+      "bytes": 6710,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/dotnet-info.stdout",
+      "sha256": "a27b2e64e18d49becfc9b29ffea86a9c5d0423c477bec0b95fde9369951f6977",
+      "bytes": 3229,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/dotnet-info.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/generator-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/generator-run.stdout",
+      "sha256": "32453c70e80736bfcfb95590eaed24ca36379ba20899406c3dee562d3ce70595",
+      "bytes": 55,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/native-build.stderr",
+      "sha256": "ad41544c50102f6799af85a8727ddd5b202ef395e95c6561769e54f07a224512",
+      "bytes": 206,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/native-build.stdout",
+      "sha256": "37223f989a96bacf23f04862ae4c0311c74ced630a9277bacf4f38eaa22c9235",
+      "bytes": 1084,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/native-test.stderr",
+      "sha256": "747f35836dbfd238ad235abf5ccdb32a1f0116c4af631b022381e66cf205e79b",
+      "bytes": 420,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/native-test.stdout",
+      "sha256": "28c306352c0bc3b4af55e6cd0d897578ac068d0c7c6208e77643476645116e49",
+      "bytes": 303,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/normal-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/normal-run.stdout",
+      "sha256": "ff631a06b5f1e54ec0a2e6fb1074046decf7d171669d4bde6acf1f4624c31804",
+      "bytes": 73,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/restrictions-aot-publish.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/restrictions-aot-publish.stdout",
+      "sha256": "1bc774a45dba32c5a2f6aee06026081ec6aff91f9feb6f482c7eea49d0d0b49d",
+      "bytes": 3157,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/restrictions-aot-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/restrictions-aot-run.stdout",
+      "sha256": "a059bca07ddec320cb9cbd1da03d8fe8454f658b9c20555680f875f8b2fb1042",
+      "bytes": 47,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/restrictions-normal.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/restrictions-normal.stdout",
+      "sha256": "6fdf9cd2fbc3bb33bbf9f882ebe49b49630e87f96ef73dca84fe1d49d8d9f734",
+      "bytes": 48,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/result.json",
+      "sha256": "12cc08486d5fb5567c36497e0b3f214e7315ccca86e0cb54d006fc410f816a23",
+      "bytes": 2359,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/rust-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "verification/interop-completion/linux/rust-version.stdout",
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "bytes": 198,
+      "preserved": true
+    }
+  ],
+  "results": [
+    {
+      "path": "verification/interop-completion/linux/result.json",
+      "passed": null,
+      "source_commit": null,
+      "keys": [
+        "scope",
+        "platform",
+        "independent_review",
+        "success",
+        "source_commit",
+        "baseline_commit",
+        "github_run_id",
+        "aot_requested",
+        "normal_executed",
+        "native_sha256",
+        "aot_executed",
+        "aot_publish_exit_code",
+        "aot_executable_sha256",
+        "restrictions_aot_sha256",
+        "source_files"
+      ]
+    }
+  ]
+}

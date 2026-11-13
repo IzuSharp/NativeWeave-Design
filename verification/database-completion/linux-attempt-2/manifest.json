@@ -1,0 +1,19 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--",
+    "--nocapture"
+  ],
+  "cwd": "experiments/database-completion",
+  "exit_code": 0,
+  "captured_at_utc": "2026-11-13T07:28:06.901665+00:00",
+  "source_sha256": {
+    "experiments/database-completion/Cargo.toml": "c5972b59541d9647c41c923727d82baa39bf3d7a04e0327da1eaa39457a66fa1",
+    "experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "experiments/database-completion/tests/postgres.rs": "f5157078e136d6105ab7c0db8a6ab0ce3a22da562fd9743c13bef8cdde48795e",
+    "experiments/database-completion/tests/runtime_metadata.rs": "b467a4ac302b43bb8b5995bdcdfa53e1b02e28dad9f6fe67a910504613192676"
+  },
+  "scope": "SQLite/SeaORM actual execution; PG source compiles but ignored without service."
+}

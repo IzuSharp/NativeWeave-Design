@@ -1,0 +1,78 @@
+{
+  "suite": "protocol",
+  "os": "Linux",
+  "arch": "x86_64",
+  "inputs_sha256": {
+    "protocol/Cargo.lock": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+    "protocol/Cargo.toml": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+    "protocol/src/lib.rs": "8573bd95fd82bc6a5a63032b0bfd3fa638b1ff4935c664f6c30be13a8148e3d6",
+    "run.py": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f"
+  },
+  "commands": [
+    {
+      "name": "rustc-version",
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "timeout_seconds": 30,
+      "exit_code": 0,
+      "elapsed_seconds": 0.016,
+      "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "cargo-version",
+      "command": [
+        "cargo",
+        "-V"
+      ],
+      "timeout_seconds": 30,
+      "exit_code": 0,
+      "elapsed_seconds": 0.016,
+      "stdout_sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "test",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--manifest-path",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/server-completion/protocol/Cargo.toml",
+        "--",
+        "--nocapture"
+      ],
+      "timeout_seconds": 600,
+      "exit_code": 0,
+      "elapsed_seconds": 25.87,
+      "stdout_sha256": "1a1713f8d08239eeac9d2096c6f46ffffadefc1bdb38bfe3562a727cd891910c",
+      "stderr_sha256": "46574434d52884c4c1f162d3c113d80e40238eae8aa70c4a5b7ba0626783241d"
+    },
+    {
+      "name": "dependency-tree",
+      "command": [
+        "cargo",
+        "tree",
+        "--locked",
+        "--manifest-path",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/server-completion/protocol/Cargo.toml"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "elapsed_seconds": 0.064,
+      "stdout_sha256": "95eacead555e2c2b4cb7ec38a763189cc01233e72e5318c8cbc60244620803bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "kind": "research_only",
+  "limitations": [
+    "No NativeWeave product implementation.",
+    "Protocol Rust tests do not execute a C# FFI Handler.",
+    "Kestrel is solely the managed comparator.",
+    "Finite tests do not establish long-load performance or platform certification."
+  ],
+  "git_head": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "success": true
+}

@@ -203,5 +203,76 @@
       "outcome": "not_found",
       "resolved": "src/libraries/System.Runtime/tests/System.Runtime.Handles.Tests/SafeHandle.cs"
     }
-  ]
+  ],
+  "completion_2026_11_13": {
+    "sources": [
+      {
+        "repository": "https://github.com/rust-diplomat/diplomat",
+        "commit": "f8259ad0e37ff2f9187739622443dfaa12e32937",
+        "path": "tool/src/dotnet/mod.rs",
+        "blob_sha": "ef22c1423cdb07c602e6f463bdf6a61f8898dc92",
+        "read_ranges": "1-180",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Backend explicitly requires callers to synchronize call/Dispose, unlike NativeWeave's stronger generated admission contract.",
+        "url": "https://github.com/rust-diplomat/diplomat/blob/f8259ad0e37ff2f9187739622443dfaa12e32937/tool/src/dotnet/mod.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "Dotnet backend capabilities/lifetimes"
+      },
+      {
+        "repository": "https://github.com/mozilla/uniffi-rs",
+        "commit": "482095c1ba1b76a1393b582e0589e2fdc9c64b14",
+        "path": "uniffi_core/src/ffi/rustfuture/future.rs",
+        "blob_sha": "95a9c6c0fddb201580a6f0533aa14ec4b43ce712",
+        "read_ranges": "1-310",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Future polling, wake-before-store, cancel and result extraction with independent Arc ownership; callbacks outside scheduler lock.",
+        "url": "https://github.com/mozilla/uniffi-rs/blob/482095c1ba1b76a1393b582e0589e2fdc9c64b14/uniffi_core/src/ffi/rustfuture/future.rs",
+        "not_claimed": "Whole repository audit or upstream suite execution.",
+        "symbol": "RustFuture / wrapped future / poll/complete/free"
+      },
+      {
+        "repository": "https://github.com/tokio-rs/bytes",
+        "commit": "76c0fbb54ed4336caf9d2311658a2f4a5627c21d",
+        "path": "src/bytes.rs",
+        "blob_sha": "0f1aaed4ee1674ba3946fdd986ac32cead808689",
+        "read_ranges": "207-290",
+        "symbol": "Bytes::from_owner",
+        "evidence_kind": "source_confirmed",
+        "supported_claim": "Owner moves into Bytes, one AsRef call after ownership publication; last clone controls drop; conversion to BytesMut copies.",
+        "url": "https://github.com/tokio-rs/bytes/blob/76c0fbb54ed4336caf9d2311658a2f4a5627c21d/src/bytes.rs",
+        "not_claimed": "Other source ranges or upstream test execution.",
+        "local_blob_verified": true
+      }
+    ],
+    "executed_experiments": [
+      {
+        "manifest": "verification/interop-completion/linux/result.json",
+        "sha256": "fd5d852b0c533cb536577a87130f933db707d796331a0a54dfc64b679771d4ae",
+        "evidence_kind": "research_fixture_executed",
+        "supported_claim": "Actual Linux x64 .NET11/Rust1.100 native-thread callback, cancellation-registration drain, unique terminal/take and independent result-owner fixture: normal 10528 and Native AOT 10529 assertions; incremental Roslyn probe 9, static metadata restrictions 4 normal/6 AOT. Scope is research harness, not the complete product protocol."
+      }
+    ],
+    "inherited_evidence": [
+      {
+        "path": "verification/logical-admission/primary-results.json",
+        "sha256": "9bc04b0f5bcb837a984bdf5cfb2620e20a2e51f8683bbc26167c218ef30d6b3e",
+        "status": "existing_evidence_reused_not_reexecuted"
+      },
+      {
+        "path": "verification/native-slices/original-pr1/manifest.json",
+        "sha256": "54c742bdf2b07948cdacd21ad89d780e16c63986b86c631d79e3bb25f47c8d35",
+        "status": "existing_evidence_reused_not_reexecuted"
+      }
+    ],
+    "remaining_scope": "Product implementation/production validation, optional nonselected framework internals, independent review.",
+    "future_implementation_obligations": [
+      "Complete product parent/child transfer, mutable builder writer, finalizer and worker-affine cleanup matrices in A03/A04/A20/B01; weak-memory proof at actual atomics."
+    ],
+    "ci_executed_evidence": {
+      "path": "verification/interop-completion/ci-evidence-read.json",
+      "sha256": "f79a30345068f1dd1e613155d9b906d0ae8a9fba8dee6bc2694778a27abb4e52",
+      "scope": "Main interop, generator and AOT restrictions fixture actually normal/AOT executed on Windows x64 MSVC and Linux x64 GNU, source commit 7ea84e11ee19e6dad4503a5872eb27c6c7f44e80."
+    }
+  },
+  "historical_coverage_scope": "Top-level paths/not_executed reflect the original observation date; current executed supplements are below."
 }

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "author": "/root/database_research",
+  "independent_technical_review": true,
+  "source_commit": null,
+  "baseline_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "success": true,
+  "test_count": 5,
+  "source_files": {
+    "experiments/database-completion/server-review/Cargo.toml": "5099639fe7b1f1e3edaf6adc2d4907d380a7c1b0fd91246feb7bfe780e5715d3",
+    "experiments/database-completion/server-review/Cargo.lock": "759d86c6bc998e48f4a086031b5219e6e7c9eb8f92c2394ec327df3d0ba5ffdf",
+    "experiments/database-completion/server-review/src/lib.rs": "b40bd2b30055413fc0f764ada248f61655c583ac06ec0936f6157205ab808a58"
+  },
+  "scope": "Tonic0.14.9 raw unary drains extra messages; per-request public Decoder cardinality policy rejects second before handler. Linux Rust only, no network/TLS/C# product or production proof.",
+  "oracle": "Negative default unary success returns first and calls handler once for two framed messages; guarded unary/server-streaming return grpc-status3 and no handler; binary/empty single message succeeds; absent message returns13."
+}

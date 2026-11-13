@@ -1,0 +1,20 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--test",
+    "runtime_metadata",
+    "--",
+    "--nocapture"
+  ],
+  "cwd": "experiments/database-completion",
+  "exit_code": 101,
+  "captured_at_utc": "2026-11-13T07:27:39.515942+00:00",
+  "source_sha256": {
+    "experiments/database-completion/Cargo.toml": "c5972b59541d9647c41c923727d82baa39bf3d7a04e0327da1eaa39457a66fa1",
+    "experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "experiments/database-completion/tests/runtime_metadata.rs": "005315640043444e5753c6418741f578ecf698982a5f8941b52eb26ec7693f89"
+  },
+  "scope": "Rerun preserving original dynamic missing-field failure before correction; not new successful coverage."
+}

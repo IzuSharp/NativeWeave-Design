@@ -1,0 +1,3510 @@
+{
+  "artifact_id": 14019884164,
+  "name": "completion-platform-ubuntu-24.04",
+  "source_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec",
+  "run_id": 43390177574,
+  "zip_sha256": "b37bb4f1e069378065b498dd71d9a3c621a1216ac33948588370649c8ca50bd7",
+  "zip_bytes": 89546303,
+  "files": [
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.CSharp.dll",
+      "sha256": "44f76e20775cbf131175f04646298d01d60e6711820befc519bfa86f42685386",
+      "bytes": 802128,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Caching.Abstractions.dll",
+      "sha256": "a0db89f34ed28d4086c57241de9a303f6aa82ea5d751314be46a6b1a7c8af850",
+      "bytes": 76584,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+      "bytes": 2773,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+      "bytes": 374,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Configuration.Abstractions.dll",
+      "sha256": "467cfb25b208bb61ac8b5f4d0c731fbd06c8927ffed120f87945b7b72d243c71",
+      "bytes": 36688,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+      "sha256": "f0e084b17a3691cccdff89efdd54fa22511cf97a739537ab11168c6c2b05e2c0",
+      "bytes": 37712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "sha256": "a17388b87f98df6d6595f28a7ed1d5d7559de80b4aea323637129a689d1da038",
+      "bytes": 140624,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.FileProviders.Abstractions.dll",
+      "sha256": "190747729934f19a181b3b73335221999af3ec7aa53aefa1bc2bf6f8a4fcba3a",
+      "bytes": 24872,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Hosting.Abstractions.dll",
+      "sha256": "dfb45bf954b5cc3791b2a51e4cdf911cebf4ad3a29b70184a42343e43cce544f",
+      "bytes": 46888,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Logging.Abstractions.dll",
+      "sha256": "fa455b346a103e470773adef2704517f45a84107540b826b1525afb5cb0693e9",
+      "bytes": 146256,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Primitives.dll",
+      "sha256": "1942279816f61aac6745cdd18450c109195545b9b9daff91586b643b0e659dc7",
+      "bytes": 83240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Options.dll",
+      "sha256": "b2f3ce86b766a07435cb4d99ef33cf6d24e57dfb8d4b3ef93f4db551ce25639c",
+      "bytes": 205608,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.VisualBasic.Core.dll",
+      "sha256": "0eb3a946b7a62ffbb6dfcf53531b41f57365df620a94695f6647e5c5acfea0ae",
+      "bytes": 1192232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.VisualBasic.dll",
+      "sha256": "a54f5b2f3cf02313623592bd10b944caf0218290c11fdffb05dc0423fa4f7172",
+      "bytes": 17192,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Win32.Primitives.dll",
+      "sha256": "a632f66cd36701af5ecbe5e4d165bf0458898435c88a80ec64d4c2d93938360b",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Microsoft.Win32.Registry.dll",
+      "sha256": "e3b729655a98bdfd439bb688dd6ed6683ddc335b644eeb356270f042fd2b3a2b",
+      "bytes": 33104,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Modern.deps.json",
+      "sha256": "364d83b684ea2a8a56beb6fb153c013602dd628696a934c0aefa7581260c310c",
+      "bytes": 28878,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Modern.dll",
+      "sha256": "8128bde22a6fc586d24add415aa0c0e1bba80b9ddb030c14c261b751714127f1",
+      "bytes": 16384,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Modern.pdb",
+      "sha256": "3dcad247259907efa4c28149b1a75babf87724ca3cb25c927f3ddc77d9a05030",
+      "bytes": 15548,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/Modern.runtimeconfig.json",
+      "sha256": "cf6fb478294262b9571705037888cf12dab65b3f2491b5d57aadbfb2739b13d5",
+      "bytes": 1976,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.AppContext.dll",
+      "sha256": "74f9585c1b9a4f7a8173dd64a44aefbd8bd2f4c19b451b124fc6e2c6b6e4d586",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Buffers.dll",
+      "sha256": "36264b281c90d42a1fc90d5dcf54c0ce810f98b0e34b489cdffae7dc387aea0b",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Collections.Concurrent.dll",
+      "sha256": "90b698c48ada6a53b2d18c1cdea13a8eda763d5fdeb1d3d501054610587182f3",
+      "bytes": 132432,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Collections.Immutable.dll",
+      "sha256": "02678e4660f4942bea9ef4ef5cc61b06df950a0619e8d9b4e2ff7b447e659866",
+      "bytes": 1049896,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Collections.NonGeneric.dll",
+      "sha256": "0ea8dd5609564c164ca488849a73e8ae75af0d08772df442fd2a7d044da924ce",
+      "bytes": 92496,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Collections.Specialized.dll",
+      "sha256": "a1794a1914e0ad8265427786ef86dda480ed4dc0d850618a7d404a04d07b1f51",
+      "bytes": 92496,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Collections.dll",
+      "sha256": "f4c74f68d7d0e9a1683a0c4678c38a05b69cb707596c3e680f619414f98bf4c2",
+      "bytes": 288040,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ComponentModel.Annotations.dll",
+      "sha256": "72f27d9aeae83e31fd75ca9b6b63b45c7fa7df7c61dca7c525001d236a293228",
+      "bytes": 230184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ComponentModel.DataAnnotations.dll",
+      "sha256": "7174c916e1c7a9f11515165cb3b1495b285926ee50ee8ea242eca642f4d4f38b",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ComponentModel.EventBasedAsync.dll",
+      "sha256": "0c64c1126357cb82f9d31cc9e9fee905ca5a05d29603f00534d613b45645f596",
+      "bytes": 36136,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ComponentModel.TypeConverter.dll",
+      "sha256": "6677e8b5165c8ac1d2873387731ee5d9327d029407993089bd8063dff2bcfa92",
+      "bytes": 764712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ComponentModel.Primitives.dll",
+      "sha256": "409186474613df6b7c1eaeab7cde098dff13b9f772bdeb57ae50d7969cc8b0d0",
+      "bytes": 70480,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ComponentModel.dll",
+      "sha256": "617d0f40f0e3fa688a39d41ce20ccda19298ab82b9655eac35c9d2c9e5c711ec",
+      "bytes": 17192,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Configuration.dll",
+      "sha256": "b4ba0faf207b65decc24ce2fabd1101ce298a34310628f898d47c57671e400b0",
+      "bytes": 19280,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Console.dll",
+      "sha256": "7aa1d6a31adccae08205da9c1c1275acf7d9baf8591a68ec3515f8d2dcb5d7ef",
+      "bytes": 199464,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Core.dll",
+      "sha256": "ed44d4fba966c1747e3a7fc90c84c4f0c6e8ffce481195f0d7296cd62e87982b",
+      "bytes": 23336,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Data.Common.dll",
+      "sha256": "4d20848520117b3cc6ad3ebf6b9c12d1916045710b51f5d69f33d34481549d14",
+      "bytes": 2804520,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Data.DataSetExtensions.dll",
+      "sha256": "67ab10c458544b141e1623f479834dd6f0b4b04a486ae09761e508311c468c26",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Data.dll",
+      "sha256": "add31dce8192773fc8453a9fd187dac3c6173fa363d58ac7495d158c5dc16870",
+      "bytes": 25384,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.Contracts.dll",
+      "sha256": "e7c2439da3454f2027a543c794ea0f98fc6896cf96bd85bfc9886cdafde8a84c",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.Debug.dll",
+      "sha256": "bf15f8ce5e2eee443e1a94ad1761ed9fedf972641d21d74cfc91aca66dbc8cbf",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.DiagnosticSource.dll",
+      "sha256": "6d4fe16def69795ca41242cdaff751d3778b682748a2b27580e695cb2f160649",
+      "bytes": 515368,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.FileVersionInfo.dll",
+      "sha256": "3518f41bbf0499862a87a225d319f8da55c33e9658c0707dc633b8f8f003cebe",
+      "bytes": 43344,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.Process.dll",
+      "sha256": "15e9a76e32633cb9d599f3bd9771114d436791534e913e2a63bcf2e4ddb86f50",
+      "bytes": 390952,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.StackTrace.dll",
+      "sha256": "dee248ac8b7ee332962e563bbda8ab6d29d7c929d10f6fb6477879381c612027",
+      "bytes": 29992,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.TextWriterTraceListener.dll",
+      "sha256": "a2aec821220d6aa69ede7d3842d8c3dd54cb13453d3d24999d430426cca8d015",
+      "bytes": 59176,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.Tools.dll",
+      "sha256": "49b3d4a5806ce9765211b734bd9c094cc26c75bd424a85f7b3d7a87cb3c878e6",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.TraceSource.dll",
+      "sha256": "3e905cf6f2cb9d09590b5c403ffc245b3ababa83cf9623333fb0d98d07896806",
+      "bytes": 130856,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Diagnostics.Tracing.dll",
+      "sha256": "054b3c45aaeea4e3f95dec9042ffedbfc1a3baaded6aef405ec2cbea2d88c31b",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Drawing.Primitives.dll",
+      "sha256": "0607110300117597d5953bfc2189f5fd9f73b471a4376ad2a9a128bf203a43ff",
+      "bytes": 123176,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Dynamic.Runtime.dll",
+      "sha256": "76a0c6b5c323712e2060dbe026df24878764dddbbd9a18f5e518743ebba3875b",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Drawing.dll",
+      "sha256": "98bde96e52348c73130ef919e588f14c187eaddc302053058927cc5e712142df",
+      "bytes": 20264,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Formats.Asn1.dll",
+      "sha256": "ef403e354415fd5cb047217e9aa898605573b333b76a059a913730a34eacac35",
+      "bytes": 252240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Formats.Tar.dll",
+      "sha256": "e970b73e9f528d24def44dac9017298aabb5636c4c19f2328a5159ff8ad8d5b2",
+      "bytes": 346920,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Globalization.Calendars.dll",
+      "sha256": "e78013cec0be3c73d376c97382f15aee631881547ade4782071e6e0946c2188d",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Globalization.Extensions.dll",
+      "sha256": "cac4964bde8ac6e9f65643ac4b2e104523cb1703bef39eb76460d2bb82d78355",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Globalization.dll",
+      "sha256": "7f10748fda5542a322de6c520a5ddcecb2aa95fb76e1b8d4cff79c0dcbf38314",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.Compression.Brotli.dll",
+      "sha256": "7c0ade330de5d4078500adb95ea395ded9677de52e1e488338d2e0746fe833b5",
+      "bytes": 72488,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.Compression.FileSystem.dll",
+      "sha256": "b0a224328706c6e85bd3a9b5f79e056d08b87818efd233e296ef31d36ac6a7f3",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.Compression.ZipFile.dll",
+      "sha256": "d7a60114c1666fcadc543202840ca34f809ba659510f270980ef975566ef9e72",
+      "bytes": 122664,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.Compression.dll",
+      "sha256": "15c9d4089a47e219aba0d302cc6e6e72941cf71859954e251fa1ba4394e1502f",
+      "bytes": 591656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.FileSystem.AccessControl.dll",
+      "sha256": "0bcc39e98cf509ce8e6f57fa764dd3dce3af4494642f8723903b7227733f5988",
+      "bytes": 32552,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.FileSystem.DriveInfo.dll",
+      "sha256": "71469a5b1cb333fa84cdc53f8fee2e78ca54977f3af515d181c9f258e49b2363",
+      "bytes": 83240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.FileSystem.Primitives.dll",
+      "sha256": "b4945ff4f7498a8e0a688a3fa9853e4a831f4b2d32c47ab42de18ca8a25248d3",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.FileSystem.Watcher.dll",
+      "sha256": "f9b2bd0caa47ecf2e902efbfdc69445df3ef0a07d7a9dc39f64d759b833d1e38",
+      "bytes": 127272,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.FileSystem.dll",
+      "sha256": "cabe15ae4af8c258b61c8dffc9dcb62a3f2651000c7ca648ee97bfc080aaec35",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.IsolatedStorage.dll",
+      "sha256": "a59fb4dc8483b89991607f6f6ba2d600d9ec0044204cf14e586f7e968f629c58",
+      "bytes": 76584,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.MemoryMappedFiles.dll",
+      "sha256": "5f9822b191339db09d7fdd20e1617c6f96916f4d3162aaed45fc916af380a8c6",
+      "bytes": 82768,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.Pipelines.dll",
+      "sha256": "48d0f3498bcf269fc9d1e6691ead60d1b57d9d2a9efdb431c424fd1ae4af4624",
+      "bytes": 194344,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.Pipes.AccessControl.dll",
+      "sha256": "29543e0622e08ba3600e480ec200f34e138a0ac6c6ad384fa33b4943a1bb042e",
+      "bytes": 23848,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.Pipes.dll",
+      "sha256": "fbd060c05108cd55351e280295464e0cd8302fc9f8d253b6cf50572d84143a34",
+      "bytes": 129360,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.UnmanagedMemoryStream.dll",
+      "sha256": "126301ec8f8269616cd8cc389aff1561f4f47e553a008dddcb6a4fb3a71944b9",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.IO.dll",
+      "sha256": "eae6249e10706c17124823d8d5aaac8090a8de3f7772ef9775232768ee92e7e4",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Linq.AsyncEnumerable.dll",
+      "sha256": "db930bec582fffac440c29b5f099c0475b19176640e128890f5badd0b1ff4a1c",
+      "bytes": 1512272,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Linq.Expressions.dll",
+      "sha256": "e66c8e78344a8e19192c5ba417ebfd932cc179dbb589a5aa954680a5c12f3d2e",
+      "bytes": 3964712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Linq.Parallel.dll",
+      "sha256": "22b17bda1454a2c4333aa8e0d92654a9d6fae367e88be626f03b43143730a066",
+      "bytes": 895312,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Linq.Queryable.dll",
+      "sha256": "692369b7cfcdac8d137aa60aec32f98f15953cc5c46ef5f4e8ee46d3a8f1109c",
+      "bytes": 188712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Linq.dll",
+      "sha256": "3a4c80f3fbeb9c7a99aff53623a2db9e4bc7860cc8d5a5d89fdb95a94c29d7b3",
+      "bytes": 764240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Memory.dll",
+      "sha256": "03688102f58734d3d6dd8de5a24ffc9fe335e9945a9d32a66ddb88bb1269ee39",
+      "bytes": 166184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Http.Json.dll",
+      "sha256": "4a26c399f29b4b021bb2230afe9968a8899a42cb93a5cf993ef5dd360c549aba",
+      "bytes": 119592,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Http.dll",
+      "sha256": "5e0627cfb54d4deb881629d881f258aa0b03a2bf402f75c9b94cd1523777137a",
+      "bytes": 1689384,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.HttpListener.dll",
+      "sha256": "ad98e6dd42134e8e48b9b0cdbcf23f4699a873dab992e1efeea2ec6921589da1",
+      "bytes": 291112,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Mail.dll",
+      "sha256": "a7af746fc1562b90dcd4a9e89df54e7cc798d2c132a99e23f75de3602436c055",
+      "bytes": 473896,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.NameResolution.dll",
+      "sha256": "0c36ebb22d7fa7cb704b47e395594c200d2fdcf21329d49114994cfd41f0fa1b",
+      "bytes": 251688,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.NetworkInformation.dll",
+      "sha256": "4a88ce506faf098db7ef704ed2a2f9590d1b07beb171b66eb2d541cdc2875597",
+      "bytes": 171304,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Ping.dll",
+      "sha256": "9d3cfc9f7c6671f480401a4a08488b5e905a08bf723296e60a899d581a7f4185",
+      "bytes": 101672,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Primitives.dll",
+      "sha256": "ccf3c09389d32ddb645620d6162e3577c17f237323934b528e45feba8712f45a",
+      "bytes": 223056,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Quic.dll",
+      "sha256": "58e7abb590a55f99727abf2803791647032690fbf8a6d121938aa7e3d1268184",
+      "bytes": 349480,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Requests.dll",
+      "sha256": "32049c425baed947667ecbeb4472cf48b0555c6dc9168a4af352458d409558f5",
+      "bytes": 362320,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Security.dll",
+      "sha256": "0a595bd9ad9f5258da294173c020c043848dbfca5da418b3df9e261da2aaa083",
+      "bytes": 888144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.ServerSentEvents.dll",
+      "sha256": "dbe7443d24822e618189aa08353b1d7db0a43ccec4c30fb3139a19febbb20bc1",
+      "bytes": 74536,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.ServicePoint.dll",
+      "sha256": "d531ca43e3ad39a0b3eb0e5fb0255cc4df71b4fab8ba343fff5817f35bafaf35",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.Sockets.dll",
+      "sha256": "5ce828f3501bc1a7cb7f6ab9edb8917225bf623f6e7dfb7b2c8145fac48fb056",
+      "bytes": 615760,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.WebClient.dll",
+      "sha256": "2159dfc1dbe13db0711ec00a2e007837a7cb198c952f3b8cf9860a68195b00b8",
+      "bytes": 157992,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.WebHeaderCollection.dll",
+      "sha256": "47993e4ce07aee9957ede91ac31fe573094fa59c588e4214afe00075936fcb79",
+      "bytes": 54608,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.WebProxy.dll",
+      "sha256": "940b8ae1b172bfdc84e1e776ddf8f43a466e690cb8b0c06e055de156e9235a6b",
+      "bytes": 34088,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.WebSockets.Client.dll",
+      "sha256": "2bd90736b73d1f6632843dca4b71bba6ab7e83f2484f6b58c7b8daee31ae6c2f",
+      "bytes": 90448,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.WebSockets.dll",
+      "sha256": "41ce1e7fda55102129bfe97694337bc1de8e61fba5b0d5a9bdb3dd674d7fee05",
+      "bytes": 237352,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Net.dll",
+      "sha256": "836272465bb19a2c40c031cb9a324b31917aba33a919ee7eb4c136f73ad60d39",
+      "bytes": 17232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Numerics.Vectors.dll",
+      "sha256": "baadef8d736530b4955ae191c3dd2d3acce5d0e3554a9cc45d8cff85f5066c47",
+      "bytes": 16208,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Numerics.dll",
+      "sha256": "94a246a37740fa57e6568f52c28e62211f6a4493c4ae5d51b51cd8623efff543",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ObjectModel.dll",
+      "sha256": "0040af6f21f442e8fb18de6dadc97d9334f7b7b44422b654b9e9d3d8fe6393e6",
+      "bytes": 68904,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Private.CoreLib.dll",
+      "sha256": "44c059630500c14dff53fea4d8f9fa7b52bc4a2311787ec04d9ec631cfdf1974",
+      "bytes": 17857832,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Private.DataContractSerialization.dll",
+      "sha256": "e18869b443f0c0876e807987750b629f21e9b1b97420e39220c336b36e6e324b",
+      "bytes": 2060584,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Private.Uri.dll",
+      "sha256": "a138f61649689e29337a8784c46e3ecd4f431dc8b100e3a34711e15dd9904543",
+      "bytes": 237864,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Private.Xml.Linq.dll",
+      "sha256": "1677232ece8134b137a2cb1a9f982c4d5986409ece4c3bb3b7a7e3f1da626cfd",
+      "bytes": 366928,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Private.Xml.dll",
+      "sha256": "6a6be464646678f65867a635a79c102ead959c400f08132d9480bf6d9250ff56",
+      "bytes": 7714128,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.DispatchProxy.dll",
+      "sha256": "93fb3e68772214c2e9ac0a5cdb71df3526caefa67b675a36fbf4cc8c28104113",
+      "bytes": 67408,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.Emit.ILGeneration.dll",
+      "sha256": "47a76672c791f156383768ac07114b5e1d8a81d78b77f0a11577f6e86e549eda",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.Emit.Lightweight.dll",
+      "sha256": "010fccec896d545a4eebf65a6181c261c786aba58d9a9cd7f666370c37b2c9be",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.Emit.dll",
+      "sha256": "7b5e7a48eb48c3e34138e3c35bf7744dfebf69edc5687b92af172b6b6c6a16bb",
+      "bytes": 304976,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.Extensions.dll",
+      "sha256": "cd49f77359997a87de05c4f748c1c81b09200b01c729804c19dabb3279954983",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.Metadata.dll",
+      "sha256": "358e08961622fa5673c8b312871499f224d3ae0bc592569e11ade78257514a2b",
+      "bytes": 1154856,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.Primitives.dll",
+      "sha256": "21768986cf7485560284bc7379733833df49a04c2fb6bb49cdfe08203f68a183",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.TypeExtensions.dll",
+      "sha256": "8e90878d88902dcbaef1dd409d2bc5591db4be4c0d42ea2075f7a5cbe688a9cc",
+      "bytes": 31568,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Reflection.dll",
+      "sha256": "4aef45d2a52e92332a13357150ddb97896a4201849921b9a165c059f9bd77f4b",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Resources.Reader.dll",
+      "sha256": "13e769bf12dce4f5773da4f002ff6945530d98eb2c08987319fab0c12f926d73",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Resources.ResourceManager.dll",
+      "sha256": "7afc2281b3567975f880d79ce2345dc3da7a6b27c4ad3f648a4c98bf4312c5c1",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Resources.Writer.dll",
+      "sha256": "0337ea5aa3916fdb9bba3b56e022ab4c12c0e9c0ae416c6cc642ebdef52cddc3",
+      "bytes": 42280,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.CompilerServices.Unsafe.dll",
+      "sha256": "321e5644a244de8da10fadab0e2d2e4cb9068d201a76da7412e40a080a033d3a",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.CompilerServices.VisualC.dll",
+      "sha256": "b1283de8371e3a9fe7589cbc8b1cabfd6ec9bf0fea89f2e7fcde7025d3574885",
+      "bytes": 18768,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Extensions.dll",
+      "sha256": "3a43fa76cefec2b2b0265619da713516fd0d92cedc840c689d0d515526fce946",
+      "bytes": 17744,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Handles.dll",
+      "sha256": "f772a6239f06c40207d50838933591d0d0896bf28f02afe58c08547b9a09a904",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.InteropServices.JavaScript.dll",
+      "sha256": "dbe2a1ac361e2dace79ad31e3a62a5b5f934239f09fb53a1f052780db8bfbdb9",
+      "bytes": 37160,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.InteropServices.RuntimeInformation.dll",
+      "sha256": "d35fce9e379db7676c90acba42ef56ff7bfc6d87dc0751d7c53956eb8b87f57d",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.InteropServices.dll",
+      "sha256": "b66974986041493692f114ff53a33faf8051112e62a890916de21d6104c91500",
+      "bytes": 102224,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Intrinsics.dll",
+      "sha256": "217cdb49437f42bd39fd3f4b6f52a96a3be25a10bdc87f63090428ab824b7141",
+      "bytes": 18768,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Loader.dll",
+      "sha256": "2e1ab5062dbee62bbdb258e37840feacc52f96e4e95af4960373f360414a3c5b",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Numerics.dll",
+      "sha256": "d66d738ed762ab2e7d1a57c1fc781b1e2e7adf874bd7716749d73bb1116ce1f9",
+      "bytes": 532776,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.Formatters.dll",
+      "sha256": "ee98f728cd8c1dd56b05f605ca9d53d73343ec85b5b5a26fd6f6164364851187",
+      "bytes": 115496,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.Json.dll",
+      "sha256": "e6ab7b1e4dabe6189622b3b92671199a5266f42d9201a0549b8dc4f340f0dd94",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.Primitives.dll",
+      "sha256": "c85be9665a17444947a2a9a1e3b9004e00e1c087c1cc23564c4a50a8eb93f1ba",
+      "bytes": 28496,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.Xml.dll",
+      "sha256": "bc2f55db3b0773e2086340897235db27864f2561490d377ec3bf60e4f1f84c3e",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.dll",
+      "sha256": "3dbf29e2e2e4921cf079c47fb5482163ef32685a46deb1cce8e70eeb3ecfe13c",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Runtime.dll",
+      "sha256": "d36da36c6b86bad312797f124690230170e1916a7dbac8e77f7d0b58d22319ab",
+      "bytes": 45864,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.AccessControl.dll",
+      "sha256": "a1df19e5185623ece6ef9b68bfd2a883a726fa5859deadecfbd1f7f628c930a0",
+      "bytes": 55080,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Claims.dll",
+      "sha256": "60349fac00c5dd11e75682d4c6011ffaf27753dc815621e841acfe69d67f4210",
+      "bytes": 92968,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Algorithms.dll",
+      "sha256": "7863bec3d9787adf2498bcff0d539bb03257a55639202ed556db8984842f56b3",
+      "bytes": 17232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Cng.dll",
+      "sha256": "33f3dbcff0fea80324abf18d22fb5739f3266bc31e34a1ef95dbfb67222135cf",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Csp.dll",
+      "sha256": "16b298ce082299f367b50f2b53e54059b8dabfe13be8beac10242a743da42057",
+      "bytes": 16208,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Encoding.dll",
+      "sha256": "04b9d75d43d55ce3c1555a97c600e181316d55a84e04f9197457e0acd8e27d53",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Cryptography.OpenSsl.dll",
+      "sha256": "4c255c5fc47b7d8cffb1046581c48c873c7863602b42b228afbd59d1fb2aabef",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Primitives.dll",
+      "sha256": "60e0f08a0c0291c8f02a9dcb79755302e405ed377f450e25c0c92789142441eb",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Cryptography.X509Certificates.dll",
+      "sha256": "58d27835a47909b1fc398d47d5e23c8b119874d5debaa08b986d5890b3fc1d0a",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Cryptography.dll",
+      "sha256": "db3faa95ec6eb1de1dc702483005cd340533c21b4234d4c5f7c199d21d91f559",
+      "bytes": 2906448,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Principal.Windows.dll",
+      "sha256": "ee0bdec5627b49f5e9a17a6ac6e230e2c72cf5354df50997304fbbbcc1e13e09",
+      "bytes": 37672,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.Principal.dll",
+      "sha256": "a17ac161f4b5eb55527580007fe6ee55f95d219dd1b10e7b9cb90585c6e29670",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.SecureString.dll",
+      "sha256": "e0fc50fed8d7375f176797e535aac3356b00444554d85ea8f6065c2e58bf1279",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Security.dll",
+      "sha256": "f6886e40a0f28a9014f60bd6c27231956cab4e9a18fe5c12d7e9db6d91b8817a",
+      "bytes": 18216,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ServiceModel.Web.dll",
+      "sha256": "b6efd9a9ed55c05089a587905a1de15bc5eaf2810b10288916c5f74a65bb4760",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ServiceProcess.dll",
+      "sha256": "8b38e24b4a4780a71eefb3a3d517048dc0e978e3ce376545a33b6ece98b832b1",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Text.Encoding.CodePages.dll",
+      "sha256": "a0bea44206e225616823dfc05a8165850268401683f3369e93d7d191135e6f27",
+      "bytes": 850216,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Text.Encoding.Extensions.dll",
+      "sha256": "48f29b59a9fb699ca8320166aec97e3f6addd77c5d0b46a68d960b1f3b2ff54a",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Text.Encoding.dll",
+      "sha256": "7a67dbcfc21c3c7248127add3f3e9d0602c489f82046055e91c2ccfb4e0f6787",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Text.Encodings.Web.dll",
+      "sha256": "3f5d1a1d731b87a10dcaf606571c002c633b1b1d68e2d991e748a24ed35e62ce",
+      "bytes": 114472,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Text.Json.dll",
+      "sha256": "404cb833bd044d4a41f067692ade2807470a27eb461f6efbc7f7e53413c340e6",
+      "bytes": 2506064,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Text.RegularExpressions.dll",
+      "sha256": "48d786496cab61246035cf738eaa63e17d12f05a52a44c48d72cfd17dc53922a",
+      "bytes": 1072976,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.AccessControl.dll",
+      "sha256": "f4d92d154a81a14b9b839dc75085f3a0ea3662562aed6ddc8c2535537b3f6888",
+      "bytes": 33064,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.Channels.dll",
+      "sha256": "c1219f75e022b1d10c9c766a40b6c7c5a351f67c87c7da852e6782d5036f6ff5",
+      "bytes": 150864,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.Overlapped.dll",
+      "sha256": "86c89207544da6005db22b91f71587603287cb49d48b323fa042ce753dcf907b",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.Tasks.Dataflow.dll",
+      "sha256": "70e560b8c6c97cebed9726d014d6aa497f86fcc013eea4d45fcbe0569f8d8c95",
+      "bytes": 471848,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.Tasks.Extensions.dll",
+      "sha256": "afc30f82d24cd14749c66e7806b6893a53f0838c2dcfdcde61919218035be2a2",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.Tasks.Parallel.dll",
+      "sha256": "5cb0628a2d4031ff1770b53ec3712fd0f9f2aeb80384db93efe7cb8a4f0b7115",
+      "bytes": 124240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.Tasks.dll",
+      "sha256": "e0180bddad920165aeb3bd9b8df55cc4879fb40877e3128ab1ec17249365d388",
+      "bytes": 16720,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.Thread.dll",
+      "sha256": "ad3c30474bc1d1ab7e2a3d83ffa5383ed2a19f5929581c2169b9feb459032d07",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.ThreadPool.dll",
+      "sha256": "b3d996fd4f10cb51fdc7e52167fb5ac88d417bd9aa9d4dff994fcd21b75040bd",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.Timer.dll",
+      "sha256": "659226cc2fca113f73cc070df00d0fb8cba630d3bdbe1adc99e43fb86ce3532d",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Threading.dll",
+      "sha256": "2f23c77134b4584ed1c40d8a5936e566b2b3bd703a064d31ad3560dcf66b9a7f",
+      "bytes": 74536,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Transactions.Local.dll",
+      "sha256": "a1e2194cb8a98a7e92bc89de896197257e180a88d253497b6f06c24d66793315",
+      "bytes": 349992,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Transactions.dll",
+      "sha256": "08780c280d6a0804d3b5ac06968b136e3722a7b580f38e1a10585da064d3e543",
+      "bytes": 16720,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.ValueTuple.dll",
+      "sha256": "305ca84dc2b6a61e611aa3b94f272666700c7ce41f5bad423753bbf461fab6c0",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Web.HttpUtility.dll",
+      "sha256": "96caa9c6c1a63b6af4fb4a3db9ad62688daa1334470f6fdb93bba8b9f290ae1f",
+      "bytes": 53032,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Web.dll",
+      "sha256": "c4b7401d7ce577e15b1361e83ac1eb87f6e6c60d724a968ade967fc30745b4d2",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Windows.dll",
+      "sha256": "748c0f2aec5999de4e5fe9e949aa4e8afe989188ae5d1b313ab21791e3c8f987",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.Linq.dll",
+      "sha256": "e55d4a0839017109e79d87e592dd8057104a1bbf967f938d74a18079c9869538",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.ReaderWriter.dll",
+      "sha256": "c4349da74980f343e28f80bc026cacf1a9953b9b023082b74e679647981fce0e",
+      "bytes": 21800,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.Serialization.dll",
+      "sha256": "e94a78e77263ccd4584bdebb98799e67dfded2567dbc11231f689ece9f2898b5",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.XDocument.dll",
+      "sha256": "f7cb4b6d63fecd445c812426647a60d7e23e4448cd4c12a365236ad6f7f9ecba",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.XPath.XDocument.dll",
+      "sha256": "9a5a938b258d82bc60527caf50a8f00a53af800fc55c453554e6b3612babd3a0",
+      "bytes": 17192,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.XPath.dll",
+      "sha256": "e301beb1e40e709c7dd4b62cb990be85c3dc58085a26630cc81683cfe17a912f",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.XmlDocument.dll",
+      "sha256": "69e02905bc4308aebedf5979e5a1bf9a940591eef4245cb09a3e829929f60a07",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.XmlSerializer.dll",
+      "sha256": "33102c54861ffb91b8d2d2437d7aa4b280fbd84c5ed0eee49020b135f9368af0",
+      "bytes": 17704,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.Xml.dll",
+      "sha256": "4cfeb1e0d46b562daee400c957b03a5d4c11a73b6bfa32b9249f5437f4e7405f",
+      "bytes": 23336,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/System.dll",
+      "sha256": "a6dabfe8fc6d273b12b5c98bbfcde5fd3a4944a2e2c38024a8cfa444f98ee500",
+      "bytes": 50512,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/WindowsBase.dll",
+      "sha256": "fa36b50214ad8d0fe9d2928446cec5575f1d60b0a05a32cd0681e77f59ed4a9f",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libSystem.Globalization.Native.so",
+      "sha256": "ef42e59a8a0be57f776e7eb7d5315c9695c959504a2ef5ae8a7b6a8a9dd2c902",
+      "bytes": 61336,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/createdump",
+      "sha256": "ee2c0e34dfea606b3b30d1fa02a9e5f6d6740b505674560b9b04617e652febb1",
+      "bytes": 97712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libSystem.IO.Compression.Native.so",
+      "sha256": "895ae8d00a64dca1fb6ec849630e9620d0fcceda3fff7d1e1810d73890a08ee3",
+      "bytes": 1621184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libSystem.Native.so",
+      "sha256": "b6d727e49dc3ad42eaebbb21133ae48b468c9b8865ed24b9e9c30155259cbdcd",
+      "bytes": 103584,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libSystem.Net.Security.Native.so",
+      "sha256": "04d34591bf4b4a8689aafa3a7311e6fe78c1210e84fab0380f6715663379e5fb",
+      "bytes": 14120,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libSystem.Security.Cryptography.Native.OpenSsl.so",
+      "sha256": "022cf884bbed954fcf7a6f2cb9b94cf86fb27581f33dced1cec6e4bfbed37d16",
+      "bytes": 213080,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libclrgc.so",
+      "sha256": "504464109b94e73885e8f326ddc0432047b6ab892b7b50fd3314c710b422157b",
+      "bytes": 682240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libclrgcexp.so",
+      "sha256": "142a54baa85ce5ef78f579533d1983123c0468f71f4d28ec88668ecb35027666",
+      "bytes": 746656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libclrjit.so",
+      "sha256": "dffe1203c30224ea512518c0e0f67431e808f5c17593eae3c6a3faf456a0921b",
+      "bytes": 3987208,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libcoreclr.so",
+      "sha256": "f1c71f4752aed4f8bd3e712e356260f4a4d4cbb977fc46c0e2a3207ee3ae4bf1",
+      "bytes": 5283536,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libhostfxr.so",
+      "sha256": "b0f73eb2f2eed3eecf39068bb432dfac81966e2afa62d66318daee54f307faf8",
+      "bytes": 322744,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libcoreclrtraceptprovider.so",
+      "sha256": "e5ed7aac0ccc51b2279bf44d5d78a8dba2c44cf9e9a631d6749ea960bc4deefb",
+      "bytes": 782672,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libhostpolicy.so",
+      "sha256": "347dd396f4cada507f10887cf59ad8996829d3f0ff17b701939275638a58f7b2",
+      "bytes": 319520,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libmscordaccore.so",
+      "sha256": "8672a91fad86507ec07b0b0a4e236a16a10182412197fe09b0b4ea8493cdf958",
+      "bytes": 1697992,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/libmscordbi.so",
+      "sha256": "78768bf52535f86a8640efc6c18632b1bd9f299beef9738ba271385bf17aebb0",
+      "bytes": 1223576,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/mscorlib.dll",
+      "sha256": "3e1fb7598d9a804fbd108d7500af8495dc300a4be6a229c3e97685d49eceefff",
+      "bytes": 59688,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/native/Modern",
+      "sha256": "c3c634c4b36c88fbfc04fce342858feaaa85a2e9e710819571d7c94c9d01c412",
+      "bytes": 1565640,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/native/Modern.dbg",
+      "sha256": "92da272362feeedb4bd6c0b6b39b98c101f267b2a7b5ad26ca3b218da3667c0b",
+      "bytes": 2747232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/bin/Release/net11.0/linux-x64/netstandard.dll",
+      "sha256": "4f1b9995aa11c9e8fe9bc22461bbe8ff10539ebda9b4ef6b73504734d2f48d5a",
+      "bytes": 101160,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Modern.csproj.nuget.dgspec.json",
+      "sha256": "16127f5a83f873193eede0e174f32052845db71c63eea9d5902684c2e52dccd8",
+      "bytes": 25298,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Modern.csproj.nuget.g.props",
+      "sha256": "a553d11ce72dd9d6089b40cb662f31bf4f7d55fcbdf2bb107d8df219d9438f9d",
+      "bytes": 2141,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Modern.csproj.nuget.g.targets",
+      "sha256": "b14461e0cb1be3f77fcf9fe2fdd62889325ca92523d0f606980ed59eb5c4aa1c",
+      "bytes": 149,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/.NETCoreApp,Version=v11.0.AssemblyAttributes.cs",
+      "sha256": "18171b35badd46ad63a98f1233df58d31ff1b4aa1f27b9c2a507fcd513dda70f",
+      "bytes": 196,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.AssemblyInfo.cs",
+      "sha256": "07987d92bda2bd09c6047c4487e36d18fd906e1cc46a896f2d225f64f748b86d",
+      "bytes": 1116,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.AssemblyInfoInputs.cache",
+      "sha256": "248fd4409ff3d9a60214beda88d26a7b570e5f6ad5d8eb22335af20251922fc1",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.GeneratedMSBuildEditorConfig.editorconfig",
+      "sha256": "76824b74e47e29533e82326c3fb2cc7e8c4551cbf8993aaaed929b777e4a086f",
+      "bytes": 1146,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.GlobalUsings.g.cs",
+      "sha256": "2d9a52dbcace719bfe3cf377de41707cc310e1bcc62fa042d126cfa1fca57b65",
+      "bytes": 266,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.assets.cache",
+      "sha256": "9c5b28edf0115e571d3a6ad4d46eecb0ef4c5de66d1e69adbb0e42e94db07d9c",
+      "bytes": 961,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.csproj.CoreCompileInputs.cache",
+      "sha256": "f73fa45e695827e7519fcce4883931534ba5cbe3e4041e3f46d872a2144b2873",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.csproj.FileListAbsolute.txt",
+      "sha256": "c8684eb71f25fc1f3a488b1d8c03d4c429f1c69c4c8858a2beaadf1ce027d759",
+      "bytes": 33617,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.csproj.Up2Date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.dll",
+      "sha256": "8128bde22a6fc586d24add415aa0c0e1bba80b9ddb030c14c261b751714127f1",
+      "bytes": 16384,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.genruntimeconfig.cache",
+      "sha256": "d5b1271b52648274b9892cb692d124c24a2dea785165d3ff9ee604cee2180de9",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.pdb",
+      "sha256": "3dcad247259907efa4c28149b1a75babf87724ca3cb25c927f3ddc77d9a05030",
+      "bytes": 15548,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/Modern.sourcelink.json",
+      "sha256": "3f2d2841995ba660ce9341e990180861f29fec3f27038ecd16e126a56ffd54ce",
+      "bytes": 182,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/PublishOutputs.15a1f73af7.txt",
+      "sha256": "bfce66daeffe50997fba93f15e95cf390c70152197862e29b48aff8ff984c137",
+      "bytes": 222,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/native/Modern.exports",
+      "sha256": "7d40223d8dbe5a3e592c48372bff2109c06b9ca3c87d3c4ef4e93ba34acf24a8",
+      "bytes": 77,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/native/Modern.ilc.rsp",
+      "sha256": "e44b1fbb2520bbd2e61b3e2429381dd745619dda7708c3a307863da443df576a",
+      "bytes": 32414,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/native/Modern.o",
+      "sha256": "903d61dbb8d312a5c97f1cfdf2c957268b37decf43898c870673be6393794b9a",
+      "bytes": 5821229,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/ref/Modern.dll",
+      "sha256": "0d95b4a99a14861c9c1bc5406a7724144d896837973a6adc70f6602931a61b61",
+      "bytes": 9216,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/Release/net11.0/linux-x64/refint/Modern.dll",
+      "sha256": "0d95b4a99a14861c9c1bc5406a7724144d896837973a6adc70f6602931a61b61",
+      "bytes": 9216,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/project.assets.json",
+      "sha256": "c3bf8a83ceda89daf4bc121f2c224635b660d5b0a64a6fbc883f1193aedca648",
+      "bytes": 41091,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/default/obj/project.nuget.cache",
+      "sha256": "ee7195abb26d5ef284233ecee3ba24d72c456c8ea878eed3f7e4e7b53008e953",
+      "bytes": 1254,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+      "bytes": 374,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+      "bytes": 2773,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.CSharp.dll",
+      "sha256": "44f76e20775cbf131175f04646298d01d60e6711820befc519bfa86f42685386",
+      "bytes": 802128,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Caching.Abstractions.dll",
+      "sha256": "a0db89f34ed28d4086c57241de9a303f6aa82ea5d751314be46a6b1a7c8af850",
+      "bytes": 76584,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Configuration.Abstractions.dll",
+      "sha256": "467cfb25b208bb61ac8b5f4d0c731fbd06c8927ffed120f87945b7b72d243c71",
+      "bytes": 36688,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "sha256": "a17388b87f98df6d6595f28a7ed1d5d7559de80b4aea323637129a689d1da038",
+      "bytes": 140624,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+      "sha256": "f0e084b17a3691cccdff89efdd54fa22511cf97a739537ab11168c6c2b05e2c0",
+      "bytes": 37712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.FileProviders.Abstractions.dll",
+      "sha256": "190747729934f19a181b3b73335221999af3ec7aa53aefa1bc2bf6f8a4fcba3a",
+      "bytes": 24872,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Hosting.Abstractions.dll",
+      "sha256": "dfb45bf954b5cc3791b2a51e4cdf911cebf4ad3a29b70184a42343e43cce544f",
+      "bytes": 46888,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Logging.Abstractions.dll",
+      "sha256": "fa455b346a103e470773adef2704517f45a84107540b826b1525afb5cb0693e9",
+      "bytes": 146256,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Options.dll",
+      "sha256": "b2f3ce86b766a07435cb4d99ef33cf6d24e57dfb8d4b3ef93f4db551ce25639c",
+      "bytes": 205608,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Extensions.Primitives.dll",
+      "sha256": "1942279816f61aac6745cdd18450c109195545b9b9daff91586b643b0e659dc7",
+      "bytes": 83240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.VisualBasic.Core.dll",
+      "sha256": "0eb3a946b7a62ffbb6dfcf53531b41f57365df620a94695f6647e5c5acfea0ae",
+      "bytes": 1192232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.VisualBasic.dll",
+      "sha256": "a54f5b2f3cf02313623592bd10b944caf0218290c11fdffb05dc0423fa4f7172",
+      "bytes": 17192,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Win32.Primitives.dll",
+      "sha256": "a632f66cd36701af5ecbe5e4d165bf0458898435c88a80ec64d4c2d93938360b",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Microsoft.Win32.Registry.dll",
+      "sha256": "e3b729655a98bdfd439bb688dd6ed6683ddc335b644eeb356270f042fd2b3a2b",
+      "bytes": 33104,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Modern.deps.json",
+      "sha256": "364d83b684ea2a8a56beb6fb153c013602dd628696a934c0aefa7581260c310c",
+      "bytes": 28878,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Modern.dll",
+      "sha256": "d65b177d4b0cdb438fbaf47100715475f7220b30fc22b9a293195d272706e9cf",
+      "bytes": 13824,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Modern.pdb",
+      "sha256": "62c26a6e1ae36bd6b87fb043d43faea072e522a7233fbcd0026ff6a24b5c0cd7",
+      "bytes": 15304,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/Modern.runtimeconfig.json",
+      "sha256": "cf6fb478294262b9571705037888cf12dab65b3f2491b5d57aadbfb2739b13d5",
+      "bytes": 1976,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.AppContext.dll",
+      "sha256": "74f9585c1b9a4f7a8173dd64a44aefbd8bd2f4c19b451b124fc6e2c6b6e4d586",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Buffers.dll",
+      "sha256": "36264b281c90d42a1fc90d5dcf54c0ce810f98b0e34b489cdffae7dc387aea0b",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Collections.Concurrent.dll",
+      "sha256": "90b698c48ada6a53b2d18c1cdea13a8eda763d5fdeb1d3d501054610587182f3",
+      "bytes": 132432,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Collections.Immutable.dll",
+      "sha256": "02678e4660f4942bea9ef4ef5cc61b06df950a0619e8d9b4e2ff7b447e659866",
+      "bytes": 1049896,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Collections.NonGeneric.dll",
+      "sha256": "0ea8dd5609564c164ca488849a73e8ae75af0d08772df442fd2a7d044da924ce",
+      "bytes": 92496,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Collections.Specialized.dll",
+      "sha256": "a1794a1914e0ad8265427786ef86dda480ed4dc0d850618a7d404a04d07b1f51",
+      "bytes": 92496,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Collections.dll",
+      "sha256": "f4c74f68d7d0e9a1683a0c4678c38a05b69cb707596c3e680f619414f98bf4c2",
+      "bytes": 288040,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ComponentModel.DataAnnotations.dll",
+      "sha256": "7174c916e1c7a9f11515165cb3b1495b285926ee50ee8ea242eca642f4d4f38b",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ComponentModel.EventBasedAsync.dll",
+      "sha256": "0c64c1126357cb82f9d31cc9e9fee905ca5a05d29603f00534d613b45645f596",
+      "bytes": 36136,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ComponentModel.Annotations.dll",
+      "sha256": "72f27d9aeae83e31fd75ca9b6b63b45c7fa7df7c61dca7c525001d236a293228",
+      "bytes": 230184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ComponentModel.Primitives.dll",
+      "sha256": "409186474613df6b7c1eaeab7cde098dff13b9f772bdeb57ae50d7969cc8b0d0",
+      "bytes": 70480,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ComponentModel.TypeConverter.dll",
+      "sha256": "6677e8b5165c8ac1d2873387731ee5d9327d029407993089bd8063dff2bcfa92",
+      "bytes": 764712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ComponentModel.dll",
+      "sha256": "617d0f40f0e3fa688a39d41ce20ccda19298ab82b9655eac35c9d2c9e5c711ec",
+      "bytes": 17192,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Configuration.dll",
+      "sha256": "b4ba0faf207b65decc24ce2fabd1101ce298a34310628f898d47c57671e400b0",
+      "bytes": 19280,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Console.dll",
+      "sha256": "7aa1d6a31adccae08205da9c1c1275acf7d9baf8591a68ec3515f8d2dcb5d7ef",
+      "bytes": 199464,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Core.dll",
+      "sha256": "ed44d4fba966c1747e3a7fc90c84c4f0c6e8ffce481195f0d7296cd62e87982b",
+      "bytes": 23336,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Data.Common.dll",
+      "sha256": "4d20848520117b3cc6ad3ebf6b9c12d1916045710b51f5d69f33d34481549d14",
+      "bytes": 2804520,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Data.DataSetExtensions.dll",
+      "sha256": "67ab10c458544b141e1623f479834dd6f0b4b04a486ae09761e508311c468c26",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Data.dll",
+      "sha256": "add31dce8192773fc8453a9fd187dac3c6173fa363d58ac7495d158c5dc16870",
+      "bytes": 25384,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.Contracts.dll",
+      "sha256": "e7c2439da3454f2027a543c794ea0f98fc6896cf96bd85bfc9886cdafde8a84c",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.Debug.dll",
+      "sha256": "bf15f8ce5e2eee443e1a94ad1761ed9fedf972641d21d74cfc91aca66dbc8cbf",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.DiagnosticSource.dll",
+      "sha256": "6d4fe16def69795ca41242cdaff751d3778b682748a2b27580e695cb2f160649",
+      "bytes": 515368,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.FileVersionInfo.dll",
+      "sha256": "3518f41bbf0499862a87a225d319f8da55c33e9658c0707dc633b8f8f003cebe",
+      "bytes": 43344,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.Process.dll",
+      "sha256": "15e9a76e32633cb9d599f3bd9771114d436791534e913e2a63bcf2e4ddb86f50",
+      "bytes": 390952,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.StackTrace.dll",
+      "sha256": "dee248ac8b7ee332962e563bbda8ab6d29d7c929d10f6fb6477879381c612027",
+      "bytes": 29992,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.TextWriterTraceListener.dll",
+      "sha256": "a2aec821220d6aa69ede7d3842d8c3dd54cb13453d3d24999d430426cca8d015",
+      "bytes": 59176,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.Tools.dll",
+      "sha256": "49b3d4a5806ce9765211b734bd9c094cc26c75bd424a85f7b3d7a87cb3c878e6",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.TraceSource.dll",
+      "sha256": "3e905cf6f2cb9d09590b5c403ffc245b3ababa83cf9623333fb0d98d07896806",
+      "bytes": 130856,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Diagnostics.Tracing.dll",
+      "sha256": "054b3c45aaeea4e3f95dec9042ffedbfc1a3baaded6aef405ec2cbea2d88c31b",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Drawing.Primitives.dll",
+      "sha256": "0607110300117597d5953bfc2189f5fd9f73b471a4376ad2a9a128bf203a43ff",
+      "bytes": 123176,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Drawing.dll",
+      "sha256": "98bde96e52348c73130ef919e588f14c187eaddc302053058927cc5e712142df",
+      "bytes": 20264,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Dynamic.Runtime.dll",
+      "sha256": "76a0c6b5c323712e2060dbe026df24878764dddbbd9a18f5e518743ebba3875b",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Formats.Asn1.dll",
+      "sha256": "ef403e354415fd5cb047217e9aa898605573b333b76a059a913730a34eacac35",
+      "bytes": 252240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Formats.Tar.dll",
+      "sha256": "e970b73e9f528d24def44dac9017298aabb5636c4c19f2328a5159ff8ad8d5b2",
+      "bytes": 346920,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Globalization.Calendars.dll",
+      "sha256": "e78013cec0be3c73d376c97382f15aee631881547ade4782071e6e0946c2188d",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Globalization.Extensions.dll",
+      "sha256": "cac4964bde8ac6e9f65643ac4b2e104523cb1703bef39eb76460d2bb82d78355",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Globalization.dll",
+      "sha256": "7f10748fda5542a322de6c520a5ddcecb2aa95fb76e1b8d4cff79c0dcbf38314",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.Compression.Brotli.dll",
+      "sha256": "7c0ade330de5d4078500adb95ea395ded9677de52e1e488338d2e0746fe833b5",
+      "bytes": 72488,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.Compression.FileSystem.dll",
+      "sha256": "b0a224328706c6e85bd3a9b5f79e056d08b87818efd233e296ef31d36ac6a7f3",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.Compression.ZipFile.dll",
+      "sha256": "d7a60114c1666fcadc543202840ca34f809ba659510f270980ef975566ef9e72",
+      "bytes": 122664,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.Compression.dll",
+      "sha256": "15c9d4089a47e219aba0d302cc6e6e72941cf71859954e251fa1ba4394e1502f",
+      "bytes": 591656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.FileSystem.AccessControl.dll",
+      "sha256": "0bcc39e98cf509ce8e6f57fa764dd3dce3af4494642f8723903b7227733f5988",
+      "bytes": 32552,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.FileSystem.DriveInfo.dll",
+      "sha256": "71469a5b1cb333fa84cdc53f8fee2e78ca54977f3af515d181c9f258e49b2363",
+      "bytes": 83240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.FileSystem.Primitives.dll",
+      "sha256": "b4945ff4f7498a8e0a688a3fa9853e4a831f4b2d32c47ab42de18ca8a25248d3",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.FileSystem.Watcher.dll",
+      "sha256": "f9b2bd0caa47ecf2e902efbfdc69445df3ef0a07d7a9dc39f64d759b833d1e38",
+      "bytes": 127272,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.FileSystem.dll",
+      "sha256": "cabe15ae4af8c258b61c8dffc9dcb62a3f2651000c7ca648ee97bfc080aaec35",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.IsolatedStorage.dll",
+      "sha256": "a59fb4dc8483b89991607f6f6ba2d600d9ec0044204cf14e586f7e968f629c58",
+      "bytes": 76584,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.MemoryMappedFiles.dll",
+      "sha256": "5f9822b191339db09d7fdd20e1617c6f96916f4d3162aaed45fc916af380a8c6",
+      "bytes": 82768,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.Pipelines.dll",
+      "sha256": "48d0f3498bcf269fc9d1e6691ead60d1b57d9d2a9efdb431c424fd1ae4af4624",
+      "bytes": 194344,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.Pipes.AccessControl.dll",
+      "sha256": "29543e0622e08ba3600e480ec200f34e138a0ac6c6ad384fa33b4943a1bb042e",
+      "bytes": 23848,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.Pipes.dll",
+      "sha256": "fbd060c05108cd55351e280295464e0cd8302fc9f8d253b6cf50572d84143a34",
+      "bytes": 129360,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.UnmanagedMemoryStream.dll",
+      "sha256": "126301ec8f8269616cd8cc389aff1561f4f47e553a008dddcb6a4fb3a71944b9",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.IO.dll",
+      "sha256": "eae6249e10706c17124823d8d5aaac8090a8de3f7772ef9775232768ee92e7e4",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Linq.AsyncEnumerable.dll",
+      "sha256": "db930bec582fffac440c29b5f099c0475b19176640e128890f5badd0b1ff4a1c",
+      "bytes": 1512272,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Linq.Expressions.dll",
+      "sha256": "e66c8e78344a8e19192c5ba417ebfd932cc179dbb589a5aa954680a5c12f3d2e",
+      "bytes": 3964712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Linq.Parallel.dll",
+      "sha256": "22b17bda1454a2c4333aa8e0d92654a9d6fae367e88be626f03b43143730a066",
+      "bytes": 895312,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Linq.Queryable.dll",
+      "sha256": "692369b7cfcdac8d137aa60aec32f98f15953cc5c46ef5f4e8ee46d3a8f1109c",
+      "bytes": 188712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Linq.dll",
+      "sha256": "3a4c80f3fbeb9c7a99aff53623a2db9e4bc7860cc8d5a5d89fdb95a94c29d7b3",
+      "bytes": 764240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Memory.dll",
+      "sha256": "03688102f58734d3d6dd8de5a24ffc9fe335e9945a9d32a66ddb88bb1269ee39",
+      "bytes": 166184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Http.Json.dll",
+      "sha256": "4a26c399f29b4b021bb2230afe9968a8899a42cb93a5cf993ef5dd360c549aba",
+      "bytes": 119592,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Http.dll",
+      "sha256": "5e0627cfb54d4deb881629d881f258aa0b03a2bf402f75c9b94cd1523777137a",
+      "bytes": 1689384,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.HttpListener.dll",
+      "sha256": "ad98e6dd42134e8e48b9b0cdbcf23f4699a873dab992e1efeea2ec6921589da1",
+      "bytes": 291112,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Mail.dll",
+      "sha256": "a7af746fc1562b90dcd4a9e89df54e7cc798d2c132a99e23f75de3602436c055",
+      "bytes": 473896,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.NameResolution.dll",
+      "sha256": "0c36ebb22d7fa7cb704b47e395594c200d2fdcf21329d49114994cfd41f0fa1b",
+      "bytes": 251688,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.NetworkInformation.dll",
+      "sha256": "4a88ce506faf098db7ef704ed2a2f9590d1b07beb171b66eb2d541cdc2875597",
+      "bytes": 171304,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Ping.dll",
+      "sha256": "9d3cfc9f7c6671f480401a4a08488b5e905a08bf723296e60a899d581a7f4185",
+      "bytes": 101672,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Primitives.dll",
+      "sha256": "ccf3c09389d32ddb645620d6162e3577c17f237323934b528e45feba8712f45a",
+      "bytes": 223056,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Quic.dll",
+      "sha256": "58e7abb590a55f99727abf2803791647032690fbf8a6d121938aa7e3d1268184",
+      "bytes": 349480,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Requests.dll",
+      "sha256": "32049c425baed947667ecbeb4472cf48b0555c6dc9168a4af352458d409558f5",
+      "bytes": 362320,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Security.dll",
+      "sha256": "0a595bd9ad9f5258da294173c020c043848dbfca5da418b3df9e261da2aaa083",
+      "bytes": 888144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.ServerSentEvents.dll",
+      "sha256": "dbe7443d24822e618189aa08353b1d7db0a43ccec4c30fb3139a19febbb20bc1",
+      "bytes": 74536,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.ServicePoint.dll",
+      "sha256": "d531ca43e3ad39a0b3eb0e5fb0255cc4df71b4fab8ba343fff5817f35bafaf35",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.Sockets.dll",
+      "sha256": "5ce828f3501bc1a7cb7f6ab9edb8917225bf623f6e7dfb7b2c8145fac48fb056",
+      "bytes": 615760,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.WebClient.dll",
+      "sha256": "2159dfc1dbe13db0711ec00a2e007837a7cb198c952f3b8cf9860a68195b00b8",
+      "bytes": 157992,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.WebHeaderCollection.dll",
+      "sha256": "47993e4ce07aee9957ede91ac31fe573094fa59c588e4214afe00075936fcb79",
+      "bytes": 54608,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.WebProxy.dll",
+      "sha256": "940b8ae1b172bfdc84e1e776ddf8f43a466e690cb8b0c06e055de156e9235a6b",
+      "bytes": 34088,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.WebSockets.Client.dll",
+      "sha256": "2bd90736b73d1f6632843dca4b71bba6ab7e83f2484f6b58c7b8daee31ae6c2f",
+      "bytes": 90448,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.WebSockets.dll",
+      "sha256": "41ce1e7fda55102129bfe97694337bc1de8e61fba5b0d5a9bdb3dd674d7fee05",
+      "bytes": 237352,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Net.dll",
+      "sha256": "836272465bb19a2c40c031cb9a324b31917aba33a919ee7eb4c136f73ad60d39",
+      "bytes": 17232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Numerics.Vectors.dll",
+      "sha256": "baadef8d736530b4955ae191c3dd2d3acce5d0e3554a9cc45d8cff85f5066c47",
+      "bytes": 16208,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Numerics.dll",
+      "sha256": "94a246a37740fa57e6568f52c28e62211f6a4493c4ae5d51b51cd8623efff543",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ObjectModel.dll",
+      "sha256": "0040af6f21f442e8fb18de6dadc97d9334f7b7b44422b654b9e9d3d8fe6393e6",
+      "bytes": 68904,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Private.CoreLib.dll",
+      "sha256": "44c059630500c14dff53fea4d8f9fa7b52bc4a2311787ec04d9ec631cfdf1974",
+      "bytes": 17857832,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Private.DataContractSerialization.dll",
+      "sha256": "e18869b443f0c0876e807987750b629f21e9b1b97420e39220c336b36e6e324b",
+      "bytes": 2060584,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Private.Uri.dll",
+      "sha256": "a138f61649689e29337a8784c46e3ecd4f431dc8b100e3a34711e15dd9904543",
+      "bytes": 237864,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Private.Xml.Linq.dll",
+      "sha256": "1677232ece8134b137a2cb1a9f982c4d5986409ece4c3bb3b7a7e3f1da626cfd",
+      "bytes": 366928,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Private.Xml.dll",
+      "sha256": "6a6be464646678f65867a635a79c102ead959c400f08132d9480bf6d9250ff56",
+      "bytes": 7714128,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.DispatchProxy.dll",
+      "sha256": "93fb3e68772214c2e9ac0a5cdb71df3526caefa67b675a36fbf4cc8c28104113",
+      "bytes": 67408,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.Emit.ILGeneration.dll",
+      "sha256": "47a76672c791f156383768ac07114b5e1d8a81d78b77f0a11577f6e86e549eda",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.Emit.Lightweight.dll",
+      "sha256": "010fccec896d545a4eebf65a6181c261c786aba58d9a9cd7f666370c37b2c9be",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.Emit.dll",
+      "sha256": "7b5e7a48eb48c3e34138e3c35bf7744dfebf69edc5687b92af172b6b6c6a16bb",
+      "bytes": 304976,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.Extensions.dll",
+      "sha256": "cd49f77359997a87de05c4f748c1c81b09200b01c729804c19dabb3279954983",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.Metadata.dll",
+      "sha256": "358e08961622fa5673c8b312871499f224d3ae0bc592569e11ade78257514a2b",
+      "bytes": 1154856,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.TypeExtensions.dll",
+      "sha256": "8e90878d88902dcbaef1dd409d2bc5591db4be4c0d42ea2075f7a5cbe688a9cc",
+      "bytes": 31568,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.Primitives.dll",
+      "sha256": "21768986cf7485560284bc7379733833df49a04c2fb6bb49cdfe08203f68a183",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Reflection.dll",
+      "sha256": "4aef45d2a52e92332a13357150ddb97896a4201849921b9a165c059f9bd77f4b",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Resources.Reader.dll",
+      "sha256": "13e769bf12dce4f5773da4f002ff6945530d98eb2c08987319fab0c12f926d73",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Resources.ResourceManager.dll",
+      "sha256": "7afc2281b3567975f880d79ce2345dc3da7a6b27c4ad3f648a4c98bf4312c5c1",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Resources.Writer.dll",
+      "sha256": "0337ea5aa3916fdb9bba3b56e022ab4c12c0e9c0ae416c6cc642ebdef52cddc3",
+      "bytes": 42280,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.CompilerServices.Unsafe.dll",
+      "sha256": "321e5644a244de8da10fadab0e2d2e4cb9068d201a76da7412e40a080a033d3a",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.CompilerServices.VisualC.dll",
+      "sha256": "b1283de8371e3a9fe7589cbc8b1cabfd6ec9bf0fea89f2e7fcde7025d3574885",
+      "bytes": 18768,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Extensions.dll",
+      "sha256": "3a43fa76cefec2b2b0265619da713516fd0d92cedc840c689d0d515526fce946",
+      "bytes": 17744,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Handles.dll",
+      "sha256": "f772a6239f06c40207d50838933591d0d0896bf28f02afe58c08547b9a09a904",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.InteropServices.JavaScript.dll",
+      "sha256": "dbe2a1ac361e2dace79ad31e3a62a5b5f934239f09fb53a1f052780db8bfbdb9",
+      "bytes": 37160,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.InteropServices.RuntimeInformation.dll",
+      "sha256": "d35fce9e379db7676c90acba42ef56ff7bfc6d87dc0751d7c53956eb8b87f57d",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.InteropServices.dll",
+      "sha256": "b66974986041493692f114ff53a33faf8051112e62a890916de21d6104c91500",
+      "bytes": 102224,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Intrinsics.dll",
+      "sha256": "217cdb49437f42bd39fd3f4b6f52a96a3be25a10bdc87f63090428ab824b7141",
+      "bytes": 18768,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Loader.dll",
+      "sha256": "2e1ab5062dbee62bbdb258e37840feacc52f96e4e95af4960373f360414a3c5b",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Numerics.dll",
+      "sha256": "d66d738ed762ab2e7d1a57c1fc781b1e2e7adf874bd7716749d73bb1116ce1f9",
+      "bytes": 532776,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.Formatters.dll",
+      "sha256": "ee98f728cd8c1dd56b05f605ca9d53d73343ec85b5b5a26fd6f6164364851187",
+      "bytes": 115496,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.Json.dll",
+      "sha256": "e6ab7b1e4dabe6189622b3b92671199a5266f42d9201a0549b8dc4f340f0dd94",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.Primitives.dll",
+      "sha256": "c85be9665a17444947a2a9a1e3b9004e00e1c087c1cc23564c4a50a8eb93f1ba",
+      "bytes": 28496,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.Xml.dll",
+      "sha256": "bc2f55db3b0773e2086340897235db27864f2561490d377ec3bf60e4f1f84c3e",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.Serialization.dll",
+      "sha256": "3dbf29e2e2e4921cf079c47fb5482163ef32685a46deb1cce8e70eeb3ecfe13c",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Runtime.dll",
+      "sha256": "d36da36c6b86bad312797f124690230170e1916a7dbac8e77f7d0b58d22319ab",
+      "bytes": 45864,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.AccessControl.dll",
+      "sha256": "a1df19e5185623ece6ef9b68bfd2a883a726fa5859deadecfbd1f7f628c930a0",
+      "bytes": 55080,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Claims.dll",
+      "sha256": "60349fac00c5dd11e75682d4c6011ffaf27753dc815621e841acfe69d67f4210",
+      "bytes": 92968,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Algorithms.dll",
+      "sha256": "7863bec3d9787adf2498bcff0d539bb03257a55639202ed556db8984842f56b3",
+      "bytes": 17232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Cng.dll",
+      "sha256": "33f3dbcff0fea80324abf18d22fb5739f3266bc31e34a1ef95dbfb67222135cf",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Csp.dll",
+      "sha256": "16b298ce082299f367b50f2b53e54059b8dabfe13be8beac10242a743da42057",
+      "bytes": 16208,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Encoding.dll",
+      "sha256": "04b9d75d43d55ce3c1555a97c600e181316d55a84e04f9197457e0acd8e27d53",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Cryptography.OpenSsl.dll",
+      "sha256": "4c255c5fc47b7d8cffb1046581c48c873c7863602b42b228afbd59d1fb2aabef",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Cryptography.Primitives.dll",
+      "sha256": "60e0f08a0c0291c8f02a9dcb79755302e405ed377f450e25c0c92789142441eb",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Cryptography.X509Certificates.dll",
+      "sha256": "58d27835a47909b1fc398d47d5e23c8b119874d5debaa08b986d5890b3fc1d0a",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Cryptography.dll",
+      "sha256": "db3faa95ec6eb1de1dc702483005cd340533c21b4234d4c5f7c199d21d91f559",
+      "bytes": 2906448,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Principal.Windows.dll",
+      "sha256": "ee0bdec5627b49f5e9a17a6ac6e230e2c72cf5354df50997304fbbbcc1e13e09",
+      "bytes": 37672,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.Principal.dll",
+      "sha256": "a17ac161f4b5eb55527580007fe6ee55f95d219dd1b10e7b9cb90585c6e29670",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.SecureString.dll",
+      "sha256": "e0fc50fed8d7375f176797e535aac3356b00444554d85ea8f6065c2e58bf1279",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Security.dll",
+      "sha256": "f6886e40a0f28a9014f60bd6c27231956cab4e9a18fe5c12d7e9db6d91b8817a",
+      "bytes": 18216,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ServiceModel.Web.dll",
+      "sha256": "b6efd9a9ed55c05089a587905a1de15bc5eaf2810b10288916c5f74a65bb4760",
+      "bytes": 16680,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ServiceProcess.dll",
+      "sha256": "8b38e24b4a4780a71eefb3a3d517048dc0e978e3ce376545a33b6ece98b832b1",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Text.Encoding.CodePages.dll",
+      "sha256": "a0bea44206e225616823dfc05a8165850268401683f3369e93d7d191135e6f27",
+      "bytes": 850216,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Text.Encoding.Extensions.dll",
+      "sha256": "48f29b59a9fb699ca8320166aec97e3f6addd77c5d0b46a68d960b1f3b2ff54a",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Text.Encoding.dll",
+      "sha256": "7a67dbcfc21c3c7248127add3f3e9d0602c489f82046055e91c2ccfb4e0f6787",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Text.Encodings.Web.dll",
+      "sha256": "3f5d1a1d731b87a10dcaf606571c002c633b1b1d68e2d991e748a24ed35e62ce",
+      "bytes": 114472,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Text.Json.dll",
+      "sha256": "404cb833bd044d4a41f067692ade2807470a27eb461f6efbc7f7e53413c340e6",
+      "bytes": 2506064,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Text.RegularExpressions.dll",
+      "sha256": "48d786496cab61246035cf738eaa63e17d12f05a52a44c48d72cfd17dc53922a",
+      "bytes": 1072976,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.AccessControl.dll",
+      "sha256": "f4d92d154a81a14b9b839dc75085f3a0ea3662562aed6ddc8c2535537b3f6888",
+      "bytes": 33064,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.Channels.dll",
+      "sha256": "c1219f75e022b1d10c9c766a40b6c7c5a351f67c87c7da852e6782d5036f6ff5",
+      "bytes": 150864,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.Overlapped.dll",
+      "sha256": "86c89207544da6005db22b91f71587603287cb49d48b323fa042ce753dcf907b",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.Tasks.Dataflow.dll",
+      "sha256": "70e560b8c6c97cebed9726d014d6aa497f86fcc013eea4d45fcbe0569f8d8c95",
+      "bytes": 471848,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.Tasks.Extensions.dll",
+      "sha256": "afc30f82d24cd14749c66e7806b6893a53f0838c2dcfdcde61919218035be2a2",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.Tasks.Parallel.dll",
+      "sha256": "5cb0628a2d4031ff1770b53ec3712fd0f9f2aeb80384db93efe7cb8a4f0b7115",
+      "bytes": 124240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.Tasks.dll",
+      "sha256": "e0180bddad920165aeb3bd9b8df55cc4879fb40877e3128ab1ec17249365d388",
+      "bytes": 16720,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.Thread.dll",
+      "sha256": "ad3c30474bc1d1ab7e2a3d83ffa5383ed2a19f5929581c2169b9feb459032d07",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.ThreadPool.dll",
+      "sha256": "b3d996fd4f10cb51fdc7e52167fb5ac88d417bd9aa9d4dff994fcd21b75040bd",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.Timer.dll",
+      "sha256": "659226cc2fca113f73cc070df00d0fb8cba630d3bdbe1adc99e43fb86ce3532d",
+      "bytes": 15144,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Threading.dll",
+      "sha256": "2f23c77134b4584ed1c40d8a5936e566b2b3bd703a064d31ad3560dcf66b9a7f",
+      "bytes": 74536,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Transactions.Local.dll",
+      "sha256": "a1e2194cb8a98a7e92bc89de896197257e180a88d253497b6f06c24d66793315",
+      "bytes": 349992,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Transactions.dll",
+      "sha256": "08780c280d6a0804d3b5ac06968b136e3722a7b580f38e1a10585da064d3e543",
+      "bytes": 16720,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.ValueTuple.dll",
+      "sha256": "305ca84dc2b6a61e611aa3b94f272666700c7ce41f5bad423753bbf461fab6c0",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Web.HttpUtility.dll",
+      "sha256": "96caa9c6c1a63b6af4fb4a3db9ad62688daa1334470f6fdb93bba8b9f290ae1f",
+      "bytes": 53032,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Web.dll",
+      "sha256": "c4b7401d7ce577e15b1361e83ac1eb87f6e6c60d724a968ade967fc30745b4d2",
+      "bytes": 15184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Windows.dll",
+      "sha256": "748c0f2aec5999de4e5fe9e949aa4e8afe989188ae5d1b313ab21791e3c8f987",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.Linq.dll",
+      "sha256": "e55d4a0839017109e79d87e592dd8057104a1bbf967f938d74a18079c9869538",
+      "bytes": 15696,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.ReaderWriter.dll",
+      "sha256": "c4349da74980f343e28f80bc026cacf1a9953b9b023082b74e679647981fce0e",
+      "bytes": 21800,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.Serialization.dll",
+      "sha256": "e94a78e77263ccd4584bdebb98799e67dfded2567dbc11231f689ece9f2898b5",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.XDocument.dll",
+      "sha256": "f7cb4b6d63fecd445c812426647a60d7e23e4448cd4c12a365236ad6f7f9ecba",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.XPath.XDocument.dll",
+      "sha256": "9a5a938b258d82bc60527caf50a8f00a53af800fc55c453554e6b3612babd3a0",
+      "bytes": 17192,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.XPath.dll",
+      "sha256": "e301beb1e40e709c7dd4b62cb990be85c3dc58085a26630cc81683cfe17a912f",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.XmlDocument.dll",
+      "sha256": "69e02905bc4308aebedf5979e5a1bf9a940591eef4245cb09a3e829929f60a07",
+      "bytes": 15656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.XmlSerializer.dll",
+      "sha256": "33102c54861ffb91b8d2d2437d7aa4b280fbd84c5ed0eee49020b135f9368af0",
+      "bytes": 17704,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.Xml.dll",
+      "sha256": "4cfeb1e0d46b562daee400c957b03a5d4c11a73b6bfa32b9249f5437f4e7405f",
+      "bytes": 23336,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/System.dll",
+      "sha256": "a6dabfe8fc6d273b12b5c98bbfcde5fd3a4944a2e2c38024a8cfa444f98ee500",
+      "bytes": 50512,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/WindowsBase.dll",
+      "sha256": "fa36b50214ad8d0fe9d2928446cec5575f1d60b0a05a32cd0681e77f59ed4a9f",
+      "bytes": 16168,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/createdump",
+      "sha256": "ee2c0e34dfea606b3b30d1fa02a9e5f6d6740b505674560b9b04617e652febb1",
+      "bytes": 97712,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libSystem.Globalization.Native.so",
+      "sha256": "ef42e59a8a0be57f776e7eb7d5315c9695c959504a2ef5ae8a7b6a8a9dd2c902",
+      "bytes": 61336,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libSystem.IO.Compression.Native.so",
+      "sha256": "895ae8d00a64dca1fb6ec849630e9620d0fcceda3fff7d1e1810d73890a08ee3",
+      "bytes": 1621184,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libSystem.Native.so",
+      "sha256": "b6d727e49dc3ad42eaebbb21133ae48b468c9b8865ed24b9e9c30155259cbdcd",
+      "bytes": 103584,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libSystem.Net.Security.Native.so",
+      "sha256": "04d34591bf4b4a8689aafa3a7311e6fe78c1210e84fab0380f6715663379e5fb",
+      "bytes": 14120,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libclrgc.so",
+      "sha256": "504464109b94e73885e8f326ddc0432047b6ab892b7b50fd3314c710b422157b",
+      "bytes": 682240,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libSystem.Security.Cryptography.Native.OpenSsl.so",
+      "sha256": "022cf884bbed954fcf7a6f2cb9b94cf86fb27581f33dced1cec6e4bfbed37d16",
+      "bytes": 213080,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libclrgcexp.so",
+      "sha256": "142a54baa85ce5ef78f579533d1983123c0468f71f4d28ec88668ecb35027666",
+      "bytes": 746656,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libclrjit.so",
+      "sha256": "dffe1203c30224ea512518c0e0f67431e808f5c17593eae3c6a3faf456a0921b",
+      "bytes": 3987208,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libcoreclr.so",
+      "sha256": "f1c71f4752aed4f8bd3e712e356260f4a4d4cbb977fc46c0e2a3207ee3ae4bf1",
+      "bytes": 5283536,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libcoreclrtraceptprovider.so",
+      "sha256": "e5ed7aac0ccc51b2279bf44d5d78a8dba2c44cf9e9a631d6749ea960bc4deefb",
+      "bytes": 782672,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libhostfxr.so",
+      "sha256": "b0f73eb2f2eed3eecf39068bb432dfac81966e2afa62d66318daee54f307faf8",
+      "bytes": 322744,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libhostpolicy.so",
+      "sha256": "347dd396f4cada507f10887cf59ad8996829d3f0ff17b701939275638a58f7b2",
+      "bytes": 319520,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libmscordaccore.so",
+      "sha256": "8672a91fad86507ec07b0b0a4e236a16a10182412197fe09b0b4ea8493cdf958",
+      "bytes": 1697992,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/libmscordbi.so",
+      "sha256": "78768bf52535f86a8640efc6c18632b1bd9f299beef9738ba271385bf17aebb0",
+      "bytes": 1223576,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/mscorlib.dll",
+      "sha256": "3e1fb7598d9a804fbd108d7500af8495dc300a4be6a229c3e97685d49eceefff",
+      "bytes": 59688,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/native/Modern",
+      "sha256": "23a1a5461701fdab2855b8c3029fd6679558d252fb34afc0e93861903d5df226",
+      "bytes": 1565672,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/native/Modern.dbg",
+      "sha256": "0eee287c3e610cc16a069d33eb8a5c149e42bfff9eb9c158e0daf42ff7af0087",
+      "bytes": 2741984,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/bin/Release/net11.0/linux-x64/netstandard.dll",
+      "sha256": "4f1b9995aa11c9e8fe9bc22461bbe8ff10539ebda9b4ef6b73504734d2f48d5a",
+      "bytes": 101160,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Modern.csproj.nuget.dgspec.json",
+      "sha256": "e124aa11b9bf428d85a4853b0f37b3959417eaa0c8fe10ebb1c191cbad8707fe",
+      "bytes": 25328,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Modern.csproj.nuget.g.props",
+      "sha256": "a553d11ce72dd9d6089b40cb662f31bf4f7d55fcbdf2bb107d8df219d9438f9d",
+      "bytes": 2141,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Modern.csproj.nuget.g.targets",
+      "sha256": "b14461e0cb1be3f77fcf9fe2fdd62889325ca92523d0f606980ed59eb5c4aa1c",
+      "bytes": 149,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/.NETCoreApp,Version=v11.0.AssemblyAttributes.cs",
+      "sha256": "18171b35badd46ad63a98f1233df58d31ff1b4aa1f27b9c2a507fcd513dda70f",
+      "bytes": 196,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.AssemblyInfoInputs.cache",
+      "sha256": "248fd4409ff3d9a60214beda88d26a7b570e5f6ad5d8eb22335af20251922fc1",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.AssemblyInfo.cs",
+      "sha256": "07987d92bda2bd09c6047c4487e36d18fd906e1cc46a896f2d225f64f748b86d",
+      "bytes": 1116,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.GeneratedMSBuildEditorConfig.editorconfig",
+      "sha256": "b86e23b9108f50c13b10004c7c7edfa61b8aa66f71fbda35148e8cd42e8aa4e7",
+      "bytes": 1152,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.GlobalUsings.g.cs",
+      "sha256": "2d9a52dbcace719bfe3cf377de41707cc310e1bcc62fa042d126cfa1fca57b65",
+      "bytes": 266,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.assets.cache",
+      "sha256": "2e0706635b29f935febb782c747806856f71601201d27764d720f5b6d4ff99ae",
+      "bytes": 961,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.csproj.CoreCompileInputs.cache",
+      "sha256": "f73fa45e695827e7519fcce4883931534ba5cbe3e4041e3f46d872a2144b2873",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.csproj.FileListAbsolute.txt",
+      "sha256": "9cc8ca52c7ca150a8c25907705c39550c8c058abe3ba03f8eec1e64e9c037631",
+      "bytes": 34883,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.csproj.Up2Date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.dll",
+      "sha256": "d65b177d4b0cdb438fbaf47100715475f7220b30fc22b9a293195d272706e9cf",
+      "bytes": 13824,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.genruntimeconfig.cache",
+      "sha256": "748c719f37119935aceb597cfc293ff9cea6b9cb6446d859a02288950712ead1",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.pdb",
+      "sha256": "62c26a6e1ae36bd6b87fb043d43faea072e522a7233fbcd0026ff6a24b5c0cd7",
+      "bytes": 15304,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/Modern.sourcelink.json",
+      "sha256": "3f2d2841995ba660ce9341e990180861f29fec3f27038ecd16e126a56ffd54ce",
+      "bytes": 182,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/PublishOutputs.5b01178315.txt",
+      "sha256": "d7ae0a9ee90db7af3267db9a7b39185c5915c49922b4606e1bc7b5a86af54d4e",
+      "bytes": 234,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/native/Modern.exports",
+      "sha256": "7d40223d8dbe5a3e592c48372bff2109c06b9ca3c87d3c4ef4e93ba34acf24a8",
+      "bytes": 77,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/native/Modern.ilc.rsp",
+      "sha256": "e44b1fbb2520bbd2e61b3e2429381dd745619dda7708c3a307863da443df576a",
+      "bytes": 32414,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/native/Modern.o",
+      "sha256": "964d48d5e060ea7847a802ef46d755acf2f2c4ee119e57d7d4bde2fc26da0a51",
+      "bytes": 5812008,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/ref/Modern.dll",
+      "sha256": "f4750346ddbf793e7e12138429d1247654e3aa77f167b9c42c0f853a0752907b",
+      "bytes": 8192,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/Release/net11.0/linux-x64/refint/Modern.dll",
+      "sha256": "f4750346ddbf793e7e12138429d1247654e3aa77f167b9c42c0f853a0752907b",
+      "bytes": 8192,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/project.assets.json",
+      "sha256": "8c1e96343dde8124fbc8760328a5443db3b554343b5695890c7e7b79bc23b00d",
+      "bytes": 41109,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/.work/runtime-async/obj/project.nuget.cache",
+      "sha256": "d37e0438d9f36a828296df29a6169d072e8091f15b3027f5111093fef0973675",
+      "bytes": 1260,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/aot-default.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/aot-default.stdout",
+      "sha256": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+      "bytes": 79,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/aot-runtime-async.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/aot-runtime-async.stdout",
+      "sha256": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+      "bytes": 79,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/external-closed-negative.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/external-closed-negative.stdout",
+      "sha256": "a1e9db7c9732230362e6a4929007e17717e6455326b193eab21547af95e42682",
+      "bytes": 1081,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/inspect/Inspect.csproj",
+      "sha256": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c",
+      "bytes": 262,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/inspect/Program.cs",
+      "sha256": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a",
+      "bytes": 1062,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/modern/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d",
+      "bytes": 374,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/modern/Negative.cs.txt",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+      "bytes": 125,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/modern/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+      "bytes": 2773,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/inputs/run.py",
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498",
+      "bytes": 5312,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/metadata-default.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/metadata-default.stdout",
+      "sha256": "dd3e78c49008ef21b6114c94f19ba76fdaa26761261021d5f8dd86081b6bdf5e",
+      "bytes": 335,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/metadata-runtime-async.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/metadata-runtime-async.stdout",
+      "sha256": "14c287310ff2e1d61f672a2713d5c7ca3a4795ba43e738408863b04d476817e8",
+      "bytes": 185,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/negative/External.cs",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1",
+      "bytes": 125,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/negative/External.csproj",
+      "sha256": "16ccce38da07404547e9242771e5a78e8a5c5cd32a79f68d4693690a4a23db50",
+      "bytes": 309,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/.NETCoreApp,Version=v11.0.AssemblyAttributes.cs",
+      "sha256": "18171b35badd46ad63a98f1233df58d31ff1b4aa1f27b9c2a507fcd513dda70f",
+      "bytes": 196,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.AssemblyInfo.cs",
+      "sha256": "77841adff9b2e9ce5db53a49d4aaf837c82326dacf5a3a9f2bb6b52cc750aae0",
+      "bytes": 976,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.AssemblyInfoInputs.cache",
+      "sha256": "eeb83fe1bc0f71d9778fde7584a48783163fd6c6d45cb5321cc9538a9a70533f",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.GeneratedMSBuildEditorConfig.editorconfig",
+      "sha256": "544e6f8e07fea7574d25ff7667f94a27592f7a35069296371778404d089e628a",
+      "bytes": 859,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.assets.cache",
+      "sha256": "380d9e871a1db96de3a0ab88d0abd20e538a0db446ceb8bab44f3fa7a4853c1a",
+      "bytes": 150,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.csproj.AssemblyReference.cache",
+      "sha256": "241cd07d17f0bd42761c8ce956b2c5cd6490e4f1a4d73c0981ffe007f94d73c4",
+      "bytes": 711,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.csproj.CoreCompileInputs.cache",
+      "sha256": "cb8b2dc429e1f12a875b14a0453c1c22f6857c1af3e5d0e6e088f53fd6adc0f1",
+      "bytes": 65,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.csproj.FileListAbsolute.txt",
+      "sha256": "a55b71b082615b36ad5c6b9576919bd314ea3d2403888a1ecd4169c44413aa74",
+      "bytes": 893,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/External.csproj.nuget.dgspec.json",
+      "sha256": "33a6775236f7784895a015248df0094e7710255738ad9657685b8585c3053f52",
+      "bytes": 48561,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/Debug/net11.0/External.sourcelink.json",
+      "sha256": "3f2d2841995ba660ce9341e990180861f29fec3f27038ecd16e126a56ffd54ce",
+      "bytes": 182,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/External.csproj.nuget.g.props",
+      "sha256": "f830241d56206fb3353dc322b6733272428114082923772cd5878a9cfc6919df",
+      "bytes": 1115,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/External.csproj.nuget.g.targets",
+      "sha256": "b14461e0cb1be3f77fcf9fe2fdd62889325ca92523d0f606980ed59eb5c4aa1c",
+      "bytes": 149,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/project.assets.json",
+      "sha256": "48888a04e0205f6921b71bde3a3495f1ccf224a42cbe8956e91d15fe0a70969a",
+      "bytes": 24069,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/negative/obj/project.nuget.cache",
+      "sha256": "24f1f228bc549910aede1d8493fb7dabc54eb9e6486fa009d747272b606ddf93",
+      "bytes": 248,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/ordinary.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/ordinary.stdout",
+      "sha256": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+      "bytes": 79,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/publish-default/Modern.dbg",
+      "sha256": "92da272362feeedb4bd6c0b6b39b98c101f267b2a7b5ad26ca3b218da3667c0b",
+      "bytes": 2747232,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/publish-default.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/publish-default/Modern",
+      "sha256": "c3c634c4b36c88fbfc04fce342858feaaa85a2e9e710819571d7c94c9d01c412",
+      "bytes": 1565640,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/publish-default.stdout",
+      "sha256": "cf4fbb2446b3b7ce8e0a58484e631bdc9ee672571c10c661c320c260a1e011fb",
+      "bytes": 103303,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/publish-runtime-async/Modern",
+      "sha256": "23a1a5461701fdab2855b8c3029fd6679558d252fb34afc0e93861903d5df226",
+      "bytes": 1565672,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/publish-runtime-async/Modern.dbg",
+      "sha256": "0eee287c3e610cc16a069d33eb8a5c149e42bfff9eb9c158e0daf42ff7af0087",
+      "bytes": 2741984,
+      "preserved": false,
+      "omission": "binary/generated-build-output; original archive identity retained, reproducible from source"
+    },
+    {
+      "path": "artifacts/completion/platform/publish-runtime-async.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/publish-runtime-async.stdout",
+      "sha256": "2a7912c36757733d079df9f1f97273eeaa59296d74112a4876cd3905e2848053",
+      "bytes": 100348,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/results.json",
+      "sha256": "846065854e60dcc958d9ba084dbf4c09692fe8dafe85fe09aa5f380548a76811",
+      "bytes": 9159,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/sdk-info.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/platform/sdk-info.stdout",
+      "sha256": "edc07caa9f7168a45b7e7ba9e83f653116a8e31e4ad8bceee2686b822b91dd12",
+      "bytes": 3059,
+      "preserved": true
+    }
+  ],
+  "results": [
+    {
+      "path": "artifacts/completion/platform/results.json",
+      "passed": true,
+      "source_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec",
+      "keys": [
+        "scope",
+        "platform",
+        "source_commit",
+        "source_snapshot",
+        "commands",
+        "started_at",
+        "passed",
+        "closed_external_negative",
+        "aot_executions",
+        "compiler_lowering",
+        "finished_at"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+  Determining projects to restore...
+  Restored /workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/UcoInvalid.csproj (in 447 ms).
+  UcoInvalid -> /workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/bin/UcoInvalid/Release/net11.0/linux-x64/UcoInvalid.dll
+  Generating native code
+  ILC: Method '[UcoInvalid]Program.Invalid(char)' will always throw because: UnmanagedCallersOnly attribute specified on method with non-blittable parameters 'Boolean Program.Invalid(Char)'
+  UcoInvalid -> /workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/uco-invalid/aot/

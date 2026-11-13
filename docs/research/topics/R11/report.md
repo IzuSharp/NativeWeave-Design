@@ -1,5 +1,7 @@
 # R11：错误、Rust panic与managed callback异常边界
 
+**Current completion (2026-11-13):** source-driven research/design is ready for exact-content independent review. The original dated report below is preserved as a historical increment; its unexecuted statements describe that increment. Current evidence/coverage contain `completion_2026_11_13` and immutable later execution records.
+
 日期：2026-11-12。作者：interop_design。状态：**partially_evidenced；design decision recorded；independent review pending**。交付为[D08 Error契约](../../../contracts/error-v0.1.md)，其中状态编号与基础ErrorRecord是唯一文档权威。代码示例未编译，fatal行为与真实AOT尚未运行。
 
 ## 1. 输入、需求与非目标
@@ -93,3 +95,23 @@ Q08已有可审查的明确决定：固定错误基础、typed owned详情、普
 R03审查ErrorRecord prefix与状态演进；R08审查callback内失败、退出与不重复拥有；R34审查错误隐私、预算和不可信参数；R12审查worker supervisor与poison排空。UniFFI及runtime内部UCO入口未读，任务整体保留partially_evidenced；不把这些缺口隐去或把所有决定留给用户。
 
 许可证：Rust固定LICENSE-MIT与LICENSE-APACHE全文已读取；其核心标准库双许可，具体将来复用文件仍遵循各自声明。Godot、YAHA的MIT许可证已读取。报告为机制转述和新的NativeWeave设计，不复制大段源码。
+
+## Current completion review — Rust1.100 and actual fatal subprocess evidence
+
+Rust1.100 source `0ef1bc386059596dada8fb65b50425aab2ea637a`, `library/std/src/panic.rs`315–410, reaffirms unwind-only catch, hook-before-catch and panic-on-payload-Drop. This is the current fixed-source supplement to the historical1.99.1 review, not an invented rewrite of that old source identity. UniFFI's actual Future polling boundary catches poll panics and stops polling the failed future; a catch around spawn alone would not have that scope.
+
+Seven actual Rust1.100 child-process cases are now preserved in `verification/interop-completion/panic-linux`: caught ordinary unwind and intentionally retained payload succeed; payload Drop panic, panic hook panic, cleanup double panic, non-unwind C-ABI panic and panic=abort through catch terminate unsuccessfully with recorded stderr/exit codes. The payload-retention positive case intentionally keeps that payload: it is evidence for quarantine behavior, not leak-free recovery. These cases do not prove all concurrent engine poison paths or OOM behavior.
+
+The new C#/Rust completion probe also injects an ordinary managed callback exception inside actual UCO, catches it before crossing FFI, and verifies no result owner survives an injected DTO conversion failure. Normal and actual Linux Native AOT runs are separately recorded. Original two-OS prepublication native panic evidence remains at its original identity.
+
+D08 remains the sole authority for status numbers/error records; the experiment's private constants must not be promoted into it. Fatal invalid-UCO signatures, arbitrary corrupt pointers and every target's fatal text/exit conventions remain isolated product tests; a callback catch cannot fix an invalid signature. Error/result/effect/cleanup are separate facts, and quarantine never creates fake DisposeAsync success. The current error-boundary design is ready for exact-content independent review; future A05/A06/A07/A14/A15/A20/B22 conformance is distinct from research acceptance.
+
+
+## Supplemental invalid-UCO execution (2026-11-13)
+
+The [isolated manifest](../../../../verification/interop-completion/uco-invalid-linux/result.json) records actual .NET11 normal and Native AOT publication followed by native invocation of an intentionally invalid char/bool `UnmanagedCallersOnly` callback with runtime marshalling enabled. Both child processes exited -6 with unhandled `InvalidProgramException`; `INVALID_CALLBACK_BODY_ENTERED` never appeared. This demonstrates that callback-body catch cannot repair an invalid signature. It does not establish all fail-fast variants or behavior of an outer managed catch. The normal blittable callback succeeds in the main fixture. Invalid-pointer fuzzing was not performed.
+
+
+## Committed Windows/Linux completion execution
+
+[CI evidence readback](../../../../verification/interop-completion/ci-evidence-read.json) verifies actual GitHub run `43388468172` at source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`: Windows x64 MSVC and Linux x64 GNU each executed normal 10,528 assertions and Native AOT 10,529, 32 controlled callback rounds per mode, nine Roslyn checks and static metadata/AOT restriction checks. All command exits and source hashes were verified; Windows checkout CRLF accounts for its distinct input hashes. This extends the main fixture only. Linux-only generator-comparison/panic/invalid-UCO supplemental studies are not mislabeled as Windows results. Deliberate reflection fallback negative cases retain their IL2026/IL3050 diagnostics. Product package/full-protocol/long-load obligations remain separate.

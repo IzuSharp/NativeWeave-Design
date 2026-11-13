@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-PROTOCOL-001",
+    "version": "0.3.0",
+    "content_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-13T13:11:37.712400+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PROTOCOL-001.inputs.json",
+    "sha256": "90365f8404ca6c5dc8b03fc1e1815966edcf24bfb3df908a01007a2c14c93373"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

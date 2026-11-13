@@ -1,0 +1,71 @@
+{
+  "artifact_id": 14019189533,
+  "name": "completion-database-ubuntu-24.04",
+  "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "run_id": 43388468172,
+  "zip_sha256": "381053776d96fce47bb7ee8d6e80866a7dd98b18c1f5b077850dd05f1e8347dd",
+  "zip_bytes": 31916,
+  "files": [
+    {
+      "path": "artifacts/completion/database/inputs/experiments/database-completion/Cargo.lock",
+      "sha256": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+      "bytes": 57336,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/inputs/experiments/database-completion/run.py",
+      "sha256": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+      "bytes": 3277,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/inputs/experiments/database-completion/Cargo.toml",
+      "sha256": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+      "bytes": 831,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/inputs/experiments/database-completion/tests/postgres.rs",
+      "sha256": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+      "bytes": 12660,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/inputs/experiments/database-completion/tests/runtime_metadata.rs",
+      "sha256": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+      "bytes": 9092,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/inputs/experiments/native-slices/database/Cargo.toml",
+      "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3",
+      "bytes": 537,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/inputs/experiments/native-slices/database/src/lib.rs",
+      "sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9",
+      "bytes": 9918,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/manifest.json",
+      "sha256": "54ea86302986807d4ba3bb8ae6c664a4fffe4546f49ab3b426ef47354d023a4b",
+      "bytes": 2166,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/stderr.log",
+      "sha256": "b4d4f27fcd6095f5f8173dc97a4f282904624ab731277a6828ab60e76c6ce0e9",
+      "bytes": 12454,
+      "preserved": true
+    },
+    {
+      "path": "artifacts/completion/database/stdout.log",
+      "sha256": "ba18b4d7d7ed06d7fea8b1edb51c94aefcd4a349c90d1192c67f341525a7dc1b",
+      "bytes": 444,
+      "preserved": true
+    }
+  ],
+  "results": []
+}

@@ -1,0 +1,23 @@
+{
+  "scope": "One worker, one extra wake, atomic SC events; pre-reserved single slot; no weak-memory/FFI or liveness claim",
+  "source_commit": null,
+  "source_path": "experiments/interop-completion/mailbox_model.py",
+  "source_sha256": "5049c708a75a1bbcb27364fd7ee964266796563100400875de7fc2f477d5dd0e",
+  "negative": {
+    "states": 17,
+    "transitions": 17,
+    "counterexample": [
+      "consume_dirty",
+      "read_dirty_before_unschedule",
+      "notify_dirty_and_schedule",
+      "unschedule_using_stale_read"
+    ],
+    "completed_two_notification_states": 1
+  },
+  "candidate": {
+    "states": 11,
+    "transitions": 11,
+    "counterexample": null,
+    "completed_two_notification_states": 1
+  }
+}

@@ -1,0 +1,15 @@
+2026-11-12 23:40:12.388 PST [9] LOG:  starting PostgreSQL 18.0 on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-11-12 23:40:12.388 PST [9] LOG:  listening on IPv4 address "127.0.0.1", port 55432
+2026-11-12 23:40:12.393 PST [15] LOG:  database system was shut down at 2026-11-12 23:39:47 PST
+2026-11-12 23:40:12.395 PST [9] LOG:  database system is ready to accept connections
+2026-11-12 23:40:18.892 PST [43] ERROR:  canceling statement due to statement timeout
+2026-11-12 23:40:18.892 PST [43] STATEMENT:  SELECT pg_sleep(10)
+2026-11-12 23:40:18.892 PST [43] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2026-11-12 23:40:18.892 PST [43] STATEMENT:  SELECT 1
+2026-11-12 23:40:18.930 PST [9] LOG:  received fast shutdown request
+2026-11-12 23:40:18.932 PST [9] LOG:  aborting any active transactions
+2026-11-12 23:40:18.932 PST [9] LOG:  background worker "logical replication launcher" (PID 18) exited with exit code 1
+2026-11-12 23:40:18.932 PST [13] LOG:  shutting down
+2026-11-12 23:40:18.934 PST [13] LOG:  checkpoint starting: shutdown immediate
+2026-11-12 23:40:19.207 PST [13] LOG:  checkpoint complete: wrote 919 buffers (5.6%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.010 s, sync=0.258 s, total=0.275 s; sync files=317, longest=0.003 s, average=0.001 s; distance=4236 kB, estimate=4236 kB; lsn=0/1B26D60, redo lsn=0/1B26D60
+2026-11-12 23:40:19.217 PST [9] LOG:  database system is shut down

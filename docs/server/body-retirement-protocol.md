@@ -156,12 +156,10 @@ foreign ownership is simulated by a real Rust `Bytes`, not by a C# GCHandle.
   B16/B17 must charge the retained allocation until final release, including
   managed-owned copies and slices, and test callback/abort/close races.
 - **SR-LIFE-004:** Source-compatible public APIs are sufficient for this finite
-  credit-owner seam. They do not establish a complete Handler bridge or justify
-  selecting Rust over Kestrel. R26/R17 comparison and Q15 remain open.
+  credit-owner seam. They do not establish a complete managed Handler bridge or performance advantage. The product Rust requirement is fixed; R26/R17 supply honest comparator evidence.
 
-Kestrel Native AOT remains a required research comparator. Product Kestrel and
-Rust host profiles remain unselected until the relevant evidence and review.
-Plan must not silently make Kestrel an unconditional production/release
-dependency while stating that this choice remains open. A composed Server
-delivery needs at least one selected host; selecting both is permitted without
-declaring either a universal default. No formal Delivery is authorized now.
+Kestrel Native AOT remains a research comparator only. The required product Host is Rust,
+with the current source-backed Tokio/Hyper/Tower/Axum composition in D18. B15 is its C#
+application/Handler surface and B17 the native host; they are complementary, not alternative
+host profiles. The old finite experiments remain scoped evidence, not a completed managed
+bridge, RSS bound or product performance result. No formal Delivery is authorized now.

@@ -1,0 +1,44 @@
+{
+  "reader": "/root/interop_research",
+  "records": [
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-core/src/connection.rs",
+      "git_blob_sha": "b5f8138b2bc1b2a9a82a21b4aa8c65fe0e42934f",
+      "read_ranges": [
+        [
+          48,
+          80
+        ]
+      ],
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-core/src/connection.rs"
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-core/src/transaction.rs",
+      "git_blob_sha": "46f89d25b2be6a04d7ab80347f22e21f16cd0731",
+      "read_ranges": [
+        [
+          98,
+          133
+        ]
+      ],
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-core/src/transaction.rs"
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "git_blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "read_ranges": [
+        [
+          213,
+          254
+        ]
+      ],
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-sqlite/src/connection/worker.rs"
+    }
+  ]
+}

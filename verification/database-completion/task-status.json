@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0",
+  "author": "/root/database_research",
+  "baseline": {
+    "design_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "plan_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299"
+  },
+  "independent_review": "pending; author does not self-accept",
+  "scope": "R19-R25,R31; D14-D17,D20; research/design/experiments only",
+  "research_count": 8,
+  "documentation_count": 5,
+  "native_cases": {
+    "metadata": 5,
+    "postgres": 6
+  },
+  "runs": {
+    "linux_metadata": "verification/database-completion/linux-metadata-current/manifest.json",
+    "linux_postgres": "verification/database-completion/linux-postgres-final/manifest.json",
+    "first_dynamic_shape_failure": "verification/database-completion/linux-attempt-1/manifest.json",
+    "published_ci_confirmation": "verification/database-completion/ci-confirmation.json"
+  },
+  "tasks": [
+    {
+      "id": "R19",
+      "baseline_graph_status": "planned",
+      "audit_classification": "existing_reports_evidence_coverage; stale architecture and graph state; specific source/experiment gaps now filled",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "future_delivery_obligations": [
+        "B02: product TLS/auth/real Windows/Linux C# Native AOT provider integration",
+        "B23/R17: matched full-workload managed/native/FFI measurement; no performance superiority claimed"
+      ],
+      "report": "docs/research/topics/R19/report.md",
+      "evidence": "docs/research/topics/R19/evidence.json",
+      "coverage": "docs/research/topics/R19/coverage.json",
+      "new_cases": [
+        "statement_timeout_needs_rollback_before_same_connection_reuse",
+        "early_row_stream_drop_drains_before_next_query",
+        "lost_commit_response_is_error_with_durable_effect"
+      ]
+    },
+    {
+      "id": "R20",
+      "baseline_graph_status": "planned",
+      "audit_classification": "existing_reports_evidence_coverage; stale architecture and graph state; specific source/experiment gaps now filled",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "future_delivery_obligations": [
+        "B03: actual C# adapter busy/file-fault/worker/late-cancel and both-OS Native AOT validation",
+        "B08: concurrent-process outer BEGIN IMMEDIATE migration serialization, crash and nontransactional admin conformance"
+      ],
+      "report": "docs/research/topics/R20/report.md",
+      "evidence": "docs/research/topics/R20/evidence.json",
+      "coverage": "docs/research/topics/R20/coverage.json",
+      "new_cases": [
+        "sqlite_foreign_key_and_savepoint_recovery_are_explicit",
+        "sqlx_migration_checksum_and_failed_ddl_are_native"
+      ]
+    },
+    {
+      "id": "R21",
+      "baseline_graph_status": "planned",
+      "audit_classification": "existing_reports_evidence_coverage; stale architecture and graph state; specific source/experiment gaps now filled",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "future_delivery_obligations": [
+        "B05: implement exact C# operation/transaction state mapping, same-session lease and cleanup retirement",
+        "B22: product fault/soak and both-OS Native AOT under cancellation/shutdown"
+      ],
+      "report": "docs/research/topics/R21/report.md",
+      "evidence": "docs/research/topics/R21/evidence.json",
+      "coverage": "docs/research/topics/R21/coverage.json",
+      "new_cases": [
+        "statement_timeout_needs_rollback_before_same_connection_reuse",
+        "early_row_stream_drop_drains_before_next_query",
+        "lost_commit_response_is_error_with_durable_effect",
+        "migration_error_keeps_session_lock_until_dedicated_connection_closes",
+        "conflict_cte_old_snapshot_needs_separate_recovery_statement"
+      ]
+    },
+    {
+      "id": "R22",
+      "baseline_graph_status": "partially_evidenced",
+      "audit_classification": "existing_reports_evidence_coverage; stale architecture and graph state; specific source/experiment gaps now filled",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "future_delivery_obligations": [
+        "B06/B07/B12: full supported-codec and malformed-wire/large-value/mapping cleanup tests in real C# AOT wrapper",
+        "B08: dedicated admin connection and migration locking implementation/recovery validation"
+      ],
+      "report": "docs/research/topics/R22/report.md",
+      "evidence": "docs/research/topics/R22/evidence.json",
+      "coverage": "docs/research/topics/R22/coverage.json",
+      "new_cases": [
+        "seaorm_public_dynamic_projection_needs_no_static_entity",
+        "codec_roundtrip_and_loss_are_observed",
+        "sqlx_migration_checksum_and_failed_ddl_are_native",
+        "migration_error_keeps_session_lock_until_dedicated_connection_closes"
+      ]
+    },
+    {
+      "id": "R23",
+      "baseline_graph_status": "planned",
+      "audit_classification": "existing_reports_evidence_coverage; stale architecture and graph state; specific source/experiment gaps now filled",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "future_delivery_obligations": [
+        "B10/B13: product incremental generator, complete typed Fluent API and compile/runtime negatives",
+        "B24: no-Rust RID-free build/run and both-OS Native AOT unchanged native hash for new entity"
+      ],
+      "report": "docs/research/topics/R23/report.md",
+      "evidence": "docs/research/topics/R23/evidence.json",
+      "coverage": "docs/research/topics/R23/coverage.json",
+      "new_cases": [
+        "seaorm_public_dynamic_projection_needs_no_static_entity"
+      ]
+    },
+    {
+      "id": "R24",
+      "baseline_graph_status": "planned",
+      "audit_classification": "existing_reports_evidence_coverage; stale architecture and graph state; specific source/experiment gaps now filled",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "future_delivery_obligations": [
+        "B11/B13: promised operator/backend full differential matrix through actual C# wrapper; no full IQueryable requirement",
+        "B14: relation/CAS multiuser and tenant authorization conformance"
+      ],
+      "report": "docs/research/topics/R24/report.md",
+      "evidence": "docs/research/topics/R24/evidence.json",
+      "coverage": "docs/research/topics/R24/coverage.json",
+      "new_cases": [
+        "native_join_aggregate_matches_independent_sql_oracle",
+        "native_cas_preserves_tenant_and_not_set_null_distinction"
+      ]
+    },
+    {
+      "id": "R25",
+      "baseline_graph_status": "partially_evidenced",
+      "audit_classification": "existing_reports_evidence_coverage; stale architecture and graph state; specific source/experiment gaps now filled",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "future_delivery_obligations": [
+        "B04/B09–B14: implement chosen native reuse profile and static managed facade",
+        "If adding eager-loading beyond explicit joins: first validate a controlled dynamic extraction of native SeaORM loader; no required baseline fork"
+      ],
+      "report": "docs/research/topics/R25/report.md",
+      "evidence": "docs/research/topics/R25/evidence.json",
+      "coverage": "docs/research/topics/R25/coverage.json",
+      "new_cases": [
+        "seaorm_public_dynamic_projection_needs_no_static_entity",
+        "native_join_aggregate_matches_independent_sql_oracle",
+        "native_cas_preserves_tenant_and_not_set_null_distinction"
+      ]
+    },
+    {
+      "id": "R31",
+      "baseline_graph_status": "planned",
+      "audit_classification": "existing_reports_evidence_coverage; stale architecture and graph state; specific source/experiment gaps now filled",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "future_delivery_obligations": [
+        "B21/B22: implement reference app, product faults including outbox/filesystem/HTTP and actual C# AOT",
+        "B23/B24: long load/performance and independent package acceptance"
+      ],
+      "report": "docs/research/topics/R31/report.md",
+      "evidence": "docs/research/topics/R31/evidence.json",
+      "coverage": "docs/research/topics/R31/coverage.json",
+      "new_cases": [
+        "lost_commit_response_is_error_with_durable_effect",
+        "conflict_cte_old_snapshot_needs_separate_recovery_statement"
+      ]
+    },
+    {
+      "id": "D14",
+      "baseline_graph_status": "draft_ready",
+      "audit_classification": "existing_detailed_specification_refined_and_architecture_corrected",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "outputs": [
+        "docs/database/drivers.md"
+      ],
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    },
+    {
+      "id": "D15",
+      "baseline_graph_status": "draft_ready",
+      "audit_classification": "existing_detailed_specification_refined_and_architecture_corrected",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "outputs": [
+        "docs/database/transactions-and-pooling.md"
+      ],
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    },
+    {
+      "id": "D16",
+      "baseline_graph_status": "draft_ready",
+      "audit_classification": "existing_detailed_specification_refined_and_architecture_corrected",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "outputs": [
+        "docs/database/query-semantics.md"
+      ],
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    },
+    {
+      "id": "D17",
+      "baseline_graph_status": "draft_ready",
+      "audit_classification": "existing_detailed_specification_refined_and_architecture_corrected",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "outputs": [
+        "docs/generators/query-generation.md"
+      ],
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    },
+    {
+      "id": "D20",
+      "baseline_graph_status": "draft_ready",
+      "audit_classification": "existing_detailed_specification_refined_and_architecture_corrected",
+      "current_research_design_status": "ready_for_independent_review",
+      "research_blockers": [],
+      "outputs": [
+        "docs/verification/reference-application.md"
+      ],
+      "future_delivery_obligations": "All product implementation/AOT/fault/long-load/performance remain in explicit Delivery tasks; accepting design does not assert them complete."
+    }
+  ],
+  "review_inputs_sha256": {
+    "docs/research/topics/R19/report.md": "7463a51d2f413085beecd52ed67dc7ee52c01a7ad3a9ac9e72deef631838b006",
+    "docs/research/topics/R19/evidence.json": "021e7c8283af7d8771b7eec7c6e300725ff1bec30765d7b4d9b10065faa61078",
+    "docs/research/topics/R19/coverage.json": "911d62e6075f147fca5cd83dec011e8727323060ffbddefe0b41f66e7252553f",
+    "docs/research/topics/R20/report.md": "5a31c55bf5e7deea359752c8fb537aebd36a835d58a1de81d2ffc120b05d3282",
+    "docs/research/topics/R20/evidence.json": "4f100de2fbe7e8ac39ab0c325f113de37953483b813461a423781dbe7aa93828",
+    "docs/research/topics/R20/coverage.json": "3c45d8d93fe10b0da6f7ebeac149ec6fe17e1279494af6918fb2371c0365e464",
+    "docs/research/topics/R21/report.md": "519460fedfa3918381541d7665a0391bfc8060a89f1ff83c705397123191d614",
+    "docs/research/topics/R21/evidence.json": "f7441bb4b438531fbf5a69f9ef557b61e173b1b9ba5aa6a4185bfabb0c59ae2e",
+    "docs/research/topics/R21/coverage.json": "db81b7d4369281576a4815b0ae1c37fb93892d1f998564be89da3abaa51a0a3b",
+    "docs/research/topics/R22/report.md": "3de6debaf443ef27c4db3ca4ca9ca9f0bd2d267eb39f73712e884799e28ad3dc",
+    "docs/research/topics/R22/evidence.json": "745bd943a14145075ab0652c6c11bb95fd1cab6dd8400d4dcc73482021e4dbcc",
+    "docs/research/topics/R22/coverage.json": "293319f83dbc15c6f6f3b02bffe8d99aee5ab30767489816b02a8310de643afd",
+    "docs/research/topics/R23/report.md": "43eb13aa88a26e08697388d643ddd88a125179238b1a11af9b634537f1b458c1",
+    "docs/research/topics/R23/evidence.json": "bb4c030de2191ecaedafdce7a01236889955742e4b1ec8bb76582d8628d99257",
+    "docs/research/topics/R23/coverage.json": "f50130005da98adacf82a7e0b837c9c7d8fc8a9912621d01a20895a570cc89aa",
+    "docs/research/topics/R24/report.md": "4373edb0f171ef00125ac1e5454c0666b42db52150446ce82f594852b907ed08",
+    "docs/research/topics/R24/evidence.json": "eac88a7abdc6136d44ccb4719926a218f153439453cd7175c8677617905494c1",
+    "docs/research/topics/R24/coverage.json": "4f4a42439e23e8b83a37c56e1bb680c3acd5e1294de3a7dcadb2c0a073dd0605",
+    "docs/research/topics/R25/report.md": "a6f011f73bed1022fe24cd60a855c9553cedeb2a1c0ad65082ff9942a55d0c5d",
+    "docs/research/topics/R25/evidence.json": "de4b517a8c6a01408b216b91f6492acbbaa9767864dcac32b9a938dda4f103f5",
+    "docs/research/topics/R25/coverage.json": "87b06243d2a7646dc71a07de4ad1676276fba93b4ba6148d20cb448e9b76db52",
+    "docs/research/topics/R31/report.md": "2df3f72bea0b8b48b9e895ba7496918da2288312838633f54733311b35cf4ac1",
+    "docs/research/topics/R31/evidence.json": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301",
+    "docs/research/topics/R31/coverage.json": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745",
+    "docs/research/topics/R25/source-driven-seaquery.md": "d2bd3c03a92debc4e8d935eaf156d848e4ff6d9a13a68d2017bb6ec1f3a8ac7a",
+    "docs/research/topics/R25/seaorm-dynamic-boundary.md": "b52c234987169ae2d55b1f561ffc080d2f5265f45ade5f8c80e6fdfda75c7198",
+    "docs/database/drivers.md": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+    "docs/database/transactions-and-pooling.md": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+    "docs/database/query-semantics.md": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+    "docs/generators/query-generation.md": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+    "docs/verification/reference-application.md": "7001fc3c44f68b4e6b44b1a8c03143bba0a659a1b7a31f27513b71b66930bfcf",
+    "verification/database-completion/source-inspection.json": "3460b9adf3bb5dbd86e03917f35a759df92eaca94d0d8e99090e5739e03c6622",
+    "verification/database-completion/README.md": "e93e21ffbf14865811ccb94dab7d1f62819c15863b04d6a2be286d8c58644505",
+    "experiments/database-completion/Cargo.toml": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6",
+    "experiments/database-completion/Cargo.lock": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21",
+    "experiments/database-completion/run.py": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+    "experiments/database-completion/tests/postgres.rs": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4",
+    "experiments/database-completion/tests/runtime_metadata.rs": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+    "experiments/database-completion/README.md": "3c74b065afcc1094e809e6c1516990ee1a8c46d0a1d573d762ee4f0acd789312",
+    "verification/database-completion/ci-confirmation.json": "b1aa4f8e4bcc3a56c876ef6f75566656a1aa739b8e8e30eb882366021a8c94fc",
+    "verification/interop-completion/db-review-migration/result.json": "a4f525e49684df8a3d44068a08485b830091f368f73a52126b1491434f221d55"
+  },
+  "published_fixture_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+  "ci_executions": 16,
+  "contract_design_version": "0.3.0",
+  "independent_review_regression": {
+    "manifest": "verification/interop-completion/db-review-migration/result.json",
+    "author": "/root/interop_research",
+    "passed": 3,
+    "scope": "Linux Rust public migration API and outer atomicity; separate from original 11 unique cases/16 CI executions."
+  }
+}

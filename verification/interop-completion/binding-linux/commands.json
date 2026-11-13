@@ -1,0 +1,89 @@
+[
+  {
+    "name": "lock",
+    "argv": [
+      "cargo",
+      "generate-lockfile",
+      "--offline"
+    ],
+    "started_utc": "2026-11-13T07:33:54.593029+00:00",
+    "ended_utc": "2026-11-13T07:33:54.692839+00:00",
+    "exit_code": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "028708888f82b6a0012835f083a2fdd487c4cd1ede7c9436ab00bd5a0cd3dae6"
+  },
+  {
+    "name": "generate",
+    "argv": [
+      "cargo",
+      "run",
+      "--locked",
+      "--offline",
+      "--release",
+      "--",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/binding-api.rs",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/binding/Generated.cs"
+    ],
+    "started_utc": "2026-11-13T07:33:54.693360+00:00",
+    "ended_utc": "2026-11-13T07:34:18.713742+00:00",
+    "exit_code": 0,
+    "stdout_sha256": "fa800471f7c36097914127eb206f27d5aec7ce09b6dd58e6c394d4509eeaa21d",
+    "stderr_sha256": "3328b302a8e4ef64f26700b7dfcd5a87cf1a463b1ab0edba302d6a1df36f745d"
+  },
+  {
+    "name": "normal",
+    "argv": [
+      "dotnet",
+      "run",
+      "--project",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/BindingConsumer.csproj",
+      "-c",
+      "Release",
+      "-p:NuGetAudit=false",
+      "-p:GeneratedBindings=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/binding/Generated.cs",
+      "-p:NativeAsset=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/target/release/libnw_interop_completion_probe.so",
+      "--disable-build-servers"
+    ],
+    "started_utc": "2026-11-13T07:34:18.714461+00:00",
+    "ended_utc": "2026-11-13T07:34:24.954075+00:00",
+    "exit_code": 0,
+    "stdout_sha256": "1982e67f9980f306e074618ed62a7ce71aa72f04288a428ef74bf791e75100ab",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "publish",
+    "argv": [
+      "dotnet",
+      "publish",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/BindingConsumer.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-p:PublishAot=true",
+      "-p:NuGetAudit=false",
+      "-p:GeneratedBindings=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/binding/Generated.cs",
+      "-p:NativeAsset=/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/target/release/libnw_interop_completion_probe.so",
+      "-o",
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/binding/publish",
+      "--disable-build-servers"
+    ],
+    "started_utc": "2026-11-13T07:34:24.955139+00:00",
+    "ended_utc": "2026-11-13T07:34:37.226171+00:00",
+    "exit_code": 0,
+    "stdout_sha256": "9228b917d36e2c36844369bc9c7ad51554f35796e466afa673398e77055b3709",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "aot",
+    "argv": [
+      "/workspace/scratch/1b611a39541d/NativeWeave-Design/experiments/interop-completion/.work/binding/publish/BindingConsumer",
+      "--expect-aot"
+    ],
+    "started_utc": "2026-11-13T07:34:37.226957+00:00",
+    "ended_utc": "2026-11-13T07:34:37.236689+00:00",
+    "exit_code": 0,
+    "stdout_sha256": "b71977a3da10da01474b5ea01c8b3e1dc97c4e88e722cb38283059c1fa921141",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

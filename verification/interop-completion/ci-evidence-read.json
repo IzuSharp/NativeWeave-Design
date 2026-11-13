@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "observed_date": "2026-11-13",
+  "reader": "/root/interop_research",
+  "independent_review": false,
+  "scope": "Read actual CI logs, verify archived file hashes and each input against committed source allowing recorded Windows CRLF checkout.",
+  "records": [
+    {
+      "platform": "Windows-2022Server-10.0.20348-SP0",
+      "result_path": "verification/completion-ci/43388468172/completion-interop-windows-2022/verification/interop-completion/windows/result.json",
+      "result_sha256": "9f00fed67217b38ce98b4c46aee0fbedfd3ccb86669292f24529b376d3901c1f",
+      "archive_manifest": "verification/completion-ci/43388468172/completion-interop-windows-2022/archive-manifest.json",
+      "archive_manifest_sha256": "18986ca20667685a678aafc93201968444352b50d6a3b3836dab4226f3a75a86",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "run_id": 43388468172,
+      "all_commands_succeeded": true,
+      "source_raw_matches": 0,
+      "source_crlf_checkout_matches": 13,
+      "normal_assertions": 10528,
+      "native_aot_assertions": 10529,
+      "callback_rounds_per_profile": 32,
+      "generator_assertions": 9,
+      "restrictions_normal_assertions": 4,
+      "restrictions_aot_assertions": 6
+    },
+    {
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "result_path": "verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/verification/interop-completion/linux/result.json",
+      "result_sha256": "12cc08486d5fb5567c36497e0b3f214e7315ccca86e0cb54d006fc410f816a23",
+      "archive_manifest": "verification/completion-ci/43388468172/completion-interop-ubuntu-24.04/archive-manifest.json",
+      "archive_manifest_sha256": "009a937543fdf8e3c16f5c8b7ac994f1a01e8d52db93655e38ce9b4d0cb6aca6",
+      "source_commit": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+      "run_id": 43388468172,
+      "all_commands_succeeded": true,
+      "source_raw_matches": 13,
+      "source_crlf_checkout_matches": 0,
+      "normal_assertions": 10528,
+      "native_aot_assertions": 10529,
+      "callback_rounds_per_profile": 32,
+      "generator_assertions": 9,
+      "restrictions_normal_assertions": 4,
+      "restrictions_aot_assertions": 6
+    }
+  ],
+  "notes": [
+    "result.source_commit remains null as originally produced; archive manifest/GitHub run plus verified source hashes establish source identity.",
+    "Intentional negative reflection serializer fixture retains IL2026/IL3050 warnings; this is not a zero-warning product claim.",
+    "No additional Windows panic/UCO-invalid or csbindgen comparison run is claimed."
+  ]
+}

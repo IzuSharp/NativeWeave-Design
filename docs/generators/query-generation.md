@@ -1,6 +1,6 @@
 # D17 — Static metadata and DTO generation, not a second SQL compiler
 
-Contract: **C-QUERYGEN-001@0.2.0-draft**; proposed, independent review pending. Existing task D17 and B09/B10/B12/B13 are retained. Source evidence and executed scope: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered probe](../research/source-driven-evidence/README.md). The previous declaration-only LINQ plus generated per-application Rust Entity/dispatcher pipeline is superseded as the ordinary route.
+Contract: **C-QUERYGEN-001@0.3.0**; design candidate. The registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Existing task D17 and B09/B10/B12/B13 are retained. Source evidence and executed scope: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered probe](../research/source-driven-evidence/README.md). The previous declaration-only LINQ plus generated per-application Rust Entity/dispatcher pipeline is superseded as the ordinary route.
 
 ## 1. Required application experience
 
@@ -77,3 +77,41 @@ See D10. The normal consumer command path is restore → C# compilation/generati
 B10 owns incremental stability, deterministic output, compiler-version fixtures, diagnostic spans and negative unsupported types. B12 owns static DTO decoding and exception cleanup. B13 owns runtime Fluent binding and compile-time type rejection; B11 owns native query/binding behavior. A13/A16/B24 own package and platform matrices. They can start using versioned interface fixtures rather than waiting for full domains.
 
 Required evidence: generated-source golden files, incremental cache behavior when unrelated/model files change, wrong entity/value/nullability/constructor negatives, handwritten-versus-generated parity, no dynamic-code/trimming suppression, real Windows/Linux AOT execution, constructor exception and cursor/buffer cleanup, native profile mismatch, schema drift, large field/batch budgets and complete query semantic differential tests. A generator unit test is not an AOT consumer test. No production generator execution is claimed in this research revision.
+
+## 8. Fixed descriptor and operation rules for Codex
+
+A descriptor's canonical content includes schema-format version, logical metadata
+ID, validated names, scalar codec and nullability, primary/foreign keys, relation
+alias/arity and ordered projection fields. Native capability/ABI versions are
+separate from that business metadata hash. A second supported C# entity registers a
+second descriptor; it does not manufacture a new Rust type, rewrite Cargo.lock or
+change native assets. Runtime dynamic filters resolve only declared descriptors.
+
+| Phase | Exact obligation | Owner |
+| --- | --- | --- |
+| Generator input | Stable syntax/semantic equality, no timestamps/order instability; errors point to source spans | B10 |
+| Build | Emit static descriptors/readers; generated and handwritten forms use same API; no Cargo or database call | B10/A13 |
+| Query call | Entity/value types checked by C#; native owner/generation/profile checked at entry | B13/B11 |
+| Seal/submission | Snapshot mutable parameters and freeze native query; reuse shape with independent execution values | B11/B13 |
+| First result | Match complete ordered shape and reject duplicates/missing/type mismatches before NULL interpretation | B06/B12 |
+| DTO creation | Direct typed constructor; exception releases owned batch and closes cursor through async contract | B12 |
+| Compatibility | Unknown metadata schema or required codec fails early, with no reflection/provider fallback | B09/B24 |
+
+New research found a concrete reason for the first-result rule: SeaORM dynamic
+nullable decoding can map a missing column to None. The native preflight is therefore
+mandatory even for generated DTOs. Application static typing cannot validate a
+malformed or schema-drifted native result.
+
+Acceptance examples must include compile failures for wrong entity/value types,
+runtime mixed-query aliases, Dispose/seal races, unknown dynamic field/operator,
+missing/duplicate result columns, constructor failure, schema hash drift, and a
+new entity in a no-Rust consumer with unchanged native binary hash. These are final
+implementation instructions; their product execution is recorded in Delivery, not
+fabricated as already completed Documentation work.
+
+### Published research CI evidence
+
+The [database CI confirmation](../../verification/database-completion/ci-confirmation.json) binds source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80` and run `43388468172` to actual Windows/Linux metadata/SQLite results (5/5 on each) and Linux PostgreSQL 18.0 results (6/6). Archived inputs/logs were checked byte-for-byte; Windows CRLF inputs remain separately identified. This confirms the finite native research oracles and leaves the specified C# product, TLS, concurrency, long-load and independent design-review obligations distinct.
+
+
+The optional SeaORM profile can inspect actual provider shape through public `QueryResult::try_as_pg_row` / `try_as_sqlite_row`, then SQLx `Row::columns` / `Column::type_info`. These borrowed views remain inside the row owner lifetime; no private field or fork is needed. Validate provider type compatibility rather than assuming a declared nullable field proves the result column exists; SQLite NULL/dynamic affinity still follows the explicit codec/null policy. The missing-column negative control remains part of the research fixture.

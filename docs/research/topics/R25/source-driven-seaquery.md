@@ -1,3 +1,5 @@
+> Historical scoped investigation retained. Current selection, new SeaORM execution and shape/migration findings are consolidated in [report.md](report.md) and the [completion record](../../../../verification/database-completion/task-status.json). Historical statements of what was not yet executed refer to that original snapshot.
+
 # R19–R25 follow-up — source-driven SeaQuery integration
 
 Date: 2026-11-12. Status: source-inspected, recovered finite experiment executed; **proposed architecture, independent review pending**. Existing report/evidence files remain historical records. This follow-up narrows and revises their default integration route rather than claiming all R19–R25 research is complete.

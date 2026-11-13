@@ -1,0 +1,1755 @@
+{
+  "schema_version": "1.0",
+  "review_id": "independent-server-review-root-nine-final",
+  "recorded_at": "2026-11-13T08:32:46.141307+00:00",
+  "reviewer_agent": "/root/server_extensions",
+  "author_agent": "/root",
+  "same_github_account_is_not_second_approval": true,
+  "scope": "Research/design technical acceptance only, not product, publishing, signing, benchmark or platform production certification.",
+  "decision": "accepted_research_design",
+  "inputs": [
+    {
+      "path": "docs/research/topics/R01/report.md",
+      "sha256": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11"
+    },
+    {
+      "path": "docs/research/topics/R01/evidence.json",
+      "sha256": "c9696e64ed82c383cde5c10b0a8dda49fb990a0e7dbc11bb5cfee6ee90695425"
+    },
+    {
+      "path": "docs/research/topics/R01/coverage.json",
+      "sha256": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a"
+    },
+    {
+      "path": "docs/research/topics/R13/report.md",
+      "sha256": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7"
+    },
+    {
+      "path": "docs/research/topics/R13/evidence.json",
+      "sha256": "f891c8d8b2e7f50e3ba7ca16005bad630c8c4cc6add49573bb4ae4af3f9b7874"
+    },
+    {
+      "path": "docs/research/topics/R13/coverage.json",
+      "sha256": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696"
+    },
+    {
+      "path": "docs/research/topics/R14/report.md",
+      "sha256": "2cd775919c3b9cc88fb1f3c12785f7941656e0da0ead36a0bd3e8c57f4a3706c"
+    },
+    {
+      "path": "docs/research/topics/R14/evidence.json",
+      "sha256": "91e0545f8aa02138a890b7e401054b454811139615ee0b13b66dfd66e5c972a7"
+    },
+    {
+      "path": "docs/research/topics/R14/coverage.json",
+      "sha256": "2b2817a516136c16099ac0f4f566392359487868dc2e5e1aaf60cad7c72cb222"
+    },
+    {
+      "path": "docs/research/topics/R17/report.md",
+      "sha256": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4"
+    },
+    {
+      "path": "docs/research/topics/R17/evidence.json",
+      "sha256": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f"
+    },
+    {
+      "path": "docs/research/topics/R17/coverage.json",
+      "sha256": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878"
+    },
+    {
+      "path": "docs/research/topics/R18/report.md",
+      "sha256": "bdf46e37799950570583df4bc31382b3d4253658c98bc14031bbae1c31de557d"
+    },
+    {
+      "path": "docs/research/topics/R18/evidence.json",
+      "sha256": "72199f94b832bd02bba96a72f8d0561f17b82cc8ff88e36ffa05d601c0827888"
+    },
+    {
+      "path": "docs/research/topics/R18/coverage.json",
+      "sha256": "c73e6b3ddafe23aa831b7b82f5733e767a23f84c17b2ea60dafad2b89bfd181f"
+    },
+    {
+      "path": "docs/platforms/support-and-aot.md",
+      "sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470"
+    },
+    {
+      "path": "docs/platforms/build-package-release.md",
+      "sha256": "5e109ca696476c852e516c76380222699ee30827d49beefc96daa3a872fe1a69"
+    },
+    {
+      "path": "docs/extension/engine-integration.md",
+      "sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4"
+    },
+    {
+      "path": "docs/performance/methodology.md",
+      "sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0"
+    },
+    {
+      "path": "verification/platform-completion/root-source-inspection.json",
+      "sha256": "727855ed7576a70775d1cd23101497b1d66f25692d9b89f218855b6c61d373c9"
+    },
+    {
+      "path": "verification/platform-completion/linux-final/results.json",
+      "sha256": "3e2793ffc37f40e56cb88581a2e2bec7aa4cbc811c76c1a5362b00625b171c16"
+    },
+    {
+      "path": "verification/engine-completion/linux/result.json",
+      "sha256": "6b925d9b5eb1f0b9d05984732137b08939717e60f4f4e30b14bd63c5c0089727"
+    },
+    {
+      "path": "verification/engine-completion/linux/dependency-inventory.json",
+      "sha256": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3"
+    },
+    {
+      "path": "verification/performance-completion/omission.stdout",
+      "sha256": "32a8d8864ee4ce98aecd4d0ad99192edd860aeaf06225554f64f79d478d55954"
+    },
+    {
+      "path": "verification/engine-completion/linux-reviewed/result.json",
+      "sha256": "5e7f11d0f6609fa8d37251235deda5570462c6ddceaaa2590ab01e76cab0f082"
+    },
+    {
+      "path": "verification/completion-ci/43390177574/completion-platform-windows-2022/archive-manifest.json",
+      "sha256": "07d6e33366fa4f0991bca7dff84549d5b8f661fe91d3e5bf09db1369f49bf85b"
+    },
+    {
+      "path": "verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/archive-manifest.json",
+      "sha256": "83c316f7f9eb2160bcfe2503f184247734f45ba1dd58daa6c079bf9aa2472d29"
+    }
+  ],
+  "source_read_manifest": "verification/platform-completion/root-source-inspection.json",
+  "source_read_manifest_sha256": "727855ed7576a70775d1cd23101497b1d66f25692d9b89f218855b6c61d373c9",
+  "per_task_review": {
+    "R01": "Reviewed compiler branch, source tests versus actual fixture distinction, isolated assemblies and interface-based metadata inspector, negative external closed hierarchy, real ordinary/AOT stdout and allocation experiment scope. No extra performance or ABI conclusion inferred from language choice.",
+    "R13": "Reviewed RID-free native asset selection, Cargo compiler-artifact rather than guessed path, ordinary and NativeAOT independent NuGet consumers, explicit no-Rust PATH/homes and absence of build scripts. Accepted research scope does not claim pristine OS or final package acceptance.",
+    "R14": "Reviewed registry checksum versus VCS identity, native dependency closure, exact package content inventory, NuGet archive error ownership, Syft Cargo versus auditable-binary discovery, Cosign trust/identity/claim/transparency distinction. No executed signing/advisory scan claimed.",
+    "R17": "Reviewed NativeAOT builder, HdrHistogram correction and quantized percentile, Criterion warmup/sampling and diagnostics counters limitations. Open-loop schedule/model and production benchmark obligations correctly separate; SR-ROOT-01 corrected and re-reviewed.",
+    "R18": "Reviewed complete bounded miniz_oxide adapter, Rust errors/output initialization and actual native tests, independent package consumer and .NET ZLib cross-oracle, heterogeneous asynchronous Server evidence. SR-ROOT-02/03 corrected and re-reviewed; full product Server bridge and two-engine conformance remain Delivery.",
+    "D01": "Narrow explicit OS/CPU/toolchain profile; normal dotnet development plus AOT; Native AOT still GC/runtime; module lifetime distinct from instance lifetime; checked official .NET 11 CPU and support policy.",
+    "D10": "Concrete maintainer/consumer boundary, package/asset hashes, bootstrap feature and ABI mismatch, static generation order, source closure and license/provenance duties. Offline application change is finite evidence, not pristine OS claim.",
+    "D11": "Native reuse ladder, public/private source seams, engine-local runtime and affinity, bounded ownership/cancellation/close, no per-entity native build, no giant Core. Product conformance obligations are explicit and do not block design acceptance. Codec ownership transfer defect corrected in its supporting experiment and re-reviewed.",
+    "D13": "Three fair baselines and explicit host/config, ISA, memory/copy accounting, external arrival schedule, failure/timeout accounting and uncertainty gates. Does not fabricate a 5% performance guarantee. SR-ROOT-01 corrected and re-reviewed."
+  },
+  "findings": [
+    {
+      "id": "SR-ROOT-01",
+      "severity": "medium",
+      "paths": [
+        "docs/performance/methodology.md"
+      ],
+      "finding": "The instruction to use BenchmarkDotNet for in-process microbenchmarks is ambiguous with its InProcess toolchain and can guide implementation to measure the JIT driver instead of the generated NativeAOT executable.",
+      "required_change": "Specify isolated generated microbenchmark executables using the NativeAOT toolchain, with explicit ISA matching. Distinguish in-process diagnosers from the in-process execution toolchain.",
+      "source_basis": "CsProjNativeAotBuilder adds PublishAot and emits an executable; NativeAotTests selects CsProjNativeAotToolchain and tests actual RuntimeInformation.IsNativeAOT.",
+      "status": "resolved",
+      "resolution": {
+        "path": "docs/performance/methodology.md",
+        "sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+        "reviewed_disposition": "Isolated NativeAOT executable requirement and explicit JIT InProcess prohibition inspected."
+      }
+    },
+    {
+      "id": "SR-ROOT-02",
+      "severity": "low",
+      "paths": [
+        "docs/research/topics/R18/report.md"
+      ],
+      "finding": "The codec cost table states three C exports, but the native source exports exactly nw_codec_run and nw_codec_release; the third count describes native tests, not exports.",
+      "required_change": "Correct the table to two exports without changing the three executed Rust test count.",
+      "status": "resolved",
+      "resolution": {
+        "path": "docs/research/topics/R18/report.md",
+        "sha256": "bdf46e37799950570583df4bc31382b3d4253658c98bc14031bbae1c31de557d",
+        "reviewed_disposition": "Two exports correct; three native tests retained separately."
+      }
+    },
+    {
+      "id": "SR-ROOT-03",
+      "severity": "high",
+      "paths": [
+        "experiments/engine-completion/managed/Codec.cs"
+      ],
+      "finding": "After successful Run, output.Owner is an owned native allocation. Creating the SafeHandle wrapper with new Owner can fail before a managed owner exists; current code has no raw owner cleanup guard for that path. The normal using/finally lease covers only later failures.",
+      "required_change": "Provide ownership-transfer cleanup if wrapper construction fails, or create an invalid SafeHandle before native allocation and set its handle using a guaranteed nonthrowing transfer; add a deterministic post-native-success/wrapper-failure test and preserve old execution evidence.",
+      "source_basis": "D04/D11 output transfer and managed wrapper failure cleanup requirements; inspected Run and nw_codec_release establish native ownership on success.",
+      "status": "resolved",
+      "resolution": {
+        "path": "experiments/engine-completion/managed/Codec.cs",
+        "sha256": "a967a3a1ce6bfaa8873ae71bf298a7a8a2d3e9f7fbdf050442a35dbe68bbe0b4",
+        "reviewed_disposition": "Guarded new Owner releases raw owner only on construction failure; constructor has no throwing work after SetHandle. Success path uses owner disposal and physical lease. Linux-reviewed normal/native/AOT regression passes.",
+        "validation_boundary": "The allocation-failure branch was checked by control flow, not induced OOM or deterministic fault injection. A17 must inject that future product failure. Original Windows codec CI passed; corrected Linux run passed. Post-fix Windows regression is a separately identified pending addendum, not asserted here. This does not block the researched ownership rule."
+      }
+    },
+    {
+      "id": "SR-ROOT-04",
+      "severity": "medium",
+      "paths": [
+        "docs/platforms/build-package-release.md"
+      ],
+      "finding": "Plan cross-review exposed ambiguous atomic multi-package publication; NuGet/crate registry uploads do not have one cross-package transaction.",
+      "status": "resolved",
+      "resolution": {
+        "path": "docs/platforms/build-package-release.md",
+        "sha256": "5e109ca696476c852e516c76380222699ee30827d49beefc96daa3a872fe1a69",
+        "reviewed_disposition": "D10 section10 now limits atomic promotion to local staging/release catalog, publishes immutable dependencies first, verifies the full set before catalog exposure, and permits partial-upload resumption only after byte equality or a new version. No overwrite of published versions."
+      }
+    }
+  ],
+  "experiment_review": {
+    "code_read": [
+      "experiments/platform-completion/run.py",
+      "experiments/platform-completion/modern/Program.cs",
+      "experiments/platform-completion/inspect/Program.cs",
+      "experiments/engine-completion/run.py",
+      "experiments/engine-completion/native/src/lib.rs",
+      "experiments/engine-completion/managed/Codec.cs",
+      "experiments/engine-completion/consumer/Program.cs",
+      "experiments/performance-completion/omission.py"
+    ],
+    "execution_by_reviewer": "No upstream suite or experiment execution is claimed by this review. Author/CI raw execution logs and input snapshots were inspected independently and verified against retained hashes.",
+    "ci_runs": [
+      "43388468147",
+      "43388468172",
+      "43390177574"
+    ],
+    "local_manifests": [
+      "verification/platform-completion/linux-final/results.json",
+      "verification/engine-completion/linux/result.json",
+      "verification/engine-completion/linux-reviewed/result.json"
+    ],
+    "boundaries": [
+      "Platform run43390177574 at4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec actually proves default3 versus opt-in0 IAsyncStateMachine implementations and both AOT profiles ten assertions on Windows2022 and Ubuntu24.04.",
+      "Codec linux-reviewed passes three Rust tests,16 ordinary and17 AOT checks with corrected wrapper guard; guard failure itself not fault-injected and post-fix Windows regression not claimed yet.",
+      "Open-loop model is a finite synthetic counterexample, not an end-to-end latency result."
+    ]
+  },
+  "official_checks": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/jit/11/minimum-hardware-requirements",
+      "finding": ".NET 11 x86/x64 JIT and NativeAOT require x86-64-v2; stronger R2R targets are not the minimum."
+    },
+    {
+      "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core",
+      "finding": "As retrieved on 2026-11-13, .NET 11 released 2026-11-10 and is STS through 2028-11-14."
+    }
+  ],
+  "remaining_review": [],
+  "reviewed_at": "2026-11-13T08:32:46.141307+00:00",
+  "author": "/root/server_extensions",
+  "subject_author": "/root",
+  "reviewer": "/root/server_extensions",
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "freeze_manifest": {
+    "path": "verification/platform-completion/root-review-inputs.json",
+    "sha256": "f3c20a2ade4d609dce8956d58527aeae758585a420bdf293ecee0346a21c909f"
+  },
+  "accepted_tasks": {
+    "R01": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    },
+    "R13": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    },
+    "R14": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    },
+    "R17": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    },
+    "R18": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    },
+    "D01": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    },
+    "D10": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    },
+    "D11": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    },
+    "D13": {
+      "decision": "accepted_research_design",
+      "scope": "Current research/specification only; actual product implementation, long load and release validation are not accepted."
+    }
+  },
+  "reviewed_contracts": [
+    {
+      "task_id": "D01",
+      "id": "C-PLATFORM-001",
+      "version": "0.3.0",
+      "path": "docs/platforms/support-and-aot.md",
+      "content_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470"
+    },
+    {
+      "task_id": "D10",
+      "id": "C-BUILD-001",
+      "version": "0.3.0",
+      "path": "docs/platforms/build-package-release.md",
+      "content_sha256": "5e109ca696476c852e516c76380222699ee30827d49beefc96daa3a872fe1a69"
+    },
+    {
+      "task_id": "D11",
+      "id": "C-ENGINE-001",
+      "version": "0.3.0",
+      "path": "docs/extension/engine-integration.md",
+      "content_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4"
+    },
+    {
+      "task_id": "D13",
+      "id": "C-PERF-001",
+      "version": "0.3.0",
+      "path": "docs/performance/methodology.md",
+      "content_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0"
+    }
+  ],
+  "new_ci_review": [
+    {
+      "path": "verification/completion-ci/43390177574/completion-platform-ubuntu-24.04/archive-manifest.json",
+      "sha256": "83c316f7f9eb2160bcfe2503f184247734f45ba1dd58daa6c079bf9aa2472d29",
+      "all_preserved_files_verified": 27,
+      "all_command_log_hashes_verified": true,
+      "compiler_state_machine_counts": {
+        "default": 3,
+        "runtime-async": 0
+      },
+      "actual_aot_assertions_per_profile": 10,
+      "source_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec"
+    },
+    {
+      "path": "verification/completion-ci/43390177574/completion-platform-windows-2022/archive-manifest.json",
+      "sha256": "07d6e33366fa4f0991bca7dff84549d5b8f661fe91d3e5bf09db1369f49bf85b",
+      "all_preserved_files_verified": 27,
+      "all_command_log_hashes_verified": true,
+      "compiler_state_machine_counts": {
+        "default": 3,
+        "runtime-async": 0
+      },
+      "actual_aot_assertions_per_profile": 10,
+      "source_commit": "4609bae29b0c367130a3a06b4bb9ebe3e74fd3ec"
+    }
+  ],
+  "post_fix_linux_result": {
+    "path": "verification/engine-completion/linux-reviewed/result.json",
+    "sha256": "5e7f11d0f6609fa8d37251235deda5570462c6ddceaaa2590ab01e76cab0f082",
+    "all_22_stdout_stderr_hashes_verified": true
+  },
+  "mechanical_corroboration": {
+    "reviewer": "/root/server_extensions",
+    "author": "/root",
+    "scope": "Mechanical corroboration accompanies real source/code/semantic review, not an acceptance by itself. Local retained artifacts read; GitHub account approval not claimed.",
+    "inputs": [
+      {
+        "path": "docs/research/topics/R01/report.md",
+        "sha256": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11",
+        "actual_sha256": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R01/evidence.json",
+        "sha256": "33d2264ce4203e2a86c0ae05cbbf34d517c38d40104ab7aeb89cbb628d3d9c3e",
+        "actual_sha256": "33d2264ce4203e2a86c0ae05cbbf34d517c38d40104ab7aeb89cbb628d3d9c3e",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R01/coverage.json",
+        "sha256": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a",
+        "actual_sha256": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R13/report.md",
+        "sha256": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7",
+        "actual_sha256": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R13/evidence.json",
+        "sha256": "489315e4b86f658f435a817f82ea35bf4404bdc2229da34f79768b9167c58de1",
+        "actual_sha256": "489315e4b86f658f435a817f82ea35bf4404bdc2229da34f79768b9167c58de1",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R13/coverage.json",
+        "sha256": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696",
+        "actual_sha256": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R14/report.md",
+        "sha256": "2cd775919c3b9cc88fb1f3c12785f7941656e0da0ead36a0bd3e8c57f4a3706c",
+        "actual_sha256": "2cd775919c3b9cc88fb1f3c12785f7941656e0da0ead36a0bd3e8c57f4a3706c",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R14/evidence.json",
+        "sha256": "397a868d711f16bfafb3381f212f790700a7fb625d9d810b9f6379b7e555f402",
+        "actual_sha256": "397a868d711f16bfafb3381f212f790700a7fb625d9d810b9f6379b7e555f402",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R14/coverage.json",
+        "sha256": "2b2817a516136c16099ac0f4f566392359487868dc2e5e1aaf60cad7c72cb222",
+        "actual_sha256": "2b2817a516136c16099ac0f4f566392359487868dc2e5e1aaf60cad7c72cb222",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R17/report.md",
+        "sha256": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+        "actual_sha256": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R17/evidence.json",
+        "sha256": "4a406dc5762debdae214b5f728b17f0d77694bba4fa515b8e502cc577bbaa499",
+        "actual_sha256": "4a406dc5762debdae214b5f728b17f0d77694bba4fa515b8e502cc577bbaa499",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R17/coverage.json",
+        "sha256": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878",
+        "actual_sha256": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R18/report.md",
+        "sha256": "ccfe28c8e6a8ef9dc610900682c5a6f337ae7acfbe6a85ddb96ded61aa2e3027",
+        "actual_sha256": "ccfe28c8e6a8ef9dc610900682c5a6f337ae7acfbe6a85ddb96ded61aa2e3027",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R18/evidence.json",
+        "sha256": "fb9da4840545c3104c6823850c306e740bad6938e252f7aab1c666963d90c164",
+        "actual_sha256": "fb9da4840545c3104c6823850c306e740bad6938e252f7aab1c666963d90c164",
+        "matches": true
+      },
+      {
+        "path": "docs/research/topics/R18/coverage.json",
+        "sha256": "48b02a4878f36c432327f030c04dba70940aa5be56463d5c4d01bc6b0b2d8f6c",
+        "actual_sha256": "48b02a4878f36c432327f030c04dba70940aa5be56463d5c4d01bc6b0b2d8f6c",
+        "matches": true
+      },
+      {
+        "path": "docs/platforms/support-and-aot.md",
+        "sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+        "actual_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+        "matches": true
+      },
+      {
+        "path": "docs/platforms/build-package-release.md",
+        "sha256": "aed663225ba8f8c74286e55918fe88e8adbc95988021a1308f2de1008ead0662",
+        "actual_sha256": "aed663225ba8f8c74286e55918fe88e8adbc95988021a1308f2de1008ead0662",
+        "matches": true
+      },
+      {
+        "path": "docs/extension/engine-integration.md",
+        "sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+        "actual_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+        "matches": true
+      },
+      {
+        "path": "docs/performance/methodology.md",
+        "sha256": "df668cee24705b0b19c50bdaa38167440931d6408cd0cd4a4e4393f900fd5671",
+        "actual_sha256": "df668cee24705b0b19c50bdaa38167440931d6408cd0cd4a4e4393f900fd5671",
+        "matches": true
+      },
+      {
+        "path": "verification/platform-completion/root-source-inspection.json",
+        "sha256": "727855ed7576a70775d1cd23101497b1d66f25692d9b89f218855b6c61d373c9",
+        "actual_sha256": "727855ed7576a70775d1cd23101497b1d66f25692d9b89f218855b6c61d373c9",
+        "matches": true
+      },
+      {
+        "path": "verification/platform-completion/linux-final/results.json",
+        "sha256": "3e2793ffc37f40e56cb88581a2e2bec7aa4cbc811c76c1a5362b00625b171c16",
+        "actual_sha256": "3e2793ffc37f40e56cb88581a2e2bec7aa4cbc811c76c1a5362b00625b171c16",
+        "matches": true
+      },
+      {
+        "path": "verification/engine-completion/linux/result.json",
+        "sha256": "6b925d9b5eb1f0b9d05984732137b08939717e60f4f4e30b14bd63c5c0089727",
+        "actual_sha256": "6b925d9b5eb1f0b9d05984732137b08939717e60f4f4e30b14bd63c5c0089727",
+        "matches": true
+      },
+      {
+        "path": "verification/engine-completion/linux/dependency-inventory.json",
+        "sha256": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3",
+        "actual_sha256": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3",
+        "matches": true
+      },
+      {
+        "path": "verification/performance-completion/omission.stdout",
+        "sha256": "32a8d8864ee4ce98aecd4d0ad99192edd860aeaf06225554f64f79d478d55954",
+        "actual_sha256": "32a8d8864ee4ce98aecd4d0ad99192edd860aeaf06225554f64f79d478d55954",
+        "matches": true
+      }
+    ],
+    "archives": [
+      {
+        "manifest": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/archive-manifest.json",
+        "sha256": "cd49b2874a327b61d3b7ea37cfa852a31337981e0d6f66b4b7bb88da2b084293",
+        "run": "43388468147",
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "checks": [
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/actual-aot.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/actual-aot.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/aot-publish-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/aot-publish-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/cargo-metadata.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/cargo-metadata.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-build-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-build-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-change-offline.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-change-offline.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-run-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-run-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/dependency-inventory.json",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/consumer/Consumer.csproj",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/consumer/Program.cs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/managed/Codec.cs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/managed/Codec.csproj",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/native/Cargo.lock",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/native/Cargo.toml",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/inputs/native/src/lib.rs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-build.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-build.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-test.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-test.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/pack.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/pack.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/rustc.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/result.json",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/rustc.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/sdk.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/sdk.stdout",
+            "matches": true
+          }
+        ],
+        "all_preserved_match": true
+      },
+      {
+        "manifest": "verification/completion-ci/43388468147/engine-completion-windows-2022/archive-manifest.json",
+        "sha256": "6328b1d0eccc2c987cccc6b689410eca34c2e7db817b933b005f3fdccc9cd4e7",
+        "run": "43388468147",
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "checks": [
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/actual-aot.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/actual-aot.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/aot-publish-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/aot-publish-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/cargo-metadata.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/cargo-metadata.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-build-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-build-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-change-offline.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-change-offline.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-run-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-run-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/dependency-inventory.json",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/consumer/Consumer.csproj",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/consumer/Program.cs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/managed/Codec.csproj",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/managed/Codec.cs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/native/Cargo.lock",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/native/Cargo.toml",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/inputs/native/src/lib.rs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/native-build.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/native-build.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/native-test.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/native-test.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/pack.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/pack.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/result.json",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/rustc.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/rustc.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/sdk.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/sdk.stdout",
+            "matches": true
+          }
+        ],
+        "all_preserved_match": true
+      },
+      {
+        "manifest": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/archive-manifest.json",
+        "sha256": "52f093c72d4efaf3e2a7feb0383fcf6e0ea1eeee3952f689c4a4bdc53fda426b",
+        "run": "43388468172",
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "checks": [
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-runtime-async.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/external-closed-negative.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/external-closed-negative.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Modern.csproj",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Negative.cs.txt",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/modern/Program.cs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/inputs/run.py",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/negative/External.cs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/negative/External.csproj",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/ordinary.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/ordinary.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-runtime-async.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/results.json",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/sdk-info.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/sdk-info.stderr",
+            "matches": true
+          }
+        ],
+        "all_preserved_match": true
+      },
+      {
+        "manifest": "verification/completion-ci/43388468172/completion-platform-windows-2022/archive-manifest.json",
+        "sha256": "79a2adb8f053e5f6ba508a7521404efbaf61c9e0c9e537a0a85ed3fd434f9715",
+        "run": "43388468172",
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "checks": [
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-runtime-async.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/external-closed-negative.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/external-closed-negative.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Modern.csproj",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Negative.cs.txt",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/inputs/modern/Program.cs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/inputs/run.py",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/negative/External.cs",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/negative/External.csproj",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/ordinary.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/ordinary.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-runtime-async.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/results.json",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/sdk-info.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/sdk-info.stdout",
+            "matches": true
+          }
+        ],
+        "all_preserved_match": true
+      }
+    ],
+    "runs": [
+      {
+        "path": "verification/platform-completion/linux-final/results.json",
+        "sha256": "3e2793ffc37f40e56cb88581a2e2bec7aa4cbc811c76c1a5362b00625b171c16",
+        "passed": true,
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "commands": 9,
+        "all_logs_match": true,
+        "log_checks": [
+          {
+            "path": "verification/platform-completion/linux-final/sdk-info.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/sdk-info.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/ordinary.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/ordinary.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/external-closed-negative.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/external-closed-negative.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/publish-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/publish-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/metadata-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/metadata-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/aot-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/aot-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/publish-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/publish-runtime-async.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/metadata-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/metadata-runtime-async.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/aot-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/platform-completion/linux-final/aot-runtime-async.stderr",
+            "matches": true
+          }
+        ]
+      },
+      {
+        "path": "verification/engine-completion/linux/result.json",
+        "sha256": "6b925d9b5eb1f0b9d05984732137b08939717e60f4f4e30b14bd63c5c0089727",
+        "passed": true,
+        "source": "1bc9164e79b1e35eb3ed8e8995bf0137f4880538",
+        "commands": 11,
+        "all_logs_match": true,
+        "log_checks": [
+          {
+            "path": "verification/engine-completion/linux/rustc.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/rustc.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/sdk.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/sdk.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/native-test.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/native-test.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/cargo-metadata.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/cargo-metadata.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/native-build.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/native-build.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/pack.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/pack.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/consumer-build-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/consumer-build-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/consumer-run-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/consumer-run-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/consumer-change-offline.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/consumer-change-offline.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/aot-publish-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/aot-publish-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/actual-aot.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/engine-completion/linux/actual-aot.stderr",
+            "matches": true
+          }
+        ]
+      },
+      {
+        "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/result.json",
+        "sha256": "234314f10c21b48afb5b5fb94a68a626a04f002d6f3d23254b4c3640666a1ce3",
+        "passed": true,
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "commands": 11,
+        "all_logs_match": true,
+        "log_checks": [
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/rustc.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/rustc.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/sdk.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/sdk.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/native-test.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/native-test.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/cargo-metadata.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/cargo-metadata.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/native-build.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/native-build.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/pack.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/pack.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-build-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-build-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-run-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-run-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-change-offline.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/consumer-change-offline.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/aot-publish-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/aot-publish-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/actual-aot.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-windows-2022/actual-aot.stderr",
+            "matches": true
+          }
+        ]
+      },
+      {
+        "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/result.json",
+        "sha256": "66780bb3b65e748bfc737dddae5b9b3ea7c3c29b52256715b927d65b93841aaa",
+        "passed": true,
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "commands": 11,
+        "all_logs_match": true,
+        "log_checks": [
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/rustc.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/rustc.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/sdk.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/sdk.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-test.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-test.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/cargo-metadata.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/cargo-metadata.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-build.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/native-build.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/pack.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/pack.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-build-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-build-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-run-no-rid-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-run-no-rid-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-change-offline.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/consumer-change-offline.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/aot-publish-no-rust.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/aot-publish-no-rust.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/actual-aot.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468147/engine-completion-ubuntu-24.04/actual-aot.stderr",
+            "matches": true
+          }
+        ]
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/results.json",
+        "sha256": "e537d9111f0039643818533267b902f537850cccf3c81ab88677b2137b031eb4",
+        "passed": true,
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "commands": 7,
+        "all_logs_match": true,
+        "log_checks": [
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/sdk-info.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/sdk-info.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/ordinary.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/ordinary.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/external-closed-negative.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/external-closed-negative.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/publish-runtime-async.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-ubuntu-24.04/artifacts/completion/platform/aot-runtime-async.stderr",
+            "matches": true
+          }
+        ]
+      },
+      {
+        "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/results.json",
+        "sha256": "7791d70d53d890c879106c954e76625f82113c46201cd3aaa4c241b47b0fc08c",
+        "passed": true,
+        "source": "7ea84e11ee19e6dad4503a5872eb27c6c7f44e80",
+        "commands": 7,
+        "all_logs_match": true,
+        "log_checks": [
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/sdk-info.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/sdk-info.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/ordinary.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/ordinary.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/external-closed-negative.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/external-closed-negative.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-default.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-default.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/publish-runtime-async.stderr",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-runtime-async.stdout",
+            "matches": true
+          },
+          {
+            "path": "verification/completion-ci/43388468172/completion-platform-windows-2022/artifacts/completion/platform/aot-runtime-async.stderr",
+            "matches": true
+          }
+        ]
+      }
+    ],
+    "upstream_sources": [
+      {
+        "repository": "https://github.com/dotnet/sdk",
+        "commit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+        "path": "src/Tasks/Microsoft.NET.Build.Tasks/ResolvePackageAssets.cs",
+        "ranges_read_by_reviewer": [
+          [
+            1340,
+            1370
+          ],
+          [
+            1695,
+            1735
+          ]
+        ],
+        "sha256": "bf4e7fcd034ed8206fd8eaff42d5f1217f9d0c8f24a0bbf5700da628bf6d7c0b",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/dotnet/sdk",
+        "commit": "b8600c8854f5d1ac1442d717211d968f69a53acd",
+        "path": "src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets",
+        "ranges_read_by_reviewer": [
+          [
+            43,
+            90
+          ],
+          [
+            170,
+            220
+          ]
+        ],
+        "sha256": "7a54e00724d8afe42e72482878de7b152369441e76eac7c543b35e83aa11ce09",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/rust-lang/cargo",
+        "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+        "path": "doc/book/src/reference/external-tools.md",
+        "ranges_read_by_reviewer": [
+          [
+            95,
+            205
+          ]
+        ],
+        "sha256": "67a22a8ca329d223483a7a6056ed4877ba9e4bfa46f8fa6f945743edd4dcdd78",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/rust-lang/cargo",
+        "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+        "path": "doc/book/src/reference/specifying-dependencies.md",
+        "ranges_read_by_reviewer": [
+          [
+            300,
+            360
+          ]
+        ],
+        "sha256": "c59e3a7489d1f28208648a36e44698a48b695d40051b92e88b463af73a35404e",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/dotnet/BenchmarkDotNet",
+        "commit": "ecdd5717fc237db869956c4e200883fb58634f7d",
+        "path": "src/BenchmarkDotNet/Toolchains/NativeAot/CsProjNativeAotBuilder.cs",
+        "ranges_read_by_reviewer": [
+          [
+            1,
+            170
+          ]
+        ],
+        "sha256": "a74e14fa9f21c6780b2f4ede17051ac1cbb2dd2394a94007c5d227b2adebd208",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/dotnet/BenchmarkDotNet",
+        "commit": "ecdd5717fc237db869956c4e200883fb58634f7d",
+        "path": "tests/BenchmarkDotNet.IntegrationTests/NativeAotTests.cs",
+        "ranges_read_by_reviewer": [
+          [
+            1,
+            114
+          ]
+        ],
+        "sha256": "89d7f86543555a05490332122275adba86c0cf3c6aebd217aff78d7ce7b1762a",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/HdrHistogram/HdrHistogram",
+        "commit": "de84b0a7de2378abfc405da503bf4898e84ea98e",
+        "path": "src/main/java/org/HdrHistogram/AbstractHistogram.java",
+        "ranges_read_by_reviewer": [
+          [
+            475,
+            515
+          ],
+          [
+            585,
+            615
+          ],
+          [
+            1430,
+            1460
+          ]
+        ],
+        "sha256": "40020b2a9a19e826d3eae13c18a69b38d96ccb3fbc1ecdc9eb6d749f8e6a0e69",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/NuGet/NuGet.Client",
+        "commit": "7e935f9c72b287adc13b9f42fd7b3bdcaa1500e7",
+        "path": "src/NuGet.Core/NuGet.Packaging/PackageArchiveReader.cs",
+        "ranges_read_by_reviewer": [
+          [
+            80,
+            175
+          ]
+        ],
+        "sha256": "310c27e2c1119143f7f18e9d75dee335a214b66cc7088afc84e8e6787ebbd7fd",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/sigstore/cosign",
+        "commit": "6181e75677cc4719e845fa23d0ef8a936e883aa0",
+        "path": "cmd/cosign/cli/verify/verify.go",
+        "ranges_read_by_reviewer": [
+          [
+            90,
+            230
+          ]
+        ],
+        "sha256": "0745f57e5e012d66a3c7c4417e22718257b23ad328576f2e6bbf92c2980dc612",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/anchore/syft",
+        "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+        "path": "README.md",
+        "ranges_read_by_reviewer": [
+          [
+            30,
+            100
+          ]
+        ],
+        "sha256": "b072fd6c75f6ba759933b4f035bb9e263309f535e2128f13e6ed50860c328aef",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/bheisler/criterion.rs",
+        "commit": "3dbc6c618acb48885066422d81d50729aa17b2b7",
+        "path": "src/routine.rs",
+        "ranges_read_by_reviewer": [
+          [
+            85,
+            180
+          ]
+        ],
+        "sha256": "5a9434c3e4242bf0166f287338576038e5c8f7c9db916ddd4e130721b26884d7",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/anchore/syft",
+        "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+        "path": "syft/pkg/cataloger/rust/cataloger.go",
+        "ranges_read_by_reviewer": [
+          [
+            1,
+            23
+          ]
+        ],
+        "sha256": "3ba5d63aa79674a428a27cd91530e014e5995129c0fa22eed423813fec8cb39d",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/anchore/syft",
+        "commit": "af5b1fa52ff415605886ebb22e2bc2bd5dff7151",
+        "path": "syft/pkg/cataloger/rust/parse_cargo_lock.go",
+        "ranges_read_by_reviewer": [
+          [
+            1,
+            90
+          ]
+        ],
+        "sha256": "bc5008609a49b8326b54d87e57f80c62297e46b73cf42762bee311d74e2ff0d1",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/dotnet/diagnostics",
+        "commit": "dde6f56c8701d40b93b191e2c840e26f535c09d5",
+        "path": "src/Tools/dotnet-counters/CounterMonitor.cs",
+        "ranges_read_by_reviewer": [
+          [
+            50,
+            112
+          ],
+          [
+            201,
+            233
+          ],
+          [
+            350,
+            440
+          ]
+        ],
+        "sha256": "9e288eb2fdddf6ed451a63a9000226361d6d8834bbb80396e8bb2bdce7a60f99",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/dotnet/roslyn",
+        "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+        "path": "src/Compilers/CSharp/Test/CSharp15/UnionsTests.cs",
+        "ranges_read_by_reviewer": [
+          [
+            1,
+            100
+          ],
+          [
+            3068,
+            3108
+          ],
+          [
+            4915,
+            5007
+          ]
+        ],
+        "sha256": "a7021e42f48c5dfa1e2d8d90a121e02301cdf5d21b333e06148af4430c74b079",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/dotnet/roslyn",
+        "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+        "path": "src/Compilers/CSharp/Portable/Compiler/MethodCompiler.cs",
+        "ranges_read_by_reviewer": [
+          [
+            766,
+            795
+          ]
+        ],
+        "sha256": "34ebfc009ffe2dae607f4026eebc1967d32f45d11186a39ba8f9c4d61fbf5f7e",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/dotnet/roslyn",
+        "commit": "3a38d0c1ca5f8d11dcbb01400ec26eff6d51f609",
+        "path": "src/Compilers/CSharp/Portable/Symbols/Source/SourceMethodSymbol.cs",
+        "ranges_read_by_reviewer": [
+          [
+            198,
+            230
+          ]
+        ],
+        "sha256": "33795f806655eed0d97e592fd3f00f952c4b86c5af50882008a90eb26a6c5141",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/Frommi/miniz_oxide",
+        "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+        "path": "miniz_oxide/src/deflate/mod.rs",
+        "ranges_read_by_reviewer": [
+          [
+            130,
+            205
+          ]
+        ],
+        "sha256": "adedff53960b3fbef46cc83d907131c69b379e72668a116d1cc090fec4276504",
+        "matches": true
+      },
+      {
+        "repository": "https://github.com/Frommi/miniz_oxide",
+        "commit": "4e582392df3a739d2b0dfd2c537dc33e8942be38",
+        "path": "miniz_oxide/src/inflate/mod.rs",
+        "ranges_read_by_reviewer": [
+          [
+            135,
+            251
+          ],
+          [
+            332,
+            365
+          ]
+        ],
+        "sha256": "24a041eeb9404079395fd8ac5a51b8e2494fdf46a511681bb727e0b2b7017b57",
+        "matches": true
+      }
+    ],
+    "stage": "Initial exact-input check, prior to the resolved revisions; not substituted for final accepted input list."
+  },
+  "additional_read_scopes": [
+    "Existing R01 rust-1.100.md in full; actual stable_tests.rs thirteen tests in full; both OS stable-tests-run stdout. Reused historical execution, not rerun.",
+    "All per-task reused evidence hashes checked against current bytes; root source file hashes verified at19 explicitly read ranges."
+  ],
+  "nonblocking_future_obligations": [
+    "A17 deterministic managed owner-wrapper allocation fault injection and complete product conformance.",
+    "Post-fix Windows codec regression addendum, with original and revised input hashes kept separate.",
+    "All explicit product, clean-image, release signing, security/advisory, compatibility, benchmark and soak obligations in these specifications."
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "/root/interop_research",
+  "scope": "13 selected current SQLx/SeaORM source files actually read independently; preserved historical evidence was not wholly re-audited.",
+  "records": [
+    {
+      "id": "sqlx-pg-executor",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/connection/executor.rs",
+      "git_blob_sha": "e0f4c3d44a6c81556822796bd2739576a9ea7fdf",
+      "file_sha256": "721ead17743d912c625a56b5728669d8111c750797b6fee24e234226a5b6fbe6",
+      "read_ranges": [
+        [
+          200,
+          390
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Run sends Execute limit=0, closes portal, drains to ReadyForQuery; application batches do not imply server fetch-size control.",
+      "crate": {
+        "name": "sqlx-postgres",
+        "version": "0.9.0",
+        "sha256": "87a2bdd6e83f6b3ea525ca9fee568030508b58355a43d0b2c1674d5f79dcd65e",
+        "vcs": {
+          "git": {
+            "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+          },
+          "path_in_vcs": "sqlx-postgres"
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/connection/executor.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 487,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-postgres"
+      }
+    },
+    {
+      "id": "sqlx-pg-connection",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/connection/mod.rs",
+      "git_blob_sha": "d594585b6cb2c8b4a30f4b31385fe8b82716c6b0",
+      "file_sha256": "efeafd9bc07c0bd20e0d2c2312bd2db45039c9d139aa754b1ff6574dd280de72",
+      "read_ranges": [
+        [
+          1,
+          256
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Pending ReadyForQuery count, transaction status and stream flushing; private cancel identifiers do not provide a public remote cancellation API.",
+      "crate": {
+        "name": "sqlx-postgres",
+        "version": "0.9.0",
+        "sha256": "87a2bdd6e83f6b3ea525ca9fee568030508b58355a43d0b2c1674d5f79dcd65e",
+        "vcs": {
+          "git": {
+            "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+          },
+          "path_in_vcs": "sqlx-postgres"
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/connection/mod.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 256,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-postgres"
+      }
+    },
+    {
+      "id": "seaorm-loader",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "git_commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/query/loader.rs",
+      "git_blob_sha": "29e2d814968a348214a027d4f8f7ae1784851b95",
+      "file_sha256": "8a09b8d48c2f670cb1d7120a0e8d2d900f67d407ddfb93c856de75d80c972b45",
+      "read_ranges": [
+        [
+          1,
+          123
+        ],
+        [
+          1184,
+          1323
+        ],
+        [
+          1385,
+          1443
+        ],
+        [
+          1740,
+          1797
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Batch relation loading reuses native keys/joins/grouping but static ModelTrait/EntityTrait bounds remain; all() collects rows.",
+      "crate": {
+        "name": "sea-orm",
+        "version": "2.0.4",
+        "sha256": "40bc08e0aa1963295a30473f98d9b4c9c2b0b3a028381e0143cb2647d0a59a32",
+        "vcs": {
+          "git": {
+            "sha1": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245"
+          },
+          "path_in_vcs": ""
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/query/loader.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 1864,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245"
+        },
+        "path_in_vcs": ""
+      }
+    },
+    {
+      "id": "seaorm-dynamic-model",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "git_commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/dynamic/model.rs",
+      "git_blob_sha": "874caaa3750d7da253856beb680ef04c3e5c2f42",
+      "file_sha256": "11ab43f1ae89b08bf273180d476424ea0d22439369efbb842ea3a9440e8dacf8",
+      "read_ranges": [
+        [
+          1,
+          204
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Public FieldType and ModelType support runtime projection without a static Entity; unsupported char errors and Option mapping matter.",
+      "crate": {
+        "name": "sea-orm",
+        "version": "2.0.4",
+        "sha256": "40bc08e0aa1963295a30473f98d9b4c9c2b0b3a028381e0143cb2647d0a59a32",
+        "vcs": {
+          "git": {
+            "sha1": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245"
+          },
+          "path_in_vcs": ""
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/dynamic/model.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 204,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245"
+        },
+        "path_in_vcs": ""
+      }
+    },
+    {
+      "id": "seaorm-row",
+      "repository": "https://github.com/SeaQL/sea-orm",
+      "git_commit": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245",
+      "path": "src/executor/query.rs",
+      "git_blob_sha": "ad6bf057d0ad34728c73903a2ee917cf145ec5c7",
+      "file_sha256": "b32674ba65c1915d0f6320ce893ee652f14d3252cea9cfb0d1277c09955eea56",
+      "read_ranges": [
+        [
+          195,
+          225
+        ],
+        [
+          227,
+          263
+        ],
+        [
+          306,
+          328
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "column_names exposes shape; Option<T> maps ColumnNotFound to None, so shape validation must precede nullable decode. Public try_as_pg_row/try_as_sqlite_row expose lifetime-bounded provider Row for columns/type_info shape checks.",
+      "crate": {
+        "name": "sea-orm",
+        "version": "2.0.4",
+        "sha256": "40bc08e0aa1963295a30473f98d9b4c9c2b0b3a028381e0143cb2647d0a59a32",
+        "vcs": {
+          "git": {
+            "sha1": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245"
+          },
+          "path_in_vcs": ""
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/executor/query.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 1902,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "db40a19a7bde7be8e1c4b346b1b70d72e87f0245"
+        },
+        "path_in_vcs": ""
+      }
+    },
+    {
+      "id": "sqlx-pg-numeric",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-postgres/src/types/rust_decimal.rs",
+      "git_blob_sha": "d679ae91511ef788c5a422f4556733e4ce00d2dd",
+      "file_sha256": "4e5f3b08f1d40add3c8797f41ba8f28af114824b5a02cb0d35d8742c99fb442e",
+      "read_ranges": [
+        [
+          1,
+          120
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Checked Decimal numeric conversion and finite representable range; NaN rejected, scale and rounding policy still domain obligations.",
+      "crate": {
+        "name": "sqlx-postgres",
+        "version": "0.9.0",
+        "sha256": "87a2bdd6e83f6b3ea525ca9fee568030508b58355a43d0b2c1674d5f79dcd65e",
+        "vcs": {
+          "git": {
+            "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+          },
+          "path_in_vcs": "sqlx-postgres"
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/types/rust_decimal.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 500,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-postgres"
+      }
+    },
+    {
+      "id": "sqlx-migrate",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "75bc0487eb661da811bb7a3c5d158f1bd463fef4",
+      "path": "sqlx-core/src/migrate/migrator.rs",
+      "git_blob_sha": "c64b0f211bb687f838b0e7cb8948daa7025b646f",
+      "file_sha256": "fcd6701394aa58b895237fa2b8cae89d754bdde10b5a6037a8ae796f5bf377c2",
+      "read_ranges": [
+        [
+          140,
+          292
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Migration checksum/dirty detection, early error after lock, unlock only on success path.",
+      "crate": {
+        "name": "sqlx-core",
+        "version": "0.9.0",
+        "sha256": "05b44e85bf579a8eeb4ceaa77a3a523baf2bf0e9bac7e40f405d537b5d2d5ccb",
+        "vcs": {
+          "git": {
+            "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+          },
+          "path_in_vcs": "sqlx-core"
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-core/src/migrate/migrator.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 380,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-core"
+      }
+    },
+    {
+      "id": "pg-tls",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-postgres/src/connection/tls.rs",
+      "git_blob_sha": "a49c9caa8ca64416182c7838c192d0a42cabdcdd",
+      "file_sha256": "e93bd2605e010a71b9a0200b27dfdd101a8427385dc39468e522fb6547958e07",
+      "read_ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Prefer can downgrade; Require accepts invalid certs; VerifyFull is required for certificate and hostname validation.",
+      "crate": {
+        "name": "sqlx-postgres",
+        "version": "0.9.0",
+        "sha256": "87a2bdd6e83f6b3ea525ca9fee568030508b58355a43d0b2c1674d5f79dcd65e",
+        "vcs": {
+          "git": {
+            "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+          },
+          "path_in_vcs": "sqlx-postgres"
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-postgres/src/connection/tls.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 100,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-postgres"
+      }
+    },
+    {
+      "id": "pg-migrate",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-postgres/src/migrate.rs",
+      "git_blob_sha": "4afa2046c9018b5cf9c52a8e74c3ee22468242b1",
+      "file_sha256": "de1fb1f13fa2d4afb887a9037cb2d517ae0f8e08ba5c0cc76c71a6ff18a44866",
+      "read_ranges": [
+        [
+          1,
+          145
+        ],
+        [
+          186,
+          270
+        ],
+        [
+          360,
+          374
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Migration lock is PostgreSQL session advisory lock; trusted migration identifiers, transactional DDL plus ledger.",
+      "crate": {
+        "name": "sqlx-postgres",
+        "version": "0.9.0",
+        "sha256": "87a2bdd6e83f6b3ea525ca9fee568030508b58355a43d0b2c1674d5f79dcd65e",
+        "vcs": {
+          "git": {
+            "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+          },
+          "path_in_vcs": "sqlx-postgres"
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-postgres/src/migrate.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 374,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-postgres"
+      }
+    },
+    {
+      "id": "sqlite-migrate",
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-sqlite/src/migrate.rs",
+      "git_blob_sha": "5864023891349f7989f72746ced964c5a36d216c",
+      "file_sha256": "039a8072ddf9b05363f47ebde40f3649c040d329cfd81e1d2b2745c53c01790d",
+      "read_ranges": [
+        [
+          149,
+          259
+        ]
+      ],
+      "reader": "/root/interop_research",
+      "observed": "Migration lock/unlock are no-ops; transactional apply reuses native SQLite transactions.",
+      "crate": {
+        "name": "sqlx-sqlite",
+        "version": "0.9.0",
+        "sha256": "488e99c397a62007e4229aec669a179816339afc6d2620ca6fa420dbee2e982c",
+        "vcs": {
+          "git": {
+            "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+          },
+          "path_in_vcs": "sqlx-sqlite"
+        }
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim.",
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-sqlite/src/migrate.rs",
+      "inspection_kind": "independent selected-source semantic review; no upstream test suite execution",
+      "verified_line_count": 297,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-sqlite"
+      }
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-core/src/connection.rs",
+      "git_blob_sha": "b5f8138b2bc1b2a9a82a21b4aa8c65fe0e42934f",
+      "read_ranges": [
+        [
+          48,
+          80
+        ]
+      ],
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-core/src/connection.rs",
+      "reader": "/root/interop_research",
+      "inspection_kind": "independent GitHub source retrieval and registry file identity check",
+      "id": "review-sqlx-core-src-connection",
+      "crate": {
+        "name": "sqlx-core",
+        "version": "0.9.0"
+      },
+      "observed": "Connection::begin_with routes to Transaction::begin with a custom BEGIN; is_in_transaction queries tracked transaction depth.",
+      "file_sha256": "a0ea974fb1bfe6ec7891e594333098b3d2fac3b3e27737e733dea461e8dee737",
+      "verified_line_count": 281,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-core"
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-core/src/transaction.rs",
+      "git_blob_sha": "46f89d25b2be6a04d7ab80347f22e21f16cd0731",
+      "read_ranges": [
+        [
+          98,
+          133
+        ]
+      ],
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-core/src/transaction.rs",
+      "reader": "/root/interop_research",
+      "inspection_kind": "independent GitHub source retrieval and registry file identity check",
+      "id": "review-sqlx-core-src-transaction",
+      "crate": {
+        "name": "sqlx-core",
+        "version": "0.9.0"
+      },
+      "observed": "Transaction::begin owns the connection wrapper and delegates transaction-manager begin; successful commit/rollback clears open.",
+      "file_sha256": "7c0e1b28f1f0b56920d71b3340407abc2eeef9fe442321d25f43d1bf1721dbf7",
+      "verified_line_count": 308,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-core"
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim."
+    },
+    {
+      "repository": "https://github.com/transact-rs/sqlx",
+      "git_commit": "003b698e99e024f3621b8043a2426fde5b741171",
+      "path": "sqlx-sqlite/src/connection/worker.rs",
+      "git_blob_sha": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+      "read_ranges": [
+        [
+          213,
+          254
+        ]
+      ],
+      "url": "https://github.com/transact-rs/sqlx/blob/003b698e99e024f3621b8043a2426fde5b741171/sqlx-sqlite/src/connection/worker.rs",
+      "reader": "/root/interop_research",
+      "inspection_kind": "independent GitHub source retrieval and registry file identity check",
+      "id": "review-sqlx-sqlite-src-connection-worker",
+      "crate": {
+        "name": "sqlx-sqlite",
+        "version": "0.9.0"
+      },
+      "observed": "Custom BEGIN allowed only at zero tracked depth; worker increments depth after successful execution and attempts rollback if acknowledgement receiver is lost.",
+      "file_sha256": "b66aafc56f0e287eac3b09111c5d4997d350ab61294c5cc576ce359bc18cebe4",
+      "verified_line_count": 573,
+      "executed_crate_vcs": {
+        "git": {
+          "sha1": "003b698e99e024f3621b8043a2426fde5b741171"
+        },
+        "path_in_vcs": "sqlx-sqlite"
+      },
+      "identity_check": "Reviewer independently calculated SHA256 and Git blob SHA from cached registry source; exact listed file matches pinned upstream Git blob, not a whole-package equality claim."
+    }
+  ],
+  "read_not_executed": [
+    "SeaORM loader upstream test snippets",
+    "SeaORM dynamic module upstream test snippets"
+  ],
+  "new_execution": "verification/interop-completion/db-review-migration/result.json"
+}
