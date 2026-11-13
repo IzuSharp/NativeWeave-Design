@@ -1,0 +1,58 @@
+name: R07 logical admission research
+on:
+  push:
+    branches: [research/logical-admission-r07]
+    paths:
+      - experiments/logical-admission/**
+      - .github/workflows/logical-admission-research.yml
+permissions:
+  contents: read
+jobs:
+  admission:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
+        with:
+          dotnet-version: '11.0.100'
+      - run: rustup toolchain install 1.100.0 --profile minimal
+      - name: Execute new logical-admission scenarios and actual AOT
+        run: python experiments/logical-admission/run.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: logical-admission-${{ matrix.os }}
+          retention-days: 30
+          path: experiments/logical-admission/artifacts/
+  preserve:
+    needs: admission
+    if: github.repository == 'IzuSharp/NativeWeave-Design' && github.ref == 'refs/heads/research/logical-admission-r07'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Verify and persist actual outputs and pinned upstream bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 experiments/logical-admission/collect.py
+      - name: Commit research evidence only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add verification/logical-admission
+          git commit -m 'research(R07): persist actual logical admission negative and positive results'
+          git push origin HEAD:refs/heads/research/logical-admission-r07
