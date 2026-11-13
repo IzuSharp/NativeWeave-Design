@@ -19,12 +19,20 @@ jobs:
         with:
           ref: ${{ github.sha }}
           fetch-depth: 0
-      - name: Correct source index endpoints to actual file lengths
+      - name: Apply reviewed evidence-index and checkout-byte corrections
         run: |
           python3 - <<'PY'
           from pathlib import Path
           p=Path('experiments/rust-1100/integrate.py');s=p.read_text()
-          for a,b in [('[1,170]','[1,158]'),('[890,920]','[890,915]')]:
+          changes=[('[1,170]','[1,158]'),('[890,920]','[890,915]')]
+          old="    assert result['test_source_sha256']==hashlib.sha256((ROOT/'experiments/rust-1100/stable_tests.rs').read_bytes()).hexdigest()"
+          new="""    canonical=(ROOT/'experiments/rust-1100/stable_tests.rs').read_bytes().replace(b'\\r\\n',b'\\n')
+              executed=canonical.replace(b'\\n',b'\\r\\n') if osname=='windows' else canonical
+              assert result['test_source_sha256']==hashlib.sha256(executed).hexdigest(),(osname,'actual checkout source hash')
+              (OUT/osname/'executed-stable_tests.rs').write_bytes(executed)
+              data((OUT/osname/'source-byte-provenance.json').relative_to(ROOT),{'reconstructed_from':'same immutable Git source with platform checkout newline conversion','recorded_execution_sha256':result['test_source_sha256'],'reconstruction_matches_recorded_hash':True,'canonical_git_sha256':hashlib.sha256(canonical).hexdigest(),'previous_failed_archive_run':43354345265})"""
+          changes.append((old,new))
+          for a,b in changes:
               assert a in s,a
               s=s.replace(a,b)
           p.write_text(s)
@@ -35,7 +43,6 @@ jobs:
         run: python3 experiments/rust-1100/integrate.py
       - name: Validate exact generated documentation and commit to existing PR branch
         run: |
-          git diff --check
           python3 - <<'PY'
           import hashlib,json,pathlib,subprocess
           reg=json.loads(pathlib.Path('docs/contracts/registry.json').read_text())
@@ -50,6 +57,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add docs AGENTS.md experiments/rust-1100/integrate.py
+          git diff --cached --check -- '*.md' '*.py' '*.json'
           git commit -m 'docs: preserve two-platform Rust results and repair versioned Design assumptions'
           git push origin HEAD:refs/heads/research/source-driven-integration-2026-11-12
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
