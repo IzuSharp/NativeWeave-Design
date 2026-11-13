@@ -1,0 +1,67 @@
+name: Rust 1.100 stable API probes
+on:
+  push:
+    branches: [research/source-driven-integration-2026-11-12]
+    paths:
+      - .github/workflows/rust-1100-probes.yml
+      - experiments/rust-1100/probe.py
+      - experiments/rust-1100/stable_tests.rs
+permissions:
+  contents: read
+jobs:
+  api:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install pinned stable
+        shell: bash
+        run: rustup toolchain install 1.100.0 --profile minimal
+      - name: Test API behavior and stable negative controls
+        shell: bash
+        run: python experiments/rust-1100/probe.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rust-1100-api-${{ matrix.os }}
+          path: |
+            experiments/rust-1100/evidence/
+            experiments/rust-1100/work/*.rs
+            experiments/rust-1100/work/lint/Cargo.lock
+          retention-days: 14
+  missing-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Collect relocated Cargo implementation and Rust tests only
+        run: |
+          python3 - <<'PY'
+          import hashlib,io,json,pathlib,tarfile,urllib.request
+          out=pathlib.Path('source-followup');out.mkdir();records=[]
+          for repo,sha in [('rust-lang/cargo','3acc79c0c841844675bc53a605922dbfc441e750'),('rust-lang/rust','0ef1bc386059596dada8fb65b50425aab2ea637a')]:
+            raw=urllib.request.urlopen(f'https://codeload.github.com/{repo}/tar.gz/{sha}',timeout=180).read();files=[]
+            with tarfile.open(fileobj=io.BytesIO(raw),mode='r:gz') as tf:
+              for m in tf.getmembers():
+                if not m.isfile() or m.size>3000000:continue
+                rel=pathlib.PurePosixPath(*pathlib.PurePosixPath(m.name).parts[1:]);p=str(rel)
+                if not rel.parts or '..' in rel.parts:continue
+                keep=(repo.endswith('/cargo') and (p.startswith('crates/cargo/') or '/reference/' in p or '/min_publish_age' in p or '/unused_dependencies' in p)) or (repo.endswith('/rust') and ('naked' in p or 'drop_guard' in p or 'smart_pointer' in p or p.startswith(('library/alloctests/','library/coretests/'))))
+                if not keep:continue
+                b=tf.extractfile(m).read()
+                try:b.decode()
+                except UnicodeDecodeError:continue
+                dest=out/repo.split('/')[-1]/p;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(b);files.append({'path':p,'sha256':hashlib.sha256(b).hexdigest()})
+            records.append({'repository':repo,'commit':sha,'archive_sha256':hashlib.sha256(raw).hexdigest(),'files':files,'status':'collected, not automatically reviewed'})
+          (out/'manifest.json').write_text(json.dumps(records,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rust-1100-source-followup
+          path: source-followup/
+          retention-days: 14
