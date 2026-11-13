@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "fixture": "server",
+  "source_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+  "workflow_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+  "run_id": "43371161177",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "scope": "finite native source-informed fixture; no C# domain binding, PostgreSQL, TLS, load or product acceptance",
+  "source_files": {
+    "server/Cargo.toml": "a57375b80aba69629d2dd972c27b5314ef88b67474ece4e86a66af342d486c9d",
+    "server/Cargo.lock": "97c4d51d5ac7dc328f14fb878b6c43ae1829ffa4ed37f0158a53fbaeb23a456f",
+    "server/src/lib.rs": "551eb0dbd3b4b0935b4aff77c54bc2ef73ea341d729a8a5839c18b27421c2b94"
+  }
+}

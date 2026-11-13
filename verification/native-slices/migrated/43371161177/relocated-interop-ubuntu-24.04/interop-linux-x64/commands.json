@@ -1,0 +1,167 @@
+[
+  {
+    "name": "rust-version",
+    "argv": [
+      "rustc",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:09.291980+00:00",
+    "ended_utc": "2026-11-13T05:19:09.305383+00:00",
+    "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "cargo-version",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:09.305601+00:00",
+    "ended_utc": "2026-11-13T05:19:09.323468+00:00",
+    "stdout_sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "dotnet-info",
+    "argv": [
+      "dotnet",
+      "--info"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:09.323707+00:00",
+    "ended_utc": "2026-11-13T05:19:10.151745+00:00",
+    "stdout_sha256": "025a77ee6fb635716c429cae9427e9f0b5c33da95835da50d9fcbf5745bd6a7f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "rust-tests",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "test",
+      "--locked",
+      "--offline",
+      "--manifest-path",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/interop/native/Cargo.toml",
+      "--",
+      "--test-threads=1"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:10.152113+00:00",
+    "ended_utc": "2026-11-13T05:19:10.487801+00:00",
+    "stdout_sha256": "9d2b55367a0b75378110f602455726783ba24651c8d5e9ff4fa17c816650a014",
+    "stderr_sha256": "95b4f9321269f5e6684e80692e9df1b546243426f6318f6d54e5bc883a3a137a"
+  },
+  {
+    "name": "native-build",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "build",
+      "--locked",
+      "--offline",
+      "--release",
+      "--manifest-path",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/interop/native/Cargo.toml",
+      "--message-format=json"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:10.488237+00:00",
+    "ended_utc": "2026-11-13T05:19:10.614839+00:00",
+    "stdout_sha256": "7eb8d8d64eb652013301f2c217577cdc305cb51bda85dbb51735a84f44d3d2d7",
+    "stderr_sha256": "4f01c177b7d5b3a09ef1165827ba89c3dec0a0ea2a153cdabe5826a83aacb3c5"
+  },
+  {
+    "name": "pack",
+    "argv": [
+      "dotnet",
+      "pack",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/interop/managed/NativeWeave.Interop.Probe.csproj",
+      "-c",
+      "Release",
+      "-o",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/.work/linux-x64/feed",
+      "-p:NativeAsset=/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/.work/linux-x64/target/release/libnw_interop_probe.so",
+      "-p:ProbeRid=linux-x64"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:10.616095+00:00",
+    "ended_utc": "2026-11-13T05:19:14.717181+00:00",
+    "stdout_sha256": "af305a4b0cc949ec588223cba9b5d56fc22c051a43493f2dbf9c01a73b3fff3a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "consumer-build-no-rid",
+    "argv": [
+      "dotnet",
+      "build",
+      "-c",
+      "Release"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/.work/linux-x64/consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:14.739065+00:00",
+    "ended_utc": "2026-11-13T05:19:15.478328+00:00",
+    "stdout_sha256": "d7c6188f87cb0e4ff488ba2281e6174ad42285abd0abe53fb82618a2cd040869",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "consumer-run-no-rid",
+    "argv": [
+      "dotnet",
+      "run",
+      "-c",
+      "Release",
+      "--no-build"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/.work/linux-x64/consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:15.478836+00:00",
+    "ended_utc": "2026-11-13T05:19:16.238459+00:00",
+    "stdout_sha256": "191886e1269d85ffc219cc7d3ae9355513f70f3f4a1a978267dc5f856bd3512f",
+    "stderr_sha256": "1266d04fe0e384f6b2e1814c3ebffe521e66e88adab67ef974a3b4194f4c80f7"
+  },
+  {
+    "name": "aot-publish",
+    "argv": [
+      "dotnet",
+      "publish",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-p:PublishAot=true",
+      "-o",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/.work/linux-x64/publish"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/.work/linux-x64/consumer",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:16.239141+00:00",
+    "ended_utc": "2026-11-13T05:19:24.069971+00:00",
+    "stdout_sha256": "1f8c1a8bd3acaf8830cfbdef5e841762a498baa05f53a3f9d1e12cad1ac61f85",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "aot-run",
+    "argv": [
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/.work/linux-x64/publish/Consumer",
+      "--expect-aot"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/.work/linux-x64/publish",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:19:24.071463+00:00",
+    "ended_utc": "2026-11-13T05:19:24.121858+00:00",
+    "stdout_sha256": "cf0b074a570621b5825e12e7610f6c6943b2f36a211d3e11174ab0cb3772b137",
+    "stderr_sha256": "dbbf452295ef4373987103202a915b31c6c126af6c15f86eec816729c3f223bb"
+  }
+]

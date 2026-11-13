@@ -1,0 +1,26 @@
+{
+  "source_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+  "run_id": "43371161177",
+  "platform": "Windows-2022Server-10.0.20348-SP0",
+  "rid": "win-x64",
+  "success": true,
+  "scope": "R03/R04/R07/R10 executable fixture; not production ABI or completed Delivery",
+  "clean_rust_free_host": false,
+  "native_sha256": "db0b5dd2cfef14154d24763bf802bcd73de958fb412bf372e7ba17f6d8dc640e",
+  "package_sha256": "d67ca37991b7dfe60b618aa4c6b73e5638e5993a08f77be942c87e3b89babd32",
+  "aot_executable_sha256": "4a27c1af83a5d136da7f572344f76b59a3c40ec6c178c30ea236254fac1c36fe",
+  "rust_tests": 4,
+  "managed_groups_per_execution": 6,
+  "held_call_dispose_rounds_per_execution": 32,
+  "rid_free_build_run": true,
+  "source_files": {
+    "interop\\consumer\\Consumer.csproj": "10dd2830fb49d636348f5e154b6b5f7f33fa579d5225e14ec4b67336d787fe14",
+    "interop\\consumer\\Program.cs": "dca07eab6d53be8f12d14f04fcffabce16d4cd44d4b57aa6ffd5014904835c8d",
+    "interop\\managed\\Bridge.cs": "366f282bc9864e1bf72b4ef711774fb506a418555abceb73836cd249b28d7eef",
+    "interop\\managed\\NativeWeave.Interop.Probe.csproj": "f3568055889622ebff2b6b7369c647aadae96bd7a1d108a6ac0a09bac6fe8530",
+    "interop\\native\\Cargo.lock": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60",
+    "interop\\native\\Cargo.toml": "1ec6048a2c40d4de73d59127db3cd4675bdf3fe43d04a20399dcae0cab51707d",
+    "interop\\native\\src\\lib.rs": "e4e632a1145a2148443fb795785dbc693305ca446a298bd840c2fe380187b5ef",
+    "interop\\run.py": "c95d9d525d0ccb474ad5af5c2bd0eb8deeae783a58589c80482a7b11193651d1"
+  }
+}
