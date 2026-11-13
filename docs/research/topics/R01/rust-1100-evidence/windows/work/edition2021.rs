@@ -1,0 +1,1 @@
+fn main(){let r:Result<u32,!>=Ok(9);let Ok(v)=r;assert_eq!(v,9);}

@@ -4,7 +4,9 @@
 
 核验日期：2026-11-12，America/Los_Angeles。证据汇总时钟：2026-11-12 12:23:11 UTC（当地 04:23:11）。研究者：`toolchain_verification`。机器可读记录见 [evidence.json](evidence.json)。
 
-## 1. 当前可证实的稳定基线
+> Historical observation below was made before Rust1.100 released. Current Rust source/real-toolchain update: [R01 Rust1.100](../topics/R01/rust-1.100.md). Do not reinterpret old not_run results as new executions.
+
+## 1. 当时可证实的稳定基线
 
 | 对象 | 本次核验结果 | 发布时间 / 支持期限 | 证据层级与限制 |
 | --- | --- | --- | --- |

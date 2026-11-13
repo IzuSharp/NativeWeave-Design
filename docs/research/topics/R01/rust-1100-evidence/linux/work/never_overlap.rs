@@ -1,0 +1,1 @@
+trait T {} impl T for fn()->! {} impl T for fn()->std::convert::Infallible {} fn main(){}

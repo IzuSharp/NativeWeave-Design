@@ -1,0 +1,18 @@
+
+running 13 tests
+test arc_allocator_delegation_is_stable ... ok
+test arc_map_shared_is_not_in_place_update ... ok
+test arc_map_unique_observation ... ok
+test arc_map_with_weak_has_distinct_identity ... ok
+test box_map_changed_layout_and_panic_cleanup ... ok
+test box_map_equal_layout_observation ... ok
+test guard_dismiss_drops_captured_resources ... ok
+test guard_runs_during_unwind ... ok
+test guard_runs_once ... ok
+test never_and_infallible_alias ... ok
+test raw_parts_preserve_allocator ... ok
+test vec_allocator_release_and_failed_growth ... ok
+test vec_from_fn_zero_order_and_unwind ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

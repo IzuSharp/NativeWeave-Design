@@ -41,6 +41,8 @@ C# compile-time types protect ordinary application composition; the native bound
 
 ## 4. SeaORM versus SQLx, not a predetermined slogan
 
+Read the [dynamic-module correction](seaorm-dynamic-boundary.md) with this section: SeaORM is not categorically static-only. Public dynamic projections/connections and a narrow metadata-constructor extension remain real alternatives. Static EntityTrait alone does not disprove a no-Cargo dynamic route.
+
 SeaORM's `EntityTrait` (`src/entity/base_entity.rs:57–140`) has associated Model/ActiveModel/Column/Relation/PrimaryKey types. Its ActiveModel insert/update path (`src/entity/active_model.rs:225–235,347–402`) invokes hooks and executes through the Entity's operations. This is valuable typed native ORM behavior, but the previous proposal compiled a new Rust Entity module for each application's model. That coupling belongs to that **chosen static profile**, not to every possible Rust-backed database abstraction.
 
 SeaORM also offers ConnectionTrait/StreamTrait (`src/database/connection.rs:1–88`) and TransactionTrait (`181–216`). Passing raw Statements through those interfaces does not magically supply the static Entity's relationship/hook semantics. For the ordinary no-Cargo application path, SeaQuery + SQLx is therefore the better supported **default candidate** after this comparison. Retain static SeaORM as a specialized extension when its complete typed behavior is needed and a separately built module is acceptable.

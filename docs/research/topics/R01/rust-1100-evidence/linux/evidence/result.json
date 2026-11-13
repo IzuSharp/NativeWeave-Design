@@ -1,0 +1,257 @@
+{
+  "source_commit": "73821095d99c0690def9e10815eb6c91dbed8b7b",
+  "run_id": "43352716861",
+  "os": "Linux",
+  "arch": "x86_64",
+  "all_expected_results": true,
+  "commands": [
+    {
+      "name": "rustc-version",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "-Vv"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.462570+00:00",
+      "finished_at": "2026-11-13T02:31:20.472810+00:00",
+      "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "cargo-version",
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "-Vv"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.473012+00:00",
+      "finished_at": "2026-11-13T02:31:20.488792+00:00",
+      "stdout_sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stable-tests-compile",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "--test",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/stable_tests.rs",
+        "-Dwarnings",
+        "-o",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/tests"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.489003+00:00",
+      "finished_at": "2026-11-13T02:31:20.813017+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stable-tests-run",
+      "command": [
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/tests",
+        "--test-threads=1"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.813202+00:00",
+      "finished_at": "2026-11-13T02:31:20.815170+00:00",
+      "stdout_sha256": "ffa4829096869ccd418d42af58a199caed5f26ce84b3e9b0ac49c603cb1e33ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "arc_custom_allocator",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/arc_custom_allocator.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 1,
+      "expected": "failure",
+      "expected_diagnostic": "E0658",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.815378+00:00",
+      "finished_at": "2026-11-13T02:31:20.832255+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "137b26c9d89cf8c0a3e77d2c0674090526054b3e1a46ee317984b3865bf920dc"
+    },
+    {
+      "name": "box_try_map",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/box_try_map.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 1,
+      "expected": "failure",
+      "expected_diagnostic": "E0658",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.832530+00:00",
+      "finished_at": "2026-11-13T02:31:20.849675+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0dfe605e70a69a988de6d5aa3023ae78adfdeaad949c0702313c8c071d838618"
+    },
+    {
+      "name": "custom_ordinary_body",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/custom_ordinary_body.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 1,
+      "expected": "failure",
+      "expected_diagnostic": "custom",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.849938+00:00",
+      "finished_at": "2026-11-13T02:31:20.865396+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2983682afe1132f39cc225a726ff177d6ab5366a1dec7d5f98f7c8bfab3a9a67"
+    },
+    {
+      "name": "never_overlap",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/never_overlap.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 1,
+      "expected": "failure",
+      "expected_diagnostic": "E0119",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.865647+00:00",
+      "finished_at": "2026-11-13T02:31:20.886464+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3542751ce400352695cd0e9788f77f9d02570b2e6a02de69b47683404817583d"
+    },
+    {
+      "name": "custom-naked-compile-only",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2024",
+        "--crate-type=lib",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/custom_naked.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.886722+00:00",
+      "finished_at": "2026-11-13T02:31:20.903184+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "never-2021-compile",
+      "command": [
+        "rustc",
+        "+1.100.0",
+        "--edition=2021",
+        "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/edition2021.rs",
+        "--emit=metadata"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.903438+00:00",
+      "finished_at": "2026-11-13T02:31:20.921207+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "cargo-unused-negative",
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "check",
+        "--offline",
+        "--all-targets"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/lint",
+      "exit_code": 101,
+      "expected": "failure",
+      "expected_diagnostic": "unused dependency",
+      "passed": true,
+      "started_at": "2026-11-13T02:31:20.921736+00:00",
+      "finished_at": "2026-11-13T02:31:21.006399+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "62d5a9e45e4cf1de8dc3ba3a6db9054ca504c2eef3901d73a761a7af488faede"
+    },
+    {
+      "name": "cargo-unused-positive",
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "check",
+        "--offline",
+        "--all-targets"
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/lint",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:21.006683+00:00",
+      "finished_at": "2026-11-13T02:31:21.043168+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4aa4a763cfcda44687376e4923df3e6465cae2ba3b65fbd28cdb3a9e2710c953"
+    },
+    {
+      "name": "cargo-build-dir-json",
+      "command": [
+        "cargo",
+        "+1.100.0",
+        "build",
+        "--offline",
+        "--message-format=json",
+        "--config",
+        "build.build-dir=\"native-build-cache\""
+      ],
+      "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/lint",
+      "exit_code": 0,
+      "expected": "success",
+      "expected_diagnostic": null,
+      "passed": true,
+      "started_at": "2026-11-13T02:31:21.043404+00:00",
+      "finished_at": "2026-11-13T02:31:21.146739+00:00",
+      "stdout_sha256": "8109abb751054911beb7222564f822c02612c0adfbe30d0f73cc66b837a57245",
+      "stderr_sha256": "d5dbe08ffae0eb480b839bf6787ee6d899de414f491ebdfe7cb084c4ce3f6b6e"
+    }
+  ],
+  "test_source_sha256": "398cab6b896702d6e3a7f252db6f75827cba1a4950c9e3c180cf009a6f435543",
+  "scope": "New stable API/compiler fixtures; no AOT/production/independent review/performance claim"
+}

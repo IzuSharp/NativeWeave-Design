@@ -1,0 +1,195 @@
+{
+  "records": [
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/core/src/mem/drop_guard.rs",
+      "ranges": [
+        [
+          1,
+          158
+        ]
+      ],
+      "file_sha256": "bdcfd24e46949b37631ef600daad612eafe79cbad99160bfb851d3c07a022662",
+      "coverage": "selected source ranges inspected"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/core/src/alloc/mod.rs",
+      "ranges": [
+        [
+          105,
+          202
+        ],
+        [
+          276,
+          335
+        ]
+      ],
+      "file_sha256": "567bc48bef67cb94e5862d9948f7fdc6c613e9913efb2537fbddc7d38f1f1668",
+      "coverage": "selected source ranges inspected"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/alloc/src/boxed.rs",
+      "ranges": [
+        [
+          680,
+          752
+        ]
+      ],
+      "file_sha256": "6db3062ee2ece4dbef2bafe19404b9eb18b518bc4a95d3a2e084ac99f24ccc36",
+      "coverage": "selected source ranges inspected"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/alloc/src/sync.rs",
+      "ranges": [
+        [
+          1200,
+          1285
+        ],
+        [
+          2929,
+          2950
+        ]
+      ],
+      "file_sha256": "5147d380fc9c575b28b68ac2db80aaff99e4a975ba7dccf160716bbaff02c887",
+      "coverage": "selected source ranges inspected"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/alloc/src/vec/mod.rs",
+      "ranges": [
+        [
+          710,
+          775
+        ]
+      ],
+      "file_sha256": "ccc819747aea1f210d1d4de6f0f062a2599539c1fc2f10071e9e0f878d094a28",
+      "coverage": "selected source ranges inspected"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/core/src/convert/mod.rs",
+      "ranges": [
+        [
+          890,
+          915
+        ]
+      ],
+      "file_sha256": "b6dfcca2dfe329eef350962c0003eafea126665072450f7c7889c22ab3758b30",
+      "coverage": "selected source ranges inspected"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "compiler/rustc_abi/src/extern_abi.rs",
+      "ranges": [
+        [
+          60,
+          64
+        ]
+      ],
+      "file_sha256": "e9264f4771556614e60d0b543e214126f4dec79441f12e917999747888f5271a",
+      "coverage": "selected source ranges inspected"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "RELEASES.md",
+      "ranges": [
+        [
+          1,
+          165
+        ]
+      ],
+      "file_sha256": "1c1609f9b298fafd547eeee38e669eb0b880fa506ed8dd5759ba840b967c5ab5",
+      "coverage": "selected source ranges inspected"
+    },
+    {
+      "repo": "rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "src/diagnostics/rules/unused_dependencies.rs",
+      "ranges": [
+        [
+          1,
+          440
+        ]
+      ],
+      "file_sha256": "710406a3a37f387d3a30b47fc7d2ce9cea8eddeabd294c6144ea7aa016ab98b6",
+      "coverage": "connector source reading, not upstream suite execution"
+    },
+    {
+      "repo": "rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "src/resolver/version_prefs.rs",
+      "ranges": [
+        [
+          1,
+          320
+        ]
+      ],
+      "file_sha256": "f06fb964456f034158bb1cf0b176595369f6e3f63805922347b08517df6b6278",
+      "coverage": "connector source reading, not upstream suite execution"
+    },
+    {
+      "repo": "rust-lang/rust",
+      "commit": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+      "path": "library/coretests/tests/mem.rs",
+      "ranges": [
+        [
+          777,
+          822
+        ]
+      ],
+      "file_sha256": "7078e7a1fa2511b586d68629d81f62aa3ac7bb40283536d60e08db75212e8d41",
+      "coverage": "read; upstream tests not executed"
+    },
+    {
+      "repo": "rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/build-cache.md",
+      "ranges": [
+        [
+          1,
+          140
+        ]
+      ],
+      "file_sha256": "983220cdb64584f715a4fda690ced97d8b43c07b324a7db788dab7a4192cc330",
+      "coverage": "read; upstream tests not executed"
+    },
+    {
+      "repo": "rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/config.md",
+      "ranges": [
+        [
+          566,
+          584
+        ]
+      ],
+      "file_sha256": "f81401ff947d32e3976e1ef7392a40985ca1e4a041581b209478328c3539b204",
+      "coverage": "read; upstream tests not executed"
+    },
+    {
+      "repo": "rust-lang/cargo",
+      "commit": "3acc79c0c841844675bc53a605922dbfc441e750",
+      "path": "doc/book/src/reference/resolver.md",
+      "ranges": [
+        [
+          313,
+          325
+        ]
+      ],
+      "file_sha256": "97e905ccfed88fcb0c849b9f8c375d32f491f594558f3ff9227502ba6cd35890",
+      "coverage": "read; upstream tests not executed"
+    }
+  ],
+  "limits": "Selected mechanisms only; release-list items not listed as source-inspected are release-note evidence. Registry packages are distinct identities."
+}

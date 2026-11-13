@@ -1,0 +1,101 @@
+{
+  "observed_at": "2026-11-13T02:25:18.124871+00:00",
+  "packages": [
+    {
+      "crate": "actix-server",
+      "version": "2.10.0",
+      "rust_version": "1.89",
+      "checksum": "5e296908c4d6f3a191e6b9873dbdfec8023350a89129d2b470f61d17233931ee",
+      "published_at": "2026-10-13T17:23:40.335020Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "actix-web",
+      "version": "4.19.0",
+      "rust_version": "1.89",
+      "checksum": "acd6966acfcc7b66b37bdeea7d11665d5accac89333767e1784d2cecd33984e7",
+      "published_at": "2026-11-09T03:37:45.289499Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "axum",
+      "version": "0.8.9",
+      "rust_version": "1.80",
+      "checksum": "31b698c5f9a010f6573133b09e0de5408834d0c82f8d7475a89fc1867a71cd90",
+      "published_at": "2026-04-14T07:55:20.258398Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "hyper-util",
+      "version": "0.1.21",
+      "rust_version": "1.85",
+      "checksum": "ddc03d96684f9226b8a787cdb71488417b53ab5ea8fdb1dac946cb9431cc8bff",
+      "published_at": "2026-09-24T17:47:59.783880Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "hyper",
+      "version": "1.12.0",
+      "rust_version": "1.63",
+      "checksum": "2c3e324da4c95177d6291d4c8730197c0d1822f8a9766814a4a44fa5ab797c9c",
+      "published_at": "2026-10-06T15:57:18.927904Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "pingora",
+      "version": "0.9.1",
+      "rust_version": null,
+      "checksum": "f97ba6539118cd573350647f34c2cd1fc288bd7ac94cb4597b05b3d0272bb5db",
+      "published_at": "2026-11-03T00:45:18.502230Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "sea-query-sqlx",
+      "version": "0.9.1",
+      "rust_version": "1.94.0",
+      "checksum": "4eaa419cdb9157da1361186b1959983eb2ea0dcb9a3c69dc45c449ecb2af8fef",
+      "published_at": "2026-05-30T21:58:29.701883Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "sea-orm",
+      "version": "2.0.4",
+      "rust_version": "1.94.0",
+      "checksum": "40bc08e0aa1963295a30473f98d9b4c9c2b0b3a028381e0143cb2647d0a59a32",
+      "published_at": "2026-09-27T16:18:34.278052Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "sea-query",
+      "version": "1.0.2",
+      "rust_version": "1.88.0",
+      "checksum": "546040c653a705e60ec65ecd3191a809603734bebbc225775916dea9ae409b31",
+      "published_at": "2026-08-12T22:44:57.689934Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "sqlx",
+      "version": "0.9.0",
+      "rust_version": "1.94.0",
+      "checksum": "378620ccc25c62c89d8be1c819e76a88d59bdcc3304733330788948e619bfd71",
+      "published_at": "2026-05-21T17:35:53.403466Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "tokio",
+      "version": "1.54.1",
+      "rust_version": "1.85",
+      "checksum": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3",
+      "published_at": "2026-10-21T21:05:43.950213Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    },
+    {
+      "crate": "tower",
+      "version": "0.5.3",
+      "rust_version": "1.64.0",
+      "checksum": "ebe5ef63511595f1344e2d5cfa636d973292adc0eec1f0ad45fae9f0851ab1d4",
+      "published_at": "2026-01-12T18:43:05.227461Z",
+      "evidence": "official crates.io metadata; full closure compilation not implied"
+    }
+  ]
+}

@@ -54,12 +54,13 @@
       "title": "资源所有权与释放",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
+      "specification_status": "existing_review_ready_text_registered_as_proposed",
+      "content_sha256": "c21e14010397330ba08f41db91d438c98f190f018130a3429f7f58b07f135bcb",
+      "author": "interop_design",
+      "spec_path": "docs/contracts/lifetime-v0.1.md",
       "dependencies": [],
-      "reviews": []
+      "reviews": [],
+      "version_note": "Registry draft label retained; document v0.1.0 text is review-ready, not formally accepted. Original independent review applies only to its original bytes."
     },
     {
       "id": "C-CALLBACK-001",
@@ -68,12 +69,13 @@
       "title": "回调注册注销与重入",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
+      "specification_status": "existing_review_ready_text_registered_as_proposed",
+      "content_sha256": "596679cf7950d4a9146cb7a5d7a51819b2d953bda580a6722da81649af469700",
+      "author": "interop_design",
+      "spec_path": "docs/contracts/callback-v0.1.md",
       "dependencies": [],
-      "reviews": []
+      "reviews": [],
+      "version_note": "Registry draft label retained; document v0.1.0 text is review-ready, not formally accepted. Original independent review applies only to its original bytes."
     },
     {
       "id": "C-ASYNC-001",
@@ -82,12 +84,13 @@
       "title": "异步完成取消与静默",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
+      "specification_status": "existing_review_ready_text_registered_as_proposed",
+      "content_sha256": "8f09504a07632fe53ca6e5d2861cf70a3c2d7cea9ff1e4e3035a6a8beaec8672",
+      "author": "interop_design",
+      "spec_path": "docs/contracts/async-v0.1.md",
       "dependencies": [],
-      "reviews": []
+      "reviews": [],
+      "version_note": "Registry draft label retained; document v0.1.0 text is review-ready, not formally accepted. Original independent review applies only to its original bytes."
     },
     {
       "id": "C-BUFFER-001",
@@ -110,12 +113,13 @@
       "title": "错误与panic边界",
       "evidence": [],
       "reviewers": [],
-      "specification_status": "to_be_authored_by_documentation_task",
-      "content_sha256": null,
-      "author": "unassigned",
-      "spec_path": null,
+      "specification_status": "existing_review_ready_text_registered_as_proposed",
+      "content_sha256": "fc665d6ac0328b7c524687191d547bd3792dcb43f36124bc10b9144bb42c4797",
+      "author": "interop_design",
+      "spec_path": "docs/contracts/error-v0.1.md",
       "dependencies": [],
-      "reviews": []
+      "reviews": [],
+      "version_note": "Registry draft label retained; document v0.1.0 text is review-ready, not formally accepted. Original independent review applies only to its original bytes."
     },
     {
       "id": "C-CONCURRENCY-001",
@@ -133,36 +137,38 @@
     },
     {
       "id": "C-BUILD-001",
-      "version": "0.2.0-draft",
+      "version": "0.2.1-draft",
       "status": "proposed",
       "title": "构建打包发布",
       "evidence": [
         "docs/research/topics/R25/source-driven-seaquery.md",
         "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md"
+        "docs/research/source-driven-evidence/README.md",
+        "docs/research/topics/R01/rust-1.100.md"
       ],
       "reviewers": [],
       "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "50d442c9bf6b2c29f7a010985e6a83e0e8f09f10749d3b8660f22158e3aa19a3",
-      "author": "recovery_session",
+      "content_sha256": "5f94867c4eac70ac2bffb410b7a1c7bc7595c42d774e4180ab914e5b79b6087a",
+      "author": "rust1100-integration-author",
       "spec_path": "docs/platforms/build-package-release.md",
       "dependencies": [],
       "reviews": []
     },
     {
       "id": "C-ENGINE-001",
-      "version": "0.2.0-draft",
+      "version": "0.2.1-draft",
       "status": "proposed",
       "title": "独立Engine接入",
       "evidence": [
         "docs/research/topics/R25/source-driven-seaquery.md",
         "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md"
+        "docs/research/source-driven-evidence/README.md",
+        "docs/research/topics/R01/rust-1.100.md"
       ],
       "reviewers": [],
       "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "e7e7796662c652e8dde40269f9bcf1143fd28fbdb8d8ef65783f094f822b618c",
-      "author": "recovery_session",
+      "content_sha256": "eb6f2dd8249c43687b95a11f5064cc47c9d3b23ad3adcd1cbd9326b297b3bd6d",
+      "author": "rust1100-integration-author",
       "spec_path": "docs/extension/engine-integration.md",
       "dependencies": [],
       "reviews": []
@@ -233,18 +239,19 @@
     },
     {
       "id": "C-QUERY-001",
-      "version": "0.2.0-draft",
+      "version": "0.2.1-draft",
       "status": "proposed",
       "title": "查询IR与SQL语义",
       "evidence": [
         "docs/research/topics/R25/source-driven-seaquery.md",
         "docs/research/topics/R27/source-driven-server.md",
-        "docs/research/source-driven-evidence/README.md"
+        "docs/research/source-driven-evidence/README.md",
+        "docs/research/topics/R01/rust-1.100.md"
       ],
       "reviewers": [],
       "specification_status": "authored_proposed_independent_review_pending",
-      "content_sha256": "ada72b4c580135171a590f27ee54ca53450ef8e6dfd0a3a103a8426b021b0bc1",
-      "author": "recovery_session",
+      "content_sha256": "d5afd6b8c7d169fb5388ad61db37626a7f926fdcf012d82fdf0383abbbb16710",
+      "author": "rust1100-integration-author",
       "spec_path": "docs/database/query-semantics.md",
       "dependencies": [],
       "reviews": []

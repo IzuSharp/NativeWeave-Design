@@ -1,0 +1,72 @@
+{
+  "scope": "Nine nullable-integer SQLite cases only, not all DB types or C# execution",
+  "sqlite_version": "3.45.1",
+  "cases": [
+    {
+      "x": null,
+      "y": null,
+      "sql_not_gt": null,
+      "sql_le": null,
+      "two_valued_compensation": 1
+    },
+    {
+      "x": null,
+      "y": -1,
+      "sql_not_gt": null,
+      "sql_le": null,
+      "two_valued_compensation": 1
+    },
+    {
+      "x": null,
+      "y": 1,
+      "sql_not_gt": null,
+      "sql_le": null,
+      "two_valued_compensation": 1
+    },
+    {
+      "x": -1,
+      "y": null,
+      "sql_not_gt": null,
+      "sql_le": null,
+      "two_valued_compensation": 1
+    },
+    {
+      "x": -1,
+      "y": -1,
+      "sql_not_gt": 1,
+      "sql_le": 1,
+      "two_valued_compensation": 1
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "sql_not_gt": 1,
+      "sql_le": 1,
+      "two_valued_compensation": 1
+    },
+    {
+      "x": 1,
+      "y": null,
+      "sql_not_gt": null,
+      "sql_le": null,
+      "two_valued_compensation": 1
+    },
+    {
+      "x": 1,
+      "y": -1,
+      "sql_not_gt": 0,
+      "sql_le": 0,
+      "two_valued_compensation": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "sql_not_gt": 1,
+      "sql_le": 1,
+      "two_valued_compensation": 1
+    }
+  ],
+  "all_sql_equivalences_passed": true,
+  "compensation_counterexample_found": true,
+  "run_id": "43354814337"
+}

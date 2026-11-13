@@ -1,0 +1,334 @@
+{
+  "input_commit": "9e68100536cd7958dd3b51fb0bf5571d91bbe2bf",
+  "run_id": "43354814337",
+  "artifacts": [
+    {
+      "name": "primary",
+      "run_id": 43352016583,
+      "artifact_id": 14004167752,
+      "zip_sha256": "92c64c3435cde548e0ce8eeadce7631ab58f12676c35c804034a3153142759b4"
+    },
+    {
+      "name": "linux",
+      "run_id": 43352716861,
+      "artifact_id": 14004931075,
+      "zip_sha256": "93bbd472740cd99f68f6c7dc942629e403bd1452c74f397ec24e28a7e1b87ef3"
+    },
+    {
+      "name": "windows",
+      "run_id": 43352716861,
+      "artifact_id": 14004626653,
+      "zip_sha256": "1f8bad1d39f3c5d53348d75d49be7774213ebc0f8f6651b151444ead0c8ceb71"
+    },
+    {
+      "name": "followup",
+      "run_id": 43352716861,
+      "artifact_id": 14004596768,
+      "zip_sha256": "f803f823ad3a09ce6a33f4318925de95a47010c2e0f983471289998daecf6bd3"
+    }
+  ],
+  "preserved_files": [
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/primary/environment/cargo.txt",
+      "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/primary/environment/exact-channel.toml",
+      "sha256": "3051e859570f64a8c5acb9d09e87425db52c7d97287c67e8f6d57d7d34ef9258"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/primary/environment/install.log",
+      "sha256": "667944db4f0d33d063933e7aaa4e136d73a7917617d00387bc18755e4dcc5dc3"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/primary/environment/rustc.txt",
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/primary/environment/rustup.txt",
+      "sha256": "1ffca80c8e213f3905f38993623218dd1e570bb26316f9d68abea619e7676114"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/primary/environment/stable-channel.toml",
+      "sha256": "3051e859570f64a8c5acb9d09e87425db52c7d97287c67e8f6d57d7d34ef9258"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/primary/environment/uname.txt",
+      "sha256": "4be565484e5d2351365ea25322c384b18705d10640b1e9268089424c40cb766b"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/arc_custom_allocator.stderr",
+      "sha256": "137b26c9d89cf8c0a3e77d2c0674090526054b3e1a46ee317984b3865bf920dc"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/arc_custom_allocator.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/box_try_map.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/box_try_map.stderr",
+      "sha256": "0dfe605e70a69a988de6d5aa3023ae78adfdeaad949c0702313c8c071d838618"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/cargo-build-dir-json.stderr",
+      "sha256": "d5dbe08ffae0eb480b839bf6787ee6d899de414f491ebdfe7cb084c4ce3f6b6e"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/cargo-build-dir-json.stdout",
+      "sha256": "8109abb751054911beb7222564f822c02612c0adfbe30d0f73cc66b837a57245"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/cargo-unused-negative.stderr",
+      "sha256": "62d5a9e45e4cf1de8dc3ba3a6db9054ca504c2eef3901d73a761a7af488faede"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/cargo-unused-negative.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/cargo-unused-positive.stderr",
+      "sha256": "4aa4a763cfcda44687376e4923df3e6465cae2ba3b65fbd28cdb3a9e2710c953"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/cargo-unused-positive.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/cargo-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/cargo-version.stdout",
+      "sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/custom-naked-compile-only.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/custom-naked-compile-only.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/custom_ordinary_body.stderr",
+      "sha256": "2983682afe1132f39cc225a726ff177d6ab5366a1dec7d5f98f7c8bfab3a9a67"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/custom_ordinary_body.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/json-artifacts.json",
+      "sha256": "c70c53a7ba8f5e055ff7e4adfd1acabea4815b5f7a1c0b84e698bbecc5be0207"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/never-2021-compile.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/never-2021-compile.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/never_overlap.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/never_overlap.stderr",
+      "sha256": "3542751ce400352695cd0e9788f77f9d02570b2e6a02de69b47683404817583d"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/result.json",
+      "sha256": "67b7881c86647b3295e111ba65826231e302035a31983795d821f64198a5dfda"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/rustc-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/rustc-version.stdout",
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/stable-tests-compile.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/stable-tests-compile.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/stable-tests-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/work/arc_custom_allocator.rs",
+      "sha256": "90ee3b834a48a975246f8bb3d51be5efdb6ac2498cf0aee1e8192286b4d4c6ed"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/work/box_try_map.rs",
+      "sha256": "0b5a92dc3a9a5434a4d5001741e2bd5c2d207bb81186d1d42b5ffa2ebfa1b43e"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/evidence/stable-tests-run.stdout",
+      "sha256": "ffa4829096869ccd418d42af58a199caed5f26ce84b3e9b0ac49c603cb1e33ff"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/work/custom_naked.rs",
+      "sha256": "9a1a935bb36803573419de9f4cbfb9b389a6a6816b367fc6a9c999074dee029a"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/work/custom_ordinary_body.rs",
+      "sha256": "f1e0029cafec08460f481bb95fe0534f9c092f1003df9b0d389709eafed110fd"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/work/edition2021.rs",
+      "sha256": "411f9b03f41b7af023db8954f53eddf8be0c67866492f51015419c35299edc12"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/linux/work/never_overlap.rs",
+      "sha256": "4bdee6fc2915566bde386acb114bd14e85f329f20d4a41d8161da676fc5e77b5"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/arc_custom_allocator.stderr",
+      "sha256": "7294bc4d16f19f4001817d82f2d7b3eebf3b917c7a73941927cfe802e9fc7d6b"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/box_try_map.stderr",
+      "sha256": "9bc089995c7211d6dc2a160c30b7c7e3725c33c479adcd50dda7b63f4a41fb0c"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/arc_custom_allocator.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/box_try_map.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/cargo-build-dir-json.stderr",
+      "sha256": "7d684d928a28540ad71821bfd8275c62f0fb5c66056ef26b4a58ba3e3276d278"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/cargo-build-dir-json.stdout",
+      "sha256": "5a6044e5caa7248e9d04cb41347321911804be8f2f5173aa5d0240510b827da2"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/cargo-unused-negative.stderr",
+      "sha256": "25c9f6c9a2c7636abc09df1a3b55c63deaaab87f08bd041a73c091249fe49ce2"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/cargo-unused-negative.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/cargo-unused-positive.stderr",
+      "sha256": "17d2e6eacbe1d4233c3addf0be60773c4b1e7b18e9331de80a7b75329b06fdda"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/cargo-unused-positive.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/cargo-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/cargo-version.stdout",
+      "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/custom-naked-compile-only.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/custom-naked-compile-only.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/custom_ordinary_body.stderr",
+      "sha256": "af98a0cba8b3a120370e1516d0c60ed33469b1448035542ff9d9916eb62da6a8"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/custom_ordinary_body.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/json-artifacts.json",
+      "sha256": "99cbc65caa071874037e7c39661db1d8bcb141ee0b5d2ad7c6577c856a65a17a"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/never-2021-compile.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/never_overlap.stderr",
+      "sha256": "ac5180cca90072fa0f8dcd18ec08e9c82962906d431e252801a740ae363df945"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/never-2021-compile.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/never_overlap.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/result.json",
+      "sha256": "c17bbb48b15669f8b85ac1b16d1676e3f8cb6edb4a7296668949f3313eeb2e2b"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/rustc-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/rustc-version.stdout",
+      "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/stable-tests-compile.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/stable-tests-compile.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/stable-tests-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/evidence/stable-tests-run.stdout",
+      "sha256": "05532bcba7fdb6ea0eedaec5c0596a73d6c9661b8139371a8c63de5e258091e7"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/work/arc_custom_allocator.rs",
+      "sha256": "90ee3b834a48a975246f8bb3d51be5efdb6ac2498cf0aee1e8192286b4d4c6ed"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/work/box_try_map.rs",
+      "sha256": "0b5a92dc3a9a5434a4d5001741e2bd5c2d207bb81186d1d42b5ffa2ebfa1b43e"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/work/custom_naked.rs",
+      "sha256": "63d3777e675784a7faa6e37236a173eee9dae7d3f152492a51d4256653d32a58"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/work/custom_ordinary_body.rs",
+      "sha256": "f1e0029cafec08460f481bb95fe0534f9c092f1003df9b0d389709eafed110fd"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/work/edition2021.rs",
+      "sha256": "411f9b03f41b7af023db8954f53eddf8be0c67866492f51015419c35299edc12"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1100-evidence/windows/work/never_overlap.rs",
+      "sha256": "4bdee6fc2915566bde386acb114bd14e85f329f20d4a41d8161da676fc5e77b5"
+    }
+  ],
+  "original_query_probe_rerun": false,
+  "independent_review": false
+}

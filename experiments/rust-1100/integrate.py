@@ -44,11 +44,15 @@ for osname in ['linux','windows']:
     result=json.loads(zips[osname].read('evidence/result.json'))
     assert result['all_expected_results'] and len(result['commands'])==13
     assert '13 passed; 0 failed' in zips[osname].read('evidence/stable-tests-run.stdout').decode()
-    assert result['test_source_sha256']==hashlib.sha256((ROOT/'experiments/rust-1100/stable_tests.rs').read_bytes()).hexdigest()
+    canonical=(ROOT/'experiments/rust-1100/stable_tests.rs').read_bytes().replace(b'\r\n',b'\n')
+    executed=canonical.replace(b'\n',b'\r\n') if osname=='windows' else canonical
+    assert result['test_source_sha256']==hashlib.sha256(executed).hexdigest(),(osname,'actual checkout source hash')
+    (OUT/osname/'executed-stable_tests.rs').write_bytes(executed)
+    data((OUT/osname/'source-byte-provenance.json').relative_to(ROOT),{'reconstructed_from':'same immutable Git source with platform checkout newline conversion','recorded_execution_sha256':result['test_source_sha256'],'reconstruction_matches_recorded_hash':True,'canonical_git_sha256':hashlib.sha256(canonical).hexdigest(),'previous_failed_archive_run':43354345265})
 manifest=json.loads(zips['primary'].read('manifest.json'))
 data(OUT.relative_to(ROOT)/'preservation.json',{'input_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'artifacts':[{'name':n,'run_id':r,'artifact_id':a,'zip_sha256':h} for n,r,a,h in ARS],'preserved_files':saved,'original_query_probe_rerun':False,'independent_review':False})
 # Source mechanisms actually inspected by the author; tests read != tests run.
-reads={'library/core/src/mem/drop_guard.rs':[[1,170]],'library/core/src/alloc/mod.rs':[[105,202],[276,335]],'library/alloc/src/boxed.rs':[[680,752]],'library/alloc/src/sync.rs':[[1200,1285],[2929,2950]],'library/alloc/src/vec/mod.rs':[[710,775]],'library/core/src/convert/mod.rs':[[890,920]],'compiler/rustc_abi/src/extern_abi.rs':[[60,64]],'RELEASES.md':[[1,165]]}
+reads={'library/core/src/mem/drop_guard.rs':[[1,158]],'library/core/src/alloc/mod.rs':[[105,202],[276,335]],'library/alloc/src/boxed.rs':[[680,752]],'library/alloc/src/sync.rs':[[1200,1285],[2929,2950]],'library/alloc/src/vec/mod.rs':[[710,775]],'library/core/src/convert/mod.rs':[[890,915]],'compiler/rustc_abi/src/extern_abi.rs':[[60,64]],'RELEASES.md':[[1,165]]}
 source_records=[]
 rust='0ef1bc386059596dada8fb65b50425aab2ea637a';cargo='3acc79c0c841844675bc53a605922dbfc441e750'
 for p,ranges in reads.items():

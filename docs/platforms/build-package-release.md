@@ -1,6 +1,6 @@
 # D10 — Precompiled Engine packaging and upstream maintenance
 
-Contract: **C-BUILD-001@0.2.0-draft**. Status: proposed, not production verified. Existing R13/R14/R18/D10/A13–A16/A22/A24 and B24 own this work. This is the build/maintenance implementation specification, not an additional task graph.
+Contract: **C-BUILD-001@0.2.1-draft**. Status: proposed, not production verified. Existing R13/R14/R18/D10/A13–A16/A22/A24 and B24 own this work. This is the build/maintenance implementation specification, not an additional task graph.
 
 ## 1. Separate maintainer and application builds
 
@@ -53,3 +53,12 @@ Required consumer fixtures include a pristine supported machine without Rust, of
 ## 8. Recovered evidence and gaps
 
 [Recovered evidence](../research/source-driven-evidence/README.md) supports Linux x64 local NuGet consumption with explicit RID, real Native AOT/SQLite execution and native binary reuse for a second C# entity. It does not validate RID-free restore, Windows, a production generator, production streaming or clean-machine toolchain absence. Keep these obligations in A16/B10/B12/B24; do not convert the research artifact into an accepted release manifest.
+
+
+## Rust 1.100 maintainer baseline and Cargo changes
+
+Use exact stable Rust/Cargo1.100.0 and edition2024 for new maintainer builds; record `rustc -Vv`, Cargo identity, target and locked dependency closure. Existing historical evidence retains its original compiler. Crates that use the new standard-library APIs declare rust-version1.100; an upstream's lower MSRV is not a claim that the complete NativeWeave feature matrix compiled. See [R01](../research/topics/R01/rust-1.100.md).
+
+Resolve native output via Cargo `--message-format=json` compiler-artifact records; intermediate build-dir layout changed and is not an interface. Separate per-worktree intermediates from final target assets; key reusable caches by toolchain/host/target/profile/features/lockfile. Workspace-path-hash isolation is not a cache hit or concurrency guarantee. Do not run Cargo in C# generators or normal consumers.
+
+Use Cargo's stable unused_dependencies lint for owned crates and deliberate target/feature coverage; dev-dependencies and feature-only dependencies need separate review. Maintainer dependency-update default cooldown is7days (policy choice, not a security guarantee); keep `cargo build/test --locked`. Locked versions and missing publish timestamps are not protected by that age filter. Explicit emergency/security overrides require reviewed provenance, lockfile diff and regression evidence. No automatic production upgrade or blanket nightly feature gate.

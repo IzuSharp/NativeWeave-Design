@@ -1,6 +1,6 @@
 # D11 — Source-driven deep native integration
 
-Contract: **C-ENGINE-001@0.2.0-draft**. Status: proposed; author-side source review and limited database prototype evidence; independent acceptance pending. This revision extends existing R18/D11/A24 rather than creating another coordination system. Source reports: [SeaQuery](../research/topics/R25/source-driven-seaquery.md), [Server](../research/topics/R27/source-driven-server.md). Build/maintenance: [D10](../platforms/build-package-release.md).
+Contract: **C-ENGINE-001@0.2.1-draft**. Status: proposed; author-side source review and limited database prototype evidence; independent acceptance pending. This revision extends existing R18/D11/A24 rather than creating another coordination system. Source reports: [SeaQuery](../research/topics/R25/source-driven-seaquery.md), [Server](../research/topics/R27/source-driven-server.md). Build/maintenance: [D10](../platforms/build-package-release.md).
 
 ## 1. Goal and non-goals
 
@@ -56,7 +56,7 @@ Every engine states its linearization points, reentrancy policy, outstanding-ope
 ## 7. Interface example — draft, not compiled
 
 ```c
-/* Semantic sketch: actual field layouts come from accepted C-ABI-001. */
+/* Semantic sketch: actual field layouts require a future accepted C-ABI-001. */
 nw_status nw_engine_capabilities(nw_engine_handle e, nw_caps_out *out);
 nw_status nw_operation_cancel(nw_operation_handle op);
 nw_status nw_operation_take_result(nw_operation_handle op, nw_result_out *out);
@@ -86,3 +86,10 @@ Synchronous SIMD/codec operations may use borrowed spans for a call; streaming c
 A17/A18 must exercise two genuinely different real engines, not two wrappers around the same synchronous mock. A01–A12 own layout/ownership/error/generation tests; A13–A16 build and clean consumption; A19/A20 model/property/fuzz/race checks; A21 benchmarks; A22 upgrade compatibility; A24 reproducible integration scaffolding. B01–B14 implement the mandatory Rust database profile, B17 the optional native Server bridge. Unrelated drafts remain parallel.
 
 Production acceptance requires real Windows/Linux AOT consumer execution, compatible old/new binaries, wrong RID/ABI/feature negatives, overflow and malformed descriptor fuzzing, callback/close races, native sanitizers/model tools as applicable, long load/failure recovery and resource accounting. The recovered Linux SQLite example establishes only a bounded feasibility slice. An independent review must check source fidelity and whether added adaptation is smaller and safer than the avoided reimplementation.
+
+
+## Rust 1.100 simplification boundaries
+
+Use std::mem::DropGuard instead of duplicate local synchronous rollback guard types when equivalent, with non-panicking/non-blocking actions. It does not retire callbacks or await I/O. Allocator/Vec/Box APIs can retain a per-resource owner; all allocator operations and allocator Drop must not unwind. Preserve the original allocator and layout through raw transfers and native destruction. Outer custom Vec allocation does not account for nested upstream allocations or whole RSS.
+
+Box::map/Arc::map may reduce private conversion glue, but allocation reuse is conditional and cannot preserve a published opaque handle identity or update all shared holders. Vec::from_fn simplifies trusted-size initialization; untrusted sizes still use checked/fallible allocation. `!` is internal only; `extern "custom"` is not the C ABI. Arc::new_in and try_map extensions remain outside the stable core. These rules preserve, rather than replace, D04–D08 ownership and retirement. [R01 source and two-OS probes](../research/topics/R01/rust-1.100.md).

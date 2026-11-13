@@ -1,6 +1,6 @@
 # D16 — Native query semantics and typed Fluent contract
 
-Contract: **C-QUERY-001@0.2.0-draft**; proposed, independent review pending. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered AOT probe](../research/source-driven-evidence/README.md), existing R22/R24/R25 reports. This replaces full declaration-only LINQ capture, generic C# predicate compensation and required schema-specific SeaORM generation as the ordinary route. Historical SQL counterexamples remain valid; no arbitrary IQueryable compatibility is promised.
+Contract: **C-QUERY-001@0.2.1-draft**; proposed, independent review pending. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered AOT probe](../research/source-driven-evidence/README.md), existing R22/R24/R25 reports. This replaces full declaration-only LINQ capture, generic C# predicate compensation and required schema-specific SeaORM generation as the ordinary route. Historical SQL counterexamples remain valid; no arbitrary IQueryable compatibility is promised.
 
 ## 1. Semantic owner and scope
 
@@ -35,7 +35,7 @@ No function pointer, Rust trait object, Vec layout or native enum discriminant b
 
 ## 4. NULL and Boolean semantics
 
-The default is **SQL three-valued logic**. Equality with a NULL operand yields UNKNOWN unless an explicitly named null-safe operation is requested; `IS NULL`/`IS NOT NULL` are distinct methods. WHERE retains TRUE only. NOT UNKNOWN remains UNKNOWN; FALSE AND UNKNOWN is FALSE; TRUE OR UNKNOWN is TRUE. Do not rewrite `NOT(x > y)` into `x <= y` under nullable data or silently wrap every predicate into C# two-valued semantics.
+The default is **SQL three-valued logic**. Equality with a NULL operand yields UNKNOWN unless an explicitly named null-safe operation is requested; `IS NULL`/`IS NOT NULL` are distinct methods. WHERE retains TRUE only. NOT UNKNOWN remains UNKNOWN; FALSE AND UNKNOWN is FALSE; TRUE OR UNKNOWN is TRUE. For compatible totally ordered operands, SQL `NOT(x > y)` and `x <= y` both yield UNKNOWN on NULL; nullable data alone does not invalidate that equivalence. Do not silently replace these with C# two-valued null compensation, or generalize the equivalence to NaN/custom partial-order operators. The focused R24 SQLite integer truth-table fixture records this correction.
 
 An optional `NullSafeEqual` capability may use PostgreSQL `IS NOT DISTINCT FROM` or SQLite `IS` only within declared codec/collation domains and tests. It is not a promise that every .NET equality, NaN or mixed SQLite storage class has identical semantics. SQL `IN`/`NOT IN`, NULL-containing sets and empty sets have explicit operator behavior; do not label them LINQ `Contains` without an independently specified convenience rule. Empty-membership convenience may deliberately produce FALSE/TRUE, but must be named/documented and tested separately from native SQL rendering.
 

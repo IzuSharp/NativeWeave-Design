@@ -1,0 +1,12 @@
+     Locking 1 package to highest Rust 1.100.0 compatible version
+    Checking unused_dep v0.0.0 (/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/dep)
+    Checking lint_probe v0.0.0 (/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/rust-1100/work/lint)
+error: unused dependency `unused_dep`
+ --> Cargo.toml:6:1
+  |
+6 | unused_dep={path="../dep"}
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `cargo::unused_dependencies` is set to `deny` in `[lints]`
+help: consider removing the dependency on `unused_dep`
+error: could not finalize `lint_probe` (manifest) due to 1 previous error

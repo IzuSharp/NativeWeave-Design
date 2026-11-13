@@ -1,0 +1,11 @@
+error[E0119]: conflicting implementations of trait `T` for type `fn() -> !`
+ --> D:\a\NativeWeave-Design\NativeWeave-Design\experiments\rust-1100\work\never_overlap.rs:1:34
+  |
+1 | trait T {} impl T for fn()->! {} impl T for fn()->std::convert::Infallible {} fn main(){}
+  |            ------------------    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ conflicting implementation for `fn() -> !`
+  |            |
+  |            first implementation here
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0119`.

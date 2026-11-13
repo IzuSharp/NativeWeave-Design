@@ -1,0 +1,25 @@
+error: functions with the "custom" ABI must be unsafe
+ --> D:\a\NativeWeave-Design\NativeWeave-Design\experiments\rust-1100\work\custom_ordinary_body.rs:1:1
+  |
+1 | pub extern "custom" fn x() {} fn main(){}
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: add the `unsafe` keyword to this definition
+  |
+1 | unsafe pub extern "custom" fn x() {} fn main(){}
+  | ++++++
+
+error: an `extern "custom"` function can only be declared externally or defined via naked functions
+ --> D:\a\NativeWeave-Design\NativeWeave-Design\experiments\rust-1100\work\custom_ordinary_body.rs:1:1
+  |
+1 | pub extern "custom" fn x() {} fn main(){}
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: convert this to an `#[unsafe(naked)]` function
+  |
+1 + #[unsafe(naked)]
+2 | pub extern "custom" fn x() {} fn main(){}
+  |
+
+error: aborting due to 2 previous errors
+
