@@ -1,0 +1,73 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/verify_research_assets.py"
+    ],
+    "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+    "exit_code": 0,
+    "seconds": 0.485,
+    "stdout": "merged-plan-validation-0.stdout",
+    "stderr": "merged-plan-validation-0.stderr"
+  },
+  {
+    "command": [
+      "python",
+      "tools/validate_graphs.py"
+    ],
+    "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+    "exit_code": 0,
+    "seconds": 0.342,
+    "stdout": "merged-plan-validation-1.stdout",
+    "stderr": "merged-plan-validation-1.stderr"
+  },
+  {
+    "command": [
+      "python",
+      "tools/mutation_checks.py"
+    ],
+    "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+    "exit_code": 0,
+    "seconds": 3.263,
+    "stdout": "merged-plan-validation-2.stdout",
+    "stderr": "merged-plan-validation-2.stderr"
+  },
+  {
+    "command": [
+      "python",
+      "tools/rust1100_checks.py"
+    ],
+    "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+    "exit_code": 0,
+    "seconds": 1.359,
+    "stdout": "merged-plan-validation-3.stdout",
+    "stderr": "merged-plan-validation-3.stderr"
+  },
+  {
+    "command": [
+      "python",
+      "-c",
+      "from pathlib import Path; import json,jsonschema; s=json.loads(Path('schemas/graph-v1.schema.json').read_text()); [jsonschema.Draft202012Validator(s).validate(json.loads(Path(k+'-graph.json').read_text())) for k in ('research','documentation','delivery')]; print('PASS all three graph schemas')"
+    ],
+    "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+    "exit_code": 0,
+    "seconds": 0.196,
+    "stdout": "merged-plan-validation-4.stdout",
+    "stderr": "merged-plan-validation-4.stderr"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "f6ed91dddba62b9eba246f2af56ca5b93cc2593b",
+      "HEAD",
+      "--"
+    ],
+    "cwd": "/workspace/scratch/a64c8260e732/nativeweave/recovery/migration-evidence/merged-plan-review/Plan",
+    "exit_code": 0,
+    "seconds": 0.01,
+    "stdout": "merged-plan-validation-5.stdout",
+    "stderr": "merged-plan-validation-5.stderr"
+  }
+]

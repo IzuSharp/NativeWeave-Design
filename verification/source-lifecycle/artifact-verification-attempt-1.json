@@ -1,0 +1,7 @@
+{
+  "attempt": 1,
+  "success": false,
+  "stage": "compare actual checkout inputs with Git blob bytes",
+  "failure": "AssertionError: Cargo.toml for database-retirement/windows-2022",
+  "finding": "Five database Windows input files are exactly LF-to-CRLF checkout conversions. Other 15 fixture inputs are byte exact. Raw artifacts are unchanged. The successful second verifier records both identities and checks the sole transformation explicitly; no test is rerun or relabelled."
+}

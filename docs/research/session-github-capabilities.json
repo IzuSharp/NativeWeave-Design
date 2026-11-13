@@ -1,0 +1,184 @@
+{
+  "account": "deku2026",
+  "repository_count": 21,
+  "project_repositories": [
+    {
+      "repository": "IzuSharp/NativeWeave",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      }
+    },
+    {
+      "repository": "IzuSharp/Plan",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      }
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      }
+    }
+  ],
+  "github_interfaces": 89,
+  "write_interfaces": 41,
+  "write_interface_names": [
+    "add_comment_to_issue",
+    "add_issue_assignees",
+    "add_issue_labels",
+    "add_reaction_to_issue_comment",
+    "add_reaction_to_pr",
+    "add_reaction_to_pr_review_comment",
+    "add_review_to_pr",
+    "convert_pull_request_to_draft",
+    "create_blob",
+    "create_branch",
+    "create_commit",
+    "create_file",
+    "create_issue",
+    "create_pull_request",
+    "create_tree",
+    "delete_file",
+    "dismiss_pull_request_review",
+    "enable_auto_merge",
+    "label_pr",
+    "lock_issue_conversation",
+    "mark_pull_request_ready_for_review",
+    "merge_pull_request",
+    "remove_issue_assignees",
+    "remove_issue_label",
+    "remove_pull_request_reviewers",
+    "remove_reaction_from_issue_comment",
+    "remove_reaction_from_pr",
+    "remove_reaction_from_pr_review_comment",
+    "reply_to_review_comment",
+    "request_pull_request_reviewers",
+    "rerun_failed_workflow_run_jobs",
+    "rerun_workflow_job",
+    "resolve_review_thread",
+    "unlock_issue_conversation",
+    "unresolve_review_thread",
+    "update_file",
+    "update_issue",
+    "update_issue_comment",
+    "update_pull_request",
+    "update_ref",
+    "update_review_comment"
+  ],
+  "verified_remote_actions": [
+    {
+      "operation": "create_branch/create_tree/create_commit/update_ref",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "branch": "research/source-lifecycle-2026-11-12",
+      "commit": "de43481581df9876cb2d0aed5de2db796d048c9d"
+    },
+    {
+      "operation": "create_pull_request",
+      "repository": "IzuSharp/NativeWeave-Design",
+      "pr": 9
+    },
+    {
+      "operation": "close_pull_request",
+      "repository": "IzuSharp/Plan",
+      "pr": 5,
+      "merged": false
+    }
+  ],
+  "rulesets": [
+    {
+      "id": 27113964,
+      "name": "protect",
+      "target": "branch",
+      "source_type": "Repository",
+      "source": "IzuSharp/NativeWeave-Design",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "~DEFAULT_BRANCH"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "non_fast_forward"
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec5WvM2CzgGduew",
+      "created_at": "2026-11-12T19:35:21.819+08:00",
+      "updated_at": "2026-11-12T19:35:21.845+08:00",
+      "bypass_actors": [],
+      "current_user_can_bypass": "never",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/IzuSharp/NativeWeave-Design/rulesets/27113964"
+        },
+        "html": {
+          "href": "https://github.com/IzuSharp/NativeWeave-Design/rules/27113964"
+        }
+      }
+    },
+    {
+      "id": 27113698,
+      "name": "protectmain",
+      "target": "branch",
+      "source_type": "Repository",
+      "source": "IzuSharp/Plan",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "~DEFAULT_BRANCH"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "non_fast_forward"
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec5WvMe3zgGduOI",
+      "created_at": "2026-11-12T19:32:09.486+08:00",
+      "updated_at": "2026-11-12T19:32:09.512+08:00",
+      "bypass_actors": [],
+      "current_user_can_bypass": "never",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/IzuSharp/Plan/rulesets/27113698"
+        },
+        "html": {
+          "href": "https://github.com/IzuSharp/Plan/rules/27113698"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Interface exposure does not prove every corresponding token scope or action succeeds.",
+    "No direct delete-PR, delete-ref/branch, repository-delete/settings/protection-edit interface is exposed.",
+    "The normal shell git client has no authenticated push credentials in this session; connector-backed Git writes actually succeeded.",
+    "Subagent review is separate authorship, not a separate GitHub identity approval.",
+    "All product-source writes remain outside current phase; product PR1 is already closed without merge."
+  ],
+  "observed_at_utc": "2026-11-13T06:14:51.833599+00:00"
+}

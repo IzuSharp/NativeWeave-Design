@@ -1,0 +1,16 @@
+[package]
+name = "nw-server-retained-bytes-probe"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.100"
+publish = false
+
+[dev-dependencies]
+bytes = "=1.12.1"
+hyper = { version = "=1.12.0", default-features = false }
+tokio = { version = "=1.54.1", features = ["rt", "macros", "sync"] }
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+[lints.cargo]
+unused_dependencies = "deny"

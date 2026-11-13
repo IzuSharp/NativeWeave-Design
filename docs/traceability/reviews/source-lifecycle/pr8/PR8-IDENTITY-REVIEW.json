@@ -1,0 +1,915 @@
+{
+  "reviewed_at_utc": "2026-11-13T06:15:57.980389+00:00",
+  "reviewer": "/root/migration_evidence",
+  "scope": "Read-only PR8 evidence and archive identity check; no experiment reruns, no independent architectural/contract acceptance",
+  "merge_commit": "3767f3c932ebf95bd82f6ed1c9bafc9eec1c5b1e",
+  "pr_head": "523a2f6543d3a8770cb3379f8fd7001abd6d8233",
+  "primary_run": "43373306474",
+  "primary_tested_source": "28f6cf7e6e4e80b9f32a92ad587a528d82911bd0",
+  "incidental_run": "43374127432",
+  "incidental_tested_source": "9fed6f510479622229cef6e917645f6510f7e3c0",
+  "archives": [
+    {
+      "run_id": "43373306474",
+      "id": 14013442125,
+      "name": "logical-admission-windows-2022",
+      "bytes": 2530702,
+      "zip_sha256": "d7ad2c8fbf3cab4f20ecbad7b8b83015a5e0cd827472ddd41420be9e7f7912a0",
+      "actual_binary_hashes_verified": true
+    },
+    {
+      "run_id": "43373306474",
+      "id": 14012619322,
+      "name": "logical-admission-ubuntu-24.04",
+      "bytes": 2670207,
+      "zip_sha256": "7e9ed1036c9daed3d61c55329b9b4b7a9de619387b86a44a03217dbad13cc3fc",
+      "actual_binary_hashes_verified": true
+    },
+    {
+      "run_id": "43374127432",
+      "id": 14013922287,
+      "name": "logical-admission-windows-2022",
+      "bytes": 2550543,
+      "zip_sha256": "5a33787d8bd8f85e69f0767f5e021b7aef71c1fde31e007f42e02314f7aed71e",
+      "actual_binary_hashes_verified": true
+    },
+    {
+      "run_id": "43374127432",
+      "id": 14012954553,
+      "name": "logical-admission-ubuntu-24.04",
+      "bytes": 2670188,
+      "zip_sha256": "841342506bf8acd7ec9febcc694e7e9c6cd7c6c9f78d6708b02e629c060c16e8",
+      "actual_binary_hashes_verified": true
+    }
+  ],
+  "raw_files_verified": 64,
+  "actual_native_aot_binary_hashes_verified": 8,
+  "checks": [
+    {
+      "check": "pr8_merged_exact_identity",
+      "passed": true
+    },
+    {
+      "check": "pr8_merge_tree_same_as_review_head",
+      "passed": true
+    },
+    {
+      "check": "primary_run_api_identity",
+      "passed": true
+    },
+    {
+      "check": "primary_two_artifacts",
+      "passed": true
+    },
+    {
+      "check": "primary_acceptance_boundary",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022_download_digest_matches_api_manifest",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022_safe_zip",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022_one_result",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022_actual_result_matches_manifest",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022_actual_result_scope",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022_commands_success",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/rust-version.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/rust-version.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/cargo-version.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/cargo-version.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/dotnet-info.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/dotnet-info.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/native-build.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/native-build.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/normal-run.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/normal-run.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/aot-publish.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/aot-publish.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/aot-run.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/aot-run.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/normal-run_markers",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/aot-run_markers",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/logical-admission/Program.cs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/logical-admission/Admission.csproj_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/logical-admission/run.py_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/native-slices/interop/managed/Bridge.cs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/native-slices/interop/native/src/lib.rs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/native-slices/interop/native/Cargo.toml_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/native-slices/interop/native/Cargo.lock_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/native-slices/global.json_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/experiments/native-slices/rust-toolchain.toml_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/native_sha256_actual_binary",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/aot_executable_sha256_actual_binary",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022_raw_file_set",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/aot-publish.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/aot-publish.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/aot-run.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/aot-run.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/cargo-version.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/cargo-version.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/commands.json_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/dotnet-info.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/dotnet-info.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/native-build.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/native-build.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/normal-run.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/normal-run.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/result.json_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/rust-version.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-windows-2022/admission-win-x64/rust-version.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04_download_digest_matches_api_manifest",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04_safe_zip",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04_one_result",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04_actual_result_matches_manifest",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04_actual_result_scope",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04_commands_success",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/rust-version.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/rust-version.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/cargo-version.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/cargo-version.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/dotnet-info.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/dotnet-info.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/native-build.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/native-build.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/normal-run.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/normal-run.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/aot-publish.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/aot-publish.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/aot-run.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/aot-run.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/normal-run_markers",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/aot-run_markers",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/logical-admission/Program.cs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/logical-admission/Admission.csproj_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/logical-admission/run.py_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/native-slices/interop/managed/Bridge.cs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/native-slices/interop/native/src/lib.rs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/native-slices/interop/native/Cargo.toml_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/native-slices/interop/native/Cargo.lock_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/native-slices/global.json_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/experiments/native-slices/rust-toolchain.toml_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/native_sha256_actual_binary",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/aot_executable_sha256_actual_binary",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04_raw_file_set",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/aot-publish.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/aot-publish.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/aot-run.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/aot-run.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/cargo-version.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/cargo-version.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/commands.json_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/dotnet-info.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/dotnet-info.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/native-build.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/native-build.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/normal-run.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/normal-run.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/rust-version.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/result.json_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary/logical-admission-ubuntu-24.04/admission-linux-x64/rust-version.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental_run_api_identity",
+      "passed": true
+    },
+    {
+      "check": "incidental_two_artifacts",
+      "passed": true
+    },
+    {
+      "check": "incidental_acceptance_boundary",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022_download_digest_matches_api_manifest",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022_safe_zip",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022_one_result",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022_actual_result_matches_manifest",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022_actual_result_scope",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022_commands_success",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/rust-version.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/rust-version.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/cargo-version.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/cargo-version.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/dotnet-info.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/dotnet-info.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/native-build.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/native-build.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/normal-run.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/normal-run.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/aot-publish.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/aot-publish.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/aot-run.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/aot-run.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/normal-run_markers",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/aot-run_markers",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/logical-admission/Program.cs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/logical-admission/Admission.csproj_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/logical-admission/run.py_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/native-slices/interop/managed/Bridge.cs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/native-slices/interop/native/src/lib.rs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/native-slices/interop/native/Cargo.toml_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/native-slices/interop/native/Cargo.lock_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/native-slices/global.json_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/experiments/native-slices/rust-toolchain.toml_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/native_sha256_actual_binary",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/aot_executable_sha256_actual_binary",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022_raw_file_set",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/aot-publish.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/aot-run.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/aot-publish.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/aot-run.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/cargo-version.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/cargo-version.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/commands.json_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/dotnet-info.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/dotnet-info.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/native-build.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/native-build.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/normal-run.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/normal-run.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/result.json_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/rust-version.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-windows-2022/admission-win-x64/rust-version.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04_download_digest_matches_api_manifest",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04_safe_zip",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04_one_result",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04_actual_result_matches_manifest",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04_actual_result_scope",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04_commands_success",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/rust-version.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/rust-version.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/cargo-version.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/cargo-version.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/dotnet-info.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/dotnet-info.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/native-build.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/native-build.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/normal-run.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/normal-run.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/aot-publish.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/aot-publish.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/aot-run.stdout_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/aot-run.stderr_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/normal-run_markers",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/aot-run_markers",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/logical-admission/Program.cs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/logical-admission/Admission.csproj_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/logical-admission/run.py_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/native-slices/interop/managed/Bridge.cs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/native-slices/interop/native/src/lib.rs_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/native-slices/interop/native/Cargo.toml_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/native-slices/interop/native/Cargo.lock_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/native-slices/global.json_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/experiments/native-slices/rust-toolchain.toml_git_input_hash",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/native_sha256_actual_binary",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/aot_executable_sha256_actual_binary",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04_raw_file_set",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/aot-publish.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/aot-publish.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/aot-run.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/aot-run.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/cargo-version.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/cargo-version.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/commands.json_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/dotnet-info.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/dotnet-info.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/native-build.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/native-build.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/normal-run.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/normal-run.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/result.json_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/rust-version.stderr_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "incidental/logical-admission-ubuntu-24.04/admission-linux-x64/rust-version.stdout_preserved_bytes",
+      "passed": true
+    },
+    {
+      "check": "primary_and_incidental_identical_inputs",
+      "passed": true
+    },
+    {
+      "check": "all_64_raw_files_and_8_binary_digests",
+      "passed": true
+    },
+    {
+      "check": "incidental_rerun_correctly_not_new_coverage",
+      "passed": true
+    },
+    {
+      "check": "fixed_safehandle_source_identity",
+      "passed": true
+    },
+    {
+      "check": "D04_current_keeps_PR8_appendix",
+      "passed": true
+    }
+  ],
+  "passed_checks": 213,
+  "total_checks": 213,
+  "errors": [],
+  "comparison": {
+    "pr8_primary": "Windows/Linux normal+NativeAOT,653 assertions per invocation,64 positive gate rounds,post-close Sum and SumHeld rejection,managed fault compensation; exact historical facade compiled as linked source",
+    "supplemental_replication": "Separately authored before observing PR8;Linux only,931/932 assertions,32negative+32candidate rounds per invocation,actual local NuGet PackageReference,per-assertion logs;not broader coverage inferred from assertion count",
+    "ordinary_nuget_capability": "Already separately covered by earlier migrated Interop experiments; supplementary packaging route does not justify rerunning PR8 on Windows"
+  },
+  "minimal_archive_recommendation": [
+    "Keep PR8 logical-admission.md and primary-results.json as primary R07/D04 evidence.",
+    "Retain incidental run with its explicit trigger correction; do not count it as new coverage.",
+    "Keep supplementary Linux source/inputs/logs under interop-admission, with clear concurrent-recovery note and immutable old D04/runner identities.",
+    "Do not add supplementary Windows CI or a second accepted contract/task. Shared lifecycle CI should remain Database/Server only."
+  ]
+}

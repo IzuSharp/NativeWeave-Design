@@ -4,6 +4,13 @@ Date: 2026-11-13 UTC / 2026-11-12 America/Los_Angeles.
 Phase: research, detailed design, experiments and future Codex planning only.
 No formal A/B Delivery or NativeWeave product-source implementation is authorized.
 
+The [current GitHub capability snapshot](../research/session-github-capabilities.json)
+distinguishes account repository roles, 89 exposed interfaces (41 mutations),
+actual successful branch/commit/ref/PR operations and service-side rules.
+Connector-backed writes work; the unauthenticated shell Git transport is not
+used as evidence that repositories are read-only. No deletion/protection/settings
+operation was attempted to test permissions.
+
 ## 1. Recovered state and concurrent work
 
 | Repository / action | Exact observed identity |
@@ -35,7 +42,9 @@ copies and two reviewed runner path adaptations. All 112 original raw evidence
 files (including two database failures), 90 newly migrated raw evidence files,
 and 12 Interop binary hashes across four archives matched. The local independent
 audit passed 1240/1240 checks; the already-merged Plan PR #4 review passed
-781/781 content checks and six isolated validation commands.
+781/781 content checks and six isolated validation commands. The original
+reports, complete checks, raw command logs, archive-member indices and audit
+programs are preserved in [the separate review archive](reviews/migration-2026-11-12/README.md).
 
 The migrated Windows/Linux execution belongs to Design source
 `67b48674e469c98f2f73f1c9ff0d63b113abc47b`, run `43371161177`, not the workflow
@@ -48,17 +57,25 @@ independent audit is a separately bounded observation.
 
 | Existing tasks | Substantive addition | Actual execution so far |
 | --- | --- | --- |
-| R20/R21/R25 → D15 | [SQLx cancellation, rollback, COMMIT uncertainty and worker retirement](../database/sqlx-retirement-study.md) | Six new Linux Rust tests; one initial Cargo-lint failure and corrected attempts preserved |
-| R27/R29 → D18 | [Body termination, old channel permits and retained allocation credit](../server/body-retirement-protocol.md) | Six new Linux Rust tests, independently rerun by a different agent |
+| R20/R21/R25 → D15 | [SQLx cancellation, rollback, COMMIT uncertainty and worker retirement](../database/sqlx-retirement-study.md) | Six new Rust tests on Windows and Linux; local independent rerun; initial local Cargo-lint failure and corrected attempts preserved |
+| R27/R29 → D18 | [Body termination, old channel permits and retained allocation credit](../server/body-retirement-protocol.md) | Six new Rust tests on Windows and Linux; separately authored local independent rerun |
 | R07 → D04 | [Parallel independent local replication](../research/topics/R07/logical-admission-probe.md) of the now-merged PR #8 boundary | Linux ordinary no-RID NuGet consumer: 931 assertions; actual Native AOT: 932. Supplemental replication, not new Windows coverage |
 
 New test entry points are `python experiments/database-retirement/run.py --out
 FRESH_DIRECTORY` and `python experiments/server-retained-bytes/run.py --out
 FRESH_DIRECTORY`. The source-lifecycle workflow runs these two fixtures on
-Windows2022 and Ubuntu24.04. At this initial checkpoint those new remote runs
-are pending; their exact commits, run IDs, artifacts and failures will be
-recorded separately before any successful CI claim. The R07 primary two-platform
-run already exists and is not repeated by this workflow.
+Windows2022 and Ubuntu24.04. All four jobs passed in
+[run 43375871731](https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43375871731)
+at exact source `de43481581df9876cb2d0aed5de2db796d048c9d`: 12 distinct tests,
+24 platform test executions. All four ZIPs were downloaded and matched GitHub's
+SHA256 digests; [the evidence manifest](../../verification/source-lifecycle/results.json)
+preserves all 56 raw members and actual inputs. Fifteen source inputs are
+byte-exact with Git; the five Database Windows inputs are explicitly verified
+LF-to-CRLF checkout conversions, with both identities retained. The initial
+strict archive-identity check failed on that real difference and its finding
+is preserved. The four original small ZIPs are also preserved in the independent
+integrity-review bundle. The later evidence/merge commit is not the tested source. The
+R07 primary two-platform run already exists and is not repeated by this workflow.
 
 These fixtures add finite native behavioral evidence. They do not prove C#
 Database/Server adapters, PostgreSQL commit-response loss, HTTP/2 wire reset
@@ -95,3 +112,34 @@ Delivery tasks. No task is marked production-complete and no formal Delivery
 is authorized by these experiments. Plan continuation uses the existing IDs
 and propagates actual packet/contract input hashes, preserving historical
 migration checks as immutable checkpoints.
+
+## 5. Independent review and integration boundary
+
+[Separate review records](reviews/source-lifecycle/README.md) approve the finite
+Database/D15 and Server/D18 research scopes at their exact hashes. The Database
+reviewer passed37 input/source checks and independently ran six tests. The
+Server reviewer retained two six-test executions and resolved six findings,
+including runner failure evidence, empty-slice precision and retirement metadata
+accounting. The root separately reviewed the Interop author's compiled inputs,
+ownership/oracles and53 raw-result/binary checks; this is supplemental replication.
+
+The [CI provenance review](reviews/source-lifecycle/ci/SOURCE-LIFECYCLE-CI-REVIEW.md)
+passed134 checks against fresh official run/jobs/artifact metadata, actual ZIPs,
+all56 raw members and exact source/checkout identities. A [separate review of
+the integrity verifier](reviews/source-lifecycle/integrity/addendum.md) checks
+that source/evidence changes trigger validation.
+These are independent session-agent reviews, not fabricated historical reviews
+or a second GitHub account's required approval.
+
+The subsequently recovered PR #8 also passed a separate213-check identity
+review without rerunning its tests: four real ZIP downloads,64 raw files and
+eight native/AOT binary digests. Its primary run and incidental duplicate keep
+separate identities; the duplicate's identical inputs do not add coverage.
+
+The first saved source is [Design PR #9](https://github.com/IzuSharp/NativeWeave-Design/pull/9)
+commit `de43481581df9876cb2d0aed5de2db796d048c9d`; later evidence commits retain
+that tested identity. GitHub integration must still use the current PR head and
+actual service-side checks. All21 registry contracts remain proposed;15 have
+concrete specification hashes checked here. Review of finite research does not
+accept the remaining product ABI, async retirement, Database/Server AOT or
+performance obligations.

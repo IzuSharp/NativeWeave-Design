@@ -1,0 +1,31 @@
+name: Source lifecycle evidence integrity
+'on':
+  push:
+    branches: [research/source-lifecycle-2026-11-12]
+    paths:
+      - 'verification/source-lifecycle/**'
+      - 'verification/native-slices/**'
+      - 'experiments/database-retirement/**'
+      - 'experiments/server-retained-bytes/**'
+      - 'experiments/interop-admission/**'
+      - 'experiments/native-slices/**'
+      - '.github/workflows/source-lifecycle-research.yml'
+      - 'docs/**'
+      - 'CURRENT-PHASE.md'
+      - '.github/workflows/source-lifecycle-integrity.yml'
+permissions:
+  contents: read
+jobs:
+  integrity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify exact evidence, proposed specifications and historical migration
+        run: |
+          python verification/source-lifecycle/verify.py
+          python experiments/native-slices/verify_migration.py

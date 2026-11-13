@@ -1,0 +1,186 @@
+{
+  "audited_at_utc": "2026-11-13T05:33:15.219371+00:00",
+  "audit_scope": "Independent read-only review by migration_evidence subagent; no experiment rerun or product mutation",
+  "source_head": "267364a440074a61e193cf33315f1b9d0fa8126b",
+  "design_head": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+  "mapped_files": 139,
+  "byte_exact_files": 137,
+  "adapted_files": [
+    {
+      "source": "experiments/interop/run.py",
+      "destination": "experiments/native-slices/interop/run.py",
+      "diff": "--- experiments/interop/run.py\n+++ experiments/native-slices/interop/run.py\n@@ -4,7 +4,7 @@\n \"\"\"\n from pathlib import Path\n import datetime, hashlib, json, os, platform, shutil, subprocess, sys, zipfile\n-ROOT = Path(__file__).resolve().parents[2]\n+ROOT = Path(__file__).resolve().parents[1]\n rid = 'win-x64' if sys.platform == 'win32' else 'linux-x64'\n WORK = ROOT / '.work' / rid\n OUT = ROOT / 'artifacts' / ('interop-' + rid)\n@@ -28,7 +28,7 @@\n \n env=os.environ.copy()\n env.update(CARGO_TARGET_DIR=str(WORK/'target'), CARGO_BUILD_BUILD_DIR=str(WORK/'intermediates'), NUGET_PACKAGES=str(WORK/'packages'), DOTNET_CLI_TELEMETRY_OPTOUT='1')\n-manifest=ROOT/'experiments/interop/native/Cargo.toml'\n+manifest=ROOT/'interop/native/Cargo.toml'\n result={'source_commit':os.environ.get('GITHUB_SHA'),'run_id':os.environ.get('GITHUB_RUN_ID'),'platform':platform.platform(),'rid':rid,'success':False,'scope':'R03/R04/R07/R10 executable fixture; not production ABI or completed Delivery','clean_rust_free_host':False}\n try:\n     run('rust-version',['rustc','+1.100.0','-Vv'])\n@@ -45,13 +45,13 @@\n     assert len(libraries)==1,libraries\n     native=libraries[0]; original_hash=sha(native)\n     feed=WORK/'feed';feed.mkdir(exist_ok=True)\n-    run('pack',['dotnet','pack',ROOT/'experiments/interop/managed/NativeWeave.Interop.Probe.csproj','-c','Release','-o',feed,f'-p:NativeAsset={native}',f'-p:ProbeRid={rid}'])\n+    run('pack',['dotnet','pack',ROOT/'interop/managed/NativeWeave.Interop.Probe.csproj','-c','Release','-o',feed,f'-p:NativeAsset={native}',f'-p:ProbeRid={rid}'])\n     package=feed/'NativeWeave.Interop.Probe.0.0.1.nupkg'\n     with zipfile.ZipFile(package) as z:\n         asset=f'runtimes/{rid}/native/{native.name}'\n         assert hashlib.sha256(z.read(asset)).hexdigest()==original_hash\n     # Copy a real consumer out of the source tree. It refers only to the packed NuGet.\n-    consumer=WORK/'consumer';shutil.copytree(ROOT/'experiments/interop/consumer',consumer,dirs_exist_ok=True)\n+    consumer=WORK/'consumer';shutil.copytree(ROOT/'interop/consumer',consumer,dirs_exist_ok=True)\n     import xml.sax.saxutils\n     (consumer/'NuGet.Config').write_text('<configuration><packageSources><clear/><add key=\"local\" value=\"'+xml.sax.saxutils.escape(str(feed),{'\"':'&quot;'})+'\"/><add key=\"nuget\" value=\"https://api.nuget.org/v3/index.json\"/></packageSources></configuration>',encoding='utf-8')\n     # Deliberately no RID arguments for normal local .NET development.\n@@ -71,5 +71,5 @@\n     shutil.copy2(manifest.with_name('Cargo.lock'),OUT/'Cargo.lock')\n     shutil.copytree(publish,OUT/'publish',dirs_exist_ok=True)\n finally:\n-    result['source_files']={str(p.relative_to(ROOT)):sha(p) for p in sorted((ROOT/'experiments/interop').rglob('*')) if p.is_file() and not any(x in p.parts for x in ('bin','obj','target','__pycache__'))}\n+    result['source_files']={str(p.relative_to(ROOT)):sha(p) for p in sorted((ROOT/'interop').rglob('*')) if p.is_file() and not any(x in p.parts for x in ('bin','obj','target','__pycache__'))}\n     (OUT/'result.json').write_text(json.dumps(result,indent=2)+'\\n',encoding='utf-8')\n"
+    },
+    {
+      "source": "experiments/run_domains.py",
+      "destination": "experiments/native-slices/run_domains.py",
+      "diff": "--- experiments/run_domains.py\n+++ experiments/native-slices/run_domains.py\n@@ -1,10 +1,10 @@\n \"\"\"Execute one independent native domain fixture and preserve real command evidence.\"\"\"\n from pathlib import Path\n import datetime,hashlib,json,os,platform,subprocess,sys\n-ROOT=Path(__file__).resolve().parents[1]\n+ROOT=Path(__file__).resolve().parent\n name=sys.argv[1]\n if name not in ('database','server'):raise SystemExit('expected database or server')\n-crate=ROOT/'experiments'/name\n+crate=ROOT/name\n out=ROOT/'artifacts'/f'{name}-{platform.system().lower()}';out.mkdir(parents=True,exist_ok=True)\n def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()\n records=[]\n"
+    }
+  ],
+  "original_evidence_files": 112,
+  "migrated_evidence_files": 90,
+  "artifact_archives_downloaded_and_hashed": 14,
+  "artifacts": [
+    {
+      "origin": "original",
+      "artifact_id": 14009370861,
+      "sha256": "42d197ed6ceb6ab1b7879079fe6a487b7f59c15ad203eb66a6d8d02200abf124",
+      "source_commit": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c",
+      "run_id": "43363045559",
+      "success": true,
+      "text_files_checked": 23,
+      "binary_hash_checks": {
+        "package_sha256": true,
+        "native_sha256": true,
+        "aot_executable_sha256": true
+      }
+    },
+    {
+      "origin": "original",
+      "artifact_id": 14008494778,
+      "sha256": "7f4bb0600182d1092882725217a253f6b6d5edff3fb62dd7133a1fd7a84cb4e1",
+      "source_commit": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c",
+      "run_id": "43363045559",
+      "success": true,
+      "text_files_checked": 23,
+      "binary_hash_checks": {
+        "package_sha256": true,
+        "native_sha256": true,
+        "aot_executable_sha256": true
+      }
+    },
+    {
+      "origin": "original",
+      "artifact_id": 14009482437,
+      "sha256": "5b73ec1bc9287da6c7eae2140939a1f54800601e3959cbe74f425e82efd0459b",
+      "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+      "run_id": "43363994414",
+      "success": true,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "original",
+      "artifact_id": 14009078546,
+      "sha256": "d4377b992bd5b2822b791cfefbe749823ce9402f9cf7556c988dd7a37002ba63",
+      "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+      "run_id": "43363994414",
+      "success": true,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "original",
+      "artifact_id": 14010040740,
+      "sha256": "75d35d974758f024d1510d1dcae26df7998c7065037b16e650a485ad6bb56dd0",
+      "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+      "run_id": "43363994414",
+      "success": false,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "original",
+      "artifact_id": 14009881379,
+      "sha256": "d1164166ab2932d68de478fd1e046e3df339a8c4fb8d4408f2b5ec5492ce2986",
+      "source_commit": "5dd696725afe75f2b8b03b104c8275db50dcf2c7",
+      "run_id": "43363994414",
+      "success": false,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "original",
+      "artifact_id": 14009114165,
+      "sha256": "b40f0ae6fad80d44aa867579a4cd256496194f622f1711a69185bbf5aa76543d",
+      "source_commit": "43e4fbcbe0417165c0f7df03507bfa1da8a53049",
+      "run_id": "43364366610",
+      "success": true,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "original",
+      "artifact_id": 14009902007,
+      "sha256": "dcf513ca31bde0b3d7e6aa273e2ca6e2e2220002ede2ad97d9d3fb42510e2e2f",
+      "source_commit": "43e4fbcbe0417165c0f7df03507bfa1da8a53049",
+      "run_id": "43364366610",
+      "success": true,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "migrated",
+      "artifact_id": 14012845812,
+      "sha256": "5cdf5a4d5881ed5bb3d586f52c4806c98d6664e24a5c92804c7fd9a615ac57de",
+      "source_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "run_id": "43371161177",
+      "success": true,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "migrated",
+      "artifact_id": 14012796236,
+      "sha256": "29ead7908818131ced8ea51c2becfdb031d1ac8f4d0c63c4684cc32af76818f8",
+      "source_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "run_id": "43371161177",
+      "success": true,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "migrated",
+      "artifact_id": 14012920214,
+      "sha256": "c870fbebee4d7e00377495893db4ff56f1f894f1722cccd9df5f39511bf55900",
+      "source_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "run_id": "43371161177",
+      "success": true,
+      "text_files_checked": 23,
+      "binary_hash_checks": {
+        "package_sha256": true,
+        "native_sha256": true,
+        "aot_executable_sha256": true
+      }
+    },
+    {
+      "origin": "migrated",
+      "artifact_id": 14012895648,
+      "sha256": "5d85fc24a72ec29792f96100bc1ff42563ab6de0cd31779a46b914c4e21c54a9",
+      "source_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "run_id": "43371161177",
+      "success": true,
+      "text_files_checked": 23,
+      "binary_hash_checks": {
+        "package_sha256": true,
+        "native_sha256": true,
+        "aot_executable_sha256": true
+      }
+    },
+    {
+      "origin": "migrated",
+      "artifact_id": 14012198437,
+      "sha256": "d61394f7a6940e66c508086356d03bdf23509f4fb0780900a9c86f053f73bb24",
+      "source_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "run_id": "43371161177",
+      "success": true,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    },
+    {
+      "origin": "migrated",
+      "artifact_id": 14012067961,
+      "sha256": "7daa8a577e6c3b32664b7205f732099c150eb1133034ffbb00e15884273525fc",
+      "source_commit": "67b48674e469c98f2f73f1c9ff0d63b113abc47b",
+      "run_id": "43371161177",
+      "success": true,
+      "text_files_checked": 11,
+      "binary_hash_checks": {}
+    }
+  ],
+  "passed_checks": 1240,
+  "total_checks": 1240,
+  "errors": [],
+  "conclusion": "pass",
+  "closure_scope": "Migration asset completeness and execution provenance only; paired Plan merge and product PR/head state must be checked separately before closure."
+}

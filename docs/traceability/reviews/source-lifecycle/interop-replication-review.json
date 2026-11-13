@@ -1,0 +1,263 @@
+{
+  "reviewer": "/root",
+  "author_of_reviewed_csharp_and_runner": false,
+  "reviewed_at_utc": "2026-11-13T06:08:11.626591+00:00",
+  "scope": "Independent static review and raw-input/output/binary verification of separately authored local Interop replication; no test rerun, no Windows result, no full contract acceptance",
+  "source_reference": "Design PR8 is primary completed two-platform coverage; this parallel fixture is supplemental replication",
+  "files": [
+    {
+      "path": "experiments/interop-admission/consumer/AdmissionBuffer.cs",
+      "sha256": "9d6d9bea6dd364b4145a4f9b45b438d79baef923a15af1560c0af93fd9f0461a"
+    },
+    {
+      "path": "experiments/interop-admission/consumer/Program.cs",
+      "sha256": "950e6dcb89b1999bce4026cb812b75a426c045ce46482fa26554c78c114fe079"
+    },
+    {
+      "path": "experiments/interop-admission/consumer/AdmissionProbe.csproj",
+      "sha256": "a4cabc7458cd1ce8cecc53a0ed2fcf4f73da0a07b9ee9544769875f94fd404c6"
+    },
+    {
+      "path": "experiments/interop-admission/run.py",
+      "sha256": "b8c62dce7b4ea57b918afacb726857400119781bb46463f55183f9719c77147e"
+    },
+    {
+      "path": "experiments/interop-admission/global.json",
+      "sha256": "d68766f83e6c794b511ea1cb87f6cc00089cd21d6e92c1246ac7c2a542b11c7d"
+    },
+    {
+      "path": "experiments/interop-admission/evidence/linux-local-attempt-1/result.json",
+      "sha256": "0d85df7b1a733bd767d5480b12f848ba7916ad6c779eed09a0d068aa4a5ca7ef"
+    }
+  ],
+  "checks": [
+    {
+      "check": "local result explicitly successful",
+      "passed": true
+    },
+    {
+      "check": "source reported dirty rather than fake exact committed execution",
+      "passed": true
+    },
+    {
+      "check": "normal exact assertions and independent observations",
+      "passed": true
+    },
+    {
+      "check": "native_aot exact assertions and independent observations",
+      "passed": true
+    },
+    {
+      "check": "rust-version exit code",
+      "passed": true
+    },
+    {
+      "check": "rust-version stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "rust-version stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "cargo-version exit code",
+      "passed": true
+    },
+    {
+      "check": "cargo-version stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "cargo-version stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "dotnet-info exit code",
+      "passed": true
+    },
+    {
+      "check": "dotnet-info stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "dotnet-info stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "native-build exit code",
+      "passed": true
+    },
+    {
+      "check": "native-build stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "native-build stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "package-reused-managed exit code",
+      "passed": true
+    },
+    {
+      "check": "package-reused-managed stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "package-reused-managed stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "consumer-build-no-rid exit code",
+      "passed": true
+    },
+    {
+      "check": "consumer-build-no-rid stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "consumer-build-no-rid stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "consumer-run-no-rid exit code",
+      "passed": true
+    },
+    {
+      "check": "consumer-run-no-rid stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "consumer-run-no-rid stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "aot-publish exit code",
+      "passed": true
+    },
+    {
+      "check": "aot-publish stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "aot-publish stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "aot-run exit code",
+      "passed": true
+    },
+    {
+      "check": "aot-run stdout sha256",
+      "passed": true
+    },
+    {
+      "check": "aot-run stderr sha256",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/interop-admission/run.py",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/interop-admission/global.json",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/interop-admission/consumer/AdmissionBuffer.cs",
+      "passed": true
+    },
+    {
+      "check": "reviewed consumer/reused code matches executed bytes experiments/interop-admission/consumer/AdmissionBuffer.cs",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/interop-admission/consumer/AdmissionProbe.csproj",
+      "passed": true
+    },
+    {
+      "check": "reviewed consumer/reused code matches executed bytes experiments/interop-admission/consumer/AdmissionProbe.csproj",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/interop-admission/consumer/Program.cs",
+      "passed": true
+    },
+    {
+      "check": "reviewed consumer/reused code matches executed bytes experiments/interop-admission/consumer/Program.cs",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/native-slices/interop/native/Cargo.toml",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/native-slices/interop/native/Cargo.lock",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/native-slices/interop/native/src/lib.rs",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/native-slices/interop/managed/Bridge.cs",
+      "passed": true
+    },
+    {
+      "check": "reviewed consumer/reused code matches executed bytes experiments/native-slices/interop/managed/Bridge.cs",
+      "passed": true
+    },
+    {
+      "check": "actual input snapshot experiments/native-slices/interop/managed/NativeWeave.Interop.Probe.csproj",
+      "passed": true
+    },
+    {
+      "check": "reviewed consumer/reused code matches executed bytes experiments/native-slices/interop/managed/NativeWeave.Interop.Probe.csproj",
+      "passed": true
+    },
+    {
+      "check": "actual local binary binaries/NativeWeave.Interop.Probe.0.0.1.nupkg",
+      "passed": true
+    },
+    {
+      "check": "actual local binary binaries/aot/AdmissionProbe",
+      "passed": true
+    },
+    {
+      "check": "actual local binary binaries/aot/AdmissionProbe.dbg",
+      "passed": true
+    },
+    {
+      "check": "actual local binary binaries/aot/libnw_interop_probe.so",
+      "passed": true
+    },
+    {
+      "check": "actual local binary binaries/native/libnw_interop_probe.so",
+      "passed": true
+    },
+    {
+      "check": "current runner revision differs and is not falsely marked executed",
+      "passed": true
+    },
+    {
+      "check": "PackageReference, no ProjectReference",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "manual_review_conclusions": [
+    "Open check and DangerousAddRef occur under one short gate; raw FFI and release occur outside the gate.",
+    "A private SafeHandle retains the old immutable native buffer; callback retirement and mutable-state serialization are not implemented or claimed.",
+    "Actual native entered signal and controller ordering avoid a sleep-based counterfeit of the held call.",
+    "Negative and candidate paths require live=1 and not-Closed before new calls; rejection cannot be attributed to physical release.",
+    "Expected sums are separately calculated; per-round finally releases the native hold and joins the old thread.",
+    "The observed final runner revision is statically reviewed only; its historical executed predecessor is preserved without changed hashes."
+  ],
+  "not_proven": [
+    "Windows execution of this supplemental fixture",
+    "arbitrary race schedule or weak memory",
+    "async callbacks, finalizers, parent/child ownership, module unloading",
+    "clean Rust-free host",
+    "product API or accepted C-LIFETIME contract"
+  ]
+}

@@ -76,3 +76,32 @@ Each of **Ubuntu24.04 x64 and Windows2022 x64** passed **13 Rust unit tests** an
 Artifacts: Linux14004931075 SHA256 `93bbd472740cd99f68f6c7dc942629e403bd1452c74f397ec24e28a7e1b87ef3`; Windows14004626653 `1f8bad1d39f3c5d53348d75d49be7774213ebc0f8f6651b151444ead0c8ceb71`; supplemental sources14004596768 `f803f823ad3a09ce6a33f4318925de95a47010c2e0f983471289998daecf6bd3`. Raw commands/stdout/stderr/results and source hashes are preserved in `rust-1100-evidence/` after integration. These new tests are **not** the old Linux C# AOT query prototype, which was not rerun. They do not establish Native AOT/PG/SQLite/Server closure compatibility, production memory bounds, weak-memory safety or performance.
 
 Next existing tasks: R03/R04/D02 actual ABI/layout/native-release/C# AOT fixtures; R10/D07 owner-aware buffers; R13/R14/D10 Cargo JSON and clean NuGet consumers; R22/R25 checked native database value/execution slice; R27/R29 real native Service/Body lifetime fixture. Keep all114 IDs and production gates. Documentation integration under the user's explicit self-review exception is not independent review or acceptance of incomplete production contracts.
+
+## 8. Subsequent continuation and fresh stable-channel observation
+
+At `2026-11-13T06:07:33Z`, a fresh HTTPS fetch of the official stable manifest
+still reported Rust `1.100.0` / commit `0ef1bc386059596dada8fb65b50425aab2ea637a`.
+The complete response was byte-identical to the already saved
+`verification/native-slices/observed-stable-channel.toml`, SHA256
+`3051e859570f64a8c5acb9d09e87425db52c7d97287c67e8f6d57d7d34ef9258`.
+The official .NET release index and download page still identify .NET11.0.0,
+SDK11.0.100 and C#15. See the timestamped
+[observation](../../../../verification/source-lifecycle/toolchain-observation.json)
+and captured .NET index. This checks current stable identities; no release
+signature verification or new API acceptance is inferred.
+
+The preceding section's next-fixture list describes its earlier checkpoint.
+The migrated native slices now include Windows/Linux Interop NuGet/AOT and
+finite Database/Server executions. PR #8 additionally completed two-platform
+logical-admission experiments. The new [lifecycle continuation](../../../traceability/source-lifecycle-followup.md)
+executes SQLx rollback/stream/acquire/COMMIT/close and Body/Bytes/permit ownership
+on both OS. Reuse those results rather than rerun this report's13+13 capability
+checks or describe the later native Body evidence as only an abstract model.
+
+The practical Rust decision remains bounded: use stable language/ownership APIs
+inside each Engine where their actual semantics fit. `DropGuard` cannot complete
+SQLx asynchronous cleanup; `Box::map`/`Arc::map` cannot retire exported owners;
+allocator-aware outer containers do not account for upstream SQLx/Hyper copies.
+The new Bytes owner/permit seam uses existing mature public APIs without a
+framework-wide allocator or a rewritten HTTP core. No dependency is upgraded
+and no default Rust Server is selected merely because the stable compiler is newer.

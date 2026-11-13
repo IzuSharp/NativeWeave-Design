@@ -1,0 +1,31 @@
+{
+  "observed_at_utc": "2026-11-13T06:07:33.990227+00:00",
+  "rust": {
+    "url": "https://static.rust-lang.org/dist/channel-rust-stable.toml",
+    "manifest_sha256": "3051e859570f64a8c5acb9d09e87425db52c7d97287c67e8f6d57d7d34ef9258",
+    "manifest_date": "2026-11-12",
+    "version": "1.100.0 (0ef1bc386 2026-11-09)",
+    "git_commit_hash": "0ef1bc386059596dada8fb65b50425aab2ea637a",
+    "byte_equal_to_previously_saved_manifest": true,
+    "existing_manifest": "verification/native-slices/observed-stable-channel.toml"
+  },
+  "dotnet": {
+    "url": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/releases-index.json",
+    "response_sha256": "4bf95cfbeb14b5cca97f35c99ec41e11c658796c13435b0d76ec81dda22e9da7",
+    "channel": {
+      "channel-version": "11.0",
+      "latest-release": "11.0.0",
+      "latest-release-date": "2026-11-10",
+      "security": true,
+      "latest-runtime": "11.0.0",
+      "latest-sdk": "11.0.100",
+      "product": ".NET",
+      "support-phase": "active",
+      "release-type": "sts",
+      "eol-date": "2028-11-14",
+      "releases.json": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json",
+      "supported-os.json": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/supported-os.json"
+    }
+  },
+  "limits": "HTTPS observations and actual compiler logs; no independent signature verification; no completed API experiments rerun"
+}

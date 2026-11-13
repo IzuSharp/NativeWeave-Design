@@ -1,0 +1,126 @@
+{
+  "checks": [
+    {
+      "check": "sqlx-core/src/pool/connection.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "94269a532ef60aaa31321e43af17cba2424f919a36501d862328ed05958a08de",
+        "git_blob_sha1": "7912b12aa14f763e8928bf8ac9466a97a81f681a",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-core-0.9.0/src/pool/connection.rs"
+      }
+    },
+    {
+      "check": "sqlx-core/src/pool/connection.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-core/src/transaction.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "7c0e1b28f1f0b56920d71b3340407abc2eeef9fe442321d25f43d1bf1721dbf7",
+        "git_blob_sha1": "46f89d25b2be6a04d7ab80347f22e21f16cd0731",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-core-0.9.0/src/transaction.rs"
+      }
+    },
+    {
+      "check": "sqlx-core/src/transaction.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-sqlite/src/transaction.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "5f6958702455ef631a9a7290e63c1666e60731c85ffc828a176c39d0ce01f6be",
+        "git_blob_sha1": "1c57d0163f3505dc048be18c5d47bfee4360cf96",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-sqlite-0.9.0/src/transaction.rs"
+      }
+    },
+    {
+      "check": "sqlx-sqlite/src/transaction.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/worker.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "b66aafc56f0e287eac3b09111c5d4997d350ab61294c5cc576ce359bc18cebe4",
+        "git_blob_sha1": "2585dc1312210d9eb18c15f6df1158656d3c6b2c",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-sqlite-0.9.0/src/connection/worker.rs"
+      }
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/worker.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/mod.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "a20c2e51a1505e298fd897b378f9032c89b82850838aa6e5d9409f612fb1e7fd",
+        "git_blob_sha1": "218c747143fe80b344bca3405d4b0b38da2bd932",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-sqlite-0.9.0/src/connection/mod.rs"
+      }
+    },
+    {
+      "check": "sqlx-sqlite/src/connection/mod.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx-sqlite/src/options/mod.rs_git_and_registry_bytes",
+      "passed": true,
+      "detail": {
+        "sha256": "ff5005abc6408f2df073d95bf3440c2a3ee96c1a312d73468bf66123f8ab2f1e",
+        "git_blob_sha1": "0cafc4d08c4c63c342685fedbcc43222dd38d2f1",
+        "registry_path": "/workspace/scratch/a64c8260e732/nativeweave/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sqlx-sqlite-0.9.0/src/options/mod.rs"
+      }
+    },
+    {
+      "check": "sqlx-sqlite/src/options/mod.rs_vcs_distinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlx_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "378620ccc25c62c89d8be1c819e76a88d59bdcc3304733330788948e619bfd71"
+    },
+    {
+      "check": "sqlx-core_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "05b44e85bf579a8eeb4ceaa77a3a523baf2bf0e9bac7e40f405d537b5d2d5ccb"
+    },
+    {
+      "check": "sqlx-sqlite_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "488e99c397a62007e4229aec669a179816339afc6d2620ca6fa420dbee2e982c"
+    },
+    {
+      "check": "sea-query_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "546040c653a705e60ec65ecd3191a809603734bebbc225775916dea9ae409b31"
+    },
+    {
+      "check": "tokio_actual_archive_matches_lock",
+      "passed": true,
+      "detail": "b52fd3255258d26fac7264ab5a76b53c13367136dc011d3d6ad4f8ed070396a3"
+    },
+    {
+      "check": "lock_closure_only_root_name_changes",
+      "passed": true,
+      "detail": {
+        "current_root": [
+          "nw-database-retirement-probe"
+        ],
+        "old_root": [
+          "nw-database-boundary-probe"
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,4962 @@
+[
+  {
+    "check": "source checkout exact HEAD",
+    "passed": true
+  },
+  {
+    "check": "design checkout exact HEAD",
+    "passed": true
+  },
+  {
+    "check": "PR source git diff contains 139 files",
+    "passed": true
+  },
+  {
+    "check": "complete source path inventory matches migration map",
+    "passed": true
+  },
+  {
+    "check": "139 unique source and destination mappings",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/provenance/original.gitattributes",
+    "passed": true
+  },
+  {
+    "check": "source hashes: .gitattributes",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/provenance/original.gitattributes",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: .gitattributes",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/provenance/workflows/domain-slices.yml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: .github/workflows/domain-slices.yml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/provenance/workflows/domain-slices.yml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: .github/workflows/domain-slices.yml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/provenance/workflows/native-slices.yml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: .github/workflows/native-slices.yml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/provenance/workflows/native-slices.yml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: .github/workflows/native-slices.yml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/provenance/workflows/preserve-native-evidence.yml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: .github/workflows/preserve-native-evidence.yml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/provenance/workflows/preserve-native-evidence.yml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: .github/workflows/preserve-native-evidence.yml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/.gitignore",
+    "passed": true
+  },
+  {
+    "check": "source hashes: .gitignore",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/.gitignore",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: .gitignore",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/provenance/DOMAIN-SLICES.original.md",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/DOMAIN-SLICES.md",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/provenance/DOMAIN-SLICES.original.md",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/DOMAIN-SLICES.md",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/database/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/database/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/database/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/database/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/database/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/database/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/database/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/database/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/database/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/database/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/database/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/database/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/provenance/interop-original-README.md",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/README.md",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/provenance/interop-original-README.md",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/README.md",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/interop/consumer/Consumer.csproj",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/consumer/Consumer.csproj",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/interop/consumer/Consumer.csproj",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/consumer/Consumer.csproj",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/interop/consumer/Program.cs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/consumer/Program.cs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/interop/consumer/Program.cs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/consumer/Program.cs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/interop/managed/Bridge.cs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/managed/Bridge.cs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/interop/managed/Bridge.cs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/managed/Bridge.cs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/interop/managed/NativeWeave.Interop.Probe.csproj",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/managed/NativeWeave.Interop.Probe.csproj",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/interop/managed/NativeWeave.Interop.Probe.csproj",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/managed/NativeWeave.Interop.Probe.csproj",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/interop/native/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/native/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/interop/native/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/native/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/interop/native/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/native/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/interop/native/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/native/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/interop/native/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/native/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/interop/native/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/native/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/interop/run.py",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/interop/run.py",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/interop/run.py",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/interop/run.py",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/run_domains.py",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/run_domains.py",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/run_domains.py",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/run_domains.py",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/server/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/server/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/server/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/server/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/server/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/server/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/server/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/server/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/server/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: experiments/server/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/server/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: experiments/server/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/global.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: global.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/global.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: global.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/rust-toolchain.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: rust-toolchain.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/rust-toolchain.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: rust-toolchain.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: experiments/native-slices/provenance/preserve_native_slice_evidence.py",
+    "passed": true
+  },
+  {
+    "check": "source hashes: tools/preserve_native_slice_evidence.py",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: experiments/native-slices/provenance/preserve_native_slice_evidence.py",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: tools/preserve_native_slice_evidence.py",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/README.md",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/README.md",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/README.md",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/README.md",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-first-failure-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-first-failure-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-first-failure-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-first-failure-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/interop-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/interop-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/interop-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/interop-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/manifest.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/manifest.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/manifest.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/manifest.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "destination equals pinned Design blob: verification/native-slices/original-pr1/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "source hashes: verification/native-slices/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "destination hashes: verification/native-slices/original-pr1/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "byte identity declaration: verification/native-slices/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "original archive SHA256: 14009370861",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14009370861",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14009370861",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14009370861",
+    "passed": true
+  },
+  {
+    "check": "package_sha256 independently verified: 14009370861",
+    "passed": true
+  },
+  {
+    "check": "native_sha256 independently verified: 14009370861",
+    "passed": true
+  },
+  {
+    "check": "aot_executable_sha256 independently verified: 14009370861",
+    "passed": true
+  },
+  {
+    "check": "original archive SHA256: 14008494778",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/interop-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/interop-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/interop-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14008494778",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14008494778",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14008494778",
+    "passed": true
+  },
+  {
+    "check": "package_sha256 independently verified: 14008494778",
+    "passed": true
+  },
+  {
+    "check": "native_sha256 independently verified: 14008494778",
+    "passed": true
+  },
+  {
+    "check": "aot_executable_sha256 independently verified: 14008494778",
+    "passed": true
+  },
+  {
+    "check": "original archive SHA256: 14009482437",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14009482437",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14009482437",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14009482437",
+    "passed": true
+  },
+  {
+    "check": "original archive SHA256: 14009078546",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14009078546",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14009078546",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14009078546",
+    "passed": true
+  },
+  {
+    "check": "original archive SHA256: 14010040740",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14010040740",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14010040740",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14010040740",
+    "passed": true
+  },
+  {
+    "check": "original archive SHA256: 14009881379",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-first-failure-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-first-failure-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-first-failure-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14009881379",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14009881379",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14009881379",
+    "passed": true
+  },
+  {
+    "check": "original archive SHA256: 14009114165",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14009114165",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14009114165",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14009114165",
+    "passed": true
+  },
+  {
+    "check": "original archive SHA256: 14009902007",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/original-pr1/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/original-pr1/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/original-pr1/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14009902007",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14009902007",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14009902007",
+    "passed": true
+  },
+  {
+    "check": "migrated archive SHA256: 14012845812",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-ubuntu-24.04/database-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14012845812",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14012845812",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14012845812",
+    "passed": true
+  },
+  {
+    "check": "migrated archive SHA256: 14012796236",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-database-windows-2022/database-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14012796236",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14012796236",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14012796236",
+    "passed": true
+  },
+  {
+    "check": "migrated archive SHA256: 14012920214",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-ubuntu-24.04/interop-linux-x64/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14012920214",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14012920214",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14012920214",
+    "passed": true
+  },
+  {
+    "check": "package_sha256 independently verified: 14012920214",
+    "passed": true
+  },
+  {
+    "check": "native_sha256 independently verified: 14012920214",
+    "passed": true
+  },
+  {
+    "check": "aot_executable_sha256 independently verified: 14012920214",
+    "passed": true
+  },
+  {
+    "check": "migrated archive SHA256: 14012895648",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-publish.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-publish.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-run.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/aot-run.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-build-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-build-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-run-no-rid.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/consumer-run-no-rid.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/dotnet-info.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/dotnet-info.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/native-build.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/native-build.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/pack.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/pack.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-interop-windows-2022/interop-win-x64/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14012895648",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14012895648",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14012895648",
+    "passed": true
+  },
+  {
+    "check": "package_sha256 independently verified: 14012895648",
+    "passed": true
+  },
+  {
+    "check": "native_sha256 independently verified: 14012895648",
+    "passed": true
+  },
+  {
+    "check": "aot_executable_sha256 independently verified: 14012895648",
+    "passed": true
+  },
+  {
+    "check": "migrated archive SHA256: 14012198437",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-ubuntu-24.04/server-linux/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14012198437",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14012198437",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14012198437",
+    "passed": true
+  },
+  {
+    "check": "migrated archive SHA256: 14012067961",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/Cargo.lock",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/cargo-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/cargo-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/Cargo.toml",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/commands.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/result.json",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/rust-version.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/rust-version.stdout",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/src/lib.rs",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/tests.stderr",
+    "passed": true
+  },
+  {
+    "check": "preserved evidence SHA256: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one artifact member for: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "artifact bytes equal preserved file: verification/native-slices/migrated/43371161177/relocated-server-windows-2022/server-windows/tests.stdout",
+    "passed": true
+  },
+  {
+    "check": "one result in artifact: 14012067961",
+    "passed": true
+  },
+  {
+    "check": "executed source identity: 14012067961",
+    "passed": true
+  },
+  {
+    "check": "actual success/failure identity: 14012067961",
+    "passed": true
+  },
+  {
+    "check": "112 original raw evidence files",
+    "passed": true
+  },
+  {
+    "check": "90 distinct migrated execution files",
+    "passed": true
+  },
+  {
+    "check": "both historical database failure records retained",
+    "passed": true
+  },
+  {
+    "check": "new execution is identified by actual relocated checkout",
+    "passed": true
+  },
+  {
+    "check": "new results bind exact migration map hash",
+    "passed": true
+  }
+]

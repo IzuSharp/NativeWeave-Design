@@ -1,0 +1,137 @@
+[
+  {
+    "path": "interop-win-x64/aot-publish.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "interop-win-x64/aot-publish.stdout",
+    "bytes": 454,
+    "sha256": "23ae478f123f7f3b013c01584d9b569599cdf57dc1188c4fd1e81e76c06a22e9"
+  },
+  {
+    "path": "interop-win-x64/aot-run.stdout",
+    "bytes": 237,
+    "sha256": "a982edb9fb6a39ee7662275c8cf93dc31ed9015dd26098ad77c06b288286eabf"
+  },
+  {
+    "path": "interop-win-x64/aot-run.stderr",
+    "bytes": 182,
+    "sha256": "4932b0b37f92f573a667e180010456bbfc840a999ffc81b0ead782985661f224"
+  },
+  {
+    "path": "interop-win-x64/cargo-version.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "interop-win-x64/cargo-version.stdout",
+    "bytes": 338,
+    "sha256": "45f73f9b3c3de5110b4c1b9bc15a7aad797b3d4056489f5c15ff1cb977807f31"
+  },
+  {
+    "path": "interop-win-x64/Cargo.lock",
+    "bytes": 160,
+    "sha256": "e3e2ffee883d8ec7e0e3c2ca0c297f6ed6d17733c41c9f6df406491a6fa46f60"
+  },
+  {
+    "path": "interop-win-x64/commands.json",
+    "bytes": 6442,
+    "sha256": "4c5537d466cd3c4dd41dc33d6d18cf92ac1856221fd5a4a3b6313fc34a5f3b45"
+  },
+  {
+    "path": "interop-win-x64/consumer-build-no-rid.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "interop-win-x64/consumer-build-no-rid.stdout",
+    "bytes": 392,
+    "sha256": "984f5b726bfb96bca60497e8fc1220138d6cc4cebdbdf236b2561f94fd6cd286"
+  },
+  {
+    "path": "interop-win-x64/consumer-run-no-rid.stderr",
+    "bytes": 182,
+    "sha256": "3ad71600c804e57b91dda8c9d3738433b1d79ddd9b87dad64c4250cf64247912"
+  },
+  {
+    "path": "interop-win-x64/consumer-run-no-rid.stdout",
+    "bytes": 238,
+    "sha256": "49d1ebb3d458753627a09ba78a0ab7e8aea3d09b3a6401f683bf3dd88c63cbdf"
+  },
+  {
+    "path": "interop-win-x64/dotnet-info.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "interop-win-x64/dotnet-info.stdout",
+    "bytes": 6120,
+    "sha256": "d37364f764a373379a41af17e2068af3b475d83fc857069e8698d2138fbf22eb"
+  },
+  {
+    "path": "interop-win-x64/native-build.stderr",
+    "bytes": 187,
+    "sha256": "21de0f2e94870f0b1f6078bfa2dd57dd317cd26c3f053eec0f3b37a7398e224a"
+  },
+  {
+    "path": "interop-win-x64/native-build.stdout",
+    "bytes": 1429,
+    "sha256": "22d367d16f905d3a21d12fb85062a54e3a9e5e3d2c7831c223f70c7746f581a2"
+  },
+  {
+    "path": "interop-win-x64/NativeWeave.Interop.Probe.0.0.1.nupkg",
+    "bytes": 71948,
+    "sha256": "d67ca37991b7dfe60b618aa4c6b73e5638e5993a08f77be942c87e3b89babd32"
+  },
+  {
+    "path": "interop-win-x64/pack.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "interop-win-x64/pack.stdout",
+    "bytes": 680,
+    "sha256": "192df2d0a4e0688a6677b447c31d45e669eba7bd8f8a6e75694f34d697915304"
+  },
+  {
+    "path": "interop-win-x64/publish/Consumer.pdb",
+    "bytes": 6991872,
+    "sha256": "cff3eb1844210671c16808790f212fd7bfb4db18fd054d81bf6e4017a9bace3a"
+  },
+  {
+    "path": "interop-win-x64/publish/Consumer.exe",
+    "bytes": 1218560,
+    "sha256": "4a27c1af83a5d136da7f572344f76b59a3c40ec6c178c30ea236254fac1c36fe"
+  },
+  {
+    "path": "interop-win-x64/publish/nw_interop_probe.dll",
+    "bytes": 124928,
+    "sha256": "db0b5dd2cfef14154d24763bf802bcd73de958fb412bf372e7ba17f6d8dc640e"
+  },
+  {
+    "path": "interop-win-x64/result.json",
+    "bytes": 1606,
+    "sha256": "f970b29c2bbc7d76fd7c190928b1613713259be622650666a510e0d7e912b3a7"
+  },
+  {
+    "path": "interop-win-x64/rust-tests.stdout",
+    "bytes": 391,
+    "sha256": "05a27c038c04f21152cf2cf69a341c08d7514f8f867162fd740de1b87c5268ba"
+  },
+  {
+    "path": "interop-win-x64/rust-tests.stderr",
+    "bytes": 382,
+    "sha256": "f89249a5590ff4e72d389afa10fbbffe2d84ce7cea1b72e712fcd6ff1c560593"
+  },
+  {
+    "path": "interop-win-x64/rust-version.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "interop-win-x64/rust-version.stdout",
+    "bytes": 203,
+    "sha256": "488f5b94fc047103c33362be28d234c58772b442d7702ff41dda76b0d30c49c7"
+  }
+]

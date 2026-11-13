@@ -1,0 +1,815 @@
+{
+  "reviewed_at_utc": "2026-11-13T06:12:43.568833+00:00",
+  "reviewer": "/root/migration_evidence",
+  "review_scope": "Independent archive/API/source-byte verification only; no fixture reruns, no remote writes",
+  "run_id": 43375871731,
+  "tested_source_commit": "de43481581df9876cb2d0aed5de2db796d048c9d",
+  "results_manifest_sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+  "workflow_sha256": "81177ac3cce246b402db7275076f26be86c1ac4aa7d47ca8f7c44836c0e40965",
+  "fresh_api_snapshot_sha256": "d43e391fca0662ab2139c05e0227e5a403d023b68b20c1194ad72ada44a1af5d",
+  "archives": [
+    {
+      "id": 14014900927,
+      "name": "lifecycle-server-retained-bytes-windows-2022",
+      "zip_sha256": "351f189006efd997bb43d5c5e925d49a00d45de9a5f4d0045478be73b37d6e41",
+      "bytes": 8720,
+      "api_digest_verified": true,
+      "raw_members": 12
+    },
+    {
+      "id": 14014880511,
+      "name": "lifecycle-database-retirement-windows-2022",
+      "zip_sha256": "0c64ef55a8b742ea16561eedcabf3dd5ec07d72d285e2f15c123c8af2dff70ce",
+      "bytes": 19897,
+      "api_digest_verified": true,
+      "raw_members": 16
+    },
+    {
+      "id": 14014666488,
+      "name": "lifecycle-database-retirement-ubuntu-24.04",
+      "zip_sha256": "ed99a8da14382f1e5eadc4ed47a0c940d169bde1352e1643be0eb3f2e0c09859",
+      "bytes": 19631,
+      "api_digest_verified": true,
+      "raw_members": 16
+    },
+    {
+      "id": 14014566727,
+      "name": "lifecycle-server-retained-bytes-ubuntu-24.04",
+      "zip_sha256": "eec344cca170fa07b74bcf3ccb0650964f31e490fef09b90d31dfd3bacf766c0",
+      "bytes": 8728,
+      "api_digest_verified": true,
+      "raw_members": 12
+    }
+  ],
+  "raw_files": 56,
+  "source_inputs": [
+    {
+      "artifact": "lifecycle-server-retained-bytes-windows-2022",
+      "fixture": "server-retained-bytes",
+      "path": "Cargo.toml",
+      "git_blob_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+      "checkout_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+      "git_bytes": 378,
+      "checkout_bytes": 378,
+      "LF_count": 16,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-windows-2022",
+      "fixture": "server-retained-bytes",
+      "path": "Cargo.lock",
+      "git_blob_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+      "checkout_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+      "git_bytes": 2916,
+      "checkout_bytes": 2916,
+      "LF_count": 118,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-windows-2022",
+      "fixture": "server-retained-bytes",
+      "path": "src/lib.rs",
+      "git_blob_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "checkout_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "git_bytes": 7004,
+      "checkout_bytes": 7004,
+      "LF_count": 158,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-windows-2022",
+      "fixture": "server-retained-bytes",
+      "path": "run.py",
+      "git_blob_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+      "checkout_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+      "git_bytes": 4893,
+      "checkout_bytes": 4893,
+      "LF_count": 111,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-windows-2022",
+      "fixture": "server-retained-bytes",
+      "path": ".gitattributes",
+      "git_blob_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "checkout_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "git_bytes": 14,
+      "checkout_bytes": 14,
+      "LF_count": 1,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-windows-2022",
+      "fixture": "database-retirement",
+      "path": "Cargo.toml",
+      "git_blob_sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4",
+      "checkout_sha256": "ff159de62d2fede24ed10c3f02de3fa748345b43efeca4af09bb5c5fe4b5c13a",
+      "git_bytes": 531,
+      "checkout_bytes": 547,
+      "LF_count": 16,
+      "relationship": "exact_LF_to_CRLF_checkout_conversion"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-windows-2022",
+      "fixture": "database-retirement",
+      "path": "Cargo.lock",
+      "git_blob_sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c",
+      "checkout_sha256": "5e3dfdb6b278f1b35b0055c34109f3ff2a4dd572531e3322cd86b252a7c815a2",
+      "git_bytes": 28053,
+      "checkout_bytes": 29160,
+      "LF_count": 1107,
+      "relationship": "exact_LF_to_CRLF_checkout_conversion"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-windows-2022",
+      "fixture": "database-retirement",
+      "path": "rust-toolchain.toml",
+      "git_blob_sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+      "checkout_sha256": "0ce99f0775a7799b6b4244c677eccd97c4aa98b74b3b803fbfd1b5fc2f3f95be",
+      "git_bytes": 52,
+      "checkout_bytes": 55,
+      "LF_count": 3,
+      "relationship": "exact_LF_to_CRLF_checkout_conversion"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-windows-2022",
+      "fixture": "database-retirement",
+      "path": "src/lib.rs",
+      "git_blob_sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46",
+      "checkout_sha256": "04f47138fff59d893be6383c7516cf21309249f1258620eb6aa2ed14dae1d5fd",
+      "git_bytes": 10022,
+      "checkout_bytes": 10236,
+      "LF_count": 214,
+      "relationship": "exact_LF_to_CRLF_checkout_conversion"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-windows-2022",
+      "fixture": "database-retirement",
+      "path": "run.py",
+      "git_blob_sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366",
+      "checkout_sha256": "a7d20e739d5b2bd0e5250a58acd63c39a75214daba97066f03f6db8a217eacc5",
+      "git_bytes": 4237,
+      "checkout_bytes": 4317,
+      "LF_count": 80,
+      "relationship": "exact_LF_to_CRLF_checkout_conversion"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-ubuntu-24.04",
+      "fixture": "database-retirement",
+      "path": "Cargo.toml",
+      "git_blob_sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4",
+      "checkout_sha256": "46eca720b4007926525bdad88eaa9e97fdb644a7e37aa6f646564c04388ddfb4",
+      "git_bytes": 531,
+      "checkout_bytes": 531,
+      "LF_count": 16,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-ubuntu-24.04",
+      "fixture": "database-retirement",
+      "path": "Cargo.lock",
+      "git_blob_sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c",
+      "checkout_sha256": "0c309744a8ba9da809c8c7569a3bbef648b43b308df472197aa43b85f996a32c",
+      "git_bytes": 28053,
+      "checkout_bytes": 28053,
+      "LF_count": 1107,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-ubuntu-24.04",
+      "fixture": "database-retirement",
+      "path": "rust-toolchain.toml",
+      "git_blob_sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+      "checkout_sha256": "928f2ced7ea12731b9a5551f06f6088f9994577f32322b008a37007be103082e",
+      "git_bytes": 52,
+      "checkout_bytes": 52,
+      "LF_count": 3,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-ubuntu-24.04",
+      "fixture": "database-retirement",
+      "path": "src/lib.rs",
+      "git_blob_sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46",
+      "checkout_sha256": "39ce2db182ec02c6d4e2fb256ad9ae0141ab4d7c8806f732701308a8fd485c46",
+      "git_bytes": 10022,
+      "checkout_bytes": 10022,
+      "LF_count": 214,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-database-retirement-ubuntu-24.04",
+      "fixture": "database-retirement",
+      "path": "run.py",
+      "git_blob_sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366",
+      "checkout_sha256": "bbd297f1d63c431475ce4e4be24beeddbbdf9b5a110cef9b373d1af5234cf366",
+      "git_bytes": 4237,
+      "checkout_bytes": 4237,
+      "LF_count": 80,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-ubuntu-24.04",
+      "fixture": "server-retained-bytes",
+      "path": "Cargo.toml",
+      "git_blob_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+      "checkout_sha256": "43bc7f7a7346ab7041cdd1da7e29128a64ef68b18c02717db5a358e289cd901f",
+      "git_bytes": 378,
+      "checkout_bytes": 378,
+      "LF_count": 16,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-ubuntu-24.04",
+      "fixture": "server-retained-bytes",
+      "path": "Cargo.lock",
+      "git_blob_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+      "checkout_sha256": "ad89b0517cd3b9103ffcc3b6de2d6dfed6811e2789719d55edeba8410b2b2bb4",
+      "git_bytes": 2916,
+      "checkout_bytes": 2916,
+      "LF_count": 118,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-ubuntu-24.04",
+      "fixture": "server-retained-bytes",
+      "path": "src/lib.rs",
+      "git_blob_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "checkout_sha256": "5c3b0ea7d656531a45343bf4c2f18df7afef984571a9d28c9e892c064b992677",
+      "git_bytes": 7004,
+      "checkout_bytes": 7004,
+      "LF_count": 158,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-ubuntu-24.04",
+      "fixture": "server-retained-bytes",
+      "path": "run.py",
+      "git_blob_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+      "checkout_sha256": "779fdc682d50104785cb5be66fde13c8e6426a338f97081bdb8c7b5c1fe148cc",
+      "git_bytes": 4893,
+      "checkout_bytes": 4893,
+      "LF_count": 111,
+      "relationship": "byte_exact"
+    },
+    {
+      "artifact": "lifecycle-server-retained-bytes-ubuntu-24.04",
+      "fixture": "server-retained-bytes",
+      "path": ".gitattributes",
+      "git_blob_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "checkout_sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "git_bytes": 14,
+      "checkout_bytes": 14,
+      "LF_count": 1,
+      "relationship": "byte_exact"
+    }
+  ],
+  "source_input_counts": {
+    "total": 20,
+    "byte_exact": 15,
+    "exact_LF_to_CRLF_checkout_conversion": 5
+  },
+  "checks": [
+    {
+      "check": "fresh_api_run_exact_success",
+      "passed": true
+    },
+    {
+      "check": "fresh_api_four_successful_jobs",
+      "passed": true
+    },
+    {
+      "check": "fresh_api_exact_four_artifacts",
+      "passed": true
+    },
+    {
+      "check": "archive_summary_identity",
+      "passed": true
+    },
+    {
+      "check": "executed_workflow_sha256",
+      "passed": true
+    },
+    {
+      "check": "executed_matrix_only_missing_db_server",
+      "passed": true
+    },
+    {
+      "check": "executed_workflow_no_repeat_interop",
+      "passed": true
+    },
+    {
+      "check": "artifact_upload_preserves_all_raw_inputs",
+      "passed": true
+    },
+    {
+      "check": "workflow_readonly_exact_head_and_actions",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_api_run_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_download_digest_and_size",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_safe_unique_zip_members",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_exact_preserved_member_set",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/0.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/1.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/1.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/0.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/2.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/2.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/inputs/.gitattributes_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/inputs/Cargo.lock_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/inputs/Cargo.toml_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/inputs/run.py_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/inputs/src/lib.rs_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/result.json_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_real_named_test_result",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_input_before_after_same",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/0.stderr_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/0.stdout_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/1.stderr_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/1.stdout_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/2.stderr_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/2.stdout_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_commands_succeeded",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_raw_test_output_six",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022_five_source_inputs",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/Cargo.toml_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/Cargo.lock_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/src/lib.rs_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/run.py_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-windows-2022/.gitattributes_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022_api_run_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022_download_digest_and_size",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022_safe_unique_zip_members",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022_exact_preserved_member_set",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/cargo-version.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/cargo-version.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/commands.json_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/dependency-tree.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/dependency-tree.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/inputs/Cargo.lock_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/inputs/run.py_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/inputs/Cargo.toml_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/inputs/rust-toolchain.toml_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/inputs/src/lib.rs_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/result.json_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/rustc-version.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/rustc-version.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/source-inputs.json_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/tests.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/tests.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022_real_named_test_result",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022_commands_succeeded",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022_raw_test_output_six",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022_five_source_inputs",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/Cargo.toml_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/Cargo.lock_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/rust-toolchain.toml_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/src/lib.rs_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-windows-2022/run.py_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04_api_run_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04_download_digest_and_size",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04_safe_unique_zip_members",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04_exact_preserved_member_set",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/cargo-version.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/commands.json_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/cargo-version.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/dependency-tree.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/dependency-tree.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/inputs/Cargo.toml_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/inputs/Cargo.lock_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/inputs/run.py_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/inputs/rust-toolchain.toml_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/inputs/src/lib.rs_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/result.json_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/rustc-version.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/rustc-version.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/source-inputs.json_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/tests.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/tests.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04_real_named_test_result",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04_commands_succeeded",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04_raw_test_output_six",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04_five_source_inputs",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/Cargo.toml_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/Cargo.lock_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/rust-toolchain.toml_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/src/lib.rs_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-database-retirement-ubuntu-24.04/run.py_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_api_run_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_download_digest_and_size",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_safe_unique_zip_members",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_exact_preserved_member_set",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/0.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/1.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/0.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/1.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/2.stderr_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/2.stdout_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/inputs/.gitattributes_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/inputs/Cargo.lock_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/inputs/Cargo.toml_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/inputs/run.py_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/inputs/src/lib.rs_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/result.json_actual_zip_saved_sha",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_real_named_test_result",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_input_before_after_same",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/0.stderr_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/0.stdout_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/1.stderr_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/1.stdout_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/2.stderr_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/2.stdout_recorded_log_hash",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_commands_succeeded",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_raw_test_output_six",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04_five_source_inputs",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/Cargo.toml_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/Cargo.lock_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/src/lib.rs_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/run.py_source_identity",
+      "passed": true
+    },
+    {
+      "check": "lifecycle-server-retained-bytes-ubuntu-24.04/.gitattributes_source_identity",
+      "passed": true
+    },
+    {
+      "check": "exact_56_raw_files",
+      "passed": true
+    },
+    {
+      "check": "source_identity_distribution",
+      "passed": true
+    },
+    {
+      "check": "strict_first_attempt_failure_retained",
+      "passed": true
+    }
+  ],
+  "passed_checks": 134,
+  "total_checks": 134,
+  "errors": [],
+  "independent_code_review": "DB/D15 separately in DATABASE-LIFECYCLE-REVIEW.json. Server code/protocol reviewed by the other assigned agent. This file does not independently review the reviewer-authored Interop supplemental prototype.",
+  "acceptance": "Finite research evidence only; not product contracts, Delivery, architectural acceptance or another GitHub account approval."
+}

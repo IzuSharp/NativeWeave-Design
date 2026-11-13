@@ -1,0 +1,116 @@
+{
+  "repository": "IzuSharp/NativeWeave-Design",
+  "retrieved_by": "/root/design_source_review",
+  "source_endpoints": [
+    "https://api.github.com/repos/IzuSharp/NativeWeave-Design/actions/runs/43375871731",
+    "https://api.github.com/repos/IzuSharp/NativeWeave-Design/actions/runs/43375871731/jobs?per_page=100",
+    "https://api.github.com/repos/IzuSharp/NativeWeave-Design/actions/runs/43375871731/artifacts?per_page=100"
+  ],
+  "run": {
+    "id": 43375871731,
+    "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d",
+    "head_branch": "research/source-lifecycle-2026-11-12",
+    "path": ".github/workflows/source-lifecycle-research.yml",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "html_url": "https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43375871731",
+    "event": "push",
+    "status": "completed"
+  },
+  "jobs": [
+    {
+      "id": 131722106256,
+      "run_id": 43375871731,
+      "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d",
+      "name": "lifecycle (ubuntu-24.04, database-retirement)",
+      "conclusion": "success",
+      "labels": [
+        "ubuntu-24.04"
+      ]
+    },
+    {
+      "id": 131722106494,
+      "run_id": 43375871731,
+      "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d",
+      "name": "lifecycle (windows-2022, server-retained-bytes)",
+      "conclusion": "success",
+      "labels": [
+        "windows-2022"
+      ]
+    },
+    {
+      "id": 131722106498,
+      "run_id": 43375871731,
+      "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d",
+      "name": "lifecycle (windows-2022, database-retirement)",
+      "conclusion": "success",
+      "labels": [
+        "windows-2022"
+      ]
+    },
+    {
+      "id": 131722106600,
+      "run_id": 43375871731,
+      "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d",
+      "name": "lifecycle (ubuntu-24.04, server-retained-bytes)",
+      "conclusion": "success",
+      "labels": [
+        "ubuntu-24.04"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 14014900927,
+      "name": "lifecycle-server-retained-bytes-windows-2022",
+      "size_in_bytes": 8720,
+      "digest": "sha256:351f189006efd997bb43d5c5e925d49a00d45de9a5f4d0045478be73b37d6e41",
+      "workflow_run": {
+        "id": 43375871731,
+        "repository_id": 1455213954,
+        "head_repository_id": 1455213954,
+        "head_branch": "research/source-lifecycle-2026-11-12",
+        "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d"
+      }
+    },
+    {
+      "id": 14014880511,
+      "name": "lifecycle-database-retirement-windows-2022",
+      "size_in_bytes": 19897,
+      "digest": "sha256:0c64ef55a8b742ea16561eedcabf3dd5ec07d72d285e2f15c123c8af2dff70ce",
+      "workflow_run": {
+        "id": 43375871731,
+        "repository_id": 1455213954,
+        "head_repository_id": 1455213954,
+        "head_branch": "research/source-lifecycle-2026-11-12",
+        "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d"
+      }
+    },
+    {
+      "id": 14014666488,
+      "name": "lifecycle-database-retirement-ubuntu-24.04",
+      "size_in_bytes": 19631,
+      "digest": "sha256:ed99a8da14382f1e5eadc4ed47a0c940d169bde1352e1643be0eb3f2e0c09859",
+      "workflow_run": {
+        "id": 43375871731,
+        "repository_id": 1455213954,
+        "head_repository_id": 1455213954,
+        "head_branch": "research/source-lifecycle-2026-11-12",
+        "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d"
+      }
+    },
+    {
+      "id": 14014566727,
+      "name": "lifecycle-server-retained-bytes-ubuntu-24.04",
+      "size_in_bytes": 8728,
+      "digest": "sha256:eec344cca170fa07b74bcf3ccb0650964f31e490fef09b90d31dfd3bacf766c0",
+      "workflow_run": {
+        "id": 43375871731,
+        "repository_id": 1455213954,
+        "head_repository_id": 1455213954,
+        "head_branch": "research/source-lifecycle-2026-11-12",
+        "head_sha": "de43481581df9876cb2d0aed5de2db796d048c9d"
+      }
+    }
+  ]
+}

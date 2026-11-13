@@ -1,0 +1,47 @@
+[
+  {
+    "name": "cargo-version",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.028
+  },
+  {
+    "name": "rustc-version",
+    "argv": [
+      "rustc",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.041
+  },
+  {
+    "name": "dependency-tree",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "tree",
+      "--locked"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.237
+  },
+  {
+    "name": "tests",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "test",
+      "--locked",
+      "--",
+      "--nocapture",
+      "--test-threads=1"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 34.321
+  }
+]

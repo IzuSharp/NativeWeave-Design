@@ -1,0 +1,63 @@
+{
+  "reviewer": "/root/design_source_review",
+  "recorded_at_utc": "2026-11-13T06:14:50.604200+00:00",
+  "passed": true,
+  "command": [
+    "python",
+    "verification/source-lifecycle/verify.py"
+  ],
+  "exit_code": 0,
+  "scope": "Independent evidence provenance and verifier review; no test rerun or independent Database implementation approval",
+  "reviewed_files": [
+    {
+      "path": "verification/source-lifecycle/verify.py",
+      "sha256": "3ef508dcf44cdd623663620a9cf0b568dcde3664592ca340fd8a6189275012e2",
+      "bytes": 9109
+    },
+    {
+      "path": ".github/workflows/source-lifecycle-integrity.yml",
+      "sha256": "d5cb982d0657c1acd2ed63c7ec1ab04da313f551f1d3823a74928e54a8c12578",
+      "bytes": 1051
+    },
+    {
+      "path": "verification/source-lifecycle/results.json",
+      "sha256": "a08300281336fca4a6ca89d067b4dac49f767ffa34c738288c50998d74365d0f",
+      "bytes": 26367
+    },
+    {
+      "path": "verification/source-lifecycle/README.md",
+      "sha256": "beae555a88f46ab47d4ca1505a9c3176487c7be75748ebe165331d49693fe11c",
+      "bytes": 2241
+    }
+  ],
+  "verified_summary": {
+    "passed": true,
+    "tested_source_commit": "de43481581df9876cb2d0aed5de2db796d048c9d",
+    "raw_files": 56,
+    "byte_exact_inputs": 15,
+    "explicit_lf_to_crlf_inputs": 5,
+    "platform_test_executions": 24,
+    "specification_hashes": 15,
+    "archived_review_files": 50,
+    "server_reviewed_files": 10,
+    "database_reviewed_files": 59,
+    "replication_reviewed_files": 6,
+    "accepted_contracts": 0,
+    "product_delivery_executed": false
+  },
+  "workflow_trigger_covers_checked_experiment_and_migration_inputs": true,
+  "fresh_provider_and_zip_check": "independent-archive-verification.json",
+  "unresolved_findings": [],
+  "findings": [
+    {
+      "id": "EVID-REV-001",
+      "finding": "Integrity workflow omitted checked fixture/source workflow changes",
+      "status": "closed; all checked experiment/migration paths added"
+    },
+    {
+      "id": "EVID-REV-002",
+      "finding": "New independent-review copies were outside the verifier scope while README generalized archived reviews",
+      "status": "closed; Server manifest/raw/supporting, Database file list/checks and Interop input hashes now validated"
+    }
+  ]
+}

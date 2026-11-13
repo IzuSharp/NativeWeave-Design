@@ -1,0 +1,2258 @@
+diff --git a/.github/workflows/native-slices-final-check.yml b/.github/workflows/native-slices-final-check.yml
+index f103c6a..c8c307f 100644
+--- a/.github/workflows/native-slices-final-check.yml
++++ b/.github/workflows/native-slices-final-check.yml
+@@ -1,9 +1,15 @@
+-name: Verify final native-slice documentation pair
++name: Verify Design-owned native research assets
+ on:
+   push:
+-    branches: [research/native-slices-evidence-2026-11-12]
++    branches: [main, research/pr1-asset-migration]
+     paths:
+       - source-driven-baseline.json
++      - verification/research-assets-final-trigger.json
++  pull_request:
++    branches: [main]
++    paths:
++      - source-driven-baseline.json
++      - tools/verify_research_assets.py
+       - .github/workflows/native-slices-final-check.yml
+   workflow_dispatch:
+ permissions:
+@@ -15,52 +21,31 @@ jobs:
+     steps:
+       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+         with:
+-          ref: ${{ github.sha }}
++          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+           fetch-depth: 0
+           path: Plan
+           persist-credentials: false
++      - name: Read exact current Design input
++        id: input
++        working-directory: Plan
++        run: |
++          python3 - <<'PY'
++          import json,os,re
++          b=json.load(open('source-driven-baseline.json'));sha=b['design_merge_commit']
++          assert re.fullmatch('[0-9a-f]{40}',sha)
++          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('design_sha='+sha+'\n')
++          PY
+       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+         with:
+           repository: IzuSharp/NativeWeave-Design
+-          ref: 4adf7a38c3159c9e12e2f89b85884514a430f0a4
++          ref: ${{ steps.input.outputs.design_sha }}
+           fetch-depth: 0
+           path: NativeWeave-Design
+           persist-credentials: false
+-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+-        with:
+-          repository: IzuSharp/NativeWeave
+-          ref: 267364a440074a61e193cf33315f1b9d0fa8126b
+-          path: NativeWeave
+-          persist-credentials: false
+-      - name: Check merged snapshots and durable evidence without rerunning native tests
++      - name: Verify provenance and existing graph gates; no native rerun
+         working-directory: Plan
+         run: |
+-          python3 - <<'PY'
+-          from pathlib import Path
+-          import hashlib,json,subprocess
+-          p=Path.cwd();d=p.parent/'NativeWeave-Design';n=p.parent/'NativeWeave'
+-          b=json.loads((p/'source-driven-baseline.json').read_text())
+-          for root,expected in [(d,b['design_merge_commit']),(n,b['native_slice_evidence_commit'])]:
+-              assert subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()==expected
+-          subprocess.run(['git','-C',str(d),'diff','--exit-code',b['validated_design_head'],b['design_merge_commit']],check=True)
+-          assert hashlib.sha256((d/'docs/contracts/registry.json').read_bytes()).hexdigest()==b['contract_registry_sha256']
+-          m=json.loads((n/'verification/native-slices/manifest.json').read_text());count=0
+-          for record in m['records']:
+-              for f in record['files']:
+-                  assert hashlib.sha256((n/f['path']).read_bytes()).hexdigest()==f['sha256'];count+=1
+-          assert count==112 and sum(x['success'] for x in m['records'])==6 and len(m['records'])==8
+-          checkpoint=json.loads((p/'ledger/checkpoints/native-slices-2026-11-12.json').read_text())
+-          assert checkpoint['changed_packets'] and checkpoint['unchanged_packets']==81
+-          changed=[]
+-          for kind in ('research','documentation','delivery'):
+-              g=json.loads((p/(kind+'-graph.json')).read_text())
+-              for node in g['nodes']:
+-                  old=subprocess.check_output(['git','show',checkpoint['plan_base']+':'+node['prompt']])
+-                  if old!=(p/node['prompt']).read_bytes():changed.append(node['id'])
+-          assert sorted(changed)==checkpoint['changed_packets'] and len(changed)==33
+-          assert (p/'delivery-graph.json').read_bytes()==subprocess.check_output(['git','show',checkpoint['plan_base']+':delivery-graph.json'])
+-          print(json.dumps({'raw_native_files':count,'changed_packets':33,'unchanged_packets':81,'merged_design_content_equal':True,'delivery_graph_unchanged':True}))
+-          PY
++          python3 tools/verify_research_assets.py
+           python3 tools/validate_graphs.py --output verification/graph-validation.json
+           python3 tools/mutation_checks.py
+           python3 tools/rust1100_checks.py
+@@ -68,19 +53,17 @@ jobs:
+           python3 - <<'PY'
+           from pathlib import Path
+           import json,jsonschema
+-          schema=json.loads(Path('schemas/graph-v1.schema.json').read_text())
+-          for name in ('research','documentation','delivery'):
+-              jsonschema.Draft202012Validator(schema).validate(json.loads(Path(name+'-graph.json').read_text()))
++          s=json.loads(Path('schemas/graph-v1.schema.json').read_text())
++          for k in ('research','documentation','delivery'):
++              jsonschema.Draft202012Validator(s).validate(json.loads(Path(k+'-graph.json').read_text()))
+           print('PASS all three graph schemas')
+           PY
+       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+         if: always()
+         with:
+-          name: final-native-slice-plan-checks
+-          retention-days: 14
++          name: research-assets-plan-integrity
++          retention-days: 30
+           path: |
+-            Plan/verification/graph-validation.json
+-            Plan/verification/mutation-checks.json
+-            Plan/verification/rust1100-checks.json
+-            Plan/ledger/checkpoints/native-slices-2026-11-12.json
++            Plan/verification/*.json
++            Plan/ledger/checkpoints/research-assets-migration.json
+             Plan/source-driven-baseline.json
+diff --git a/.github/workflows/research-assets-reference-migration.yml b/.github/workflows/research-assets-reference-migration.yml
+new file mode 100644
+index 0000000..743f3d7
+--- /dev/null
++++ b/.github/workflows/research-assets-reference-migration.yml
+@@ -0,0 +1,77 @@
++name: Migrate current research asset references
++on:
++  push:
++    branches: [research/pr1-asset-migration]
++    paths:
++      - tools/migrate_research_asset_refs.py
++      - .github/workflows/research-assets-reference-migration.yml
++permissions:
++  contents: read
++jobs:
++  align:
++    if: github.repository == 'IzuSharp/Plan' && github.ref == 'refs/heads/research/pr1-asset-migration'
++    runs-on: ubuntu-24.04
++    timeout-minutes: 10
++    permissions:
++      contents: write
++    steps:
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
++        with:
++          ref: ${{ github.sha }}
++          fetch-depth: 0
++          path: Plan
++      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
++        with:
++          repository: IzuSharp/NativeWeave-Design
++          ref: c7e123a74405a92dc3de1ef450355b08d1c05ceb
++          fetch-depth: 0
++          persist-credentials: false
++          path: NativeWeave-Design
++      - name: Change affected references and current phase only
++        working-directory: Plan
++        shell: bash
++        run: |
++          if [ ! -f ledger/checkpoints/research-assets-migration.json ]; then
++            python3 tools/migrate_research_asset_refs.py
++          fi
++          python3 tools/verify_research_assets.py
++          python3 tools/validate_graphs.py --output verification/graph-validation.json
++          python3 tools/mutation_checks.py
++          python3 tools/rust1100_checks.py
++          python3 -m pip install 'jsonschema==4.23.0'
++          python3 - <<'PY'
++          from pathlib import Path
++          import json,jsonschema
++          s=json.loads(Path('schemas/graph-v1.schema.json').read_text())
++          for k in ('research','documentation','delivery'):
++              jsonschema.Draft202012Validator(s).validate(json.loads(Path(k+'-graph.json').read_text()))
++          print('PASS all three graph schemas')
++          PY
++      - name: Commit only verified Plan reference and policy changes
++        working-directory: Plan
++        run: |
++          git diff --check
++          python3 - <<'PY'
++          import subprocess
++          allowed={'research-graph.json','documentation-graph.json','source-driven-baseline.json','CURRENT-PHASE.md','README.md','AGENTS.md','research-policy.md','documentation-policy.md','execution-policy.md','tools/native_slices_checkpoint.py'}
++          for line in subprocess.check_output(['git','status','--porcelain','--untracked-files=all'],text=True).splitlines():
++              path=line[3:]
++              assert path in allowed or path.startswith(('research-tasks/','documentation-tasks/','verification/','ledger/checkpoints/')),path
++          PY
++          git config user.name 'github-actions[bot]'
++          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
++          git add research-graph.json documentation-graph.json source-driven-baseline.json CURRENT-PHASE.md README.md AGENTS.md research-policy.md documentation-policy.md execution-policy.md tools/native_slices_checkpoint.py research-tasks documentation-tasks verification ledger/checkpoints
++          if ! git diff --cached --quiet; then
++            git commit -m 'docs: point current research to Design and freeze formal Delivery execution'
++            git push origin HEAD:refs/heads/research/pr1-asset-migration
++          fi
++          python3 tools/verify_research_assets.py
++      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
++        if: always()
++        with:
++          name: research-asset-reference-checks
++          retention-days: 30
++          path: |
++            Plan/verification/*.json
++            Plan/ledger/checkpoints/research-assets-migration.json
++            Plan/source-driven-baseline.json
+diff --git a/AGENTS.md b/AGENTS.md
+index 13e43ce..858a785 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -1,3 +1,5 @@
++> **Current phase:** research and detailed design only; see [CURRENT-PHASE.md](CURRENT-PHASE.md). Research experiments and current evidence belong in NativeWeave-Design. No product write or A/B Delivery execution is authorized.
++
+ # NativeWeave Plan工作规则
+ 
+ 本仓库是NativeWeave研究、文档与执行计划权威；Design契约在IzuSharp/NativeWeave-Design，产品在IzuSharp/NativeWeave。ArcForges文档只参考格式，不能继承其内容规则。
+@@ -23,4 +25,4 @@ NativeWeave独立于ArcForges，ArcForges只参考格式。C#是应用开发层
+ 
+ ## 2026-11-12 Rust1.100连续执行授权
+ 
+-当前稳定Rust/Cargo1.100研究与真实两OS测试见Design R01。Design PR5/Plan PR2可按用户明确例外经严格self-review和真实检查合并，独立审查未完成必须保留D32复审；不绕过GitHub门禁或伪造accepted契约。普通技术任务不再逐个询问。按图ready/continuable实际执行；没有accepted前置的Delivery保持候选，先执行已有R/D的真实源码/编译fixture。旧“仅规划、当前全面不授权执行”指的是历史启动轮，不覆盖此次授权。
++当前稳定Rust/Cargo1.100研究与真实两OS测试见Design R01。Design PR5/Plan PR2可按用户明确例外经严格self-review和真实检查合并，独立审查未完成必须保留D32复审；不绕过GitHub门禁或伪造accepted契约。普通技术任务不再逐个询问。按图ready/continuable实际执行；没有accepted前置的Delivery保持候选，先执行已有R/D的真实源码/编译fixture。此段历史授权已由 CURRENT-PHASE.md 及最新用户指令收窄：只允许 Design 内的研究实验与详细设计，不允许正式产品实施。
+diff --git a/CURRENT-PHASE.md b/CURRENT-PHASE.md
+new file mode 100644
+index 0000000..109e60e
+--- /dev/null
++++ b/CURRENT-PHASE.md
+@@ -0,0 +1,17 @@
++# Current phase: research, design and future Codex planning
++
++The latest user instruction supersedes previous product-execution authorization.
++Research prototypes, Cargo/.NET projects, native tests, Actions and raw evidence live
++in IzuSharp/NativeWeave-Design. Plan maintains the existing34 Research,32 Documentation
++and48 candidate Delivery tasks and detailed future implementation instructions. Do not
++copy executable projects here. Do not execute A/B Delivery or write NativeWeave product
++source. The only product-repository mutation authorized now is closing PR1 AFTER the
++verified Design and Plan migration has merged. Do not merge PR1 or delete its history.
++
++Keep current and historical evidence identities distinct. The current Design asset
++commit/map/results are in source-driven-baseline.json. Historical checkpoint records
++and one-shot repair scripts remain historical inputs, not permission to resume product
++writes. New experiments and documentation may proceed in parallel under existing R/D
++IDs. Self-review and CI are not independent review; research merges do not accept product
++contracts. Future Codex Worktrees retain exact file ownership, local dependencies,
++platform/AOT/fault/performance acceptance and a separately authorized phase transition.
+diff --git a/README.md b/README.md
+index 247c48f..8aad7bf 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,5 @@
++> **Current phase:** research and detailed design only; see [CURRENT-PHASE.md](CURRENT-PHASE.md). Research experiments and current evidence belong in NativeWeave-Design. No product write or A/B Delivery execution is authorized.
++
+ # NativeWeave Plan：并行研究、并行文档与候选实施图
+ 
+ ## 当前输入与继续规则
+diff --git a/documentation-graph.json b/documentation-graph.json
+index 22e1f61..f8d36a2 100644
+--- a/documentation-graph.json
++++ b/documentation-graph.json
+@@ -41,7 +41,7 @@
+       "reference_only_research_refs": [
+         "R33"
+       ],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+@@ -49,17 +49,21 @@
+         "R01": "0.2.1",
+         "R02": "0.2.0"
+       },
+-      "packet_sha256": "ad24076a87695560f18a078ec7f1c8bb81ae62d98d24f013b8b0d2cc7143c1bd",
++      "packet_sha256": "303e034ae62752e6f2af84e9087edfb8b18f2f990eba0ac9a55e81d9dab23295",
+       "source_driven_amendment": "稳定工具链/平台矩阵；有限Linux SQLite原型不是正式Windows/Linux支持，逐项核验当前特性状态。",
+       "rust1100_impact": "把新R01准确工具链/目标事实纳入；13Rust测试不是C#AOT或平台生产认证。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/platforms/support-and-aot.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ]
+     },
+@@ -95,25 +99,29 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+-        "R03": "0.2.2",
+-        "R04": "0.2.2"
++        "R03": "0.2.3",
++        "R04": "0.2.3"
+       },
+-      "packet_sha256": "1da61875cf35046302aa7f5ab7031cb024998636c0dd50b764b33fe988d803c9",
++      "packet_sha256": "3fe732506e81fdc2eda6c2135fd39e34e43605b6682a2de6782e0d51ada0000d",
+       "source_driven_amendment": "私有native类型不跨ABI；direct/batch领域边界不改变Core布局/所有权，capability/version明确拒绝。",
+       "rust1100_impact": "落实repr(C)、状态、大小/offset与borrow/owner，禁止custom/Rust ABI；从R03/R04可执行探针形成规范。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/contracts/abi-v0.1.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ]
+     },
+@@ -151,16 +159,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+-        "R04": "0.2.2",
++        "R04": "0.2.3",
+         "R05": "0.2.0",
+         "R06": "0.2.0"
+       },
+-      "packet_sha256": "d000b7769c440fd4a0b0c3e6c6914dbf24a9d4eaef8251aba0b6dfd0e05d3af4",
++      "packet_sha256": "c42977b5d71b8c22040e75930a81b25f4296dab28eb162c9d471ff4c5c7237de",
+       "source_driven_amendment": "最小glue与校验，不在managed重写领域引擎；SG不得Cargo或假设能读取其他SG本轮输出。"
+     },
+     {
+@@ -197,16 +205,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+-        "R07": "0.2.2",
+-        "R10": "0.2.2",
++        "R07": "0.2.3",
++        "R10": "0.2.3",
+         "R15": "0.2.0"
+       },
+-      "packet_sha256": "53e61c57f2692b73e4add5b9b8545c14383e91d5581047c4ff8c88de7ee59029",
++      "packet_sha256": "49cd5a08b79c2416758f3272ba73d94594ed255751643359e9a955448462cbc9",
+       "source_driven_amendment": "保留lease，明确native可变builder单writer admission与SafeHandle的区别。"
+     },
+     {
+@@ -243,16 +251,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R08": "0.2.0",
+-        "R07": "0.2.2",
++        "R07": "0.2.3",
+         "R15": "0.2.0"
+       },
+-      "packet_sha256": "7f184538d18cb4c5dbe40ac42ac0dda0902195c2d7b44d797591166b13658b72",
++      "packet_sha256": "e191a685c4c0fef2f80bbf7438791002e8044df094c652ee2ded9dcd52be8ce2",
+       "source_driven_amendment": "保留callback quiescence，ForeignHandler/body/context退休及注册代际，不以Task完成替代。"
+     },
+     {
+@@ -335,26 +343,30 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+-        "R10": "0.2.2",
+-        "R03": "0.2.2",
+-        "R29": "0.2.1"
++        "R10": "0.2.3",
++        "R03": "0.2.3",
++        "R29": "0.2.2"
+       },
+-      "packet_sha256": "df9e88688dc6deaf44651d001c73cc96c979dcc0aa10e9a7eae8d33f663fb347",
++      "packet_sha256": "5b21882d559b850644340f317fe31226f7e4d4ba2cb057e92ce532eccf758c42",
+       "source_driven_amendment": "类型长度ownership与bounded批次，retained bytes不由protocol credit自动释放。",
+       "rust1100_impact": "原始所有者/allocator释放和failed-grow安全；外层Vec不是whole-RSS预算。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/contracts/buffer-v0.1.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ]
+     },
+@@ -435,16 +447,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R12": "0.2.0",
+         "R09": "0.2.1",
+-        "R29": "0.2.1"
++        "R29": "0.2.2"
+       },
+-      "packet_sha256": "6caf2dd51de5f198a072d48bda25f6a0b8727abf409ab42c529d03e262278cf1",
++      "packet_sha256": "1e942e4dd57e7470dd34b49f7ed46795f817626f0852bb6b32b98bcc9198e37f",
+       "source_driven_amendment": "无全局Tokio；Engine-local与worker-affine策略、线程/runtime/关闭所有权。"
+     },
+     {
+@@ -481,16 +493,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+-        "R13": "0.2.2",
++        "R13": "0.2.3",
+         "R14": "0.2.1",
+         "R02": "0.2.0"
+       },
+-      "packet_sha256": "47eedbac552a11c18b1008cd166b4da8fc1804c195e3ac9058af3699ed507f2a",
++      "packet_sha256": "6e3496d00e270fcf0b95411a890cdfcff69777d25a3e82f8400ddd9d7228531a",
+       "source_driven_amendment": "维护者预编译native和NuGet消费，不默认每entity Cargo；pins/锁闭包/patch/差分/升级。",
+       "rust1100_impact": "C-BUILD新version；Cargo JSON/独立worktree缓存/锁文件/age与lint边界，普通消费仍不需要Rust。"
+     },
+@@ -622,15 +634,15 @@
+       "reference_only_research_refs": [
+         "R31"
+       ],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R17": "0.2.1",
+-        "R10": "0.2.2"
++        "R10": "0.2.3"
+       },
+-      "packet_sha256": "30982efa098d849f3747a16af6d0239dbe206c76aff9f99883dc0ebace1ddfd1",
++      "packet_sha256": "91651423d0edca4f15f6143263de94308934d9da7fee30dad1ff1e1549c55e87",
+       "source_driven_amendment": "native direct/batch/static fast path及原生/managed AOT完整成本；数值门槛有基线。"
+     },
+     {
+@@ -667,16 +679,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R19": "0.2.0",
+         "R20": "0.2.0",
+-        "R22": "0.2.2"
++        "R22": "0.2.3"
+       },
+-      "packet_sha256": "9f82c4b4c4b2e8209ffdcd889b4f9408720c830ced273c831c4f7090c845ae74",
++      "packet_sha256": "51b19f91c904aec81073dac436f6b7aea800b26365e0d82304e51e53a8f79f00",
+       "source_driven_amendment": "Rust DB mandatory，动态SeaQuery+SQLx与专用SeaORM比较；metadata/codec分开，typed batches/fallible binder。"
+     },
+     {
+@@ -759,16 +771,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R24": "0.2.0",
+-        "R25": "0.2.2",
+-        "R22": "0.2.2"
++        "R25": "0.2.3",
++        "R22": "0.2.3"
+       },
+-      "packet_sha256": "33bf9ec5b4f850b3f25942f7ce98ad6aafdce6fafbfbf6390494097ca594c188",
++      "packet_sha256": "028f4c244989a9c356d2b8ae856cb9c22e5b814ccfbc82855e5dcc2436e0f677",
+       "source_driven_amendment": "SQL语义typed Fluent直接复用SeaQuery；不要求全LINQ/C# null补偿；CTE/window/join及backend拒绝。",
+       "rust1100_impact": "修正SQL3VL nullable NOT比较的过宽禁令，区别C#补偿；保留NaN/自定义比较限制。"
+     },
+@@ -806,16 +818,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R23": "0.2.0",
+         "R06": "0.2.0",
+-        "R25": "0.2.2"
++        "R25": "0.2.3"
+       },
+-      "packet_sha256": "3226fa19d95a968af4ae33b623b84d4531f9d328cfe6f400ae21f63b72395ec7",
++      "packet_sha256": "8b9d11fb0335ff4303b321ce5cd530ce2b9aa044abadd9c81761f95a0439c6a1",
+       "source_driven_amendment": "可选static descriptor/DTO增量生成，手写static同等路径；不默认schema-specific Rust或C#SQL Provider。"
+     },
+     {
+@@ -852,16 +864,16 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R26": "0.2.0",
+-        "R27": "0.2.2",
+-        "R29": "0.2.1"
++        "R27": "0.2.3",
++        "R29": "0.2.2"
+       },
+-      "packet_sha256": "7e24513392eb59f96f071bcee26bf079ebc08315087fb6a043fefbcd22797578",
++      "packet_sha256": "9d47392ce93b47e03ca16f7399e80799ebc929f2fba46f156c0333b4046f9d8e",
+       "source_driven_amendment": "原生Service/Body/connection+C#handler，ResponseFuture/body许可与H2retained bytes分开，Kestrel对照。"
+     },
+     {
+@@ -1043,21 +1055,21 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+-        "R03": "0.2.2",
+-        "R07": "0.2.2",
+-        "R10": "0.2.2",
++        "R03": "0.2.3",
++        "R07": "0.2.3",
++        "R10": "0.2.3",
+         "R11": "0.2.1",
+-        "D02": "0.2.2",
+-        "D04": "0.2.2",
+-        "D07": "0.2.2",
++        "D02": "0.2.3",
++        "D04": "0.2.3",
++        "D07": "0.2.3",
+         "D08": "0.2.1"
+       },
+-      "packet_sha256": "e8bdba1880b1966981656eb95b440d43d2588915f653bce7280d365b348fd568",
++      "packet_sha256": "ac89dde8536d1a1dfbf169228252dc97654d8df41eee75ba52c77b9fc5ddb16f",
+       "source_driven_amendment": "细化既有ABI/lifetime/error，领域native对象不泄漏到Core。"
+     },
+     {
+@@ -1095,17 +1107,17 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+-        "R04": "0.2.2",
++        "R04": "0.2.3",
+         "R05": "0.2.0",
+         "R06": "0.2.0",
+-        "D03": "0.2.2"
++        "D03": "0.2.3"
+       },
+-      "packet_sha256": "580683cb6e9a4640027e4d69e21d2d6cf100d535d512959db337d642b2bce650",
++      "packet_sha256": "a5aff6c2281f288b1dc3df1da32d229667e6d8024d26314896c258605d2f0993",
+       "source_driven_amendment": "细化薄绑定与metadata/DTO，不预设完整查询编译器。"
+     },
+     {
+@@ -1147,7 +1159,7 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+@@ -1155,11 +1167,11 @@
+         "R08": "0.2.0",
+         "R09": "0.2.1",
+         "R12": "0.2.0",
+-        "D05": "0.2.2",
++        "D05": "0.2.3",
+         "D06": "0.2.1",
+-        "D09": "0.2.2"
++        "D09": "0.2.3"
+       },
+-      "packet_sha256": "906d9133fa474455c94799d82d025aa1c3b74f95bdac69f3c2e6d74bf6a7ad4c",
++      "packet_sha256": "491356836bfee22e31ebd2e71139e0dd25ddd47008fd110a630379f35dfff2ae",
+       "source_driven_amendment": "异步桥与body/retirement验证，不自动共享runtime。"
+     },
+     {
+@@ -1199,18 +1211,18 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+-        "R13": "0.2.2",
++        "R13": "0.2.3",
+         "R14": "0.2.1",
+         "R02": "0.2.0",
+-        "D01": "0.2.2",
+-        "D10": "0.2.2"
++        "D01": "0.2.3",
++        "D10": "0.2.3"
+       },
+-      "packet_sha256": "32fc9389868853b09342decc51252b2190ad45e4793167b50ed40667c566ec77",
++      "packet_sha256": "60bed16560456dfcaca6cb886454b8042ae4f0c8d73d20e658c06d954a88fb22",
+       "source_driven_amendment": "维护者build、clean no-Rust/RID-free消费及AOT发布完整矩阵。"
+     },
+     {
+@@ -1256,7 +1268,7 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+@@ -1267,10 +1279,10 @@
+         "R18": "0.2.1",
+         "D11": "0.2.1",
+         "D12": "0.2.0",
+-        "D13": "0.2.2",
++        "D13": "0.2.3",
+         "D21": "0.2.1"
+       },
+-      "packet_sha256": "821d833c980c0db0bad81d78a850dafe64caf4e8a1fecf5f8f735d057c774e95",
++      "packet_sha256": "a92195c775d7aeb03724d5da083164c794bfe75b8a843f903abbd566da57c679",
+       "source_driven_amendment": "异质Engine、差分/fuzz/race/成本，补silent-no-op与body许可负例。"
+     },
+     {
+@@ -1312,7 +1324,7 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+@@ -1320,11 +1332,11 @@
+         "R19": "0.2.0",
+         "R20": "0.2.0",
+         "R21": "0.2.0",
+-        "R22": "0.2.2",
+-        "D14": "0.2.2",
++        "R22": "0.2.3",
++        "D14": "0.2.3",
+         "D15": "0.2.0"
+       },
+-      "packet_sha256": "7acf81a3b343e6388d9e0247c885a1238ff9a36210af6e14f960b2d0935f1e93",
++      "packet_sha256": "209d62856ca5c075118197a9e4333f9de7d6bf2f1a69af8d45094f78efc12e91",
+       "source_driven_amendment": "B01–B08 Rust驱动/host/池/事务/codec/流/迁移，B04必需而非可选。"
+     },
+     {
+@@ -1364,18 +1376,18 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R23": "0.2.0",
+         "R24": "0.2.0",
+-        "R25": "0.2.2",
+-        "D16": "0.2.2",
+-        "D17": "0.2.2"
++        "R25": "0.2.3",
++        "D16": "0.2.3",
++        "D17": "0.2.3"
+       },
+-      "packet_sha256": "9c1f891d641fc54ee9f822c7c51072113fcfa73acdde96b762db29120772f57c",
++      "packet_sha256": "59d2b2132b67c6cd25c4ddc538953a0f0f12d7d254a6c756dbfea06cf4c7827f",
+       "source_driven_amendment": "B09–B14 metadata/可选SG/native builder/binder/DTO/Fluent/关系，删除全LINQ与重复C#SQL任务。"
+     },
+     {
+@@ -1419,20 +1431,20 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {
+         "R26": "0.2.0",
+-        "R27": "0.2.2",
++        "R27": "0.2.3",
+         "R28": "0.2.0",
+-        "R29": "0.2.1",
++        "R29": "0.2.2",
+         "R30": "0.2.0",
+-        "D18": "0.2.2",
++        "D18": "0.2.3",
+         "D19": "0.2.0"
+       },
+-      "packet_sha256": "4b113e42d67d9e1a53daa93c4e5538d10a0dd1dd7449a5c0c0e820b8306ba31d",
++      "packet_sha256": "fc5b8c19d92e1b09991fd42c83ca63e1fa923d9ded9eb27839b0ec627a80124a",
+       "source_driven_amendment": "原生Server成熟接缝和body预算，Kestrel对照/可选协议保持局部依赖。"
+     },
+     {
+@@ -1474,7 +1486,7 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+@@ -1484,9 +1496,9 @@
+         "R21": "0.2.0",
+         "D20": "0.2.1",
+         "D12": "0.2.0",
+-        "D13": "0.2.2"
++        "D13": "0.2.3"
+       },
+-      "packet_sha256": "dbcc6a0a48522e66937de01c7aca3585163686c3001ab5d6a542115bd7c2b871",
++      "packet_sha256": "bc9eb4d00d28015a0cbb7d95a2eb6c6fbd99460802f56b7c530e14086cfa6878",
+       "source_driven_amendment": "B21–B24必须包含B04；PG/SQLite故障、no-Rust consumer、Windows/Linux AOT及完整负载。"
+     },
+     {
+@@ -1528,7 +1540,7 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+@@ -1536,11 +1548,11 @@
+         "R14": "0.2.1",
+         "R18": "0.2.1",
+         "R34": "0.2.0",
+-        "D02": "0.2.2",
+-        "D10": "0.2.2",
++        "D02": "0.2.3",
++        "D10": "0.2.3",
+         "D11": "0.2.1"
+       },
+-      "packet_sha256": "4bc2cea68d4660e789521d972dc5d4dce0e1ef7ff3390210623bfc2a05727230",
++      "packet_sha256": "93984b31daf6552764ef09a923fb81ad4193ccb55e59c35960b0c2dbe4caa9e2",
+       "source_driven_amendment": "源码/内部seam/patch/ABI/行为追溯，在既有三图内维护。"
+     },
+     {
+@@ -1638,7 +1650,7 @@
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+       "reference_only_research_refs": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+@@ -1646,39 +1658,39 @@
+         "R15": "0.2.0",
+         "R16": "0.2.0",
+         "R34": "0.2.0",
+-        "D01": "0.2.2",
+-        "D02": "0.2.2",
+-        "D03": "0.2.2",
+-        "D04": "0.2.2",
+-        "D05": "0.2.2",
++        "D01": "0.2.3",
++        "D02": "0.2.3",
++        "D03": "0.2.3",
++        "D04": "0.2.3",
++        "D05": "0.2.3",
+         "D06": "0.2.1",
+-        "D07": "0.2.2",
++        "D07": "0.2.3",
+         "D08": "0.2.1",
+-        "D09": "0.2.2",
+-        "D10": "0.2.2",
++        "D09": "0.2.3",
++        "D10": "0.2.3",
+         "D11": "0.2.1",
+         "D12": "0.2.0",
+-        "D13": "0.2.2",
+-        "D14": "0.2.2",
++        "D13": "0.2.3",
++        "D14": "0.2.3",
+         "D15": "0.2.0",
+-        "D16": "0.2.2",
+-        "D17": "0.2.2",
+-        "D18": "0.2.2",
++        "D16": "0.2.3",
++        "D17": "0.2.3",
++        "D18": "0.2.3",
+         "D19": "0.2.0",
+         "D20": "0.2.1",
+         "D21": "0.2.1",
+-        "D22": "0.2.2",
+-        "D23": "0.2.2",
+-        "D24": "0.2.2",
+-        "D25": "0.2.2",
+-        "D26": "0.2.2",
+-        "D27": "0.2.2",
+-        "D28": "0.2.2",
+-        "D29": "0.2.2",
+-        "D30": "0.2.2",
+-        "D31": "0.2.2"
++        "D22": "0.2.3",
++        "D23": "0.2.3",
++        "D24": "0.2.3",
++        "D25": "0.2.3",
++        "D26": "0.2.3",
++        "D27": "0.2.3",
++        "D28": "0.2.3",
++        "D29": "0.2.3",
++        "D30": "0.2.3",
++        "D31": "0.2.3"
+       },
+-      "packet_sha256": "16d2032b3ee98ce948ebc7539ff3bff93d8d2da483e8d1aff6cdb61c94fef3a4",
++      "packet_sha256": "e702787ca373db816ec74a8717b5abf6cb31f42010437ef20bc8718c7efb4a7d",
+       "source_driven_amendment": "独立检查精确新commit/packet/contract hash；PR2–4旧Review不接受本轮修改。",
+       "rust1100_impact": "用户允许PR5/PR2严格自审合并，但独立审查未发生；记录后续精确snapshot复审，不阻塞可执行独立研究，也不接受未完成产品。"
+     }
+diff --git a/documentation-policy.md b/documentation-policy.md
+index 69c8f79..a7c81bb 100644
+--- a/documentation-policy.md
++++ b/documentation-policy.md
+@@ -1,3 +1,5 @@
++> **Current phase:** research and detailed design only; see [CURRENT-PHASE.md](CURRENT-PHASE.md). Research experiments and current evidence belong in NativeWeave-Design. No product write or A/B Delivery execution is authorized.
++
+ # 并行文档编制与整合政策 v0.1（proposed）
+ 
+ D01–D21分别拥有独占Design规范；D22–D31分别拥有独占Plan领域fragment；D32执行独立交叉审查。每个作者可以在证据仍进入时写draft。草拟、review_ready和accepted是不同状态，不能把先写的候选变成未经审查的架构权威。
+diff --git a/documentation-tasks/D01.md b/documentation-tasks/D01.md
+index a2c14a7..a2d7905 100644
+--- a/documentation-tasks/D01.md
++++ b/documentation-tasks/D01.md
+@@ -1,6 +1,6 @@
+ # D01 — 工具链、AOT与平台规范
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -67,4 +67,6 @@ Research输入：R01, R02, R33。
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/platforms/support-and-aot.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/platforms/support-and-aot.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/documentation-tasks/D02.md b/documentation-tasks/D02.md
+index 89f61e1..f095c79 100644
+--- a/documentation-tasks/D02.md
++++ b/documentation-tasks/D02.md
+@@ -1,6 +1,6 @@
+ # D02 — ABI及类型布局契约
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R03, R04。精确依赖revision：R03@0.2.2, R04@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R03, R04。精确依赖revision：R03@0.2.3, R04@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+@@ -67,4 +67,6 @@ Research输入：R03, R04。
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/contracts/abi-v0.1.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/contracts/abi-v0.1.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/documentation-tasks/D03.md b/documentation-tasks/D03.md
+index a6601bc..291ae34 100644
+--- a/documentation-tasks/D03.md
++++ b/documentation-tasks/D03.md
+@@ -1,6 +1,6 @@
+ # D03 — 绑定IR、生成器与分析器规范
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R04, R05, R06。精确依赖revision：R04@0.2.2, R05@0.2.0, R06@0.2.0。Research/Documentation引用不自动成为等待。
++开始：无；接受：R04, R05, R06。精确依赖revision：R04@0.2.3, R05@0.2.0, R06@0.2.0。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D04.md b/documentation-tasks/D04.md
+index adb4993..b0f156d 100644
+--- a/documentation-tasks/D04.md
++++ b/documentation-tasks/D04.md
+@@ -1,6 +1,6 @@
+ # D04 — 所有权与资源生命周期契约
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R07, R10, R15。精确依赖revision：R07@0.2.2, R10@0.2.2, R15@0.2.0。Research/Documentation引用不自动成为等待。
++开始：无；接受：R07, R10, R15。精确依赖revision：R07@0.2.3, R10@0.2.3, R15@0.2.0。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D05.md b/documentation-tasks/D05.md
+index 8b097e1..b4b7f20 100644
+--- a/documentation-tasks/D05.md
++++ b/documentation-tasks/D05.md
+@@ -1,6 +1,6 @@
+ # D05 — Callback注册撤销与静默契约
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R08, R07, R15。精确依赖revision：R08@0.2.0, R07@0.2.2, R15@0.2.0。Research/Documentation引用不自动成为等待。
++开始：无；接受：R08, R07, R15。精确依赖revision：R08@0.2.0, R07@0.2.3, R15@0.2.0。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D07.md b/documentation-tasks/D07.md
+index 95623c0..b755673 100644
+--- a/documentation-tasks/D07.md
++++ b/documentation-tasks/D07.md
+@@ -1,6 +1,6 @@
+ # D07 — Buffer、传输及内存契约
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R10, R03, R29。精确依赖revision：R10@0.2.2, R03@0.2.2, R29@0.2.1。Research/Documentation引用不自动成为等待。
++开始：无；接受：R10, R03, R29。精确依赖revision：R10@0.2.3, R03@0.2.3, R29@0.2.2。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+@@ -71,4 +71,6 @@ Research输入：R10, R03, R29。
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/contracts/buffer-v0.1.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/contracts/buffer-v0.1.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/documentation-tasks/D09.md b/documentation-tasks/D09.md
+index 0d1f9d7..40e174a 100644
+--- a/documentation-tasks/D09.md
++++ b/documentation-tasks/D09.md
+@@ -1,6 +1,6 @@
+ # D09 — 并发、Runtime与关闭规范
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R12, R09, R29。精确依赖revision：R12@0.2.0, R09@0.2.1, R29@0.2.1。Research/Documentation引用不自动成为等待。
++开始：无；接受：R12, R09, R29。精确依赖revision：R12@0.2.0, R09@0.2.1, R29@0.2.2。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D10.md b/documentation-tasks/D10.md
+index 4794663..cf762c1 100644
+--- a/documentation-tasks/D10.md
++++ b/documentation-tasks/D10.md
+@@ -1,6 +1,6 @@
+ # D10 — 构建打包、版本与来源规范
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R13, R14, R02。精确依赖revision：R13@0.2.2, R14@0.2.1, R02@0.2.0。Research/Documentation引用不自动成为等待。
++开始：无；接受：R13, R14, R02。精确依赖revision：R13@0.2.3, R14@0.2.1, R02@0.2.0。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D13.md b/documentation-tasks/D13.md
+index aac0d9a..2d80267 100644
+--- a/documentation-tasks/D13.md
++++ b/documentation-tasks/D13.md
+@@ -1,6 +1,6 @@
+ # D13 — 性能、内存与开发体验方法
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R17, R10。精确依赖revision：R17@0.2.1, R10@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R17, R10。精确依赖revision：R17@0.2.1, R10@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D14.md b/documentation-tasks/D14.md
+index 5dc2cd8..ac1bfcd 100644
+--- a/documentation-tasks/D14.md
++++ b/documentation-tasks/D14.md
+@@ -1,6 +1,6 @@
+ # D14 — 数据库驱动能力与适配规范
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R19, R20, R22。精确依赖revision：R19@0.2.0, R20@0.2.0, R22@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R19, R20, R22。精确依赖revision：R19@0.2.0, R20@0.2.0, R22@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D16.md b/documentation-tasks/D16.md
+index e757410..851802b 100644
+--- a/documentation-tasks/D16.md
++++ b/documentation-tasks/D16.md
+@@ -1,6 +1,6 @@
+ # D16 — 查询IR、SQL语义与ORM范围
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R24, R25, R22。精确依赖revision：R24@0.2.0, R25@0.2.2, R22@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R24, R25, R22。精确依赖revision：R24@0.2.0, R25@0.2.3, R22@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D17.md b/documentation-tasks/D17.md
+index 7fe9bd5..9b24c8a 100644
+--- a/documentation-tasks/D17.md
++++ b/documentation-tasks/D17.md
+@@ -1,6 +1,6 @@
+ # D17 — AOT查询捕获、生成与安全动态API
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R23, R06, R25。精确依赖revision：R23@0.2.0, R06@0.2.0, R25@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R23, R06, R25。精确依赖revision：R23@0.2.0, R06@0.2.0, R25@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D18.md b/documentation-tasks/D18.md
+index 1fd54cd..8b1bcc2 100644
+--- a/documentation-tasks/D18.md
++++ b/documentation-tasks/D18.md
+@@ -1,6 +1,6 @@
+ # D18 — Server生命周期与适配规范
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R26, R27, R29。精确依赖revision：R26@0.2.0, R27@0.2.2, R29@0.2.1。Research/Documentation引用不自动成为等待。
++开始：无；接受：R26, R27, R29。精确依赖revision：R26@0.2.0, R27@0.2.3, R29@0.2.2。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D22.md b/documentation-tasks/D22.md
+index 8a3e4cb..091f56f 100644
+--- a/documentation-tasks/D22.md
++++ b/documentation-tasks/D22.md
+@@ -1,6 +1,6 @@
+ # D22 — ABI、内存与资源开发任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R03, R07, R10, R11, D02, D04, D07, D08。精确依赖revision：R03@0.2.2, R07@0.2.2, R10@0.2.2, R11@0.2.1, D02@0.2.2, D04@0.2.2, D07@0.2.2, D08@0.2.1。Research/Documentation引用不自动成为等待。
++开始：无；接受：R03, R07, R10, R11, D02, D04, D07, D08。精确依赖revision：R03@0.2.3, R07@0.2.3, R10@0.2.3, R11@0.2.1, D02@0.2.3, D04@0.2.3, D07@0.2.3, D08@0.2.1。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D23.md b/documentation-tasks/D23.md
+index d4d5c25..63df269 100644
+--- a/documentation-tasks/D23.md
++++ b/documentation-tasks/D23.md
+@@ -1,6 +1,6 @@
+ # D23 — 生成器与分析器开发任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R04, R05, R06, D03。精确依赖revision：R04@0.2.2, R05@0.2.0, R06@0.2.0, D03@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R04, R05, R06, D03。精确依赖revision：R04@0.2.3, R05@0.2.0, R06@0.2.0, D03@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D24.md b/documentation-tasks/D24.md
+index 7c3caf9..c8cbb39 100644
+--- a/documentation-tasks/D24.md
++++ b/documentation-tasks/D24.md
+@@ -1,6 +1,6 @@
+ # D24 — Callback、async与Runtime任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R08, R09, R12, D05, D06, D09。精确依赖revision：R08@0.2.0, R09@0.2.1, R12@0.2.0, D05@0.2.2, D06@0.2.1, D09@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R08, R09, R12, D05, D06, D09。精确依赖revision：R08@0.2.0, R09@0.2.1, R12@0.2.0, D05@0.2.3, D06@0.2.1, D09@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D25.md b/documentation-tasks/D25.md
+index 0b259f3..089e2a2 100644
+--- a/documentation-tasks/D25.md
++++ b/documentation-tasks/D25.md
+@@ -1,6 +1,6 @@
+ # D25 — 构建、打包与独立发布任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R13, R14, R02, D01, D10。精确依赖revision：R13@0.2.2, R14@0.2.1, R02@0.2.0, D01@0.2.2, D10@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R13, R14, R02, D01, D10。精确依赖revision：R13@0.2.3, R14@0.2.1, R02@0.2.0, D01@0.2.3, D10@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D26.md b/documentation-tasks/D26.md
+index b88840b..214fef0 100644
+--- a/documentation-tasks/D26.md
++++ b/documentation-tasks/D26.md
+@@ -1,6 +1,6 @@
+ # D26 — Engine、证明、测试与基准任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R15, R16, R17, R18, D11, D12, D13, D21。精确依赖revision：R15@0.2.0, R16@0.2.0, R17@0.2.1, R18@0.2.1, D11@0.2.1, D12@0.2.0, D13@0.2.2, D21@0.2.1。Research/Documentation引用不自动成为等待。
++开始：无；接受：R15, R16, R17, R18, D11, D12, D13, D21。精确依赖revision：R15@0.2.0, R16@0.2.0, R17@0.2.1, R18@0.2.1, D11@0.2.1, D12@0.2.0, D13@0.2.3, D21@0.2.1。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D27.md b/documentation-tasks/D27.md
+index 654755b..6ebfe32 100644
+--- a/documentation-tasks/D27.md
++++ b/documentation-tasks/D27.md
+@@ -1,6 +1,6 @@
+ # D27 — Database完整实现任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R19, R20, R21, R22, D14, D15。精确依赖revision：R19@0.2.0, R20@0.2.0, R21@0.2.0, R22@0.2.2, D14@0.2.2, D15@0.2.0。Research/Documentation引用不自动成为等待。
++开始：无；接受：R19, R20, R21, R22, D14, D15。精确依赖revision：R19@0.2.0, R20@0.2.0, R21@0.2.0, R22@0.2.3, D14@0.2.3, D15@0.2.0。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D28.md b/documentation-tasks/D28.md
+index 2fa4d73..2eb2cfc 100644
+--- a/documentation-tasks/D28.md
++++ b/documentation-tasks/D28.md
+@@ -1,6 +1,6 @@
+ # D28 — ORM与LINQ AOT实现任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R23, R24, R25, D16, D17。精确依赖revision：R23@0.2.0, R24@0.2.0, R25@0.2.2, D16@0.2.2, D17@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R23, R24, R25, D16, D17。精确依赖revision：R23@0.2.0, R24@0.2.0, R25@0.2.3, D16@0.2.3, D17@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D29.md b/documentation-tasks/D29.md
+index ed3f8e1..d7646b1 100644
+--- a/documentation-tasks/D29.md
++++ b/documentation-tasks/D29.md
+@@ -1,6 +1,6 @@
+ # D29 — Server与协议实现任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R26, R27, R28, R29, R30, D18, D19。精确依赖revision：R26@0.2.0, R27@0.2.2, R28@0.2.0, R29@0.2.1, R30@0.2.0, D18@0.2.2, D19@0.2.0。Research/Documentation引用不自动成为等待。
++开始：无；接受：R26, R27, R28, R29, R30, D18, D19。精确依赖revision：R26@0.2.0, R27@0.2.3, R28@0.2.0, R29@0.2.2, R30@0.2.0, D18@0.2.3, D19@0.2.0。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D30.md b/documentation-tasks/D30.md
+index 8768da9..4796f89 100644
+--- a/documentation-tasks/D30.md
++++ b/documentation-tasks/D30.md
+@@ -1,6 +1,6 @@
+ # D30 — 端到端、长期负载与领域发布任务编制
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R31, R17, R21, D20, D12, D13。精确依赖revision：R31@0.2.0, R17@0.2.1, R21@0.2.0, D20@0.2.1, D12@0.2.0, D13@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R31, R17, R21, D20, D12, D13。精确依赖revision：R31@0.2.0, R17@0.2.1, R21@0.2.0, D20@0.2.1, D12@0.2.0, D13@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D31.md b/documentation-tasks/D31.md
+index 283e8aa..4238312 100644
+--- a/documentation-tasks/D31.md
++++ b/documentation-tasks/D31.md
+@@ -1,6 +1,6 @@
+ # D31 — 全局追溯、版本兼容与后续Engine任务规范
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R14, R18, R34, D02, D10, D11。精确依赖revision：R14@0.2.1, R18@0.2.1, R34@0.2.0, D02@0.2.2, D10@0.2.2, D11@0.2.1。Research/Documentation引用不自动成为等待。
++开始：无；接受：R14, R18, R34, D02, D10, D11。精确依赖revision：R14@0.2.1, R18@0.2.1, R34@0.2.0, D02@0.2.3, D10@0.2.3, D11@0.2.1。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/documentation-tasks/D32.md b/documentation-tasks/D32.md
+index e68b47a..8ed62e8 100644
+--- a/documentation-tasks/D32.md
++++ b/documentation-tasks/D32.md
+@@ -1,6 +1,6 @@
+ # D32 — 独立交叉Review与交付准备审查
+ 
+-Revision: **0.2.2**. State: **draft_ready**.
++Revision: **0.2.3**. State: **draft_ready**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -23,7 +23,7 @@ write_scopes：
+ 
+ ## 精确依赖
+ 
+-开始：无；接受：R15, R16, R34, D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31。精确依赖revision：R15@0.2.0, R16@0.2.0, R34@0.2.0, D01@0.2.2, D02@0.2.2, D03@0.2.2, D04@0.2.2, D05@0.2.2, D06@0.2.1, D07@0.2.2, D08@0.2.1, D09@0.2.2, D10@0.2.2, D11@0.2.1, D12@0.2.0, D13@0.2.2, D14@0.2.2, D15@0.2.0, D16@0.2.2, D17@0.2.2, D18@0.2.2, D19@0.2.0, D20@0.2.1, D21@0.2.1, D22@0.2.2, D23@0.2.2, D24@0.2.2, D25@0.2.2, D26@0.2.2, D27@0.2.2, D28@0.2.2, D29@0.2.2, D30@0.2.2, D31@0.2.2。Research/Documentation引用不自动成为等待。
++开始：无；接受：R15, R16, R34, D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31。精确依赖revision：R15@0.2.0, R16@0.2.0, R34@0.2.0, D01@0.2.3, D02@0.2.3, D03@0.2.3, D04@0.2.3, D05@0.2.3, D06@0.2.1, D07@0.2.3, D08@0.2.1, D09@0.2.3, D10@0.2.3, D11@0.2.1, D12@0.2.0, D13@0.2.3, D14@0.2.3, D15@0.2.0, D16@0.2.3, D17@0.2.3, D18@0.2.3, D19@0.2.0, D20@0.2.1, D21@0.2.1, D22@0.2.3, D23@0.2.3, D24@0.2.3, D25@0.2.3, D26@0.2.3, D27@0.2.3, D28@0.2.3, D29@0.2.3, D30@0.2.3, D31@0.2.3。Research/Documentation引用不自动成为等待。
+ 
+ 契约：
+ - 无。
+diff --git a/execution-policy.md b/execution-policy.md
+index 63f2242..86eb4fb 100644
+--- a/execution-policy.md
++++ b/execution-policy.md
+@@ -1,6 +1,6 @@
+ # Codex并行执行政策 v0.1（proposed）
+ 
+-本政策管理实际并行执行。2026-11-12用户已授权按现有真实门禁推进实施；不再需要逐步询问。初始delivery节点全部`planned_candidate`。它们要在相关技术选择被接受后细化接口、更新packet/hash、明确实施范围，再提升为planned。这里的实施授权记录表示用户已要求的审查门禁通过，不制造额外的逐任务用户确认流程。
++本政策规定未来 Codex 的正式并行实施。当前用户已明确纠正为研究、详细设计和开发规划阶段：不执行任何正式 A/B Delivery，不向 NativeWeave 产品仓库写代码；真实实验仅写入 NativeWeave-Design。研究、实验、文档修订与符合条件的 Design/Plan 合并无需逐项确认。未来产品实施须用户另行进入实施阶段，并满足精确 accepted 契约、任务依赖和实施授权记录。
+ 
+ ## 工作单元与文件所有权
+ 
+@@ -46,4 +46,4 @@ NativeWeave独立于ArcForges，ArcForges只参考格式。C#是应用开发层
+ 
+ 用户当前明确授权Design PR5/Plan PR2在真实独立Reviewer不可用时，严格自审、可执行检查通过、无未解决文档阻断项后合并；如实标记self-review并保留D32独立复审。此例外不绕过GitHub强制规则，不将作者冒充独立Reviewer，不自动接受技术契约或Delivery终结态。
+ 
+-合并后直接从ready/continuable开始实际源码/编译工作。Research/Documentation下的小型可执行fixture可以作为已有研究任务输出，不伪装成已满足A01/B01等全部产品前置。产品实施任务仍须自己的精确accepted契约、依赖与授权记录；这是真实技术门禁，不是要求用户再次批准。
++合并后直接从ready/continuable开始实际源码/编译工作。Research/Documentation下的小型可执行fixture可以作为已有研究任务输出，不伪装成已满足A01/B01等全部产品前置。这些只允许在 Design 中执行研究 fixture。当前不执行产品任务；未来 Codex 实施另按阶段授权、精确 accepted 契约、依赖与验收记录推进。
+diff --git a/ledger/checkpoints/research-assets-migration.json b/ledger/checkpoints/research-assets-migration.json
+new file mode 100644
+index 0000000..9173f61
+--- /dev/null
++++ b/ledger/checkpoints/research-assets-migration.json
+@@ -0,0 +1,68 @@
++{
++  "plan_base": "f6ed91dddba62b9eba246f2af56ca5b93cc2593b",
++  "design_merge": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
++  "design_reviewed_head": "d3db57b900cdfcc62bde85eefbd55bfbed507dd0",
++  "source_native_pr": 1,
++  "source_native_head": "267364a440074a61e193cf33315f1b9d0fa8126b",
++  "source_native_main": "658ed6a410783de356a7b9b2cd6601336fff5148",
++  "mapped_assets": 139,
++  "byte_exact_assets": 137,
++  "adapted_drivers": 2,
++  "original_evidence_files": 112,
++  "new_design_evidence_files": 90,
++  "new_design_run": "43371161177",
++  "direct_tasks": [
++    "D01",
++    "D02",
++    "D07",
++    "R03",
++    "R04",
++    "R07",
++    "R10",
++    "R13",
++    "R22",
++    "R25",
++    "R27",
++    "R29"
++  ],
++  "changed_packets": [
++    "D01",
++    "D02",
++    "D03",
++    "D04",
++    "D05",
++    "D07",
++    "D09",
++    "D10",
++    "D13",
++    "D14",
++    "D16",
++    "D17",
++    "D18",
++    "D22",
++    "D23",
++    "D24",
++    "D25",
++    "D26",
++    "D27",
++    "D28",
++    "D29",
++    "D30",
++    "D31",
++    "D32",
++    "R03",
++    "R04",
++    "R07",
++    "R10",
++    "R13",
++    "R22",
++    "R25",
++    "R27",
++    "R29"
++  ],
++  "unchanged_packets": 81,
++  "delivery_graph_changed": false,
++  "product_implementation_authorized": false,
++  "original_pr_close_state": "awaiting verified Plan merge; never merge or delete history",
++  "independent_review": false
++}
+diff --git a/research-graph.json b/research-graph.json
+index 9cad9ec..9c74012 100644
+--- a/research-graph.json
++++ b/research-graph.json
+@@ -219,22 +219,26 @@
+       "prompt": "research-tasks/R03.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {},
+-      "packet_sha256": "9009f9c9872df850950719ae0aaf823ac41a5f2d2804c197e4a88498bcb60442",
++      "packet_sha256": "ef197d2d01c4918686c2ab4b009a28d9ca7543b969e4c9ff32a8932c88cbf084",
+       "source_driven_amendment": "比较稳定C ABI与native直接/批量操作；Rust AST/Value/trait私有布局不跨ABI；布局、版本、所有权分别验证。",
+       "rust1100_impact": "extern custom不是P/Invoke；内部never/Allocator不改变固定C ABI。构建实际layout/错误/owned-buffer探针，不伪造C-ABI已接受。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R03/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ],
+       "initial_seed_refs": [
+@@ -304,22 +308,26 @@
+       "prompt": "research-tasks/R04.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {},
+-      "packet_sha256": "9afa8f8eef715050a43ef8f5048f419be9f445402f2558426f480a32ea36759b",
++      "packet_sha256": "f88b6e68c30948ab479997789da5f95f98582f93f5f9b778609ed7cc1364161f",
+       "source_driven_amendment": "验证LibraryImport/UCO/函数指针、native线程回调和AOT；薄绑定仍须保证GCHandle与异常边界。",
+       "rust1100_impact": "Rust1.100+C#静态LibraryImport的Windows/Linux真实AOT ABI切片；保持回调、borrowed length和SafeHandle寿命前置。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R03/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ],
+       "initial_seed_refs": [
+@@ -551,22 +559,26 @@
+       "prompt": "research-tasks/R07.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {},
+-      "packet_sha256": "561bf42f3e4ee1170a551a5c54547c3c1970d44285850e79bf2c9ff9e9c03287",
++      "packet_sha256": "dfeaf5c9142bdf464cd116244e8012ad3ad45868312c6aa4c53a3cf181d3fcee",
+       "source_driven_amendment": "可变native builder的单writer admission不同于SafeHandle物理寿命；验证cross-query owner/dispose/inflight lease。",
+       "rust1100_impact": "DropGuard仅简化同步局部rollback；Box/Arc map不用于已发布句柄，allocator owner不能早于所有lease释放。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R03/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ],
+       "initial_seed_refs": [
+@@ -796,22 +808,26 @@
+       "prompt": "research-tasks/R10.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {},
+-      "packet_sha256": "db14e46e8db02629e6402de6665d640dcf065f2e282cda1219b8f5da61214ab0",
++      "packet_sha256": "bdf18cb98d89d7633e70c824958019492d686053e7cb0eb9e38a331c81ec97b6",
+       "source_driven_amendment": "Rust AST/value/batch与DTO复制成本；protocol credit不能释放managed仍持有的字节预算。",
+       "rust1100_impact": "稳定Allocator作用于自身分配，不控制SeaQuery嵌套String/Vec或整个RSS；grow成功旧pointer失效，错误保留。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R03/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ],
+       "initial_seed_refs": [
+@@ -1033,22 +1049,26 @@
+       "prompt": "research-tasks/R13.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {},
+-      "packet_sha256": "81d040add19c48e19cb7139014bd9e2dbafd874345e60cc84346219378c762d1",
++      "packet_sha256": "8f8a2e309d5c63451f7c1f20ae67090594fa1b45e4ca777326cc39eb46f7992f",
+       "source_driven_amendment": "维护者native构建与普通C#消费分离；无Cargo/CI的RID-free本地开发和显式RID AOT都必须验证。",
+       "rust1100_impact": "Rust/Cargo1.100，Cargo JSON compiler-artifact定位，worktree缓存与目标资产分开；保留clean no-Rust/AOT矩阵。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R03/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ],
+       "initial_seed_refs": [
+@@ -1738,22 +1758,26 @@
+       "prompt": "research-tasks/R22.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {},
+-      "packet_sha256": "4b7268e3a3552c8bcbcacbeb0e72b337c8e8dd8bc004700c04e2ca98a803ab48",
++      "packet_sha256": "9cc427f91d5db9a1ae7b2da508e3ab0dd4bececf215d948e64a18acdf22370db",
+       "source_driven_amendment": "native Value到SQLx Arguments必须fallible；unsigned窄化、编码错误、NULL/precision、SQLite text-decimal、大字段边界。",
+       "rust1100_impact": "现有SeaQuery/SQLx closure须用1.100真实编译；fallible Arguments::add/整数窄化，不能拿MSRV元数据当通过。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R22/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ],
+       "initial_seed_refs": [
+@@ -2022,12 +2046,12 @@
+       "prompt": "research-tasks/R25.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {},
+-      "packet_sha256": "a06111942b0903aa556f0dca561a8013ba48d6054f5b39746372e57e5cbf6e74",
++      "packet_sha256": "0a1b9ff7601d025874216f6aee84821c9250b9d516b67f53423727e07cb75367",
+       "source_driven_amendment": "SeaQuery动态AST/identifier/value/CRUD/CTE/window与SeaORM静态Entity边界，比较SQLx执行；普通新实体不默认编译Rust。",
+       "initial_seed_refs": [
+         "NativeWeave-Design:docs/research/topics/R25/source-driven-seaquery.md",
+@@ -2036,12 +2060,16 @@
+       "rust1100_impact": "结合SeaORM dynamic补充，对比普通动态metadata路线；不逐entity Cargo、不完整C#SQL Provider；Rust升级不自动换库。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R22/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ]
+     },
+@@ -2196,7 +2224,7 @@
+       "prompt": "research-tasks/R27.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.2",
++      "revision": "0.2.3",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+@@ -2207,17 +2235,21 @@
+         "NativeWeave-Design:docs/research/topics/R27/native-slice-validation.md"
+       ],
+       "initial_seed_note": "hyper C API标注unstable/no semver，不能直接继承为NativeWeave稳定ABI承诺。",
+-      "packet_sha256": "8514270e0b32904d7c05064a48b2d1efbca2f223d1327c06fd48b492f6a642d5",
++      "packet_sha256": "ec2d1dc42f6b433acf24677e64c8833f176dfbc8b738661f8cf8ebe4ee55ad6b",
+       "source_driven_amendment": "Hyper Service/Body、Tower/Axum、Actix worker affinity、Pingora代理接缝；C#是handler层，不重写网络核心。",
+       "rust1100_impact": "在1.100实际执行native Service/Body生命周期切片，避免仅有抽象模型；Rust Server仍需Kestrel比较。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R27/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ]
+     },
+@@ -2368,21 +2400,25 @@
+       "prompt": "research-tasks/R29.md",
+       "acceptance_evidence": [],
+       "independent_reviewers": [],
+-      "revision": "0.2.1",
++      "revision": "0.2.2",
+       "author": "unassigned",
+       "conditional_dependencies": [],
+       "selection_inputs": [],
+       "dependency_pins": {},
+-      "packet_sha256": "ba750a649fc756d1052f677203797917c8e88b350fa204115bd821b880547811",
++      "packet_sha256": "69e6dcaabca17807384d4cdcb456bc289a2ddfc699b108dbdfd26149bba9fb80",
+       "source_driven_amendment": "Tower ResponseFuture许可不覆盖body；Hyper H2credit不覆盖retained bytes；waiters/chunks/close预算分别验证。",
+       "continuation_evidence": [
+         {
+-          "design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "design_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
+           "path": "docs/research/topics/R27/native-slice-validation.md",
+-          "native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-          "evidence_manifest": "verification/native-slices/manifest.json",
++          "evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
+           "status": "partial_execution_or_authored_draft",
+-          "independent_review": false
++          "independent_review": false,
++          "historical_native_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++          "historical_design_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++          "evidence_repository": "IzuSharp/NativeWeave-Design",
++          "migration_map": "verification/native-slices/migration-map.json",
++          "migration_results": "verification/native-slices/migration-results.json"
+         }
+       ],
+       "initial_seed_refs": [
+diff --git a/research-policy.md b/research-policy.md
+index eeead94..1cb4e5d 100644
+--- a/research-policy.md
++++ b/research-policy.md
+@@ -1,3 +1,5 @@
++> **Current phase:** research and detailed design only; see [CURRENT-PHASE.md](CURRENT-PHASE.md). Research experiments and current evidence belong in NativeWeave-Design. No product write or A/B Delivery execution is authorized.
++
+ # 研究政策 v0.1（proposed）
+ 
+ 研究以问题与证据为单位。`Rxx`不是一个需要等其他专题结束才开始的串行阶段；交叉Review通常是接口，不是研究启动依赖。任务提示词包含具体问题、候选源码、正常/异常路径、成本比较、验证方法与独占输出。
+diff --git a/research-tasks/R03.md b/research-tasks/R03.md
+index 599b86d..1287058 100644
+--- a/research-tasks/R03.md
++++ b/research-tasks/R03.md
+@@ -1,6 +1,6 @@
+ # R03 — C ABI、布局与版本协商
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -75,4 +75,6 @@ extern custom不是P/Invoke；内部never/Allocator不改变固定C ABI。构建
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R03/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R03/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/research-tasks/R04.md b/research-tasks/R04.md
+index ee1128e..e1e27f2 100644
+--- a/research-tasks/R04.md
++++ b/research-tasks/R04.md
+@@ -1,6 +1,6 @@
+ # R04 — P/Invoke、回调入口与FFI调用成本
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -75,4 +75,6 @@ Rust1.100+C#静态LibraryImport的Windows/Linux真实AOT ABI切片；保持回
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R03/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R03/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/research-tasks/R07.md b/research-tasks/R07.md
+index 071a5a8..a60728b 100644
+--- a/research-tasks/R07.md
++++ b/research-tasks/R07.md
+@@ -1,6 +1,6 @@
+ # R07 — 句柄、所有权、GC与父子资源
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -74,4 +74,6 @@ DropGuard仅简化同步局部rollback；Box/Arc map不用于已发布句柄，a
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R03/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R03/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/research-tasks/R10.md b/research-tasks/R10.md
+index 7dd26c3..af630be 100644
+--- a/research-tasks/R10.md
++++ b/research-tasks/R10.md
+@@ -1,6 +1,6 @@
+ # R10 — Buffer、Pinning、批处理与数据传输
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -74,4 +74,6 @@ write_scopes：
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R03/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R03/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/research-tasks/R13.md b/research-tasks/R13.md
+index b8314d1..a338dd2 100644
+--- a/research-tasks/R13.md
++++ b/research-tasks/R13.md
+@@ -1,6 +1,6 @@
+ # R13 — MSBuild/Cargo、链接与目标平台
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -74,4 +74,6 @@ Rust/Cargo1.100，Cargo JSON compiler-artifact定位，worktree缓存与目标
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R03/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R03/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/research-tasks/R22.md b/research-tasks/R22.md
+index a1409f5..80b49d6 100644
+--- a/research-tasks/R22.md
++++ b/research-tasks/R22.md
+@@ -1,6 +1,6 @@
+ # R22 — 类型映射、批量流与Schema演进
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -74,4 +74,6 @@ write_scopes：
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R22/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R22/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/research-tasks/R25.md b/research-tasks/R25.md
+index 1af670c..f5f7155 100644
+--- a/research-tasks/R25.md
++++ b/research-tasks/R25.md
+@@ -1,6 +1,6 @@
+ # R25 — ORM特性、跟踪与现成方案比较
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -80,4 +80,6 @@ write_scopes：
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R22/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R22/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/research-tasks/R27.md b/research-tasks/R27.md
+index 9b30a0b..a6983f9 100644
+--- a/research-tasks/R27.md
++++ b/research-tasks/R27.md
+@@ -1,6 +1,6 @@
+ # R27 — Rust网络引擎与C# Handler边界
+ 
+-Revision: **0.2.2**. State: **partially_evidenced**.
++Revision: **0.2.3**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -79,4 +79,6 @@ hyper C API标注unstable/no semver，不能直接继承为NativeWeave稳定ABI
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R27/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R27/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/research-tasks/R29.md b/research-tasks/R29.md
+index 9e2cc86..39570dc 100644
+--- a/research-tasks/R29.md
++++ b/research-tasks/R29.md
+@@ -1,6 +1,6 @@
+ # R29 — 请求流、背压、超时与优雅关闭
+ 
+-Revision: **0.2.1**. State: **partially_evidenced**.
++Revision: **0.2.2**. State: **partially_evidenced**.
+ 
+ ## 当前输入与继续规则
+ 
+@@ -69,4 +69,6 @@ write_scopes：
+ 
+ ## Native slice execution checkpoint
+ 
+-Read `docs/research/topics/R27/native-slice-validation.md` at Design `d4ad42df26ee9378817aa8ee94cd1853d66eb0ae` and NativeWeave `verification/native-slices/manifest.json` at `267364a440074a61e193cf33315f1b9d0fa8126b`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++Read `docs/research/topics/R27/native-slice-validation.md` at Design `c7e123a74405a92dc3de1ef450355b08d1c05ceb` and Design `verification/native-slices/original-pr1/manifest.json` at `c7e123a74405a92dc3de1ef450355b08d1c05ceb`. Reuse the actual Windows/Linux records; do not rerun successful fixtures merely to recover context. State is partial, not completed/accepted. Interop proves physical leases and real AOT/local NuGet; Database proves six native SQLite/binder cases; Server proves four native Service/Body cases. Preserve the first Database compile failure. Logical admission, full async retirement, PostgreSQL, clean Rust-free deployment and production acceptance remain separate obligations.
++
++Current phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.
+diff --git a/source-driven-baseline.json b/source-driven-baseline.json
+index 570e5c2..bdec059 100644
+--- a/source-driven-baseline.json
++++ b/source-driven-baseline.json
+@@ -1,34 +1,53 @@
+ {
+   "historical_design_main": "baa953772d2a771bb4da3aff0cf4b4be6fc811a1",
+   "historical_plan_main": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5",
+-  "design_main": "4adf7a38c3159c9e12e2f89b85884514a430f0a4",
+-  "plan_main": "2ef12b8459e8f8905f7b288f9b58393714aedfaa",
+-  "design_pr": 6,
+-  "design_merge_commit": "4adf7a38c3159c9e12e2f89b85884514a430f0a4",
+-  "design_amendment_commit": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
+-  "validated_design_head": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
+-  "prior_validated_design_head": "8cfab4fbe90d175c4979d59cbd383ac2f0ed6bfd",
+-  "prior_design_merge_commit": "7759248e8c3bb37a99481f09c690d2c9f9b49248",
++  "design_main": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
++  "plan_main": "f6ed91dddba62b9eba246f2af56ca5b93cc2593b",
++  "design_pr": 7,
++  "design_merge_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
++  "design_amendment_commit": "d3db57b900cdfcc62bde85eefbd55bfbed507dd0",
++  "validated_design_head": "d3db57b900cdfcc62bde85eefbd55bfbed507dd0",
++  "prior_validated_design_head": "d4ad42df26ee9378817aa8ee94cd1853d66eb0ae",
++  "prior_design_merge_commit": "4adf7a38c3159c9e12e2f89b85884514a430f0a4",
+   "prior_contract_content_snapshot": "22053fd97d701ad771ef51bd3681441597b8d0da",
+   "contract_registry_sha256": "6dccbba3a8d813b90d0f847156450f3ab2c1db0eeb166c7e16101d71f4272ce1",
+-  "review_status": "native_slice_followup_proposed_author_checked_independent_review_pending",
++  "review_status": "research_asset_migration_author_checked_independent_review_pending",
+   "additional_research": [
+     {
+       "design_commit": "608f7e1ea6e6605f833d47a8c2c337b0ae2afeba",
+       "path": "docs/research/topics/R25/seaorm-dynamic-boundary.md",
+-      "affected_existing_tasks": ["R22", "R25", "D14", "D16", "D17", "D27", "D28", "B04", "B11", "B14"],
++      "affected_existing_tasks": [
++        "R22",
++        "R25",
++        "D14",
++        "D16",
++        "D17",
++        "D27",
++        "D28",
++        "B04",
++        "B11",
++        "B14"
++      ],
+       "disposition": "Historical research now included in merged Design. SeaORM has an unstable runtime-typed dynamic module; static EntityTrait does not establish that every route requires per-entity Rust compilation. Retain public connection/projection and narrow metadata-extension comparisons.",
+       "review": "Source-inspected by the recovery author, not independent review or executed SeaORM integration.",
+       "contract_delta": "Original addendum changed no contract bytes; later Rust1.100 normative corrections are included in the current merged registry hash."
+     }
+   ],
+   "task_revision_policy": "Only evidence-advanced packets and their actual task dependency revisions change; all other packet bytes remain unchanged.",
+-  "user_execution_authorization": "Granted by the current user request, conditioned on actual task dependencies and accepted contracts; no repeated confirmation required.",
+-  "formal_delivery_eligibility_at_merge": "No Delivery task is currently ready: required formal contracts remain proposed. Existing Research/Documentation tasks permit real executable fixtures; no false product acceptance.",
++  "user_execution_authorization": "Research, executable experiments in Design, detailed specifications and future Codex planning only. Earlier product execution scope is superseded. Do not execute formal A/B Delivery; product PR1 may only be closed after both migration PRs merge.",
++  "formal_delivery_eligibility_at_merge": "No formal Delivery execution in this research-only phase, even if future technical prerequisites become satisfied.",
+   "rust_toolchain": "1.100.0",
+-  "native_slice_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
+-  "native_slice_pr": 1,
+   "previous_merged_design_pr": 5,
+   "previous_merged_plan_pr": 2,
+-  "design_merge_content_check": "GitHub compare from validated_design_head to design_merge_commit returned zero changed files; exact contract hashes are unchanged."
++  "design_merge_content_check": "GitHub compare from validated_design_head to design_merge_commit returned zero changed files; exact contract hashes are unchanged.",
++  "current_phase": "research_design_planning",
++  "product_implementation_authorized": false,
++  "research_asset_repository": "IzuSharp/NativeWeave-Design",
++  "research_asset_commit": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
++  "research_asset_root": "experiments/native-slices",
++  "research_evidence_manifest": "verification/native-slices/original-pr1/manifest.json",
++  "migration_map": "verification/native-slices/migration-map.json",
++  "migration_results": "verification/native-slices/migration-results.json",
++  "historical_native_slice_evidence_commit": "267364a440074a61e193cf33315f1b9d0fa8126b",
++  "historical_native_slice_pr": 1
+ }
+diff --git a/tools/migrate_research_asset_refs.py b/tools/migrate_research_asset_refs.py
+new file mode 100644
+index 0000000..38f3557
+--- /dev/null
++++ b/tools/migrate_research_asset_refs.py
+@@ -0,0 +1,102 @@
++"""One-shot scoped Plan update after Design research-asset migration.
++Historical execution inputs are retained; executable projects are not copied into Plan.
++"""
++from pathlib import Path
++import copy,hashlib,json,re,subprocess
++P=Path.cwd();D=P.parent/'NativeWeave-Design'
++BASE='f6ed91dddba62b9eba246f2af56ca5b93cc2593b'
++DESIGN='c7e123a74405a92dc3de1ef450355b08d1c05ceb'
++OLD_NATIVE='267364a440074a61e193cf33315f1b9d0fa8126b'
++assert subprocess.check_output(['git','-C',str(D),'rev-parse','HEAD'],text=True).strip()==DESIGN
++for name in ['research-graph.json','documentation-graph.json','delivery-graph.json','source-driven-baseline.json']:
++ assert (P/name).read_bytes()==subprocess.check_output(['git','show',BASE+':'+name]),'preimage drift '+name
++mapping=json.loads((D/'verification/native-slices/migration-map.json').read_text())
++assert mapping['source_head']==OLD_NATIVE and mapping['mapped_files']==139
++for item in mapping['records']:
++ assert hashlib.sha256((D/item['destination_path']).read_bytes()).hexdigest()==item['destination_sha256']
++fresh=json.loads((D/'verification/native-slices/migration-results.json').read_text())
++assert fresh['all_six_jobs_passed'] and len(fresh['records'])==6
++for r in fresh['records']:
++ for f in r['files']:assert hashlib.sha256((D/f['path']).read_bytes()).hexdigest()==f['sha256']
++G={k:json.loads((P/(k+'-graph.json')).read_text()) for k in ('research','documentation','delivery')};old=copy.deepcopy(G)
++nodes={n['id']:n for g in G.values() for n in g['nodes']};before={n['id']:n for g in old.values() for n in g['nodes']}
++direct=set()
++for id,n in nodes.items():
++ for entry in n.get('continuation_evidence',[]):
++  if entry.get('native_evidence_commit')!=OLD_NATIVE:continue
++  entry['historical_native_evidence_commit']=entry.pop('native_evidence_commit')
++  entry['historical_design_commit']=entry['design_commit']
++  entry.update(design_commit=DESIGN,evidence_repository='IzuSharp/NativeWeave-Design',evidence_manifest='verification/native-slices/original-pr1/manifest.json',migration_map='verification/native-slices/migration-map.json',migration_results='verification/native-slices/migration-results.json')
++  direct.add(id)
++assert len(direct)==12
++changed=set(direct)
++while True:
++ more={id for id,n in nodes.items() if any(x in changed for x in n['start_dependencies']+n['acceptance_dependencies']) or any(x['task_id'] in changed for x in n['conditional_dependencies'])}
++ if more<=changed:break
++ changed|=more
++assert len(changed)==33 and not any(x.startswith(('A','B')) for x in changed)
++for id in changed:
++ parts=nodes[id]['revision'].split('.');parts[-1]=str(int(parts[-1])+1);nodes[id]['revision']='.'.join(parts)
++for id in changed:
++ n=nodes[id];prior=before[id]
++ n['dependency_pins']={x:nodes[x]['revision'] for x in n['start_dependencies']+n['acceptance_dependencies']}
++ for c in n['conditional_dependencies']:c['revision']=nodes[c['task_id']]['revision']
++ p=P/n['prompt'];text=p.read_text()
++ text=text.replace('Revision: **'+prior['revision']+'**','Revision: **'+n['revision']+'**',1)
++ deps=', '.join(x+'@'+v for x,v in n['dependency_pins'].items()) or '无'
++ text=re.sub(r'精确依赖revision：[^。]*。','精确依赖revision：'+deps+'。',text)
++ for c in n['conditional_dependencies']:
++  prev=next((x for x in prior['conditional_dependencies'] if x['task_id']==c['task_id']),None)
++  if prev:text=text.replace(c['task_id']+'@'+prev['revision'],c['task_id']+'@'+c['revision'])
++ if id in direct:
++  marker='## Native slice execution checkpoint';assert text.count(marker)==1
++  prefix,footer=text.split(marker)
++  footer=footer.replace('d4ad42df26ee9378817aa8ee94cd1853d66eb0ae',DESIGN)
++  footer=footer.replace('and NativeWeave `verification/native-slices/manifest.json` at `'+OLD_NATIVE+'`','and Design `verification/native-slices/original-pr1/manifest.json` at `'+DESIGN+'`')
++  text=prefix+marker+footer+'\nCurrent phase: research/design/planning only. Read Design `experiments/native-slices/README.md`, `verification/native-slices/migration-map.json` and `migration-results.json`. Historical NativeWeave source/run identities remain provenance, not current write targets. New experiments belong in Design; do not execute A/B Delivery, write product code or merge product PR1. Its closure is allowed only after verified Design/Plan migration.\n'
++ p.write_text(text);n['packet_sha256']=hashlib.sha256(p.read_bytes()).hexdigest()
++for kind,g in G.items():
++ if g!=old[kind]:(P/(kind+'-graph.json')).write_text(json.dumps(g,ensure_ascii=False,indent=2)+'\n')
++assert G['delivery']==old['delivery']
++p=P/'source-driven-baseline.json';b=json.loads(p.read_text())
++b['prior_design_merge_commit']=b['design_merge_commit'];b['prior_validated_design_head']=b['validated_design_head']
++b.update(design_main=DESIGN,design_merge_commit=DESIGN,design_amendment_commit='d3db57b900cdfcc62bde85eefbd55bfbed507dd0',validated_design_head='d3db57b900cdfcc62bde85eefbd55bfbed507dd0',plan_main=BASE,design_pr=7,review_status='research_asset_migration_author_checked_independent_review_pending',current_phase='research_design_planning',product_implementation_authorized=False,user_execution_authorization='Research, executable experiments in Design, detailed specifications and future Codex planning only. Earlier product execution scope is superseded. Do not execute formal A/B Delivery; product PR1 may only be closed after both migration PRs merge.',formal_delivery_eligibility_at_merge='No formal Delivery execution in this research-only phase, even if future technical prerequisites become satisfied.',research_asset_repository='IzuSharp/NativeWeave-Design',research_asset_commit=DESIGN,research_asset_root='experiments/native-slices',research_evidence_manifest='verification/native-slices/original-pr1/manifest.json',migration_map='verification/native-slices/migration-map.json',migration_results='verification/native-slices/migration-results.json')
++b['historical_native_slice_evidence_commit']=b.pop('native_slice_evidence_commit');b['historical_native_slice_pr']=b.pop('native_slice_pr')
++b['contract_registry_sha256']=hashlib.sha256((D/'docs/contracts/registry.json').read_bytes()).hexdigest()
++p.write_text(json.dumps(b,ensure_ascii=False,indent=2)+'\n')
++# Current phase overrides earlier permissions; retain future execution/acceptance requirements.
++p=P/'execution-policy.md';text=p.read_text();paras=text.split('\n\n')
++assert '2026-11-12用户已授权' in paras[1]
++paras[1]='本政策规定未来 Codex 的正式并行实施。当前用户已明确纠正为研究、详细设计和开发规划阶段：不执行任何正式 A/B Delivery，不向 NativeWeave 产品仓库写代码；真实实验仅写入 NativeWeave-Design。研究、实验、文档修订与符合条件的 Design/Plan 合并无需逐项确认。未来产品实施须用户另行进入实施阶段，并满足精确 accepted 契约、任务依赖和实施授权记录。'
++text='\n\n'.join(paras)
++text=text.replace('产品实施任务仍须自己的精确accepted契约、依赖与授权记录；这是真实技术门禁，不是要求用户再次批准。','这些只允许在 Design 中执行研究 fixture。当前不执行产品任务；未来 Codex 实施另按阶段授权、精确 accepted 契约、依赖与验收记录推进。')
++p.write_text(text)
++phase='''# Current phase: research, design and future Codex planning
++
++The latest user instruction supersedes previous product-execution authorization.
++Research prototypes, Cargo/.NET projects, native tests, Actions and raw evidence live
++in IzuSharp/NativeWeave-Design. Plan maintains the existing34 Research,32 Documentation
++and48 candidate Delivery tasks and detailed future implementation instructions. Do not
++copy executable projects here. Do not execute A/B Delivery or write NativeWeave product
++source. The only product-repository mutation authorized now is closing PR1 AFTER the
++verified Design and Plan migration has merged. Do not merge PR1 or delete its history.
++
++Keep current and historical evidence identities distinct. The current Design asset
++commit/map/results are in source-driven-baseline.json. Historical checkpoint records
++and one-shot repair scripts remain historical inputs, not permission to resume product
++writes. New experiments and documentation may proceed in parallel under existing R/D
++IDs. Self-review and CI are not independent review; research merges do not accept product
++contracts. Future Codex Worktrees retain exact file ownership, local dependencies,
++platform/AOT/fault/performance acceptance and a separately authorized phase transition.
++'''
++(P/'CURRENT-PHASE.md').write_text(phase)
++for name in ['README.md','AGENTS.md','research-policy.md','documentation-policy.md']:
++ p=P/name;text=p.read_text();text='> **Current phase:** research and detailed design only; see [CURRENT-PHASE.md](CURRENT-PHASE.md). Research experiments and current evidence belong in NativeWeave-Design. No product write or A/B Delivery execution is authorized.\n\n'+text
++ if name=='AGENTS.md':
++  text=text.replace('旧“仅规划、当前全面不授权执行”指的是历史启动轮，不覆盖此次授权。','此段历史授权已由 CURRENT-PHASE.md 及最新用户指令收窄：只允许 Design 内的研究实验与详细设计，不允许正式产品实施。')
++ p.write_text(text)
++# Mark old one-shot importer as historical; do not rewrite old evidence records.
++p=P/'tools/native_slices_checkpoint.py';text=p.read_text();p.write_text('# HISTORICAL one-shot importer for old fixed snapshots; current migration is tools/migrate_research_asset_refs.py.\n# Do not use historical execution authorization as current policy.\n'+text)
++checkpoint={'plan_base':BASE,'design_merge':DESIGN,'design_reviewed_head':'d3db57b900cdfcc62bde85eefbd55bfbed507dd0','source_native_pr':1,'source_native_head':OLD_NATIVE,'source_native_main':'658ed6a410783de356a7b9b2cd6601336fff5148','mapped_assets':139,'byte_exact_assets':137,'adapted_drivers':2,'original_evidence_files':112,'new_design_evidence_files':sum(len(r['files']) for r in fresh['records']),'new_design_run':fresh['run_id'],'direct_tasks':sorted(direct),'changed_packets':sorted(changed),'unchanged_packets':114-len(changed),'delivery_graph_changed':False,'product_implementation_authorized':False,'original_pr_close_state':'awaiting verified Plan merge; never merge or delete history','independent_review':False}
++p=P/'ledger/checkpoints/research-assets-migration.json';p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(checkpoint,indent=2)+'\n')
++print(json.dumps(checkpoint,indent=2))
+diff --git a/tools/native_slices_checkpoint.py b/tools/native_slices_checkpoint.py
+index 7040bd4..099a47f 100644
+--- a/tools/native_slices_checkpoint.py
++++ b/tools/native_slices_checkpoint.py
+@@ -1,3 +1,5 @@
++# HISTORICAL one-shot importer for old fixed snapshots; current migration is tools/migrate_research_asset_refs.py.
++# Do not use historical execution authorization as current policy.
+ """Advance existing partial Research/Documentation tasks from actual evidence.
+ No new IDs, no accepted contracts, no delivery authorization shortcut.
+ """
+diff --git a/tools/verify_research_assets.py b/tools/verify_research_assets.py
+new file mode 100644
+index 0000000..d7fda9e
+--- /dev/null
++++ b/tools/verify_research_assets.py
+@@ -0,0 +1,43 @@
++"""Offline cross-repository verification; does not execute or copy product code."""
++from pathlib import Path
++import hashlib,json,subprocess
++P=Path.cwd();D=P.parent/'NativeWeave-Design'
++def read(root,path):return json.loads((root/path).read_text())
++def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
++b=read(P,'source-driven-baseline.json')
++assert b['current_phase']=='research_design_planning' and b['product_implementation_authorized'] is False
++assert b['research_asset_repository']=='IzuSharp/NativeWeave-Design'
++assert subprocess.check_output(['git','-C',str(D),'rev-parse','HEAD'],text=True).strip()==b['design_merge_commit']
++assert sha(D/'docs/contracts/registry.json')==b['contract_registry_sha256']
++m=read(D,b['migration_map']);assert m['mapped_files']==139
++for r in m['records']:
++ assert sha(D/r['destination_path'])==r['destination_sha256']
++ if r['byte_exact']:assert r['source_sha256']==r['destination_sha256']
++paths={r['source_path']:r['destination_path'] for r in m['records']}
++old=read(D,b['research_evidence_manifest']);n_old=0
++for r in old['records']:
++ for f in r['files']:assert sha(D/paths[f['path']])==f['sha256'];n_old+=1
++fresh=read(D,b['migration_results']);n_new=0
++assert fresh['all_six_jobs_passed'] and len(fresh['records'])==6
++for r in fresh['records']:
++ for f in r['files']:assert sha(D/f['path'])==f['sha256'];n_new+=1
++assert (n_old,n_new)==(112,90)
++checkpoint=read(P,'ledger/checkpoints/research-assets-migration.json')
++assert checkpoint['design_merge']==b['design_merge_commit']
++changed=[]
++for kind in ('research','documentation','delivery'):
++ for node in read(P,kind+'-graph.json')['nodes']:
++  contents=(P/node['prompt']).read_bytes();assert hashlib.sha256(contents).hexdigest()==node['packet_sha256']
++  prior=subprocess.check_output(['git','show',checkpoint['plan_base']+':'+node['prompt']])
++  if contents!=prior:changed.append(node['id'])
++  if kind=='delivery':assert node['implementation_authorization']['status']=='not_authorized'
++  for e in node.get('continuation_evidence',[]):
++   if e.get('historical_native_evidence_commit'):
++    assert e['evidence_repository']=='IzuSharp/NativeWeave-Design'
++    assert e['design_commit']==b['design_merge_commit']
++    assert (D/e['evidence_manifest']).exists()
++assert sorted(changed)==checkpoint['changed_packets'] and len(changed)==33
++assert (P/'delivery-graph.json').read_bytes()==subprocess.check_output(['git','show',checkpoint['plan_base']+':delivery-graph.json'])
++report={'ok':True,'plan_checked_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'design_merge':b['design_merge_commit'],'mapped_assets':139,'old_evidence_files':n_old,'new_design_evidence_files':n_new,'changed_packets':33,'unchanged_packets':81,'delivery_graph_unchanged':True,'research_only':True,'independent_review':False}
++(P/'verification/research-assets-migration-checks.json').write_text(json.dumps(report,indent=2)+'\n')
++print(json.dumps(report,indent=2))
+diff --git a/verification/research-assets-migration-checks.json b/verification/research-assets-migration-checks.json
+new file mode 100644
+index 0000000..e29fe7b
+--- /dev/null
++++ b/verification/research-assets-migration-checks.json
+@@ -0,0 +1,13 @@
++{
++  "ok": true,
++  "plan_checked_commit": "61a7417a61d4204d60e780cfa05b1bc4af937af7",
++  "design_merge": "c7e123a74405a92dc3de1ef450355b08d1c05ceb",
++  "mapped_assets": 139,
++  "old_evidence_files": 112,
++  "new_design_evidence_files": 90,
++  "changed_packets": 33,
++  "unchanged_packets": 81,
++  "delivery_graph_unchanged": true,
++  "research_only": true,
++  "independent_review": false
++}

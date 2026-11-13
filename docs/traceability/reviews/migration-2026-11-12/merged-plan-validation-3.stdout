@@ -1,0 +1,112 @@
+{
+  "scope": "Structural/self-review evidence; not independent review or production acceptance",
+  "ok": true,
+  "counts": {
+    "research": 34,
+    "documentation": 32,
+    "delivery": 48
+  },
+  "accepted_contracts": 0,
+  "ready": {
+    "research": [
+      "R02",
+      "R05",
+      "R06",
+      "R08",
+      "R09",
+      "R11",
+      "R12",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R20",
+      "R21",
+      "R23",
+      "R24",
+      "R26",
+      "R28",
+      "R30",
+      "R31",
+      "R32",
+      "R33",
+      "R34"
+    ],
+    "documentation": [
+      "D03",
+      "D04",
+      "D05",
+      "D06",
+      "D08",
+      "D09",
+      "D10",
+      "D11",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16",
+      "D17",
+      "D18",
+      "D19",
+      "D20",
+      "D21",
+      "D22",
+      "D23",
+      "D24",
+      "D25",
+      "D26",
+      "D27",
+      "D28",
+      "D29",
+      "D30",
+      "D31",
+      "D32"
+    ],
+    "delivery": []
+  },
+  "continuable": {
+    "research": [
+      "R01",
+      "R03",
+      "R04",
+      "R07",
+      "R10",
+      "R13",
+      "R22",
+      "R25",
+      "R27",
+      "R29"
+    ],
+    "documentation": [
+      "D01",
+      "D02",
+      "D07"
+    ],
+    "delivery": []
+  },
+  "regressions": [
+    {
+      "case": "packet_tampering_closes_start_and_resume",
+      "passed": true
+    },
+    {
+      "case": "partial_research_not_fake_accepted",
+      "passed": true
+    },
+    {
+      "case": "partial_dependency_does_not_unblock_dependent",
+      "passed": true
+    },
+    {
+      "case": "proposed_spec_hash_mismatch_is_detected",
+      "passed": true
+    }
+  ],
+  "packet_count": 114,
+  "preserved_raw_files_verified": 75,
+  "two_platform_rust_results_verified": true
+}
+

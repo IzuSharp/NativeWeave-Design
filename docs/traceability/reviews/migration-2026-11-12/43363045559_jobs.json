@@ -1,0 +1,297 @@
+{
+  "total_count": 3,
+  "jobs": [
+    {
+      "id": 131680817108,
+      "run_id": 43363045559,
+      "workflow_name": "Native slices (research, not product acceptance)",
+      "head_branch": "research/native-slices-rust-1100",
+      "run_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/runs/43363045559",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVrfTDM8AAAAeqMnP1A",
+      "head_sha": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c",
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/jobs/131680817108",
+      "html_url": "https://github.com/IzuSharp/NativeWeave/actions/runs/43363045559/job/131680817108",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-13T04:04:03Z",
+      "started_at": "2026-11-13T04:04:05Z",
+      "completed_at": "2026-11-13T04:04:19Z",
+      "name": "recovery-snapshot",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T04:04:07Z",
+          "completed_at": "2026-11-13T04:04:07Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T04:04:07Z",
+          "completed_at": "2026-11-13T04:04:09Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T04:04:09Z",
+          "completed_at": "2026-11-13T04:04:09Z"
+        },
+        {
+          "name": "Validate merged Plan without accepting any new tasks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T04:04:09Z",
+          "completed_at": "2026-11-13T04:04:14Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T04:04:14Z",
+          "completed_at": "2026-11-13T04:04:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-13T04:04:16Z",
+          "completed_at": "2026-11-13T04:04:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-13T04:04:16Z",
+          "completed_at": "2026-11-13T04:04:16Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-13T04:04:16Z",
+          "completed_at": "2026-11-13T04:04:16Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/IzuSharp/NativeWeave/check-runs/131680817108",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000019,
+      "runner_name": "GitHub Actions 1000000019",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 131680817499,
+      "run_id": 43363045559,
+      "workflow_name": "Native slices (research, not product acceptance)",
+      "head_branch": "research/native-slices-rust-1100",
+      "run_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/runs/43363045559",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVrfTDM8AAAAeqMnRWw",
+      "head_sha": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c",
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/jobs/131680817499",
+      "html_url": "https://github.com/IzuSharp/NativeWeave/actions/runs/43363045559/job/131680817499",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-13T04:04:03Z",
+      "started_at": "2026-11-13T04:04:06Z",
+      "completed_at": "2026-11-13T04:04:45Z",
+      "name": "interop (ubuntu-24.04)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T04:04:07Z",
+          "completed_at": "2026-11-13T04:04:08Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T04:04:08Z",
+          "completed_at": "2026-11-13T04:04:09Z"
+        },
+        {
+          "name": "Run actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T04:04:09Z",
+          "completed_at": "2026-11-13T04:04:18Z"
+        },
+        {
+          "name": "Install exact stable Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T04:04:18Z",
+          "completed_at": "2026-11-13T04:04:26Z"
+        },
+        {
+          "name": "Execute native tests, local NuGet and actual AOT consumer",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T04:04:26Z",
+          "completed_at": "2026-11-13T04:04:40Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-13T04:04:40Z",
+          "completed_at": "2026-11-13T04:04:43Z"
+        },
+        {
+          "name": "Post Run actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-13T04:04:43Z",
+          "completed_at": "2026-11-13T04:04:43Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-13T04:04:43Z",
+          "completed_at": "2026-11-13T04:04:43Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-13T04:04:43Z",
+          "completed_at": "2026-11-13T04:04:43Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/IzuSharp/NativeWeave/check-runs/131680817499",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000020,
+      "runner_name": "GitHub Actions 1000000020",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 131680817601,
+      "run_id": 43363045559,
+      "workflow_name": "Native slices (research, not product acceptance)",
+      "head_branch": "research/native-slices-rust-1100",
+      "run_url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/runs/43363045559",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVrfTDM8AAAAeqMnRwQ",
+      "head_sha": "4a4adc883b80719d2a9b2bfb03be5ec86b543f3c",
+      "url": "https://api.github.com/repos/IzuSharp/NativeWeave/actions/jobs/131680817601",
+      "html_url": "https://github.com/IzuSharp/NativeWeave/actions/runs/43363045559/job/131680817601",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-13T04:04:03Z",
+      "started_at": "2026-11-13T04:04:08Z",
+      "completed_at": "2026-11-13T04:05:20Z",
+      "name": "interop (windows-2022)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-13T04:04:08Z",
+          "completed_at": "2026-11-13T04:04:09Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-13T04:04:09Z",
+          "completed_at": "2026-11-13T04:04:15Z"
+        },
+        {
+          "name": "Run actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-13T04:04:15Z",
+          "completed_at": "2026-11-13T04:04:38Z"
+        },
+        {
+          "name": "Install exact stable Rust",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-13T04:04:38Z",
+          "completed_at": "2026-11-13T04:04:50Z"
+        },
+        {
+          "name": "Execute native tests, local NuGet and actual AOT consumer",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-13T04:04:50Z",
+          "completed_at": "2026-11-13T04:05:16Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-13T04:05:16Z",
+          "completed_at": "2026-11-13T04:05:18Z"
+        },
+        {
+          "name": "Post Run actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-13T04:05:18Z",
+          "completed_at": "2026-11-13T04:05:18Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-13T04:05:18Z",
+          "completed_at": "2026-11-13T04:05:19Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-13T04:05:19Z",
+          "completed_at": "2026-11-13T04:05:20Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/IzuSharp/NativeWeave/check-runs/131680817601",
+      "labels": [
+        "windows-2022"
+      ],
+      "runner_id": 1000000021,
+      "runner_name": "GitHub Actions 1000000021",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}
