@@ -1,0 +1,116 @@
+[
+  {
+    "name": "rust-version",
+    "argv": [
+      "rustc",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:46:08.657809+00:00",
+    "ended_utc": "2026-11-13T05:46:08.671327+00:00",
+    "stdout_sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "cargo-version",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "-Vv"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:46:08.671601+00:00",
+    "ended_utc": "2026-11-13T05:46:08.692468+00:00",
+    "stdout_sha256": "c952f4703d7d611c7c389445c9b9575e8d678083ffdb8bdd4ab1c78bb155df7f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "dotnet-info",
+    "argv": [
+      "dotnet",
+      "--info"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:46:08.692792+00:00",
+    "ended_utc": "2026-11-13T05:46:08.801255+00:00",
+    "stdout_sha256": "025a77ee6fb635716c429cae9427e9f0b5c33da95835da50d9fcbf5745bd6a7f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "native-build",
+    "argv": [
+      "cargo",
+      "+1.100.0",
+      "build",
+      "--locked",
+      "--offline",
+      "--release",
+      "--manifest-path",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices/interop/native/Cargo.toml",
+      "--message-format=json"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:46:08.801715+00:00",
+    "ended_utc": "2026-11-13T05:46:08.988217+00:00",
+    "stdout_sha256": "020beea410bf41c9836c0e7c20ecae463113bf4c76123cf01138f94fba401702",
+    "stderr_sha256": "bb4e432c6ebadbd6939bd235e47739ee1a9e0b9c6612fff671bae2aa2b082b32"
+  },
+  {
+    "name": "normal-run",
+    "argv": [
+      "dotnet",
+      "run",
+      "--project",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/logical-admission/Admission.csproj",
+      "-c",
+      "Release",
+      "-p:NativeAsset=/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/logical-admission/.work/target/release/libnw_interop_probe.so"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:46:08.989601+00:00",
+    "ended_utc": "2026-11-13T05:46:14.743129+00:00",
+    "stdout_sha256": "d9986a87914c90a0cbaa26cdf94e835d38df011d75a4fe3de1f5fd9551973349",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "aot-publish",
+    "argv": [
+      "dotnet",
+      "publish",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/logical-admission/Admission.csproj",
+      "-c",
+      "Release",
+      "-r",
+      "linux-x64",
+      "-p:PublishAot=true",
+      "-p:NativeAsset=/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/logical-admission/.work/target/release/libnw_interop_probe.so",
+      "-o",
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/logical-admission/.work/publish"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/native-slices",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:46:14.743631+00:00",
+    "ended_utc": "2026-11-13T05:46:21.223285+00:00",
+    "stdout_sha256": "bf578c06efc62c8f40c1827936c81a57c173e51d350ebd4e42d05065751ad45d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "aot-run",
+    "argv": [
+      "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/logical-admission/.work/publish/Admission",
+      "--expect-aot"
+    ],
+    "cwd": "/home/runner/work/NativeWeave-Design/NativeWeave-Design/experiments/logical-admission/.work/publish",
+    "exit_code": 0,
+    "started_utc": "2026-11-13T05:46:21.223823+00:00",
+    "ended_utc": "2026-11-13T05:46:21.339442+00:00",
+    "stdout_sha256": "1e80a5052106ece5929b3926e5cb4dc8ca213feec7aa24ebec5e7a9809e3a4b1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
