@@ -1,0 +1,63 @@
+name: Integrate Rust 1.100 research evidence
+on:
+  push:
+    branches: [research/source-driven-integration-2026-11-12]
+    paths: [.github/workflows/rust-1100-integrate.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  integrate:
+    if: github.repository == 'IzuSharp/NativeWeave-Design' && github.ref == 'refs/heads/research/source-driven-integration-2026-11-12'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Correct source index endpoints to actual file lengths
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('experiments/rust-1100/integrate.py');s=p.read_text()
+          for a,b in [('[1,170]','[1,158]'),('[890,920]','[890,915]')]:
+              assert a in s,a
+              s=s.replace(a,b)
+          p.write_text(s)
+          PY
+      - name: Preserve original new API evidence and apply checked corrections
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 experiments/rust-1100/integrate.py
+      - name: Validate exact generated documentation and commit to existing PR branch
+        run: |
+          git diff --check
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          reg=json.loads(pathlib.Path('docs/contracts/registry.json').read_text())
+          for c in reg['contracts']:
+              assert c['status']=='proposed'
+              if c.get('spec_path'):assert hashlib.sha256(pathlib.Path(c['spec_path']).read_bytes()).hexdigest()==c['content_sha256']
+          for p in pathlib.Path('docs').rglob('*.json'):json.loads(p.read_text())
+          for line in subprocess.check_output(['git','status','--porcelain'],text=True).splitlines():
+              p=line[3:]
+              assert p.startswith('docs/') or p in ('AGENTS.md','experiments/rust-1100/integrate.py'),p
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs AGENTS.md experiments/rust-1100/integrate.py
+          git commit -m 'docs: preserve two-platform Rust results and repair versioned Design assumptions'
+          git push origin HEAD:refs/heads/research/source-driven-integration-2026-11-12
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rust-1100-integrated-design
+          path: |
+            docs/
+            AGENTS.md
+            experiments/rust-1100/
+          retention-days: 14
