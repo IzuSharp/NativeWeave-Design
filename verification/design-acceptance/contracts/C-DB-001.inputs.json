@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-DB-001",
+    "version": "0.3.0",
+    "content_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/contracts/async-v0.1.md",
+      "sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "bytes": 24526,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/buffer-v0.1.md",
+      "sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "bytes": 11778,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/error-v0.1.md",
+      "sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "bytes": 18769,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/database/drivers.md",
+      "sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "bytes": 25811,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/extension/engine-integration.md",
+      "sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "bytes": 15996,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R19/coverage.json",
+      "sha256": "911d62e6075f147fca5cd83dec011e8727323060ffbddefe0b41f66e7252553f",
+      "bytes": 10361,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R19/evidence.json",
+      "sha256": "021e7c8283af7d8771b7eec7c6e300725ff1bec30765d7b4d9b10065faa61078",
+      "bytes": 23566,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R19/report.md",
+      "sha256": "7463a51d2f413085beecd52ed67dc7ee52c01a7ad3a9ac9e72deef631838b006",
+      "bytes": 8855,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R20/coverage.json",
+      "sha256": "3c45d8d93fe10b0da6f7ebeac149ec6fe17e1279494af6918fb2371c0365e464",
+      "bytes": 12880,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R20/evidence.json",
+      "sha256": "4f100de2fbe7e8ac39ab0c325f113de37953483b813461a423781dbe7aa93828",
+      "bytes": 28718,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R20/report.md",
+      "sha256": "5a31c55bf5e7deea359752c8fb537aebd36a835d58a1de81d2ffc120b05d3282",
+      "bytes": 11193,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R22/coverage.json",
+      "sha256": "293319f83dbc15c6f6f3b02bffe8d99aee5ab30767489816b02a8310de643afd",
+      "bytes": 11958,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R22/evidence.json",
+      "sha256": "745bd943a14145075ab0652c6c11bb95fd1cab6dd8400d4dcc73482021e4dbcc",
+      "bytes": 28012,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R22/native-slice-validation.md",
+      "sha256": "ed63b45332c83accc367fd17d34e844ddf9067a9083801dce59469b208e9c203",
+      "bytes": 4506,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R22/report.md",
+      "sha256": "3de6debaf443ef27c4db3ca4ca9ca9f0bd2d267eb39f73712e884799e28ad3dc",
+      "bytes": 10166,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {
+    "C-ENGINE-001@0.3.0": {
+      "spec_path": "docs/extension/engine-integration.md",
+      "content_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "evidence_sha256": [
+        "50772cb730703eb1d8569f5e492741b9b1083457b400d27d6781e779ea5c8fe1"
+      ],
+      "review_sha256": [
+        "fffe4fb273341457413fa323b60bd813290966315bffe285f6be90ddbe8f8ec9"
+      ]
+    },
+    "C-ASYNC-001@0.3.0": {
+      "spec_path": "docs/contracts/async-v0.1.md",
+      "content_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "evidence_sha256": [
+        "8b5ffacfca4892ab91c090c0930218af27b3cb185f762579b5569476b87b59c0"
+      ],
+      "review_sha256": [
+        "5873f7714a76ae94d8c30c63c46e0b77d5cc9d441edfbf0f726ace69839a3617"
+      ]
+    },
+    "C-BUFFER-001@0.3.0": {
+      "spec_path": "docs/contracts/buffer-v0.1.md",
+      "content_sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "evidence_sha256": [
+        "0dffe09a81c5128dbc560df36655a3b56203ccfb0e467d738209421d2a9641fb"
+      ],
+      "review_sha256": [
+        "a36ac5e00c5a20327c3ce20417822aa01a8217139a6b38f92f93531afb8fe632"
+      ]
+    },
+    "C-ERROR-001@0.3.0": {
+      "spec_path": "docs/contracts/error-v0.1.md",
+      "content_sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "evidence_sha256": [
+        "2bf1e6ded2464bdcce32b3ef1239e8de8f1e4a2abae842c32c40cc2920176233"
+      ],
+      "review_sha256": [
+        "0d08b21977360a5ebac8c74ff280f244715af5e7290747ebf24831f94bc6a928"
+      ]
+    }
+  }
+}

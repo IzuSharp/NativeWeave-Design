@@ -1,0 +1,1282 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "FINAL-INTEGRITY-2026-11-13",
+  "reviewer": "/root/interop_review",
+  "review_kind": "independent_subagent_technical_review",
+  "reviewed_author": "/root",
+  "reviewed_at_utc": "2026-11-13T13:26:41.416404+00:00",
+  "decision": "accept_research_design",
+  "open_blocking_findings": [],
+  "not_final_acceptance": false,
+  "pending_review": [],
+  "scope": "Independent D32 synthesis and acceptance-tool design review, plus exact nine-contract Interop binding follow-up. Research/detailed-design acceptance only; no product execution, merge receipt or separate GitHub approval identity.",
+  "findings": [
+    {
+      "id": "FINAL-INTEGRITY-01",
+      "severity": "high",
+      "status": "resolved",
+      "subject": "Incomplete subject input snapshot",
+      "original_behavior": "A snapshot with only Plan:README.md could accept R01 while R01 report bytes were corrupted; no own outputs or packet were required.",
+      "correction": "required_paths requires own outputs and packet, referenced design/research outputs and contract specs; every snapshot row now has a matching repository source commit and exact git object bytes.",
+      "validated_by": [
+        "missing_output_snapshot",
+        "dirty_output_rehashed_snapshot",
+        "missing_source_commit",
+        "source_map_mismatch",
+        "wrong_source_commit"
+      ]
+    },
+    {
+      "id": "FINAL-INTEGRITY-02",
+      "severity": "high",
+      "status": "resolved",
+      "subject": "Wrapper could override the actual independent report",
+      "original_behavior": "A wrapper could claim accepted while the referenced actual report explicitly said rejected, listed a blocker and reviewed another task. Only reviewer string equality was checked.",
+      "correction": "review_bindings normalizes actual report decision, all recognized blocker arrays including remaining_blocking_findings, exact subject row, own reviewed path hashes, contract identity and any retained task semantic projection.",
+      "validated_by": [
+        "actual_report_rejected",
+        "actual_report_open_blocker",
+        "actual_report_remaining_blocker",
+        "subject_outside_report_scope",
+        "stale_review_output_hash",
+        "reviewed_semantics_changed"
+      ]
+    },
+    {
+      "id": "FINAL-INTEGRITY-03",
+      "severity": "high",
+      "status": "resolved",
+      "subject": "Stage-based exact-binding attestation bypass",
+      "original_behavior": "Any number of accepted subjects in review_ready could skip final attestation; removing completion_stage defaulted to review_ready.",
+      "correction": "Every accepted subject requires exact evidence/review hash attestation regardless of completion stage; verify_attestations bypass parameter removed.",
+      "validated_by": [
+        "missing_attestation",
+        "stage_removed_missing_attestation"
+      ]
+    },
+    {
+      "id": "FINAL-INTEGRITY-04",
+      "severity": "medium",
+      "status": "resolved",
+      "subject": "New historical run overwrote preserved aggregate streams",
+      "original_behavior": "history_gate wrote verification/frozen-history/<tool>.stdout also referenced by an older results.json; the shared source-lifecycle stdout actually mismatched that preserved aggregate.",
+      "correction": "Current execution streams now use verification/current-gates/frozen-history, and original frozen-history files have been restored. All original aggregate stream hashes now match.",
+      "validated_by": [
+        "original_frozen_history_aggregate_all_stream_hashes_match",
+        "source_read_of_current_history_output_path"
+      ]
+    },
+    {
+      "id": "FINAL-INTEGRITY-05",
+      "severity": "medium",
+      "status": "resolved",
+      "subject": "Acceptance index source and authorization consistency",
+      "original_behavior": "The preparation/application path did not compare the index source/product labels with actual values/snapshots; current verification did not validate exact index subject coverage. This was found by source inspection.",
+      "correction": "Shared verify_acceptance_index enforces allowed state, product false, exact subjects, value source and every snapshot repository source. Current verification selects the actual accepted subjects; preparation/application verifies the whole prepared batch.",
+      "validated_by": [
+        "index_wrong_design_source",
+        "index_product_authorization_true",
+        "index_missing_subject",
+        "index_unknown_state",
+        "full_current_verifier_rejects_false_index_source",
+        "full_current_verifier_rejects_prepared_index_for_accepted_contracts",
+        "task_index_wrong_plan_source_rejected",
+        "task_index_wrong_design_source_rejected",
+        "partial_R03_acceptance_with_exact_single_subject_index"
+      ]
+    }
+  ],
+  "reviewed_inputs": [
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/reviews/final-2026-11-13/database-review.json",
+      "sha256": "52a5a4671860cbc948f9964f76b7f03e3dd8a089e5a8d103c017c44449af4031",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/reviews/final-2026-11-13/interop-review.json",
+      "sha256": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/reviews/final-2026-11-13/platform-review.json",
+      "sha256": "d4228a0c3e518bc177297b6ecf86e0173310a4cc3092aa7a52c449cb5ede6c60",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/reviews/final-2026-11-13/server-review.json",
+      "sha256": "fe7141e58c8f573998f3cd5e41f361b387d983dcba0897a3b095cec486c75291",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ABI-001.evidence.json",
+      "sha256": "9fc436bbc2bed8b1f91270b9331abf8d591778828cd796df63505b2a899938d9",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ABI-001.inputs.json",
+      "sha256": "6f06c8c8a92ff765d99ed9889c028a1b0095d97c6a7e00097f77d4518b9f5ec3",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ABI-001.review.json",
+      "sha256": "96dc29d3b088d4ec8881dff5989924200dc2b6e9336fd0958b1bf84bf12610e6",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ASYNC-001.evidence.json",
+      "sha256": "8b5ffacfca4892ab91c090c0930218af27b3cb185f762579b5569476b87b59c0",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ASYNC-001.inputs.json",
+      "sha256": "40c77f1ea6696ecda72e6d35832b617d2014ae6e7cd41c7280b171ec7f9cf587",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ASYNC-001.review.json",
+      "sha256": "5873f7714a76ae94d8c30c63c46e0b77d5cc9d441edfbf0f726ace69839a3617",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-BINDING-001.evidence.json",
+      "sha256": "a09d95ad0aa6f8107eccb30e7310a3349e4205c2087421302fa6929ba3e2ca37",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-BINDING-001.inputs.json",
+      "sha256": "dcb3eb2ccc320b6fd311936df6b133a0063bd49d05761ebc8563a0934c53c01b",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-BINDING-001.review.json",
+      "sha256": "100eeb369dcfabcc8f59fb24f0deafc8eb567b8df54a835218957ebfa683025c",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-BUFFER-001.evidence.json",
+      "sha256": "0dffe09a81c5128dbc560df36655a3b56203ccfb0e467d738209421d2a9641fb",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-BUFFER-001.inputs.json",
+      "sha256": "05a367c0eb7c6158f99f6ab3b67dace717e187609a886eb2c1cdfe43e61cbb0b",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-BUFFER-001.review.json",
+      "sha256": "a36ac5e00c5a20327c3ce20417822aa01a8217139a6b38f92f93531afb8fe632",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-CALLBACK-001.evidence.json",
+      "sha256": "159ad7eed71db9e050bd51d7cf21b855b628daa2d45a991abf2ebe48f5b8bc68",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-CALLBACK-001.inputs.json",
+      "sha256": "bad73de3246ae1744410d65fa38780f0b5956de03f0cb80a597c6466c64e4375",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-CALLBACK-001.review.json",
+      "sha256": "123b63d0542fa2fb5939f37649a91898ed6092a00d44e357c9f59084f65f3459",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-CONCURRENCY-001.evidence.json",
+      "sha256": "3345d78a02997d299286a9224a1903334aa1a626f94aac50fbd207f251287b6e",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-CONCURRENCY-001.inputs.json",
+      "sha256": "78b198a6c9c85d1967defbaff8f3bda4869d93e9ab8e240261f62e99c41b5de2",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-CONCURRENCY-001.review.json",
+      "sha256": "7852e93f1d79afb1f1f94a78c9e334883b2ee26e190750e684b0900158109b20",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ERROR-001.evidence.json",
+      "sha256": "2bf1e6ded2464bdcce32b3ef1239e8de8f1e4a2abae842c32c40cc2920176233",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ERROR-001.inputs.json",
+      "sha256": "704fadf7ff0b64ff5941b3d45c783d9fc233cc8ae243902a1d41d5258d7334f3",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-ERROR-001.review.json",
+      "sha256": "0d08b21977360a5ebac8c74ff280f244715af5e7290747ebf24831f94bc6a928",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-LIFETIME-001.evidence.json",
+      "sha256": "7c0e4a0cda29ac811bfa671b2b3305e074a101be05264b326eb617198aeeed1c",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-LIFETIME-001.inputs.json",
+      "sha256": "481397c357ddcd9bb8f323c6e588ce25cbbd4292c7466634f4497ad44d4bc0dc",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-LIFETIME-001.review.json",
+      "sha256": "e8fad319335c30b0e23e285d31f9d3eb4b455c3e47e55b9f5f9aaf761dd08d6b",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-VERIFY-001.evidence.json",
+      "sha256": "e6a1151dd94928744c47efc29adda0f7abdcb3c4b9a87ccaebb84d5f75c2a662",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-VERIFY-001.inputs.json",
+      "sha256": "4edb6c901eb60d45a05c1434c7a42ec49c11e6a24bcf33b73522aa6226a5c8ee",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/design-acceptance/contracts/C-VERIFY-001.review.json",
+      "sha256": "79163ea51da801f8ad19bf44573e5ea162b8599d9b871eac2df22dde37a0d972",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": ".github/workflows/native-slices-final-check.yml",
+      "sha256": "9d7c95a2836c9156d3f57247a29b3b8c17db00da2f9de4fe65cec2025609429c",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "documentation-tasks/D32.md",
+      "sha256": "889e9715f3da56714589806a5b9983064a6e54f315288f6c4b6ada6f82b36a71",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "fragments/verification-engines.json",
+      "sha256": "7da28aca906110f2fb308f6925276e8ad89da2165d8ddfd801117ce04db59338",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "ledger/reviews/D32.md",
+      "sha256": "581c22a793f762d7b546efdcbceadc2a1dd58706e7537573cc265a5191a9fe21",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tasks/A19.md",
+      "sha256": "8e968aa13a3696d014b7469136330405c203859afa470c5013d61713dfeaae9b",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tasks/A20.md",
+      "sha256": "753c812e7e7c9d454bbdb5b7a472b4c44e78d731e62ec9c220de5f105a10e207",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/history_gate.py",
+      "sha256": "6df4db34b1afe61e3a1c75882e5a1585b4211a93786771d984b1923923860729",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/host_selection_checks.py",
+      "sha256": "a839e362318e3583ff4511e629135cd142914a775103bf0b37bfbc02f128980c",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/prepare_acceptance.py",
+      "sha256": "30327897c2e1affced81f113cf730c505e1e4c2ed4ed92186380613235a9ecb6",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/review_bindings.py",
+      "sha256": "b3bec6941a55b11420d5e85eb6e8a6e6050d093115a37c76f891e97f64716274",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/rust1100_checks.py",
+      "sha256": "7b36b93288b8a98455b6a5162267ae943bed31cd880f9e6aca39851bf9604e3d",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/source_lifecycle_binding_checks.py",
+      "sha256": "77700cc381793c884abf0e2b8c50d47d6e113d09edebccc763cef7097a114ee0",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/validate_graphs.py",
+      "sha256": "7a515f5cfe1e691f4b86dc948d39edb0e9b055ec09cd9906e21ad34b9c4a3f6c",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/verify_completion.py",
+      "sha256": "8ecbabf6d819576750d73f9ffdcdec78955829df7e8feb5b0706a5198955e0ab",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    },
+    {
+      "repository": "Plan",
+      "path": "tools/verify_source_lifecycle.py",
+      "sha256": "335239eb65534ac7904fa4634a26371eeb21973c1eb15254dac9204732780542",
+      "inspection": "Source/review synthesis or exact manifest/input binding check; the other domains retain their attributable independent technical reviewers."
+    }
+  ],
+  "historical_execution": {
+    "performed_in": "Disposable detached worktrees copied from the current working tree; all synthetic mutations removed afterward.",
+    "plan_frozen_commit": "5b346ebb5acdb387077d0faae16b00bbc77cb299",
+    "design_frozen_commit": "ba21ecb5c2299b303584b120f2e6bd1c6d74783a",
+    "executed_at_utc": "2026-11-13T13:03:03.529118+00:00",
+    "wrappers": [
+      {
+        "tool": "verify_source_lifecycle.py",
+        "exit_code": 0,
+        "original_tool_sha256": "b0cae8ebacb9df4f7bdb8c9b46584d247f7cd83b968b0d7801406f798129ce36"
+      },
+      {
+        "tool": "host_selection_checks.py",
+        "exit_code": 0,
+        "original_tool_sha256": "6bf17ec8e3644852d3bbb06d942259d2fefa1b7ab044cef2fa3cdadccf8b5a63",
+        "current_architecture_negative_cases": 9
+      },
+      {
+        "tool": "rust1100_checks.py",
+        "exit_code": 0,
+        "original_tool_sha256": "0b809238a2087931d8fb38dfec279291c2ca945bba9be35b911d9228ac53a2b4"
+      }
+    ],
+    "execution_code_history_gate_sha256": "55ef5c384712b12139b444e61361c28d8606edaaa73f82925cc2e2ac41893d59",
+    "post_execution_change": "Only output directory moved to avoid overwriting retained history; execution mechanism reviewed again, no claim that the moved-directory revision was used for the above run.",
+    "scope": "Full original scripts execute at the original pair; those scripts inspect retained source/log bytes and synthetic gates, not native experiments."
+  },
+  "initial_false_green_reproduction": {
+    "verify_completion_sha256": "e9c180cdaf3042bff176b4f73e4e727af794b6be16487f24be9649c13604c5f0",
+    "plan_source_commit": "7359060f88f94591b0dc41178e35701eefc8eb6d",
+    "design_checkout_commit": "2926eb8b558832fce6f02acf32f9bf6f3afd63d0",
+    "fixture": "R01 accepted with authentic unchanged node_digest source_commit, snapshot only of Plan README, corrupted R01 report, actual reviewer report rejected with blocker and R34-only scope, accepted wrapper and matching reviewer string, no binding attestation.",
+    "observed": "verify() returned ok true, review_ready, accepted research 1, checked_input_entries 1. Wrong README leaf hash was rejected.",
+    "all_changes_isolated": true
+  },
+  "fixed_revision_regressions": {
+    "executed_at_utc": "2026-11-13T13:05:45.084210+00:00",
+    "verify_completion_sha256": "9c941b84eac82638299678586450ed8d785eeaf4a22864fb8f645f66b589ff89",
+    "review_bindings_sha256": "e34dc0c57e85e76ad9db9d70e0864b89f86aa5766eb8faab219c987d3ca27bc0",
+    "cases": [
+      {
+        "case": "positive_scoped_design_acceptance",
+        "observed": "accepted",
+        "accepted_research": 1,
+        "checked_input_entries": 5,
+        "scope": "Synthetic acceptance wrappers and attestation around actual reviewed R03 inputs in disposable detached worktrees; this did not accept a real repository task."
+      },
+      {
+        "case": "missing_output_snapshot",
+        "observed": "rejected",
+        "reason": "incomplete subject snapshot"
+      },
+      {
+        "case": "dirty_output_rehashed_snapshot",
+        "observed": "rejected",
+        "reason": "git source bytes mismatch"
+      },
+      {
+        "case": "actual_report_rejected",
+        "observed": "rejected",
+        "reason": "report not accepted"
+      },
+      {
+        "case": "actual_report_open_blocker",
+        "observed": "rejected",
+        "reason": "report blocked"
+      },
+      {
+        "case": "actual_report_remaining_blocker",
+        "observed": "rejected",
+        "reason": "report blocked"
+      },
+      {
+        "case": "subject_outside_report_scope",
+        "observed": "rejected",
+        "reason": "subject not reviewed/accepted"
+      },
+      {
+        "case": "stale_review_output_hash",
+        "observed": "rejected",
+        "reason": "actual-review-input hash mismatch"
+      },
+      {
+        "case": "missing_attestation",
+        "observed": "rejected",
+        "reason": "independent exact binding not attested"
+      },
+      {
+        "case": "stage_removed_missing_attestation",
+        "observed": "rejected",
+        "reason": "independent exact binding not attested"
+      },
+      {
+        "case": "missing_source_commit",
+        "observed": "rejected",
+        "reason": "missing source_commit"
+      },
+      {
+        "case": "source_map_mismatch",
+        "observed": "rejected",
+        "reason": "source map assertion"
+      },
+      {
+        "case": "wrong_source_commit",
+        "observed": "rejected",
+        "reason": "missing Git object path at claimed older commit"
+      },
+      {
+        "case": "product_authorization",
+        "observed": "rejected",
+        "reason": "research-only authorization assertion"
+      },
+      {
+        "case": "task_semantics_changed",
+        "observed": "rejected",
+        "reason": "source node changed"
+      },
+      {
+        "case": "reviewed_semantics_changed",
+        "observed": "rejected",
+        "reason": "reviewed task semantics changed"
+      }
+    ],
+    "positive_count": 1,
+    "rejected_negative_count": 15,
+    "all_changes_isolated": true
+  },
+  "current_actual_report_normalization": {
+    "database": 17,
+    "interop": 34,
+    "platform": 17,
+    "server": 18,
+    "total_subjects_checked": 86,
+    "all_passed": true,
+    "unreviewed_subject": "D32 final integration acceptance"
+  },
+  "restored_historical_stream_hash_checks": [
+    {
+      "path": "Plan:verification/frozen-history/verify_research_assets.py.stdout",
+      "sha256": "089a8a7ae8f5b7592f4b14361eb19c5290d3fca2c83b37b081bef5f3c5f64032"
+    },
+    {
+      "path": "Plan:verification/frozen-history/verify_research_assets.py.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Plan:verification/frozen-history/verify_logical_admission_history.py.stdout",
+      "sha256": "cd46be9dd33408b2eea451e459001cdf4d3be64c52705b2132d673b6aa855fc0"
+    },
+    {
+      "path": "Plan:verification/frozen-history/verify_logical_admission_history.py.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Plan:verification/frozen-history/verify_source_lifecycle.py.stdout",
+      "sha256": "51888eaa0b16a243b70aaa45c19f5429ec349548ad6f1e159cf10f6cfcff9201"
+    },
+    {
+      "path": "Plan:verification/frozen-history/verify_source_lifecycle.py.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Plan:verification/frozen-history/source_lifecycle_binding_checks.py.stdout",
+      "sha256": "e64af2768f1607923baecb9eed2c78635ea22742a33175e4d42f29a72fa5c4b0"
+    },
+    {
+      "path": "Plan:verification/frozen-history/source_lifecycle_binding_checks.py.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Plan:verification/frozen-history/host_selection_checks.py.stdout",
+      "sha256": "4bb2917fc1366f25f97bb1b7f492bdadc162b3298da2b65f1e9aa4c845586a86"
+    },
+    {
+      "path": "Plan:verification/frozen-history/host_selection_checks.py.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Plan:verification/frozen-history/rust1100_checks.py.stdout",
+      "sha256": "f206a4fa62e6f07ce8dbb8f309d2d9acaa1da805f8da8d25001156dae624129a"
+    },
+    {
+      "path": "Plan:verification/frozen-history/rust1100_checks.py.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Plan:verification/frozen-history/mutation_checks.py.stdout",
+      "sha256": "9832fed99c6a9a68deb3b1d00a757be28aba57af70c699d1620a91f5b63279a8"
+    },
+    {
+      "path": "Plan:verification/frozen-history/mutation_checks.py.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "workflow_diff_at_review": [],
+  "limitations": [
+    "Local integrity checks do not authenticate a separate GitHub identity. This actual independent executor personally performed the recorded checks and authored its own report and attestation.",
+    "The first valid/15-negative run, later 19 generator/index cases and 3 final partial-acceptance cases keep their actually executed code hashes; the final summary-only generator delta received source review.",
+    "Every synthetic acceptance, mutation and test commit was confined to disposable worktrees; no real subject was accepted by those tests.",
+    "The actual nine Interop contract candidates are attested separately. The future 66 task manifests still receive their own exact-binding review after generation.",
+    "No successful native experiment rerun, product implementation, production soak, release/performance acceptance or GitHub approval identity is claimed."
+  ],
+  "generator_scoped_regressions": {
+    "executed_at_utc": "2026-11-13T13:21:03.853636+00:00",
+    "code_sha256": {
+      "prepare_acceptance.py": "4335e4f28282e5405fc80c14a37119709d3f131fa7c0d917e0181ca3eef9a733",
+      "verify_completion.py": "8ecbabf6d819576750d73f9ffdcdec78955829df7e8feb5b0706a5198955e0ab",
+      "review_bindings.py": "b3bec6941a55b11420d5e85eb6e8a6e6050d093115a37c76f891e97f64716274"
+    },
+    "results": [
+      {
+        "case": "verify_21_prepared_is_read_only",
+        "observed": "passed",
+        "expected_success": true,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": ""
+      },
+      {
+        "case": "prepare_regeneration_keeps_all_contracts_proposed",
+        "observed": "passed",
+        "expected_success": true,
+        "expectation_met": true,
+        "registry_unchanged": false,
+        "stdout": "{\"prepared_contracts\": 21, \"accepted\": 0, \"requires_independent_exact_binding\": true}"
+      },
+      {
+        "case": "regenerated_drafts_verify_without_acceptance",
+        "observed": "passed",
+        "expected_success": true,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": ""
+      },
+      {
+        "case": "accept_without_attestation_rejected_before_mutation",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('contract', 'C-PLATFORM-001', 'not independently attested')"
+        }
+      },
+      {
+        "case": "index_wrong_design_source",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('C-PLATFORM-001', 'index source commit')"
+        }
+      },
+      {
+        "case": "index_product_authorization_true",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": ""
+        }
+      },
+      {
+        "case": "index_missing_subject",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": ""
+        }
+      },
+      {
+        "case": "index_unknown_state",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('acceptance index state', 'accepted')"
+        }
+      },
+      {
+        "case": "wrong_attestation_hash_rejected_before_mutation",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('contract', 'C-PLATFORM-001', 'not independently attested')"
+        }
+      },
+      {
+        "case": "wrong_attestation_reviewer_rejected",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('contract', 'C-PLATFORM-001', 'not independently attested')"
+        }
+      },
+      {
+        "case": "blocked_attestation_rejected",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": ""
+        }
+      },
+      {
+        "case": "exact_synthetic_attestations_accept_contracts_only",
+        "observed": "passed",
+        "expected_success": true,
+        "expectation_met": true,
+        "registry_unchanged": false,
+        "stdout": "{\"accepted_kind\": \"contract\", \"count\": 21, \"product_implementation_authorized\": false}"
+      },
+      {
+        "case": "repeat_accept_without_reprepare_rejected",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": ""
+        }
+      },
+      {
+        "case": "full_current_verifier_accepts_bound_contracts_with_RD_pending",
+        "observed": "passed",
+        "expected_success": true,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": ""
+      },
+      {
+        "case": "full_current_verifier_rejects_false_index_source",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('C-PLATFORM-001', 'index source commit')"
+        }
+      },
+      {
+        "case": "full_current_verifier_rejects_prepared_index_for_accepted_contracts",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('acceptance index state', 'prepared_not_accepted')"
+        }
+      },
+      {
+        "case": "task_index_two_repository_source_positive",
+        "observed": "passed",
+        "expected_success": true,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": ""
+      },
+      {
+        "case": "task_index_wrong_plan_source_rejected",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('R03', 'index source commit')"
+        }
+      },
+      {
+        "case": "task_index_wrong_design_source_rejected",
+        "observed": "rejected",
+        "expected_success": false,
+        "expectation_met": true,
+        "registry_unchanged": true,
+        "stdout": "",
+        "error": {
+          "type": "AssertionError",
+          "message": "('R03', 'index Design source')"
+        }
+      }
+    ],
+    "case_count": 19,
+    "all_expected_outcomes": true,
+    "synthetic_commit_only_in_detached_temporary_worktree": "2c985885f1b81b216486aac3ab79b4aa4c9482dd",
+    "shared_repositories_mutated": false,
+    "native_experiments_rerun": false,
+    "scope": "Generator contract preparation/application and current verifier full contract path; task index helper checks only, actual 66-task generated bindings are reviewed separately after creation."
+  },
+  "current_partial_acceptance_regressions": {
+    "executed_at_utc": "2026-11-13T13:21:50.112912+00:00",
+    "code_sha256": {
+      "verify_completion.py": "8ecbabf6d819576750d73f9ffdcdec78955829df7e8feb5b0706a5198955e0ab",
+      "review_bindings.py": "b3bec6941a55b11420d5e85eb6e8a6e6050d093115a37c76f891e97f64716274"
+    },
+    "cases": [
+      {
+        "case": "partial_R03_acceptance_with_exact_single_subject_index",
+        "observed": "passed",
+        "accepted_research": 1
+      },
+      {
+        "case": "partial_R03_missing_attestation",
+        "observed": "rejected",
+        "error": "('task', 'R03', 'independent exact binding not attested')"
+      },
+      {
+        "case": "partial_R03_missing_attestation_and_stage",
+        "observed": "rejected",
+        "error": "('task', 'R03', 'independent exact binding not attested')"
+      }
+    ],
+    "all_changes_isolated": true,
+    "native_experiments_rerun": false
+  },
+  "prior_reviewed_input_checkpoints": [
+    {
+      "stage": "initial_corrected_current_gate_review",
+      "reviewed_inputs": [
+        {
+          "repository": "Plan",
+          "path": "tools/history_gate.py",
+          "sha256": "6df4db34b1afe61e3a1c75882e5a1585b4211a93786771d984b1923923860729",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        },
+        {
+          "repository": "Plan",
+          "path": "tools/verify_completion.py",
+          "sha256": "9c941b84eac82638299678586450ed8d785eeaf4a22864fb8f645f66b589ff89",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        },
+        {
+          "repository": "Plan",
+          "path": "tools/review_bindings.py",
+          "sha256": "e34dc0c57e85e76ad9db9d70e0864b89f86aa5766eb8faab219c987d3ca27bc0",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        },
+        {
+          "repository": "Plan",
+          "path": "tools/verify_source_lifecycle.py",
+          "sha256": "335239eb65534ac7904fa4634a26371eeb21973c1eb15254dac9204732780542",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        },
+        {
+          "repository": "Plan",
+          "path": "tools/host_selection_checks.py",
+          "sha256": "a839e362318e3583ff4511e629135cd142914a775103bf0b37bfbc02f128980c",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        },
+        {
+          "repository": "Plan",
+          "path": "tools/rust1100_checks.py",
+          "sha256": "7b36b93288b8a98455b6a5162267ae943bed31cd880f9e6aca39851bf9604e3d",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        },
+        {
+          "repository": "Plan",
+          "path": "tools/validate_graphs.py",
+          "sha256": "7a515f5cfe1e691f4b86dc948d39edb0e9b055ec09cd9906e21ad34b9c4a3f6c",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        },
+        {
+          "repository": "Plan",
+          "path": "tools/source_lifecycle_binding_checks.py",
+          "sha256": "77700cc381793c884abf0e2b8c50d47d6e113d09edebccc763cef7097a114ee0",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        },
+        {
+          "repository": "Plan",
+          "path": ".github/workflows/native-slices-final-check.yml",
+          "sha256": "9d7c95a2836c9156d3f57247a29b3b8c17db00da2f9de4fe65cec2025609429c",
+          "inspection": "source_read_and_scoped_execution_or_dependency_review"
+        }
+      ]
+    }
+  ],
+  "task_decisions": [
+    {
+      "id": "D32",
+      "decision": "accept_research_design",
+      "task_revision": "0.3.0",
+      "author": "/root",
+      "packet_sha256": "889e9715f3da56714589806a5b9983064a6e54f315288f6c4b6ada6f82b36a71",
+      "output_hashes": {
+        "Plan:ledger/reviews/D32.md": "581c22a793f762d7b546efdcbceadc2a1dd58706e7537573cc265a5191a9fe21"
+      },
+      "semantic_node_projection": {
+        "id": "D32",
+        "title": "独立交叉Review与交付准备审查",
+        "phase": "A+B",
+        "owner_role": "documentation/D32",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R15",
+          "R16",
+          "R34",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12",
+          "D13",
+          "D14",
+          "D15",
+          "D16",
+          "D17",
+          "D18",
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D23",
+          "D24",
+          "D25",
+          "D26",
+          "D27",
+          "D28",
+          "D29",
+          "D30",
+          "D31"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R15",
+          "R16",
+          "R34"
+        ],
+        "documentation_refs": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12",
+          "D13",
+          "D14",
+          "D15",
+          "D16",
+          "D17",
+          "D18",
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D23",
+          "D24",
+          "D25",
+          "D26",
+          "D27",
+          "D28",
+          "D29",
+          "D30",
+          "D31"
+        ],
+        "outputs": [
+          "Plan:ledger/reviews/D32.md"
+        ],
+        "write_scopes": [
+          "Plan:ledger/reviews/D32.md"
+        ],
+        "resource_locks": [],
+        "contract_outputs": [],
+        "specific_scope": "Actual independent technical reviews, 66 R/D outcomes, 21 exact contracts, 114 packet/graph consistency and current phase authorization.",
+        "prompt": "documentation-tasks/D32.md",
+        "reference_only_research_refs": [],
+        "revision": "0.3.0",
+        "author": "/root",
+        "conditional_dependencies": [],
+        "selection_inputs": [],
+        "dependency_pins": {
+          "R15": "0.3.0",
+          "R16": "0.3.0",
+          "R34": "0.3.0",
+          "D01": "0.3.0",
+          "D02": "0.3.0",
+          "D03": "0.3.0",
+          "D04": "0.3.0",
+          "D05": "0.3.0",
+          "D06": "0.3.0",
+          "D07": "0.3.0",
+          "D08": "0.3.0",
+          "D09": "0.3.0",
+          "D10": "0.3.0",
+          "D11": "0.3.0",
+          "D12": "0.3.0",
+          "D13": "0.3.0",
+          "D14": "0.3.0",
+          "D15": "0.3.0",
+          "D16": "0.3.0",
+          "D17": "0.3.0",
+          "D18": "0.3.0",
+          "D19": "0.3.0",
+          "D20": "0.3.0",
+          "D21": "0.3.0",
+          "D22": "0.3.0",
+          "D23": "0.3.0",
+          "D24": "0.3.0",
+          "D25": "0.3.0",
+          "D26": "0.3.0",
+          "D27": "0.3.0",
+          "D28": "0.3.0",
+          "D29": "0.3.0",
+          "D30": "0.3.0",
+          "D31": "0.3.0"
+        },
+        "packet_sha256": "889e9715f3da56714589806a5b9983064a6e54f315288f6c4b6ada6f82b36a71",
+        "completion_scope": "Reviewed implementation-guiding design, exact Rust/C# boundary, error/ownership/state rules, traceability and future acceptance; not product implementation."
+      },
+      "semantic_node_sha256": "18106fc1647f86353dd52e2834384a317840e462bdd78492471985d6b484ddf9",
+      "basis": "The synthesis maps all 34 research, 31 other documentation and 21 contract decisions to real independent domain executors; keeps 114 existing packets and 48 unimplemented Delivery tasks; explains corrected Rust/C# architecture, lifecycle, database, protocol, package and diagnostic decisions; preserves finite evidence limits and concrete future obligations; and uses independently checked prepare/application and exact-binding gates.",
+      "acceptance_scope": "Research, detailed design and future implementation readiness only. Actual later task bindings and GitHub receipts require their separate checks; product validation remains Delivery."
+    }
+  ],
+  "contract_reviews": [],
+  "input_checkpoints": {
+    "Plan_committed_checkpoint": "240da4c41741ff12fdad1e9e553764d0858fb9c1",
+    "NativeWeave_Design_source_checkpoint": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+    "observed_plan_head": "240da4c41741ff12fdad1e9e553764d0858fb9c1",
+    "observed_design_head": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+    "note": "D32, verify_completion and review_bindings bytes match Plan 240da4c. Final prepare_acceptance.py contains the explicitly reviewed uncommitted summary-metadata delta after that checkpoint and is bound by its actual SHA-256, not falsely attributed to 240da4c. Contract candidate inputs come from Design 8594d43."
+  },
+  "summary_metadata_followup": {
+    "review_mode": "source review only; no native or optional repeated tests",
+    "previous_generator_sha256": "4335e4f28282e5405fc80c14a37119709d3f131fa7c0d917e0181ca3eef9a733",
+    "final_generator_sha256": "30327897c2e1affced81f113cf730c505e1e4c2ed4ed92186380613235a9ecb6",
+    "source_diff": "diff --git a/tools/prepare_acceptance.py b/tools/prepare_acceptance.py\nindex 61f0d24..811d579 100644\n--- a/tools/prepare_acceptance.py\n+++ b/tools/prepare_acceptance.py\n@@ -211,9 +211,14 @@ def accept(kind,attestation_paths):\n     for value in values:\n         value['status']='accepted'\n         if kind=='contract':value['specification_status']='accepted_research_and_detailed_design'\n-    if kind=='contract':dump(D/'docs/contracts/registry.json',registry)\n+    if kind=='contract':\n+        registry['status']='accepted_research_and_detailed_design'\n+        dump(D/'docs/contracts/registry.json',registry)\n     else:\n-        for name in ('research','documentation'):dump(P/(name+'-graph.json'),check.graphs[name])\n+        for name in ('research','documentation'):\n+            check.graphs[name]['graph_status']='accepted_research_and_detailed_design'\n+            check.graphs[name]['scope']='Source-backed research and detailed design accepted for future implementation guidance; no product implementation, release or performance accepted.'\n+            dump(P/(name+'-graph.json'),check.graphs[name])\n     index.update(state='accepted_research_and_detailed_design',binding_attestations=refs)\n     dump(index_path,index)\n     print(json.dumps({'accepted_kind':kind,'count':len(values),'product_implementation_authorized':False}))\n",
+    "conclusion": "Only accepted registry summary status and accepted R/D graph summary/scope text are updated after the existing fully verified acceptance path. Node semantics, evidence/review/subject hashes, attestation requirement and product authorization do not change. The 19 executable cases remain truthfully tied to the preceding generator hash."
+  },
+  "review_inputs_sha256": {
+    "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/database-review.json": "52a5a4671860cbc948f9964f76b7f03e3dd8a089e5a8d103c017c44449af4031",
+    "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/interop-review.json": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f",
+    "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/platform-review.json": "d4228a0c3e518bc177297b6ecf86e0173310a4cc3092aa7a52c449cb5ede6c60",
+    "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/server-review.json": "fe7141e58c8f573998f3cd5e41f361b387d983dcba0897a3b095cec486c75291",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.evidence.json": "9fc436bbc2bed8b1f91270b9331abf8d591778828cd796df63505b2a899938d9",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.inputs.json": "6f06c8c8a92ff765d99ed9889c028a1b0095d97c6a7e00097f77d4518b9f5ec3",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.review.json": "96dc29d3b088d4ec8881dff5989924200dc2b6e9336fd0958b1bf84bf12610e6",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ASYNC-001.evidence.json": "8b5ffacfca4892ab91c090c0930218af27b3cb185f762579b5569476b87b59c0",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ASYNC-001.inputs.json": "40c77f1ea6696ecda72e6d35832b617d2014ae6e7cd41c7280b171ec7f9cf587",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ASYNC-001.review.json": "5873f7714a76ae94d8c30c63c46e0b77d5cc9d441edfbf0f726ace69839a3617",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-BINDING-001.evidence.json": "a09d95ad0aa6f8107eccb30e7310a3349e4205c2087421302fa6929ba3e2ca37",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-BINDING-001.inputs.json": "dcb3eb2ccc320b6fd311936df6b133a0063bd49d05761ebc8563a0934c53c01b",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-BINDING-001.review.json": "100eeb369dcfabcc8f59fb24f0deafc8eb567b8df54a835218957ebfa683025c",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-BUFFER-001.evidence.json": "0dffe09a81c5128dbc560df36655a3b56203ccfb0e467d738209421d2a9641fb",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-BUFFER-001.inputs.json": "05a367c0eb7c6158f99f6ab3b67dace717e187609a886eb2c1cdfe43e61cbb0b",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-BUFFER-001.review.json": "a36ac5e00c5a20327c3ce20417822aa01a8217139a6b38f92f93531afb8fe632",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-CALLBACK-001.evidence.json": "159ad7eed71db9e050bd51d7cf21b855b628daa2d45a991abf2ebe48f5b8bc68",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-CALLBACK-001.inputs.json": "bad73de3246ae1744410d65fa38780f0b5956de03f0cb80a597c6466c64e4375",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-CALLBACK-001.review.json": "123b63d0542fa2fb5939f37649a91898ed6092a00d44e357c9f59084f65f3459",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-CONCURRENCY-001.evidence.json": "3345d78a02997d299286a9224a1903334aa1a626f94aac50fbd207f251287b6e",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-CONCURRENCY-001.inputs.json": "78b198a6c9c85d1967defbaff8f3bda4869d93e9ab8e240261f62e99c41b5de2",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-CONCURRENCY-001.review.json": "7852e93f1d79afb1f1f94a78c9e334883b2ee26e190750e684b0900158109b20",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ERROR-001.evidence.json": "2bf1e6ded2464bdcce32b3ef1239e8de8f1e4a2abae842c32c40cc2920176233",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ERROR-001.inputs.json": "704fadf7ff0b64ff5941b3d45c783d9fc233cc8ae243902a1d41d5258d7334f3",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-ERROR-001.review.json": "0d08b21977360a5ebac8c74ff280f244715af5e7290747ebf24831f94bc6a928",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-LIFETIME-001.evidence.json": "7c0e4a0cda29ac811bfa671b2b3305e074a101be05264b326eb617198aeeed1c",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-LIFETIME-001.inputs.json": "481397c357ddcd9bb8f323c6e588ce25cbbd4292c7466634f4497ad44d4bc0dc",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-LIFETIME-001.review.json": "e8fad319335c30b0e23e285d31f9d3eb4b455c3e47e55b9f5f9aaf761dd08d6b",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-VERIFY-001.evidence.json": "e6a1151dd94928744c47efc29adda0f7abdcb3c4b9a87ccaebb84d5f75c2a662",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-VERIFY-001.inputs.json": "4edb6c901eb60d45a05c1434c7a42ec49c11e6a24bcf33b73522aa6226a5c8ee",
+    "NativeWeave-Design:verification/design-acceptance/contracts/C-VERIFY-001.review.json": "79163ea51da801f8ad19bf44573e5ea162b8599d9b871eac2df22dde37a0d972",
+    "Plan:.github/workflows/native-slices-final-check.yml": "9d7c95a2836c9156d3f57247a29b3b8c17db00da2f9de4fe65cec2025609429c",
+    "Plan:documentation-tasks/D32.md": "889e9715f3da56714589806a5b9983064a6e54f315288f6c4b6ada6f82b36a71",
+    "Plan:fragments/verification-engines.json": "7da28aca906110f2fb308f6925276e8ad89da2165d8ddfd801117ce04db59338",
+    "Plan:ledger/reviews/D32.md": "581c22a793f762d7b546efdcbceadc2a1dd58706e7537573cc265a5191a9fe21",
+    "Plan:tasks/A19.md": "8e968aa13a3696d014b7469136330405c203859afa470c5013d61713dfeaae9b",
+    "Plan:tasks/A20.md": "753c812e7e7c9d454bbdb5b7a472b4c44e78d731e62ec9c220de5f105a10e207",
+    "Plan:tools/history_gate.py": "6df4db34b1afe61e3a1c75882e5a1585b4211a93786771d984b1923923860729",
+    "Plan:tools/host_selection_checks.py": "a839e362318e3583ff4511e629135cd142914a775103bf0b37bfbc02f128980c",
+    "Plan:tools/prepare_acceptance.py": "30327897c2e1affced81f113cf730c505e1e4c2ed4ed92186380613235a9ecb6",
+    "Plan:tools/review_bindings.py": "b3bec6941a55b11420d5e85eb6e8a6e6050d093115a37c76f891e97f64716274",
+    "Plan:tools/rust1100_checks.py": "7b36b93288b8a98455b6a5162267ae943bed31cd880f9e6aca39851bf9604e3d",
+    "Plan:tools/source_lifecycle_binding_checks.py": "77700cc381793c884abf0e2b8c50d47d6e113d09edebccc763cef7097a114ee0",
+    "Plan:tools/validate_graphs.py": "7a515f5cfe1e691f4b86dc948d39edb0e9b055ec09cd9906e21ad34b9c4a3f6c",
+    "Plan:tools/verify_completion.py": "8ecbabf6d819576750d73f9ffdcdec78955829df7e8feb5b0706a5198955e0ab",
+    "Plan:tools/verify_source_lifecycle.py": "335239eb65534ac7904fa4634a26371eeb21973c1eb15254dac9204732780542"
+  },
+  "scoped_contract_binding_review": {
+    "reviewed_at_utc": "2026-11-13T13:26:41.416404+00:00",
+    "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+    "contracts": [
+      {
+        "id": "C-ABI-001",
+        "input_files": 9,
+        "dependency_count": 1,
+        "snapshot_sha256": "6f06c8c8a92ff765d99ed9889c028a1b0095d97c6a7e00097f77d4518b9f5ec3",
+        "subject": {
+          "kind": "contract",
+          "id": "C-ABI-001",
+          "evidence_sha256": [
+            "9fc436bbc2bed8b1f91270b9331abf8d591778828cd796df63505b2a899938d9"
+          ],
+          "review_sha256": [
+            "96dc29d3b088d4ec8881dff5989924200dc2b6e9336fd0958b1bf84bf12610e6"
+          ]
+        }
+      },
+      {
+        "id": "C-BINDING-001",
+        "input_files": 12,
+        "dependency_count": 2,
+        "snapshot_sha256": "dcb3eb2ccc320b6fd311936df6b133a0063bd49d05761ebc8563a0934c53c01b",
+        "subject": {
+          "kind": "contract",
+          "id": "C-BINDING-001",
+          "evidence_sha256": [
+            "a09d95ad0aa6f8107eccb30e7310a3349e4205c2087421302fa6929ba3e2ca37"
+          ],
+          "review_sha256": [
+            "100eeb369dcfabcc8f59fb24f0deafc8eb567b8df54a835218957ebfa683025c"
+          ]
+        }
+      },
+      {
+        "id": "C-LIFETIME-001",
+        "input_files": 12,
+        "dependency_count": 2,
+        "snapshot_sha256": "481397c357ddcd9bb8f323c6e588ce25cbbd4292c7466634f4497ad44d4bc0dc",
+        "subject": {
+          "kind": "contract",
+          "id": "C-LIFETIME-001",
+          "evidence_sha256": [
+            "7c0e4a0cda29ac811bfa671b2b3305e074a101be05264b326eb617198aeeed1c"
+          ],
+          "review_sha256": [
+            "e8fad319335c30b0e23e285d31f9d3eb4b455c3e47e55b9f5f9aaf761dd08d6b"
+          ]
+        }
+      },
+      {
+        "id": "C-CALLBACK-001",
+        "input_files": 12,
+        "dependency_count": 2,
+        "snapshot_sha256": "bad73de3246ae1744410d65fa38780f0b5956de03f0cb80a597c6466c64e4375",
+        "subject": {
+          "kind": "contract",
+          "id": "C-CALLBACK-001",
+          "evidence_sha256": [
+            "159ad7eed71db9e050bd51d7cf21b855b628daa2d45a991abf2ebe48f5b8bc68"
+          ],
+          "review_sha256": [
+            "123b63d0542fa2fb5939f37649a91898ed6092a00d44e357c9f59084f65f3459"
+          ]
+        }
+      },
+      {
+        "id": "C-ASYNC-001",
+        "input_files": 13,
+        "dependency_count": 3,
+        "snapshot_sha256": "40c77f1ea6696ecda72e6d35832b617d2014ae6e7cd41c7280b171ec7f9cf587",
+        "subject": {
+          "kind": "contract",
+          "id": "C-ASYNC-001",
+          "evidence_sha256": [
+            "8b5ffacfca4892ab91c090c0930218af27b3cb185f762579b5569476b87b59c0"
+          ],
+          "review_sha256": [
+            "5873f7714a76ae94d8c30c63c46e0b77d5cc9d441edfbf0f726ace69839a3617"
+          ]
+        }
+      },
+      {
+        "id": "C-BUFFER-001",
+        "input_files": 13,
+        "dependency_count": 2,
+        "snapshot_sha256": "05a367c0eb7c6158f99f6ab3b67dace717e187609a886eb2c1cdfe43e61cbb0b",
+        "subject": {
+          "kind": "contract",
+          "id": "C-BUFFER-001",
+          "evidence_sha256": [
+            "0dffe09a81c5128dbc560df36655a3b56203ccfb0e467d738209421d2a9641fb"
+          ],
+          "review_sha256": [
+            "a36ac5e00c5a20327c3ce20417822aa01a8217139a6b38f92f93531afb8fe632"
+          ]
+        }
+      },
+      {
+        "id": "C-ERROR-001",
+        "input_files": 8,
+        "dependency_count": 1,
+        "snapshot_sha256": "704fadf7ff0b64ff5941b3d45c783d9fc233cc8ae243902a1d41d5258d7334f3",
+        "subject": {
+          "kind": "contract",
+          "id": "C-ERROR-001",
+          "evidence_sha256": [
+            "2bf1e6ded2464bdcce32b3ef1239e8de8f1e4a2abae842c32c40cc2920176233"
+          ],
+          "review_sha256": [
+            "0d08b21977360a5ebac8c74ff280f244715af5e7290747ebf24831f94bc6a928"
+          ]
+        }
+      },
+      {
+        "id": "C-CONCURRENCY-001",
+        "input_files": 12,
+        "dependency_count": 2,
+        "snapshot_sha256": "78b198a6c9c85d1967defbaff8f3bda4869d93e9ab8e240261f62e99c41b5de2",
+        "subject": {
+          "kind": "contract",
+          "id": "C-CONCURRENCY-001",
+          "evidence_sha256": [
+            "3345d78a02997d299286a9224a1903334aa1a626f94aac50fbd207f251287b6e"
+          ],
+          "review_sha256": [
+            "7852e93f1d79afb1f1f94a78c9e334883b2ee26e190750e684b0900158109b20"
+          ]
+        }
+      },
+      {
+        "id": "C-VERIFY-001",
+        "input_files": 15,
+        "dependency_count": 5,
+        "snapshot_sha256": "4edb6c901eb60d45a05c1434c7a42ec49c11e6a24bcf33b73522aa6226a5c8ee",
+        "subject": {
+          "kind": "contract",
+          "id": "C-VERIFY-001",
+          "evidence_sha256": [
+            "e6a1151dd94928744c47efc29adda0f7abdcb3c4b9a87ccaebb84d5f75c2a662"
+          ],
+          "review_sha256": [
+            "79163ea51da801f8ad19bf44573e5ea162b8599d9b871eac2df22dde37a0d972"
+          ]
+        }
+      }
+    ],
+    "input_entries_checked": 106,
+    "unique_input_files_checked": 53,
+    "raw_and_git_source_bytes_matched": true,
+    "complete_required_path_sets_independently_derived": true,
+    "original_report_scope_decision_version_and_hash_checked": true,
+    "registry_states_at_review": "all proposed",
+    "reviewer_applied_status_mutation": false
+  },
+  "scoped_input_delta_followup": {
+    "path": "Plan:fragments/verification-engines.json",
+    "original_report_sha256": "0ed74021f7420934954b3682c238b27676c8430250658e89145e06f9e82e0ed0",
+    "current_sha256": "7da28aca906110f2fb308f6925276e8ad89da2165d8ddfd801117ce04db59338",
+    "unchanged_original_input_files": 273,
+    "original_input_files": 274,
+    "disposition": "A19/A20 packet bytes still match original reviewed hashes; current fragment details exactly mirror graph fields. The later A21 changes belong to the separate platform review. This supporting whole Plan fragment is outside the nine contract snapshots; no Interop normative output changed. The original report is preserved unchanged."
+  },
+  "external_receipts_independently_observed": [
+    {
+      "kind": "GitHub workflow run",
+      "repository": "IzuSharp/Plan",
+      "commit": "4a225f315d3e9afbe4e48cae638e9ec67bd04163",
+      "run_id": 43431279751,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/IzuSharp/Plan/actions/runs/43431279751",
+      "limit": "Pre-acceptance saved checkpoint CI, not final merged-pair CI."
+    },
+    {
+      "kind": "GitHub product PR metadata",
+      "url": "https://github.com/IzuSharp/NativeWeave/pull/1",
+      "state": "closed",
+      "merged": false,
+      "base_sha": "658ed6a410783de356a7b9b2cd6601336fff5148",
+      "limit": "Read-only observation; no product writes or merge by reviewer."
+    }
+  ],
+  "remaining_integration_operations": [
+    "Collect all real contract-binding attestations and apply Design acceptance.",
+    "Commit/merge Design under actual GitHub checks and pin its immutable merged commit in Plan.",
+    "Generate the actual 66 task bindings, obtain per-executor exact task-binding attestations, apply R/D acceptance and run complete current CI.",
+    "Record actual final commit/check/merge receipts; this review does not claim those operations already occurred."
+  ],
+  "not_a_separate_github_approval_identity": true,
+  "product_implementation_accepted": false
+}

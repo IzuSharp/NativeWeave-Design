@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-PROTOCOL-001",
+    "version": "0.3.0",
+    "content_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb"
+  },
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "reviewer": "/root/server_review",
+  "author": "/root/server_extensions",
+  "reviewed_at": "2026-11-13T13:00:53.014486+00:00",
+  "reviewed_evidence_sha256": [
+    "71029a0eb15807aa23bf8940a49b0d0227ff0872ed4ad90ea8afae90fdefd9d0"
+  ],
+  "review_kind": "binding_of_actual_independent_technical_review",
+  "recorded_by": "/root",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/server-review.json",
+    "sha256": "fe7141e58c8f573998f3cd5e41f361b387d983dcba0897a3b095cec486c75291"
+  },
+  "binding_boundary": "Integrator-generated binding of the cited real review. Formal status requires the same independent executor to attest these exact manifest hashes.",
+  "github_approval_identity_claimed": false,
+  "product_verification_accepted": false
+}

@@ -4,8 +4,8 @@ The latest user instruction supersedes earlier permission to start product imple
 Research code, prototypes, Cargo/.NET projects, Actions and raw evidence belong in
 NativeWeave-Design. Plan owns the existing R/D/A/B task graphs and future implementation
 instructions; it does not duplicate executable research projects. NativeWeave is the
-future product repository and is read-only in this phase, except closing PR1 after the
-Design and Plan migration PRs have merged and preservation is verified. Never merge PR1,
+future product repository and is read-only in this phase. Historical PR1 is already closed
+without merge after verified migration; no product-repository mutation remains. Never merge PR1,
 delete its branch/history, change its main, license or protection, or execute formal A/B
 Delivery work. A ready design or successful prototype does not grant product permission.
 
@@ -26,3 +26,10 @@ Research/design acceptance records decide whether a documented design is ready t
 implementation. They do not require the future product to have already been implemented,
 and do not grant product implementation or release authorization. Product conformance,
 soak, performance and release gates remain explicit obligations in the existing Delivery graph.
+
+The authoritative contract acceptance state is docs/contracts/registry.json plus its exact
+acceptance-index.json, actual scoped independent reports and independent binding attestations.
+The existing Plan graphs and ledger/completion-acceptance.json own the separate34R/32D task
+acceptance. All48 future Delivery nodes remain planned_candidate and not_authorized. Historical
+proposed/partial records remain preserved at their original commits and do not override the
+current exact registry or task acceptance.

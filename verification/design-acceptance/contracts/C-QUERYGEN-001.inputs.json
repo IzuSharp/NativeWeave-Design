@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-QUERYGEN-001",
+    "version": "0.3.0",
+    "content_sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/database/query-semantics.md",
+      "sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "bytes": 14280,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/generators/binding-pipeline.md",
+      "sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "bytes": 13007,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/generators/query-generation.md",
+      "sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "bytes": 12321,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/coverage.json",
+      "sha256": "e63788b0742f73f46e388d05be284055ab8b89084b808f9081bdb0bcd0addd81",
+      "bytes": 4725,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/evidence.json",
+      "sha256": "47e3e9f9508eb8d4b1b633d4936a27796d7af24ba2ff77dc1e9fc1bb855c0d88",
+      "bytes": 4876,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/report.md",
+      "sha256": "eb0c840f0ebb5d4f3eae2c0839af473dba9b7117fe0ea123fe60bf1d17aa4bb7",
+      "bytes": 5877,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R23/coverage.json",
+      "sha256": "f50130005da98adacf82a7e0b837c9c7d8fc8a9912621d01a20895a570cc89aa",
+      "bytes": 7707,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R23/evidence.json",
+      "sha256": "bb4c030de2191ecaedafdce7a01236889955742e4b1ec8bb76582d8628d99257",
+      "bytes": 18113,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R23/report.md",
+      "sha256": "43eb13aa88a26e08697388d643ddd88a125179238b1a11af9b634537f1b458c1",
+      "bytes": 7718,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R25/coverage.json",
+      "sha256": "87b06243d2a7646dc71a07de4ad1676276fba93b4ba6148d20cb448e9b76db52",
+      "bytes": 16918,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R25/evidence.json",
+      "sha256": "de4b517a8c6a01408b216b91f6492acbbaa9767864dcac32b9a938dda4f103f5",
+      "bytes": 34842,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R25/report.md",
+      "sha256": "a6f011f73bed1022fe24cd60a855c9553cedeb2a1c0ad65082ff9942a55d0c5d",
+      "bytes": 11888,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R25/source-driven-seaquery.md",
+      "sha256": "d2bd3c03a92debc4e8d935eaf156d848e4ff6d9a13a68d2017bb6ec1f3a8ac7a",
+      "bytes": 15117,
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {
+    "C-QUERY-001@0.3.0": {
+      "spec_path": "docs/database/query-semantics.md",
+      "content_sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "evidence_sha256": [
+        "555f1fa9c19641823e300757a4d9f04ec4be7d746bbf63a43c3d0dc492212816"
+      ],
+      "review_sha256": [
+        "cf947adf9e4a1abef7db9d68f11cae25e968de1a25e64733d1cb35994707ce4e"
+      ]
+    },
+    "C-BINDING-001@0.3.0": {
+      "spec_path": "docs/generators/binding-pipeline.md",
+      "content_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "evidence_sha256": [
+        "a09d95ad0aa6f8107eccb30e7310a3349e4205c2087421302fa6929ba3e2ca37"
+      ],
+      "review_sha256": [
+        "100eeb369dcfabcc8f59fb24f0deafc8eb567b8df54a835218957ebfa683025c"
+      ]
+    }
+  }
+}

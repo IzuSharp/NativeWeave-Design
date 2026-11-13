@@ -1,0 +1,1065 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "independent_exact_contract_binding_attestation",
+  "reviewer": "/root/server_review",
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "reviewed_at_utc": "2026-11-13T13:18:00.371082+00:00",
+  "subjects": [
+    {
+      "kind": "contract",
+      "id": "C-SERVER-001",
+      "evidence_sha256": [
+        "d304d600b38453303cecfa5761e5ff79f109c6662c14b2cd713103de27c27b9e"
+      ],
+      "review_sha256": [
+        "851c76fbcb415c6949e87d42147913d250f506fd2b657fdd22213e22ee9346a2"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-PROTOCOL-001",
+      "evidence_sha256": [
+        "71029a0eb15807aa23bf8940a49b0d0227ff0872ed4ad90ea8afae90fdefd9d0"
+      ],
+      "review_sha256": [
+        "b725866ee1c2a7912b030dd94e1dfc13e893cb60aa65acc388fadd1a09dc41ef"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-REFERENCE-001",
+      "evidence_sha256": [
+        "4834189e8a1c0113495a94d17adc8eee703fb4708e31f9ce0124fbe286df6b99"
+      ],
+      "review_sha256": [
+        "0d92daff4cd92f79b0f125d3780e77c97dcd74917943e1d5848d66c78bd0aab4"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-EXTENSION-001",
+      "evidence_sha256": [
+        "907f2700b733c2d6de9b91d82eb3863255f58cea6c1db904f6dd313f3093dc46"
+      ],
+      "review_sha256": [
+        "3c5d72b83218faacb947b55b3f46b99d6498b1fd38077b1c414aa6367deea3a0"
+      ]
+    }
+  ],
+  "design_source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/server-review.json",
+    "sha256": "fe7141e58c8f573998f3cd5e41f361b387d983dcba0897a3b095cec486c75291"
+  },
+  "scope": "Actual independent technical confirmation by the same review executor that these exact contract evidence/review wrappers bind the previously accepted research/design subjects, fixed Git input bytes and dependency identities. This is not another GitHub approval identity, product verification or authorization to execute Delivery.",
+  "github_approval_identity_claimed": false,
+  "product_verification_accepted": false,
+  "product_implementation_authorized": false,
+  "observed_index": {
+    "path": "NativeWeave-Design:docs/contracts/acceptance-index.json",
+    "sha256_at_review": "f38d3ca5e424acb22f0931af76bb8c4b73f2c21e74e18c3382258634fb023d45",
+    "state_at_review": "prepared_not_accepted",
+    "note": "Index state/attestation list may change during formal acceptance; subjects above are copied verbatim and remain the exact acceptance identity."
+  },
+  "verified_wrappers": [
+    {
+      "id": "C-SERVER-001",
+      "inputs_path": "verification/design-acceptance/contracts/C-SERVER-001.inputs.json",
+      "inputs_sha256": "5536fe6849fe210f2a5f5fa883dbce96aaf727c9c2daff2fa659133e10b81e3c",
+      "evidence_path": "verification/design-acceptance/contracts/C-SERVER-001.evidence.json",
+      "evidence_sha256": "d304d600b38453303cecfa5761e5ff79f109c6662c14b2cd713103de27c27b9e",
+      "review_path": "verification/design-acceptance/contracts/C-SERVER-001.review.json",
+      "review_sha256": "851c76fbcb415c6949e87d42147913d250f506fd2b657fdd22213e22ee9346a2",
+      "subject_exact": true,
+      "independent_report_exact": true
+    },
+    {
+      "id": "C-PROTOCOL-001",
+      "inputs_path": "verification/design-acceptance/contracts/C-PROTOCOL-001.inputs.json",
+      "inputs_sha256": "90365f8404ca6c5dc8b03fc1e1815966edcf24bfb3df908a01007a2c14c93373",
+      "evidence_path": "verification/design-acceptance/contracts/C-PROTOCOL-001.evidence.json",
+      "evidence_sha256": "71029a0eb15807aa23bf8940a49b0d0227ff0872ed4ad90ea8afae90fdefd9d0",
+      "review_path": "verification/design-acceptance/contracts/C-PROTOCOL-001.review.json",
+      "review_sha256": "b725866ee1c2a7912b030dd94e1dfc13e893cb60aa65acc388fadd1a09dc41ef",
+      "subject_exact": true,
+      "independent_report_exact": true
+    },
+    {
+      "id": "C-REFERENCE-001",
+      "inputs_path": "verification/design-acceptance/contracts/C-REFERENCE-001.inputs.json",
+      "inputs_sha256": "d4c1a7f34c609a387e433138560949a7f125512f08689cdedd394d7f8787126b",
+      "evidence_path": "verification/design-acceptance/contracts/C-REFERENCE-001.evidence.json",
+      "evidence_sha256": "4834189e8a1c0113495a94d17adc8eee703fb4708e31f9ce0124fbe286df6b99",
+      "review_path": "verification/design-acceptance/contracts/C-REFERENCE-001.review.json",
+      "review_sha256": "0d92daff4cd92f79b0f125d3780e77c97dcd74917943e1d5848d66c78bd0aab4",
+      "subject_exact": true,
+      "independent_report_exact": true
+    },
+    {
+      "id": "C-EXTENSION-001",
+      "inputs_path": "verification/design-acceptance/contracts/C-EXTENSION-001.inputs.json",
+      "inputs_sha256": "f28c8cff15e69b25fa25c502aec399ea27b89185cac54e975a96a2f52b54a4d4",
+      "evidence_path": "verification/design-acceptance/contracts/C-EXTENSION-001.evidence.json",
+      "evidence_sha256": "907f2700b733c2d6de9b91d82eb3863255f58cea6c1db904f6dd313f3093dc46",
+      "review_path": "verification/design-acceptance/contracts/C-EXTENSION-001.review.json",
+      "review_sha256": "3c5d72b83218faacb947b55b3f46b99d6498b1fd38077b1c414aa6367deea3a0",
+      "subject_exact": true,
+      "independent_report_exact": true
+    }
+  ],
+  "fixed_git_input_checks": [
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/contracts/async-v0.1.md",
+      "sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "bytes": 24526,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/contracts/buffer-v0.1.md",
+      "sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "bytes": 11778,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/contracts/concurrency-v0.1.md",
+      "sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "bytes": 12039,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/extension/engine-integration.md",
+      "sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "bytes": 15996,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R26/coverage.json",
+      "sha256": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45",
+      "bytes": 6615,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R26/evidence.json",
+      "sha256": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8",
+      "bytes": 12099,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R26/report.md",
+      "sha256": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77",
+      "bytes": 5598,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R27/coverage.json",
+      "sha256": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e",
+      "bytes": 5932,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R27/evidence.json",
+      "sha256": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95",
+      "bytes": 11598,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R27/native-slice-validation.md",
+      "sha256": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5",
+      "bytes": 4139,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R27/report.md",
+      "sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9",
+      "bytes": 10514,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R27/source-driven-server.md",
+      "sha256": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113",
+      "bytes": 11631,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R29/coverage.json",
+      "sha256": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131",
+      "bytes": 6873,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R29/evidence.json",
+      "sha256": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d",
+      "bytes": 15342,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/research/topics/R29/report.md",
+      "sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe",
+      "bytes": 9380,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-SERVER-001",
+      "path": "NativeWeave-Design:docs/server/hosting-and-streaming.md",
+      "sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "bytes": 26430,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/generators/binding-pipeline.md",
+      "sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "bytes": 13007,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R28/coverage.json",
+      "sha256": "ad0f906a070892d9c66e6ba06281ac2ac5cd77a1e2113ee5977ce96c92187b39",
+      "bytes": 18876,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R28/evidence.json",
+      "sha256": "53a4334ca9aceb83ea8ed4d4b1a60720eeca12231f57c639ea7eec7af6bf726e",
+      "bytes": 35433,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R28/report.md",
+      "sha256": "53c7853a03a74d912574188f0c3646986e9fbdb9f71b6a960450c5595d2b98cf",
+      "bytes": 12382,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R30/coverage.json",
+      "sha256": "01549bad229f0fbc2ff7d1d77f30dc528cfee29356467a3bc9ec0213786b0bd2",
+      "bytes": 7292,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R30/evidence.json",
+      "sha256": "f7e71407de4ed1d23851d922b75b5dd91a7b3f698e019a4b57ba368d58f50d7e",
+      "bytes": 15255,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R30/report.md",
+      "sha256": "2924c555ec1cf27494f36bf93e62b841b7ee0d59d979e82fe2d54fcf6b5bbebb",
+      "bytes": 13100,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R34/coverage.json",
+      "sha256": "780ed9f8ce4f5ffc47356c3ee18c02a2b868999cb2284d10016f14811d9e8960",
+      "bytes": 6317,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R34/evidence.json",
+      "sha256": "470aa544a5309db79714fdcaedf49c08962c5522c8c045a918799e7bc62b54be",
+      "bytes": 13758,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/research/topics/R34/report.md",
+      "sha256": "1d1f043b863e9b33483d3e9f88b00a88396c330c5cf1dfc4eed9bc08a5a2f0a9",
+      "bytes": 8399,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/server/hosting-and-streaming.md",
+      "sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "bytes": 26430,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "path": "NativeWeave-Design:docs/server/protocols-and-observability.md",
+      "sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "bytes": 27504,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/database/drivers.md",
+      "sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "bytes": 25811,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/database/query-semantics.md",
+      "sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "bytes": 14280,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/database/transactions-and-pooling.md",
+      "sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "bytes": 27042,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/generators/query-generation.md",
+      "sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "bytes": 12321,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R17/coverage.json",
+      "sha256": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878",
+      "bytes": 5543,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R17/evidence.json",
+      "sha256": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f",
+      "bytes": 6503,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R17/report.md",
+      "sha256": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+      "bytes": 4920,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R21/coverage.json",
+      "sha256": "db81b7d4369281576a4815b0ae1c37fb93892d1f998564be89da3abaa51a0a3b",
+      "bytes": 14562,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R21/evidence.json",
+      "sha256": "f7441bb4b438531fbf5a69f9ef557b61e173b1b9ba5aa6a4185bfabb0c59ae2e",
+      "bytes": 34971,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R21/report.md",
+      "sha256": "519460fedfa3918381541d7665a0391bfc8060a89f1ff83c705397123191d614",
+      "bytes": 10781,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R31/coverage.json",
+      "sha256": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745",
+      "bytes": 4839,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R31/evidence.json",
+      "sha256": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301",
+      "bytes": 14766,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/research/topics/R31/report.md",
+      "sha256": "2df3f72bea0b8b48b9e895ba7496918da2288312838633f54733311b35cf4ac1",
+      "bytes": 13534,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/server/hosting-and-streaming.md",
+      "sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "bytes": 26430,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/server/protocols-and-observability.md",
+      "sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "bytes": 27504,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "path": "NativeWeave-Design:docs/verification/reference-application.md",
+      "sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "bytes": 24653,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/contracts/concurrency-v0.1.md",
+      "sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "bytes": 12039,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/extension/engine-integration.md",
+      "sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "bytes": 15996,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/extension/future-platforms.md",
+      "sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "bytes": 9351,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/platforms/build-package-release.md",
+      "sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "bytes": 17974,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R18/coverage.json",
+      "sha256": "c73e6b3ddafe23aa831b7b82f5733e767a23f84c17b2ea60dafad2b89bfd181f",
+      "bytes": 3191,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R18/evidence.json",
+      "sha256": "72199f94b832bd02bba96a72f8d0561f17b82cc8ff88e36ffa05d601c0827888",
+      "bytes": 5135,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R18/report.md",
+      "sha256": "bdf46e37799950570583df4bc31382b3d4253658c98bc14031bbae1c31de557d",
+      "bytes": 6670,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R32/coverage.json",
+      "sha256": "db4645b539ca0e93faf4afbc870551d3a1e6c2d0b22d9ea68ab58c4a0aed48f9",
+      "bytes": 3552,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R32/evidence.json",
+      "sha256": "324df31b893b3a7cd547f7d8a8a99ba0d68f1cf8a68b5714ae45c679e7fb0caa",
+      "bytes": 6388,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R32/report.md",
+      "sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f",
+      "bytes": 5084,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R33/coverage.json",
+      "sha256": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53",
+      "bytes": 5344,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R33/evidence.json",
+      "sha256": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be",
+      "bytes": 9624,
+      "fixed_git_bytes_match": true
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "path": "NativeWeave-Design:docs/research/topics/R33/report.md",
+      "sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49",
+      "bytes": 4747,
+      "fixed_git_bytes_match": true
+    }
+  ],
+  "dependency_binding_checks": [
+    {
+      "subject": "C-SERVER-001",
+      "dependency": "C-ENGINE-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/platform-review.json",
+        "sha256": "d4228a0c3e518bc177297b6ecf86e0173310a4cc3092aa7a52c449cb5ede6c60"
+      },
+      "independent_reviewer": "/root/database_review"
+    },
+    {
+      "subject": "C-SERVER-001",
+      "dependency": "C-ASYNC-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/interop-review.json",
+        "sha256": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f"
+      },
+      "independent_reviewer": "/root/interop_review"
+    },
+    {
+      "subject": "C-SERVER-001",
+      "dependency": "C-BUFFER-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/interop-review.json",
+        "sha256": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f"
+      },
+      "independent_reviewer": "/root/interop_review"
+    },
+    {
+      "subject": "C-SERVER-001",
+      "dependency": "C-CONCURRENCY-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/interop-review.json",
+        "sha256": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f"
+      },
+      "independent_reviewer": "/root/interop_review"
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "dependency": "C-SERVER-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/server-review.json",
+        "sha256": "fe7141e58c8f573998f3cd5e41f361b387d983dcba0897a3b095cec486c75291"
+      },
+      "independent_reviewer": "/root/server_review"
+    },
+    {
+      "subject": "C-PROTOCOL-001",
+      "dependency": "C-BINDING-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/interop-review.json",
+        "sha256": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f"
+      },
+      "independent_reviewer": "/root/interop_review"
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "dependency": "C-DB-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/database-review.json",
+        "sha256": "52a5a4671860cbc948f9964f76b7f03e3dd8a089e5a8d103c017c44449af4031"
+      },
+      "independent_reviewer": "/root/database_review"
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "dependency": "C-TX-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/database-review.json",
+        "sha256": "52a5a4671860cbc948f9964f76b7f03e3dd8a089e5a8d103c017c44449af4031"
+      },
+      "independent_reviewer": "/root/database_review"
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "dependency": "C-QUERY-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/database-review.json",
+        "sha256": "52a5a4671860cbc948f9964f76b7f03e3dd8a089e5a8d103c017c44449af4031"
+      },
+      "independent_reviewer": "/root/database_review"
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "dependency": "C-QUERYGEN-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/database-review.json",
+        "sha256": "52a5a4671860cbc948f9964f76b7f03e3dd8a089e5a8d103c017c44449af4031"
+      },
+      "independent_reviewer": "/root/database_review"
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "dependency": "C-SERVER-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/server-review.json",
+        "sha256": "fe7141e58c8f573998f3cd5e41f361b387d983dcba0897a3b095cec486c75291"
+      },
+      "independent_reviewer": "/root/server_review"
+    },
+    {
+      "subject": "C-REFERENCE-001",
+      "dependency": "C-PROTOCOL-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/server-review.json",
+        "sha256": "fe7141e58c8f573998f3cd5e41f361b387d983dcba0897a3b095cec486c75291"
+      },
+      "independent_reviewer": "/root/server_review"
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "dependency": "C-ENGINE-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/platform-review.json",
+        "sha256": "d4228a0c3e518bc177297b6ecf86e0173310a4cc3092aa7a52c449cb5ede6c60"
+      },
+      "independent_reviewer": "/root/database_review"
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "dependency": "C-CONCURRENCY-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/interop-review.json",
+        "sha256": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f"
+      },
+      "independent_reviewer": "/root/interop_review"
+    },
+    {
+      "subject": "C-EXTENSION-001",
+      "dependency": "C-BUILD-001@0.3.0",
+      "snapshot_exact": true,
+      "independent_review_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/platform-review.json",
+        "sha256": "d4228a0c3e518bc177297b6ecf86e0173310a4cc3092aa7a52c449cb5ede6c60"
+      },
+      "independent_reviewer": "/root/database_review"
+    }
+  ],
+  "prior_review_design_source_checks": [
+    {
+      "path": "docs/research/topics/R26/report.md",
+      "sha256": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R26/evidence.json",
+      "sha256": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R26/coverage.json",
+      "sha256": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R27/report.md",
+      "sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R27/evidence.json",
+      "sha256": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R27/coverage.json",
+      "sha256": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R27/source-driven-server.md",
+      "sha256": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R27/native-slice-validation.md",
+      "sha256": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R28/report.md",
+      "sha256": "53c7853a03a74d912574188f0c3646986e9fbdb9f71b6a960450c5595d2b98cf",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R28/evidence.json",
+      "sha256": "53a4334ca9aceb83ea8ed4d4b1a60720eeca12231f57c639ea7eec7af6bf726e",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R28/coverage.json",
+      "sha256": "ad0f906a070892d9c66e6ba06281ac2ac5cd77a1e2113ee5977ce96c92187b39",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R29/report.md",
+      "sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R29/evidence.json",
+      "sha256": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R29/coverage.json",
+      "sha256": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R30/report.md",
+      "sha256": "2924c555ec1cf27494f36bf93e62b841b7ee0d59d979e82fe2d54fcf6b5bbebb",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R30/evidence.json",
+      "sha256": "f7e71407de4ed1d23851d922b75b5dd91a7b3f698e019a4b57ba368d58f50d7e",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R30/coverage.json",
+      "sha256": "01549bad229f0fbc2ff7d1d77f30dc528cfee29356467a3bc9ec0213786b0bd2",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R31/report.md",
+      "sha256": "2df3f72bea0b8b48b9e895ba7496918da2288312838633f54733311b35cf4ac1",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R31/evidence.json",
+      "sha256": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R31/coverage.json",
+      "sha256": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R32/report.md",
+      "sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R32/evidence.json",
+      "sha256": "324df31b893b3a7cd547f7d8a8a99ba0d68f1cf8a68b5714ae45c679e7fb0caa",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R32/coverage.json",
+      "sha256": "db4645b539ca0e93faf4afbc870551d3a1e6c2d0b22d9ea68ab58c4a0aed48f9",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R33/report.md",
+      "sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R33/evidence.json",
+      "sha256": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/research/topics/R33/coverage.json",
+      "sha256": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/server/hosting-and-streaming.md",
+      "sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/server/protocols-and-observability.md",
+      "sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/verification/reference-application.md",
+      "sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/extension/future-platforms.md",
+      "sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "e42f4fd965744e1b8c5982ba11c80402a20b20858e32ed412ac1d75e54c962da",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/server/body-retirement-protocol.md",
+      "sha256": "292c8bbffabe47ecea4f69ea4df47d6a16239ca48cf10a1fdc2eb6c7d71dddf8",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-final-ci.json",
+      "sha256": "4e63df245f3e342a97844cabcfcc06252c9a8b6f48110a07abfaccf2d2c47933",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/rmcp-json-admission-source.json",
+      "sha256": "279507a1f953ea6a923bf552faf44765a4cf2d095dd01608f3c6b043212c3bfa",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/rmcp-expect-json-reviewed.txt",
+      "sha256": "6e2fcb77748ad062549abda3d396dfe22825e87720dc5e0d6eaf10c6b1a52463",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/source-inspection.json",
+      "sha256": "1766ac37da17bf36e9da9eb11b4b1ae302455166c2d03b68d6ce1c4ca03d44d9",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/completion-assessment.json",
+      "sha256": "8e5f34d7ec37f297cb47dcdd09d5f03e3eced98a9ba6d9373dd4a5128ffd5c8f",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/frozen-files.json",
+      "sha256": "e720e3f8258b7e6d49bc38bb069179029ebd37777fdb1c1140306d5125eac965",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/ci-verification.json",
+      "sha256": "85db0c09e293301c7dd289063d868f65e99717bbe94a0f87cd80d7aa1c9b6aeb",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "experiments/server-completion/protocol/src/lib.rs",
+      "sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "experiments/server-completion/protocol/Cargo.toml",
+      "sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "experiments/server-completion/protocol/Cargo.lock",
+      "sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "experiments/database-completion/server-review/src/lib.rs",
+      "sha256": "b40bd2b30055413fc0f764ada248f61655c583ac06ec0936f6157205ab808a58",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/database-completion/server-review-cardinality/result.json",
+      "sha256": "fdec3c3f3ccffaf1072590ff94f6255676263e5845abcba93cdee2abeb37796d",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/database-completion/server-review-cardinality/test.stdout",
+      "sha256": "807cb602da3633c7993b17429943eddffb8eeeb9685186ebfcc59bae55e0b119",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "experiments/server-completion/diagnostics/Program.cs",
+      "sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "experiments/server-completion/diagnostics/DiagnosticsProbe.csproj",
+      "sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "experiments/server-completion/kestrel/Program.cs",
+      "sha256": "bd03f77685f10b5bb43d5726a73e9d8792495cb190fff263b114ebae6b902ea0",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/run.json",
+      "sha256": "8fc1e33e2a4dafb6555c28ee69fe5eaf8cb91458829b10427d78d4a89176228c",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/protocol-reviewed-local/test.stdout.txt",
+      "sha256": "711cc28db624a57c301c5d92a31f88a58d41bc2d284229d3d534c7ac3c871ca7",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/run.json",
+      "sha256": "965f9b020c16735c15546178de969cb655338e7503d68cb0bd5eaafa4568d8cf",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/server-completion/diagnostics-reviewed-local/native-aot-run.stdout.txt",
+      "sha256": "66915ae003f2430e294cb99381f2b018b8a6af4731ab9aa5e0afa54d4f33e1b8",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43390177287/diagnostics-windows-2022/run.json",
+      "sha256": "e65de673616e620a6da36efbf559733e17d13a9ceaa5139224c10bdc12817693",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/traceability/reviews/completion/server-independent-review.md",
+      "sha256": "e30de5831b5941275fe4112ccb1b810899757067e36218e5249f0ecd6e696ea8",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/traceability/reviews/completion/server-independent-review.json",
+      "sha256": "28fe553f80a00b0689aef25e95203d426f7667e6b39fe75446858ec859e07e97",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "docs/contracts/buffer-v0.1.md",
+      "sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/dotnet-info.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/dotnet-info.stdout.txt",
+      "sha256": "f170989b6d9b73672423252cb85923cda7b4ce099714f35862a17c0d6de18c07",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/diagnostics/DiagnosticsProbe.csproj",
+      "sha256": "8e95e5ea1af7d0f015798020f23febe234f52324c2f75e74784d99009e6aad9e",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/diagnostics/Program.cs",
+      "sha256": "ebcaad4372c7b9aa341e7749875efacbc07c53383f957e1b4aad4f047223639b",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/inputs/run_diagnostics.py",
+      "sha256": "d68e5da6ac95f4390ff8c58d3e30bf48b84b7f14fae871712b579098e2c6bf43",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/native-aot-run.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/native-aot-run.stdout.txt",
+      "sha256": "d96d45cc5b69ebfe877f142cef6337acde7cf9926d728439ce550623174b2b5c",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/publish.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/publish.stdout.txt",
+      "sha256": "cf60e8df2ad465900d04179d74203c7ce6c37b3f3a70fc72c88f5cdd81630dff",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-windows-2022/run.json",
+      "sha256": "12500105dc8785a31fa4c3727086af75aa5f01926c35eacdc7db0306f6f62f0f",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/dotnet-info.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/dotnet-info.stdout.txt",
+      "sha256": "c69203d1c919596ba84f61ab2b82fc2e61805f7434451463f7b328903fc14924",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/diagnostics/DiagnosticsProbe.csproj",
+      "sha256": "f7571e809c58b45f0df116f24942d3e43c1b3b5ca150a3393a489f8ccc2759c1",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/diagnostics/Program.cs",
+      "sha256": "147facbd48dd1182e770b083601e89d2ccc8e092902547c77bc859cdea8525fe",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/inputs/run_diagnostics.py",
+      "sha256": "f636dcea5c030af6bcbcee8918d1399d7a60e9be1da6db7dea66e4f92f621c96",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/native-aot-run.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/native-aot-run.stdout.txt",
+      "sha256": "4f385b142f771f31ed8a0df4b4a1e1b0ab5cfde9c29c9b088cfd17566c909f17",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/publish.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/publish.stdout.txt",
+      "sha256": "cb1912c7da193558fd5f9e5f946365e3af010a540becc531453e3a92e64fa7a2",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43401371233/diagnostics-ubuntu-24.04/run.json",
+      "sha256": "500bbc71348c86badb91387f5a5d5bd34d58df195db2ec6b21d53862d2654b17",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-ubuntu-24.04/artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json",
+      "sha256": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac",
+      "fixed_git_bytes_match": true
+    },
+    {
+      "path": "verification/completion-ci/43388468172/completion-kestrel-windows-2022/artifacts/completion/kestrel/publish/KestrelComparator.staticwebassets.endpoints.json",
+      "sha256": "c1686417e8d5c31bba969f12b6f3d2b35e6609adb5ca42f212261a3a02771aac",
+      "fixed_git_bytes_match": true
+    }
+  ],
+  "verification_summary": {
+    "contracts": 4,
+    "input_file_references": 57,
+    "unique_input_files": 52,
+    "dependency_references": 15,
+    "prior_review_design_files": 78,
+    "wrapper_links_match": true,
+    "new_experiment_execution": false
+  }
+}
