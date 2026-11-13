@@ -15,7 +15,7 @@ env.update(DOTNET_CLI_TELEMETRY_OPTOUT='1', DOTNET_NOLOGO='1', DOTNET_SKIP_FIRST
 sha = lambda p: hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
 now = lambda: datetime.datetime.now(datetime.timezone.utc).isoformat()
 result = {'scope': 'R01 modern C# finite research; no product or benchmark acceptance', 'platform': {'os': platform.system(), 'arch': platform.machine()}, 'source_commit': subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(), 'source_snapshot': [], 'commands': [], 'started_at': now(), 'passed': False}
-for name in ['run.py','modern/Modern.csproj','modern/Program.cs','modern/Negative.cs.txt']:
+for name in ['run.py','modern/Modern.csproj','modern/Program.cs','modern/Negative.cs.txt','inspect/Inspect.csproj','inspect/Program.cs']:
     p = fixture/name; dest = out/'inputs'/name; dest.parent.mkdir(parents=True, exist_ok=True); shutil.copyfile(p,dest)
     result['source_snapshot'].append({'path':str(p.relative_to(root)), 'sha256':sha(p)})
 
@@ -49,11 +49,20 @@ try:
     if args.aot:
         for label,properties in [('default',[]),('runtime-async',['-p:Features=runtime-async=on'])]:
             published=out/('publish-'+label)
-            run('publish-'+label,[args.dotnet,'publish',project,'-c','Release','-r',rid,'-p:PublishAot=true','--disable-build-servers','-o',published,*properties])
+            isolated=out/'.work'/label
+            isolated.mkdir(parents=True,exist_ok=True)
+            for source_name in ['Modern.csproj','Program.cs']:
+                shutil.copyfile(fixture/'modern'/source_name,isolated/source_name)
+            isolated_project=isolated/'Modern.csproj'
+            run('publish-'+label,[args.dotnet,'publish',isolated_project,'-c','Release','-r',rid,'-p:PublishAot=true','--disable-build-servers','-v:normal','-o',published,*properties])
+            assemblies=list((isolated/'bin/Release/net11.0'/rid).glob('Modern.dll'))
+            assert len(assemblies)==1, 'ambiguous compiler assembly'
+            metadata=run('metadata-'+label,[args.dotnet,'run','--project',fixture/'inspect/Inspect.csproj','-c','Release','--',assemblies[0],label])
+            result.setdefault('compiler_lowering',[]).append({'configuration':label,'assembly_sha256':sha(assemblies[0]),'inspection':metadata.strip()})
             executable=published/('Modern.exe' if platform.system()=='Windows' else 'Modern')
             output=run('aot-'+label,[executable,'--aot'])
             assert 'checks=10 ' in output and 'aot=True' in output
-            result['aot_executions'].append({'configuration':label,'rid':rid,'binary_sha256':sha(executable),'published':True,'executed':True})
+            result['aot_executions'].append({'configuration':label,'isolated_project':str(isolated_project),'compiler_features':properties,'rid':rid,'binary_sha256':sha(executable),'published':True,'executed':True})
     result['passed']=True
 finally:
     result['finished_at']=now()
