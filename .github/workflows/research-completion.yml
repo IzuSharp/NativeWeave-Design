@@ -1,0 +1,98 @@
+name: Audited R-D completion research
+on:
+  push:
+    branches: [research/rd-completion-2026-11-12]
+    paths:
+      - 'experiments/interop-completion/**'
+      - 'experiments/database-completion/**'
+      - 'experiments/server-completion/**'
+      - 'experiments/platform-completion/**'
+      - '.github/workflows/research-completion.yml'
+permissions:
+  contents: read
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  DOTNET_NOLOGO: '1'
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: '1'
+  DOTNET_GENERATE_ASPNET_CERTIFICATE: 'false'
+jobs:
+  research:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+        fixture: [interop, database, protocol, kestrel, platform]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
+        with:
+          dotnet-version: '11.0.100'
+      - run: rustup toolchain install 1.100.0 --profile minimal
+      - run: rustup default 1.100.0
+      - name: Interop and actual Native AOT
+        if: matrix.fixture == 'interop'
+        run: python experiments/interop-completion/run.py --aot
+      - name: Dynamic database metadata and migrations
+        if: matrix.fixture == 'database'
+        run: python experiments/database-completion/run.py --suite metadata --out artifacts/completion/database
+      - name: Rust HTTP2 TLS and protocol boundaries
+        if: matrix.fixture == 'protocol'
+        run: python experiments/server-completion/run.py protocol --output artifacts/completion/protocol
+      - name: Kestrel AOT comparator only
+        if: matrix.fixture == 'kestrel'
+        run: python experiments/server-completion/run.py kestrel --output artifacts/completion/kestrel
+      - name: CSharp15 and Runtime Async AOT
+        if: matrix.fixture == 'platform'
+        run: python experiments/platform-completion/run.py --out artifacts/completion/platform --aot
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: completion-${{ matrix.fixture }}-${{ matrix.os }}
+          retention-days: 90
+          include-hidden-files: true
+          path: |
+            artifacts/completion/
+            verification/interop-completion/linux/
+            verification/interop-completion/windows/
+  postgres:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:18.0
+        env:
+          POSTGRES_DB: nativeweave
+          POSTGRES_USER: nativeweave
+          POSTGRES_PASSWORD: research-fixture-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U nativeweave -d nativeweave"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - run: rustup toolchain install 1.100.0 --profile minimal
+      - run: rustup default 1.100.0
+      - name: Record actual database image identity
+        run: |
+          mkdir -p artifacts/completion/postgres-environment
+          docker inspect --format '{{.Image}}' ${{ job.services.postgres.id }} > artifacts/completion/postgres-environment/image-id.txt
+          docker image inspect --format '{{json .RepoDigests}}' postgres:18.0 > artifacts/completion/postgres-environment/image-digests.json
+          docker exec ${{ job.services.postgres.id }} psql -U nativeweave -d nativeweave -c 'select version();' > artifacts/completion/postgres-environment/server-version.txt
+      - name: Real PostgreSQL failure and recovery research
+        env:
+          DATABASE_URL: postgresql://nativeweave:research-fixture-only@localhost:5432/nativeweave?sslmode=disable
+        run: python experiments/database-completion/run.py --suite postgres --out artifacts/completion/postgres
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: completion-postgres-ubuntu-24.04
+          retention-days: 90
+          path: artifacts/completion/
