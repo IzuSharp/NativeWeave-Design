@@ -1,0 +1,106 @@
+{
+  "scope": "R01 modern C# finite research; no product or benchmark acceptance",
+  "platform": {
+    "os": "Linux",
+    "arch": "x86_64"
+  },
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "source_snapshot": [
+    {
+      "path": "experiments/platform-completion/run.py",
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Negative.cs.txt",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "path": "experiments/platform-completion/inspect/Inspect.csproj",
+      "sha256": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c"
+    },
+    {
+      "path": "experiments/platform-completion/inspect/Program.cs",
+      "sha256": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a"
+    }
+  ],
+  "commands": [
+    {
+      "name": "sdk-info",
+      "command": [
+        "dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:54:58.895046+00:00",
+      "finished_at": "2026-11-14T08:54:58.922142+00:00",
+      "stdout_sha256": "533d453e3410f8edc9889911e2dd2fc0895fbc86b4578693b8930457ac0ccdf7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ordinary",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/experiments/platform-completion/modern/Modern.csproj",
+        "-c",
+        "Release",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:54:58.922223+00:00",
+      "finished_at": "2026-11-14T08:55:01.974695+00:00",
+      "stdout_sha256": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "external-closed-negative",
+      "command": [
+        "dotnet",
+        "build",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform/negative/External.csproj",
+        "--disable-build-servers"
+      ],
+      "exit_code": 1,
+      "started_at": "2026-11-14T08:55:01.974972+00:00",
+      "finished_at": "2026-11-14T08:55:05.499321+00:00",
+      "stdout_sha256": "5c2b0cef45317d5357e8b3b3799b7b1297a116a702d5a0910c487961b70c8f61",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish-default",
+      "command": [
+        "dotnet",
+        "publish",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform/.work/default/Modern.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "--disable-build-servers",
+        "-v:normal",
+        "-o",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform/publish-default"
+      ],
+      "exit_code": 1,
+      "started_at": "2026-11-14T08:55:05.499679+00:00",
+      "finished_at": "2026-11-14T08:55:09.577694+00:00",
+      "stdout_sha256": "58d4e9212c60762b2cd2d489f371dcfebe8e331449dce980f6e0bfe44643f963",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "started_at": "2026-11-14T08:54:58.894276+00:00",
+  "passed": false,
+  "closed_external_negative": true,
+  "aot_executions": [],
+  "finished_at": "2026-11-14T08:55:09.577908+00:00"
+}

@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-2\negative\External.csproj (in 96 ms).
+  1 of 2 projects are up-to-date for restore.
+  Modern -> C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\experiments\platform-completion\modern\bin\x64\Debug\net11.0\Modern.dll
+C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-2\negative\External.cs(2,22): error CS9382: 'ExternalGate': cannot use a closed type 'Gate' from another assembly as a base type. [C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-2\negative\External.csproj]
+
+Build FAILED.
+
+C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-2\negative\External.cs(2,22): error CS9382: 'ExternalGate': cannot use a closed type 'Gate' from another assembly as a base type. [C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-2\negative\External.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:02.15

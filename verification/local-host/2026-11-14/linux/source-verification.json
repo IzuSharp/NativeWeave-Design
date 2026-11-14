@@ -1,0 +1,207 @@
+{
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "passed": true,
+  "checked": 40,
+  "files": [
+    {
+      "path": "protocol/inputs/protocol/Cargo.lock",
+      "source_path": "experiments/server-completion/protocol/Cargo.lock",
+      "sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74"
+    },
+    {
+      "path": "protocol/inputs/protocol/Cargo.toml",
+      "source_path": "experiments/server-completion/protocol/Cargo.toml",
+      "sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f"
+    },
+    {
+      "path": "protocol/inputs/protocol/src/lib.rs",
+      "source_path": "experiments/server-completion/protocol/src/lib.rs",
+      "sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96"
+    },
+    {
+      "path": "platform/inputs/run.py",
+      "source_path": "experiments/platform-completion/run.py",
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "path": "platform/inputs/inspect/Inspect.csproj",
+      "source_path": "experiments/platform-completion/inspect/Inspect.csproj",
+      "sha256": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c"
+    },
+    {
+      "path": "platform/inputs/inspect/Program.cs",
+      "source_path": "experiments/platform-completion/inspect/Program.cs",
+      "sha256": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a"
+    },
+    {
+      "path": "platform/inputs/modern/Modern.csproj",
+      "source_path": "experiments/platform-completion/modern/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d"
+    },
+    {
+      "path": "platform/inputs/modern/Program.cs",
+      "source_path": "experiments/platform-completion/modern/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f"
+    },
+    {
+      "path": "platform/inputs/modern/Negative.cs.txt",
+      "source_path": "experiments/platform-completion/modern/Negative.cs.txt",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "path": "platform-attempt-2/inputs/run.py",
+      "source_path": "experiments/platform-completion/run.py",
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "path": "platform-attempt-2/inputs/inspect/Inspect.csproj",
+      "source_path": "experiments/platform-completion/inspect/Inspect.csproj",
+      "sha256": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c"
+    },
+    {
+      "path": "platform-attempt-2/inputs/inspect/Program.cs",
+      "source_path": "experiments/platform-completion/inspect/Program.cs",
+      "sha256": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a"
+    },
+    {
+      "path": "platform-attempt-2/inputs/modern/Modern.csproj",
+      "source_path": "experiments/platform-completion/modern/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d"
+    },
+    {
+      "path": "platform-attempt-2/inputs/modern/Program.cs",
+      "source_path": "experiments/platform-completion/modern/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f"
+    },
+    {
+      "path": "platform-attempt-2/inputs/modern/Negative.cs.txt",
+      "source_path": "experiments/platform-completion/modern/Negative.cs.txt",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "path": "metadata/inputs/experiments/database-completion/Cargo.lock",
+      "source_path": "experiments/database-completion/Cargo.lock",
+      "sha256": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21"
+    },
+    {
+      "path": "metadata/inputs/experiments/database-completion/run.py",
+      "source_path": "experiments/database-completion/run.py",
+      "sha256": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d"
+    },
+    {
+      "path": "metadata/inputs/experiments/database-completion/Cargo.toml",
+      "source_path": "experiments/database-completion/Cargo.toml",
+      "sha256": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6"
+    },
+    {
+      "path": "metadata/inputs/experiments/native-slices/database/Cargo.toml",
+      "source_path": "experiments/native-slices/database/Cargo.toml",
+      "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3"
+    },
+    {
+      "path": "metadata/inputs/experiments/native-slices/database/src/lib.rs",
+      "source_path": "experiments/native-slices/database/src/lib.rs",
+      "sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9"
+    },
+    {
+      "path": "metadata/inputs/experiments/database-completion/tests/postgres.rs",
+      "source_path": "experiments/database-completion/tests/postgres.rs",
+      "sha256": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4"
+    },
+    {
+      "path": "metadata/inputs/experiments/database-completion/tests/runtime_metadata.rs",
+      "source_path": "experiments/database-completion/tests/runtime_metadata.rs",
+      "sha256": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1"
+    },
+    {
+      "path": "execution-inputs/experiments/database-completion/run.py",
+      "source_path": "experiments/database-completion/run.py",
+      "sha256": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d"
+    },
+    {
+      "path": "execution-inputs/experiments/platform-completion/run.py",
+      "source_path": "experiments/platform-completion/run.py",
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "path": "execution-inputs/experiments/server-completion/run.py",
+      "source_path": "experiments/server-completion/run.py",
+      "sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f"
+    },
+    {
+      "path": "execution-inputs/experiments/engine-completion/run.py",
+      "source_path": "experiments/engine-completion/run.py",
+      "sha256": "31121daccf8f0a5e0df2a0e1b35de798bb2ec579d56763561915e9b8de6b8fa5"
+    },
+    {
+      "path": "engine/inputs/managed/Codec.csproj",
+      "source_path": "experiments/engine-completion/managed/Codec.csproj",
+      "sha256": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9"
+    },
+    {
+      "path": "engine/inputs/managed/Codec.cs",
+      "source_path": "experiments/engine-completion/managed/Codec.cs",
+      "sha256": "a967a3a1ce6bfaa8873ae71bf298a7a8a2d3e9f7fbdf050442a35dbe68bbe0b4"
+    },
+    {
+      "path": "engine/inputs/consumer/Program.cs",
+      "source_path": "experiments/engine-completion/consumer/Program.cs",
+      "sha256": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a"
+    },
+    {
+      "path": "engine/inputs/consumer/Consumer.csproj",
+      "source_path": "experiments/engine-completion/consumer/Consumer.csproj",
+      "sha256": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076"
+    },
+    {
+      "path": "engine/inputs/native/Cargo.lock",
+      "source_path": "experiments/engine-completion/native/Cargo.lock",
+      "sha256": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6"
+    },
+    {
+      "path": "engine/inputs/native/Cargo.toml",
+      "source_path": "experiments/engine-completion/native/Cargo.toml",
+      "sha256": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060"
+    },
+    {
+      "path": "engine/inputs/native/src/lib.rs",
+      "source_path": "experiments/engine-completion/native/src/lib.rs",
+      "sha256": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9"
+    },
+    {
+      "path": "engine-attempt-2/inputs/managed/Codec.csproj",
+      "source_path": "experiments/engine-completion/managed/Codec.csproj",
+      "sha256": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9"
+    },
+    {
+      "path": "engine-attempt-2/inputs/managed/Codec.cs",
+      "source_path": "experiments/engine-completion/managed/Codec.cs",
+      "sha256": "a967a3a1ce6bfaa8873ae71bf298a7a8a2d3e9f7fbdf050442a35dbe68bbe0b4"
+    },
+    {
+      "path": "engine-attempt-2/inputs/consumer/Program.cs",
+      "source_path": "experiments/engine-completion/consumer/Program.cs",
+      "sha256": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a"
+    },
+    {
+      "path": "engine-attempt-2/inputs/consumer/Consumer.csproj",
+      "source_path": "experiments/engine-completion/consumer/Consumer.csproj",
+      "sha256": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076"
+    },
+    {
+      "path": "engine-attempt-2/inputs/native/Cargo.lock",
+      "source_path": "experiments/engine-completion/native/Cargo.lock",
+      "sha256": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6"
+    },
+    {
+      "path": "engine-attempt-2/inputs/native/Cargo.toml",
+      "source_path": "experiments/engine-completion/native/Cargo.toml",
+      "sha256": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060"
+    },
+    {
+      "path": "engine-attempt-2/inputs/native/src/lib.rs",
+      "source_path": "experiments/engine-completion/native/src/lib.rs",
+      "sha256": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9"
+    }
+  ]
+}

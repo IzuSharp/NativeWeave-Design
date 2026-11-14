@@ -1,0 +1,82 @@
+{
+  "scope": "R01 modern C# finite research; no product or benchmark acceptance",
+  "platform": {
+    "os": "Windows",
+    "arch": "AMD64"
+  },
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "source_snapshot": [
+    {
+      "path": "experiments\\platform-completion\\run.py",
+      "sha256": "c8c746eb8a1b28f453fd573cfbba9c0b1a96bfc7e036bd5855792455e8d5b4fc"
+    },
+    {
+      "path": "experiments\\platform-completion\\modern\\Modern.csproj",
+      "sha256": "9d7326b9ea4e9eea0c3f699653ae6c0ff84f79c370f9d13310648ac57e9e507a"
+    },
+    {
+      "path": "experiments\\platform-completion\\modern\\Program.cs",
+      "sha256": "8732a5f3b1de028ffafc10eba6356ca128f74c34b606d14bcf0336046bd9eda0"
+    },
+    {
+      "path": "experiments\\platform-completion\\modern\\Negative.cs.txt",
+      "sha256": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635"
+    },
+    {
+      "path": "experiments\\platform-completion\\inspect\\Inspect.csproj",
+      "sha256": "a8becaa5eb6656f587ecfc49f8083fafc809cd6dace4a7f994a7b54b4a7f77b4"
+    },
+    {
+      "path": "experiments\\platform-completion\\inspect\\Program.cs",
+      "sha256": "d076d5902d9c279240dda8caac7687db9de9e04f44ce4178d7b54ca80401be78"
+    }
+  ],
+  "commands": [
+    {
+      "name": "sdk-info",
+      "command": [
+        "dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:55:52.461908+00:00",
+      "finished_at": "2026-11-14T08:55:52.622429+00:00",
+      "stdout_sha256": "65cfc6273eacd9a026bee34a0776ad0d21c2844c844e5e5110e75b50b3c78333",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ordinary",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\experiments\\platform-completion\\modern\\Modern.csproj",
+        "-c",
+        "Release",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:55:52.632072+00:00",
+      "finished_at": "2026-11-14T08:55:58.489785+00:00",
+      "stdout_sha256": "422dd0a8ae4ade3a64dd259bae5662c67e79031e302c3319c752674119d2db09",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "external-closed-negative",
+      "command": [
+        "dotnet",
+        "build",
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\verification\\local-host\\2026-11-14\\windows\\platform-attempt-1\\negative\\External.csproj",
+        "--disable-build-servers"
+      ],
+      "exit_code": 1,
+      "started_at": "2026-11-14T08:55:58.499370+00:00",
+      "finished_at": "2026-11-14T08:56:02.795742+00:00",
+      "stdout_sha256": "aa60a4955d88096d6a1063d48feee38954f337b081ee8384c997755a75adb38d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "started_at": "2026-11-14T08:55:52.383604+00:00",
+  "passed": false,
+  "finished_at": "2026-11-14T08:56:02.805451+00:00"
+}

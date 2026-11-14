@@ -1,0 +1,67 @@
+{
+  "kind": "independent read-only primary binary hash check on original Windows host",
+  "reviewer": "/root/supplement_review",
+  "native_experiments_rerun": false,
+  "files": [
+    {
+      "path": "engine-attempt-1/NativeWeave.Research.Codec.0.0.1.nupkg",
+      "bytes": 91863,
+      "sha256": "0999bdcf415d6a839e8fe374e258c40d0f64be4621eeb370ce6fad6410fec862"
+    },
+    {
+      "path": "engine-attempt-1/publish/Consumer.exe",
+      "bytes": 1337856,
+      "sha256": "00c306c7398d488d4b1d268b1912348fe66b23d56b31c765ac7ed27424f9156b"
+    },
+    {
+      "path": "engine-attempt-1/publish/Consumer.pdb",
+      "bytes": 7409664,
+      "sha256": "98c3e442f3a73d9d79dff8c6200fc3ee570015f96a683b3871464ca682c0ecc4"
+    },
+    {
+      "path": "engine-attempt-1/publish/nw_codec_research.dll",
+      "bytes": 163328,
+      "sha256": "8dcecefde81920144053a00da6d7b9d3e5c2bcf1453deb6c8cb88e99c6b7fa6d"
+    },
+    {
+      "path": "platform-attempt-2/publish-default/Modern.exe",
+      "bytes": 1401344,
+      "sha256": "eb4f2a8060d37822702ac3dea8c71d150e1f08fe48c67955a2b5845d915142f9"
+    },
+    {
+      "path": "platform-attempt-2/publish-default/Modern.pdb",
+      "bytes": 7606272,
+      "sha256": "eaf88346abc7a302ad71c3528a67ab51308cae9bfe1bc7ed545516fd2c625ea7"
+    },
+    {
+      "path": "platform-attempt-3/publish-default/Modern.exe",
+      "bytes": 1401344,
+      "sha256": "753f34b776295e3260e9e3e8c0d3e9048548505b0d3cfc3c807ad2a9b6b92cff"
+    },
+    {
+      "path": "platform-attempt-3/publish-default/Modern.pdb",
+      "bytes": 7598080,
+      "sha256": "ce1300cae47077866b53a300f9a997bf06e63bff151e807047df9526b300f9aa"
+    },
+    {
+      "path": "platform-attempt-3/publish-runtime-async/Modern.exe",
+      "bytes": 1401344,
+      "sha256": "2d47a210e52f00480b70947b6d0baab357520787849c8549e70ebdd5fbf7ab6d"
+    },
+    {
+      "path": "platform-attempt-3/publish-runtime-async/Modern.pdb",
+      "bytes": 7598080,
+      "sha256": "382b8511ca9be6aef72eabd7eb3a5ce0ddcf108f09341531260df40a5624f2d6"
+    },
+    {
+      "path": "platform-attempt-3/.work/default/bin/Release/net11.0/win-x64/Modern.dll",
+      "bytes": 16384,
+      "sha256": "a45b938b24903845a358e6a9b765d2d18ef2987682a69443bb130847d22fb625"
+    },
+    {
+      "path": "platform-attempt-3/.work/runtime-async/bin/Release/net11.0/win-x64/Modern.dll",
+      "bytes": 13824,
+      "sha256": "365a48a67e024b4b0638554c9322a5701c20490933fdf00c8a021a695ea1199c"
+    }
+  ]
+}

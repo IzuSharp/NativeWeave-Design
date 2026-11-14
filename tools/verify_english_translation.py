@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import subprocess
+from local_host_raw_evidence import check_tracked_language, verified_raw_exceptions
 
 ROOT=Path(__file__).resolve().parents[1]
 CJK=re.compile('[\u3400-\u9fff\u3000-\u303f\uff00-\uffef]')
@@ -211,10 +212,8 @@ def verify(require_reviews=True):
     # Every pre-existing file outside declared translation/metadata scope is immutable.
     for path in baseline_paths-allowed:
         assert (ROOT/path).is_file() and (ROOT/path).read_bytes()==git('show',baseline+':'+path),(path,'undeclared source mutation')
-    for path in git('ls-files').decode().splitlines():
-        try:text=(ROOT/path).read_text()
-        except UnicodeError:continue
-        if CJK.search(text):assert path in exceptions,(path,'unclassified non-English text')
+    raw_exceptions=verified_raw_exceptions(ROOT)
+    check_tracked_language(ROOT,git('ls-files').decode().splitlines(),set(exceptions)|raw_exceptions)
     if require_reviews and ROOT.name=='NativeWeave-Design':verify_contract_bindings()
     return {'ok':True,'repository':ROOT.name,'source_commit':baseline,'translated_files':len(translated),
             'immutable_originals':len(exceptions),'independent_review_required':require_reviews,

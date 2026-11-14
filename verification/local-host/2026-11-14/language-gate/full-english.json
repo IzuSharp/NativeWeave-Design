@@ -1,0 +1,25 @@
+{
+  "kind": "actual-full-English-gate-execution",
+  "baseline_checkout_commit": "9f771b704b120823197884125597bb528a77c4b0",
+  "candidate_overlay_sha256": {
+    "tools/local_host_raw_evidence.py": "d776d0f3674e21bc6c0c501de57c823f61cd565eeb7ae96293e280c462388aca",
+    "tools/verify_english_translation.py": "6c74414717c2e6b8e6e6dae1579e416ec070ada4a74c4f62a36360cf3c9e11f2",
+    "verification/local-host/2026-11-14/raw-execution-language-exceptions.json": "faace7fb90e13edf8eaea6c65c8aa686eed151edef4f4534c9817b9a858d1b50",
+    "verification/local-host/2026-11-14/language-gate/negative_checks.py": "c5ff5bcc8b3247cd14283f1958497b26c206191c40be01b8dcae15bcff768222",
+    "verification/local-host/2026-11-14/language-gate/run_full_english.py": "e9e20a57851bc91ef5ee6c1e9f8568aa39ea37c89c3eed263cc74650d00782ea",
+    "verification/local-host/2026-11-14/language-gate/negative-results.json": "7ab4af584662f54efae9a9a49cb4d0048c1e4ea9377db3bea16b305e6dbbf1b8"
+  },
+  "all_overlay_files_git_indexed": true,
+  "command": [
+    "C:\\Users\\J7Rdm\\scoop\\persist\\uv\\cache\\archive-v0\\G6V5m72tOggnu6RV\\Scripts\\python.exe",
+    "tools/verify_english_translation.py"
+  ],
+  "cwd": "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\gate-validation\\NativeWeave-Design",
+  "exit_code": 0,
+  "started_at_utc": "2026-11-14T09:17:58.987465+00:00",
+  "finished_at_utc": "2026-11-14T09:20:08.925469+00:00",
+  "stdout_sha256": "c88c484a13669f33b4c1e94608cdf7711738796ad270792b58d0cfedf711ef60",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "raw_exception_manifest_sha256": "faace7fb90e13edf8eaea6c65c8aa686eed151edef4f4534c9817b9a858d1b50",
+  "scope": "Complete existing English, immutable-source and contract-binding checks plus seven exact raw-stream exceptions. Candidate overlay hashes identify uncommitted validator inputs; not a native rerun or new contract acceptance."
+}

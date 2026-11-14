@@ -1,0 +1,224 @@
+{
+  "scope": "R01 modern C# finite research; no product or benchmark acceptance",
+  "platform": {
+    "os": "Linux",
+    "arch": "x86_64"
+  },
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "source_snapshot": [
+    {
+      "path": "experiments/platform-completion/run.py",
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Modern.csproj",
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Program.cs",
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f"
+    },
+    {
+      "path": "experiments/platform-completion/modern/Negative.cs.txt",
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "path": "experiments/platform-completion/inspect/Inspect.csproj",
+      "sha256": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c"
+    },
+    {
+      "path": "experiments/platform-completion/inspect/Program.cs",
+      "sha256": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a"
+    }
+  ],
+  "commands": [
+    {
+      "name": "sdk-info",
+      "command": [
+        "dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:56:22.189841+00:00",
+      "finished_at": "2026-11-14T08:56:22.218347+00:00",
+      "stdout_sha256": "533d453e3410f8edc9889911e2dd2fc0895fbc86b4578693b8930457ac0ccdf7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ordinary",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/experiments/platform-completion/modern/Modern.csproj",
+        "-c",
+        "Release",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:56:22.218437+00:00",
+      "finished_at": "2026-11-14T08:56:23.796909+00:00",
+      "stdout_sha256": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "external-closed-negative",
+      "command": [
+        "dotnet",
+        "build",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/negative/External.csproj",
+        "--disable-build-servers"
+      ],
+      "exit_code": 1,
+      "started_at": "2026-11-14T08:56:23.797186+00:00",
+      "finished_at": "2026-11-14T08:56:25.840830+00:00",
+      "stdout_sha256": "d62631b96b0bd911cd7d12582408447fdcc8818c34a74931caceb6fb7a738899",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish-default",
+      "command": [
+        "dotnet",
+        "publish",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/.work/default/Modern.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "--disable-build-servers",
+        "-v:normal",
+        "-o",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/publish-default"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:56:25.841160+00:00",
+      "finished_at": "2026-11-14T08:56:30.001010+00:00",
+      "stdout_sha256": "bab5e476c215bfcaab86d7a18241b13a24d08d016fcd5d3de9e3be25ea50a2b9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "metadata-default",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/experiments/platform-completion/inspect/Inspect.csproj",
+        "-c",
+        "Release",
+        "--",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/.work/default/bin/Release/net11.0/linux-x64/Modern.dll",
+        "default"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:56:30.001487+00:00",
+      "finished_at": "2026-11-14T08:56:32.776895+00:00",
+      "stdout_sha256": "7d87e4afb0fbf724914012394fc04203cd639892a70002106d1ad940ec09cfcb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "aot-default",
+      "command": [
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/publish-default/Modern",
+        "--aot"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:56:32.777056+00:00",
+      "finished_at": "2026-11-14T08:56:32.781482+00:00",
+      "stdout_sha256": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "publish-runtime-async",
+      "command": [
+        "dotnet",
+        "publish",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/.work/runtime-async/Modern.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "--disable-build-servers",
+        "-v:normal",
+        "-o",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/publish-runtime-async",
+        "-p:Features=runtime-async=on"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:56:32.783569+00:00",
+      "finished_at": "2026-11-14T08:56:36.898135+00:00",
+      "stdout_sha256": "11726087fe0788bb249bfe95e60205c8f2629dce62dc766fbcb3a86bce32c8ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "metadata-runtime-async",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/experiments/platform-completion/inspect/Inspect.csproj",
+        "-c",
+        "Release",
+        "--",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/.work/runtime-async/bin/Release/net11.0/linux-x64/Modern.dll",
+        "runtime-async"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:56:36.898568+00:00",
+      "finished_at": "2026-11-14T08:56:38.386244+00:00",
+      "stdout_sha256": "77b9b00e1a94ec0653ce5757f6428c172abd9b692185e2259a1e36f2ac5e052c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "aot-runtime-async",
+      "command": [
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/publish-runtime-async/Modern",
+        "--aot"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:56:38.386384+00:00",
+      "finished_at": "2026-11-14T08:56:38.393556+00:00",
+      "stdout_sha256": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "started_at": "2026-11-14T08:56:22.189142+00:00",
+  "passed": true,
+  "closed_external_negative": true,
+  "aot_executions": [
+    {
+      "configuration": "default",
+      "isolated_project": "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/.work/default/Modern.csproj",
+      "compiler_features": [],
+      "rid": "linux-x64",
+      "binary_sha256": "97298f1bda59ef2de54d3cdea363ee0dea89218ab09704f74f6a716182fd238b",
+      "published": true,
+      "executed": true
+    },
+    {
+      "configuration": "runtime-async",
+      "isolated_project": "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/.work/runtime-async/Modern.csproj",
+      "compiler_features": [
+        "-p:Features=runtime-async=on"
+      ],
+      "rid": "linux-x64",
+      "binary_sha256": "7992bdb79affb97d5d51218a0adda9506d8e2efa28212703676278639fefd26e",
+      "published": true,
+      "executed": true
+    }
+  ],
+  "compiler_lowering": [
+    {
+      "configuration": "default",
+      "assembly_sha256": "cce95bf406152acbb04992aac0233439bdf3edd7260763115a7db04ec7b81aea",
+      "inspection": "{\"assembly\":\"/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/.work/default/bin/Release/net11.0/linux-x64/Modern.dll\",\"stateMachineTypes\":[\"\\u003C\\u003C\\u003CMain\\u003E$\\u003Eg__ThrowAsync|0_3\\u003Ed\",\"\\u003C\\u003CMain\\u003E$\\u003Ed__0\",\"\\u003C\\u003C\\u003CMain\\u003E$\\u003Eg__Suspended|2\\u003Ed\"]}"
+    },
+    {
+      "configuration": "runtime-async",
+      "assembly_sha256": "c6d844d6c03b09b72e4479ef02c6acbc23047c1ab420462978f5a446248641b4",
+      "inspection": "{\"assembly\":\"/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2/.work/runtime-async/bin/Release/net11.0/linux-x64/Modern.dll\",\"stateMachineTypes\":[]}"
+    }
+  ],
+  "finished_at": "2026-11-14T08:56:38.394953+00:00"
+}

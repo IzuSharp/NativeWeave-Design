@@ -1,0 +1,14 @@
+{
+  "record_kind": "reported_ci_failure",
+  "reported_by": "/root",
+  "repository": "IzuSharp/NativeWeave-Design",
+  "pull_request": 12,
+  "run_id": 43579182155,
+  "url": "https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43579182155",
+  "tested_commit": "9f771b704b120823197884125597bb528a77c4b0",
+  "conclusion": "failure",
+  "scope": "The prior English tracked-text classifier admitted only the old baseline's immutable-originals list. Localized output in newly preserved Windows execution streams therefore remained unclassified.",
+  "disposition": "Keep original raw output unchanged. Verify seven explicit byte-exact raw-stream exceptions against their runner records, while preserving every original English, immutable-source and contract-binding check.",
+  "artifact_downloaded_by_this_executor": false,
+  "native_fixture_failure_claimed": false
+}

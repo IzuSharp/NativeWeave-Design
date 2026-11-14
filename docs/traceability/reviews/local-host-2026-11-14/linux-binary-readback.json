@@ -1,0 +1,43 @@
+{
+  "kind": "independent read-only primary binary hash check on original Linux MCP host",
+  "files": [
+    {
+      "path": "engine-attempt-2/publish/Consumer",
+      "bytes": 1427984,
+      "sha256": "f7c48a9f0df692bb02d458f9d3edcc6b549dafb76ef3ff9b3359dbf6ed7515dc"
+    },
+    {
+      "path": "engine-attempt-2/publish/libnw_codec_research.so",
+      "bytes": 462752,
+      "sha256": "01369d3da3b2cc1c7b9e372943b40e9fe58e9bd55456ef9c6cf7eaaa7ed0b997"
+    },
+    {
+      "path": "engine-attempt-2/NativeWeave.Research.Codec.0.0.1.nupkg",
+      "bytes": 208538,
+      "sha256": "e65beba28222e69e2e9aba847239e11555f7bb5e86b542f70f005a357311c7b8"
+    },
+    {
+      "path": "platform-attempt-2/publish-default/Modern",
+      "bytes": 1553344,
+      "sha256": "97298f1bda59ef2de54d3cdea363ee0dea89218ab09704f74f6a716182fd238b"
+    },
+    {
+      "path": "platform-attempt-2/publish-runtime-async/Modern",
+      "bytes": 1549280,
+      "sha256": "7992bdb79affb97d5d51218a0adda9506d8e2efa28212703676278639fefd26e"
+    },
+    {
+      "path": "platform-attempt-2/.work/default/bin/Release/net11.0/linux-x64/Modern.dll",
+      "bytes": 16384,
+      "sha256": "cce95bf406152acbb04992aac0233439bdf3edd7260763115a7db04ec7b81aea"
+    },
+    {
+      "path": "platform-attempt-2/.work/runtime-async/bin/Release/net11.0/linux-x64/Modern.dll",
+      "bytes": 13824,
+      "sha256": "c6d844d6c03b09b72e4479ef02c6acbc23047c1ab420462978f5a446248641b4"
+    }
+  ],
+  "reviewer": "/root/supplement_review",
+  "native_experiments_rerun": false,
+  "mcp_exit_code": 0
+}

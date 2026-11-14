@@ -1,0 +1,13 @@
+[Reading last 10 lines (total: 10 lines)]
+
+**********************************************************************
+** Visual Studio 2026 Developer Command Prompt v18.10.1
+** Copyright (c) 2026 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+Traceback (most recent call last):
+  File "C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\experiments\platform-completion\run.py", line 45, in <module>
+    assert 'closed' in errors.lower() and 'error CS' in errors
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+âœ… Process completed with exit code 1 (runtime: 13.59s)

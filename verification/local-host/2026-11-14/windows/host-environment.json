@@ -1,0 +1,69 @@
+{
+  "record_kind": "actual_windows_mcp_preflight",
+  "captured_at_utc": "2026-11-14T08:59:33.956025+00:00",
+  "os": "Windows-11-10.0.26300-SP0",
+  "machine": "AMD64",
+  "python": "3.15.2 (tags/v3.15.2:5e58eaa, Oct 25 2026, 17:27:03) [MSC v.1951 64 bit (AMD64)]",
+  "tools": {
+    "dotnet": {
+      "selected": "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\current\\dotnet.EXE",
+      "resolved": "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\11.0.100\\dotnet.exe"
+    },
+    "rustc": {
+      "selected": "C:\\Users\\J7Rdm\\scoop\\apps\\rustup\\current\\.cargo\\bin\\rustc.EXE",
+      "resolved": "C:\\Users\\J7Rdm\\scoop\\persist\\rustup\\.cargo\\bin\\rustc.exe"
+    },
+    "cargo": {
+      "selected": "C:\\Users\\J7Rdm\\scoop\\apps\\rustup\\current\\.cargo\\bin\\cargo.EXE",
+      "resolved": "C:\\Users\\J7Rdm\\scoop\\persist\\rustup\\.cargo\\bin\\cargo.exe"
+    },
+    "python": {
+      "selected": "C:\\Users\\J7Rdm\\scoop\\apps\\python\\current\\python.EXE",
+      "resolved": "C:\\Users\\J7Rdm\\scoop\\apps\\python\\3.15.2\\python.exe"
+    },
+    "cl": {
+      "selected": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.EXE",
+      "resolved": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe"
+    },
+    "link": {
+      "selected": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\link.EXE",
+      "resolved": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe"
+    }
+  },
+  "necessary_environment": {
+    "DOTNET_ROOT": "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\current",
+    "Platform": "x64",
+    "VCToolsVersion": "14.51.36231",
+    "WindowsSDKVersion": "10.0.28000.0\\",
+    "VSCMD_ARG_TGT_ARCH": "x64"
+  },
+  "versions": {
+    "dotnet": {
+      "argv": [
+        "dotnet",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "11.0.100\r\n",
+      "stderr": ""
+    },
+    "rustc": {
+      "argv": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "stdout": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-pc-windows-msvc\nrelease: 1.100.0\nLLVM version: 23.1.5\n",
+      "stderr": ""
+    },
+    "cargo": {
+      "argv": [
+        "cargo",
+        "-V"
+      ],
+      "exit_code": 0,
+      "stdout": "cargo 1.100.0 (3acc79c0c 2026-11-05)\n",
+      "stderr": ""
+    }
+  }
+}

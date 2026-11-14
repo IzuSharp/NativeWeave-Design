@@ -1,0 +1,13 @@
+  正在确定要还原的项目…
+  已还原 C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-1\negative\External.csproj (用时 102 毫秒)。
+  1 个项目(共 2 个)是最新的，无法还原。
+  Modern -> C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\experiments\platform-completion\modern\bin\x64\Debug\net11.0\Modern.dll
+C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-1\negative\External.cs(2,22): error CS9382: “ExternalGate”: 无法使用其他程序集中的闭合类型”Gate”作为基类型。 [C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-1\negative\External.csproj]
+
+生成失败。
+
+C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-1\negative\External.cs(2,22): error CS9382: “ExternalGate”: 无法使用其他程序集中的闭合类型”Gate”作为基类型。 [C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation\verification\local-host\2026-11-14\windows\platform-attempt-1\negative\External.csproj]
+    0 个警告
+    1 个错误
+
+已用时间 00:00:04.02

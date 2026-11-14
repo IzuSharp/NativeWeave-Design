@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "raw_execution_only",
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "entries": [
+    {
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/aot-publish-no-rust.stdout",
+      "bytes": 608,
+      "sha256": "99e2b8e38a98dceb8527dc68b6291d4ae203f14b819c7811cb03e01194215364",
+      "reason": "Original localized .NET command output from the recorded Windows execution; preserve raw bytes as execution evidence, not authoritative English prose.",
+      "run": {
+        "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/result.json",
+        "sha256": "03c78c7b8d0eff79558812479bd546354eb598b00acb7569170df8ab7ca2d60d",
+        "command_name": "aot-publish-no-rust",
+        "stream": "stdout"
+      }
+    },
+    {
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/consumer-build-no-rid-no-rust.stdout",
+      "bytes": 497,
+      "sha256": "05fe1d566646be3ead91d2774b31b1d01ec3b6d0d1fbefb2cb3b77c83ea04bd8",
+      "reason": "Original localized .NET command output from the recorded Windows execution; preserve raw bytes as execution evidence, not authoritative English prose.",
+      "run": {
+        "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/result.json",
+        "sha256": "03c78c7b8d0eff79558812479bd546354eb598b00acb7569170df8ab7ca2d60d",
+        "command_name": "consumer-build-no-rid-no-rust",
+        "stream": "stdout"
+      }
+    },
+    {
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/consumer-change-offline.stdout",
+      "bytes": 272,
+      "sha256": "8cee67f11a6e3b08306bc462b8e6194ca4f54dffbcf1c79f7b7579d20ce48972",
+      "reason": "Original localized .NET command output from the recorded Windows execution; preserve raw bytes as execution evidence, not authoritative English prose.",
+      "run": {
+        "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/result.json",
+        "sha256": "03c78c7b8d0eff79558812479bd546354eb598b00acb7569170df8ab7ca2d60d",
+        "command_name": "consumer-change-offline",
+        "stream": "stdout"
+      }
+    },
+    {
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/pack.stdout",
+      "bytes": 717,
+      "sha256": "4a903602c6b63f7bc322ba67b82462f5e71c31fee4d960691723ba158dd858e6",
+      "reason": "Original localized .NET command output from the recorded Windows execution; preserve raw bytes as execution evidence, not authoritative English prose.",
+      "run": {
+        "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/result.json",
+        "sha256": "03c78c7b8d0eff79558812479bd546354eb598b00acb7569170df8ab7ca2d60d",
+        "command_name": "pack",
+        "stream": "stdout"
+      }
+    },
+    {
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/sdk.stdout",
+      "bytes": 2928,
+      "sha256": "65cfc6273eacd9a026bee34a0776ad0d21c2844c844e5e5110e75b50b3c78333",
+      "reason": "Original localized .NET command output from the recorded Windows execution; preserve raw bytes as execution evidence, not authoritative English prose.",
+      "run": {
+        "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/result.json",
+        "sha256": "03c78c7b8d0eff79558812479bd546354eb598b00acb7569170df8ab7ca2d60d",
+        "command_name": "sdk",
+        "stream": "stdout"
+      }
+    },
+    {
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/external-closed-negative.stdout",
+      "bytes": 1434,
+      "sha256": "aa60a4955d88096d6a1063d48feee38954f337b081ee8384c997755a75adb38d",
+      "reason": "Original localized .NET command output from the recorded Windows execution; preserve raw bytes as execution evidence, not authoritative English prose.",
+      "run": {
+        "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/results.json",
+        "sha256": "0a5acfd3a49c8cb57f295840c87b884eeb26d3c52198ac1c19b3f6efcdcb1fff",
+        "command_name": "external-closed-negative",
+        "stream": "stdout"
+      }
+    },
+    {
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/sdk-info.stdout",
+      "bytes": 2928,
+      "sha256": "65cfc6273eacd9a026bee34a0776ad0d21c2844c844e5e5110e75b50b3c78333",
+      "reason": "Original localized .NET command output from the recorded Windows execution; preserve raw bytes as execution evidence, not authoritative English prose.",
+      "run": {
+        "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/results.json",
+        "sha256": "0a5acfd3a49c8cb57f295840c87b884eeb26d3c52198ac1c19b3f6efcdcb1fff",
+        "command_name": "sdk-info",
+        "stream": "stdout"
+      }
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "kind": "actual-raw-language-gate-regression-execution",
+  "scope": "Synthetic mutations of isolated copies; not native execution or product acceptance.",
+  "command": [
+    "C:\\Users\\J7Rdm\\scoop\\persist\\uv\\cache\\archive-v0\\G6V5m72tOggnu6RV\\Scripts\\python.exe",
+    "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\verification\\local-host\\2026-11-14\\language-gate\\negative_checks.py"
+  ],
+  "started_at_utc": "2026-11-14T09:19:57.528275+00:00",
+  "finished_at_utc": "2026-11-14T09:20:07.470290+00:00",
+  "platform": "Windows",
+  "python": "3.14.7",
+  "research_source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "checker_baseline_commit": "9f771b704b120823197884125597bb528a77c4b0",
+  "checker_source_commit": null,
+  "checker_identity": "Exact uncommitted validator bytes are identified by source_sha256, not by the research source commit.",
+  "source_sha256": {
+    "tools/local_host_raw_evidence.py": "d776d0f3674e21bc6c0c501de57c823f61cd565eeb7ae96293e280c462388aca",
+    "tools/verify_english_translation.py": "a99e0a17dac2bf7cb218cbd7f9cb704954616824ce4e98038864be0c62518092",
+    "verification/local-host/2026-11-14/raw-execution-language-exceptions.json": "faace7fb90e13edf8eaea6c65c8aa686eed151edef4f4534c9817b9a858d1b50",
+    "verification/local-host/2026-11-14/language-gate/negative_checks.py": "65e54262da94a9186d01635601cb88158df62772f9b4f29bea5728987e82fe5c"
+  },
+  "case_count": 23,
+  "all_passed": true,
+  "records": [
+    {
+      "case": "seven_exact_registered_streams_pass",
+      "passed": true,
+      "expected_rejection": false,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": null
+    },
+    {
+      "case": "unregistered_english_prose_passes",
+      "passed": true,
+      "expected_rejection": false,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": null
+    },
+    {
+      "case": "raw_byte_tamper_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "raw bytes changed"
+      }
+    },
+    {
+      "case": "raw_length_drift_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "raw bytes changed"
+      }
+    },
+    {
+      "case": "raw_digest_drift_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "raw bytes changed"
+      }
+    },
+    {
+      "case": "runner_byte_tamper_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "runner manifest changed"
+      }
+    },
+    {
+      "case": "runner_source_mismatch_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "runner source differs from exception source"
+      }
+    },
+    {
+      "case": "runner_host_mismatch_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "runner host differs"
+      }
+    },
+    {
+      "case": "unbound_command_stream_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "raw stream not bound by runner"
+      }
+    },
+    {
+      "case": "duplicate_runner_command_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "raw stream not bound by runner"
+      }
+    },
+    {
+      "case": "command_filename_mismatch_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "raw filename differs from command stream"
+      }
+    },
+    {
+      "case": "path_traversal_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "invalid supplemental depth"
+      }
+    },
+    {
+      "case": "absolute_path_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "noncanonical supplemental path"
+      }
+    },
+    {
+      "case": "old_historical_path_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "invalid supplemental depth"
+      }
+    },
+    {
+      "case": "current_raw_backfill_into_source_tree_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "historical or duplicate raw exception"
+      }
+    },
+    {
+      "case": "markdown_exception_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "only raw command streams may be exempt"
+      }
+    },
+    {
+      "case": "source_exception_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "only raw command streams may be exempt"
+      }
+    },
+    {
+      "case": "duplicate_exception_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "historical or duplicate raw exception"
+      }
+    },
+    {
+      "case": "unknown_commit_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "CalledProcessError",
+        "reason": "Command '['git', 'cat-file', '-e', 'ffffffffffffffffffffffffffffffffffffffff^{commit}']' returned non-zero exit status 128."
+      }
+    },
+    {
+      "case": "short_commit_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "invalid source commit"
+      }
+    },
+    {
+      "case": "non_raw_authority_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": ""
+      }
+    },
+    {
+      "case": "unregistered_cjk_prose_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "('docs/unregistered.md', 'unclassified non-English text')"
+      }
+    },
+    {
+      "case": "unregistered_cjk_raw_rejected",
+      "passed": true,
+      "expected_rejection": true,
+      "valid_seven_entry_baseline_checked": true,
+      "rejection": {
+        "type": "AssertionError",
+        "reason": "('verification/local-host/2026-11-14/windows/engine-attempt-1/unlisted.stdout', 'unclassified non-English text')"
+      }
+    }
+  ]
+}
