@@ -6,7 +6,7 @@
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
   },
-  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "coverage_policy": "Actual reading scope at the pinned commit; fetching a complete file does not mean reading the entire file.",
   "paths": [
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -41,7 +41,7 @@
         ]
       ],
       "purpose": "RewriteNullSemantics / IN processing",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -60,7 +60,7 @@
         ]
       ],
       "purpose": "negated nullable comparison / Contains tests",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/SeaQL/sea-query",
@@ -75,7 +75,7 @@
         ]
       ],
       "purpose": "SqlWriterValues / inject_parameters",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/SeaQL/sea-query",
@@ -90,7 +90,7 @@
         ]
       ],
       "purpose": "QueryStatementBuilder::build / to_string",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/SeaQL/sea-query",
@@ -125,7 +125,7 @@
         ]
       ],
       "purpose": "prepare_value / prepare_bin_oper / query conditions",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/SeaQL/sea-query",
@@ -144,7 +144,7 @@
         ]
       ],
       "purpose": "prepare_search_clause / prepare_cycle_clause / prepare_value",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/SeaQL/sea-query",
@@ -163,7 +163,7 @@
         ]
       ],
       "purpose": "SELECT/JOIN string tests",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/SeaQL/sea-query",
@@ -178,7 +178,7 @@
         ]
       ],
       "purpose": "license notice",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/SeaQL/sea-query",
@@ -187,8 +187,8 @@
       "blob_sha": "f8e5e5ea03400291957779488f5e542e6964c39d",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "目录已见、内容未读；本轮没有复制Apache来源实现",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "Directory seen, contents unread; no Apache-source implementation copied in this round.",
+      "limitation": "The path was confirmed in the pinned tree; contents unread."
     },
     {
       "repository": null,
@@ -197,7 +197,7 @@
       "read_state": "read_document_sections",
       "locator": "129–166 observed page lines",
       "purpose": "lifted operators",
-      "limitation": "网页可变，记录访问日期；非完整项目源码。"
+      "limitation": "The web page is mutable; access date recorded; not complete project source code."
     },
     {
       "repository": null,
@@ -206,7 +206,7 @@
       "read_state": "read_document_sections",
       "locator": "§2 Operators",
       "purpose": "operators / IS / integer arithmetic",
-      "limitation": "网页可变，记录访问日期；非完整项目源码。"
+      "limitation": "The web page is mutable; access date recorded; not complete project source code."
     },
     {
       "repository": "https://github.com/SeaQL/sea-orm",

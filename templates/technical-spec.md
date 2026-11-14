@@ -1,18 +1,18 @@
-# 模块规范
+# Module specification
 
-状态：design-draft；版本：；契约ID：；作者/审查者：；输入证据：。
+Status: design-draft; version: ; contract ID: ; author/reviewer: ; input evidence: .
 
-1. 需求ID、适用场景、非目标。
-2. 实际源码证据、替代方案和选择理由。
-3. 边界与依赖，纯C#与可选Rust的职责。
-4. 公共C# API；Rust接口；C ABI；生成绑定。每段代码标验证状态。
-5. 类型、布局、参数合法性、所有权、线程亲和、取消和错误。
-6. 正常及异常流程、状态机、线性化点、安全不变量和活性假设。
-7. 内存/复制/FFI/线程/runtime/启动/包体积成本。
-8. Windows/Linux及其他目标差异，AOT与构建/打包命令。
-9. 版本/二进制兼容规则、升级/旧新组合。
-10. 测试矩阵、负例、故障注入、性能方法、形式化适用边界。
-11. 实现任务、文件所有权、验收证据和未决项。
-12. 独立review及处置；accepted必须绑定准确内容版本与证据。
+1. Requirement IDs, applicable scenarios, and non-goals.
+2. Actual source evidence, alternatives, and selection rationale.
+3. Boundaries and dependencies; responsibilities of pure C# and optional Rust.
+4. Public C# API; Rust interfaces; C ABI; generated bindings. Mark the validation status of each code block.
+5. Types, layouts, parameter validity, ownership, thread affinity, cancellation, and errors.
+6. Normal and error flows, state machines, linearization points, safety invariants, and liveness assumptions.
+7. Memory/copy/FFI/thread/runtime/startup/package-size costs.
+8. Differences between Windows/Linux and other targets; AOT and build/packaging commands.
+9. Version/binary compatibility rules, upgrades, and old/new combinations.
+10. Test matrix, negative cases, fault injection, performance methodology, and applicability boundaries for formal methods.
+11. Implementation tasks, file ownership, acceptance evidence, and open items.
+12. Independent review and disposition; accepted status must bind the exact content version and evidence.
 
-所有“支持”声明限定到具体平台/版本/功能。不能以示意代码代替编译记录。
+Qualify every “supported” claim by a specific platform/version/feature. Illustrative code cannot replace compilation records.

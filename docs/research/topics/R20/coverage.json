@@ -6,7 +6,7 @@
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
   },
-  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "coverage_policy": "Actual reading scope at the pinned commit; fetching a complete file does not mean reading the entire file.",
   "paths": [
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -25,7 +25,7 @@
         ]
       ],
       "purpose": "ExecuteReaderAsync / Cancel / PrepareAndEnumerateStatements",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -52,7 +52,7 @@
         ]
       ],
       "purpose": "Read / NextResult / Dispose",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -67,7 +67,7 @@
         ]
       ],
       "purpose": "Commit / Rollback / Dispose / Complete",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -94,7 +94,7 @@
         ]
       ],
       "purpose": "commit / rollback / dispose tests",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -109,7 +109,7 @@
         ]
       ],
       "purpose": "license notice",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -118,8 +118,8 @@
       "blob_sha": "b24e67840c8e6209413009a3958022eb14905140",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "native provider资产/连接配置未完整追踪",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "Native provider assets/connection configuration have not been traced completely.",
+      "limitation": "The path was confirmed in the pinned tree; contents unread."
     },
     {
       "repository": null,
@@ -128,15 +128,15 @@
       "read_state": "read_document_sections",
       "locator": "28–35",
       "purpose": "sqlite3_interrupt contract",
-      "limitation": "网页可变，记录访问日期；非完整项目源码。"
+      "limitation": "The web page is mutable; access date recorded; not complete project source code."
     },
     {
       "repository": "https://github.com/ericsink/SQLitePCL.raw",
       "commit": "ed046114d5a30534e13294d94d78eb73de896ad4",
       "path": "refs/tags/v3.0.5",
       "read_state": "metadata_only",
-      "purpose": "版本定位",
-      "limitation": "实现、native bundle、许可证链均未完整阅读/验证。"
+      "purpose": "Version identification",
+      "limitation": "Implementation, native bundle, and license chain have not all been read/verified completely."
     },
     {
       "repository": "https://github.com/SeaQL/sea-orm",

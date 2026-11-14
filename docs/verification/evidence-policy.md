@@ -1,63 +1,63 @@
-# 证据、证明义务与验收政策
+# Evidence, proof obligations and acceptance policy
 
-状态：proposed；版本 0.1.0；根据 NativeWeave 当前要求独立制定。ArcForges 文档只参考格式。
+Status: proposed; version 0.1.0; independently defined according to NativeWeave's current requirements. ArcForges documents serve only as a formatting reference.
 
-## 1. 结论分层
+## 1. Classification of conclusions
 
-| 标签 | 允许说明 | 不允许推导 |
+| Label | Permitted claim | Prohibited inference |
 | --- | --- | --- |
-| source_confirmed | 固定 SHA 的指定代码执行路径确实如此表达 | 当前机器已运行、全部项目无缺陷 |
-| test_confirmed | 指定制品、命令和环境确实观测到结果 | 未测平台/架构也相同 |
-| official_doc_confirmed | 官方来源明确陈述功能/限制 | 具体包组合必然正确 |
-| inferred | 从已知证据推导，列出假设 | 把推断写成实测 |
-| pending | 尚缺源码/运行/审查 | 计入已完成 |
-| refuted | 有明确反例 | 以一次反例否定所有相关路线 |
+| source_confirmed | The specified code execution path at a pinned SHA expresses this behavior | It has run on the current machine, or the entire project is defect-free |
+| test_confirmed | The result was actually observed for the specified artifact, command and environment | Untested platforms/architectures behave identically |
+| official_doc_confirmed | An official source explicitly states a feature/limitation | A particular package combination is necessarily correct |
+| inferred | Derived from known evidence, with assumptions listed | Presenting an inference as a measurement |
+| pending | Source inspection/execution/review is still missing | Counting it as complete |
+| refuted | A concrete counterexample exists | Using one counterexample to reject all related approaches |
 
-代码示例另有状态：design-draft、static-reviewed、compiled、executed、native-aot-executed、independently-verified。每次升级附证据，不默认线性跃迁。source_confirmed必须记录解析后的完整commit SHA；release tag可并列显示但不能替代SHA。通过模型只增加 model_checked 记录，不升级为 AOT。
+Code examples have separate states: design-draft, static-reviewed, compiled, executed, native-aot-executed, independently-verified. Each promotion includes evidence; automatic linear progression is not assumed. source_confirmed must record the resolved full commit SHA; a release tag may be displayed alongside it but cannot replace the SHA. Passing a model check only adds a model_checked record and does not promote the example to AOT.
 
-## 2. 每项证据最小字段
+## 2. Minimum fields for each item of evidence
 
-evidence_id、claim、classification、repository_url、完整commit_sha（tag只作显示定位）、file、symbol、line_range、read_coverage、limitations、collector、collected_at、related_requirements/contracts/tasks。运行证据另需：
+evidence_id, claim, classification, repository_url, full commit_sha (a tag is only a display locator), file, symbol, line_range, read_coverage, limitations, collector, collected_at, related_requirements/contracts/tasks. Execution evidence additionally requires:
 
-- 源码与制品 SHA256、工具链与依赖锁、OS/architecture/CPU/ABI/链接器。
-- 完整命令、退出码、stdout/stderr 位置及内容哈希、起止时间。
-- 预期与实测、测试数量、失败/跳过/超时、输入和随机种子。
-- Native AOT publish 产物被实际启动的证据；不能只保存编译日志。
-- 分析器警告及处置；禁止全局抑制未解释警告来伪造通过。
+- Source and artifact SHA256, toolchain and dependency locks, OS/architecture/CPU/ABI/linker.
+- Complete commands, exit codes, stdout/stderr locations and content hashes, and start/end times.
+- Expected and observed results, test counts, failures/skips/timeouts, inputs and random seeds.
+- Evidence that the Native AOT publish artifact was actually launched; compiler logs alone are insufficient.
+- Analyzer warnings and their disposition; globally suppressing unexplained warnings to fabricate a pass is prohibited.
 
-## 3. 正确性验证方法选择
+## 3. Selecting correctness-verification methods
 
-| 机制 | 证明义务 | 首选证据组合 |
+| Mechanism | Proof obligations | Preferred evidence combination |
 | --- | --- | --- |
-| Handle / owner | 单次释放、live lease、父子销毁次序、ABA界限 | 状态模型+属性/并发测试+实际调用与故障注入 |
-| callback / async | terminal ≤1，注销后无非法访问，关闭可收敛 | 有限模型/TLA+、Loom适配native状态、C#并发调度测试、进程隔离崩溃测试 |
-| buffer | 访问区间有效、长度溢出、对齐、allocator配对 | 属性测试、fuzz、Sanitizer；Miri只用于其支持的Rust路径 |
-| ABI / generation | size/offset/calling convention、声明与实现一致 | C/Rust/C#三方layout与调用探针，生成快照和负例诊断 |
-| SQL query | 参数化、NULL/Join/排序/数值语义 | 数据库差分、属性测试、真实PG/SQLite语料 |
-| transaction | 失败不错误提交、未知结果不被当rollback成功 | 真实DB断线/超时/重启，状态日志与幂等恢复 |
-| server | 有界内存/并发、慢端背压、graceful shutdown | 负载/故障/长跑、allocation与线程跟踪 |
-| release | 来源可追踪，包与RID匹配，旧新兼容 | 干净consumer安装、AOT运行、SBOM/license、升级/降级矩阵 |
+| Handle / owner | Single release, live lease, parent/child destruction order, ABA boundaries | State model + property/concurrency tests + actual calls and fault injection |
+| callback / async | terminal ≤1, no invalid access after unregistration, shutdown can converge | Finite models/TLA+, Loom adapted to native state, C# concurrency-scheduling tests, process-isolated crash tests |
+| buffer | Valid access range, length overflow, alignment, allocator pairing | Property tests, fuzzing, Sanitizer; Miri only for Rust paths it supports |
+| ABI / generation | size/offset/calling convention, declaration/implementation consistency | C/Rust/C# layout and call probes, generated snapshots and negative-case diagnostics |
+| SQL query | Parameterization, NULL/Join/ordering/numeric semantics | Database differential tests, property tests, real PG/SQLite corpora |
+| transaction | Failures do not incorrectly commit; unknown outcomes are not treated as successful rollback | Real DB disconnects/timeouts/restarts, state logs and idempotent recovery |
+| server | Bounded memory/concurrency, backpressure for slow peers, graceful shutdown | Load/fault/long-duration tests, allocation and thread tracking |
+| release | Traceable provenance, package/RID matching, old/new compatibility | Clean consumer installation, AOT execution, SBOM/license, upgrade/downgrade matrix |
 
-TLA+、Loom、Miri、Kani、fuzz 和 Sanitizer 是候选工具，不要求全部必用。每个工具固定版本、适用假设、不能覆盖的FFI/OS/调度行为；不能用部分模型宣称系统绝对安全。
+TLA+, Loom, Miri, Kani, fuzzing and Sanitizer are candidate tools; using all of them is not mandatory. Pin each tool's version, applicable assumptions and FFI/OS/scheduling behavior it cannot cover; a partial model must not be used to claim absolute system safety.
 
-## 4. 平台矩阵
+## 4. Platform matrix
 
-首次必须规划 win-x64 与 linux-x64 原生目标构建运行。Arm64、musl、其他桌面与移动目标先建 capability matrix；真实需求与实验决定何时正式支持。32位研究布局差异，不因写了差异表就宣布支持。
+The initial plan must include native-target builds and execution for win-x64 and linux-x64. First establish a capability matrix for Arm64, musl, other desktop targets and mobile targets; actual requirements and experiments determine when they become formally supported. Study layout differences on 32-bit targets without declaring support merely because a differences table exists.
 
-“Windows/Linux通过”必须对应各自真实宿主、目标和制品。容器内Linux证据说明容器/宿主内核条件，不能充当用户专用MCP主机或Windows证据。当前只发现本地Linux执行与GitHub工具，未发现Windows/Linux专用MCP验收工具。
+“Windows/Linux passed” must correspond to the actual host, target and artifact for each platform. Linux evidence from a container must state the container/host-kernel conditions and cannot substitute for evidence from the user's dedicated MCP host or Windows. At present, only local Linux execution and GitHub tools have been discovered; no dedicated Windows/Linux MCP acceptance tools have been discovered.
 
-## 5. 性能方法
+## 5. Performance methodology
 
-相同功能语义、数据集、TLS/协议、错误策略、并发、暖机和资源限额下比较 C# AOT、C# AOT+Rust、适当纯Rust。先验证业务结果等价，再讨论速度。
+Compare C# AOT, C# AOT+Rust and appropriate pure Rust implementations under the same functional semantics, dataset, TLS/protocol, error policy, concurrency, warmup and resource limits. Verify equivalent business results before discussing speed.
 
-记录 cold start、稳态吞吐、CPU time、P50/P95/P99、错误率、RSS/峰值、托管GC、native allocations、复制字节、FFI次数、线程、包体积、长期泄漏和恢复。开放式负载注意 coordinated omission；保存延迟直方图和负载生成器瓶颈证据。基准机隔离资源竞争，独立重复多次并报告分布/区间。
+Record cold start, steady-state throughput, CPU time, P50/P95/P99, error rate, RSS/peak usage, managed GC, native allocations, bytes copied, FFI call counts, threads, package size, long-term leaks and recovery. Account for coordinated omission in open-loop load tests; retain latency histograms and evidence of load-generator bottlenecks. Isolate resource contention on benchmark hosts, repeat runs independently multiple times and report distributions/intervals.
 
-暂不指定任意提升百分比或延迟目标。完成基线后以实际SLO、测量噪声和维护成本提出局部阈值。微型FFI benchmark只用于解释成本，不能替代端到端结果。
+Do not specify arbitrary improvement percentages or latency targets yet. After completing the baseline, propose local thresholds based on actual SLOs, measurement noise and maintenance cost. FFI microbenchmarks explain costs and cannot replace end-to-end results.
 
-## 6. 审查与状态
+## 6. Review and state
 
-四层审查：证据支持性；专题接口与生命周期交叉审查；独立整体对抗性审查；交付准备审查。作者不能独自将其重大设计标accepted。发现记录含ID、severity、位置、反例、影响、处置和验证。
+Four review layers: evidential support; cross-review of topic interfaces and lifetimes; independent overall adversarial review; delivery-readiness review. An author cannot mark their own major design accepted alone. Finding records contain ID, severity, location, counterexample, impact, disposition and verification.
 
-审查范围固定到提交或文件哈希。源码证据、模型和脚本校验只证明各自范围；没有真实Windows/Linux AOT证据就不把相关产品能力标accepted。
+Pin the review scope to a commit or file hashes. Source evidence, models and script checks prove only their respective scopes; without actual Windows/Linux AOT evidence, the corresponding product capabilities must not be marked accepted.
 
-研究文件可在proposed状态进入Draft PR供交流，正式实施的ready集合另行计算。未执行项不伪装通过，也不让不相关任务无故等待。
+Research files may enter a Draft PR for discussion while proposed; the ready set for formal implementation is calculated separately. Unexecuted items must not be presented as passing, and unrelated tasks must not be made to wait without a reason.

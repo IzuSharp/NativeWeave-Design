@@ -41,9 +41,9 @@ Source inspection, prior same-native-hash C# AOT evidence and the new dynamic pr
 
 The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
-## 固定源码入口与实际阅读
+## Pinned Source Entry Points and Actual Reading
 
-| Claim | 固定文件/来源 | 实际范围与证据类别 |
+| Claim | Pinned file/source | Actual scope and evidence category |
 | --- | --- | --- |
 | R25-C01 | [src/EFCore/ChangeTracking/Internal/StateManager.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/ChangeTracking/Internal/StateManager.cs#L324-L365) | [[324, 365], [1423, 1490]]; source-observed; reader=database_design |
 | R25-C02 | [src/EFCore/ChangeTracking/Internal/ChangeDetector.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/ChangeTracking/Internal/ChangeDetector.cs#L130-L179) | [[130, 179], [242, 317]]; source-observed; reader=database_design |

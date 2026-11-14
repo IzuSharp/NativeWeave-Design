@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/translate_research",
+  "reviewed_at_utc": "2026-11-14T04:06:25Z",
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "subjects": [
+    {
+      "kind": "contract",
+      "id": "C-PLATFORM-001",
+      "evidence_sha256": [
+        "7dd30d6bb6c65005e7360d41cd607dd2200ea3f77a23f1e5ead80e3b5819674e"
+      ],
+      "review_sha256": [
+        "9049264fab02e401d8169e9dee5af4b2fe633b329892da7229f839cf3b47186f"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ABI-001",
+      "evidence_sha256": [
+        "d15219bb2fa804d9542d94218c77265a3dd803a319ea296f4102945e76d7031a"
+      ],
+      "review_sha256": [
+        "05db192a468ac0b9f1e3c6eacd306ad6f035e7ed8f6f82459551bbc5f1d60585"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-BINDING-001",
+      "evidence_sha256": [
+        "cb589674efd277a82db4094fd92e4834cc15304178ccfe8cc71697ce8921c36e"
+      ],
+      "review_sha256": [
+        "19ca5b45d0f5f907c780b9bc8c0d7ca55f33852c6246b95130b28b614e9bfd12"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-LIFETIME-001",
+      "evidence_sha256": [
+        "a7660252c630626b26d4e7d7e6d26d268d5875156b18291093e9bad0d7631947"
+      ],
+      "review_sha256": [
+        "2f7569b4f9f106005ca7aa2823f9475a7dc9c0d782b8fcda8e71f698f6ebf8c1"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-CALLBACK-001",
+      "evidence_sha256": [
+        "a05446af19062779ad8733408c43d02039af6107d32f9735228ab4a77369928a"
+      ],
+      "review_sha256": [
+        "89d853f33f446c9322110156277b63230fec992a20e19cbbc38ed0363157838b"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ASYNC-001",
+      "evidence_sha256": [
+        "b70e3d161703e66961b76544581ba0b4eaa11f3d5dee7f80c9fee8a2b2647b6e"
+      ],
+      "review_sha256": [
+        "afe7826aa0d4bf485d8faec0c4fb5df82342f3dcf1fd135275c2ff17555a79f1"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-BUFFER-001",
+      "evidence_sha256": [
+        "4579676ab0893707d9d48f1c5b660c8efff24be56f5794a485845979fdf5dcf2"
+      ],
+      "review_sha256": [
+        "e621f8cb7ac2f21ef5d870789480df15f81f03cde4c25e667e942f9635dcdcce"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ERROR-001",
+      "evidence_sha256": [
+        "9cc532bc67b8fc8a3c1bfc4902e95bb5641d5ce5413fcc5e24d0577dab33036b"
+      ],
+      "review_sha256": [
+        "420681e17ceefc265897cc7eb0ccbc320318e80715909397cce959fb8f30003b"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-CONCURRENCY-001",
+      "evidence_sha256": [
+        "622a5337e0b114334e90661997d527757f4c7e40a93f117f1c6d2ce1e2d66067"
+      ],
+      "review_sha256": [
+        "62c070f3d63d2f55c9a89239147831d941d4ab49e5b21b06161a123f68700489"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-BUILD-001",
+      "evidence_sha256": [
+        "71a1bf84b26e90ea617a8ad427bf40ac1938ca4f7dff9a4190927e193ed268d7"
+      ],
+      "review_sha256": [
+        "d4ad532df24eb872e642bb0ea47a3131753be2c48456069a377a23ab91c3862a"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ENGINE-001",
+      "evidence_sha256": [
+        "0f63003848f794d8b4ff04e7c0f2589ead600cfc2270024d92187a60e29ffe2a"
+      ],
+      "review_sha256": [
+        "f92adc4cc7ed3116c5ae1b0c180489bd8313828ad40c77089fb02fe893c5e1f9"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-VERIFY-001",
+      "evidence_sha256": [
+        "e83f805507bf46e073867f8fc6f3e13d67b754896a23a711cef1a7913af6f557"
+      ],
+      "review_sha256": [
+        "1c6d54212921b712b20d560b1b2c9e133bb6cfd819af26ad1ea5862f5f9d5aac"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-PERF-001",
+      "evidence_sha256": [
+        "af1524f62c3caa65e649eb2e29602f52128a40a991e6cc69019d76e985927abe"
+      ],
+      "review_sha256": [
+        "3ba192c63d741b1a88515e96307b11f2c1ba3c00092000807bf4375b39a3435a"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-DB-001",
+      "evidence_sha256": [
+        "3ab2a11212c97e57329d4cda26418e40289bb049b7319ee4331e90a183eed4b6"
+      ],
+      "review_sha256": [
+        "aa9f8aa4f6ada854d76e4b417a78de4781de599edabbbfcbe2fae197740c13a3"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-TX-001",
+      "evidence_sha256": [
+        "aaef9ff349cf3504ca789e3329e4fcc45fa1254820f67fa641168ffd7abc3a0a"
+      ],
+      "review_sha256": [
+        "1a3160d9fe7414d05e6d344a3ac58db94e1d1dc11be8275bb32ab6f3db58cb0f"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-QUERY-001",
+      "evidence_sha256": [
+        "2718cccc7b0dc14e3a51133f535b16dcc96e14dffc2eaf146cfa2a76a1e148d5"
+      ],
+      "review_sha256": [
+        "02441fd77a92111f5a30bcf3c8e0ea70c660c882142b3232947153fb29ff8db9"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-QUERYGEN-001",
+      "evidence_sha256": [
+        "1487b5cbc5b1c071e43c1d6a078b0f3318a0a5c5a73d1c3521ae68094349498e"
+      ],
+      "review_sha256": [
+        "639fe0e6f6566b7a91e209bd7ba7cae5e20857df432c203bfe504d9e135a2024"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-SERVER-001",
+      "evidence_sha256": [
+        "b707c3597bff5e872ac9ba1b29faacdddc4464df09251fa964c15724af525bad"
+      ],
+      "review_sha256": [
+        "c9be80b618c773fd0f0f92f0eae7996c223342dfb04b23ad1cf1c20716a4cc08"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-PROTOCOL-001",
+      "evidence_sha256": [
+        "2f23cde9e78221f79f2a1c375958f008eb46dc3af6f8b73d771ab4219fe6a76d"
+      ],
+      "review_sha256": [
+        "a530aed3bb1def305c6d623cae226f03bb32abd8ff7453cf4afe855f73c05630"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-REFERENCE-001",
+      "evidence_sha256": [
+        "3bc6f3d98bf8c9bd0a03f8af7db5b848030dedcd70a21012793ae266f9262e73"
+      ],
+      "review_sha256": [
+        "0072f7cd25437fdcaeca2fd8dd4fd1b2ed5948b73f8fefa9bfedaf5a27bea999"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-EXTENSION-001",
+      "evidence_sha256": [
+        "f1a08243b51f8bc4591b4ba11aa83b288ad898a9b93ece24847e2cef3293be7e"
+      ],
+      "review_sha256": [
+        "6c3c8f7254fbd92a980817469af32ceb58fa2e1a83d4bd80ad90f20bb2c154d0"
+      ]
+    }
+  ],
+  "scope": "Exact independently inspected translation-acceptance bindings, no GitHub identity/product/experiment claim",
+  "design_source_commit": "53388e2165919869a8864a3119c6bb510267ccfe",
+  "original_accepted_source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/english-translation/contracts.json",
+    "sha256": "1f3a56d53bdb234c7a75fa1d3036d8afaf136c2de93089869840e8599dde0abf"
+  },
+  "checks": {
+    "observed_index_state": "prepared_not_accepted",
+    "observed_prepared_index_sha256": "7bf8188c5b95a74b35880061bdf37861788ac491b79891ee7a7a7f73221781fc",
+    "contract_subjects_read": 21,
+    "new_input_evidence_review_manifests_read": 63,
+    "required_input_file_occurrences_verified": 266,
+    "distinct_input_source_files_verified": 129,
+    "contract_dependency_edges_verified": 53,
+    "dependency_closure_contract_count": 21,
+    "original_accepted_manifest_files_verified_unchanged": 63,
+    "every_current_subject_matches_registry_and_independent_decision": true,
+    "every_input_file_matches_committed_source_bytes_sha256_and_length": true,
+    "required_snapshot_file_sets_complete_without_duplicates": true,
+    "every_dependency_snapshot_matches_exact_new_content_evidence_and_review_hashes": true,
+    "prior_acceptance_index_subjects_and_provenance_equal_original_accepted_baseline": true,
+    "prior_source_commit_and_original_specification_content_verified": true,
+    "prior_evidence_review_and_input_manifest_bytes_equal_original_baseline": true,
+    "every_wrapper_binds_the_exact_archived_independent_report": true,
+    "reviewer_is_this_executor_and_distinct_from_every_contract_author": true,
+    "every_index_subject_matches_exact_prepared_evidence_and_review_bytes": true,
+    "native_experiments_rerun": false,
+    "product_implementation_authorized": false,
+    "product_verification_accepted": false,
+    "github_approval_identity_claimed": false,
+    "validation_command": {
+      "working_directory": "Plan",
+      "command": "python -B tools/migrate_english_acceptance.py verify-contracts",
+      "exit_code": 0,
+      "result": {
+        "verified_prepared_kind": "contract",
+        "acceptance_applied": false
+      }
+    },
+    "readback_method": "Independently read and checked all 21 input/evidence/review triples, all record fields and exact source/provenance bindings; reconstructed required file sets and dependency snapshots from the graphs and registry rather than relying only on the migration helper. The helper validation was additionally run without applying acceptance."
+  },
+  "input_snapshots_sha256": {
+    "NativeWeave-Design:verification/english-translation/contracts/C-PLATFORM-001.inputs.json": "4a4fd913fa60c080f3e7cfee17440706b260da55a9af034b9470bd400269ab97",
+    "NativeWeave-Design:verification/english-translation/contracts/C-ABI-001.inputs.json": "c161df9541c3b028f9e6f83fdbabb392889fd02bb36613ccdc2781ce23adddca",
+    "NativeWeave-Design:verification/english-translation/contracts/C-BINDING-001.inputs.json": "dd6b7d49ec5d0e32a7df40acfa0fccbd8495266444b5e63bee131f616f77a46d",
+    "NativeWeave-Design:verification/english-translation/contracts/C-LIFETIME-001.inputs.json": "c7775b14a89f6e1cb1be4251e120d5ccdccec256b8d7d7dbc50633b29f82e6bf",
+    "NativeWeave-Design:verification/english-translation/contracts/C-CALLBACK-001.inputs.json": "0fd33662162cd4d2558eeba5389e005ddfabd22f55520338139fbc38767c26d9",
+    "NativeWeave-Design:verification/english-translation/contracts/C-ASYNC-001.inputs.json": "00c4b04d67c88df301e51c446851a08af7089118bc5cd7133f67f328af80b86c",
+    "NativeWeave-Design:verification/english-translation/contracts/C-BUFFER-001.inputs.json": "1e5171bedd4838a999073536fc2877a513bd26ded886c2486ca0ca4f793665c0",
+    "NativeWeave-Design:verification/english-translation/contracts/C-ERROR-001.inputs.json": "5220c70d536699b6fdb2f16021671adc7f264bfea4d05d1a950528af5a4f4c8b",
+    "NativeWeave-Design:verification/english-translation/contracts/C-CONCURRENCY-001.inputs.json": "a2b6118a53fee5034c387d7180e78e7d7f44d56ade54df13bdf39554fc6da88a",
+    "NativeWeave-Design:verification/english-translation/contracts/C-BUILD-001.inputs.json": "3470a0625fb11b66678bd461934aa69c28c844456a2207cbba5fdcc21ca4f131",
+    "NativeWeave-Design:verification/english-translation/contracts/C-ENGINE-001.inputs.json": "3ed0a78f9795725867de606009a0cf29d400078d2a33369f542f8fa14441c829",
+    "NativeWeave-Design:verification/english-translation/contracts/C-VERIFY-001.inputs.json": "d0906099c76c72e1f9b3e10387d6beb0e3c1b7ba00d8421068b8a182b8342106",
+    "NativeWeave-Design:verification/english-translation/contracts/C-PERF-001.inputs.json": "66dee3f7cccdfc2b6c57dc3cd1f9b1bc516d72e9b2ad4afb694b4b345fb754d8",
+    "NativeWeave-Design:verification/english-translation/contracts/C-DB-001.inputs.json": "8670e38fcfee126f121abdec0f44de37bb66cfb36ee443e444a8942aedfb2a1e",
+    "NativeWeave-Design:verification/english-translation/contracts/C-TX-001.inputs.json": "d41a811a83f691961a921a2c35610678b720ccc793c5c9c1a04b21c9c3fa0ce6",
+    "NativeWeave-Design:verification/english-translation/contracts/C-QUERY-001.inputs.json": "4d340b01f4a24aa2f2efa1ab258d002b635f853f99ea9cb6cce21d66c5545c23",
+    "NativeWeave-Design:verification/english-translation/contracts/C-QUERYGEN-001.inputs.json": "f6e13b91bbb18622b51d4ea2f84a95c1b5e76fa7602776e6f78e646a40f9527e",
+    "NativeWeave-Design:verification/english-translation/contracts/C-SERVER-001.inputs.json": "9076537059acc9a7ac0e452770bd51bb2e4ee22690d837c643e7b795ae80d936",
+    "NativeWeave-Design:verification/english-translation/contracts/C-PROTOCOL-001.inputs.json": "66090a4124952937334f5395cea74bdd79f683f1abf1db944b99fe20077d6ad1",
+    "NativeWeave-Design:verification/english-translation/contracts/C-REFERENCE-001.inputs.json": "b08bcbabe220f4f2b713e100483c257d798521670a8e77eef8771e6e94b49030",
+    "NativeWeave-Design:verification/english-translation/contracts/C-EXTENSION-001.inputs.json": "08c3647b0dca05a8d9e92367bf4815fefb2308d21779f8cf030326a983b09caf"
+  },
+  "limitations": [
+    "This attestation binds the previously completed actual English semantic-equivalence review to these exact new manifests. It does not replace original technical evidence, claim that historical reviewers reviewed new bytes, rerun experiments, accept product implementation, or represent a GitHub-account approval."
+  ]
+}

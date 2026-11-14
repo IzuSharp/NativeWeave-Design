@@ -6,7 +6,7 @@
     "design_commit": "1f7d89aa754647a6a530fa34a49acc4b0f5d9997",
     "plan_commit": "da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5"
   },
-  "coverage_policy": "固定commit的实际阅读范围；fetch完整文件不等于阅读整个文件。",
+  "coverage_policy": "Actual reading scope at the pinned commit; fetching a complete file does not mean reading the entire file.",
   "paths": [
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -25,7 +25,7 @@
         ]
       ],
       "purpose": "StartTrackingFromQuery / SaveChangesAsync / AcceptAllChanges",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -44,7 +44,7 @@
         ]
       ],
       "purpose": "DetectChanges / LocalDetectChanges",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -63,7 +63,7 @@
         ]
       ],
       "purpose": "ConsumeResultSetWithRowsAffectedOnly / ThrowAggregateUpdateConcurrencyException",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -82,7 +82,7 @@
         ]
       ],
       "purpose": "Nullable_client_side_concurrency_token_can_be_used / conflicting update/delete tests",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -101,7 +101,7 @@
         ]
       ],
       "purpose": "ExecuteCore",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/DapperLib/DapperAOT",
@@ -124,7 +124,7 @@
         ]
       ],
       "purpose": "incremental generator / skip branches",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/DapperLib/DapperAOT",
@@ -143,7 +143,7 @@
         ]
       ],
       "purpose": "DisposeAsync",
-      "limitation": "未列出的行/依赖/测试未声称已阅读。"
+      "limitation": "Lines/dependencies/tests not listed are not claimed to have been read."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -152,8 +152,8 @@
       "blob_sha": "56f3e0594edc6d20b38e2f4a221d8ea1b04d60dd",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "未完整读EF materializer，不声称覆盖全部构造/拦截机制",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "The complete EF materializer was not read; no claim to cover all construction/interception mechanisms.",
+      "limitation": "The path was confirmed in the pinned tree; contents unread."
     },
     {
       "repository": "https://github.com/dotnet/efcore",
@@ -162,8 +162,8 @@
       "blob_sha": "638435ddd3e3060fa96847c3f1e804c03d86820f",
       "read_state": "directory_only",
       "line_ranges": [],
-      "purpose": "关系fixup完整链未读；v1采用显式有限关系，不声称功能等价",
-      "limitation": "已在固定tree确认路径，内容未读。"
+      "purpose": "The complete relationship-fixup chain was not read; v1 uses explicit, limited relationships and makes no claim of feature equivalence.",
+      "limitation": "The path was confirmed in the pinned tree; contents unread."
     },
     {
       "repository": "https://github.com/SeaQL/sea-orm",

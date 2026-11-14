@@ -1,34 +1,34 @@
-# ADR-0001：研究、文档编制与开发采用三张独立图
+# ADR-0001: Three separate graphs for research, documentation, and development
 
-- 状态：Proposed
-- 日期：2026-11-12
-- 决策层：协作与追溯
-- 依据：用户明确要求三种并行独立建模；不是移植外部规范内容
-- 正式产品技术契约：本 ADR 不选择 ORM、Runtime 或 ABI 具体实现
+- Status: Proposed
+- Date: 2026-11-12
+- Decision layer: collaboration and traceability
+- Basis: the user explicitly required three independently modeled forms of parallel work; this does not transplant external specification content
+- Formal product technical contracts: this ADR does not select specific ORM, Runtime, or ABI implementations
 
-## 问题
+## Problem
 
-研究发现证据、编写规范和实现产品具有不同输出与准入条件。把它们混成一条“研究结束→写Design→写Plan→逐一开发”链会制造无意义等待；只看文件数量也可能把候选计划误当已验收设计。
+Discovering evidence through research, writing specifications, and implementing the product have different outputs and entry conditions. Combining them into a single chain of “finish research → write Design → write Plan → develop tasks one by one” creates unnecessary waiting; counting files alone can also mistake a candidate plan for an accepted design.
 
-## 候选决定
+## Proposed decision
 
-1. Research 图以问题、源码覆盖和证据输出为节点。
-2. Documentation 图分别管理 Design章节和 Plan领域任务片段；可用候选输入开始草稿，接受时必须满足具体证据。
-3. Delivery 图管理未来实现、验证、集成和发布任务；明确局部契约版本、文件路径和真实技术依赖。
-4. 把启动依赖、接受依赖、版本化contract input分开；状态不在三图中重复维护同一事实。
-5. 文件所有权按任务分区，共享索引和graph由整合任务生成/更新，独立领域写fragment。
-6. 没有全局单任务锁；同一文件或稀缺实机资源冲突做局部调度。
-7. 阶段B文档与研究当前并行，正式集成仍使用已验证的阶段A基础机制。
-8. 当前所有技术契约为proposed，产品Delivery节点为候选，不能以图存在视作实施授权。
+1. The Research graph uses questions, source coverage, and evidence outputs as nodes.
+2. The Documentation graph separately manages Design chapters and Plan domain task fragments; drafting may begin with candidate inputs, but acceptance must satisfy specific evidence requirements.
+3. The Delivery graph manages future implementation, verification, integration, and release tasks, with explicit local contract versions, file paths, and actual technical dependencies.
+4. Separate start dependencies, acceptance dependencies, and versioned contract inputs; do not maintain the same status fact redundantly across the three graphs.
+5. Partition file ownership by task. Integration tasks generate/update shared indexes and graphs, while independent domains write fragments.
+6. There is no global single-task lock; schedule conflicts over the same file or scarce physical-machine resources locally.
+7. Phase B documentation and research proceed in parallel now; formal integration still uses the verified foundational mechanisms from phase A.
+8. All technical contracts are currently proposed and product Delivery nodes are candidates; the existence of the graphs must not be interpreted as implementation authorization.
 
-## 备选方案
+## Alternatives
 
-单一综合图易混淆状态；严格阶段瀑布阻塞无关工作；完全无依赖的任务列表掩盖安全门槛。三图增加少量维护成本，由schema、cross-ref和一致性检查控制。
+A single combined graph can confuse statuses; a strict phase waterfall blocks unrelated work; a task list without dependencies conceals safety gates. Three graphs add a small maintenance cost, controlled by schema, cross-reference, and consistency checks.
 
-## 验证
+## Verification
 
-校验唯一ID、引用、图无环、文件冲突、可开工集合、合同版本、证据门槛。注入循环、缺依赖、未经证据accepted和路径冲突验证拒绝能力。图工具只验证数据条件，不判断技术结论真伪。
+Validate unique IDs, references, acyclicity, file conflicts, the set of tasks eligible to start, contract versions, and evidence gates. Inject cycles, missing dependencies, acceptance without evidence, and path conflicts to verify rejection. Graph tools validate data conditions only; they do not determine whether technical conclusions are true.
 
-## 后果与未决
+## Consequences and open issues
 
-需要稳定contract registry和统一证据格式。兼容性升级引起的局部失效传播、任务拆分/废弃和并发PR合并需明确规则。审查通过前本ADR保持proposed；并行研究本身已有用户授权，不必等待ADR接受才开始。
+A stable contract registry and a unified evidence format are required. Explicit rules are needed for local invalidation propagation caused by compatibility upgrades, task splitting/retirement, and concurrent PR merges. This ADR remains proposed until it passes review; parallel research already has user authorization and does not need to wait for ADR acceptance.

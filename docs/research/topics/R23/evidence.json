@@ -12,7 +12,7 @@
     "path": "research-tasks/R23.md",
     "packet_sha256": "fa138a96a5ee3e9cb94071783be1bd5070b0cd1057207af92848ad4082cec221"
   },
-  "claim_status_policy": "设计结论可独立审查后解决；本记录不自授accepted，实现验证另列Delivery任务。",
+  "claim_status_policy": "Design conclusions may be resolved after independent review; this record does not self-award accepted status, and implementation validation is separately assigned to Delivery tasks.",
   "claims": [
     {
       "claim_id": "R23-C01",
@@ -38,8 +38,8 @@
           "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/Query/Internal/QueryCompiler.cs#L134-L156"
         ]
       },
-      "supported_claim": "cache miss在动态代码可用时编译，否则抛QueryNotPrecompiled；不能假设任意IQueryable已预编译。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "A cache miss compiles when dynamic code is available, otherwise throwing QueryNotPrecompiled; arbitrary IQueryable cannot be assumed precompiled.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -72,8 +72,8 @@
           "https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/src/Dapper.AOT.Analyzers/CodeAnalysis/DapperInterceptorGenerator.cs#L515-L543"
         ]
       },
-      "supported_claim": "增量候选发现与拦截跳过分支说明引用包不等于全部调用接管。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Incremental candidate discovery and interceptor skip branches show that referencing the package does not mean every call is taken over.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -101,8 +101,8 @@
           "https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/src/Dapper.AOT/Internal/AsyncQueryState.cs#L76-L116"
         ]
       },
-      "supported_claim": "生成执行仍需清晰的异步/数组/reader生命周期。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Generated execution still requires clear async/array/reader lifetimes.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -125,8 +125,8 @@
           "https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/License.txt#L1-L10"
         ]
       },
-      "supported_claim": "工具Apache2.0告知及branding约束已读；未复制实现。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "The tool's Apache2.0 notice and branding restrictions were read; no implementation copied.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -147,8 +147,8 @@
         "upstream_evidence_task": "R06",
         "handoff_from": "/root"
       },
-      "supported_claim": "生成器只添加代码，无执行顺序或互读本轮生成源码保证；当前选择SDK预阶段产普通manifest/源码后再单一C#SG消费，不采用SG链式发现。",
-      "limitations": "R06/root实际读取后传入；database_design未独立复读，不计为本专题直接源码覆盖。",
+      "supported_claim": "Generators only add code; neither execution order nor reading one another's source generated in the same round is guaranteed. The current choice is an SDK preliminary stage producing ordinary manifests/source followed by consumption by a single C# SG, without chained SG discovery.",
+      "limitations": "Passed in after actual reading by R06/root; database_design did not independently reread it, so it is not counted as direct source coverage for this topic.",
       "run_manifest": null,
       "source_reader": "/root",
       "source_task": "R06"
@@ -167,8 +167,8 @@
         "latest_endpoint_tag": "1.1.0",
         "published_at": "2026-09-11T14:49:48Z"
       },
-      "supported_claim": "所用tag 1.1.0已解析完整commit；latest release端点当前返回1.1.0。",
-      "limitations": "只证明版本定位；EF11 tag与latest端点v10.0.15不同，不能以endpoint顺序证明最新稳定。SQLitePCL仅metadata，不证明源码、资产或许可审查。",
+      "supported_claim": "The tag used, 1.1.0, resolved to a full commit; the latest-release endpoint currently returns 1.1.0.",
+      "limitations": "Establishes only version identification; the EF11 tag differs from v10.0.15 returned by the latest endpoint, so endpoint ordering cannot establish the latest stable version. SQLitePCL is metadata only and does not establish source, asset, or license review.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -191,9 +191,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/base_entity.rs#L65-L135"
         ]
       },
-      "supported_claim": "EntityTrait有静态Model/ActiveModel/Column/Relation/PrimaryKey关联类型；ActiveModelEx注释minor稳定性有限；未知C#schema不能凭runtime字符串获得这些Rust类型。",
+      "supported_claim": "EntityTrait has static associated Model/ActiveModel/Column/Relation/PrimaryKey types; ActiveModelEx comments limit minor-version stability; an unknown C# schema cannot obtain these Rust types merely through runtime strings.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -215,9 +215,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/sea-orm-codegen/src/entity/writer/compact.rs#L1-L159"
         ]
       },
-      "supported_claim": "生成器真实发射DeriveEntityModel、column/PK属性、DeriveRelation与Related impl；可作为schema专属模型生成路线依据，不证明NW生成器已实现。",
+      "supported_claim": "The generator actually emits DeriveEntityModel, column/PK attributes, DeriveRelation, and Related impls; it supports a schema-specific model-generation approach, but does not prove that the NW generator is implemented.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -239,9 +239,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/sea-orm-codegen/tests/compact/fruit.rs#L1-L39"
         ]
       },
-      "supported_claim": "生成fixture包含Model/PK/nullable FK、belongs_to/has_many、Related与ActiveModelBehavior；测试文件阅读而未编译执行。",
+      "supported_claim": "The generated fixture contains Model/PK/nullable FK, belongs_to/has_many, Related, and ActiveModelBehavior; the test file was read but not compiled or executed.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {

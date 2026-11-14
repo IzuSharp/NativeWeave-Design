@@ -1,233 +1,237 @@
 {
   "schema_version": "1.0.0",
   "state": "accepted_research_and_detailed_design",
-  "recorded_at": "2026-11-13T13:11:37.712400+00:00",
-  "design_source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+  "recorded_at": "2026-11-14T04:02:49.563077+00:00",
+  "design_source_commit": "53388e2165919869a8864a3119c6bb510267ccfe",
   "product_implementation_authorized": false,
   "subjects": [
     {
       "kind": "contract",
       "id": "C-PLATFORM-001",
       "evidence_sha256": [
-        "ede8f5ed8d3fb979cbb6204da8312813ed699c78b8f96181a851ac67e18d962e"
+        "7dd30d6bb6c65005e7360d41cd607dd2200ea3f77a23f1e5ead80e3b5819674e"
       ],
       "review_sha256": [
-        "823f6507c10309a0f9deb8f2d90d43f8ee8be3e6d410705348e9896ec48c9329"
+        "9049264fab02e401d8169e9dee5af4b2fe633b329892da7229f839cf3b47186f"
       ]
     },
     {
       "kind": "contract",
       "id": "C-ABI-001",
       "evidence_sha256": [
-        "9fc436bbc2bed8b1f91270b9331abf8d591778828cd796df63505b2a899938d9"
+        "d15219bb2fa804d9542d94218c77265a3dd803a319ea296f4102945e76d7031a"
       ],
       "review_sha256": [
-        "96dc29d3b088d4ec8881dff5989924200dc2b6e9336fd0958b1bf84bf12610e6"
+        "05db192a468ac0b9f1e3c6eacd306ad6f035e7ed8f6f82459551bbc5f1d60585"
       ]
     },
     {
       "kind": "contract",
       "id": "C-BINDING-001",
       "evidence_sha256": [
-        "a09d95ad0aa6f8107eccb30e7310a3349e4205c2087421302fa6929ba3e2ca37"
+        "cb589674efd277a82db4094fd92e4834cc15304178ccfe8cc71697ce8921c36e"
       ],
       "review_sha256": [
-        "100eeb369dcfabcc8f59fb24f0deafc8eb567b8df54a835218957ebfa683025c"
+        "19ca5b45d0f5f907c780b9bc8c0d7ca55f33852c6246b95130b28b614e9bfd12"
       ]
     },
     {
       "kind": "contract",
       "id": "C-LIFETIME-001",
       "evidence_sha256": [
-        "7c0e4a0cda29ac811bfa671b2b3305e074a101be05264b326eb617198aeeed1c"
+        "a7660252c630626b26d4e7d7e6d26d268d5875156b18291093e9bad0d7631947"
       ],
       "review_sha256": [
-        "e8fad319335c30b0e23e285d31f9d3eb4b455c3e47e55b9f5f9aaf761dd08d6b"
+        "2f7569b4f9f106005ca7aa2823f9475a7dc9c0d782b8fcda8e71f698f6ebf8c1"
       ]
     },
     {
       "kind": "contract",
       "id": "C-CALLBACK-001",
       "evidence_sha256": [
-        "159ad7eed71db9e050bd51d7cf21b855b628daa2d45a991abf2ebe48f5b8bc68"
+        "a05446af19062779ad8733408c43d02039af6107d32f9735228ab4a77369928a"
       ],
       "review_sha256": [
-        "123b63d0542fa2fb5939f37649a91898ed6092a00d44e357c9f59084f65f3459"
+        "89d853f33f446c9322110156277b63230fec992a20e19cbbc38ed0363157838b"
       ]
     },
     {
       "kind": "contract",
       "id": "C-ASYNC-001",
       "evidence_sha256": [
-        "8b5ffacfca4892ab91c090c0930218af27b3cb185f762579b5569476b87b59c0"
+        "b70e3d161703e66961b76544581ba0b4eaa11f3d5dee7f80c9fee8a2b2647b6e"
       ],
       "review_sha256": [
-        "5873f7714a76ae94d8c30c63c46e0b77d5cc9d441edfbf0f726ace69839a3617"
+        "afe7826aa0d4bf485d8faec0c4fb5df82342f3dcf1fd135275c2ff17555a79f1"
       ]
     },
     {
       "kind": "contract",
       "id": "C-BUFFER-001",
       "evidence_sha256": [
-        "0dffe09a81c5128dbc560df36655a3b56203ccfb0e467d738209421d2a9641fb"
+        "4579676ab0893707d9d48f1c5b660c8efff24be56f5794a485845979fdf5dcf2"
       ],
       "review_sha256": [
-        "a36ac5e00c5a20327c3ce20417822aa01a8217139a6b38f92f93531afb8fe632"
+        "e621f8cb7ac2f21ef5d870789480df15f81f03cde4c25e667e942f9635dcdcce"
       ]
     },
     {
       "kind": "contract",
       "id": "C-ERROR-001",
       "evidence_sha256": [
-        "2bf1e6ded2464bdcce32b3ef1239e8de8f1e4a2abae842c32c40cc2920176233"
+        "9cc532bc67b8fc8a3c1bfc4902e95bb5641d5ce5413fcc5e24d0577dab33036b"
       ],
       "review_sha256": [
-        "0d08b21977360a5ebac8c74ff280f244715af5e7290747ebf24831f94bc6a928"
+        "420681e17ceefc265897cc7eb0ccbc320318e80715909397cce959fb8f30003b"
       ]
     },
     {
       "kind": "contract",
       "id": "C-CONCURRENCY-001",
       "evidence_sha256": [
-        "3345d78a02997d299286a9224a1903334aa1a626f94aac50fbd207f251287b6e"
+        "622a5337e0b114334e90661997d527757f4c7e40a93f117f1c6d2ce1e2d66067"
       ],
       "review_sha256": [
-        "7852e93f1d79afb1f1f94a78c9e334883b2ee26e190750e684b0900158109b20"
+        "62c070f3d63d2f55c9a89239147831d941d4ab49e5b21b06161a123f68700489"
       ]
     },
     {
       "kind": "contract",
       "id": "C-BUILD-001",
       "evidence_sha256": [
-        "82c16bf171f47547f034a1c054cf21b557e4283ad51737f0605785ea5a18eeb3"
+        "71a1bf84b26e90ea617a8ad427bf40ac1938ca4f7dff9a4190927e193ed268d7"
       ],
       "review_sha256": [
-        "8abcbb60e3f7dd1c7148a245ab84e7ca96f4ad1984c2d6c7479784cbc6b66c61"
+        "d4ad532df24eb872e642bb0ea47a3131753be2c48456069a377a23ab91c3862a"
       ]
     },
     {
       "kind": "contract",
       "id": "C-ENGINE-001",
       "evidence_sha256": [
-        "50772cb730703eb1d8569f5e492741b9b1083457b400d27d6781e779ea5c8fe1"
+        "0f63003848f794d8b4ff04e7c0f2589ead600cfc2270024d92187a60e29ffe2a"
       ],
       "review_sha256": [
-        "fffe4fb273341457413fa323b60bd813290966315bffe285f6be90ddbe8f8ec9"
+        "f92adc4cc7ed3116c5ae1b0c180489bd8313828ad40c77089fb02fe893c5e1f9"
       ]
     },
     {
       "kind": "contract",
       "id": "C-VERIFY-001",
       "evidence_sha256": [
-        "e6a1151dd94928744c47efc29adda0f7abdcb3c4b9a87ccaebb84d5f75c2a662"
+        "e83f805507bf46e073867f8fc6f3e13d67b754896a23a711cef1a7913af6f557"
       ],
       "review_sha256": [
-        "79163ea51da801f8ad19bf44573e5ea162b8599d9b871eac2df22dde37a0d972"
+        "1c6d54212921b712b20d560b1b2c9e133bb6cfd819af26ad1ea5862f5f9d5aac"
       ]
     },
     {
       "kind": "contract",
       "id": "C-PERF-001",
       "evidence_sha256": [
-        "ad25b0e6a34e9c56eb3bd6d7356980433e5860919460e7d94dc3086dd96e0a87"
+        "af1524f62c3caa65e649eb2e29602f52128a40a991e6cc69019d76e985927abe"
       ],
       "review_sha256": [
-        "4394741d4054812d7c7e302d7f45e9abe8653e3009c0265b165bdbefb1ee1b84"
+        "3ba192c63d741b1a88515e96307b11f2c1ba3c00092000807bf4375b39a3435a"
       ]
     },
     {
       "kind": "contract",
       "id": "C-DB-001",
       "evidence_sha256": [
-        "5d73cbf5c62c59a19d831cd39cab1a3d6ec8cdc525abac51d4f1fab5ece26f85"
+        "3ab2a11212c97e57329d4cda26418e40289bb049b7319ee4331e90a183eed4b6"
       ],
       "review_sha256": [
-        "fddc0d18102e84795f0d858774740adfaf267a6d535f1a804b66c2205a4f9981"
+        "aa9f8aa4f6ada854d76e4b417a78de4781de599edabbbfcbe2fae197740c13a3"
       ]
     },
     {
       "kind": "contract",
       "id": "C-TX-001",
       "evidence_sha256": [
-        "2745f2600d7023985cd7bd3532bfd90c6a7abeb633be488e3ce0d15c8e010e8c"
+        "aaef9ff349cf3504ca789e3329e4fcc45fa1254820f67fa641168ffd7abc3a0a"
       ],
       "review_sha256": [
-        "14b96d2b8c53753a942796c7bdb09dedd598d42b0b84ae21de87db4872e9fbd4"
+        "1a3160d9fe7414d05e6d344a3ac58db94e1d1dc11be8275bb32ab6f3db58cb0f"
       ]
     },
     {
       "kind": "contract",
       "id": "C-QUERY-001",
       "evidence_sha256": [
-        "555f1fa9c19641823e300757a4d9f04ec4be7d746bbf63a43c3d0dc492212816"
+        "2718cccc7b0dc14e3a51133f535b16dcc96e14dffc2eaf146cfa2a76a1e148d5"
       ],
       "review_sha256": [
-        "cf947adf9e4a1abef7db9d68f11cae25e968de1a25e64733d1cb35994707ce4e"
+        "02441fd77a92111f5a30bcf3c8e0ea70c660c882142b3232947153fb29ff8db9"
       ]
     },
     {
       "kind": "contract",
       "id": "C-QUERYGEN-001",
       "evidence_sha256": [
-        "9a390ef2edeadfde45263f4aab83d0b7dfdc0f157ffb68edecf7122d4baca026"
+        "1487b5cbc5b1c071e43c1d6a078b0f3318a0a5c5a73d1c3521ae68094349498e"
       ],
       "review_sha256": [
-        "be3771dc9581cff5e616974f195ded3b3a011255985c908a26abe5f15328a951"
+        "639fe0e6f6566b7a91e209bd7ba7cae5e20857df432c203bfe504d9e135a2024"
       ]
     },
     {
       "kind": "contract",
       "id": "C-SERVER-001",
       "evidence_sha256": [
-        "d304d600b38453303cecfa5761e5ff79f109c6662c14b2cd713103de27c27b9e"
+        "b707c3597bff5e872ac9ba1b29faacdddc4464df09251fa964c15724af525bad"
       ],
       "review_sha256": [
-        "851c76fbcb415c6949e87d42147913d250f506fd2b657fdd22213e22ee9346a2"
+        "c9be80b618c773fd0f0f92f0eae7996c223342dfb04b23ad1cf1c20716a4cc08"
       ]
     },
     {
       "kind": "contract",
       "id": "C-PROTOCOL-001",
       "evidence_sha256": [
-        "71029a0eb15807aa23bf8940a49b0d0227ff0872ed4ad90ea8afae90fdefd9d0"
+        "2f23cde9e78221f79f2a1c375958f008eb46dc3af6f8b73d771ab4219fe6a76d"
       ],
       "review_sha256": [
-        "b725866ee1c2a7912b030dd94e1dfc13e893cb60aa65acc388fadd1a09dc41ef"
+        "a530aed3bb1def305c6d623cae226f03bb32abd8ff7453cf4afe855f73c05630"
       ]
     },
     {
       "kind": "contract",
       "id": "C-REFERENCE-001",
       "evidence_sha256": [
-        "4834189e8a1c0113495a94d17adc8eee703fb4708e31f9ce0124fbe286df6b99"
+        "3bc6f3d98bf8c9bd0a03f8af7db5b848030dedcd70a21012793ae266f9262e73"
       ],
       "review_sha256": [
-        "0d92daff4cd92f79b0f125d3780e77c97dcd74917943e1d5848d66c78bd0aab4"
+        "0072f7cd25437fdcaeca2fd8dd4fd1b2ed5948b73f8fefa9bfedaf5a27bea999"
       ]
     },
     {
       "kind": "contract",
       "id": "C-EXTENSION-001",
       "evidence_sha256": [
-        "907f2700b733c2d6de9b91d82eb3863255f58cea6c1db904f6dd313f3093dc46"
+        "f1a08243b51f8bc4591b4ba11aa83b288ad898a9b93ece24847e2cef3293be7e"
       ],
       "review_sha256": [
-        "3c5d72b83218faacb947b55b3f46b99d6498b1fd38077b1c414aa6367deea3a0"
+        "6c3c8f7254fbd92a980817469af32ceb58fa2e1a83d4bd80ad90f20bb2c154d0"
       ]
     }
   ],
   "binding_attestations": [
     {
-      "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/interop-contract-binding.json",
-      "sha256": "f0815c7151c29f50a9bad6a5c32366aac68ea34ae4d5297843f09b2484e6b44a"
-    },
-    {
-      "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/database-contract-binding.json",
-      "sha256": "f7c30c9eb1b7af237295a689aae0700293cae11295b135ec44638254547da146"
-    },
-    {
-      "path": "NativeWeave-Design:docs/traceability/reviews/final-2026-11-13/server-contract-binding.json",
-      "sha256": "84fe2aec790410d91923bd3ddd1e68d120c875ad2b935a28015eb7a164b02daf"
+      "path": "NativeWeave-Design:docs/traceability/reviews/english-translation/contract-bindings.json",
+      "sha256": "b1cd3ddad942089e6af6936ccb3a483b85364df924543918195a0d002344f47c"
     }
-  ]
+  ],
+  "translation_migration": {
+    "source_language": "zh",
+    "authoritative_language": "en",
+    "prior_acceptance": {
+      "repository": "NativeWeave-Design",
+      "commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "path": "docs/contracts/acceptance-index.json",
+      "sha256": "ffc0aa144e979c5bebd87dcd137ce0af4c16a6af11eea61630415ee7da024809"
+    },
+    "technical_versions_unchanged": true,
+    "native_experiments_rerun": false
+  }
 }

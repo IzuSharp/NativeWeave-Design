@@ -1,85 +1,85 @@
 > Historical checkpoint. Current product constraints and acceptance boundaries are in [ADR-0003](../../decisions/ADR-0003-rust-engine-mandate-and-design-acceptance.md). Any optional Rust Server/Kestrel product-host wording below describes the prior snapshot, not current authorization. Original evidence retains its recorded scope.
 
-# Interop 初步源码发现与待证明边界
+# Preliminary Interop Source Findings and Boundaries Requiring Proof
 
-状态：limited-source-research；日期2026-11-12。作者root。不是对任何候选库的完整安全审计，也不是正式NativeWeave选型。
+Status: limited-source-research; date: 2026-11-12. Author: root. This is neither a complete security audit of any candidate library nor a formal NativeWeave technology selection.
 
-固定源码证据：[evidence.json](evidence.json)。实际已读行段和未覆盖路径分别记录。
+Pinned source evidence: [evidence.json](evidence.json). Line ranges actually read and paths not covered are recorded separately.
 
-## 1. YetAnotherHttpHandler：生命周期是协议，不止包装一个SafeHandle
+## 1. YetAnotherHttpHandler: Lifetime Is a Protocol, Beyond Wrapping a SafeHandle
 
-固定提交：`c386c1cc48d2e56711c15286cf2769353fdccf07`。
+Pinned commit: `c386c1cc48d2e56711c15286cf2769353fdccf07`.
 
-已读调用链片段：NativeHttpHandlerCore准备RequestContext/GCHandle → yaha_request_begin → Tokio spawn与取消select → 状态/数据/完成callback → RequestContext.Release → 线程池Dispose → request/context/runtime SafeHandle释放。
+Read excerpts of the call chain: NativeHttpHandlerCore prepares RequestContext/GCHandle → yaha_request_begin → Tokio spawn and cancellation select → status/data/completion callbacks → RequestContext.Release → Dispose on the thread pool → release of request/context/runtime SafeHandles.
 
-### INT-E001：父子native生命周期需要显式维持
+### INT-E001: Parent–Child Native Lifetimes Must Be Maintained Explicitly
 
-YahaContextSafeHandle持有runtime引用，YahaRequestContextSafeHandle持有context引用；SetParent执行DangerousAddRef，释放时调用native销毁后DangerousRelease。certificate callback的GCHandle由context持有到ReleaseHandle。
+YahaContextSafeHandle holds a runtime reference, and YahaRequestContextSafeHandle holds a context reference; SetParent calls DangerousAddRef, and release calls native destruction followed by DangerousRelease. The context holds the certificate callback's GCHandle until ReleaseHandle.
 
-这是该固定实现的源码观察，说明托管对象引用和原生使用期不是同一问题。它不证明所有使用点均有正确配对，也不意味着NativeWeave必须照搬同一SafeHandle层级。
+This source observation of the pinned implementation shows that managed object references and the duration of native use are distinct concerns. It does not prove that every use is correctly paired, nor does it mean NativeWeave must copy the same SafeHandle hierarchy.
 
-[实际源码](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/YahaSafeHandles.cs)
+[Actual source code](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/YahaSafeHandles.cs)
 
-### INT-E002：业务完成、GCHandle释放与native销毁有不同时间点
+### INT-E002: Business Operation Completion, GCHandle Release, and Native Destruction Occur at Different Times
 
-RequestContext.Allocate/Release处理managed GCHandle；完成入口finally中Release之后把Dispose放到managed线程池。代码明确保留native完成与native线程返回之间的释放次序。RequestContext的finalizer路径还等待完成事件，这与Unity domain reload背景有关；不应因上游存在该模式就把阻塞finalizer作为通用默认。
+RequestContext.Allocate/Release manages the managed GCHandle; in the completion entry point's finally block, Release is followed by scheduling Dispose on the managed thread pool. The code explicitly preserves the release ordering between native completion and the native thread's return. RequestContext's finalizer path also waits for a completion event, in the context of Unity domain reload; the existence of this upstream pattern should not make a blocking finalizer the general default.
 
-候选设计必须额外回答：回调尚未退出时谁持有上下文；Dispose从callback中调用会否等待自己；正常完成、失败、取消、shutdown各自如何推进静默。
+The candidate design must additionally answer: who holds the context before a callback exits; whether Dispose invoked from a callback could wait for itself; and how normal completion, failure, cancellation, and shutdown each advance toward quiescence.
 
-[RequestContext](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/RequestContext.cs)；[完成入口](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs#L526-L625)
+[RequestContext](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/RequestContext.cs); [completion entry point](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs#L526-L625)
 
-### INT-E003：背压跨FFI需要消费确认与数据有效期
+### INT-E003: Backpressure Across FFI Requires Consumption Acknowledgment and Data Validity Periods
 
-Rust响应循环将body frame交给on_receive，并等待oneshot确认；C# OnReceive在flush异步完成后调用CompleteTask，失败则传回错误。这让消费确认成为数据继续推进的条件。上传路径另有ArrayPool租借和CopyTo，不可用“Rust跨语言”概括成全链零拷贝。
+The Rust response loop passes a body frame to on_receive and waits for a oneshot acknowledgment; C# OnReceive calls CompleteTask after the asynchronous flush completes, or returns an error on failure. This makes consumption acknowledgment a condition for further data progress. The upload path also uses ArrayPool rentals and CopyTo; "Rust across languages" cannot be equated with end-to-end zero-copy operation.
 
-尚需完整追踪ResponseContext的实际复制策略、oneshot回收、取消发生在rx.await时的活性、consumer永不确认和runtime关闭。当前证据只证明存在该确认结构，未证明每种故障下最终回收。
+ResponseContext's actual copying strategy, oneshot reclamation, liveness when cancellation occurs during rx.await, a consumer that never acknowledges, and runtime shutdown still require complete tracing. The current evidence proves only that this acknowledgment structure exists, not eventual reclamation under every failure condition.
 
-[原生循环](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/native/yaha_native/src/binding.rs#L483-L719)；[managed接收](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs#L466-L523)
+[Native loop](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/native/yaha_native/src/binding.rs#L483-L719); [managed receive path](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/src/YetAnotherHttpHandler/NativeHttpHandlerCore.cs#L466-L523)
 
-### INT-E004：已有测试提供可复用的故障设计思路
+### INT-E004: Existing Tests Offer Reusable Ideas for Failure Scenarios
 
-CertificateVerificationCallbackLifetimeTest在TLS握手期间Dispose handler，尝试分配替代GCHandle，检查原callback仍保留且不会意外调用替代验证器。测试放入子进程，避免callback异常终止整个测试runner。
+CertificateVerificationCallbackLifetimeTest disposes the handler during a TLS handshake, attempts to allocate a replacement GCHandle, and checks that the original callback is retained and that the replacement validator is not called unexpectedly. The test runs in a subprocess to prevent a callback exception from terminating the entire test runner.
 
-这证明测试源码覆盖了一个具体生命周期情景，**不证明本次运行通过**；测试使用反射和dotnet test，并不是NativeWeave AOT验收。后续需为AOT制品设计可观测、进程隔离的对应fixture。
+This proves that the test source covers a specific lifetime scenario; **it does not prove a successful test run in this round**. The test uses reflection and dotnet test and is not NativeWeave AOT acceptance. Corresponding observable, process-isolated fixtures must later be designed for AOT artifacts.
 
-[已读测试前170行](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs#L1-L170)
+[First 170 lines of the test read](https://github.com/Cysharp/YetAnotherHttpHandler/blob/c386c1cc48d2e56711c15286cf2769353fdccf07/test/YetAnotherHttpHandler.Test/CertificateVerificationCallbackLifetimeTest.cs#L1-L170)
 
-## 2. csbindgen：语法绑定生成与安全契约生成不同
+## 2. csbindgen: Syntactic Binding Generation Differs from Safety Contract Generation
 
-固定提交：`b9eb1e84bb8185b78a4e8364fd948fee300329a7`。
+Pinned commit: `b9eb1e84bb8185b78a4e8364fd948fee300329a7`.
 
-INT-E005：所读emitter生成DllImport、指定calling convention/EntryPoint，并为bool加入U1 marshalling。枚举repr处理存在明确映射分支。**它不是已验证的NativeWeave LibraryImport/ownership/async生成流水线。**
+INT-E005: The emitter code read generates DllImport, specifies the calling convention/EntryPoint, and adds U1 marshalling for bool. Enum repr handling has explicit mapping branches. **This is not a verified NativeWeave LibraryImport/ownership/async generation pipeline.**
 
-DllImport不是天然不兼容AOT。需要比较blittable DllImport、LibraryImport与手工薄层，结合目标版本和marshaller行为。NativeWeave还需决定ABI描述的唯一来源、允许类型、诊断、按平台layout测试和生命周期注解；不能认为一个生成器自动解决所有安全问题。
+DllImport is not inherently incompatible with AOT. Blittable DllImport, LibraryImport, and a handwritten thin layer must be compared against the target version and marshaller behavior. NativeWeave must also determine the single source of truth for ABI descriptions, permitted types, diagnostics, per-platform layout tests, and lifetime annotations; a generator cannot be assumed to solve every safety problem automatically.
 
-[已读emitter行段](https://github.com/Cysharp/csbindgen/blob/b9eb1e84bb8185b78a4e8364fd948fee300329a7/csbindgen/src/emitter.rs#L145-L195)
+[Emitter line range read](https://github.com/Cysharp/csbindgen/blob/b9eb1e84bb8185b78a4e8364fd948fee300329a7/csbindgen/src/emitter.rs#L145-L195)
 
-parser、type_meta、负例测试、生成结果的AOT运行尚未深入完成。本次取回type_meta文件但未据此作语义结论；避免把“下载”计为“研究覆盖”。
+In-depth work on parser, type_meta, negative tests, and AOT execution of generated output remains incomplete. The type_meta file was retrieved in this round, but no semantic conclusion was drawn from it; "downloaded" must not count as "research coverage."
 
-## 3. 官方FFI边界约束
+## 3. Official FFI Boundary Constraints
 
-.NET官方建议优先评估LibraryImport、函数指针/UnmanagedCallersOnly、SafeHandle；具体匹配和生命周期仍由绑定负责。[互操作最佳实践](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/best-practices)
+Official .NET guidance recommends prioritizing evaluation of LibraryImport, function pointers/UnmanagedCallersOnly, and SafeHandle; the binding remains responsible for exact matching and lifetime management. [Interop best practices](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/best-practices)
 
-最新AOT文档明确UCO方法不执行marshalling。.NET11在启用runtime marshalling的情况下，native调用非blittable签名可能在进入callback体前fail-fast；正常异常catch不能修复错误签名。Direct P/Invoke的动态加载由OS控制，不使用DefaultDllImportSearchPaths。[AOT互操作](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/interop)
+The latest AOT documentation explicitly states that UCO methods do not perform marshalling. In .NET11 with runtime marshalling enabled, a native call to a non-blittable signature may fail-fast before entering the callback body; normal exception catching cannot repair an invalid signature. Dynamic loading for Direct P/Invoke is controlled by the OS and does not use DefaultDllImportSearchPaths. [AOT interop](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/interop)
 
-Rust官方将ABI和unwinding分开描述：panic=abort不受catch_unwind保护，外部异常不能随意穿越非unwind ABI。正常可恢复失败使用Result/status。[Rustonomicon](https://doc.rust-lang.org/nomicon/ffi.html)、[catch_unwind](https://doc.rust-lang.org/stable/std/panic/fn.catch_unwind.html)
+Official Rust documentation describes ABI and unwinding separately: panic=abort is not protected by catch_unwind, and foreign exceptions must not arbitrarily cross a non-unwind ABI. Normal recoverable failures use Result/status. [Rustonomicon](https://doc.rust-lang.org/nomicon/ffi.html), [catch_unwind](https://doc.rust-lang.org/stable/std/panic/fn.catch_unwind.html)
 
-## 4. 已真实执行的有限模型
+## 4. A Limited Model Actually Executed
 
-[实验说明](../../../experiments/async-quiescence/README.md)与[结果](../../../experiments/async-quiescence/result.json)记录一个有限状态模型：把“已发布取消结果”误当“可回收native context”会得到具体UAF轨迹；候选barrier在模型范围内消除了该反例。
+The [experiment description](../../../experiments/async-quiescence/README.md) and [results](../../../experiments/async-quiescence/result.json) record a finite-state model: incorrectly treating "cancellation result published" as "native context may be reclaimed" produces a concrete UAF trace; the candidate barrier eliminated that counterexample within the model's scope.
 
-模型不包含真实GCHandle、FFI、弱内存、线程调度或Windows/Linux AOT；它不使C-ASYNC/C-LIFETIME变成accepted。作用是为R08/R09/R15提供可质疑的起点。
+The model does not include real GCHandle behavior, FFI, weak memory, thread scheduling, or Windows/Linux AOT; it does not make C-ASYNC/C-LIFETIME accepted. Its purpose is to provide a starting point that can be challenged for R08/R09/R15.
 
-## 5. 接下来的完整路径与比较
+## 5. Subsequent Complete Paths and Comparisons
 
-- R03/R04：C/Rust/C#布局与调用探针；bool/enum/union、空buffer、32/64bit、回调calling convention。
-- R05/R06：csbindgen、Interoptopus、UniFFI、Diplomat、cbindgen、bindgen、CsWin32/ClangSharp，按实际能力与生成边界比较，不全引入。
-- R07/R08：Godot modules/mono和Qt for Python的对象身份、所有权与signal生命周期；仅种子，当前未作源码结论。
-- R09/R12：完整取消、同步完成、注册同步回调、关闭、执行器停止与回收链。
-- R10/R16：长度/容量单位、UTF8、零长度指针有效性、溢出、alias和allocator配对；fuzz和真正跨语言实验。
-- R11：panic/unwind/abort、managed callback异常、损坏状态后禁止继续使用；进程隔离负例。
-- R17/R18：不同引擎的端到端成本与接入通用性；不根据FFI微基准预选Rust。
+- R03/R04: C/Rust/C# layout and call probes; bool/enum/union, empty buffers, 32/64bit, and callback calling conventions.
+- R05/R06: csbindgen, Interoptopus, UniFFI, Diplomat, cbindgen, bindgen, and CsWin32/ClangSharp, compared by actual capabilities and generation boundaries, without introducing all of them.
+- R07/R08: object identity, ownership, and signal lifetimes in Godot modules/mono and Qt for Python; seeds only, with no source conclusions yet.
+- R09/R12: complete cancellation, synchronous completion, synchronous callbacks during registration, shutdown, executor stop, and reclamation chains.
+- R10/R16: length/capacity units, UTF8, validity of zero-length pointers, overflow, aliasing, and allocator pairing; fuzzing and actual cross-language experiments.
+- R11: panic/unwind/abort, managed callback exceptions, and prohibition of continued use after state corruption; process-isolated negative cases.
+- R17/R18: end-to-end cost and integration generality across different engines; do not preselect Rust based on FFI microbenchmarks.
 
-## 6. 当前限制与复用政策
+## 6. Current Limitations and Reuse Policy
 
-本轮未运行这些上游测试、未编译C#/Rust、未认证AOT。上游实现中的Unity适配、默认runtime、限长i32 buffer等都是研究对象，不自动成为NativeWeave约束。需要复制代码或引入依赖前，必须重新读取固定版本LICENSE并记录复用方式；本批只保存自己撰写的分析与永久链接。
+This round did not run these upstream tests, compile C#/Rust, or certify AOT. Unity adaptations, default runtimes, i32-limited buffers, and other features of upstream implementations are research subjects and do not automatically become NativeWeave constraints. Before copying code or introducing a dependency, the LICENSE at the pinned version must be read again and the reuse method recorded; this batch stores only original analysis and permanent links.

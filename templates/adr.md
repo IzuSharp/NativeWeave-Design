@@ -1,4 +1,4 @@
-# ADR-NNNN — 决策标题
+# ADR-NNNN — Decision title
 
 - Status: Proposed / Accepted / Superseded
 - Date:
@@ -7,20 +7,20 @@
 - Evidence IDs / pinned commits:
 - Contract versions / affected tasks:
 
-## 问题与约束
-描述真实需求与失败代价。
+## Problem and constraints
+Describe the actual requirements and the cost of failure.
 
-## 候选与反例
-包含不引入新抽象/原生引擎的基线；比较正确性、性能、内存、复杂度、支持和维护。
+## Candidates and counterexamples
+Include a baseline that introduces no new abstraction/native engine; compare correctness, performance, memory, complexity, support, and maintenance.
 
-## 决定或待决定
-明确稳定API/ABI和不承诺的部分；如果证据不足保留proposed。
+## Decision or decision pending
+Specify the stable API/ABI and what is not promised; retain proposed status if the evidence is insufficient.
 
-## 证明/实验
-命令、源码制品、平台、结果、未覆盖假设。
+## Proofs/experiments
+Commands, source artifacts, platforms, results, and assumptions not covered.
 
-## 兼容性与后果
-迁移、版本、独立Engine影响、回滚和被拒方案。
+## Compatibility and consequences
+Migration, versions, impact on independent Engines, rollback, and rejected alternatives.
 
-## 审查与处置
-发现ID、严重性、决定、修复、复验；作者不得独自接受重大决策。
+## Review and disposition
+Finding IDs, severity, decisions, fixes, and revalidation; authors must not accept significant decisions on their own.

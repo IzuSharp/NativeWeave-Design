@@ -33,9 +33,9 @@ D16 records the native method/lifetime boundary, supported semantics and explici
 
 The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
-## 固定源码入口与实际阅读
+## Pinned Source Entry Points and Actual Reading
 
-| Claim | 固定文件/来源 | 实际范围与证据类别 |
+| Claim | Pinned file/source | Actual scope and evidence category |
 | --- | --- | --- |
 | R24-C01 | [src/EFCore.Relational/Query/SqlNullabilityProcessor.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Query/SqlNullabilityProcessor.cs#L38-L79) | [[38, 79], [728, 751], [856, 879], [1118, 1141], [1398, 1421], [1875, 2015]]; source-observed; reader=database_design |
 | R24-C02 | [test/EFCore.Relational.Specification.Tests/Query/NullSemanticsQueryTestBase.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/EFCore.Relational.Specification.Tests/Query/NullSemanticsQueryTestBase.cs#L1628-L1656) | [[1628, 1656], [2081, 2113]]; test-source-observed; reader=database_design |
@@ -45,10 +45,10 @@ The following original source observations are retained with their original read
 | R24-C06 | [src/backend/sqlite/query.rs](https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/src/backend/sqlite/query.rs#L21-L47) | [[21, 47], [65, 86]]; source-observed; reader=database_design |
 | R24-C07 | [tests/postgres/query.rs](https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/tests/postgres/query.rs#L5-L48) | [[5, 48], [166, 184]]; test-source-observed; reader=database_design |
 | R24-C08 | [LICENSE-MIT](https://github.com/SeaQL/sea-query/blob/f2d5e04d30919c342da1f8845ff1fde46e3308fc/LICENSE-MIT#L1-L25) | [[1, 25]]; license-text-observed; reader=database_design |
-| R24-C09 | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types | 定位见evidence; official-documentation-observed; reader=database_design |
-| R24-C10 | https://www.sqlite.org/lang_expr.html | 定位见evidence; official-documentation-observed; reader=database_design |
+| R24-C09 | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types | See evidence for location; official-documentation-observed; reader=database_design |
+| R24-C10 | https://www.sqlite.org/lang_expr.html | See evidence for location; official-documentation-observed; reader=database_design |
 | R24-C11 | [sqlite_semantics_probe.py](sqlite_semantics_probe.py) | actual script SHA-256 `f78a340af85a34b16464531b0ad6c3249f33aeda1d8d11e9dff4e8e51570b455`; result/logs in [evidence.json](evidence.json); executed-reference-experiment; reader=database_design |
-| R24-V1 | [refs/tags/1.0.2](https://api.github.com/repos/SeaQL/sea-query/git/refs/tags/1.0.2) | 定位见evidence; release-tag-metadata-observed; reader=database_design |
+| R24-V1 | [refs/tags/1.0.2](https://api.github.com/repos/SeaQL/sea-query/git/refs/tags/1.0.2) | See evidence for location; release-tag-metadata-observed; reader=database_design |
 | R24-RU01 | [src/query/helper.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/query/helper.rs#L625-L810) | [[625, 810], [811, 838]]; source-observed; reader=/root/database_design |
 | R24-RU02 | [src/entity/relation.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/relation.rs#L1-L145) | [[1, 145], [301, 326]]; source-observed; reader=/root/database_design |
 | R24-RU03 | [src/executor/select.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/executor/select.rs#L266-L324) | [[266, 324], [869, 925]]; source-observed; reader=/root/database_design |

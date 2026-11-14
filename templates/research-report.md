@@ -1,31 +1,31 @@
-# Rxx — 专题标题
+# Rxx — Topic title
 
-状态：research-draft；作者：；日期：；输入提交：。
+Status: research-draft; author: ; date: ; input commit: .
 
-## 研究问题与边界
-列出要证实/否定的问题、非目标及与其他R任务的交叉接口。
+## Research questions and boundaries
+List the questions to confirm/refute, non-goals, and interfaces shared with other R tasks.
 
-## 源码证据表
-| Evidence ID | repo@完整SHA（可附tag） | 文件/符号/行段 | 实际已读范围 | 结论分类 | 尚缺路径 |
+## Source evidence table
+| Evidence ID | repo@full SHA (optional tag) | File/symbol/line range | Scope actually read | Conclusion category | Paths still missing |
 | --- | --- | --- | --- | --- | --- |
 
-## 调用链
-公共API→适配→ABI→实现→状态→错误→释放→测试；区分实际跟踪和待追踪步骤。
+## Call chain
+Public API → adaptation → ABI → implementation → state → error → release → tests; distinguish steps actually traced from those still to be traced.
 
-## 对比
-至少覆盖纯C# AOT及合理原生候选；列正确性、成本、能力、许可证和维护负担，不能只有优点。
+## Comparison
+Cover at least pure C# AOT and reasonable native candidates; list correctness, costs, capabilities, licenses, and maintenance burden, not just advantages.
 
-## 异常与竞争
-逐条列本任务要求的取消、关闭、重入、断线、空/超长输入等反例和预期。
+## Exceptions and races
+List individually the counterexamples and expectations required by this task for cancellation, shutdown, reentrancy, disconnection, empty/oversized input, and similar cases.
 
-## 实验/证明
-给假设、不变量、代码位置、命令、环境、退出码和日志；未运行写not_run。
+## Experiments/proofs
+Provide assumptions, invariants, code locations, commands, environments, exit codes, and logs; use not_run when not executed.
 
-## 结论
-分source_confirmed/test_confirmed/official_doc_confirmed/inferred/pending/refuted。
+## Conclusions
+Classify as source_confirmed/test_confirmed/official_doc_confirmed/inferred/pending/refuted.
 
-## Design / Plan 输出
-契约ID/版本、候选API、需编制的D任务、实现验收与影响范围。
+## Design / Plan outputs
+Contract IDs/versions, candidate APIs, D tasks to prepare, implementation acceptance, and impact scope.
 
-## 覆盖/许可证/独立审查
-已读/未读清单；复用风险；发现ID与下一步。不得自行把原设计标最终接受。
+## Coverage/licenses/independent review
+Read/unread inventory; reuse risks; finding IDs and next steps. Do not unilaterally mark the original design as finally accepted.

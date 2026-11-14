@@ -33,9 +33,9 @@ Retrying a transaction remains an explicit business decision; no transparent rep
 
 The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
-## 固定源码入口与实际阅读
+## Pinned Source Entry Points and Actual Reading
 
-| Claim | 固定文件/来源 | 实际范围与证据类别 |
+| Claim | Pinned file/source | Actual scope and evidence category |
 | --- | --- | --- |
 | R21-C01 | [src/Npgsql/NpgsqlTransaction.cs](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/NpgsqlTransaction.cs#L120-L230) | [[120, 230], [290, 390]]; source-observed; reader=database_design |
 | R21-C02 | [src/Npgsql/Internal/NpgsqlConnector.cs](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/NpgsqlConnector.cs#L2075-L2258) | [[2075, 2258], [2706, 2810], [2936, 2993]]; source-observed; reader=database_design |
@@ -45,9 +45,9 @@ The following original source observations are retained with their original read
 | R21-C06 | [test/Npgsql.Tests/TransactionTests.cs](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/test/Npgsql.Tests/TransactionTests.cs#L36-L58) | [[36, 58], [65, 87], [94, 116], [123, 145]]; test-source-observed; reader=database_design |
 | R21-C07 | [sqlx-core/src/pool/connection.rs](https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-core/src/pool/connection.rs#L130-L163) | [[130, 163], [195, 225], [271, 369]]; source-observed; reader=database_design |
 | R21-C08 | [sqlx-postgres/src/connection/mod.rs](https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-postgres/src/connection/mod.rs#L81-L108) | [[81, 108], [180, 207], [211, 258]]; source-observed; reader=database_design |
-| R21-C09 | https://www.postgresql.org/docs/18/transaction-iso.html | 定位见evidence; official-documentation-observed; reader=database_design |
-| R21-C10 | https://www.postgresql.org/docs/18/sql-insert.html | 定位见evidence; official-documentation-observed; reader=database_design |
-| R21-C11 | [LICENSE-MIT](https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/LICENSE-MIT) | 定位见evidence; license-text-observed; reader=database_design |
+| R21-C09 | https://www.postgresql.org/docs/18/transaction-iso.html | See evidence for location; official-documentation-observed; reader=database_design |
+| R21-C10 | https://www.postgresql.org/docs/18/sql-insert.html | See evidence for location; official-documentation-observed; reader=database_design |
+| R21-C11 | [LICENSE-MIT](https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/LICENSE-MIT) | See evidence for location; license-text-observed; reader=database_design |
 | R21-RU01 | [src/database/transaction.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/transaction.rs#L1-L112) | [[1, 112], [238, 410]]; source-observed; reader=/root/database_design |
 | R21-RU02 | [src/database/connection.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/connection.rs#L1-L88) | [[1, 88], [167, 251]]; source-observed; reader=/root/database_design |
 | R21-RU03 | [sqlx-core/src/transaction.rs](https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-core/src/transaction.rs#L1-L150) | [[1, 150], [260, 292]]; source-observed; reader=/root/database_design |

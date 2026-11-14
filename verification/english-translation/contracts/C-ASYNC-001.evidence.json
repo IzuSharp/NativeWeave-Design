@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-ASYNC-001",
+    "version": "0.3.0",
+    "content_sha256": "dd7138080915f25a8063cb7bca04379cbafc5cab70ae22e25360527d0e6fc16b"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T04:02:49.563077+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/english-translation/contracts/C-ASYNC-001.inputs.json",
+    "sha256": "00c4b04d67c88df301e51c446851a08af7089118bc5cd7133f67f328af80b86c"
+  },
+  "scope": "Committed English inputs, preserved original accepted research/design evidence, and actual independent translation-equivalence review; no new experiment or product result.",
+  "prior_accepted_evidence": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ASYNC-001.evidence.json",
+      "sha256": "8b5ffacfca4892ab91c090c0930218af27b3cb185f762579b5569476b87b59c0"
+    }
+  ],
+  "prior_accepted_reviews": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ASYNC-001.review.json",
+      "sha256": "5873f7714a76ae94d8c30c63c46e0b77d5cc9d441edfbf0f726ace69839a3617"
+    }
+  ]
+}

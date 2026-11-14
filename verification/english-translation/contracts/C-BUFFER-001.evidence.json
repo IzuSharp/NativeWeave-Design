@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-BUFFER-001",
+    "version": "0.3.0",
+    "content_sha256": "38ac67033a52f1318c7225b92cd595339c03d9c45dadd85a8bd07e3ddbf99626"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T04:02:49.563077+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/english-translation/contracts/C-BUFFER-001.inputs.json",
+    "sha256": "1e5171bedd4838a999073536fc2877a513bd26ded886c2486ca0ca4f793665c0"
+  },
+  "scope": "Committed English inputs, preserved original accepted research/design evidence, and actual independent translation-equivalence review; no new experiment or product result.",
+  "prior_accepted_evidence": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUFFER-001.evidence.json",
+      "sha256": "0dffe09a81c5128dbc560df36655a3b56203ccfb0e467d738209421d2a9641fb"
+    }
+  ],
+  "prior_accepted_reviews": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUFFER-001.review.json",
+      "sha256": "a36ac5e00c5a20327c3ce20417822aa01a8217139a6b38f92f93531afb8fe632"
+    }
+  ]
+}

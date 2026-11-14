@@ -1,0 +1,709 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/translate_research",
+  "reviewed_at_utc": "2026-11-14T03:57:43Z",
+  "decision": "accepted",
+  "blocking_findings": [],
+  "scope": "Independent bilingual semantic-equivalence and completeness review for the English translation. Existing accepted research and detailed-design conclusions, versions, architecture, obligations and evidence boundaries are preserved. This is a new review of the exact translated content for acceptance-binding migration, not a claim that historical reviewers reviewed the new hashes, not a fresh technical experiment, and not product implementation or release acceptance.",
+  "source_baselines": {
+    "NativeWeave-Design": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+    "Plan": "eff98a38068478cd4c2abb4ea66c62330156941b"
+  },
+  "new_experiments_run": false,
+  "product_implementation_authorized": false,
+  "delivery_acceptance_granted": false,
+  "review_id": "EN-INDEPENDENT-CONTRACTS-2026-11-14",
+  "review_method": [
+    "Read every changed line of all 12 peer-translated Design files against the original accepted checkpoint; all paragraph, heading, list and table changes were included, not a sample.",
+    "For the 11 already-English contract specifications, verified byte identity with the accepted source and checked the original registry content hashes and original independent accepted review subjects and hashes.",
+    "Checked retained limitations, candidate and historical status, Core ownership/admission/quiescence distinctions, asynchronous terminal and cleanup ordering, database Unknown outcomes, Rust-required boundaries, budgets and unexecuted Delivery obligations.",
+    "Checked full-file line counts, link destinations, numeric and inline-code multisets, absence of CJK/fullwidth prose punctuation and preservation of executable example code; only natural-language comments changed.",
+    "Reported three wording findings to the translation author; reread all corrected lines and their context in the integrated frozen tree before recording acceptance."
+  ],
+  "review_inputs_sha256": {
+    "NativeWeave-Design:docs/architecture/candidate-boundaries.md": "b01607b0f911690449bbd1b07b41843cbffad8d21a0a3731a7ce83f486baff39",
+    "NativeWeave-Design:docs/contracts/abi-v0.1.md": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+    "NativeWeave-Design:docs/contracts/async-v0.1.md": "dd7138080915f25a8063cb7bca04379cbafc5cab70ae22e25360527d0e6fc16b",
+    "NativeWeave-Design:docs/contracts/buffer-v0.1.md": "38ac67033a52f1318c7225b92cd595339c03d9c45dadd85a8bd07e3ddbf99626",
+    "NativeWeave-Design:docs/contracts/callback-v0.1.md": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074",
+    "NativeWeave-Design:docs/contracts/concurrency-v0.1.md": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+    "NativeWeave-Design:docs/contracts/error-v0.1.md": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+    "NativeWeave-Design:docs/contracts/lifetime-v0.1.md": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
+    "NativeWeave-Design:docs/database/drivers.md": "28f1895d40b423ffcc2ee0e17c3841f70130ed773a9cdabefaf071d4251c2086",
+    "NativeWeave-Design:docs/database/query-semantics.md": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+    "NativeWeave-Design:docs/database/transactions-and-pooling.md": "514c13d42579aa8f49a43e924540437be19c8890d487f4dca224de893d0641ff",
+    "NativeWeave-Design:docs/extension/engine-integration.md": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+    "NativeWeave-Design:docs/extension/future-platforms.md": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+    "NativeWeave-Design:docs/generators/binding-pipeline.md": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+    "NativeWeave-Design:docs/generators/query-generation.md": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+    "NativeWeave-Design:docs/performance/methodology.md": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+    "NativeWeave-Design:docs/platforms/build-package-release.md": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+    "NativeWeave-Design:docs/platforms/support-and-aot.md": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+    "NativeWeave-Design:docs/server/hosting-and-streaming.md": "3381cd77a01bfe8467c611ff1b625decc45b46ba34705e8a67f136affb7b0543",
+    "NativeWeave-Design:docs/server/protocols-and-observability.md": "701aa6cbe88e110c4f11d0d8134504c547f093c76987f8ecc7b3302afae29b51",
+    "NativeWeave-Design:docs/verification/evidence-policy.md": "20c6cce20607b31d2cc2987b7b271ac6c064baeedc8a573b8d6b169969691591",
+    "NativeWeave-Design:docs/verification/models-and-matrix.md": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+    "NativeWeave-Design:docs/verification/reference-application.md": "9db34505d5a7ab167fd1ddc7489de677e9cca5a7288a61b77262480d427b0e9e"
+  },
+  "contract_reviews": [
+    {
+      "id": "C-PLATFORM-001",
+      "version": "0.3.0",
+      "spec_path": "docs/platforms/support-and-aot.md",
+      "content_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-ABI-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/abi-v0.1.md",
+      "content_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-BINDING-001",
+      "version": "0.3.0",
+      "spec_path": "docs/generators/binding-pipeline.md",
+      "content_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-LIFETIME-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/lifetime-v0.1.md",
+      "content_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-CALLBACK-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/callback-v0.1.md",
+      "content_sha256": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-ASYNC-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/async-v0.1.md",
+      "content_sha256": "dd7138080915f25a8063cb7bca04379cbafc5cab70ae22e25360527d0e6fc16b",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-BUFFER-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/buffer-v0.1.md",
+      "content_sha256": "38ac67033a52f1318c7225b92cd595339c03d9c45dadd85a8bd07e3ddbf99626",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-ERROR-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/error-v0.1.md",
+      "content_sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-CONCURRENCY-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/concurrency-v0.1.md",
+      "content_sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-BUILD-001",
+      "version": "0.3.0",
+      "spec_path": "docs/platforms/build-package-release.md",
+      "content_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-ENGINE-001",
+      "version": "0.3.0",
+      "spec_path": "docs/extension/engine-integration.md",
+      "content_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-VERIFY-001",
+      "version": "0.3.0",
+      "spec_path": "docs/verification/models-and-matrix.md",
+      "content_sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-PERF-001",
+      "version": "0.3.0",
+      "spec_path": "docs/performance/methodology.md",
+      "content_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-DB-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/drivers.md",
+      "content_sha256": "28f1895d40b423ffcc2ee0e17c3841f70130ed773a9cdabefaf071d4251c2086",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-TX-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/transactions-and-pooling.md",
+      "content_sha256": "514c13d42579aa8f49a43e924540437be19c8890d487f4dca224de893d0641ff",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-QUERY-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/query-semantics.md",
+      "content_sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-QUERYGEN-001",
+      "version": "0.3.0",
+      "spec_path": "docs/generators/query-generation.md",
+      "content_sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-SERVER-001",
+      "version": "0.3.0",
+      "spec_path": "docs/server/hosting-and-streaming.md",
+      "content_sha256": "3381cd77a01bfe8467c611ff1b625decc45b46ba34705e8a67f136affb7b0543",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-PROTOCOL-001",
+      "version": "0.3.0",
+      "spec_path": "docs/server/protocols-and-observability.md",
+      "content_sha256": "701aa6cbe88e110c4f11d0d8134504c547f093c76987f8ecc7b3302afae29b51",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-REFERENCE-001",
+      "version": "0.3.0",
+      "spec_path": "docs/verification/reference-application.md",
+      "content_sha256": "9db34505d5a7ab167fd1ddc7489de677e9cca5a7288a61b77262480d427b0e9e",
+      "decision": "accepted",
+      "notes": "Every translated passage was compared with the accepted source; all technical conclusions, qualifiers, interfaces, numbers and future verification obligations are semantically equivalent. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    },
+    {
+      "id": "C-EXTENSION-001",
+      "version": "0.3.0",
+      "spec_path": "docs/extension/future-platforms.md",
+      "content_sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "decision": "accepted",
+      "notes": "The current specification is byte-identical to the accepted English source; original content and accepted-review bindings were verified. This decision accepts translation-equivalent detailed design only and retains the existing technical acceptance scope, without new experimental claims."
+    }
+  ],
+  "translation_reviews": [
+    {
+      "path": "NativeWeave-Design:docs/architecture/candidate-boundaries.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "34aa0c69b2bc3638f6a1b3e3a8b51ad734d4c425a7d5eb0428a46a2b3c910498",
+      "target_sha256": "b01607b0f911690449bbd1b07b41843cbffad8d21a0a3731a7ce83f486baff39",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/async-v0.1.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "target_sha256": "dd7138080915f25a8063cb7bca04379cbafc5cab70ae22e25360527d0e6fc16b",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/buffer-v0.1.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "target_sha256": "38ac67033a52f1318c7225b92cd595339c03d9c45dadd85a8bd07e3ddbf99626",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/callback-v0.1.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "target_sha256": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/error-v0.1.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "target_sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/lifetime-v0.1.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "03c9262018f9ab9f2b66f32ccddc4010d89565b2dbff6d108221b5b4d9542558",
+      "target_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/database/drivers.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "target_sha256": "28f1895d40b423ffcc2ee0e17c3841f70130ed773a9cdabefaf071d4251c2086",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/database/transactions-and-pooling.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "target_sha256": "514c13d42579aa8f49a43e924540437be19c8890d487f4dca224de893d0641ff",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/server/hosting-and-streaming.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "target_sha256": "3381cd77a01bfe8467c611ff1b625decc45b46ba34705e8a67f136affb7b0543",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/server/protocols-and-observability.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "target_sha256": "701aa6cbe88e110c4f11d0d8134504c547f093c76987f8ecc7b3302afae29b51",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/verification/evidence-policy.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "f6c343fa613a282f837218f913fe5a1b850f82ab37ba40f254943b868f50ff4f",
+      "target_sha256": "20c6cce20607b31d2cc2987b7b271ac6c064baeedc8a573b8d6b169969691591",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    },
+    {
+      "path": "NativeWeave-Design:docs/verification/reference-application.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "target_sha256": "9db34505d5a7ab167fd1ddc7489de677e9cca5a7288a61b77262480d427b0e9e",
+      "translation_author": "/root/translate_contracts",
+      "decision": "accepted",
+      "notes": "Complete source/target changed-line semantic review; structure, references, numeric constraints and remaining product obligations preserved. Findings affecting this file, if any, are resolved in the findings list."
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-REV-R01",
+      "status": "resolved",
+      "severity": "wording_clarification",
+      "path": "NativeWeave-Design:docs/database/transactions-and-pooling.md",
+      "location": "CommitAsync example comment",
+      "finding": "The initial translation used before commit dispatch for the source local admission boundary, potentially suggesting a later transport-send point.",
+      "resolution": "The author changed the comment to token controls admission only before commit is admitted. The final integrated comment and conservative admission-boundary context were reread.",
+      "author_fix_commit": "b83d506cb762074693bf941f3246156205ddcce3"
+    },
+    {
+      "id": "EN-REV-R02",
+      "status": "resolved",
+      "severity": "wording_clarification",
+      "path": "NativeWeave-Design:docs/database/transactions-and-pooling.md",
+      "location": "TX-V02 acceptance row",
+      "finding": "Never committed could imply knowledge of durable noncommit, while the source condition is that the framework never attempted commit (CommitAttempted=false).",
+      "resolution": "The author changed the phrase to Commit never attempted. The final row and the distinct transaction-outcome/local-cleanup states were reread.",
+      "author_fix_commit": "b83d506cb762074693bf941f3246156205ddcce3"
+    },
+    {
+      "id": "EN-REV-R03",
+      "status": "resolved",
+      "severity": "modal_precision",
+      "path": "NativeWeave-Design:docs/architecture/candidate-boundaries.md",
+      "location": "Section 1 introductory sentence",
+      "finding": "Evaluate four independent aspects rendered an explicit historical draft recommendation as an imperative.",
+      "resolution": "The author changed it to We recommend evaluating four independent aspects, retaining the original recommendation and draft status. Final integrated bytes were reread.",
+      "author_fix_commit": "49f38afcc03d3c513cc696a2a90a0d5b2cc91737"
+    }
+  ],
+  "prior_accepted_source_checks": [
+    {
+      "id": "C-PLATFORM-001",
+      "version": "0.3.0",
+      "spec_path": "docs/platforms/support-and-aot.md",
+      "source_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "target_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PLATFORM-001.review.json",
+          "sha256": "823f6507c10309a0f9deb8f2d90d43f8ee8be3e6d410705348e9896ec48c9329",
+          "reviewer": "/root/database_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-ABI-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/abi-v0.1.md",
+      "source_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "target_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.review.json",
+          "sha256": "96dc29d3b088d4ec8881dff5989924200dc2b6e9336fd0958b1bf84bf12610e6",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-BINDING-001",
+      "version": "0.3.0",
+      "spec_path": "docs/generators/binding-pipeline.md",
+      "source_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "target_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BINDING-001.review.json",
+          "sha256": "100eeb369dcfabcc8f59fb24f0deafc8eb567b8df54a835218957ebfa683025c",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-LIFETIME-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/lifetime-v0.1.md",
+      "source_sha256": "03c9262018f9ab9f2b66f32ccddc4010d89565b2dbff6d108221b5b4d9542558",
+      "target_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-LIFETIME-001.review.json",
+          "sha256": "e8fad319335c30b0e23e285d31f9d3eb4b455c3e47e55b9f5f9aaf761dd08d6b",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-CALLBACK-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/callback-v0.1.md",
+      "source_sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "target_sha256": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-CALLBACK-001.review.json",
+          "sha256": "123b63d0542fa2fb5939f37649a91898ed6092a00d44e357c9f59084f65f3459",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-ASYNC-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/async-v0.1.md",
+      "source_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "target_sha256": "dd7138080915f25a8063cb7bca04379cbafc5cab70ae22e25360527d0e6fc16b",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ASYNC-001.review.json",
+          "sha256": "5873f7714a76ae94d8c30c63c46e0b77d5cc9d441edfbf0f726ace69839a3617",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-BUFFER-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/buffer-v0.1.md",
+      "source_sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "target_sha256": "38ac67033a52f1318c7225b92cd595339c03d9c45dadd85a8bd07e3ddbf99626",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUFFER-001.review.json",
+          "sha256": "a36ac5e00c5a20327c3ce20417822aa01a8217139a6b38f92f93531afb8fe632",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-ERROR-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/error-v0.1.md",
+      "source_sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "target_sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ERROR-001.review.json",
+          "sha256": "0d08b21977360a5ebac8c74ff280f244715af5e7290747ebf24831f94bc6a928",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-CONCURRENCY-001",
+      "version": "0.3.0",
+      "spec_path": "docs/contracts/concurrency-v0.1.md",
+      "source_sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "target_sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-CONCURRENCY-001.review.json",
+          "sha256": "7852e93f1d79afb1f1f94a78c9e334883b2ee26e190750e684b0900158109b20",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-BUILD-001",
+      "version": "0.3.0",
+      "spec_path": "docs/platforms/build-package-release.md",
+      "source_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "target_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUILD-001.review.json",
+          "sha256": "8abcbb60e3f7dd1c7148a245ab84e7ca96f4ad1984c2d6c7479784cbc6b66c61",
+          "reviewer": "/root/database_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-ENGINE-001",
+      "version": "0.3.0",
+      "spec_path": "docs/extension/engine-integration.md",
+      "source_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "target_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ENGINE-001.review.json",
+          "sha256": "fffe4fb273341457413fa323b60bd813290966315bffe285f6be90ddbe8f8ec9",
+          "reviewer": "/root/database_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-VERIFY-001",
+      "version": "0.3.0",
+      "spec_path": "docs/verification/models-and-matrix.md",
+      "source_sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+      "target_sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-VERIFY-001.review.json",
+          "sha256": "79163ea51da801f8ad19bf44573e5ea162b8599d9b871eac2df22dde37a0d972",
+          "reviewer": "/root/interop_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-PERF-001",
+      "version": "0.3.0",
+      "spec_path": "docs/performance/methodology.md",
+      "source_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+      "target_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PERF-001.review.json",
+          "sha256": "4394741d4054812d7c7e302d7f45e9abe8653e3009c0265b165bdbefb1ee1b84",
+          "reviewer": "/root/database_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-DB-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/drivers.md",
+      "source_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "target_sha256": "28f1895d40b423ffcc2ee0e17c3841f70130ed773a9cdabefaf071d4251c2086",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-DB-001.review.json",
+          "sha256": "fddc0d18102e84795f0d858774740adfaf267a6d535f1a804b66c2205a4f9981",
+          "reviewer": "/root/database_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-TX-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/transactions-and-pooling.md",
+      "source_sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "target_sha256": "514c13d42579aa8f49a43e924540437be19c8890d487f4dca224de893d0641ff",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-TX-001.review.json",
+          "sha256": "14b96d2b8c53753a942796c7bdb09dedd598d42b0b84ae21de87db4872e9fbd4",
+          "reviewer": "/root/database_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-QUERY-001",
+      "version": "0.3.0",
+      "spec_path": "docs/database/query-semantics.md",
+      "source_sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "target_sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-QUERY-001.review.json",
+          "sha256": "cf947adf9e4a1abef7db9d68f11cae25e968de1a25e64733d1cb35994707ce4e",
+          "reviewer": "/root/database_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-QUERYGEN-001",
+      "version": "0.3.0",
+      "spec_path": "docs/generators/query-generation.md",
+      "source_sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "target_sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-QUERYGEN-001.review.json",
+          "sha256": "be3771dc9581cff5e616974f195ded3b3a011255985c908a26abe5f15328a951",
+          "reviewer": "/root/database_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-SERVER-001",
+      "version": "0.3.0",
+      "spec_path": "docs/server/hosting-and-streaming.md",
+      "source_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "target_sha256": "3381cd77a01bfe8467c611ff1b625decc45b46ba34705e8a67f136affb7b0543",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-SERVER-001.review.json",
+          "sha256": "851c76fbcb415c6949e87d42147913d250f506fd2b657fdd22213e22ee9346a2",
+          "reviewer": "/root/server_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-PROTOCOL-001",
+      "version": "0.3.0",
+      "spec_path": "docs/server/protocols-and-observability.md",
+      "source_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "target_sha256": "701aa6cbe88e110c4f11d0d8134504c547f093c76987f8ecc7b3302afae29b51",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PROTOCOL-001.review.json",
+          "sha256": "b725866ee1c2a7912b030dd94e1dfc13e893cb60aa65acc388fadd1a09dc41ef",
+          "reviewer": "/root/server_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-REFERENCE-001",
+      "version": "0.3.0",
+      "spec_path": "docs/verification/reference-application.md",
+      "source_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "target_sha256": "9db34505d5a7ab167fd1ddc7489de677e9cca5a7288a61b77262480d427b0e9e",
+      "unchanged_accepted_english_bytes": false,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-REFERENCE-001.review.json",
+          "sha256": "0d92daff4cd92f79b0f125d3780e77c97dcd74917943e1d5848d66c78bd0aab4",
+          "reviewer": "/root/server_review",
+          "verdict": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "C-EXTENSION-001",
+      "version": "0.3.0",
+      "spec_path": "docs/extension/future-platforms.md",
+      "source_sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "target_sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "unchanged_accepted_english_bytes": true,
+      "prior_reviews_verified": [
+        {
+          "path": "NativeWeave-Design:verification/design-acceptance/contracts/C-EXTENSION-001.review.json",
+          "sha256": "3c5d72b83218faacb947b55b3f46b99d6498b1fd38077b1c414aa6367deea3a0",
+          "reviewer": "/root/server_review",
+          "verdict": "accepted"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "registered_contracts": 21,
+    "translated_contracts": 10,
+    "byte_identical_english_contracts": 11,
+    "additional_current_design_documents": 2,
+    "translated_files_reviewed": 12,
+    "residual_cjk_in_reviewed_current_files": 0
+  },
+  "limitations": [
+    "The review preserves the scope of original accepted research and detailed design. It does not rerun experiments, establish fresh platform or runtime behavior, implement Delivery tasks, or claim product release readiness."
+  ]
+}

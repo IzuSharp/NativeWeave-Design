@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-ABI-001",
+    "version": "0.3.0",
+    "content_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T04:02:49.563077+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/english-translation/contracts/C-ABI-001.inputs.json",
+    "sha256": "c161df9541c3b028f9e6f83fdbabb392889fd02bb36613ccdc2781ce23adddca"
+  },
+  "scope": "Committed English inputs, preserved original accepted research/design evidence, and actual independent translation-equivalence review; no new experiment or product result.",
+  "prior_accepted_evidence": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.evidence.json",
+      "sha256": "9fc436bbc2bed8b1f91270b9331abf8d591778828cd796df63505b2a899938d9"
+    }
+  ],
+  "prior_accepted_reviews": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.review.json",
+      "sha256": "96dc29d3b088d4ec8881dff5989924200dc2b6e9336fd0958b1bf84bf12610e6"
+    }
+  ]
+}

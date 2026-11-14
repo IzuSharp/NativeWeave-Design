@@ -1,0 +1,503 @@
+{
+  "reviewer": "/root/translate_plan",
+  "review_type": "independent_translation_migration_integrity_review",
+  "reviewed_at_utc": "2026-11-14T04:09:18.174543+00:00",
+  "state": "design_migration_integrity_review_complete",
+  "decision": "accepted",
+  "scope": "The actually inspected Design English migration, its current 21 accepted contract bindings, the shared migration/checker implementation, and the recorded manifest/guide/CI configuration snapshots. Plan task-binding migration and final GitHub CI/merge outcomes are not yet reviewed or accepted by this report.",
+  "observations": [
+    "New migration records use new directories; original accepted wrappers/reviews are not rewritten by the migration implementation.",
+    "create_records compares every required input byte with the specified Git source commit and builds dependency snapshots in topological order.",
+    "Preparation and acceptance are separate, and original.accept requires a verdict from the same recorded independent reviewer over the exact evidence/review manifest hashes.",
+    "The new per-file coverage verifier checks reviewer != translation_author; actual author assignments in the not-yet-created manifest remain to be examined.",
+    "The proposed narrow JSON projection removes only hash/source/review binding metadata, retaining all content, versions, IDs, statuses, authorization, dependencies and paths. Removed metadata must pass the independent acceptance gate.",
+    "The complete manifest path/author lists and immutable-original classifications were read. They exactly partition the baseline CJK inventories: Design 64 translated + 16 immutable; Plan 140 translated + 6 immutable. No pre-existing non-English file is omitted.",
+    "The explicit R31 normalization maps only compare three technical paths to compare 3 technical paths in the numeric checker for research-tasks/R31.md. The complete source sentence states the quantity 3; the translated sentence states the same quantity as three. The source/target file hashes and independent review remain mandatory, and a changed quantity four was independently rejected.",
+    "The Design workflow checks out the actual PR head/push SHA with full history and read-only contents permissions, then runs strict verification without --preflight. The existing Plan workflow retains every old command and adds four strict translation/provenance/completion gates. No native experiment execution was introduced.",
+    "The final Design acceptance index was reread after root applied acceptance: all 21 contracts are accepted, every previously inspected one of the 63 records is byte-identical, and the original contract reviewer exact attestation matches all 21 evidence/review pairs.",
+    "This report does not bind a final complete registry/graph SHA into the corresponding review cycle. Their full bytes are in the translation manifest; semantic projections and independent actual binding attestations serve their separate roles."
+  ],
+  "findings": [
+    {
+      "id": "EN-MIG-P01",
+      "severity": "must_fix_for_complete_provenance_verification",
+      "status": "resolved_after_author_fix_and_independent_readback",
+      "issue": "New translation_provenance/prior_accepted_evidence/prior_accepted_reviews/index prior_acceptance fields are written during preparation but the inherited verification and acceptance paths do not compare those values with the fixed historical accepted baseline.",
+      "requested_fix": "Validate exact prior subjects, index and wrapper/evidence identities against baseline on prepare, verify and accept.",
+      "resolution": "Read the added provenance checks in prepare/verify/accept and the standalone Design verifier. Independently compared all 21 actual prior subjects, index identities, old evidence/reviews and new wrapper provenance against the fixed accepted baseline; all match."
+    },
+    {
+      "id": "EN-MIG-P02",
+      "severity": "resolved_implementation_observation",
+      "status": "resolved_after_author_fix_and_independent_readback",
+      "issue": "Historical subject author fields alone do not establish translator/reviewer independence.",
+      "resolution": "Actual manifests identify the correct translation authors. Every one of the 64 Design and 140 Plan translated entries has an exact accepted review by a different actual executor, including the narrow JSON projection cases. This remains a scoped executor review, not GitHub-account identity authentication."
+    },
+    {
+      "id": "EN-MIG-P03",
+      "severity": "must_fix_for_claimed_code_preservation",
+      "status": "resolved_after_author_fix_and_independent_readback",
+      "issue": "binding_text_paths bypasses all inline-code comparison rather than only the migrated current contract SHA literals.",
+      "requested_fix": "Normalize only the declared SHA-256 hash literals, then compare every inline-code token normally.",
+      "resolution": "Only labelled SHA-256 literals are normalized before all inline-code token comparison. A changed SafeHandle token was correctly rejected despite an allowed migrated hash."
+    },
+    {
+      "id": "EN-MIG-P04",
+      "severity": "must_fix_for_valid_translation_acceptance",
+      "status": "resolved_after_author_fix_and_independent_readback",
+      "issue": "Translated SQL -- comments are rejected by a //-only stripping rule. Unconditional // stripping can also erase executable string content such as URLs.",
+      "requested_fix": "Allow the actual C#/Rust // and SQL -- comment translations with unchanged executable prefix/content, without stripping comment markers from string literals.",
+      "resolution": "Conservative comment rules preserve executable prefixes and disallow quoted prefixes for inline comments. Legitimate SQL/C#/Rust comment translations pass; the demonstrated comment marker inside a C# string literal now fails."
+    },
+    {
+      "id": "EN-MIG-P05",
+      "severity": "minor_documentation_accuracy",
+      "status": "resolved_after_author_fix_and_independent_readback",
+      "issue": "The new Design guide initially located reviewer-authored binding attestations with the generated verification records.",
+      "resolution": "The guide now correctly distinguishes verification/english-translation/ snapshots/evidence/wrappers from docs/traceability/reviews/english-translation/ reviewer attestations; the actual contract-bindings.json path was inspected."
+    }
+  ],
+  "native_experiments_rerun": false,
+  "product_implementation_authorized": false,
+  "actual_checks": [
+    {
+      "check": "Original frozen evidence byte equality",
+      "result": "pass",
+      "design_files": 1436,
+      "plan_files": 263,
+      "excluded_current_navigation": "NativeWeave-Design:docs/traceability/reviews/evidence/README.md",
+      "native_experiments_rerun": false
+    },
+    {
+      "check": "Baseline inventory classification and actual independent review linkage",
+      "result": "pass",
+      "design_translated": 64,
+      "design_immutable": 16,
+      "plan_translated": 140,
+      "plan_immutable": 6,
+      "uncovered_translated_files": 0
+    },
+    {
+      "check": "Mechanical graph/registry fields outside the narrow declared binding projections",
+      "result": "pass",
+      "delivery_tasks": 48,
+      "delivery_status": "planned_candidate",
+      "implementation_authorization": "not_authorized"
+    },
+    {
+      "check": "Current packet and specification hashes",
+      "result": "pass",
+      "packets": 114,
+      "contracts": 21
+    },
+    {
+      "check": "Independent actual contract-record reconstruction/readback",
+      "result": "pass",
+      "contracts": 21,
+      "new_records": 63,
+      "exact_committed_input_occurrences": 266,
+      "design_input_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "check": "Bounded structural-checker positive/negative cases",
+      "result": "pass",
+      "verifier_sha256": "652f625e4fb7e7192e783b172ff18466b2bd495b5f18f43c30215a36293afc52",
+      "cases": [
+        {
+          "case": "legitimate_sql_comment",
+          "accepted": true,
+          "expected_accepted": true
+        },
+        {
+          "case": "changed_inline_identifier_with_migrated_hash",
+          "accepted": false,
+          "expected_accepted": false
+        },
+        {
+          "case": "comment_marker_inside_csharp_literal",
+          "accepted": false,
+          "expected_accepted": false
+        },
+        {
+          "case": "legitimate_inline_comment",
+          "accepted": true,
+          "expected_accepted": true
+        },
+        {
+          "case": "actual_R31_3_spelled_three",
+          "accepted": true,
+          "expected_accepted": true
+        },
+        {
+          "case": "R31_quantity_changed_to_four",
+          "accepted": false,
+          "expected_accepted": false
+        }
+      ]
+    },
+    {
+      "check": "Strict Design translation/acceptance verifier",
+      "working_directory": "NativeWeave-Design",
+      "command": "python -B tools/verify_english_translation.py",
+      "exit_code": 0,
+      "observed_result": {
+        "ok": true,
+        "translated_files": 64,
+        "immutable_originals": 16,
+        "independent_review_required": true,
+        "native_experiments_rerun": false,
+        "product_implementation_authorized": false
+      }
+    },
+    {
+      "check": "Contract migration provenance/prepared-record verifier after acceptance",
+      "working_directory": "Plan",
+      "command": "python -B tools/migrate_english_acceptance.py verify-contracts",
+      "exit_code": 0,
+      "observed_result": {
+        "verified_prepared_kind": "contract",
+        "acceptance_applied": false
+      }
+    }
+  ],
+  "acceptance_scope": "The actually inspected Design English migration, its current 21 accepted contract bindings, the shared migration/checker implementation, and the recorded manifest/guide/CI configuration snapshots. Plan task-binding migration and final GitHub CI/merge outcomes are not yet reviewed or accepted by this report.",
+  "blocking_findings": [],
+  "reviewed_code_and_guidance": [
+    {
+      "path": "Plan:tools/migrate_english_acceptance.py",
+      "sha256": "bdfcbdc753cf87e2a9a021cb9f36c99288e6ea4cb3bb2f28287747a03048fe42",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "Plan:tools/prepare_acceptance.py",
+      "sha256": "30327897c2e1affced81f113cf730c505e1e4c2ed4ed92186380613235a9ecb6",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "Plan:tools/review_bindings.py",
+      "sha256": "b3bec6941a55b11420d5e85eb6e8a6e6050d093115a37c76f891e97f64716274",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "Plan:tools/verify_completion.py",
+      "sha256": "344e67b7d9a98100d6de766d90f13c1139919828922549319af3c4e60121c84c",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "Plan:tools/validate_graphs.py",
+      "sha256": "7a515f5cfe1e691f4b86dc948d39edb0e9b055ec09cd9906e21ad34b9c4a3f6c",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "NativeWeave-Design:tools/verify_english_translation.py",
+      "sha256": "652f625e4fb7e7192e783b172ff18466b2bd495b5f18f43c30215a36293afc52",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "Plan:tools/verify_english_translation.py",
+      "sha256": "652f625e4fb7e7192e783b172ff18466b2bd495b5f18f43c30215a36293afc52",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "NativeWeave-Design:docs/traceability/english-translation.md",
+      "sha256": "f4bc4f9946a353af12442a0c2478cdb7ba1231d9c9150821ef1d67bc04373354",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "Plan:english-translation.md",
+      "sha256": "70b96f16cd3e0cb76eed72ea45985f3f8d9039c02127cf42a2d556b8d2a5579e",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "NativeWeave-Design:.github/workflows/english-translation.yml",
+      "sha256": "cd1413bbc149757069a89525b91169404d0c534b667e29e95c65323fec6c93c8",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    },
+    {
+      "path": "Plan:.github/workflows/native-slices-final-check.yml",
+      "sha256": "453dfc7134be6a176cf5cc77d0f1da815467d67a9ea19cf418f9fdc6a0fcaaa9",
+      "method": "Read complete content and later correction diffs; exact observed bytes."
+    }
+  ],
+  "observed_manifest_snapshots": [
+    {
+      "path": "NativeWeave-Design:english-translation-manifest.json",
+      "sha256": "26b68e3ef329a380ba825045960fe42e7e08ada723a802bddf7a6397f24a53ad",
+      "stage": "Design accepted"
+    },
+    {
+      "path": "Plan:english-translation-manifest.json",
+      "sha256": "393cd5fd33852061f3c2139e0e067ab8c314a1bd8b0882b788e73ccd2979c2a9",
+      "stage": "Plan translation reviewed; 66 new task bindings still pending Design merge"
+    }
+  ],
+  "inspected_contract_records": [
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PLATFORM-001.evidence.json",
+      "sha256": "7dd30d6bb6c65005e7360d41cd607dd2200ea3f77a23f1e5ead80e3b5819674e"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PLATFORM-001.review.json",
+      "sha256": "9049264fab02e401d8169e9dee5af4b2fe633b329892da7229f839cf3b47186f"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PLATFORM-001.inputs.json",
+      "sha256": "4a4fd913fa60c080f3e7cfee17440706b260da55a9af034b9470bd400269ab97"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ABI-001.evidence.json",
+      "sha256": "d15219bb2fa804d9542d94218c77265a3dd803a319ea296f4102945e76d7031a"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ABI-001.review.json",
+      "sha256": "05db192a468ac0b9f1e3c6eacd306ad6f035e7ed8f6f82459551bbc5f1d60585"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ABI-001.inputs.json",
+      "sha256": "c161df9541c3b028f9e6f83fdbabb392889fd02bb36613ccdc2781ce23adddca"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BINDING-001.evidence.json",
+      "sha256": "cb589674efd277a82db4094fd92e4834cc15304178ccfe8cc71697ce8921c36e"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BINDING-001.review.json",
+      "sha256": "19ca5b45d0f5f907c780b9bc8c0d7ca55f33852c6246b95130b28b614e9bfd12"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BINDING-001.inputs.json",
+      "sha256": "dd6b7d49ec5d0e32a7df40acfa0fccbd8495266444b5e63bee131f616f77a46d"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-LIFETIME-001.evidence.json",
+      "sha256": "a7660252c630626b26d4e7d7e6d26d268d5875156b18291093e9bad0d7631947"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-LIFETIME-001.review.json",
+      "sha256": "2f7569b4f9f106005ca7aa2823f9475a7dc9c0d782b8fcda8e71f698f6ebf8c1"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-LIFETIME-001.inputs.json",
+      "sha256": "c7775b14a89f6e1cb1be4251e120d5ccdccec256b8d7d7dbc50633b29f82e6bf"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-CALLBACK-001.evidence.json",
+      "sha256": "a05446af19062779ad8733408c43d02039af6107d32f9735228ab4a77369928a"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-CALLBACK-001.review.json",
+      "sha256": "89d853f33f446c9322110156277b63230fec992a20e19cbbc38ed0363157838b"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-CALLBACK-001.inputs.json",
+      "sha256": "0fd33662162cd4d2558eeba5389e005ddfabd22f55520338139fbc38767c26d9"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ASYNC-001.evidence.json",
+      "sha256": "b70e3d161703e66961b76544581ba0b4eaa11f3d5dee7f80c9fee8a2b2647b6e"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ASYNC-001.review.json",
+      "sha256": "afe7826aa0d4bf485d8faec0c4fb5df82342f3dcf1fd135275c2ff17555a79f1"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ASYNC-001.inputs.json",
+      "sha256": "00c4b04d67c88df301e51c446851a08af7089118bc5cd7133f67f328af80b86c"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BUFFER-001.evidence.json",
+      "sha256": "4579676ab0893707d9d48f1c5b660c8efff24be56f5794a485845979fdf5dcf2"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BUFFER-001.review.json",
+      "sha256": "e621f8cb7ac2f21ef5d870789480df15f81f03cde4c25e667e942f9635dcdcce"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BUFFER-001.inputs.json",
+      "sha256": "1e5171bedd4838a999073536fc2877a513bd26ded886c2486ca0ca4f793665c0"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ERROR-001.evidence.json",
+      "sha256": "9cc532bc67b8fc8a3c1bfc4902e95bb5641d5ce5413fcc5e24d0577dab33036b"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ERROR-001.review.json",
+      "sha256": "420681e17ceefc265897cc7eb0ccbc320318e80715909397cce959fb8f30003b"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ERROR-001.inputs.json",
+      "sha256": "5220c70d536699b6fdb2f16021671adc7f264bfea4d05d1a950528af5a4f4c8b"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-CONCURRENCY-001.evidence.json",
+      "sha256": "622a5337e0b114334e90661997d527757f4c7e40a93f117f1c6d2ce1e2d66067"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-CONCURRENCY-001.review.json",
+      "sha256": "62c070f3d63d2f55c9a89239147831d941d4ab49e5b21b06161a123f68700489"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-CONCURRENCY-001.inputs.json",
+      "sha256": "a2b6118a53fee5034c387d7180e78e7d7f44d56ade54df13bdf39554fc6da88a"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BUILD-001.evidence.json",
+      "sha256": "71a1bf84b26e90ea617a8ad427bf40ac1938ca4f7dff9a4190927e193ed268d7"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BUILD-001.review.json",
+      "sha256": "d4ad532df24eb872e642bb0ea47a3131753be2c48456069a377a23ab91c3862a"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-BUILD-001.inputs.json",
+      "sha256": "3470a0625fb11b66678bd461934aa69c28c844456a2207cbba5fdcc21ca4f131"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ENGINE-001.evidence.json",
+      "sha256": "0f63003848f794d8b4ff04e7c0f2589ead600cfc2270024d92187a60e29ffe2a"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ENGINE-001.review.json",
+      "sha256": "f92adc4cc7ed3116c5ae1b0c180489bd8313828ad40c77089fb02fe893c5e1f9"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-ENGINE-001.inputs.json",
+      "sha256": "3ed0a78f9795725867de606009a0cf29d400078d2a33369f542f8fa14441c829"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-VERIFY-001.evidence.json",
+      "sha256": "e83f805507bf46e073867f8fc6f3e13d67b754896a23a711cef1a7913af6f557"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-VERIFY-001.review.json",
+      "sha256": "1c6d54212921b712b20d560b1b2c9e133bb6cfd819af26ad1ea5862f5f9d5aac"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-VERIFY-001.inputs.json",
+      "sha256": "d0906099c76c72e1f9b3e10387d6beb0e3c1b7ba00d8421068b8a182b8342106"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PERF-001.evidence.json",
+      "sha256": "af1524f62c3caa65e649eb2e29602f52128a40a991e6cc69019d76e985927abe"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PERF-001.review.json",
+      "sha256": "3ba192c63d741b1a88515e96307b11f2c1ba3c00092000807bf4375b39a3435a"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PERF-001.inputs.json",
+      "sha256": "66dee3f7cccdfc2b6c57dc3cd1f9b1bc516d72e9b2ad4afb694b4b345fb754d8"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-DB-001.evidence.json",
+      "sha256": "3ab2a11212c97e57329d4cda26418e40289bb049b7319ee4331e90a183eed4b6"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-DB-001.review.json",
+      "sha256": "aa9f8aa4f6ada854d76e4b417a78de4781de599edabbbfcbe2fae197740c13a3"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-DB-001.inputs.json",
+      "sha256": "8670e38fcfee126f121abdec0f44de37bb66cfb36ee443e444a8942aedfb2a1e"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-TX-001.evidence.json",
+      "sha256": "aaef9ff349cf3504ca789e3329e4fcc45fa1254820f67fa641168ffd7abc3a0a"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-TX-001.review.json",
+      "sha256": "1a3160d9fe7414d05e6d344a3ac58db94e1d1dc11be8275bb32ab6f3db58cb0f"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-TX-001.inputs.json",
+      "sha256": "d41a811a83f691961a921a2c35610678b720ccc793c5c9c1a04b21c9c3fa0ce6"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERY-001.evidence.json",
+      "sha256": "2718cccc7b0dc14e3a51133f535b16dcc96e14dffc2eaf146cfa2a76a1e148d5"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERY-001.review.json",
+      "sha256": "02441fd77a92111f5a30bcf3c8e0ea70c660c882142b3232947153fb29ff8db9"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERY-001.inputs.json",
+      "sha256": "4d340b01f4a24aa2f2efa1ab258d002b635f853f99ea9cb6cce21d66c5545c23"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERYGEN-001.evidence.json",
+      "sha256": "1487b5cbc5b1c071e43c1d6a078b0f3318a0a5c5a73d1c3521ae68094349498e"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERYGEN-001.review.json",
+      "sha256": "639fe0e6f6566b7a91e209bd7ba7cae5e20857df432c203bfe504d9e135a2024"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERYGEN-001.inputs.json",
+      "sha256": "f6e13b91bbb18622b51d4ea2f84a95c1b5e76fa7602776e6f78e646a40f9527e"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-SERVER-001.evidence.json",
+      "sha256": "b707c3597bff5e872ac9ba1b29faacdddc4464df09251fa964c15724af525bad"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-SERVER-001.review.json",
+      "sha256": "c9be80b618c773fd0f0f92f0eae7996c223342dfb04b23ad1cf1c20716a4cc08"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-SERVER-001.inputs.json",
+      "sha256": "9076537059acc9a7ac0e452770bd51bb2e4ee22690d837c643e7b795ae80d936"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PROTOCOL-001.evidence.json",
+      "sha256": "2f23cde9e78221f79f2a1c375958f008eb46dc3af6f8b73d771ab4219fe6a76d"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PROTOCOL-001.review.json",
+      "sha256": "a530aed3bb1def305c6d623cae226f03bb32abd8ff7453cf4afe855f73c05630"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-PROTOCOL-001.inputs.json",
+      "sha256": "66090a4124952937334f5395cea74bdd79f683f1abf1db944b99fe20077d6ad1"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-REFERENCE-001.evidence.json",
+      "sha256": "3bc6f3d98bf8c9bd0a03f8af7db5b848030dedcd70a21012793ae266f9262e73"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-REFERENCE-001.review.json",
+      "sha256": "0072f7cd25437fdcaeca2fd8dd4fd1b2ed5948b73f8fefa9bfedaf5a27bea999"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-REFERENCE-001.inputs.json",
+      "sha256": "b08bcbabe220f4f2b713e100483c257d798521670a8e77eef8771e6e94b49030"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-EXTENSION-001.evidence.json",
+      "sha256": "f1a08243b51f8bc4591b4ba11aa83b288ad898a9b93ece24847e2cef3293be7e"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-EXTENSION-001.review.json",
+      "sha256": "6c3c8f7254fbd92a980817469af32ceb58fa2e1a83d4bd80ad90f20bb2c154d0"
+    },
+    {
+      "path": "NativeWeave-Design:verification/english-translation/contracts/C-EXTENSION-001.inputs.json",
+      "sha256": "08c3647b0dca05a8d9e92367bf4815fefb2308d21779f8cf030326a983b09caf"
+    }
+  ],
+  "observed_binding_attestations": [
+    {
+      "path": "NativeWeave-Design:docs/traceability/reviews/english-translation/contract-bindings.json",
+      "sha256": "b1cd3ddad942089e6af6936ccb3a483b85364df924543918195a0d002344f47c",
+      "reviewer": "/root/translate_research",
+      "verdict": "accepted",
+      "subject_count": 21,
+      "comparison": "All subject evidence/review hashes equal the independently reconstructed and actually inspected records."
+    }
+  ],
+  "pending_outside_this_acceptance": [
+    "Design GitHub CI and merge results remain to be observed by the integrator.",
+    "Plan must pin the actual Design merge commit, prepare the 66 new task bindings, obtain the real task reviewers exact attestations, pass final CI and merge. A separate subsequent Plan binding-integrity readback is required."
+  ],
+  "identity_boundary": "Actual independent executor /root/translate_plan, distinct from the migration/checker author /root; no separate GitHub account approval is claimed. This reviewer authored Plan translations and does not self-accept their linguistic equivalence here; their actual independent reviewer links were checked."
+}

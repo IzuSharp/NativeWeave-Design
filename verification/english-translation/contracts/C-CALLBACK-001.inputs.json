@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-CALLBACK-001",
+    "version": "0.3.0",
+    "content_sha256": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "53388e2165919869a8864a3119c6bb510267ccfe"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/contracts/callback-v0.1.md",
+      "sha256": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074",
+      "bytes": 22449,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/error-v0.1.md",
+      "sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+      "bytes": 23377,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/lifetime-v0.1.md",
+      "sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
+      "bytes": 19379,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R07/coverage.json",
+      "sha256": "ad4dafdaebb9c828fea953ea8e60145a4dcc6c03f8579d28c9a3444beb78dc5d",
+      "bytes": 13996,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R07/evidence.json",
+      "sha256": "b2212e3dfd2fda25defec84fa899c3bb7ca5f876aeaa730045b46075bae2cc55",
+      "bytes": 19277,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R07/report.md",
+      "sha256": "84a29f3b59a3e285b3e480f4f59ee6196efe4059535f67cd3e94aa66faf67ed2",
+      "bytes": 19093,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R08/coverage.json",
+      "sha256": "25354de73b1b98bc5920a18109703226b427fc5f28fa6b1621f68fb65f127607",
+      "bytes": 14222,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R08/evidence.json",
+      "sha256": "1119ad6ddeae6b94af8c5b03feab7cd4b8eaa7f8a1fc198e3e6df520a811fec3",
+      "bytes": 19379,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R08/report.md",
+      "sha256": "8ffb1267bf4ae252e78b38b041bf889849a7cb22e1c28fdbc91afb09e96d7e3d",
+      "bytes": 18139,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R15/coverage.json",
+      "sha256": "269b6eb7141d47fce15081b8763ee4111afa239c5cb3fdd8aad7eb6dfcb414f6",
+      "bytes": 4495,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R15/evidence.json",
+      "sha256": "c15d1c7ab5e09af224c3f0109af6b4db0ebb5054a042065a7eae111d24c41146",
+      "bytes": 4623,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R15/report.md",
+      "sha256": "9647f4658cd32c1d66ef3138ff27a42d5bde68223bc64a5729b8838e6b872de6",
+      "bytes": 4977,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {
+    "C-LIFETIME-001@0.3.0": {
+      "spec_path": "docs/contracts/lifetime-v0.1.md",
+      "content_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
+      "evidence_sha256": [
+        "a7660252c630626b26d4e7d7e6d26d268d5875156b18291093e9bad0d7631947"
+      ],
+      "review_sha256": [
+        "2f7569b4f9f106005ca7aa2823f9475a7dc9c0d782b8fcda8e71f698f6ebf8c1"
+      ]
+    },
+    "C-ERROR-001@0.3.0": {
+      "spec_path": "docs/contracts/error-v0.1.md",
+      "content_sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+      "evidence_sha256": [
+        "9cc532bc67b8fc8a3c1bfc4902e95bb5641d5ce5413fcc5e24d0577dab33036b"
+      ],
+      "review_sha256": [
+        "420681e17ceefc265897cc7eb0ccbc320318e80715909397cce959fb8f30003b"
+      ]
+    }
+  },
+  "translation_provenance": {
+    "original_accepted_repository_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+    "original_accepted_subject": {
+      "id": "C-CALLBACK-001",
+      "version": "0.3.0",
+      "content_sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+      "evidence": [
+        {
+          "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-CALLBACK-001.evidence.json",
+          "sha256": "159ad7eed71db9e050bd51d7cf21b855b628daa2d45a991abf2ebe48f5b8bc68"
+        }
+      ],
+      "reviews": [
+        {
+          "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-CALLBACK-001.review.json",
+          "sha256": "123b63d0542fa2fb5939f37649a91898ed6092a00d44e357c9f59084f65f3459"
+        }
+      ]
+    },
+    "relationship": "English semantic-equivalent rendering of the accepted input; technical requirements and implementation authorization are unchanged.",
+    "native_experiments_rerun": false
+  }
+}
