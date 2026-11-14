@@ -169,7 +169,7 @@ namespace NativeWeave.Interop
         /// <summary>Copies through a bounded managed staging buffer while keeping this owner leased for the complete copy.</summary>
         /// <param name="destination">A writable stream, left open after success or failure.</param>
         /// <param name="cancellationToken">Cancels writes and the caller's copy, without undoing bytes already written.</param>
-        /// <returns>A task for copy completion and staging-buffer return.</returns>
+        /// <returns>A task for copy completion and end of staging-array use.</returns>
         public Task CopyToAsync(Stream destination, CancellationToken cancellationToken = default) => throw new NotSupportedException("Design-only signature");
         /// <summary>Closes new read admission and drops this owner's reference; admitted reads keep their leases.</summary>
         public void Dispose() => throw new NotSupportedException("Design-only signature");

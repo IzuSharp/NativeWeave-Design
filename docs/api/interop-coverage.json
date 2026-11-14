@@ -435,8 +435,8 @@
       "support": "equivalent",
       "support_scope": "design specification only",
       "product_implemented": false,
-      "aot": "Task plus bounded pooled byte staging",
-      "cost": "At most64KiB rented; one copy per chunk; source leased throughout",
+      "aot": "Task plus bounded exact-sized byte-array staging",
+      "cost": "One at most64KiB managed array; one copy per chunk; source leased throughout",
       "limitations": "Partial destination writes survive cancel/error; destination left open",
       "specification": "docs/api/interop.md",
       "tasks": [
