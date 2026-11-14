@@ -1,60 +1,60 @@
-# 需求章程与交付边界
+# Requirements charter and delivery boundaries
 
-状态：需求整理；版本 0.3.0；日期 2026-11-12。依据：用户上传 NativeWeave 主任务及本轮澄清。此章程是研究输入，不是最终架构 ADR。
+Status: requirements consolidation; version 0.3.0; date 2026-11-12. Basis: the NativeWeave main task uploaded by the user and the clarifications in this round. This charter is a research input, not the final architecture ADR.
 
-## 1. 目标
+## 1. Goal
 
-NativeWeave 是独立通用框架。现代 C# 是应用开发语言，提供业务、强类型 Fluent、泛型及 async/await。正式应用通过 Native AOT 发布；Database、ORM 和 Server 的实际底层必须深度复用成熟 Rust 引擎。Rust 负责数据库驱动、查询构建、方言、执行、池、事务、原生 ORM 能力及网络 I/O、HTTP、连接管理、调度、Streaming、Backpressure；C# 提供接口、静态元数据、映射和业务 Handler。应用开发者原则上不必学习 Rust、手写 FFI 或重复处理跨语言生命周期。
+NativeWeave is an independent, general-purpose framework. Modern C# is the application development language, providing business logic, strongly typed Fluent APIs, generics, and async/await. Production applications are published with Native AOT; Database, ORM, and Server must deeply reuse mature Rust engines for their actual foundations. Rust handles database drivers, query construction, dialects, execution, pools, transactions, native ORM capabilities, and network I/O, HTTP, connection management, scheduling, Streaming, and Backpressure; C# provides interfaces, static metadata, mapping, and business Handlers. Application developers should, in principle, not have to learn Rust, write FFI manually, or repeatedly handle cross-language lifetimes.
 
-“任何应用”表达可扩展方向，不表示所有工作负载已被支持，也不承诺 C# + Rust 在任何指标上同时胜过纯 C# 和纯 Rust。正式能力按平台、版本、功能与证据组合声明。
+“Any application” expresses the direction for extensibility; it does not mean all workloads are supported, nor does it promise that C# + Rust outperforms both pure C# and pure Rust on every metric. Formal capabilities are stated for specific combinations of platform, version, feature, and evidence.
 
-## 2. 不可妥协约束
+## 2. Non-negotiable constraints
 
-| ID | 约束 | 验证方式 |
+| ID | Constraint | Verification method |
 | --- | --- | --- |
-| NW-P01 | C# First，C# 是完整应用开发语言 | 应用开发者不手写 Rust/FFI；不消费 Engine 的独立 managed 组件不附加原生 runtime |
-| NW-P02 | Native AOT Required | 每个正式目标真实 publish、运行和行为测试；警告审查 |
-| NW-P03 | Native Engines Required | Database/ORM/Server 的 Rust 底层是产品约束；具体成熟引擎组合须有源码与验证依据 |
-| NW-P04 | 内外都简洁、优雅、高效 | 每个抽象有必要性、依赖和成本账本；删除不产生价值的层 |
-| NW-P05 | Independent Engines | 单引擎可独立构建、测试、版本和发布；无隐式领域状态共享 |
-| NW-P06 | Native-ready 接入流程 | 接入规范覆盖 ABI→glue→Adapter→AOT→包→兼容→发布 |
-| NW-P07 | Performance by Evidence | C# AOT / C# AOT+Rust / Rust 可比工作负载，报告不确定性 |
-| NW-P08 | 三种并行独立建模 | Research / Documentation / Delivery 各有图、文件所有权和状态 |
-| NW-P09 | 两大阶段同步深入规划 | 数据库、ORM、Server 有具体研究、规范任务与候选实现任务 |
-| NW-P10 | 内容独立 | ArcForges 仅为历史背景和格式参考，不是业务或架构依赖 |
-| NW-P11 | 现代稳定机制 | 实验/preview/nightly 与正式必要能力分离，版本按日期核验 |
-| NW-P12 | 证据诚实 | 不伪造源码覆盖、编译、运行、GitHub、review 或性能结果 |
+| NW-P01 | C# First; C# is the complete application development language | Application developers do not handwrite Rust/FFI; independent managed components that do not consume an Engine do not acquire a native runtime dependency |
+| NW-P02 | Native AOT Required | Actual publish, execution, and behavioral tests for every formal target; warning review |
+| NW-P03 | Native Engines Required | Rust foundations for Database/ORM/Server are a product constraint; the specific combination of mature engines requires source and verification evidence |
+| NW-P04 | Simplicity, elegance, and efficiency internally and externally | Every abstraction has a necessity, dependency, and cost ledger; remove layers that add no value |
+| NW-P05 | Independent Engines | Each engine can be built, tested, versioned, and released independently; no implicit sharing of domain state |
+| NW-P06 | Native-ready integration process | The integration specification covers ABI → glue → Adapter → AOT → package → compatibility → release |
+| NW-P07 | Performance by Evidence | Comparable C# AOT / C# AOT+Rust / Rust workloads, with uncertainty reported |
+| NW-P08 | Three independently modeled forms of parallel work | Research / Documentation / Delivery each have their own graph, file ownership, and status |
+| NW-P09 | Plan both major phases in depth concurrently | Concrete research, specification tasks, and candidate implementation tasks for Database, ORM, and Server |
+| NW-P10 | Independent content | ArcForges provides historical context and a formatting reference only; it is not a business or architecture dependency |
+| NW-P11 | Modern stable mechanisms | Separate experimental/preview/nightly features from required production capabilities; verify versions as of a recorded date |
+| NW-P12 | Honest evidence | Do not fabricate source coverage, compilation, execution, GitHub, review, or performance results |
 
-## 3. 阶段 A：本轮必须完整研究和设计
+## 3. Phase A: complete research and design required in this round
 
-ABI 类型与版本、自动绑定、强类型 C# Adapter、Ownership/Lifetime、SafeHandle/GCHandle、回调注销和重入、异步完成/取消/关闭状态机、缓冲区/Pinning/数据传输、错误/Panic、线程/背压、跨平台构建/AOT/NuGet/Cargo、可组合 Engine 接入。
+ABI types and versions, automatic bindings, strongly typed C# Adapters, Ownership/Lifetime, SafeHandle/GCHandle, callback unregistration and reentrancy, asynchronous completion/cancellation/shutdown state machines, buffers/Pinning/data transfer, errors/Panic, threading/backpressure, cross-platform build/AOT/NuGet/Cargo, and composable Engine integration.
 
-至少用两种交互显著不同的真实候选模块验证设计：一个同步数据变换模块，一个有状态异步流式模块。候选优先可选择压缩/编解码与 HTTP 流或数据库流，但必须比较当前 .NET 原生能力，并独立决定选型。研究性模块用于暴露基础缺陷，不能据此绕过阶段 A 的生产验收。
+Validate the design with at least two real candidate modules whose interactions differ substantially: one synchronous data-transformation module and one stateful asynchronous streaming module. Compression/codecs and HTTP or database streaming are preferred candidates, but current native .NET capabilities must be compared and selection decided independently. Research modules expose foundational defects; they cannot be used to bypass production acceptance for phase A.
 
-## 4. 阶段 B：本轮同等深度规划
+## 4. Phase B: planning at equal depth in this round
 
-- Database：PostgreSQL 与 SQLite 候选矩阵；连接池、类型映射、参数、事务/保存点、查询流、批量、取消/超时、断线、重试幂等、迁移与恢复。
-- ORM：实体/关系/投影/Join/聚合/分页、SQL NULL/排序/collation、参数化、强类型 Fluent Query、可选static metadata/DTO生成，不要求完整LINQ Provider、可控动态查询、AOT 元数据与诊断。
-- Server：Kestrel/.NET 仅作网络对照、必需 Rust 网络引擎、HTTP/TLS、gRPC/MCP 适配、请求响应流、背压、资源回收、shutdown、Metrics/Tracing。
-- 组合验证：独立于 ArcForges 的参考应用；真实数据库、事务、迁移、请求取消、失败注入、长时间负载及恢复。
+- Database: PostgreSQL and SQLite candidate matrix; connection pools, type mapping, parameters, transactions/savepoints, query streams, batching, cancellation/timeouts, disconnections, retry idempotency, migrations, and recovery.
+- ORM: entities/relationships/projections/Join/aggregation/pagination, SQL NULL/sorting/collation, parameterization, strongly typed Fluent Query, optional static metadata/DTO generation, no requirement for a complete LINQ Provider, controlled dynamic queries, and AOT metadata and diagnostics.
+- Server: Kestrel/.NET only as a networking comparison, mandatory Rust networking engines, HTTP/TLS, gRPC/MCP adapters, request/response streaming, backpressure, resource reclamation, shutdown, and Metrics/Tracing.
+- Combined verification: a reference application independent of ArcForges; real databases, transactions, migrations, request cancellation, fault injection, sustained workloads, and recovery.
 
-研究与文档立即并行。正式产品集成只能消费已接受且经过所需验证的局部基础契约。managed provider仅作独立源码/基准对照，不是产品数据库后端；不得把实际集成验收拆成无人负责的空壳。
+Research and documentation proceed in parallel immediately. Formal product integration may consume only accepted local foundational contracts that have undergone the required verification. Managed providers are used only for independent source/benchmark comparisons, not as product database backends; actual integration acceptance must not be split into empty shells with no responsible owner.
 
-## 5. 未来边界
+## 5. Future boundaries
 
-GPU/GPUI/NSH、iOS/Android、线程亲和 UI、SIMD、编解码、其他协议只研究接入边界与平台约束，不在本次启动批次全面实现。移动平台是否成熟、静态链接/签名/Java 或平台互操作限制，必须单独核验。
+For GPU/GPUI/NSH, iOS/Android, thread-affine UI, SIMD, codecs, and other protocols, research only the integration boundaries and platform constraints; do not implement them comprehensively in this bootstrap batch. Mobile platform maturity, static linking/signing, and Java or platform interop restrictions must be verified separately.
 
-## 6. 本轮授权与状态
+## 6. Authorization and status for this round
 
-已授权：读取指定仓库与公开来源；研究、文档、图、最小证明程序；安全创建研究分支和 Draft PR；准备未来 Codex 任务。
+Authorized: reading the specified repositories and public sources; research, documents, graphs, and minimal proof programs; safely creating research branches and Draft PRs; and preparing future Codex tasks.
 
-本轮不写 NativeWeave 正式产品代码，不重构 ArcForges Go Center，不发布正式 NuGet/Cargo 包，不合并未经审查的重要架构决定。需要实测而环境不可用的项目保留明确未执行状态。
+This round does not write formal NativeWeave product code, refactor ArcForges Go Center, publish production NuGet/Cargo packages, or merge significant architecture decisions that have not been reviewed. Items requiring actual tests for which the environment is unavailable retain an explicit not-executed status.
 
-## 7. 最新澄清
+## 7. Latest clarification
 
-用户明确：**“ArcForges 的参考规范 是让你看格式的 不是内容。”**
+The user explicitly stated: **“The ArcForges reference specifications are for you to look at the format, not the content.”**
 
-因此只观察文档目录、入口、链接、表格和记录格式。NativeWeave 的技术选择、执行政策和验收门槛均由当前目标和本项目证据独立建立。已读到的参考规范内容不作为本项目依据，不进行规则迁移。
+Accordingly, observe only document directories, entry points, links, tables, and record formats. NativeWeave technical choices, execution policies, and acceptance gates are established independently from the current goals and this project's evidence. Content read in the reference specifications is not used as a basis for this project, and its rules are not migrated.
 
 
 ## Source-Driven Deep Native Integration — clarified requirement

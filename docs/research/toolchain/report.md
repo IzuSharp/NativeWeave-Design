@@ -1,97 +1,97 @@
-# 工具链与现代语言机制：首次核验
+# Toolchains and Modern Language Mechanisms: Initial Verification
 
-状态：**事实核验报告；不是已经接受的产品工具链 ADR，也不是源码研究或运行验收。**
+Status: **fact-verification report; neither an accepted product toolchain ADR nor source research or execution acceptance.**
 
-核验日期：2026-11-12，America/Los_Angeles。证据汇总时钟：2026-11-12 12:23:11 UTC（当地 04:23:11）。研究者：`toolchain_verification`。机器可读记录见 [evidence.json](evidence.json)。
+Verification date: 2026-11-12, America/Los_Angeles. Evidence aggregation timestamp: 2026-11-12 12:23:11 UTC (04:23:11 local time). Researcher: `toolchain_verification`. Machine-readable records: [evidence.json](evidence.json).
 
 > Historical observation below was made before Rust1.100 released. Current Rust source/real-toolchain update: [R01 Rust1.100](../topics/R01/rust-1.100.md). Do not reinterpret old not_run results as new executions.
 
-## 1. 当时可证实的稳定基线
+## 1. Stable Baselines Verifiable at the Time
 
-| 对象 | 本次核验结果 | 发布时间 / 支持期限 | 证据层级与限制 |
+| Item | Result of this verification | Release date / support period | Evidence level and limitations |
 | --- | --- | --- | --- |
-| .NET | **11.0.0，GA** | 2026-11-10；STS；当前官方支持表列 2028-11-14 结束支持 | 官方发布公告、下载页、机器可读发布元数据相互印证；尚未在本执行环境安装运行 |
-| .NET SDK | **11.0.100** | 2026-11-10 | 官方下载页与 `releases.json` 一致 |
-| C# | **15.0** | 随 .NET 11 SDK；`net11.0` 默认语言版本 | canonical C# 15 文档与 SDK 下载页语言表一致；具体新语法未本地编译 |
-| Rust | **1.99.1**，本次检索可见的最新 stable | 2026-10-15 | 官方 release index 最新条目与固定发布日期公告一致；stable channel TOML 本次未成功读取，后续执行前必须再核验 |
-| Rust edition | **2024 可用于稳定通道研究** | 2024 Edition 的 FFI 规则由官方 Edition Guide 定义 | Edition 与 rustc 版本分别锁定；不得把 edition 当编译器版本 |
-| .NET 10 | 保留为兼容性比较候选，不作为本轮默认最新基线 | 当前官方表：LTS，2028-11-14 结束支持 | 是否正式多目标支持需要单独成本和下游需求决策 |
+| .NET | **11.0.0, GA** | 2026-11-10; STS; the current official support table lists end of support as 2028-11-14 | Official release announcement, download page, and machine-readable release metadata corroborate one another; not yet installed or executed in this environment |
+| .NET SDK | **11.0.100** | 2026-11-10 | Official download page agrees with `releases.json` |
+| C# | **15.0** | Ships with the .NET 11 SDK; default language version for `net11.0` | Canonical C# 15 documentation agrees with the language table on the SDK download page; specific new syntax not compiled locally |
+| Rust | **1.99.1**, the latest stable visible in this search | 2026-10-15 | Latest entry in the official release index agrees with the dated announcement; the stable channel TOML could not be read successfully in this round and must be rechecked before subsequent execution |
+| Rust edition | **2024 is available for stable-channel research** | The official Edition Guide defines the FFI rules for the 2024 Edition | Pin the edition and rustc version separately; the edition must not be treated as the compiler version |
+| .NET 10 | Retained as a compatibility comparison candidate, not the default latest baseline for this round | Current official table: LTS, end of support 2028-11-14 | Formal multi-target support requires a separate decision on cost and downstream requirements |
 
-来源：[.NET 11 发布公告](https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/)、[11.0 下载页](https://dotnet.microsoft.com/en-us/download/dotnet/11.0)、[11.0 发布元数据](https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json)、[支持政策](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core)、[C# 15](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15)、[Rust 发布索引](https://blog.rust-lang.org/releases/)、[Rust 1.99.1 固定公告](https://blog.rust-lang.org/2026/10/15/Rust-1.99.1/)。
+Sources: [.NET 11 release announcement](https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/), [11.0 download page](https://dotnet.microsoft.com/en-us/download/dotnet/11.0), [11.0 release metadata](https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json), [support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core), [C# 15](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15), [Rust release index](https://blog.rust-lang.org/releases/), [dated Rust 1.99.1 announcement](https://blog.rust-lang.org/2026/10/15/Rust-1.99.1/).
 
-**“最新”是带时间戳的观测，不是永久属性。** Rust 官方说明采用六周发布列车并只维护最新 stable；后续研究、实验、发布任务启动时重新核验，然后锁定准确版本。不能仅按日历推断某版本已经发布。参见 [Rust 发布与维护机制](https://doc.rust-lang.org/book/appendix-07-nightly-rust.html)。
+**"Latest" is a timestamped observation, not a permanent property.** Rust's official documentation describes a six-week release train and maintenance of only the latest stable version; recheck at the start of subsequent research, experiment, and release tasks, then pin the exact version. A version must not be inferred to have been released solely from the calendar. See [Rust release and maintenance mechanisms](https://doc.rust-lang.org/book/appendix-07-nightly-rust.html).
 
-### 1.1 本次处理的证据冲突
+### 1.1 Evidence Conflicts Addressed in This Round
 
-搜索结果中 `csharp/whats-new` 的旧缓存仍称 .NET 11 SDK prerelease，另一条 `dotnet/core/whats-new` 摘要仍称 RC2。实际打开版本专属页面、GA 公告、下载页和发布 JSON 后，均显示 .NET 11 已发布。版本结论采用更具体、可交叉核验的发布事实，旧缓存作为冲突记录保留，不能静默丢弃。
+An old cached `csharp/whats-new` search result still called the .NET 11 SDK prerelease, and another `dotnet/core/whats-new` summary still described RC2. Opening the version-specific pages, GA announcement, download page, and release JSON showed that .NET 11 had been released. The version conclusion uses more specific, cross-verifiable release facts; the old cache is retained as a conflict record and must not be silently discarded.
 
-Runtime Async 的情况不同：canonical runtime 页面仍直接标注 preview；overview 的“无需 EnablePreviewFeatures”不能替代稳定性声明。因此把 Runtime Async 作为**待澄清的预览研究项**，不因为 SDK GA 就将所有可用开关升级为正式依赖。
+Runtime Async is different: the canonical runtime page still explicitly labels it preview; the overview's statement that EnablePreviewFeatures is not required cannot substitute for a stability declaration. Runtime Async is therefore treated as a **preview research item requiring clarification**, rather than promoting every available switch to a formal dependency because the SDK is GA.
 
-## 2. 现代特性对 NativeWeave 的实际影响
+## 2. Actual Implications of Modern Features for NativeWeave
 
-以下“建议”均为本轮研究方向，不是已经通过源码、性能与跨平台验收的最终架构。
+All "recommendations" below are research directions for this round, not a final architecture that has passed source, performance, and cross-platform acceptance.
 
-| 机制 | 本轮状态 | 值得研究的用途 | 必须避免的误判与验证义务 |
+| Mechanism | Status in this round | Uses worth researching | Misinterpretations to avoid and validation obligations |
 | --- | --- | --- | --- |
-| C# 15 union types | 稳定文档可证实 | 面向开发者的成功/失败/取消结果、闭合查询节点 | `union` 声明生成的 struct 以 `object?` 存储，值类型 case 会装箱；不能直接承诺零分配，也不能作为 C ABI 联合布局 |
-| 自定义 union / non-boxing access pattern | 官方 C# 15 参考描述 | 测量有明确标签和值字段的结果类型与 `TryGetValue` 访问 | 自定义存储必须满足官方行为约束；检查 default/null、分支转换、泛型体积、AOT 代码生成；不能仅凭语法推断性能 |
-| Closed hierarchies | 稳定文档可证实 | 领域状态、查询 IR、编译器诊断对象 | direct descendant 在同一程序集内闭合；非 closed 的子类仍可能被外部继承，不能误认为整棵继承树自动封闭 |
-| Collection expression arguments、extension indexers 等 | 列入 C# 15 稳定特性 | 降低 API 使用和内部代码重复 | 只在减少复杂度时使用；生成器支持、错误诊断与目标编译器必须有编译用例 |
-| Memory safety 新规则 | **preview** | 隔离实验中评估指针与 ref 安全规则 | 不设置生产核心 `LangVersion=preview` 来获得它；当前稳定核心必须有独立实现路线 |
-| Span/Memory/ref struct、值类型、静态抽象接口成员 | 已有稳定机制的研究基线 | 同步借用、显式内存所有权、静态分发 | 生命周期不能跨不允许的 await/回调边界；AOT 泛型实例化、装箱和代码体积必须测量 |
-| `LibraryImport` 源生成 | 官方稳定机制 | 静态 P/Invoke glue 和可审查 marshalling | 生成成功不代表 ABI/生命周期安全；比较 blittable `DllImport` 和手工声明的实际支持范围，不武断宣称所有 DllImport 都不支持 AOT |
-| Native AOT / trimming / 静态元数据 | 正式部署机制 | 正式 C# 应用的发布与验收 | `IsAotCompatible` 是分析声明，不是运行证据；每个目标需要 publish 后执行 |
-| Runtime Async V2 | **canonical 文档仍标 preview** | 性能对照、异常栈、ExecutionContext/AsyncLocal 语义 | runtime 文档描述 NativeAOT/R2R 支持，但仍需具体版本实验；不将 JIT 专属优化收益转写为 AOT 实测收益 |
-| .NET 11 内置 Zstandard / span 压缩 API | 官方库文档可证实 | 若选压缩为同步引擎验证模块，建立 .NET 自身基线 | 新的 Rust wrapper 必须解释相对内置库的真实价值，不能以缺失的旧版能力作为引入理由 |
-| Rust 2024 `unsafe extern`、unsafe attributes | 稳定规则 | FFI 声明、导出符号、链接审计 | 声明进口函数的 extern block 与导出函数是不同语法；`no_mangle`/`export_name` 应记录安全理由 |
-| Rust 2024 `unsafe_op_in_unsafe_fn` | 默认 lint 规则 | 将调用方义务与函数体中的不安全操作分离 | 显式 unsafe block 不能替代有效性证明、别名和释放规则 |
-| Rust 1.99 原始布局与所有权 API | 稳定发布说明可证实 | `Layout::for_value_raw`、`Box::into_non_null`、`Vec::into_parts` 等降低 glue 重复 | 必须核对每个 API 的安全前置条件；不要使用 `Box::leak` 后再释放的模式代替清楚的 ownership transfer |
-| Rust 1.99 C variadic definitions | 已稳定，但不建议作为通用 ABI 默认形状 | 既有 C 库适配的特定需求 | 能使用不等于应引入；typed fixed-arity 接口更易生成、分析和跨平台核验 |
-| Rust 1.99.1 FFI bool 修复 | 官方补丁说明可证实 | 将布尔 ABI 回归列入测试 | 语言层类型大小与调用寄存器语义不同；明确 NativeWeave 的布尔 wire 表示并跨编译器验证 |
+| C# 15 union types | Verifiable in stable documentation | Developer-facing success/failure/cancellation results and closed query nodes | A struct generated by a `union` declaration uses `object?` storage and boxes value-type cases; zero allocation cannot be promised directly, and this is not a C ABI union layout |
+| Custom union / non-boxing access pattern | Described in the official C# 15 reference | Measure result types with explicit tags and value fields, and `TryGetValue` access | Custom storage must meet the official behavioral constraints; check default/null, case conversions, generic code size, and AOT code generation; performance cannot be inferred from syntax alone |
+| Closed hierarchies | Verifiable in stable documentation | Domain states, query IR, compiler diagnostic objects | Direct descendants are closed within the same assembly; a non-closed subclass may still be derived from externally, so the entire inheritance tree must not be assumed automatically closed |
+| Collection expression arguments, extension indexers, etc. | Listed as stable C# 15 features | Reduce API usage complexity and internal code repetition | Use only when they reduce complexity; generator support, error diagnostics, and the target compiler must have compilation cases |
+| New memory safety rules | **preview** | Evaluate pointer and ref safety rules in isolated experiments | Do not set production Core to `LangVersion=preview` to obtain them; the current stable Core must have an independent implementation path |
+| Span/Memory/ref struct, value types, static abstract interface members | Research baseline of existing stable mechanisms | Synchronous borrowing, explicit memory ownership, static dispatch | Lifetimes cannot cross disallowed await/callback boundaries; AOT generic instantiation, boxing, and code size must be measured |
+| `LibraryImport` source generation | Official stable mechanism | Static P/Invoke glue and reviewable marshalling | Successful generation does not establish ABI/lifetime safety; compare the actual support scope of blittable `DllImport` and handwritten declarations rather than asserting that all DllImport is unsupported by AOT |
+| Native AOT / trimming / static metadata | Formal deployment mechanism | Publication and acceptance of production C# applications | `IsAotCompatible` is an analysis declaration, not execution evidence; each target requires execution after publish |
+| Runtime Async V2 | **Canonical documentation still marks it preview** | Performance comparisons, exception stacks, ExecutionContext/AsyncLocal semantics | Runtime documentation describes NativeAOT/R2R support, but experiments with specific versions are still required; JIT-only optimization gains must not be recast as measured AOT gains |
+| .NET 11 built-in Zstandard / span compression APIs | Verifiable in official library documentation | Establish a .NET baseline if compression is selected as a synchronous-engine validation module | A new Rust wrapper must explain its actual value relative to the built-in library; capabilities missing from older versions cannot justify its introduction |
+| Rust 2024 `unsafe extern`, unsafe attributes | Stable rules | FFI declarations, exported symbols, linking audits | An extern block declaring imported functions and an exported function use different syntax; the safety rationale for `no_mangle`/`export_name` should be recorded |
+| Rust 2024 `unsafe_op_in_unsafe_fn` | Default lint rule | Separate caller obligations from unsafe operations in the function body | An explicit unsafe block does not replace validity proofs, aliasing rules, or release rules |
+| Rust 1.99 raw-layout and ownership APIs | Verifiable in stable release notes | `Layout::for_value_raw`, `Box::into_non_null`, `Vec::into_parts`, etc. reduce glue repetition | Check each API's safety preconditions; do not substitute a `Box::leak`-then-release pattern for clear ownership transfer |
+| Rust 1.99 C variadic definitions | Stabilized, but not recommended as the default general-purpose ABI shape | Specific adaptation needs for existing C libraries | Availability does not mean it should be introduced; typed fixed-arity interfaces are easier to generate, analyze, and verify across platforms |
+| Rust 1.99.1 FFI bool fix | Verifiable in official patch notes | Include Boolean ABI regressions in tests | Language-level type sizes differ from calling-register semantics; specify NativeWeave's Boolean wire representation and verify it across compilers |
 
-主要来源：[C# 15 功能表](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15)、[Union reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union)、[P/Invoke 源生成](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke-source-generation)、[AOT 部署](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/)、[.NET 11 runtime](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime)、[.NET 11 libraries](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries)、[Rust 1.99.0](https://blog.rust-lang.org/2026/10/01/Rust-1.99.0/)、[unsafe extern](https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-extern.html)、[unsafe attributes](https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-attributes.html)、[unsafe operation lint](https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html)。
+Primary sources: [C# 15 feature list](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15), [Union reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union), [P/Invoke source generation](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke-source-generation), [AOT deployment](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/), [.NET 11 runtime](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime), [.NET 11 libraries](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries), [Rust 1.99.0](https://blog.rust-lang.org/2026/10/01/Rust-1.99.0/), [unsafe extern](https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-extern.html), [unsafe attributes](https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-attributes.html), [unsafe operation lint](https://doc.rust-lang.org/edition-guide/rust-2024/unsafe-op-in-unsafe-fn.html).
 
-## 3. AOT 与目标平台必须分层核验
+## 3. AOT and Target Platforms Must Be Verified in Layers
 
-不能从“某平台有 .NET SDK 下载”推导“Native AOT、选定 Rust engine、原生依赖和 NuGet 包已经共同支持该平台”。构建宿主、目标 OS/architecture、C runtime、最低 CPU、链接方式、engine 依赖和真实运行证据分别记录。
+The availability of a .NET SDK download for a platform does not establish that Native AOT, the selected Rust engine, native dependencies, and NuGet packages jointly support that platform. Record the build host, target OS/architecture, C runtime, minimum CPU, linkage, engine dependencies, and actual execution evidence separately.
 
-官方 AOT 文档明确限制动态托管程序集加载和运行时代码生成；表达式树具有解释执行路径，因此“Expression Trees 一概不能在 AOT 使用”是过度概括。ORM 研究应分别审查表达式构造、解释、SQL 翻译、动态编译以及元数据可达性。[AOT 限制](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/#limitations-of-native-aot-deployment)
+Official AOT documentation explicitly limits dynamic managed assembly loading and runtime code generation; expression trees have an interpreted execution path, so "Expression Trees cannot be used under AOT at all" is an overgeneralization. ORM research should separately examine expression construction, interpretation, SQL translation, dynamic compilation, and metadata reachability. [AOT limitations](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/#limitations-of-native-aot-deployment)
 
-官方跨编译说明不支持常规跨 OS Native AOT 构建；同 OS 部分架构间可在具备原生工具链时交叉编译。因此 Windows 和 Linux 验收需要对应宿主与实际目标执行，不能把本 Linux 环境的脚本成功当作 Windows 成功。[AOT cross-compilation](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/cross-compile)
+The official cross-compilation guidance does not support conventional cross-OS Native AOT builds; cross-compilation between some architectures on the same OS is possible with the required native toolchain. Windows and Linux acceptance therefore requires the corresponding hosts and actual target execution; a successful script in this Linux environment is not a Windows success. [AOT cross-compilation](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/cross-compile)
 
-.NET 11 runtime 文档改变了部分硬件基线。ABI、发行包和 benchmark 记录必须固定 CPU ISA 条件；它不是“只要 x64 就兼容所有旧机器”的保证。[.NET 11 hardware requirements](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime#updated-minimum-hardware-requirements)
+The .NET 11 runtime documentation changes some hardware baselines. ABI, release package, and benchmark records must pin CPU ISA conditions; this is not a guarantee that any x64 machine, including all older machines, is compatible. [.NET 11 hardware requirements](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime#updated-minimum-hardware-requirements)
 
-Android 的 Native AOT 平台表仍列实验性并提示没有内置 Java interop。iOS、MacCatalyst、GUI native shell 等需要独立平台专题，不从桌面/server AOT 推演移动 UI 的完整成熟度。[AOT platform restrictions](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/#platformarchitecture-restrictions)
+The Native AOT platform table still lists Android as experimental and notes the absence of built-in Java interop. iOS, MacCatalyst, GUI native shells, and similar areas require separate platform topics; complete mobile UI maturity cannot be extrapolated from desktop/server AOT. [AOT platform restrictions](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/#platformarchitecture-restrictions)
 
-Rust 公告已说明未来 1.100.0 对 i686 Windows host tools 的调整；这是宿主工具变化，不能误写为不再能生成所有 32 位 Windows 目标。需要跟随实际采用版本重查。[i686 host-tool adjustment](https://blog.rust-lang.org/2026/10/02/demoting-i686-windows-targets-to-std-only/)
+A Rust announcement has already described the future 1.100.0 adjustment to i686 Windows host tools; this is a host-tool change and must not be misrepresented as loss of the ability to generate all 32-bit Windows targets. Recheck against the version actually adopted. [i686 host-tool adjustment](https://blog.rust-lang.org/2026/10/02/demoting-i686-windows-targets-to-std-only/)
 
-## 4. 本环境的实际验证范围
+## 4. Actual Verification Scope in This Environment
 
-已实际运行一次 PATH/版本探针：Linux x86_64，glibc 2.41；Python 3.12.14；Git 2.52.0；`cc` 为 GCC 14.2.0。`dotnet`、`rustc`、`cargo`、`clang` 均未在 PATH 找到。
+A PATH/version probe was actually run once: Linux x86_64, glibc 2.41; Python 3.12.14; Git 2.52.0; `cc` is GCC 14.2.0. `dotnet`, `rustc`, `cargo`, and `clang` were all absent from PATH.
 
-这只说明当前执行上下文中没有可直接调用的这些命令，不等于对磁盘所有目录做过安装普查。本专题没有安装编译器、编译 C#/Rust、执行 Native AOT、使用 Windows 主机或跑性能基准。所有相关实验目前状态均为 `not_run`。本轮确实完成的是官方资料检索、发布事实交叉核验和本地命令可用性探针。
+This establishes only that these commands were not directly callable in the current execution context, not that every directory on disk was surveyed for installations. This topic did not install compilers, compile C#/Rust, execute Native AOT, use a Windows host, or run performance benchmarks. All related experiments currently have status `not_run`. What this round actually completed was retrieval of official materials, cross-checking of release facts, and a local command-availability probe.
 
-## 5. 交给后续研究与验证任务的具体问题
+## 5. Specific Questions for Subsequent Research and Validation Tasks
 
-| 验证 ID | 输入与方法 | 正常 / 反例覆盖 | 所需输出 |
+| Validation ID | Inputs and methods | Normal / counterexample coverage | Required outputs |
 | --- | --- | --- | --- |
-| TC-V01 | 固定 SDK 11.0.100、Roslyn 准确版本，编译 C# 15 union 与 closed 样例 | 值类型 case、null/default、跨程序集派生、未穷尽 switch | 完整命令、编译器输出、生成 IL/原生代码检查、语言诊断 |
-| TC-V02 | 原生 union、自定义 non-boxing union、普通 tagged struct 三组比较 | 成功/失败/取消分支、无值、泛型实例化、冷路径异常 | AOT 可执行样例、分配数、包体积和吞吐；不预设优胜者 |
-| TC-V03 | 固定 .NET 11 默认 async 与显式 Runtime Async 配置 | 同步完成、真正挂起、throw、CancellationToken、AsyncLocal、线程切换 | GA 状态澄清、编译与运行记录、Windows/Linux AOT 对照；预览项不进入生产必要契约 |
-| TC-V04 | `LibraryImport`、blittable `DllImport` 与生成 glue | bool、UTF-8、空 slice、无效 enum、结构体按值/按引用 | 目标 ABI、大小/对齐/offset 和调用返回值实际观测 |
-| TC-V05 | Rust 2024 FFI boundary 最小样例 | 导入 block、导出符号、重复符号、panic unwind/abort | rustc/Cargo/链接器版本、成功构建及故障进程退出行为 |
-| TC-V06 | Rust 1.99.1 对照前版本的 bool 回归用例 | x86_64 直接调用、函数指针回调、值 0/1 | 回归保护；不以单平台结果证明所有 ABI |
-| TC-V07 | .NET 内置压缩与 Rust 候选 engine 的完整工作负载 | 空输入、无效输入、分片流、缓冲不足、大输入、取消 | CPU/RSS/吞吐/P99/复制/线程与开发成本；明确 native dependencies |
-| TC-V08 | AOT 平台/RID/ISA/linkage 交叉表 | Windows/Linux、x64/Arm64、glibc/musl、不可用库、旧 CPU | 真实可执行制品及目标运行记录；未测单元不得列正式支持 |
-| TC-V09 | 锁定 `dotnet/runtime`、`dotnet/roslyn`、`rust-lang/rust` 发布 commit | API→lowering→runtime/FFI→异常→测试完整路径 | 固定 SHA、文件、符号、覆盖清单；官方文档结论升级为源码证据前必须完成 |
-| TC-V10 | 编译期生成器在锁定 Roslyn 下执行 | 增量输入变更、取消、并行编译、重复诊断、生成稳定性 | 可重现输入输出和 generator/analyzer 版本兼容记录 |
+| TC-V01 | Pin SDK 11.0.100 and an exact Roslyn version; compile C# 15 union and closed examples | Value-type cases, null/default, cross-assembly derivation, non-exhaustive switches | Full commands, compiler output, inspection of generated IL/native code, language diagnostics |
+| TC-V02 | Compare three groups: native union, custom non-boxing union, and ordinary tagged struct | Success/failure/cancellation branches, no value, generic instantiation, cold-path exceptions | AOT executable examples, allocation counts, package size, and throughput; no predetermined winner |
+| TC-V03 | Pin .NET 11 default async and explicit Runtime Async configurations | Synchronous completion, actual suspension, throw, CancellationToken, AsyncLocal, thread switching | GA status clarification, compilation and execution records, Windows/Linux AOT comparisons; preview items do not enter required production contracts |
+| TC-V04 | `LibraryImport`, blittable `DllImport`, and generated glue | bool, UTF-8, empty slices, invalid enums, structs by value/by reference | Actual observations of target ABI, size/alignment/offset, and call return values |
+| TC-V05 | Minimal Rust 2024 FFI boundary examples | Import blocks, exported symbols, duplicate symbols, panic unwind/abort | rustc/Cargo/linker versions, successful builds, and failing-process exit behavior |
+| TC-V06 | Bool regression cases comparing Rust 1.99.1 with earlier versions | x86_64 direct calls, function-pointer callbacks, values 0/1 | Regression protection; a single-platform result does not prove all ABIs |
+| TC-V07 | Complete workloads for .NET built-in compression and candidate Rust engines | Empty input, invalid input, chunked streams, insufficient buffers, large input, cancellation | CPU/RSS/throughput/P99/copies/threads and development cost; specify native dependencies |
+| TC-V08 | AOT platform/RID/ISA/linkage cross-table | Windows/Linux, x64/Arm64, glibc/musl, unavailable libraries, old CPUs | Actual executable artifacts and target execution records; untested cells must not be listed as formally supported |
+| TC-V09 | Pin release commits for `dotnet/runtime`, `dotnet/roslyn`, and `rust-lang/rust` | Complete API→lowering→runtime/FFI→exception→test paths | Pinned SHAs, files, symbols, coverage inventories; must be completed before upgrading documentation conclusions to source evidence |
+| TC-V10 | Run compile-time generators under pinned Roslyn | Incremental input changes, cancellation, parallel compilation, duplicate diagnostics, generation stability | Reproducible inputs/outputs and generator/analyzer version compatibility records |
 
-## 6. 建议的版本治理方式（待 ADR 审查）
+## 6. Recommended Version Governance (Pending ADR Review)
 
-研究快照在 `global.json` 锁定已核验 SDK，Rust 用 `rust-toolchain.toml` 锁定准确 release；工具链升级通过独立 PR，附发布事实、差异、受影响目标和回归记录。依赖锁定、SDK pin、Rust MSRV、edition 与 engine ABI version 是不同概念，分别维护。
+Research snapshots pin the verified SDK in `global.json` and the exact Rust release in `rust-toolchain.toml`; toolchain upgrades go through separate PRs with release facts, differences, affected targets, and regression records. Dependency locking, SDK pins, Rust MSRV, edition, and engine ABI version are distinct concepts and are maintained separately.
 
-不要提交 `latest`、不受控 nightly 或 `LangVersion=preview` 作为生产基线。支持周期不等于固定补丁永不更新；.NET 官方政策要求在支持期内跟随 servicing。是否支持 .NET 10 LTS、Rust 更低 MSRV 或某个旧 RID，交给需求与成本研究决定，不能在首次事实核验中自动扩张产品承诺。
+Do not commit `latest`, uncontrolled nightly, or `LangVersion=preview` as a production baseline. A support period does not mean a pinned patch is never updated; official .NET policy requires following servicing updates during support. Whether to support .NET 10 LTS, a lower Rust MSRV, or an older RID is left to requirements and cost research, and cannot automatically expand product commitments during initial fact verification.
 
-## 7. 完成与未完成
+## 7. Completed and Unfinished Work
 
-本专题已形成可追溯的版本事实、现代机制风险点、实际环境限制和十项验证任务输入。**未完成**源码级编译器研究、任何运行/性能验证、所有平台支持认证、独立架构验收。本报告可用于并行研究和候选设计；不能作为产品发布验收证据。
+This topic has produced traceable version facts, risks in modern mechanisms, actual environment limitations, and inputs for ten validation tasks. Source-level compiler research, any execution/performance validation, certification of support for all platforms, and independent architecture acceptance are **not completed**. This report can support parallel research and candidate design; it cannot serve as product release acceptance evidence.
