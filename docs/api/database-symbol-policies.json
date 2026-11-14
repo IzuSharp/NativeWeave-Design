@@ -383,7 +383,8 @@
       "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
       "native_operations": [
         "Managed-only build-time Roslyn metadata input; no FFI call",
-        "Generated static Table/Column/Projection consumed by Metadata.Register"
+        "Generated static Table/Column/Projection consumed by Metadata.Register",
+        "Generated store name defaults to exact CLR property name/casing; explicit attribute override changes store identity only"
       ],
       "tasks": [
         "B10"
@@ -602,7 +603,8 @@
         "nw_db_mutation_create_v1",
         "nw_db_tx_begin_create_v1",
         "nw_db_query_create_v1",
-        "nw_db_close_create_v1"
+        "nw_db_close_create_v1",
+        "mutation6 kind4 field2 insert values plus field8 separate conflict-update values; required/forbidden field table"
       ],
       "tasks": [
         "B04",
@@ -746,7 +748,8 @@
       "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
       "native_operations": [
         "Managed-only immutable typed conflict-target snapshot",
-        "nw_db_mutation_create_v1 mutation6 -> SeaQuery OnConflict + SQLx"
+        "nw_db_mutation_create_v1 mutation6 -> SeaQuery OnConflict + SQLx",
+        "mutation6 exactly one selector: field5 ordered conflict columns or field6 PostgreSQL constraint name"
       ],
       "tasks": [
         "B14"
@@ -1315,7 +1318,8 @@
         "nw_db_query_clone_v1",
         "nw_db_execute_create_v1",
         "nw_db_owner_release_v1",
-        "clauses18/7/19 JOIN reserve/commit/abort; clause20 HasMatch; clause22 WithTimeout"
+        "clauses18/7/19 JOIN reserve/commit/abort; clause20 HasMatch; clause22 WithTimeout",
+        "Exists/In selection import: query_clone(source) -> seal8 -> import2 -> clause14; source remains mutable, temporary owners finally-released"
       ],
       "tasks": [
         "B09",
@@ -1348,7 +1352,8 @@
         "nw_db_query_seal_v1 terminals0..8",
         "nw_db_execute_create_v1",
         "nw_db_cursor_fetch_create_v1",
-        "nw_db_query_render_v1"
+        "nw_db_query_render_v1",
+        "Combine: query_clone(other) -> seal8 -> import2 -> clause9; temporary owners finally-released after dependency retention"
       ],
       "tasks": [
         "B06",

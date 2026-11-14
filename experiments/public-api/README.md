@@ -29,6 +29,9 @@ The checks cover:
    capture and attempting to treat an owning reference type as a copyable value.
 4. The generated exact public inventory/reference, with per-type package, semantic
    section, operation family, capability, cost and existing Delivery ownership.
+   A separate compiler-symbol regression fixture checks parameter/return attributes,
+   named-type and delegate declarations, enum/constants, generic constraints and
+   deterministic JSON/Markdown output. It does not add product APIs.
 5. Native AOT publication and execution of static JSON/evidence code. Both the
    declaration assembly and consumer assembly are rooted so their bodies and
    closed generic uses participate in compilation. No declaration body is called

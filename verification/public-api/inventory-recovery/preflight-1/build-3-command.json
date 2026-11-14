@@ -1,0 +1,14 @@
+[
+  "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+  "build",
+  "NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+  "--configfile",
+  "NuGet.Offline.Config",
+  "-p:RestoreLockedMode=true",
+  "--disable-build-servers",
+  "-p:UseSharedCompilation=false",
+  "--nologo",
+  "-v:minimal",
+  "--artifacts-path",
+  "/workspace/scratch/58d2a6adf1c3/inventory-recovery-20261114/build-3"
+]

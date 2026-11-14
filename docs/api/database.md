@@ -104,7 +104,9 @@ using NativeWeave.Database.Sqlite;
 
 [WeaveTable("students", DescriptorName = "Students")]
 public sealed partial record Student(
-    [property: WeaveKey] long Id, string Name, int Age);
+    [property: WeaveKey, WeaveColumn("id")] long Id,
+    [property: WeaveColumn("name")] string Name,
+    [property: WeaveColumn("age")] int Age);
 
 // Students is generated in the entity's namespace; this snippet is an expected
 // product example, not a claim that the generator is implemented in the fixture.
@@ -283,7 +285,15 @@ and emits `<EntityName>Mapping` by default or the explicit `DescriptorName` in t
 entity namespace. Generated `Table`, typed property-name column fields and `Row`
 are discovered naturally in IntelliSense. `WeaveColumn` selects a store name and
 generated-value flag; `WeaveKey` and `WeaveVersion` mark keys/concurrency tokens;
-`WeaveIgnore` excludes a property. Table/schema/member names and type nullability
+`WeaveIgnore` excludes a property. Without `WeaveColumn`, the store column name is
+the exact CLR property symbol name, including its original casing; the C# `@`
+escape is syntax and is not part of that symbol name. There is no implicit
+lowercasing, snake-case conversion or pluralization. `WeaveColumn("id")` changes
+only the store name; the generated typed member remains `Id`. Examples using
+lowercase SQL columns therefore declare those overrides explicitly. Handwritten
+equivalence requires the same store names, key/concurrency flags, codecs,
+nullability and constructor projection order, not merely the same CLR type.
+Table/schema/member names and type nullability
 are canonicalized identically to handwritten definitions. Entity getters are never
 executed by the generator. An immutable record uses its unambiguous public primary
 constructor; a class requires one unambiguous accessible constructor or public/init
@@ -781,7 +791,7 @@ missing required field rejects; no default inferred across an incompatible versi
 | 1 source config | 1 provider:u32, 2 connection/path:UTF8, 3 limits:record, 4 provider options:record, (5 name:UTF8) | Credentials are transient copied config and never included in errors/logs. Limits record fields 1..15 follow DatabaseLimits declaration order, each u64/count or timeout-ns; overflow rejects before narrowing. |
 | 2 metadata | 1 canonical D17 descriptor:type5 raw UTF8 JSON bytes, 2 metadata hash:32 raw bytes encoded type5 | metadata_register receives the complete kind2 envelope; field1 is JSON, not a nested control-record envelope. Content hash recomputed natively; schema mismatch rejects. |
 | 3 transaction options | 1 isolation:u32 (0 default,1 ReadCommitted,2 RepeatableRead,3 Serializable), 2 read_only:u32, 3 commit_ns, 4 cleanup_ns, (5 recovery_key:UTF8) | SQLite BEGIN mode comes from source profile, not isolation enum reinterpretation. Other BCL isolation values reject. |
-| 4 mutation | 1 entity/table ID:u32, 2 values:db-wire, (3 key:db-wire), (4 checks:db-wire), (5 conflict columns:u32vector), (6 constraint:UTF8), (7 projection ID:u32) | Mutation code decides required/forbidden fields; duplicate set/key/check IDs reject. |
+| 4 mutation | 1 entity/table ID:u32, (2 insert/update values:db-wire), (3 key:db-wire), (4 checks:db-wire), (5 conflict columns:u32vector), (6 constraint:UTF8), (7 projection ID:u32), (8 upsert update values:db-wire) | The mutation table below fixes required/forbidden fields; insert values and upsert assignments have separate payloads. Duplicate set/key/check IDs reject. |
 | 5 administration | 1 provider:u32, (2 bundle:record), (3 target:u64), (4 timeout_ns), (5 flags:u32), (6 schema:UTF8) | Immutable migration records contain version/description/SQL/mode and verified hashes. Schema list action has no bundle. |
 | 6 clause operands | Operation-specific fields in table below | Tokens are query-owned; aliases/model IDs are validated. |
 | 7 cleanup/outcome snapshot | 1 tx_state:u32, 2 outcome:u32, 3 commit_attempted:u32, 4 cleanup:u32, 5 disposition:u32, 6 released:u32, 7 deadline:u32, 8 correlation:u64, (9 provider_code:UTF8), (10 recovery_key:UTF8) | Raw codes explicitly map to the public enums in declaration order, with 0-based IDs. Snapshot preserves independent dimensions; absent tx fields for source/session are zero and ignored. |
@@ -789,6 +799,33 @@ missing required field rejects; no default inferred across an incompatible versi
 Finite timeout units are nanoseconds checked against TimeSpan ticks/overflow;
 C# TimeSpan ticks convert exactly by multiplication by 100. Optional null timeouts
 select the source finite default, never unbounded zero.
+
+The mutation code passed to `nw_db_mutation_create_v1` determines the complete
+kind4 field set. Field1 is always required; every field not listed below is
+forbidden, rather than ignored. Fields2/3/4/8 each contain an independent kind4
+db-wire payload with that table's metadata hash and the ordered column IDs for
+its own role. Key and concurrency values are never inferred from the insert row.
+
+| Mutation code | Additional required fields | Validation and result |
+| --- | --- | --- |
+| 0 insert | 2 insert values | One entity row for InsertAsync; a bounded multirow payload for Bulk.Insert. Generated columns are omitted. Returns affected Int64 count. |
+| 1 insert-returning | 2 insert values, 7 registered projection ID | Exactly one insert row and one returned row; resolve RETURNING columns against that table before writing. |
+| 2 update | 2 assignment values, 3 complete key | Exactly one nonempty assignment row and one complete key row; returns 0/1 affected count. |
+| 3 update-checked | 2 assignment values, 3 complete key, 4 expected concurrency values | Same update plus one nonempty expected-value row in its native WHERE; exactly one affected row or concurrency conflict. |
+| 4 delete | 3 complete key | No assignment/insert payload; returns 0/1 affected count. |
+| 5 delete-checked | 3 complete key, 4 expected concurrency values | No assignment/insert payload; exact key and nonempty expected values in one native WHERE. |
+| 6 upsert | 2 insert values, 8 assignment values, exactly one of 5 conflict columns or 6 constraint name | Exactly one insert row plus an independent nonempty update row; native ON CONFLICT uses only the explicitly supplied update assignments. Returns provider affected count. |
+
+All key/check/assignment payloads have exactly one record. A generated-only insert
+may have zero descriptors in its one row and maps to native DEFAULT VALUES when
+the provider profile supports it; zero rows are never an insert command.
+Assignments reject key/generated columns, wrong-table IDs and duplicate IDs.
+Upsert snapshots both the entity writer output and `Changes<TEntity>` before
+admission. Field8 is not an implicit EXCLUDED-row update: values may differ from
+field2, may contain an explicit SQL NULL, and may update only a subset of columns.
+Native SeaQuery builds the insert and conflict assignment expressions from these
+two separate value sets, with one fallible SQLx parameter binding and statement
+execution. No exists-then-write query or managed SQL construction is introduced.
 
 ### 9.1.1 Canonical metadata and nested control records
 
@@ -1048,7 +1085,7 @@ never authorizes a pointer access or substitutes for the complete shape hash.
 | clause 20 | JOIN MATCH: field1 committed left-join alias token:u64 | Native boolean expression over a private non-null marker of the joined source; not a nullable user column test |
 | clause 21 | OVER: field1 aggregate/window-capable expression token:u64, field2 window token:u64 | Clone the current WindowStatement into a new native expression; existing expression and window remain independent, return expression token |
 | clause 22 | TIMEOUT: field1 finite timeout_ns | Set query's finite timeout override; source CommandTimeout was the initial value; snapshot at seal, convert once at execution admission |
-| `Query.Seal` terminal 0..8 | 0 list,1 stream,2 first,3 single,4 count,5 exists,6 update,7 delete,8 prepare | freeze/validate native statement/values; plan owner; state Sealed |
+| `Query.Seal` terminal 0..8 | 0 list,1 stream,2 first,3 single,4 count,5 exists,6 update,7 delete,8 immutable shape | freeze/validate native statement/values; plan owner; state Sealed; terminal8 supplies public Prepare and internal import snapshots without executing SQL |
 | `Execute.Create` | sealed plan + execution values -> native renderer, fallible SQLx Arguments::add, query/query_as::fetch/execute | cursor or Int64 affected/count or scalar; no .unwrap parameter conversion |
 | `Sql.Create` | named/segment template + kind1 values + kind20 options -> native placeholder binding and exact static result plan | plan retaining timeout, registered projection and kind21 parameter schema; no execution before Execute.Create |
 | `CommonTable.Create` / cte_create | declared model/table ID + selected body-query owner + recursive0/1 -> native validated clone | independently owned immutable CTE; declaration/body source/profile/arity/codecs must match; input query remains unchanged |
@@ -1072,6 +1109,30 @@ immutable native dependency or clone its state into the destination query arena.
 Clause records then contain only query-local tokens, never encoded raw pointers
 or a process-wide owner table. Import retains dependencies until destination query
 retirement; closing the source wrapper cannot invalidate already imported state.
+
+`Combine`, `Exists` and `In(QuerySelection<T>)` receive a selected mutable query,
+not an already sealed plan. Their adapter sequence is explicit: validate source
+and result shape, acquire source read admission, `query_clone(source)` into a
+temporary owner, then end that read admission. Seal only the temporary clone with
+terminal8, import its plan into the destination with `query_import(kind2)`, and
+apply clause9 for Combine or clause14 for EXISTS/IN. The source query remains
+mutable and its selection remains usable; changes after the clone do not alter
+the imported snapshot. Clone preserves the selected shape, owned values and
+source-bound parameter IDs. EXISTS ignores the result values but still validates
+the selected native query; IN requires exactly one compatible result codec.
+
+Public Prepare requires `db.prepared-shape.v1`; the internal nonexecuting snapshot
+uses the same native shape representation under `db.query.v1` and does not create
+a public prepared object or prepare a statement on a physical connection. Every
+temporary plan/query owner is released in reverse order in a finally path after
+the import has retained its dependency, or immediately on failure. If clause
+application fails after import, its unused arena dependency remains bounded and
+charged until destination-query disposal; no partial clause is published.
+Source read admission is not held while acquiring destination mutation admission,
+including self-composition, so the sequence cannot recursively acquire the same
+query gate. Destination closure after cloning rejects admission and retires all
+temporary owners. This uses existing clone/seal/import/release operations, not a
+new managed query representation.
 
 JOIN performs reserve18 -> synchronous ON expression construction -> commit7.
 `JoinPredicate.Right` resolves columns against that provisional alias; Left uses

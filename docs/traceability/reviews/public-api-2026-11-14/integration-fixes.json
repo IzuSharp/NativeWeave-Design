@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "author": "/root",
+  "status": "fixed_pending_independent_final_review",
+  "findings": [
+    {
+      "id": "API-INT-005",
+      "fix": "Reject an existing nonempty evidence output before creating a new work directory; preserve successful attempt-4 runner at recovery checkpoint. Guard-only evidence leaves all 19 original files byte-identical."
+    },
+    {
+      "id": "API-FOUND-001",
+      "fix": "Remove nonexistent DbValue and wrong EnginePackage namespace from foundation matrix, bind actual DisposeAsync ValueTask and explicit TLS reload members, and fail stale fully-qualified foundation symbols against the compiler inventory."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/api/foundation-coverage.json",
+      "sha256": "6d10e4adda289591246ce9d5e5e6395cf5f1c869cda55c33f44a9fbc4db9cc45"
+    },
+    {
+      "path": "tools/verify_public_api.py",
+      "sha256": "a9047bed3e570dc3c39c956f2ce82c6357bbcf40e44db7802a43a0d8aab065e1"
+    },
+    {
+      "path": "docs/standards/csharp-public-api-and-documentation.md",
+      "sha256": "78f2aab2212fbbc49267e7827231a3f64cf9b840206d0acdc33768417e2dbcac"
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/run.py",
+      "sha256": "811b34a08e4e6f5089e964a5ee82302095dfcd98f5684a173dc9b24a048b83d9"
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/README.md",
+      "sha256": "e453ae91a01adec03d0cfa6d9b195525bed30ae4b6b3a0644b8a6908ca2baa94"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/README.md",
+      "sha256": "e13549c37419bac403a7a21a5560f22017bc02d8fb64ea3071ff607a9d1ab61f"
+    }
+  ],
+  "verification": "verification/public-api/harness-guards/attempt-1/summary.json",
+  "independent_acceptance": false,
+  "product_execution": false
+}

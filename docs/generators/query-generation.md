@@ -36,9 +36,9 @@ A minimal descriptor declaration (draft, not compiled product API):
 ```csharp
 [WeaveTable("students", DescriptorName = "Students")]
 public sealed partial record Student(
-    [property: WeaveKey] long Id,
-    string Name,
-    int Age);
+    [property: WeaveKey, WeaveColumn("id")] long Id,
+    [property: WeaveColumn("name")] string Name,
+    [property: WeaveColumn("age")] int Age);
 ```
 
 Generated shape (illustrative, not executed):
@@ -51,6 +51,12 @@ public static class Students
 }
 ```
 C# code and model metadata vary; the native binary does not. The exact attribute/API names are fixed by the 0.4.0 declaration fixture; generated output remains an implementation obligation. The recovered probe used handwritten static descriptors and DTO constructors, so it is evidence for that path, not for this generator's implementation.
+
+The default store column name is the exact CLR property symbol name, preserving
+casing. `WeaveColumn` explicitly overrides it without renaming the generated
+typed member. The lowercase names above are therefore deliberate schema mappings,
+not an unspecified naming convention. Generated/handwritten parity must also
+include the same key/concurrency flags, codecs, nullability and projection order.
 
 ## 4. Static materialization and errors
 

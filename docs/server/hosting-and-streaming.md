@@ -188,7 +188,7 @@ stateDiagram-v2
     Stopped --> Disposed: Release owners
 ```
 
-`StopAsync` is idempotent, with multiple callers waiting for the same shutdown result; this instance does not restart after stopping. Draining first sets readiness=false, then closes application admission and stops new connections/requests, allowing admitted work to finish within the remaining deadline. Request streams, database sessions/transactions, background outbox workers and diagnostic exporters each have explicit owners. Timeout enters Aborting, sends cancellation/reset and waits for release; do not prematurely free a context with a callback in progress to meet the deadline. If native code cannot achieve quiescence, shutdown fails, records unreleased resources and leaves handling to process exit, without reusing their addresses or unloading the dynamic library. Exporters flush last with a separate small budget and cannot prolong business shutdown indefinitely.
+`CloseAsync(timeout, cancellationToken)` coalesces the underlying close transition; each caller retains its own finite waiting budget and Completed/Pending observation. `DisposeAsync` joins that same retirement without a timeout; this instance does not restart after stopping. Draining first sets readiness=false, then closes application admission and stops new connections/requests, allowing admitted work to finish within the remaining deadline. Request streams, database sessions/transactions, background outbox workers and diagnostic exporters each have explicit owners. Timeout enters Aborting, sends cancellation/reset and waits for release; do not prematurely free a context with a callback in progress to meet the deadline. If native code cannot achieve quiescence, shutdown fails, records unreleased resources and leaves handling to process exit, without reusing their addresses or unloading the dynamic library. Exporters flush last with a separate small budget and cannot prolong business shutdown indefinitely.
 
 Each TLS ingress is owned by exactly one layer. Rust host uses native rustls for handshake, certificates, ALPN and close-notify, with its buffers charged to the budget. Proxy termination requires explicit trusted-proxy, forwarded-header and actual-identity boundaries; do not blindly trust arbitrary `X-Forwarded-*`. Certificate reload must not leave dangling references in active handshakes. HTTP/1.1 and HTTP/2 undergo separate profile acceptance; HTTP/3, QUIC and platform-crypto differences are independent capabilities and cannot be inferred from HTTP/2 success.
 
@@ -265,3 +265,24 @@ B15/B16/B17 implement these signatures and native payloads together with their X
 generated reference, minimal/advanced consumers, negative compiler/configuration cases
 and actual Windows/Linux AOT behavior. Historical experiment identities and accepted
 snapshots above remain unchanged; this revision needs fresh exact-content review.
+
+### Final response, cleanup and protocol-gate corrections
+
+API-SRV-001/003/004/005 are resolved in the current public specification's sections4.4,
+5.1 and5.2: final status is200..599; HEAD/204/205/304 have explicit length/body/trailer
+rules; forwarding consumes only aligned X-Forwarded-For/Proto/Host tuples through
+right-to-left exact-peer trust. The original peer and MCP wire Host/Origin remain
+separate from effective application metadata. Completion callbacks run LIFO, followed
+by registered disposables LIFO and then request scope; every cleanup failure is isolated
+and the outer finally still performs the one dispatch completion/retirement join.
+An unexecuted Stream(source) result leaves source ownership with its caller; ownership
+transfers only at successful single-use execution admission. Opening the input inside
+a producer avoids holding an unexecuted resource.
+
+The exact dispatch callback adds a fixed dispatch_kind field. MCP kind2 performs
+pre-parse managed middleware/auth on one request ticket/scope; gate_resume_create
+admits the public native rmcp service only after allow. Optional kind3 business dispatch
+reuses the taken request and cannot bypass or repeat auth. Automatic list methods pass
+the same gate. All nested handlers and the gate operation retire before the single
+outer cleanup and dispatch_complete. See [API section10.4](../api/server.md#104-mcp-pre-parse-gate-and-one-request-lifetime).
+These are design corrections, not newly executed server/product claims.

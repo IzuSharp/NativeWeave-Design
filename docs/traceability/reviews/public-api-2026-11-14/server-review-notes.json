@@ -5,7 +5,7 @@
   "reviewer_role": "independent domain reviewer; authored Database, not Server",
   "recorded_at": "2026-11-14T11:37:29.853744+00:00",
   "review_kind": "design/source/consumer/ABI semantic review; not product acceptance or GitHub approval",
-  "state": "in_progress_open_findings",
+  "state": "changes_required",
   "scope": [
     "all Server C# declarations and member policies",
     "HTTP typed binding, DI, static JSON and request lifecycle",
@@ -106,14 +106,14 @@
       "id": "API-SRV-001",
       "severity": "high",
       "blocking": true,
-      "status": "open",
+      "status": "fixed_rechecked",
       "title": "Final response permits informational status and omits the 205 no-content rule",
       "evidence": [
         {
           "path": "docs/api/server.md",
           "section": "5",
           "line": 345,
-          "observation": "StatusCode/NoContent/NotFound validates100\u2013599 and only204/304 suppress output; response_begin is a single final commit and Upgrade is unsupported."
+          "observation": "StatusCode/NoContent/NotFound validates100–599 and only204/304 suppress output; response_begin is a single final commit and Upgrade is unsupported."
         },
         {
           "url": "https://www.rfc-editor.org/rfc/rfc9110.html#section-15.2",
@@ -125,7 +125,18 @@
         }
       ],
       "impact": "An accepted public status can fail to terminate the request correctly or allow protocol-invalid body framing.",
-      "expected_fix": "Define final response validation independently from informational handling; v1 should reject1xx through final status APIs, include205 body prohibition, and specify compatible HEAD/204/205/304 content-length/trailer behavior in managed/native validation."
+      "expected_fix": "Define final response validation independently from informational handling; v1 should reject1xx through final status APIs, include205 body prohibition, and specify compatible HEAD/204/205/304 content-length/trailer behavior in managed/native validation.",
+      "resolution": {
+        "reviewer_id": "/root/database_api",
+        "rechecked_at": "2026-11-14T12:02:50.974793+00:00",
+        "summary": "Sections5 and5.1 reject final1xx/out-of-range status in public and native admission; HEAD/204/205/304 each specify producer, trailer and Content-Length behavior, including HEAD combined with a stricter status.",
+        "input_sha256": {
+          "docs/api/server.md": "c6b4732b44d36ec2e00d8b0ab1c0a14a5b30e44139ab1e36ccebebcf1110e1b9",
+          "experiments/public-api/NativeWeave.Api.Design/Server.cs": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+          "docs/server/hosting-and-streaming.md": "678fdbf670eb03b205282272ece18e3919b5fe9c02662904799ee1f308753a22"
+        },
+        "scope": "Independent review of the design repair; not runtime acceptance."
+      }
     },
     {
       "id": "API-SRV-002",
@@ -136,7 +147,7 @@
       "evidence": [
         {
           "path": "docs/api/server.md",
-          "section": "10.1\u201310.2",
+          "section": "10.1–10.2",
           "line": 679,
           "observation": "request_info exposes one headers view while the gRPC metadata convention requires raw binary values for-bin and explicitly no ABI base64."
         },
@@ -147,13 +158,34 @@
         }
       ],
       "impact": "The current projection cannot unambiguously preserve HTTP wire header text and independently decoded binary gRPC values; one wrapper can incorrectly UTF8-decode raw binary or decode base64 twice.",
-      "expected_fix": "Define a separate exact typed ABI projection/field for gRPC metadata, including owner kind, lease, byte budget and whether wire HTTP headers remain intact; update C header/probe if layout changes."
+      "expected_fix": "Define a separate exact typed ABI projection/field for gRPC metadata, including owner kind, lease, byte budget and whether wire HTTP headers remain intact; update C header/probe if layout changes.",
+      "remaining_after_projection_fix": "Separate metadata projection is now explicit and C header/probe agree. The remaining clause attributing comma-coalesced splitting to Tonic must instead identify bounded Adapter splitting before per-entry Tonic decode.",
+      "followup_evidence": [
+        {
+          "path": "/workspace/scratch/7d469df8fa51/server-source-review/tonic-map.rs",
+          "lines": "267-270",
+          "sha256": "7924d2b25c6e5dc8d655890409052c77282b39743b788501a8734cf108fd4acc",
+          "observation": "MetadataMap::from_headers only wraps HeaderMap."
+        },
+        {
+          "path": "/workspace/scratch/7d469df8fa51/server-source-review/tonic-value.rs",
+          "lines": "154-157",
+          "sha256": "dd5e473e1cf930c123cf30aa58054353828f7732b1a39e9500311eac3a19b830",
+          "observation": "MetadataValue::to_bytes invokes VE::decode on the whole value."
+        },
+        {
+          "path": "/workspace/scratch/7d469df8fa51/server-source-review/tonic-encoding.rs",
+          "lines": "175-180",
+          "sha256": "cf919a9d5605002d58cb395987c68df47d93099ce08e7c38e83e052debc271ff",
+          "observation": "Binary decode directly invokes the base64 decoder, without comma splitting."
+        }
+      ]
     },
     {
       "id": "API-SRV-003",
       "severity": "medium",
       "blocking": true,
-      "status": "open",
+      "status": "fixed_rechecked",
       "title": "Trusted forwarded metadata has no deterministic parsing and trust contract",
       "evidence": [
         {
@@ -164,7 +196,18 @@
         }
       ],
       "impact": "Different implementations can accept different client-supplied identity metadata or apply a forwarded authority to an unrelated Host allowlist.",
-      "expected_fix": "Define the supported forwarding header family, bounded right-to-left trusted-hop traversal, per-hop trust checks, invalid/duplicate/mismatched input behavior, effective Scheme/Host and original-peer preservation, and the authority used by MCP Host checks."
+      "expected_fix": "Define the supported forwarding header family, bounded right-to-left trusted-hop traversal, per-hop trust checks, invalid/duplicate/mismatched input behavior, effective Scheme/Host and original-peer preservation, and the authority used by MCP Host checks.",
+      "resolution": {
+        "reviewer_id": "/root/database_api",
+        "rechecked_at": "2026-11-14T12:02:50.974793+00:00",
+        "summary": "Section4.4 fixes the exact supported X-Forwarded family, aligned bounded lists, strict IP/scheme/authority validation, right-to-left per-hop membership, atomic metadata update and original peer/Host/Origin preservation.",
+        "input_sha256": {
+          "docs/api/server.md": "c6b4732b44d36ec2e00d8b0ab1c0a14a5b30e44139ab1e36ccebebcf1110e1b9",
+          "experiments/public-api/NativeWeave.Api.Design/Server.cs": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+          "docs/server/hosting-and-streaming.md": "678fdbf670eb03b205282272ece18e3919b5fe9c02662904799ee1f308753a22"
+        },
+        "scope": "Independent review of the design repair; not runtime acceptance."
+      }
     },
     {
       "id": "API-SRV-004",
@@ -181,13 +224,14 @@
         }
       ],
       "impact": "An implementation could skip later cleanup, omit dispatch_complete, leak the DI scope or leave Close pending forever after a user cleanup exception.",
-      "expected_fix": "Fix the ordering and exactly-once rules, isolate failures so remaining registered cleanup and scope disposal still run, retain the original/first error with bounded safe diagnostics, and always signal dispatch completion and join native retirement in the outer finally path."
+      "expected_fix": "Fix the ordering and exactly-once rules, isolate failures so remaining registered cleanup and scope disposal still run, retain the original/first error with bounded safe diagnostics, and always signal dispatch completion and join native retirement in the outer finally path.",
+      "remaining_after_cleanup_fix": "Failure-isolated LIFO callbacks/disposables/scope and outer dispatch completion now close cleanup. Still specify that successful MapRaw/direct-response dispatch automatically awaits HTTP CompleteAsync before cleanup when not already completed; otherwise the sample setting only StatusCode201 can leave response_finish absent."
     },
     {
       "id": "API-SRV-005",
       "severity": "medium",
       "blocking": true,
-      "status": "open",
+      "status": "fixed_rechecked",
       "title": "Unexecuted Stream result does not specify source ownership",
       "evidence": [
         {
@@ -198,7 +242,18 @@
         }
       ],
       "impact": "The normal caller cannot determine who closes an already-open Stream when execution never starts or early validation/cancellation fails.",
-      "expected_fix": "Define exact transfer at execution admission or another implementable ownership seam; unexecuted results must retain caller ownership, or expose an actual deterministic release mechanism. Prefer a producer example that opens resources inside its awaited execution and guarantees closure on failure."
+      "expected_fix": "Define exact transfer at execution admission or another implementable ownership seam; unexecuted results must retain caller ownership, or expose an actual deterministic release mechanism. Prefer a producer example that opens resources inside its awaited execution and guarantees closure on failure.",
+      "resolution": {
+        "reviewer_id": "/root/database_api",
+        "rechecked_at": "2026-11-14T12:02:50.974793+00:00",
+        "summary": "Section5.2 makes successful single-use Execute admission the transfer point, with immediate finally installation and explicit unexecuted/failed-admission caller ownership; the new Download producer opens and closes its FileStream only during actual execution and compiles.",
+        "input_sha256": {
+          "docs/api/server.md": "c6b4732b44d36ec2e00d8b0ab1c0a14a5b30e44139ab1e36ccebebcf1110e1b9",
+          "experiments/public-api/NativeWeave.Api.Design/Server.cs": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+          "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "e1419cbbbde6cd7b4a61aee525294e1ea9562940f92082a440a0b5458469435c"
+        },
+        "scope": "Independent review of the design repair; not runtime acceptance."
+      }
     },
     {
       "id": "API-SRV-006",
@@ -215,18 +270,19 @@
         },
         {
           "path": "docs/api/server.md",
-          "section": "10.2\u201310.3",
+          "section": "10.2–10.3",
           "observation": "The MCP exports take already-native-parsed arguments and submit replies; no explicit pre-auth route ticket and allow/deny resume operation admits the public rmcp service before its parser or automatic list handlers."
         }
       ],
       "impact": "The current exact export inventory cannot demonstrate the required order for managed auth callbacks before native parsing; automatic list/metadata responses may bypass the application authorization path.",
-      "expected_fix": "Specify the outer native protocol request gate, bounded pre-auth ticket/context, asynchronous managed middleware/auth outside the callback, precise allow/deny continuation ABI, cancellation/failure cleanup, and subsequent business dispatch identity without duplicate request ownership. All protocol methods, including native automatic lists, must pass the gate."
+      "expected_fix": "Specify the outer native protocol request gate, bounded pre-auth ticket/context, asynchronous managed middleware/auth outside the callback, precise allow/deny continuation ABI, cancellation/failure cleanup, and subsequent business dispatch identity without duplicate request ownership. All protocol methods, including native automatic lists, must pass the gate.",
+      "remaining_after_gate_fix": "The explicit phased single-ticket MCP allow/deny gate and nested invocation lease now close pre-parse authorization. Still clarify all gRPC/MCP RequestContext body/response/OnStarting/filter restrictions, with typed protocol metadata/status as the only admitted output path after protocol admission."
     },
     {
       "id": "API-SRV-007",
       "severity": "low",
       "blocking": false,
-      "status": "open",
+      "status": "fixed_rechecked",
       "title": "Metadata-view paragraph ambiguously claims ownership transfer",
       "evidence": [
         {
@@ -237,13 +293,23 @@
         }
       ],
       "impact": "The intended bound_addresses owner transfer is easy to confuse with the borrowed metadata_headers projection.",
-      "expected_fix": "Name bound_addresses explicitly as the owner-returning operation and metadata_headers as a view-only borrow under that owner lease."
+      "expected_fix": "Name bound_addresses explicitly as the owner-returning operation and metadata_headers as a view-only borrow under that owner lease.",
+      "resolution": {
+        "reviewer_id": "/root/database_api",
+        "rechecked_at": "2026-11-14T12:02:50.974793+00:00",
+        "summary": "Section10.2 names bound_addresses as the owner-transfer export; both header projections return lease-bound views, reject incompatible kinds and leave out views empty on failure.",
+        "input_sha256": {
+          "docs/api/server.md": "c6b4732b44d36ec2e00d8b0ab1c0a14a5b30e44139ab1e36ccebebcf1110e1b9",
+          "docs/server/protocols-and-observability.md": "8eaa94fe21bafb42271e0c28f64adf5786a3989ea0681a1b6cb44b911e3dd3dc"
+        },
+        "scope": "Independent review of the design repair; not runtime acceptance."
+      }
     },
     {
       "id": "API-SRV-008",
       "severity": "medium",
       "blocking": true,
-      "status": "open",
+      "status": "fixed_rechecked",
       "title": "Coverage rows do not identify their inspected-source evidence",
       "evidence": [
         {
@@ -252,13 +318,23 @@
         }
       ],
       "impact": "A future maintainer cannot distinguish source-supported comparisons from uninspected family members or locate the pinned native evidence for a row without inference.",
-      "expected_fix": "Map rows to actual SERVER-DOTNET/RUST source IDs and relevant reused native evidence, with explicit coverage limits where a named comparison member was not individually read; do not cite unread files or claim a whole-file read from a hash."
+      "expected_fix": "Map rows to actual SERVER-DOTNET/RUST source IDs and relevant reused native evidence, with explicit coverage limits where a named comparison member was not individually read; do not cite unread files or claim a whole-file read from a hash.",
+      "resolution": {
+        "reviewer_id": "/root/database_api",
+        "rechecked_at": "2026-11-14T12:02:50.974793+00:00",
+        "summary": "All65 rows now resolve inspected-source IDs or exact reused source records and existing native evidence paths. Coverage limits distinguish family comparisons from individually inspected overloads and explicitly identify unsupported own-policy rows. The independent link check found no missing/unread referenced record.",
+        "input_sha256": {
+          "docs/api/server-coverage.json": "165861a6e50f037ac808667093c3ce7851339905ef1c9ce5f5c135f0da19f257",
+          "docs/api/server-sources.json": "d93958563fa57ecb37cb45a50ef49e8e822a51c1385a48f456bd228810fc64f7"
+        },
+        "scope": "Independent review of the design repair; not runtime acceptance."
+      }
     },
     {
       "id": "API-SRV-009",
       "severity": "medium",
       "blocking": true,
-      "status": "open",
+      "status": "fixed_rechecked",
       "title": "MCP tool root-shape admissibility is ambiguous",
       "evidence": [
         {
@@ -268,10 +344,469 @@
         }
       ],
       "impact": "A static codec alone could appear to authorize a scalar/array registration that the selected method/argument model does not bind.",
-      "expected_fix": "Declare and validate the selected root policy at registration. The author-selected v1 repair is a non-null object input and output root, with scalar/array/null allowed only at explicitly described nested properties, and actionable diagnostics."
+      "expected_fix": "Declare and validate the selected root policy at registration. The author-selected v1 repair is a non-null object input and output root, with scalar/array/null allowed only at explicitly described nested properties, and actionable diagnostics.",
+      "resolution": {
+        "reviewer_id": "/root/database_api",
+        "rechecked_at": "2026-11-14T12:02:50.974793+00:00",
+        "summary": "Section8 fixes finite non-null object roots and explicitly rejects Nullable<T>, scalar/array/dictionary/open/polymorphic roots. The reference-DTO root-only TransformSchemaNode narrows the erased top-level nullability without changing nested schemas. Reviewed BCL witness preserves its initial failure, final7 positive/5 rejection result and matching source/log hashes; no product execution is claimed.",
+        "input_sha256": {
+          "docs/api/server.md": "c6b4732b44d36ec2e00d8b0ab1c0a14a5b30e44139ab1e36ccebebcf1110e1b9",
+          "docs/server/protocols-and-observability.md": "8eaa94fe21bafb42271e0c28f64adf5786a3989ea0681a1b6cb44b911e3dd3dc",
+          "experiments/public-api/NativeWeave.Api.Design/Server.cs": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+          "verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-results.json": "d94e54ddd4c5d3a3c3de0d00a2da8b5910a17ab0888d80b86a467f9ac54c7391",
+          "verification/public-api/server-review-fixes/mcp-schema-root-witness/Program.cs": "cea6cba257eabcb381fb16111cffd094019caa46d2a485ea1f6d02d42e64a145"
+        },
+        "scope": "Independent review of the design repair; not runtime acceptance."
+      }
+    },
+    {
+      "id": "API-SRV-010",
+      "severity": "medium",
+      "blocking": true,
+      "status": "open",
+      "title": "Retained inbound native chunks can consume the response progress capacity",
+      "origin_review_id": "SR-BUDGET-001",
+      "origin_reviewer_id": "/root/database_api/server_budget_review",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "sha256": "48239d969620073fb7de78b41805fb06a303a7b7845f61503c0a6e2c08453008",
+          "sections": [
+            "2 budget validation",
+            "5 retained BodyChunk and response writes",
+            "10.3 native write reservation and managed/native ordering"
+          ],
+          "observation": "Chunk may equal per-request cap; independent inbound owners can retain native credit across reads; positive output asynchronously waits for that same request/global native capacity. Only managed/native ordering, not same-side retained-owner progress, is fixed."
+        },
+        {
+          "path": "docs/server/hosting-and-streaming.md",
+          "sha256": "678fdbf670eb03b205282272ece18e3919b5fe9c02662904799ee1f308753a22",
+          "section": "5 invariants2–4",
+          "observation": "Each direction must have temporary chunk headroom and cyclic holding is prohibited, but the concrete API does not specify protected headroom/global admission or nonwaiting exhaustion."
+        },
+        {
+          "path": "experiments/public-api/abi/nativeweave_server_api_v1.h",
+          "sha256": "7f0a149ef4a596df2b2f185c5166366437dc3cf8a3def4e6a1f04dc79e71d5e6",
+          "observation": "Input buffers and output write reservations are distinct owners; starting a write does not transfer/release held input buffers."
+        }
+      ],
+      "counterexample": [
+        "Use default Br=4MiB and K=32KiB, with the supported route body-limit override admitting at least4MiB.",
+        "Retain128 full BodyChunk owners, then await a positive Response.WriteAsync before finally disposing those chunks; output memory may already be application-owned.",
+        "Per-request native free credit is0. Only handler-owned chunk disposal can create space, while that handler awaits the write. Deadline/cancellation eventually ends the wait, but normal response progress cannot occur."
+      ],
+      "impact": "A currently admitted application pattern suffers a deadline-bounded liveness failure despite satisfying one-reader/one-writer and managed/native acquisition order. This is a static contract gap, not an executed product failure or a permanent unbounded deadlock.",
+      "expected_fix": "Select an exact protected per-direction/request headroom rule with validation and atomic global admission, or explicit nonwaiting resource_limit when held owners prevent progress. Apply to real backing capacities and both read/write exhaustion; add B16 boundary/global/cancellation witnesses. A per-request floor alone cannot guarantee global capacity."
     }
   ],
-  "checks": [],
+  "checks": [
+    {
+      "kind": "compiler",
+      "scope": "Isolated .NET11/C#15 Server declaration+consumer and two provided negative cases; no product execution",
+      "evidence": [
+        {
+          "case": "positive",
+          "command": [
+            "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+            "build",
+            "Review.csproj",
+            "-c",
+            "Release",
+            "-p:UseSharedCompilation=false",
+            "--nologo"
+          ],
+          "exit_code": 0,
+          "expected_diagnostic": null,
+          "passed": true,
+          "input_sha256": {
+            "experiments/public-api/NativeWeave.Api.Design/Server.cs": "42f2e3f9ceab631407d94c503e10b0522606f9f22d92ebf53509674dcdb38a89",
+            "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "9fa77efd76fc9283b2d3a2fa74d2562112fcebdf8c03dee6000891cf1f606c9a"
+          },
+          "log_sha256": "645c30b810f07dbf3eb72fea4dfa56918f3ddc46f500e7c7032137e6b836e210",
+          "log": "/workspace/scratch/7d469df8fa51/server-review-validation/positive.log"
+        },
+        {
+          "case": "wrong-response",
+          "command": [
+            "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+            "build",
+            "Review.csproj",
+            "-c",
+            "Release",
+            "-p:UseSharedCompilation=false",
+            "--nologo",
+            "--no-restore",
+            "-p:ReviewNegative=/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/negative/server-wrong-response.cs"
+          ],
+          "exit_code": 1,
+          "expected_diagnostic": "CS0029",
+          "passed": true,
+          "input_sha256": {
+            "experiments/public-api/NativeWeave.Api.Design/Server.cs": "42f2e3f9ceab631407d94c503e10b0522606f9f22d92ebf53509674dcdb38a89",
+            "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "9fa77efd76fc9283b2d3a2fa74d2562112fcebdf8c03dee6000891cf1f606c9a",
+            "experiments/public-api/negative/server-wrong-response.cs": "a3df04d23c4ee481bde9f28f9cedabfd660310c97de23f6a4f2bde66a0578a4f"
+          },
+          "log_sha256": "12105a0e831ea14b51b3455bd273dfa1e62c9682cc51b304b562ce78d0cd3660",
+          "log": "/workspace/scratch/7d469df8fa51/server-review-validation/wrong-response.log"
+        },
+        {
+          "case": "arbitrary-delegate",
+          "command": [
+            "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+            "build",
+            "Review.csproj",
+            "-c",
+            "Release",
+            "-p:UseSharedCompilation=false",
+            "--nologo",
+            "--no-restore",
+            "-p:ReviewNegative=/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/negative/server-arbitrary-delegate.cs"
+          ],
+          "exit_code": 1,
+          "expected_diagnostic": "CS1503",
+          "passed": true,
+          "input_sha256": {
+            "experiments/public-api/NativeWeave.Api.Design/Server.cs": "42f2e3f9ceab631407d94c503e10b0522606f9f22d92ebf53509674dcdb38a89",
+            "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "9fa77efd76fc9283b2d3a2fa74d2562112fcebdf8c03dee6000891cf1f606c9a",
+            "experiments/public-api/negative/server-arbitrary-delegate.cs": "bdbb6d66e34ec505a3d3fdb23c6ed5cdf18e441fda4e95a74168008201c166a2"
+          },
+          "log_sha256": "2089fbe8e0cc0133c7e4ee7da480c09cf958a810764f1785325b93a31ffafc73",
+          "log": "/workspace/scratch/7d469df8fa51/server-review-validation/arbitrary-delegate.log"
+        }
+      ]
+    },
+    {
+      "kind": "source_identity",
+      "scope": "All17 retained source files and the2 registry archives match the original manifest; a hash check does not claim a new full-file source read",
+      "evidence": [
+        {
+          "source_id": "SERVER-DOTNET-01",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/DefaultBuilder/src/WebApplication.cs",
+          "expected_sha256": "ae62ba3495160ed6ffc707677754e30f3813337894f9d942df0a80ae30055c49",
+          "actual_sha256": "ae62ba3495160ed6ffc707677754e30f3813337894f9d942df0a80ae30055c49",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-02",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/DefaultBuilder/src/WebApplicationBuilder.cs",
+          "expected_sha256": "0e94e86c72a8755d55b7b9bd3d074e9ec091e23a69e70d6025976add51bab22c",
+          "actual_sha256": "0e94e86c72a8755d55b7b9bd3d074e9ec091e23a69e70d6025976add51bab22c",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-03",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Http.Abstractions/src/HttpContext.cs",
+          "expected_sha256": "90881468902edd1541687085e1d308c9a384961660156efd4e193af62ce0d58e",
+          "actual_sha256": "90881468902edd1541687085e1d308c9a384961660156efd4e193af62ce0d58e",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-04",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Http.Abstractions/src/HttpRequest.cs",
+          "expected_sha256": "b34eef3a22e5b353fa75af531b179226d402b88d39fbefa3f0d8d4372def62a3",
+          "actual_sha256": "b34eef3a22e5b353fa75af531b179226d402b88d39fbefa3f0d8d4372def62a3",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-05",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Http.Abstractions/src/HttpResponse.cs",
+          "expected_sha256": "ab90db2d8cc50f168d71432ad53a29a4a1a54cdac4b8e5073db4ed63469b0178",
+          "actual_sha256": "ab90db2d8cc50f168d71432ad53a29a4a1a54cdac4b8e5073db4ed63469b0178",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-06",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Http.Abstractions/src/HttpResults/IResult.cs",
+          "expected_sha256": "63eb27493622cc6d8be6e6b3c53350bc7bad836ace463373b338862ac30d383a",
+          "actual_sha256": "63eb27493622cc6d8be6e6b3c53350bc7bad836ace463373b338862ac30d383a",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-07",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Http.Abstractions/src/IEndpointFilter.cs",
+          "expected_sha256": "a3eec1065b659b1c008aae14948e32cfb50b64e2810d639eadff5bbc3385f09e",
+          "actual_sha256": "a3eec1065b659b1c008aae14948e32cfb50b64e2810d639eadff5bbc3385f09e",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-08",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Http.Abstractions/src/EndpointFilterInvocationContext.cs",
+          "expected_sha256": "3295df1006e488ef3a72f5ebbdf8f9a5f75e0af81570b06368be610d0c85fad4",
+          "actual_sha256": "3295df1006e488ef3a72f5ebbdf8f9a5f75e0af81570b06368be610d0c85fad4",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-09",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Routing/src/Builder/EndpointRouteBuilderExtensions.cs",
+          "expected_sha256": "1307e6cca078ed7a8d6c7f926c8bbbb06b863be4cd0ba0503daf305e606d131c",
+          "actual_sha256": "1307e6cca078ed7a8d6c7f926c8bbbb06b863be4cd0ba0503daf305e606d131c",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-10",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Routing/src/RouteGroupBuilder.cs",
+          "expected_sha256": "d42b8f8feda3bfb3dc17f1033a52ce45931e0d5066c46a4d834c08ed46e00a06",
+          "actual_sha256": "d42b8f8feda3bfb3dc17f1033a52ce45931e0d5066c46a4d834c08ed46e00a06",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-11",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Http.Results/src/TypedResults.cs",
+          "expected_sha256": "05b32438230e9af2f9b0b1eb895c736e28ab150586a7150d6033d512f6c6abb6",
+          "actual_sha256": "05b32438230e9af2f9b0b1eb895c736e28ab150586a7150d6033d512f6c6abb6",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-12",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Http/Http.Extensions/src/RequestDelegateFactory.cs",
+          "expected_sha256": "395b4b6e704a9c7bc34e82d78c8ccefd1b0aa3726bda5a275c8d83e9e984360b",
+          "actual_sha256": "395b4b6e704a9c7bc34e82d78c8ccefd1b0aa3726bda5a275c8d83e9e984360b",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-13",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Servers/Kestrel/Core/src/HttpsConnectionAdapterOptions.cs",
+          "expected_sha256": "4b55e60143c09cc85b06e77b561369c7764e9e46d9bf277c7c8028587196a086",
+          "actual_sha256": "4b55e60143c09cc85b06e77b561369c7764e9e46d9bf277c7c8028587196a086",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-DOTNET-14",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/aspnetcore/src/Servers/Kestrel/Core/src/HttpProtocols.cs",
+          "expected_sha256": "d724088c724b7edc7f84082fdb8276bdf0726d1f92e3e643e855519f356d1a1a",
+          "actual_sha256": "d724088c724b7edc7f84082fdb8276bdf0726d1f92e3e643e855519f356d1a1a",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-RUST-SSE",
+          "path": "/workspace/scratch/58d2a6adf1c3/upstream/axum-sse.rs",
+          "expected_sha256": "7df949388820fb32ddb6726a6860832cf588abcb4f3302d235c57f0a99ac6bcb",
+          "actual_sha256": "7df949388820fb32ddb6726a6860832cf588abcb4f3302d235c57f0a99ac6bcb",
+          "matched": true
+        },
+        {
+          "source_id": "SERVER-RUST-QUERY-FORM_URLENCODED",
+          "path": "/workspace/scratch/7d469df8fa51/server-url-source/form_urlencoded/src/lib.rs",
+          "expected_sha256": "766b5d679064e01f7e6cce6f127a23885f79806ce3bccc49e4fe41933b83fd8d",
+          "actual_sha256": "766b5d679064e01f7e6cce6f127a23885f79806ce3bccc49e4fe41933b83fd8d",
+          "matched": true,
+          "archive_sha256": "cb4cb245038516f5f85277875cdaa4f7d2c9a0fa0468de06ed190163b1581fcf",
+          "archive_matched": true
+        },
+        {
+          "source_id": "SERVER-RUST-QUERY-PERCENT-ENCODING",
+          "path": "/workspace/scratch/7d469df8fa51/server-url-source/percent-encoding/src/lib.rs",
+          "expected_sha256": "641903d385581e76f31ef8c991d83c2a5d7fbbc2879d93909c539037e4e1e3e2",
+          "actual_sha256": "641903d385581e76f31ef8c991d83c2a5d7fbbc2879d93909c539037e4e1e3e2",
+          "matched": true,
+          "archive_sha256": "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220",
+          "archive_matched": true
+        }
+      ]
+    },
+    {
+      "kind": "independent_compiler_recheck",
+      "scope": "Latest source plus stream producer consumer compiles on installed .NET11/C#15 with warnings as errors; two wrong-shape negatives fail as intended. Offline ASP.NET reference pack is a temporary compile host only, not a product dependency. No Server bodies executed.",
+      "evidence": [
+        {
+          "case": "positive",
+          "command": [
+            "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+            "build",
+            "Review.csproj",
+            "-c",
+            "Release",
+            "-p:UseSharedCompilation=false",
+            "--nologo",
+            "--no-restore"
+          ],
+          "exit_code": 0,
+          "expected_diagnostic": null,
+          "passed": true,
+          "input_stable_during_check": true,
+          "input_sha256": {
+            "experiments/public-api/NativeWeave.Api.Design/Server.cs": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+            "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "e1419cbbbde6cd7b4a61aee525294e1ea9562940f92082a440a0b5458469435c"
+          },
+          "log_sha256": "dc727c9e5941bbff47df2ffad2a820e5ba2c6d5838f49bb7313e6f5d0f50d5b0",
+          "log": "/workspace/scratch/7d469df8fa51/server-review-validation/positive-recheck.log",
+          "observed_diagnostics": []
+        },
+        {
+          "case": "wrong-response",
+          "command": [
+            "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+            "build",
+            "Review.csproj",
+            "-c",
+            "Release",
+            "-p:UseSharedCompilation=false",
+            "--nologo",
+            "--no-restore",
+            "-p:ReviewNegative=/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/negative/server-wrong-response.cs"
+          ],
+          "exit_code": 1,
+          "expected_diagnostic": "CS0029",
+          "passed": true,
+          "input_stable_during_check": true,
+          "input_sha256": {
+            "experiments/public-api/NativeWeave.Api.Design/Server.cs": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+            "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "e1419cbbbde6cd7b4a61aee525294e1ea9562940f92082a440a0b5458469435c",
+            "experiments/public-api/negative/server-wrong-response.cs": "a3df04d23c4ee481bde9f28f9cedabfd660310c97de23f6a4f2bde66a0578a4f"
+          },
+          "log_sha256": "0ae575c2682eb5c63455cda88a5978f179bd2b2bc5fa609bfd1e36e39f817c91",
+          "log": "/workspace/scratch/7d469df8fa51/server-review-validation/wrong-response-recheck.log",
+          "observed_diagnostics": [
+            "CS0029",
+            "CS1662"
+          ]
+        },
+        {
+          "case": "arbitrary-delegate",
+          "command": [
+            "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+            "build",
+            "Review.csproj",
+            "-c",
+            "Release",
+            "-p:UseSharedCompilation=false",
+            "--nologo",
+            "--no-restore",
+            "-p:ReviewNegative=/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/negative/server-arbitrary-delegate.cs"
+          ],
+          "exit_code": 1,
+          "expected_diagnostic": "CS1503",
+          "passed": true,
+          "input_stable_during_check": true,
+          "input_sha256": {
+            "experiments/public-api/NativeWeave.Api.Design/Server.cs": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+            "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "e1419cbbbde6cd7b4a61aee525294e1ea9562940f92082a440a0b5458469435c",
+            "experiments/public-api/negative/server-arbitrary-delegate.cs": "bdbb6d66e34ec505a3d3fdb23c6ed5cdf18e441fda4e95a74168008201c166a2"
+          },
+          "log_sha256": "334e556158c514e945bb69927799dcb2d0fea72e5d134f9133c49e9b9bdbb4ff",
+          "log": "/workspace/scratch/7d469df8fa51/server-review-validation/arbitrary-delegate-recheck.log",
+          "observed_diagnostics": [
+            "CS1503"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "independent_C11_ABI_recheck",
+      "scope": "18 layout/signature assertions and exact ordinary-export prototype comparison; no Server runtime.",
+      "evidence": {
+        "scope": "Independent design C11 layout/signature and documentation/header inventory check only; no native listener/protocol implementation executed.",
+        "input_sha256": {
+          "docs/api/server.md": "95ce0ef83b589c77609e4f9e0aef8d3d3c1353cdcc160c0120f1f0dcd1cc6888",
+          "experiments/public-api/abi/nativeweave_server_api_v1.h": "7f0a149ef4a596df2b2f185c5166366437dc3cf8a3def4e6a1f04dc79e71d5e6",
+          "experiments/public-api/abi/nativeweave_api_v1.h": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+          "experiments/public-api/abi/server_layout_probe.c": "95c33fd748a9382e0b077427d6ece654a07d7a0dbe67ecdf931de2422e038202"
+        },
+        "input_stable_during_check": true,
+        "compile_command": [
+          "cc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/abi/server_layout_probe.c",
+          "-o",
+          "/workspace/scratch/7d469df8fa51/server-review-validation/server-layout-review"
+        ],
+        "compile_exit_code": 0,
+        "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "probe_exit_code": 0,
+        "probe_output": "{\"scope\":\"design-C-layout-only\",\"pointer_bits\":64,\"assertions\":18,\"passed\":true}",
+        "probe_log_sha256": "f7bff6eb72bfdc9cb63f911a6f788130ef08331e2a85d3973ac9552ae9535919",
+        "export_count_document": 48,
+        "export_count_header": 48,
+        "prototype_differences": [],
+        "passed": true
+      }
+    },
+    {
+      "kind": "coverage_source_link_recheck",
+      "scope": "Feature-row source identity, source-record read-state and native evidence paths; no claim that hashes imply complete source reads.",
+      "evidence": {
+        "scope": "Source-record existence and declared read-state linkage only; does not claim new full-source inspection or product execution.",
+        "coverage_rows": 65,
+        "referenced_local_source_ids": 17,
+        "reused_source_records": [
+          {
+            "manifest": "docs/api/foundation-sources.json",
+            "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceCollectionServiceExtensions.cs",
+            "read_state": "source_inspected_selected_ranges"
+          },
+          {
+            "manifest": "docs/api/foundation-sources.json",
+            "source_path": "src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/HostingAbstractionsHostBuilderExtensions.cs",
+            "read_state": "source_inspected_selected_ranges"
+          },
+          {
+            "manifest": "docs/api/foundation-sources.json",
+            "source_path": "src/libraries/Microsoft.Extensions.Options/src/OptionsBuilder.cs",
+            "read_state": "source_inspected_selected_ranges"
+          },
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Http/Http.Extensions/gen/Microsoft.AspNetCore.Http.RequestDelegateGenerator/RequestDelegateGenerator.cs",
+            "read_state": "read_as_scoped"
+          },
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs",
+            "read_state": "read_as_scoped"
+          },
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/KestrelServerLimits.cs",
+            "read_state": "read_as_scoped"
+          },
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextServerCallContext.cs",
+            "read_state": "read_as_scoped"
+          },
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextStreamWriter.cs",
+            "read_state": "read_as_scoped"
+          },
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/ModelContextProtocol.AspNetCore/StreamableHttpHandler.cs",
+            "read_state": "read_as_scoped"
+          },
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/ModelContextProtocol.Core/Server/McpServerTool.cs",
+            "read_state": "read_as_scoped"
+          },
+          {
+            "manifest": "docs/research/topics/R30/coverage.json",
+            "source_path": "src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+            "read_state": "read_as_scoped"
+          }
+        ],
+        "input_sha256": {
+          "docs/api/server-coverage.json": "e1816675afa14f0e586760727aad6b9e65d29870cbeced36ab75d868836ba153",
+          "docs/api/server-sources.json": "5e235f7ed97a3832a84eb34eed9c20b80f6c8aa0b4827f7ded376ba782ef1b3e",
+          "docs/research/topics/R27/source-driven-server.md": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113",
+          "docs/api/foundation-sources.json": "2efd7e1a05f7cbb35681a438e8a6700973592d58bb9141f5e3ee49012d9bb321",
+          "docs/research/topics/R30/coverage.json": "01549bad229f0fbc2ff7d1d77f30dc528cfee29356467a3bc9ec0213786b0bd2",
+          "verification/server-completion/source-inspection.json": "1766ac37da17bf36e9da9eb11b4b1ae302455166c2d03b68d6ce1c4ca03d44d9",
+          "experiments/server-retained-bytes/source-inspection.json": "f106307ad765faf060563821e64adef88fc9c43a7ecde8aacd195bc316a340cc",
+          "docs/research/topics/R26/coverage.json": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45",
+          "docs/research/topics/R28/coverage.json": "ad0f906a070892d9c66e6ba06281ac2ac5cd77a1e2113ee5977ce96c92187b39",
+          "verification/server-completion/rmcp-expect-json-reviewed.txt": "6e2fcb77748ad062549abda3d396dfe22825e87720dc5e0d6eaf10c6b1a52463",
+          "docs/api/server.md": "95ce0ef83b589c77609e4f9e0aef8d3d3c1353cdcc160c0120f1f0dcd1cc6888"
+        },
+        "errors": [],
+        "passed": true,
+        "read_state_validation": "Accepted read_as_scoped and source_inspected_selected_ranges; no downloaded-only record accepted."
+      }
+    }
+  ],
   "limitations": [
     "No product Server exists in this phase. No HTTP/TLS/protocol execution, production budget proof, Windows certification or generated handler execution is inferred from declarations.",
     "No acceptance binding or GitHub approval has been created. Exact-content recheck is required after fixes."
@@ -284,5 +819,25 @@
     "Whole-call gRPC deadlines, four cardinalities, identity-only compression and distinct status/error layers are declared; no production protocol execution is inferred.",
     "MCP parsing/schema allocation proof remains an explicit B19 gate; its current documents do not assert that wire size alone bounds JSON/DTO peak.",
     "Getting Started and the Server section of guides use the same minimal/typed handler overloads as the compile-only consumer; static System.Text.Json generation is separated from the unimplemented endpoint generator."
-  ]
+  ],
+  "additional_independent_review": {
+    "reviewer_id": "/root/database_api/server_budget_review",
+    "scope": "Narrow native payload credit progress/cancellation/retirement review; no edits or product execution",
+    "finding_ids": [
+      "API-SRV-010"
+    ],
+    "other_result": "No additional premature-free or cancellation-reservation rollback blocker found in the reviewed scope."
+  },
+  "updated_at": "2026-11-14T12:02:50.974793+00:00",
+  "intermediate_summary": {
+    "fixed_rechecked": 6,
+    "open_blocking": [
+      "API-SRV-002",
+      "API-SRV-004",
+      "API-SRV-006",
+      "API-SRV-010"
+    ],
+    "acceptance_binding_created": false,
+    "note": "Final exact-content recheck remains required after concurrent author edits settle."
+  }
 }

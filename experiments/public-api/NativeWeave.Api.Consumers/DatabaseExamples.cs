@@ -13,7 +13,12 @@ using NativeWeave.Query;
 namespace NativeWeave.Api.Consumers;
 
 [WeaveTable("students", DescriptorName = "Students")]
-public sealed partial record Student([property: WeaveKey] long Id, string Name, int Age, string? Email, [property: WeaveVersion] long Version);
+public sealed partial record Student(
+    [property: WeaveKey, WeaveColumn("id")] long Id,
+    [property: WeaveColumn("name")] string Name,
+    [property: WeaveColumn("age")] int Age,
+    [property: WeaveColumn("email")] string? Email,
+    [property: WeaveVersion, WeaveColumn("version")] long Version);
 public sealed record Enrollment(long Id, long StudentId, int Credits);
 public sealed record StudentCredits(long StudentId, long EnrollmentCount);
 

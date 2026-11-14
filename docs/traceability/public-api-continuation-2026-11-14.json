@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at_utc": "2026-11-14T12:04:58.586293+00:00",
+  "executor": "/root",
+  "scope": "Continuation of interrupted public API design on the same two branches; recovery, exact deltas and later independent review",
+  "observed_remote_heads": {
+    "NativeWeave-Design": "66e67d6a390e8e165caba0df91ab616c393cf9f5",
+    "Plan": "ae9967358f033b5b865463106317a8e2bb1ad012"
+  },
+  "observed_main_heads": {
+    "NativeWeave-Design": "a0f6bca1f55ddf456fe931886da8be19e94a1413",
+    "Plan": "352bd56dad9804dab1b3de358c404987c26f3e4f",
+    "NativeWeave": "658ed6a410783de356a7b9b2cd6601336fff5148"
+  },
+  "recovery_checkpoint": {
+    "commit": "cc3bd73fb6e17e042842a8951100038fa501c422",
+    "tree": "c56ca72f67e20993061fb9eed830364d92f5e0bb",
+    "recovered_files": 113,
+    "local_and_remote_tree_equal": true,
+    "acceptance_claim": false
+  },
+  "inherited_evidence": [
+    "verification/public-api/full-linux/attempt-1/summary.json",
+    "verification/public-api/interop-packaging/attempt-4/summary.json",
+    "docs/traceability/reviews/public-api-2026-11-14/database-review-notes.json",
+    "docs/traceability/reviews/public-api-2026-11-14/server-review-notes.json",
+    "docs/traceability/reviews/public-api-2026-11-14/interop-review-notes.json"
+  ],
+  "inheritance_rule": "Successful unchanged native experiments are reused at their original inputs. Full API/consumer evidence predating changed inputs is historical, and final compilation must bind the new inputs. No recovered acceptance script is treated as an executed passing check.",
+  "stable_release_recheck": {
+    "observed_date_utc": "2026-11-14",
+    "sdk": "11.0.100",
+    "runtime": "11.0.0",
+    "csharp": "15.0",
+    "urls": [
+      "https://dotnet.microsoft.com/en-us/download/dotnet/11.0",
+      "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+      "https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/"
+    ],
+    "scope": "Official release identity recheck, not repetition of inherited source studies."
+  },
+  "pr_policy": "Exactly one final PR in each repository; independent final candidate review and required checks before Design then Plan merge.",
+  "product_repository_written": false,
+  "delivery_executed": false
+}

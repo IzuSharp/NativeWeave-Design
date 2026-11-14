@@ -252,7 +252,7 @@
       "support": "equivalent",
       "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
       "cost": "Bounded startup metadata/delegates; one native registration per source/schema hash.",
-      "limitations": "Entity classes/record classes; DTO projections may be structs. First use auto-registers generated immutable descriptor; no per-entity Cargo.",
+      "limitations": "Entity classes/record classes; DTO projections may be structs. First use auto-registers generated immutable descriptor; no per-entity Cargo. Default store names preserve CLR property names/casing; WeaveColumn explicitly overrides them and generated member names remain unchanged.",
       "specification": "docs/api/database.md",
       "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
       "tasks": [
@@ -943,7 +943,7 @@
       ],
       "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
       "adapter_operations": [
-        "Mutation.Upsert"
+        "Mutation.Upsert: mutation6 kind4 field2 insert values and field8 independent update values; exactly one conflict selector field5/6"
       ],
       "support": "equivalent",
       "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
@@ -1918,7 +1918,7 @@
       "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
       "adapter_operations": [
         "Query.Clause8",
-        "Query.Clause9"
+        "query_clone(other) -> query_seal(terminal8) -> query_import(kind2) -> Query.Clause9; release temporary plan/query in finally"
       ],
       "support": "equivalent",
       "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
@@ -1954,7 +1954,7 @@
       ],
       "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
       "adapter_operations": [
-        "Query.Clause14"
+        "query_clone(subquery) -> query_seal(terminal8) -> query_import(kind2) -> Query.Clause14; release temporary plan/query in finally"
       ],
       "support": "equivalent",
       "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
@@ -3055,7 +3055,7 @@
       "support": "planned",
       "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
       "cost": "Requires separate cost/ownership/native parity design before surface admission.",
-      "limitations": "Row streaming is implemented separately; ordinary SQLx fields may materialize fully. New native streaming profile requires source-backed API and bounds.",
+      "limitations": "Row streaming is specified separately; ordinary SQLx fields may materialize fully. New native streaming profile requires source-backed API and bounds.",
       "specification": "docs/api/database.md",
       "signature_source": null,
       "tasks": [
@@ -3269,8 +3269,8 @@
       ],
       "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
       "adapter_operations": [
-        "Mutation3",
-        "Query.Seal6"
+        "nw_db_mutation_create_v1 mutation2 (explicit key update)",
+        "nw_db_query_clause_v1 clause17 then query_seal terminal6 (set-based update)"
       ],
       "support": "equivalent",
       "aot": "Static typed design; product Windows/Linux AOT remains required.",

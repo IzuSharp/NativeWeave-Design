@@ -20,7 +20,7 @@ The consumer's effective PATH contains .NET and system tools, with Cargo/rustc/r
 
 ## Reproduction
 
-Run from any directory with an installed exact SDK and Linux x64 GNU host. Both work and evidence paths must be chosen for this run; a nonempty work directory is rejected so previous outcomes cannot be accidentally overwritten.
+Run from any directory with an installed exact SDK and Linux x64 GNU host. Both work and evidence paths must be chosen for this run; a nonempty work directory or evidence directory is rejected before any output is written, so previous outcomes cannot be accidentally overwritten. The successful attempt-4 runner is preserved at Design commit `cc3bd73fb6e17e042842a8951100038fa501c422`; the later evidence-directory guard does not relabel that run as execution of the changed harness.
 
 ```bash
 python experiments/public-api/packaging-probe/run.py \

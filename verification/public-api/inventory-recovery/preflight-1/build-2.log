@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  Restored /workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj (in 89 ms).
+/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Inventory/Program.cs(60,66): error CS8619: Nullability of reference types in value of type 'string?[]' doesn't match target type 'string[]'. [/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj]
+
+Build FAILED.
+
+/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Inventory/Program.cs(60,66): error CS8619: Nullability of reference types in value of type 'string?[]' doesn't match target type 'string[]'. [/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:02.87

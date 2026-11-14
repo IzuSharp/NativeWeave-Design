@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at_utc": "2026-11-14T12:05:22.405067+00:00",
+  "scope": "Retained author preflight attempts; not acceptance evidence",
+  "passed": false,
+  "independent_review": false,
+  "product_operations_executed": false,
+  "steps": [
+    {
+      "id": "build-1",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+        "--configfile",
+        "NuGet.Offline.Config",
+        "--locked-mode",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal",
+        "--artifacts-path",
+        "/workspace/scratch/58d2a6adf1c3/inventory-recovery-20261114/build-1"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 1,
+      "log": "build-1.log",
+      "result": "MSB1001: dotnet build does not accept --locked-mode; retry used RestoreLockedMode MSBuild property."
+    },
+    {
+      "id": "build-2",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+        "--configfile",
+        "NuGet.Offline.Config",
+        "-p:RestoreLockedMode=true",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal",
+        "--artifacts-path",
+        "/workspace/scratch/58d2a6adf1c3/inventory-recovery-20261114/build-2"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 1,
+      "log": "build-2.log",
+      "result": "CS8619: AttributeData.ToString() has nullable string return; fixed with explicit fail-fast null handling."
+    },
+    {
+      "id": "build-3",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+        "--configfile",
+        "NuGet.Offline.Config",
+        "-p:RestoreLockedMode=true",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal",
+        "--artifacts-path",
+        "/workspace/scratch/58d2a6adf1c3/inventory-recovery-20261114/build-3"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "log": "build-3.log",
+      "result": "Intermediate compilation succeeded; final input and output identities are in attempt-2. The intermediate source was not separately snapshotted."
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "Program.before.cs",
+      "sha256": "cb8da715cd8e8b988a998cffca12e260a75a38b220709f17e8245c2c2148f8c5"
+    },
+    {
+      "path": "Program.build-2.cs",
+      "sha256": "4ea2e5b20447f5623f703c677c593fbddd8fdab3b930263a283560f582fb99a5"
+    },
+    {
+      "path": "actual-1/command.json",
+      "sha256": "0968c471b610288f35ab50e2abe8a89bb40c39f9f8ecb15122e362990e85acfa"
+    },
+    {
+      "path": "actual-1/export.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093"
+    },
+    {
+      "path": "actual-1/generated/database-symbol-policies.json",
+      "sha256": "f8cd8ddb159934865f94195e9e5e23aa249bbbeebadc3122d0aabf035f6ca5af"
+    },
+    {
+      "path": "actual-1/generated/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c"
+    },
+    {
+      "path": "actual-1/generated/public-api.json",
+      "sha256": "65a004f6c065a963726e9144aa25d2d4994c6c8f5fbd09c6047ae701cbb706de"
+    },
+    {
+      "path": "actual-1/generated/reference.md",
+      "sha256": "db989ee3669b98264fea258dc81b173ef4233570fe2be100e46d85f92bc454ab"
+    },
+    {
+      "path": "actual-1/generated/server-symbol-policies.json",
+      "sha256": "6ae6f697062833bcb4a03b49df485453a7ae75e1aea688793464ad10b4e9161c"
+    },
+    {
+      "path": "actual-1/source/Database.cs",
+      "sha256": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb"
+    },
+    {
+      "path": "actual-1/source/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208"
+    },
+    {
+      "path": "actual-1/source/Server.cs",
+      "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe"
+    },
+    {
+      "path": "build-1.log",
+      "sha256": "964f14245392fdd7282b55f9551a0a63d8f0633d8b46f34203ce1899fa1df02d"
+    },
+    {
+      "path": "build-2.log",
+      "sha256": "6e486cf796ea70ad803b2d7faaf1b1be7423336ca0810e2c2420495d9012a299"
+    },
+    {
+      "path": "build-3-command.json",
+      "sha256": "4f468d96477497fc9b18337bae7969bb7280e0665eea30dd8cf15099cadfecee"
+    },
+    {
+      "path": "build-3.log",
+      "sha256": "7951b87d8581832ab0523add919731622405f942e13956217e2978704cf93968"
+    }
+  ],
+  "limits": [
+    "Initial tool argument and nullability compile failures remain visible.",
+    "Program.before.cs is the exporter input before author changes. Program.build-2.cs was copied after the second failed build.",
+    "actual-1 preserves the first successful exploratory export and its frozen source/policies; attempt-2 is the final author-validation record.",
+    "Exact wall-clock execution timestamps for these exploratory subprocesses were not recorded; this manifest records preservation time."
+  ]
+}

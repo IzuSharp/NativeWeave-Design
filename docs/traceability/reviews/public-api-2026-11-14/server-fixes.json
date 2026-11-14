@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "public-api-server-author-fixes-2026-11-14",
+  "author_id": "/root/recover_server",
+  "recorded_at_utc": "2026-11-14T11:59:58.122346+00:00",
+  "state": "author_fixes_complete_pending_independent_recheck",
+  "historical_review_at_fix_completion": {
+    "path": "docs/traceability/reviews/public-api-2026-11-14/server-review-notes.json",
+    "sha256": "ebba9214002a590a518a5c2745da25ae86fa60fd4172068ba56533d647d93254",
+    "bytes": 29590
+  },
+  "historical_review_not_edited_by_this_author": true,
+  "recovery_note": "The preserved reviewer record gained findings008/009 and old validation/source-identity checks concurrently during recovery. These additions were read and inherited; the author did not rewrite or close that record.",
+  "scope": "Inherited Server design and nine recorded findings; no product implementation or Delivery execution.",
+  "fixes": [
+    {
+      "finding_id": "API-SRV-001",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "Final status200..599, no informational final response, explicit HEAD/204/205/304 body/length/trailer rules and native validation.",
+      "specification": "docs/api/server.md#51-final-status-head-and-content-free-responses"
+    },
+    {
+      "finding_id": "API-SRV-002",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "Separate nw_server_metadata_grpc_headers borrowed projection for raw decoded binary metadata; HTTP wire text unchanged, distinct bounded overlap budget.",
+      "specification": "docs/api/server.md#102-export-and-typed-operation-inventory"
+    },
+    {
+      "finding_id": "API-SRV-003",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "Exact coherent X-Forwarded-For/Proto/Host grammar, bounded right-to-left per-hop trust, original peer and MCP wire Host/Origin retained.",
+      "specification": "docs/api/server.md#44-middleware-filters-failures-and-authentication"
+    },
+    {
+      "finding_id": "API-SRV-004",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "LIFO completion callbacks, LIFO registered disposals, scope release; failures isolated, original/first error preserved, outer dispatch completion and retirement join.",
+      "specification": "docs/api/server.md#5-requestresponse-bodies-results-and-resource-semantics"
+    },
+    {
+      "finding_id": "API-SRV-005",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "Stream ownership transfers at successful single-use execution admission; unexecuted/replaced result leaves caller ownership; producer opens source within actual execution.",
+      "specification": "docs/api/server.md#52-stream-source-transfer-and-skipped-execution"
+    },
+    {
+      "finding_id": "API-SRV-006",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "One-ticket MCP pre-parse gate and async allow/deny continuation; automatic methods share endpoint auth; nested business callback cannot recreate request/scope or bypass auth; protocol output-mutation limits explicit.",
+      "specification": "docs/api/server.md#104-mcp-pre-parse-gate-and-one-request-lifetime"
+    },
+    {
+      "finding_id": "API-SRV-007",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "Names bound_addresses as owner transfer and metadata_headers as a view-only borrow; exact owner-kind failure rules.",
+      "specification": "docs/api/server.md#102-export-and-typed-operation-inventory"
+    },
+    {
+      "finding_id": "API-SRV-008",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "All65 coverage rows resolve to actual scoped source IDs or exact reused record selectors/native evidence, with explicit limits for named but uninspected comparison members and non-adoption decisions.",
+      "specification": "docs/api/server-coverage.json"
+    },
+    {
+      "finding_id": "API-SRV-009",
+      "disposition": "implemented_in_design_pending_independent_recheck",
+      "correction": "Tool input/output require static non-null object roots; explicit Nullable<T> rejection plus root-only schema normalization accepts ordinary reference DTOs while preserving nested nullability. Unsupported roots fail NWAPI-S004, invalid incoming root is invalid params, invalid success is a redacted tool error.",
+      "specification": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract"
+    }
+  ],
+  "final_inputs": [
+    {
+      "path": "docs/api/server.md",
+      "sha256": "c6b4732b44d36ec2e00d8b0ab1c0a14a5b30e44139ab1e36ccebebcf1110e1b9",
+      "bytes": 108117
+    },
+    {
+      "path": "docs/api/server-coverage.json",
+      "sha256": "165861a6e50f037ac808667093c3ce7851339905ef1c9ce5f5c135f0da19f257",
+      "bytes": 136922
+    },
+    {
+      "path": "docs/api/server-sources.json",
+      "sha256": "d93958563fa57ecb37cb45a50ef49e8e822a51c1385a48f456bd228810fc64f7",
+      "bytes": 22379
+    },
+    {
+      "path": "docs/api/server-symbol-policies.json",
+      "sha256": "6ae6f697062833bcb4a03b49df485453a7ae75e1aea688793464ad10b4e9161c",
+      "bytes": 50821
+    },
+    {
+      "path": "docs/server/hosting-and-streaming.md",
+      "sha256": "678fdbf670eb03b205282272ece18e3919b5fe9c02662904799ee1f308753a22",
+      "bytes": 33023
+    },
+    {
+      "path": "docs/server/protocols-and-observability.md",
+      "sha256": "8eaa94fe21bafb42271e0c28f64adf5786a3989ea0681a1b6cb44b911e3dd3dc",
+      "bytes": 33599
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+      "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+      "bytes": 57272
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+      "sha256": "e1419cbbbde6cd7b4a61aee525294e1ea9562940f92082a440a0b5458469435c",
+      "bytes": 7978
+    },
+    {
+      "path": "experiments/public-api/abi/nativeweave_server_api_v1.h",
+      "sha256": "7f0a149ef4a596df2b2f185c5166366437dc3cf8a3def4e6a1f04dc79e71d5e6",
+      "bytes": 10421
+    },
+    {
+      "path": "experiments/public-api/abi/server_layout_probe.c",
+      "sha256": "95c33fd748a9382e0b077427d6ece654a07d7a0dbe67ecdf931de2422e038202",
+      "bytes": 2269
+    }
+  ],
+  "checks": [
+    {
+      "id": "c-layout-and-prototype-compile",
+      "evidence": {
+        "path": "verification/public-api/server-review-fixes/attempt-1/c-results.json",
+        "sha256": "50e3cb04f178a1a0e00047926af21ccdcd369abf39797297003ef26eb6702aef",
+        "bytes": 923
+      },
+      "passed": true,
+      "assertions": 18,
+      "scope": "64-bit Linux C11 layout/prototype fixture; no network/native Server execution"
+    },
+    {
+      "id": "server-consumer-compile-final",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "/workspace/scratch/7d469df8fa51/server-signature-check/ServerCheck.csproj",
+        "--no-restore",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal"
+      ],
+      "exit_code": 0,
+      "evidence": {
+        "path": "verification/public-api/server-review-fixes/attempt-1/server-consumer-recheck.log",
+        "sha256": "d578a44866a0cf7d6a6b619a54db61a604ba8fcbfc301d456ec44b3e7c382bbc",
+        "bytes": 182
+      },
+      "inputs": [
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+          "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+          "bytes": 57272
+        },
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+          "sha256": "e1419cbbbde6cd7b4a61aee525294e1ea9562940f92082a440a0b5458469435c",
+          "bytes": 7978
+        }
+      ],
+      "scope": "SDK11.0.100/C#15 warnings-as-errors declaration/consumer compilation; isolated FrameworkReference signature fixture only, not package/runtime validation"
+    },
+    {
+      "id": "prototype-parity",
+      "passed": true,
+      "evidence": {
+        "path": "verification/public-api/server-review-fixes/attempt-1/prototype-parity.json",
+        "sha256": "049d77ec2fa0afd7a02ae2ddd14fab89b4599f7c4928a014b31765567da3f20f",
+        "bytes": 1831
+      },
+      "export_count": 48
+    },
+    {
+      "id": "coverage-source-links",
+      "passed": true,
+      "evidence": {
+        "path": "verification/public-api/server-review-fixes/attempt-1/coverage-source-links.json",
+        "sha256": "09f1cd4862f49248b505d268cfe11ac1b82d5db554389078c8215d3e62e47130",
+        "bytes": 142
+      }
+    },
+    {
+      "id": "mcp-static-schema-root-policy",
+      "passed": true,
+      "evidence": {
+        "path": "verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-results.json",
+        "sha256": "d94e54ddd4c5d3a3c3de0d00a2da8b5910a17ab0888d80b86a467f9ac54c7391",
+        "bytes": 2297
+      },
+      "scope": "Static source-generated JsonTypeInfo/BCL runtime witness with reflection serialization disabled; root-only normalization and five unsupported roots, no NativeWeave runtime"
+    }
+  ],
+  "limitations": [
+    "The nine historical findings are not self-approved; an independent final exact-content review must close them.",
+    "No new HTTP, TLS, gRPC, MCP or native gate runtime has been implemented or executed; these remain B15-B19/B22 obligations.",
+    "Existing successful .NET/AOT/package and native research evidence retains its original inputs; this record does not relabel or repeat it.",
+    "An independent review must assess MCP gate/body/authorization ordering and lifetime semantics beyond compile/layout checks."
+  ]
+}

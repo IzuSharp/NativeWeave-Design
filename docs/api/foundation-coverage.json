@@ -80,7 +80,8 @@
       ],
       "reference_version": ".NET 11.0.0 / C# 15.0",
       "public_api": [
-        "NativeWeave.Data.DbValue",
+        "NativeWeave.Data.ValueCodec<T>",
+        "NativeWeave.Data.Codecs",
         "NativeWeave.Database.DataSession"
       ],
       "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
@@ -294,17 +295,17 @@
       ],
       "reference_version": ".NET 11.0.0 / C# 15.0",
       "public_api": [
-        "NativeWeave.Interop.NativeBuffer",
-        "NativeWeave.Server.ServerRequest"
+        "NativeWeave.Database.DataSession.DisposeAsync",
+        "NativeWeave.Server.NativeServerApplication.DisposeAsync"
       ],
       "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
       "adapter_operations": [
-        "borrowed/owned fast path where declared"
+        "D06/D09 cleanup promise; inherited async-enumerator disposal"
       ],
       "support": "limited",
       "aot": "Static ordinary C# and closed generics; no runtime code generation.",
       "cost": "Can avoid Task allocation on established fast paths; conversion to Task may allocate.",
-      "limitations": "No blanket ValueTask API; single consumption and token/generation hazards explicit.",
+      "limitations": "ValueTask is used for the inherited IAsyncDisposable contract and documented already-drained fast path; ordinary Database/body I/O remains Task-based. Single consumption and token/generation hazards remain explicit.",
       "specification": "docs/standards/csharp-public-api-and-documentation.md",
       "tasks": [
         "A04",
@@ -734,17 +735,18 @@
       ],
       "reference_version": ".NET 11.0.0 / C# 15.0",
       "public_api": [
-        "NativeWeave.Server.NativeServerBuilder"
+        "NativeWeave.Server.NativeServerBuilder",
+        "NativeWeave.Server.NativeServerApplication.ReloadTlsAsync"
       ],
       "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
       "adapter_operations": [
         "configuration snapshot",
-        "explicit reload operations"
+        "explicit TLS material reload only"
       ],
       "support": "limited",
       "aot": "Static ordinary C# and closed generics; no runtime code generation.",
       "cost": "Read configuration once by default; explicit reload copies validated state.",
-      "limitations": "Native owner settings do not automatically follow a mutable options object.",
+      "limitations": "TLS reload is an explicit validated operation for future connections; other native owner settings do not automatically follow mutable options and require the documented new-owner lifecycle.",
       "specification": "docs/standards/csharp-public-api-and-documentation.md",
       "tasks": [
         "B15",
@@ -827,7 +829,7 @@
       "reference_version": ".NET 11.0.0 / C# 15.0",
       "public_api": [
         "NativeWeave.Interop.EngineCatalog",
-        "NativeWeave.Interop.EnginePackage"
+        "NativeWeave.Interop.Extensibility.EnginePackage"
       ],
       "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
       "adapter_operations": [

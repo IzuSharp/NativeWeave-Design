@@ -444,6 +444,56 @@
       "source_identity_note": "Published package .cargo_vcs_info reports the recorded commit with dirty=true. The immutable registry archive and extracted file hashes are the source authority; no claim that the package bytes equal a clean checkout of that commit.",
       "limitations": "Only the recorded source ranges were read; no Rust query parser execution or new product dependency was performed. B17 must adopt/pin this source when implementing the native query adapter.",
       "finding": "form_urlencoded uses lossy UTF-8 and percent-encoding leaves malformed escapes unchanged; strict NativeWeave input validation must precede the mature parsing primitive."
+    },
+    {
+      "id": "SERVER-DOTNET-15",
+      "repository": "dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Text.Json/src/System/Text/Json/Schema/JsonSchemaExporter.cs",
+      "symbols": [
+        "GetJsonSchemaAsNode(JsonTypeInfo, JsonSchemaExporterOptions)",
+        "IsNullableSchema",
+        "TransformSchemaNode"
+      ],
+      "read_ranges": [
+        [
+          20,
+          55
+        ],
+        [
+          420,
+          470
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "33f9777cb73ab3d53bb006416ef46b528b92ca399cf27a05a9c93ebf4c059f5e",
+      "git_blob_sha": "342eb2f9b208dee0b48b4194c830c0290bb441d4",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Text.Json/src/System/Text/Json/Schema/JsonSchemaExporter.cs",
+      "limitations": "Exporter nullability/root transform source inspected; static-metadata witness records local BCL execution. No NativeWeave MCP runtime or upstream test-suite execution."
+    },
+    {
+      "id": "SERVER-DOTNET-16",
+      "repository": "dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Text.Json/src/System/Text/Json/Schema/JsonSchemaExporterContext.cs",
+      "symbols": [
+        "JsonSchemaExporterContext.Path",
+        "TypeInfo",
+        "PropertyInfo"
+      ],
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "read_state": "full_file_read",
+      "sha256": "74de32460af593ac876877d57051d88f25b4a644daa6b230b04f795cc23a4de7",
+      "git_blob_sha": "3ea21d9b3e3b40cdece6199f531eda6047aee6b0",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Text.Json/src/System/Text/Json/Schema/JsonSchemaExporterContext.cs",
+      "limitations": "Exporter nullability/root transform source inspected; static-metadata witness records local BCL execution. No NativeWeave MCP runtime or upstream test-suite execution."
     }
   ],
   "reused_evidence": [
@@ -488,6 +538,10 @@
     {
       "url": "https://www.nuget.org/packages/Grpc.Core.Api/2.85.0",
       "scope": "Stable gRPC2.85.0 API reference version."
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "scope": "RFC9110 immutable June2022 specification, sections8.6,9.3.2,15.2,15.3.5,15.3.6,15.4.5; reviewed2026-11-14 for final/interim status, HEAD,204/205/304 body and Content-Length review correction. NativeWeave early validation/producer policy is a design decision, not an upstream implementation claim."
     }
   ],
   "evidence_boundary": "Design/source research and declaration compilation only. Do not label prior experiments as this public API runtime or product execution."

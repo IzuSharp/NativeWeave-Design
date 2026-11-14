@@ -1,0 +1,93 @@
+using System.Text.Json.Nodes;
+using System.Text.Json.Schema;
+using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
+
+// BCL schema-policy witness only. This is not a NativeWeave tool/runtime implementation.
+static JsonNode ExportObjectRoot(JsonTypeInfo typeInfo)
+{
+    if (typeInfo.Kind != JsonTypeInfoKind.Object || typeInfo.PolymorphismOptions is not null
+        || Nullable.GetUnderlyingType(typeInfo.Type) is not null)
+        throw new NotSupportedException("The tool root must be a finite object DTO.");
+
+    return typeInfo.GetJsonSchemaAsNode(new JsonSchemaExporterOptions
+    {
+        TransformSchemaNode = static (context, node) =>
+        {
+            if (!context.Path.IsEmpty) return node;
+            if (node is not JsonObject root)
+                throw new NotSupportedException("An object schema is required.");
+
+            JsonNode? type = root["type"];
+            bool objectOnly = type is JsonValue value && value.TryGetValue<string>(out var name) && name == "object";
+            bool objectAndNull = type is JsonArray types && types.Count == 2
+                && types.Any(item => item?.GetValue<string>() == "object")
+                && types.Any(item => item?.GetValue<string>() == "null");
+            if (!objectOnly && !objectAndNull)
+                throw new NotSupportedException("The root schema is incompatible with the object-only tool contract.");
+            root["type"] = "object";
+            return root;
+        }
+    });
+}
+
+static void Require(bool condition, string label)
+{
+    if (!condition) throw new InvalidOperationException(label);
+}
+
+JsonNode original = WitnessContext.Default.ToolDto.GetJsonSchemaAsNode();
+JsonNode corrected = ExportObjectRoot(WitnessContext.Default.ToolDto);
+Require(original["type"] is JsonArray, "Baseline reference root must expose the inherited nullable case.");
+Require(corrected["type"]?.GetValue<string>() == "object", "Object root was not narrowed.");
+Require(JsonNode.DeepEquals(original["properties"], corrected["properties"]), "Nested schemas changed.");
+Require(corrected["properties"]?["NullableText"]?["type"] is JsonArray, "Nullable property was lost.");
+Require(corrected["properties"]?["RequiredText"]?["type"]?.GetValue<string>() == "string", "Required property shape changed.");
+Require(corrected["properties"]?["Tags"]?["items"]?["type"] is JsonArray, "Nullable element schema was lost.");
+Require(ExportObjectRoot(WitnessContext.Default.ObjectValue)["type"]?.GetValue<string>() == "object", "Object struct was rejected.");
+
+int rejected = 0;
+foreach (JsonTypeInfo typeInfo in new JsonTypeInfo[]
+{
+    WitnessContext.Default.Int32,
+    WitnessContext.Default.String,
+    WitnessContext.Default.Int32Array,
+    WitnessContext.Default.DictionaryStringInt32,
+    WitnessContext.Default.NullableObjectValue
+})
+{
+    try { _ = ExportObjectRoot(typeInfo); }
+    catch (NotSupportedException) { rejected++; }
+}
+Require(rejected == 5, "Unsupported root was accepted.");
+Console.WriteLine(new JsonObject
+{
+    ["scope"] = "BCL static-metadata schema root policy only; no NativeWeave runtime",
+    ["passed"] = true,
+    ["positive_assertions"] = 7,
+    ["rejected_root_shapes"] = rejected,
+    ["reflection_serialization_enabled"] = System.Text.Json.JsonSerializer.IsReflectionEnabledByDefault,
+    ["default_root"] = original["type"]?.DeepClone(),
+    ["normalized_root"] = corrected["type"]?.DeepClone(),
+    ["nested_properties_unchanged"] = true
+}.ToJsonString());
+
+public sealed class ToolDto
+{
+    public string RequiredText { get; set; } = "";
+    public string? NullableText { get; set; }
+    public int? Count { get; set; }
+    public NestedDto? Child { get; set; }
+    public string?[]? Tags { get; set; }
+}
+public sealed class NestedDto { public string? Value { get; set; } }
+public readonly record struct ObjectValue(int Count);
+
+[JsonSerializable(typeof(ToolDto))]
+[JsonSerializable(typeof(ObjectValue))]
+[JsonSerializable(typeof(ObjectValue?))]
+[JsonSerializable(typeof(int))]
+[JsonSerializable(typeof(int[]))]
+[JsonSerializable(typeof(string))]
+[JsonSerializable(typeof(Dictionary<string, int>))]
+internal partial class WitnessContext : JsonSerializerContext;

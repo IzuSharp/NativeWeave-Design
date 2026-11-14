@@ -61,6 +61,8 @@ def main() -> int:
         raise SystemExit("This probe reuses a Linux x64 research binary; other platforms need a separate evidence row.")
     if work.exists() and any(work.iterdir()):
         raise SystemExit("Use a fresh empty work directory; existing evidence is never overwritten.")
+    if output.exists() and any(output.iterdir()):
+        raise SystemExit("Use a fresh empty evidence directory; previous attempts are never overwritten.")
     work.mkdir(parents=True, exist_ok=True)
     output.mkdir(parents=True, exist_ok=True)
     sdk_root = dotnet.parent

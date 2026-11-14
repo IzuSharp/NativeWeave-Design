@@ -15,10 +15,11 @@ typedef struct nw_server_managed_credit nw_server_managed_credit;
 typedef struct nw_server_write_reservation nw_server_write_reservation;
 
 typedef uint32_t (NW_CDECL *nw_server_on_request_v1)(
-    uintptr_t cookie, uint64_t request_ticket, uint64_t handler_id);
+    uintptr_t cookie, uint64_t request_ticket, uint64_t handler_id, uint32_t dispatch_kind);
 typedef uint32_t (NW_CDECL *nw_server_on_control_v1)(
     uintptr_t cookie, uint32_t event_kind, uint32_t status,
     uint64_t request_ticket, const nw_error_info_v1 *borrowed_error);
+/* dispatch_kind: 0=HTTP, 1=gRPC, 2=MCP pre-parse gate, 3=MCP business continuation. */
 typedef struct nw_server_dispatch_v1 {
     uint32_t struct_size, version; /* version = 1 */
     uintptr_t cookie;
@@ -140,10 +141,12 @@ uint32_t NW_CDECL nw_server_grpc_read_create(nw_server_request *, nw_server_oper
 uint32_t NW_CDECL nw_server_grpc_write_create(nw_server_request *, nw_server_write_reservation *, nw_bytes_view_v1 message, nw_server_operation **out_op, nw_error_info_v1 *);
 uint32_t NW_CDECL nw_server_grpc_headers_create(nw_server_request *, nw_bytes_view_v1 metadata, nw_server_operation **out_op, nw_error_info_v1 *);
 uint32_t NW_CDECL nw_server_grpc_status_create(nw_server_request *, uint32_t grpc_status, nw_bytes_view_v1 detail, nw_bytes_view_v1 trailers, nw_server_operation **out_op, nw_error_info_v1 *);
+uint32_t NW_CDECL nw_server_mcp_gate_resume_create(nw_server_request *, uint32_t decision, nw_server_operation **out_op, nw_error_info_v1 *); /* 0=deny,1=allow */
 uint32_t NW_CDECL nw_server_mcp_call_take(nw_server_request *, uint32_t *out_call_kind, nw_server_buffer **out_arguments, nw_error_info_v1 *);
 uint32_t NW_CDECL nw_server_mcp_reply_create(nw_server_request *, nw_server_write_reservation *, uint32_t reply_kind, nw_bytes_view_v1 result_json, nw_server_operation **out_op, nw_error_info_v1 *);
 
 uint32_t NW_CDECL nw_server_metadata_headers(nw_server_metadata *, nw_bytes_view_v1 *out_headers, nw_error_info_v1 *);
+uint32_t NW_CDECL nw_server_metadata_grpc_headers(nw_server_metadata *, nw_bytes_view_v1 *out_metadata, nw_error_info_v1 *);
 
 #ifdef __cplusplus
 }

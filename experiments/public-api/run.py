@@ -71,6 +71,8 @@ def main():
                          HERE/'NativeWeave.Api.Design',runtime_root,ROOT/'docs/api'])
         run('negative-consumers',[dotnet,HERE/'NativeWeave.Api.Checks/bin/Debug/net11.0/NativeWeave.Api.Checks.dll',
                                   HERE/'NativeWeave.Api.Design',runtime_root,out/'negative-consumers.json'])
+        run('exporter-regressions',[sys.executable,HERE/'NativeWeave.Api.Inventory/verify_exporter.py',
+                                    '--dotnet',dotnet,'--output',out/'exporter-regressions'])
         if args.aot:
             rid = 'win-x64' if platform.system() == 'Windows' else 'linux-x64'
             assert platform.machine().lower() in {'amd64','x86_64'}, 'This fixture claims only x64 execution.'

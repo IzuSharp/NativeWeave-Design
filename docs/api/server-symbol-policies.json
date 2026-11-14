@@ -44,14 +44,15 @@
         "nw_server_metadata_read",
         "nw_server_grpc_headers_create",
         "nw_server_grpc_status_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_metadata_grpc_headers"
       ],
       "tasks": [
         "B18",
         "B22"
       ],
       "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
-      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead."
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact."
     },
     "NativeWeave.Server.Grpc.GrpcDecoder": {
       "package": "NativeWeave.Server.Grpc",
@@ -150,14 +151,15 @@
         "nw_server_metadata_read",
         "nw_server_grpc_headers_create",
         "nw_server_grpc_status_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_metadata_grpc_headers"
       ],
       "tasks": [
         "B18",
         "B22"
       ],
       "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
-      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead."
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact."
     },
     "NativeWeave.Server.Grpc.GrpcMethod": {
       "package": "NativeWeave.Server.Grpc",
@@ -363,13 +365,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpEndpointExtensions": {
@@ -380,13 +384,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpEndpointOptions": {
@@ -397,13 +403,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpPromptArgument": {
@@ -414,13 +422,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpPromptMessage": {
@@ -431,13 +441,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpProtocolVersion": {
@@ -448,13 +460,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpRegistry": {
@@ -465,13 +479,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion. Non-null object-root input/output policy; registration rejects scalar/array/dictionary/open and CLR Nullable<T> roots with NWAPI-S004; admitted reference DTO schema roots are normalized through an empty-path transform without changing nested nullability.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpTextResource": {
@@ -482,13 +498,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpToolResult": {
@@ -499,13 +517,15 @@
         "nw_server_mcp_call_take",
         "nw_server_write_reserve_create",
         "nw_server_mcp_reply_create",
-        "nw_server_on_control_v1"
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "tasks": [
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion. Non-null object-root input/output policy; registration rejects scalar/array/dictionary/open and CLR Nullable<T> roots with NWAPI-S004; admitted reference DTO schema roots are normalized through an empty-path transform without changing nested nullability.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.NativeServer": {
@@ -670,7 +690,7 @@
         "B16",
         "B17"
       ],
-      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile.",
+      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
       "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
     },
     "NativeWeave.Server.RouteGroupBuilder": {
@@ -937,7 +957,7 @@
         "B16",
         "B17"
       ],
-      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile.",
+      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
       "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
     },
     "NativeWeave.Server.ServerResult": {
@@ -956,7 +976,7 @@
         "B16",
         "B17"
       ],
-      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile.",
+      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
       "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
     },
     "NativeWeave.Server.ServerRouteAttribute": {
@@ -1042,7 +1062,7 @@
     },
     "NativeWeave.Server.TrustedProxyOptions": {
       "package": "NativeWeave.Server",
-      "semantic_section": "docs/api/server.md#2-developer-path-and-startup-defaults",
+      "semantic_section": "docs/api/server.md#44-middleware-filters-failures-and-authentication",
       "native_operations": [
         "nw_server_get_abi_v1",
         "nw_server_create"
@@ -1051,7 +1071,7 @@
         "B15",
         "B17"
       ],
-      "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
+      "capability": "Explicit exact IPs and1..16 right-to-left trusted hops; only coherent X-Forwarded-For/Proto/Host; original peer and MCP wire Host/Origin retained.",
       "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
     }
   }

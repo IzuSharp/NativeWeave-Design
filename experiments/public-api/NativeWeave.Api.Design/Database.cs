@@ -280,7 +280,7 @@ namespace NativeWeave.Data
     [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     public sealed class WeaveColumnAttribute : Attribute
     {
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
+        /// <summary>Overrides the exact store column name; without this attribute the CLR property name and casing are preserved.</summary>
         public WeaveColumnAttribute(string name) { }
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public bool Generated { get; init; }
@@ -454,7 +454,7 @@ namespace NativeWeave.Database
         public Task<long> DeleteCheckedAsync<TEntity>(Table<TEntity> table, EntityKey<TEntity> key, ConcurrencyCheck<TEntity> concurrency, CancellationToken cancellationToken = default) where TEntity : class => throw new NotSupportedException();
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public Task<BulkResult> InsertManyAsync<TEntity>(Table<TEntity> table, IAsyncEnumerable<TEntity> rows, BulkOptions? options = null, CancellationToken cancellationToken = default) where TEntity : class => throw new NotSupportedException();
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
+        /// <summary>Executes one native upsert using separately snapshotted insert values and explicit conflict-update assignments.</summary>
         public Task<long> UpsertAsync<TEntity>(Table<TEntity> table, TEntity entity, ConflictTarget<TEntity> conflict, Changes<TEntity> update, CancellationToken cancellationToken = default) where TEntity : class => throw new NotSupportedException();
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public Task<DatabaseCloseResult> CloseAsync(TimeSpan waitBudget, CancellationToken cancellationToken = default) => throw new NotSupportedException();
@@ -955,7 +955,7 @@ namespace NativeWeave.Query
     /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
     public readonly struct QuerySelection<T>
     {
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
+        /// <summary>Appends a native set operation using a retained immutable snapshot of the other selection; the other query remains mutable.</summary>
         public QuerySelection<T> Combine(QuerySelection<T> other, SetOperation operation = SetOperation.UnionAll) => throw new NotSupportedException();
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public Task<IReadOnlyList<T>> ToListAsync(CancellationToken cancellationToken = default) => throw new NotSupportedException();

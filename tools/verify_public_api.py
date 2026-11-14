@@ -54,6 +54,14 @@ def verify(history=False, require_acceptance=False):
         assert digest(ROOT/source['path'])==source['sha256'], ('stale declaration inventory',source['path'])
     symbols=inventory['symbols']; symbol_ids=[s['id'] for s in symbols]
     assert len(symbol_ids)==len(set(symbol_ids)) and len(symbols)>500
+    # Foundation rows use fully-qualified symbols: reject an illustrative name
+    # that no longer exists in the exact declarations, without treating a
+    # domain's explicitly descriptive capability label as a C# identifier.
+    declared_names={re.sub(r'`+[0-9]+','',s['id'].split(':',1)[1].split('(',1)[0]) for s in symbols}
+    for row in read(ROOT/'docs/api/foundation-coverage.json')['rows']:
+        for name in row['public_api']:
+            normalized=re.sub(r'<[^<>]*>','',name)
+            assert normalized in declared_names, (row['id'],'unknown public API symbol',name)
     policies={}
     for domain in DOMAINS[1:]:
         data=read(ROOT/f'docs/api/{domain}-symbol-policies.json')

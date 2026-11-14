@@ -45,6 +45,14 @@ message; the native byte codec copies/retains just those bytes. Tonic owns gRPC 
 compression, headers/trailers, statuses, incremental decode and stream transport.
 This is required language-boundary DTO mapping, not a managed gRPC stack.
 
+HTTP wire headers and decoded gRPC metadata are distinct snapshots under the same
+request metadata owner. The exact nw_server_metadata_grpc_headers projection returns
+raw binary values for -bin fields and ASCII text for other metadata; metadata_headers
+retains the original HTTP wire text. Tonic performs wire base64 handling. Both bounded
+blocks, entry descriptors and decode scratch are reserved before allocation, and
+managed copies charge overlap. Wrong owner kind returns INVALID_STATE with an empty
+view. This closes API-SRV-002; a single UTF-8 header view cannot stand for both forms.
+
 The native HTTP route selects a validated `/package.Service/Method` descriptor and
 constructs one of four adapters: `UnaryService<Bytes>`, `ServerStreamingService<Bytes>`,
 `ClientStreamingService<Bytes>` or `StreamingService<Bytes>`. The concrete public
@@ -160,6 +168,28 @@ still require explicit application authorization. Public deployments must supply
 actual Host/Origin allowlists; loopback defaults are only for local tools. Explicit
 ports prevent deprecated broad origin-port matching.
 
+The outer native Tower wrapper must pause before polling/collecting the MCP body and
+before entering the public SDK parser or automatic methods. It emits the exact v1
+dispatch_kind2 notification and transfers request+metadata only through request_take.
+The managed dispatcher runs middleware/authentication/endpoint policies outside the
+FFI frame, using one RequestContext and one optional DI scope. Its awaited innermost
+next commits nw_server_mcp_gate_resume_create decision1 through Core operation_start;
+decision0 denies parsing and leaves the ordinary bounded HTTP rejection path available.
+Throw/cancel/short-circuit before a decision defaults to deny/abort. Native automatic
+list/get-info/error methods cannot bypass the gate. There is no body-based authenticator
+or item-level policy-filtering claim in the initial profile.
+
+For an admitted tool/resource/prompt, dispatch_kind3 uses the same ticket plus its
+registered business handler ID; it neither takes another owner nor repeats middleware
+or creates a second scope. The initial gate await must not block this continuation's
+managed dispatch. Native parsing/response production, nested user invocation and all
+operation/control callbacks retain their respective leases. The outer operation
+can become terminal on cancellation, but cleanup still waits for the nested handler
+lease before one dispatch_complete and request_try_retire. Exact denial, before-start,
+partial-failure and automatic-method paths are in [API section10.4](../api/server.md#104-mcp-pre-parse-gate-and-one-request-lifetime)
+and the canonical C header. This resolves API-SRV-006 as a concrete continuation
+contract; no existing protocol fixture is relabeled as its execution.
+
 HTTP method/content-type/accept, body cap and Host/Origin checks precede dispatch.
 `MCP-Protocol-Version` and `_meta.io.modelcontextprotocol/protocolVersion` agree;
 `Mcp-Method`, `Mcp-Name`, client capabilities and request metadata are interpreted by
@@ -224,6 +254,17 @@ produce JSON-RPC errors, and pre-parser failures use HTTP errors. These layers c
 all be flattened into one Engine status. Tool annotations are advisory metadata, never
 authorization. Expensive enumeration/schema generation is bounded and happens before
 serving, not per request.
+
+The initial typed tool profile admits only non-null object input/output roots. Static
+JsonTypeInfo.Kind/schema validation rejects scalar/array/dictionary/open roots and
+explicitly rejects CLR Nullable<T> roots at registration with NWAPI-S004. For admitted
+reference DTOs the adapter narrows only the BCL exporter's default object-or-null root
+to object through TransformSchemaNode with an empty context.Path; it does not globally
+change null-oblivious treatment or nested nullability. Object-kind metadata alone is
+insufficient to exclude Nullable<T>. Nested properties may use the finite scalar,
+array and nullable forms. Invalid incoming roots are protocol invalid-params errors;
+invalid successful output is an application/tool error, never fabricated structured
+success. This resolves API-SRV-009 without hiding an implicit wrapper model.
 
 The initial data bridge serializes the already native-decoded argument object into a
 bounded UTF-8 owned buffer for generated C# JsonTypeInfo mapping; the result returns
@@ -368,3 +409,14 @@ the same implementation task. They must verify four gRPC cardinalities, typed sc
 and serializer agreement, hostile input allocation peaks, no per-DTO/tool Rust rebuild,
 and independent Windows/Linux AOT consumption. Finite historical research evidence
 above is preserved and cannot be reclassified as execution of this new public surface.
+
+### Metadata and ingress review corrections
+
+API-SRV-002/006/007 refine the exact ABI without changing the public C# package split.
+nw_server_metadata_grpc_headers is a borrowed decoded projection under a gRPC request
+metadata lease. nw_server_metadata_headers also borrows only; nw_server_bound_addresses
+is the separate operation that transfers a startup metadata owner. MCP original
+Host/:authority and Origin checks remain native ingress policy even with trusted
+forwarding enabled, and pre-parse managed authorization has the explicit single-ticket
+gate/continuation above. B18/B19/B22 must implement and test these distinct ownership
+and admission paths; prior accepted experiments preserve their original scope.

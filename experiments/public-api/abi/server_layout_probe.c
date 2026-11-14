@@ -16,7 +16,13 @@ _Static_assert(offsetof(nw_server_request_info_v1, cancellation_status) == 236, 
 _Static_assert(sizeof(nw_server_snapshot_v1) == 80, "counter snapshot v1 size");
 _Static_assert(sizeof(nw_server_close_result_v1) == 32, "close observation v1 size");
 _Static_assert(sizeof(nw_server_sse_event_v1) == 72, "SSE v1 size");
+typedef uint32_t (NW_CDECL *expected_dispatch_v1)(uintptr_t, uint64_t, uint64_t, uint32_t);
+typedef uint32_t (NW_CDECL *expected_mcp_gate_v1)(nw_server_request *, uint32_t, nw_server_operation **, nw_error_info_v1 *);
+typedef uint32_t (NW_CDECL *expected_grpc_metadata_v1)(nw_server_metadata *, nw_bytes_view_v1 *, nw_error_info_v1 *);
+_Static_assert(_Generic(((nw_server_dispatch_v1 *)0)->on_request, expected_dispatch_v1: 1, default: 0), "phased dispatch signature");
+_Static_assert(_Generic(&nw_server_mcp_gate_resume_create, expected_mcp_gate_v1: 1, default: 0), "MCP gate signature");
+_Static_assert(_Generic(&nw_server_metadata_grpc_headers, expected_grpc_metadata_v1: 1, default: 0), "gRPC metadata projection signature");
 int main(void) {
-    puts("{\"scope\":\"design-C-layout-only\",\"pointer_bits\":64,\"assertions\":15,\"passed\":true}");
+    puts("{\"scope\":\"design-C-layout-only\",\"pointer_bits\":64,\"assertions\":18,\"passed\":true}");
     return 0;
 }

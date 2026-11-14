@@ -58,15 +58,19 @@ using NativeWeave.Data;
 
 [WeaveTable("students", DescriptorName = "Students")]
 public sealed partial record Student(
-    [property: WeaveKey] long Id,
-    string Name,
-    int Age,
-    string? Email,
-    long Version);
+    [property: WeaveKey, WeaveColumn("id")] long Id,
+    [property: WeaveColumn("name")] string Name,
+    [property: WeaveColumn("age")] int Age,
+    [property: WeaveColumn("email")] string? Email,
+    [property: WeaveVersion, WeaveColumn("version")] long Version);
 ```
 
 `Students.Table`, `Students.Id` and the other generated columns have exact generic
-types. The current [database consumer](../../experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs)
+types. A property without `WeaveColumn` keeps its CLR property name exactly;
+the explicit attributes above match the lowercase database schema and the
+handwritten mapping. `WeaveVersion` marks the explicitly checked concurrency
+token; it does not increment the version automatically.
+The current [database consumer](../../experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs)
 contains the explicit handwritten equivalent of that output so the declaration
 fixture can compile all calls without pretending the complete product generator
 exists. The separate packaging probe executes a deliberately limited real

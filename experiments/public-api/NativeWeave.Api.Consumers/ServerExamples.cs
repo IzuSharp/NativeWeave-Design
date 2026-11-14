@@ -73,6 +73,16 @@ public static class ServerExamples
         }
     }
 
+    // The source is opened only when the producer actually executes. A replaced
+    // result or suppressed HEAD response opens nothing; every admitted path closes it.
+    public static ServerResult Download(string applicationSelectedPath) =>
+        Results.Stream(async (output, token) =>
+        {
+            await using FileStream input = new(applicationSelectedPath, FileMode.Open,
+                FileAccess.Read, FileShare.Read, 32_768, FileOptions.Asynchronous);
+            await input.CopyToAsync(output, 32_768, token);
+        });
+
     public static void HostedRegistration(IServiceCollection services)
     {
         services.AddNativeWeaveServer(static provider =>

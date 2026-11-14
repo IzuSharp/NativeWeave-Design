@@ -37,7 +37,22 @@
         "B15",
         "B17",
         "B24"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-01",
+          "SERVER-DOTNET-02"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-002",
@@ -65,7 +80,26 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-01"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/api/foundation-sources.json",
+            "source_path": "src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/HostingAbstractionsHostBuilderExtensions.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-003",
@@ -94,7 +128,27 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B15"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-02",
+          "SERVER-DOTNET-03"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/api/foundation-sources.json",
+            "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceCollectionServiceExtensions.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-004",
@@ -123,7 +177,26 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-02"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/api/foundation-sources.json",
+            "source_path": "src/libraries/Microsoft.Extensions.Options/src/OptionsBuilder.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-005",
@@ -149,7 +222,34 @@
       "tasks": [
         "B20",
         "B23"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-02"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R30/coverage.json",
+            "source_path": "src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TRACING-SPAN",
+              "TRACING-INSTRUMENT",
+              "TRACING-SUBSCRIBER"
+            ]
+          },
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-006",
@@ -177,7 +277,21 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-01"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-007",
@@ -206,7 +320,21 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-01"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-008",
@@ -238,7 +366,25 @@
         "B16",
         "B17",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-01"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-009",
@@ -267,7 +413,22 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-13",
+          "SERVER-DOTNET-14"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-010",
@@ -296,7 +457,21 @@
       "tasks": [
         "B17",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-13"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-011",
@@ -322,7 +497,21 @@
       "tasks": [
         "B17",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-13"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-012",
@@ -348,7 +537,21 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-09"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-013",
@@ -381,7 +584,21 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-09"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-014",
@@ -411,7 +628,23 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-09",
+          "SERVER-DOTNET-11",
+          "SERVER-DOTNET-12"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-015",
@@ -438,7 +671,21 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-10"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-016",
@@ -468,7 +715,22 @@
       "tasks": [
         "B15",
         "B20"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-09",
+          "SERVER-DOTNET-10"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-017",
@@ -496,7 +758,22 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-09",
+          "SERVER-DOTNET-10"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-018",
@@ -526,7 +803,23 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B15"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04",
+          "SERVER-RUST-QUERY-FORM_URLENCODED",
+          "SERVER-RUST-QUERY-PERCENT-ENCODING"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-019",
@@ -560,7 +853,26 @@
         "A11",
         "A12",
         "B15"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-12"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Http/Http.Extensions/gen/Microsoft.AspNetCore.Http.RequestDelegateGenerator/RequestDelegateGenerator.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-020",
@@ -589,7 +901,22 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-03",
+          "SERVER-DOTNET-06"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-021",
@@ -617,7 +944,22 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B15"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-07",
+          "SERVER-DOTNET-08"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-022",
@@ -651,7 +993,21 @@
         "B15",
         "B16",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-03"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-023",
@@ -679,7 +1035,23 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04",
+          "SERVER-RUST-QUERY-FORM_URLENCODED",
+          "SERVER-RUST-QUERY-PERCENT-ENCODING"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-024",
@@ -707,7 +1079,22 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04",
+          "SERVER-DOTNET-05"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-025",
@@ -735,7 +1122,21 @@
       "tasks": [
         "B16",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-05"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-026",
@@ -765,7 +1166,30 @@
         "B15",
         "B16",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-027",
@@ -796,7 +1220,30 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B16"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-028",
@@ -823,7 +1270,26 @@
       "tasks": [
         "B15",
         "B16"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04",
+          "SERVER-DOTNET-11"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-029",
@@ -860,7 +1326,30 @@
       "tasks": [
         "B16",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-05"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-030",
@@ -889,7 +1378,31 @@
       "tasks": [
         "B16",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04",
+          "SERVER-DOTNET-05"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-031",
@@ -914,12 +1427,35 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "At most32 callbacks/resources of each type per request; optional lists.",
-      "limitations": "Callbacks awaited outside native frames; OnCompleted is not native retirement.",
+      "limitations": "Completion callbacks LIFO, registered disposables LIFO, then scope; each failure isolated; exactly one dispatch_complete and retirement join in outer finally. OnCompleted is not native retirement.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
         "B16"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-05"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-032",
@@ -951,12 +1487,26 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Immutable result wrapper/static codec; bounded text/JSON output.",
-      "limitations": "No universal object-result serialization or implicit null->204 mapping.",
+      "limitations": "Final status200..599; reject1xx; HEAD/204/205/304 body/length/trailer rules fixed; no universal object serialization or implicit null->204.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
         "B16"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-11"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-033",
@@ -985,7 +1535,21 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B15"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-11"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-034",
@@ -1009,12 +1573,30 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bytes construction copies <=1MiB; streaming callback has one chunk in flight.",
-      "limitations": "leaveOpen explicitly controls source disposal; streams single-execution; no automatic file-range/cache service.",
+      "limitations": "Caller owns source until successful execution admission; unexecuted/replaced result transfers nothing; producer opens input inside execution; leaveOpen remains explicit; no automatic file service.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
         "B16"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-11"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-035",
@@ -1044,7 +1626,25 @@
       "tasks": [
         "B15",
         "B16"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-11"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-036",
@@ -1074,7 +1674,26 @@
         "B15",
         "B16",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-11",
+          "SERVER-RUST-SSE"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-037",
@@ -1093,19 +1712,36 @@
       ],
       "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
       "adapter_operations": [
-        "managed policy adapter after native admission"
+        "managed policy adapter after native admission",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "support": "limited",
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "User-configured managed auth logic; lazy services; no transport rewrite.",
-      "limitations": "No automatic JWT/OAuth/cookie validator; named policy required; principal/policy lifecycle provided.",
+      "limitations": "No automatic JWT/OAuth/cookie validator; named policy required; principal/policy lifecycle provided. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
         "B19",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-03",
+          "SERVER-DOTNET-10"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-038",
@@ -1128,12 +1764,26 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Finite native policy checks before effective metadata publication.",
-      "limitations": "Exact IP peers only; no untrusted identity forwarding or implicit proxy trust.",
+      "limitations": "Only coherent single X-Forwarded-For/Proto/Host lists; right-to-left per-hop exact-IP trust in1..16; malformed trusted input fails400; original peer and MCP wire Host/Origin unchanged.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B17",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-039",
@@ -1166,7 +1816,25 @@
         "B16",
         "B17",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-03"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-040",
@@ -1196,7 +1864,30 @@
         "B16",
         "B17",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-13"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/KestrelServerLimits.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          },
+          {
+            "path": "experiments/server-retained-bytes/source-inspection.json",
+            "scope": "Pinned Bytes owner, bounded Tokio permit and Body lifetime records; unrelated feature behavior is not inferred."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-041",
@@ -1228,7 +1919,34 @@
       "tasks": [
         "B20",
         "B23"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-02"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R30/coverage.json",
+            "source_path": "src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TRACING-SPAN",
+              "TRACING-INSTRUMENT",
+              "TRACING-SUBSCRIBER"
+            ]
+          },
+          {
+            "path": "docs/research/topics/R27/source-driven-server.md",
+            "scope": "Pinned native public host/service/body/routing/runtime integration seams; no claim of new execution."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-042",
@@ -1260,7 +1978,29 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B18"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextServerCallContext.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TONIC-CODEC",
+              "TONIC-SERVER",
+              "TONIC-SERVICE",
+              "TONIC-DECODE"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-043",
@@ -1288,7 +2028,29 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B18"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextStreamWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TONIC-CODEC",
+              "TONIC-SERVER",
+              "TONIC-SERVICE",
+              "TONIC-DECODE"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-044",
@@ -1316,7 +2078,29 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B18"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextServerCallContext.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TONIC-CODEC",
+              "TONIC-SERVER",
+              "TONIC-SERVICE",
+              "TONIC-DECODE"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-045",
@@ -1344,7 +2128,29 @@
       "tasks": [
         "B18",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextStreamWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TONIC-CODEC",
+              "TONIC-SERVER",
+              "TONIC-SERVICE",
+              "TONIC-DECODE"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-046",
@@ -1375,7 +2181,29 @@
         "B18",
         "A10",
         "A12"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextServerCallContext.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TONIC-CODEC",
+              "TONIC-SERVER",
+              "TONIC-SERVICE",
+              "TONIC-DECODE"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-047",
@@ -1397,18 +2225,42 @@
       "rust_engine": "Tonic 0.14.9",
       "adapter_operations": [
         "nw_server_grpc_headers_create",
-        "nw_server_grpc_status_create"
+        "nw_server_grpc_status_create",
+        "nw_server_metadata_grpc_headers"
       ],
       "support": "equivalent",
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bounded copied metadata, separate encoded/decoded caps.",
-      "limitations": "Strict timeout grammar; raw status preserved; native errors and protocol status separate.",
+      "limitations": "Strict timeout grammar; raw status preserved; native errors and protocol status separate. Separate decoded binary projection preserves HTTP wire headers; both metadata blocks and overlap are bounded/charged.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B18",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextServerCallContext.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TONIC-CODEC",
+              "TONIC-SERVER",
+              "TONIC-SERVICE",
+              "TONIC-DECODE",
+              "TONIC-TIMEOUT"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-048",
@@ -1428,17 +2280,45 @@
       "adapter_operations": [
         "nw_server_routes_set",
         "nw_server_mcp_call_take",
-        "nw_server_mcp_reply_create"
+        "nw_server_mcp_reply_create",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "support": "equivalent",
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Schema/metadata once; explicit extra native JSON/UTF8/DTO representations.",
-      "limitations": "Static codecs and finite schema subset; tool error distinct from protocol error.",
+      "limitations": "Static codecs and finite schema subset; tool error distinct from protocol error. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope. Input/output roots must be statically described non-null objects; nested supported scalar/array/null fields remain allowed. Nullable<T> roots are explicitly rejected; admitted reference DTO schema roots are normalized to object without changing nested nullability.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B19"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-15",
+          "SERVER-DOTNET-16"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/ModelContextProtocol.Core/Server/McpServerTool.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "RMCP-HANDLER",
+              "RMCP-TOWER",
+              "RMCP-TOOL",
+              "RMCP-MODEL",
+              "RMCP-META"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-049",
@@ -1457,17 +2337,42 @@
       "adapter_operations": [
         "nw_server_routes_set",
         "nw_server_mcp_call_take",
-        "nw_server_mcp_reply_create"
+        "nw_server_mcp_reply_create",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "support": "limited",
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bounded static registry and UTF-8 text copy.",
-      "limitations": "Fixed URI/text only; no templates/subscription/binary replay.",
+      "limitations": "Fixed URI/text only; no templates/subscription/binary replay. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B19"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/ModelContextProtocol.Core/Server/McpServerTool.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "RMCP-HANDLER",
+              "RMCP-TOWER",
+              "RMCP-TOOL",
+              "RMCP-MODEL",
+              "RMCP-META"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-050",
@@ -1486,17 +2391,42 @@
       "adapter_operations": [
         "nw_server_routes_set",
         "nw_server_mcp_call_take",
-        "nw_server_mcp_reply_create"
+        "nw_server_mcp_reply_create",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "support": "limited",
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bounded argument/message lists and static DTO bridge.",
-      "limitations": "Required string arguments, user/assistant text messages only; no rich embedded media.",
+      "limitations": "Required string arguments, user/assistant text messages only; no rich embedded media. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B19"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/ModelContextProtocol.Core/Server/McpServerTool.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "RMCP-HANDLER",
+              "RMCP-TOWER",
+              "RMCP-TOOL",
+              "RMCP-MODEL",
+              "RMCP-META"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-051",
@@ -1513,18 +2443,43 @@
       ],
       "rust_engine": "rmcp 3.10.0 StreamableHttpService",
       "adapter_operations": [
-        "nw_server_routes_set"
+        "nw_server_routes_set",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
       ],
       "support": "limited",
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "One native service on existing host; finite preparse peak reserves.",
-      "limitations": "Only2026-07-28 stateless/no event store; strict Host/Origin/metadata; no legacy fallback.",
+      "limitations": "Only2026-07-28 stateless/no event store; strict Host/Origin/metadata; no legacy fallback. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B19",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/ModelContextProtocol.AspNetCore/StreamableHttpHandler.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "RMCP-HANDLER",
+              "RMCP-TOWER",
+              "RMCP-TOOL",
+              "RMCP-MODEL",
+              "RMCP-META"
+            ]
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-052",
@@ -1555,7 +2510,37 @@
       "tasks": [
         "B19",
         "B22"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-15",
+          "SERVER-DOTNET-16"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/ModelContextProtocol.Core/Server/McpServerTool.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "RMCP-HANDLER",
+              "RMCP-TOWER",
+              "RMCP-TOOL",
+              "RMCP-MODEL",
+              "RMCP-META"
+            ]
+          },
+          {
+            "path": "verification/server-completion/rmcp-expect-json-reviewed.txt",
+            "scope": "Pinned private expect_json collection/tree allocation reviewed; public Tower admission wrapper is required; not copied/called as public API."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-053",
@@ -1578,7 +2563,28 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B16"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04",
+          "SERVER-DOTNET-05",
+          "SERVER-DOTNET-11"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-054",
@@ -1602,7 +2608,21 @@
         "B15",
         "B16",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-04"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-055",
@@ -1626,7 +2646,22 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B15"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-03",
+          "SERVER-DOTNET-04"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-056",
@@ -1648,7 +2683,22 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-03",
+          "SERVER-DOTNET-05"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-057",
@@ -1673,7 +2723,21 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-11"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-058",
@@ -1695,7 +2759,22 @@
       "tasks": [
         "B15",
         "B24"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-10",
+          "SERVER-DOTNET-11"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-059",
@@ -1717,7 +2796,33 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B18"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/Grpc.AspNetCore.Server/Internal/HttpContextServerCallContext.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "TONIC-CODEC",
+              "TONIC-SERVER",
+              "TONIC-SERVICE",
+              "TONIC-DECODE"
+            ]
+          },
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-060",
@@ -1741,7 +2846,34 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B19"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R28/coverage.json",
+            "source_path": "src/ModelContextProtocol.AspNetCore/StreamableHttpHandler.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "verification/server-completion/source-inspection.json",
+            "source_ids": [
+              "RMCP-HANDLER",
+              "RMCP-TOWER",
+              "RMCP-TOOL",
+              "RMCP-MODEL",
+              "RMCP-META"
+            ]
+          },
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-061",
@@ -1764,7 +2896,28 @@
       "tasks": [
         "B15",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-03",
+          "SERVER-DOTNET-04",
+          "SERVER-DOTNET-05"
+        ],
+        "reused_source_records": [
+          {
+            "manifest": "docs/research/topics/R26/coverage.json",
+            "source_path": "src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs"
+          }
+        ],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-062",
@@ -1789,7 +2942,19 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B15"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Explicit non-adoption decision. Named ecosystem families were not individually source-read in this round and no implementation coverage is claimed; they are listed to make the product boundary visible."
+      }
     },
     {
       "id": "SERVER-063",
@@ -1812,7 +2977,21 @@
       "tasks": [
         "A12",
         "B15"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-12"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-064",
@@ -1834,7 +3013,21 @@
       "specification": "docs/api/server.md",
       "tasks": [
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-14"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     },
     {
       "id": "SERVER-065",
@@ -1856,7 +3049,22 @@
       "tasks": [
         "A22",
         "B17"
-      ]
+      ],
+      "source_evidence": {
+        "source_manifest": "docs/api/server-sources.json",
+        "source_ids": [
+          "SERVER-DOTNET-01",
+          "SERVER-DOTNET-09"
+        ],
+        "reused_source_records": [],
+        "native_evidence": [
+          {
+            "path": "docs/api/server.md",
+            "scope": "Section12 explicit initial-profile non-adoption or future extension; no corresponding Engine capability is claimed enabled."
+          }
+        ],
+        "coverage_limit": "Only declared read ranges and recorded symbols are source-inspected. The row compares a feature family; additional named reference overloads/members are navigation context and are not claimed individually inspected. NativeWeave policy choices and unsupported boundaries are design decisions, not upstream behavior or product execution."
+      }
     }
   ]
 }

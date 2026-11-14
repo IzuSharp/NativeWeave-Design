@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at_utc": "2026-11-14T12:01:23.805228+00:00",
+  "producer": "/root",
+  "scope": "evidence-output overwrite prevention only; package and AOT experiments were not repeated",
+  "finding": "API-INT-005",
+  "runner": {
+    "path": "experiments/public-api/packaging-probe/run.py",
+    "sha256": "811b34a08e4e6f5089e964a5ee82302095dfcd98f5684a173dc9b24a048b83d9"
+  },
+  "preserved_successful_runner_commit": "cc3bd73fb6e17e042842a8951100038fa501c422",
+  "command": [
+    "python3",
+    "<repository>/experiments/public-api/packaging-probe/run.py",
+    "--dotnet",
+    "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+    "--work-directory",
+    "<fresh-work>",
+    "--output",
+    "<repository>/verification/public-api/interop-packaging/attempt-4",
+    "--aot"
+  ],
+  "exit_code": 1,
+  "rejected_before_work_creation": true,
+  "preserved_files": {
+    "c-layout-execute.log": "4ed65c5b41881a45822013561d9a8a90533cf5dc3b6e19a854c62aebd17c9247",
+    "published-consumer-run.log": "5ca45ed983d67c06b0348638b58f431beb0cf6d8d4c4831d3072752244ade078",
+    "generated-example.cs": "0b9282251c0d515eba1b549e50b3ccb35f70ae161a04db747e4b09d2b53a512d",
+    "sdk-info.log": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+    "c-layout-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "consumer-aot-publish.log": "8d4f31cd94c6d5db7ecdde255128834d313904830a2a1072dc05049d2a60a2c1",
+    "consumer-run.log": "17d65bc5933e0b35f5e1fc6ce89c6f98c015361e790f1e70c8ec07204026dae0",
+    "changed-model-run.log": "5ca45ed983d67c06b0348638b58f431beb0cf6d8d4c4831d3072752244ade078",
+    "consumer-publish.log": "d9e4f4a76a41fc4e1d210236774ee80dd2748669f5a1a963fa8a986823f8162c",
+    "interop-declarations.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "unsupported-model-negative.log": "eb9395d16de7f73d1831eb471aad5a66bd3444f446041baca3bd065602a538af",
+    "generator-compile.log": "4c4195ac7c8e5b825eff0660fb0ea1116ac67537e1d48fcb3f4a19c9b77960e8",
+    "interop-negative-borrow.log": "17d1653b079f305a621eae48bc8fa6719bec987f1ee6c5fec09aad2878b7736f",
+    "changed-model-build.log": "8daf7b79d453728b386e0708553e8a54832547fbd1a7c69058eaa727fb49ce33",
+    "consumer-aot-run.log": "cf504cc5d696572cc78ecd7ae74e32bd38fe7337e417414dc52544f4bb4dc51d",
+    "artifact-readback.json": "7cea142c263f2308303e6e682cd9ef842d2b7cecd57b1d5cc270a1bdc453d24c",
+    "consumer-build.log": "e21618f2c1bc780d8d0459e3a114494bef49896d78f1918ca7163609b9b5c701",
+    "facade-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "summary.json": "12d1d1573f25ab5eea8e0668ce5fff25dd4cbc9db998211ed21e2ea32f294fea"
+  },
+  "log_sha256": "58a6caaf3dba80dd8888b5a98460adbf13d31a0fb8527c3335bb660a55228636",
+  "passed": true,
+  "product_implemented": false
+}

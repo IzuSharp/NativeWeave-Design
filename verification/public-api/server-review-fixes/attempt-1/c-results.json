@@ -1,0 +1,31 @@
+{
+  "scope": "design C ABI layout and prototype compile only; no Server runtime",
+  "steps": [
+    {
+      "id": "c-compile",
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "experiments/public-api/abi/server_layout_probe.c",
+        "-o",
+        "/workspace/scratch/aa7a561da301/server_layout_probe"
+      ],
+      "exit_code": 0,
+      "log": "verification/public-api/server-review-fixes/attempt-1/c-compile.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "c-execute",
+      "command": [
+        "/workspace/scratch/aa7a561da301/server_layout_probe"
+      ],
+      "exit_code": 0,
+      "log": "verification/public-api/server-review-fixes/attempt-1/c-execute.log",
+      "log_sha256": "f7bff6eb72bfdc9cb63f911a6f788130ef08331e2a85d3973ac9552ae9535919"
+    }
+  ],
+  "passed": true
+}

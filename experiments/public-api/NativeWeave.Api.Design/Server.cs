@@ -185,7 +185,7 @@ namespace NativeWeave.Server
     {
         /// <summary>Gets exact trusted peer IP addresses.</summary>
         public IList<IPAddress> KnownProxies { get; } = new List<IPAddress>();
-        /// <summary>Gets or sets the maximum trusted forwarded hops, default one.</summary>
+        /// <summary>Gets or sets the maximum trusted forwarded hops in 1..16, default one; only coherent X-Forwarded-For/Proto/Host tuples apply.</summary>
         public int ForwardLimit { get; set; } = 1;
     }
     /// <summary>Close observation; Pending retains roots, native owners and credits.</summary>
@@ -410,7 +410,7 @@ namespace NativeWeave.Server
     public sealed class ServerResponse
     {
         internal ServerResponse() { }
-        /// <summary>Gets or sets an HTTP status code; default 200.</summary>
+        /// <summary>Gets or sets a final HTTP status in 200..599; default 200; informational statuses are rejected.</summary>
         public int StatusCode { get => throw new NotSupportedException(); set => throw new NotSupportedException(); }
         /// <summary>Gets headers mutable only before StartAsync or the first write.</summary>
         public HeaderCollection Headers => throw new NotSupportedException();
@@ -436,9 +436,9 @@ namespace NativeWeave.Server
         public Task CompleteAsync(CancellationToken cancellationToken = default) => throw new NotSupportedException();
         /// <summary>Registers a bounded callback before headers commit; callbacks run in reverse registration order.</summary>
         public void OnStarting(Func<CancellationToken, Task> callback) => throw new NotSupportedException();
-        /// <summary>Registers application completion work; it is not native-retirement notification.</summary>
+        /// <summary>Registers LIFO completion work; all callbacks run despite earlier cleanup failures, before disposables and scope release.</summary>
         public void OnCompleted(Func<Task> callback) => throw new NotSupportedException();
-        /// <summary>Transfers a managed asynchronous disposable to request cleanup.</summary>
+        /// <summary>Transfers a managed asynchronous disposable on successful registration; duplicate identity is rejected and cleanup runs once in LIFO order.</summary>
         public void RegisterForDisposeAsync(IAsyncDisposable resource) => throw new NotSupportedException();
     }
     /// <summary>Executes an HTTP result inside the request lifetime.</summary>
@@ -454,7 +454,7 @@ namespace NativeWeave.Server
     {
         /// <summary>Creates UTF-8 text; immutable text is encoded during request execution.</summary>
         public static ServerResult Text(string text, string contentType = "text/plain; charset=utf-8", int statusCode = 200) => throw new NotSupportedException();
-        /// <summary>Creates an empty result with the supplied status.</summary>
+        /// <summary>Creates an empty final result with status 200..599; 1xx is rejected and 204/205/304 prohibit content.</summary>
         public static ServerResult StatusCode(int statusCode) => throw new NotSupportedException();
         /// <summary>Creates an empty 204 result.</summary>
         public static ServerResult NoContent() => throw new NotSupportedException();
@@ -474,7 +474,7 @@ namespace NativeWeave.Server
         public static ServerResult Bytes(ReadOnlySpan<byte> bytes, string contentType = "application/octet-stream") => throw new NotSupportedException();
         /// <summary>Executes a producer within request lifetime; the output Stream is borrowed.</summary>
         public static ServerResult Stream(Func<Stream, CancellationToken, Task> write, string contentType = "application/octet-stream") => throw new NotSupportedException();
-        /// <summary>Streams an input; result execution disposes it unless leaveOpen is true.</summary>
+        /// <summary>Streams an input; successful execution admission transfers disposal unless leaveOpen; an unexecuted result leaves caller ownership.</summary>
         public static ServerResult Stream(Stream source, string contentType = "application/octet-stream", bool leaveOpen = false) => throw new NotSupportedException();
         /// <summary>Streams an AOT-safe JSON array with one element in flight.</summary>
         public static ServerResult JsonStream<T>(IAsyncEnumerable<T> source, JsonTypeInfo<T> typeInfo) => throw new NotSupportedException();
@@ -656,7 +656,7 @@ namespace NativeWeave.Server.Grpc
         public CancellationToken CancellationToken => throw new NotSupportedException();
         /// <summary>Gets remaining monotonic deadline.</summary>
         public TimeSpan TimeRemaining => throw new NotSupportedException();
-        /// <summary>Gets incoming text and binary metadata.</summary>
+        /// <summary>Gets a distinct decoded gRPC metadata projection; underlying HTTP headers retain wire text.</summary>
         public GrpcMetadata RequestHeaders => throw new NotSupportedException();
         /// <summary>Gets mutable trailing metadata until terminal completion.</summary>
         public GrpcMetadata ResponseTrailers => throw new NotSupportedException();
@@ -752,7 +752,7 @@ namespace NativeWeave.Server.Mcp
     public sealed class McpToolResult<T>
     {
         private McpToolResult() { }
-        /// <summary>Creates a structured success response.</summary>
+        /// <summary>Creates a non-null object-root structured success response; null is rejected before execution.</summary>
         public static McpToolResult<T> Success(T value) => throw new NotSupportedException();
         /// <summary>Creates a bounded, safe tool-execution failure with isError true.</summary>
         public static McpToolResult<T> Error(string message) => throw new NotSupportedException();
@@ -768,7 +768,7 @@ namespace NativeWeave.Server.Mcp
     {
         /// <summary>Creates an empty registry; metadata generation runs only during registration.</summary>
         public McpRegistry() { }
-        /// <summary>Registers a typed tool with static JSON codecs and bounded schema generation.</summary>
+        /// <summary>Registers a typed tool with static non-null object-root input/output metadata; unsupported root shapes fail before serving.</summary>
         public McpRegistry AddTool<TInput, TOutput>(string name, string description, JsonTypeInfo<TInput> inputTypeInfo, JsonTypeInfo<TOutput> outputTypeInfo, Func<TInput, McpCallContext, Task<McpToolResult<TOutput>>> handler) => throw new NotSupportedException();
         /// <summary>Registers a fixed URI resource with bounded text content.</summary>
         public McpRegistry AddResource(string uri, string name, string mimeType, Func<McpCallContext, Task<McpTextResource>> handler, string? description = null) => throw new NotSupportedException();
@@ -778,7 +778,7 @@ namespace NativeWeave.Server.Mcp
     /// <summary>Maps the native rmcp service into the selected Rust host.</summary>
     public static class McpEndpointExtensions
     {
-        /// <summary>Maps an immutable registry; nonloopback use requires explicit Host/Origin policy.</summary>
+        /// <summary>Maps an immutable registry; every method passes managed pre-parse authorization; nonloopback use requires explicit wire Host/Origin policy.</summary>
         public static NativeWeave.Server.ServerEndpointBuilder MapMcp(this NativeWeave.Server.ServerRoutes routes, string pattern, McpRegistry registry, McpEndpointOptions? options = null) => throw new NotSupportedException();
     }
 }

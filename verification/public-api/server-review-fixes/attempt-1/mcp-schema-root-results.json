@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "BCL static generated metadata root policy witness only; no NativeWeave runtime",
+  "recorded_at_utc": "2026-11-14T11:59:58.121775+00:00",
+  "sdk": "11.0.100",
+  "target_framework": "net11.0",
+  "command": [
+    "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+    "run",
+    "--project",
+    "/workspace/scratch/aa7a561da301/server-schema-root-witness/SchemaRootWitness.csproj",
+    "--no-restore",
+    "--disable-build-servers",
+    "-p:UseSharedCompilation=false",
+    "--verbosity",
+    "minimal"
+  ],
+  "inputs": [
+    {
+      "path": "verification/public-api/server-review-fixes/mcp-schema-root-witness/Program.cs",
+      "sha256": "cea6cba257eabcb381fb16111cffd094019caa46d2a485ea1f6d02d42e64a145",
+      "bytes": 4192
+    },
+    {
+      "path": "verification/public-api/server-review-fixes/mcp-schema-root-witness/SchemaRootWitness.csproj",
+      "sha256": "5fdf10733eb0e2301ad4c50bb5bb5ea0e7de8ae3fe5646e1ba18a7c027ca1548",
+      "bytes": 429
+    }
+  ],
+  "initial_attempt": {
+    "exit_code": 134,
+    "finding": "Object-kind metadata alone admitted Nullable<ObjectValue>; explicit Nullable<T> root rejection was required.",
+    "source": {
+      "path": "verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-initial-source.txt",
+      "sha256": "8fcf9719f4e1dd816936b3cc2d7acea8863e7d35729407077bdb409f8d393e32",
+      "bytes": 4127
+    },
+    "log": {
+      "path": "verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-initial-run.log",
+      "sha256": "c41ad344898d4a26505466c9017d5a1c61b2b20e8f4d52b00655812e98a76b66",
+      "bytes": 622
+    }
+  },
+  "final_attempt": {
+    "exit_code": 0,
+    "positive_assertions": 7,
+    "rejected_root_shapes": 5,
+    "reflection_serialization_enabled": false,
+    "nested_properties_unchanged": true,
+    "log": {
+      "path": "verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-final-run.log",
+      "sha256": "b09ea587d5c0b04a0dfd8fa535ce2e88864866399005886b4dc1fba86f3234d5",
+      "bytes": 401
+    }
+  },
+  "limitations": [
+    "The finite metadata graph walk and NativeWeave MCP registration runtime are specification obligations, not implemented by this witness.",
+    "No network/MCP/NativeAOT publish was executed by this check."
+  ]
+}
