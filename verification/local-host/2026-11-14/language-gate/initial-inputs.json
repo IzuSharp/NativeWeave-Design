@@ -1,0 +1,43 @@
+{
+  "kind": "historical_initial_candidate_snapshot",
+  "full_english_manifest_sha256": "61a7ea23a0eccb58f0def320651b6f2f1f27e7cd4243b7898f590c5384d2a1d3",
+  "scope": "Exact initial CRLF candidate overlay, not the final LF checker or final regression result. Its initial regression metadata predates the explicit separation of research/checker identity in the final result.",
+  "files": [
+    {
+      "original_path": "tools/local_host_raw_evidence.py",
+      "snapshot_path": "initial-inputs/tools/local_host_raw_evidence.py",
+      "sha256": "d776d0f3674e21bc6c0c501de57c823f61cd565eeb7ae96293e280c462388aca",
+      "bytes": 4856
+    },
+    {
+      "original_path": "tools/verify_english_translation.py",
+      "snapshot_path": "initial-inputs/tools/verify_english_translation.py",
+      "sha256": "6c74414717c2e6b8e6e6dae1579e416ec070ada4a74c4f62a36360cf3c9e11f2",
+      "bytes": 14576
+    },
+    {
+      "original_path": "verification/local-host/2026-11-14/raw-execution-language-exceptions.json",
+      "snapshot_path": "initial-inputs/verification/local-host/2026-11-14/raw-execution-language-exceptions.json",
+      "sha256": "faace7fb90e13edf8eaea6c65c8aa686eed151edef4f4534c9817b9a858d1b50",
+      "bytes": 4860
+    },
+    {
+      "original_path": "verification/local-host/2026-11-14/language-gate/negative_checks.py",
+      "snapshot_path": "initial-inputs/verification/local-host/2026-11-14/language-gate/negative_checks.py",
+      "sha256": "c5ff5bcc8b3247cd14283f1958497b26c206191c40be01b8dcae15bcff768222",
+      "bytes": 6778
+    },
+    {
+      "original_path": "verification/local-host/2026-11-14/language-gate/run_full_english.py",
+      "snapshot_path": "initial-inputs/verification/local-host/2026-11-14/language-gate/run_full_english.py",
+      "sha256": "e9e20a57851bc91ef5ee6c1e9f8568aa39ea37c89c3eed263cc74650d00782ea",
+      "bytes": 3464
+    },
+    {
+      "original_path": "verification/local-host/2026-11-14/language-gate/negative-results.json",
+      "snapshot_path": "initial-inputs/verification/local-host/2026-11-14/language-gate/negative-results.json",
+      "sha256": "7ab4af584662f54efae9a9a49cb4d0048c1e4ea9377db3bea16b305e6dbbf1b8",
+      "bytes": 7609
+    }
+  ]
+}
