@@ -1,6 +1,6 @@
 # D01 — Platform and Native AOT support profile
 
-Contract **C-PLATFORM-001@0.3.0**. Status: complete design candidate; the registry records exact version, hash and independent acceptance. Production support is a separate Delivery result. Existing R01/R02/D01/A01/A14/A15/A16/B24 scopes apply. Research baseline is merged Design `7759248e8c3bb37a99481f09c690d2c9f9b49248`; no old evidence is overwritten.
+Contract **C-PLATFORM-001@0.4.0**. Status: complete design candidate; the registry records exact version, hash and independent acceptance. Production support is a separate Delivery result. Existing R01/R02/D01/A01/A14/A15/A16/B24 scopes apply. Research baseline is merged Design `7759248e8c3bb37a99481f09c690d2c9f9b49248`; no old evidence is overwritten.
 
 ## 1. Maintainer and consumer profiles
 
@@ -70,3 +70,20 @@ exit; instance shutdown drains actual resources without unloading executing code
 R33/D21 hold explicit future profiles for ARM64, mobile/UI/GPU/WASM. Do not include unsupported RID
 assets or silently fall back to managed drivers/hosts. Unsupported targets fail at restore/build or
 at explicit capability negotiation, with a precise supported-profile message.
+
+
+## 8. Public surface validation and supported-profile claims (2026-11-14)
+
+The public API declaration/consumer projects in `experiments/public-api/` fix net11.0 and C#15.0
+without Preview. [Interop](../api/interop.md), [Database](../api/database.md) and
+[Server](../api/server.md) distinguish compile-only declarations from actual product/AOT execution.
+A declaration assembly building successfully does not certify a Rust Engine, package or target.
+The common header/layout probe verifies only the compiler/architecture actually executed.
+
+Desktop packaging retains default lazy dynamic PInvoke. Direct PInvoke, static linking, single-file
+extraction and additional RIDs are separately negotiated/verified profiles, not implied by successful
+net11 compilation. A static rooted `typeof(KnownType).Assembly` descriptor is permitted under AOT;
+reflection-scanned plugins and new managed-assembly loading into the published image are not.
+Use [the package/profile specification](../api/nuget-and-consumption.md) for native asset selection,
+unsupported-RID messages and independent clean consumers. A14/A15 run real target builds;
+A16/B24 verify normal development and publication without a local Rust toolchain.

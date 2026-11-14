@@ -1,0 +1,427 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "interop",
+  "author": "/root/interop_api",
+  "observed_date": "2026-11-14",
+  "baseline": {
+    "runtime": "11.0.0",
+    "sdk": "11.0.100",
+    "csharp": "15.0",
+    "runtime_commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+    "tag_resolution": "git ls-remote https://github.com/dotnet/runtime.git refs/tags/v11.0.0 returned the recorded full SHA"
+  },
+  "sources": [
+    {
+      "id": "I-SRC-01",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/NativeLibrary.cs",
+      "blob_sha": "04ec2888f4ae6689c7d9fc4f98e06cce82d08e26",
+      "sha256": "f2f4d61861a2464f1162aac17aa215d576f12cfbee8477f849e8ac34bd7c071e",
+      "read_ranges": [
+        [
+          1,
+          240
+        ]
+      ],
+      "symbols": [
+        "NativeLibrary.Load",
+        "NativeLibrary.TryLoad",
+        "NativeLibrary.GetExport",
+        "NativeLibrary.SetDllImportResolver"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "One resolver per assembly; high-level Load does not recursively invoke that resolver; loader/export failures are explicit.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/NativeLibrary.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-02",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "blob_sha": "2d1f9313b485c57afab1f187e00a180df7fad3ba",
+      "sha256": "eddb5e1ad53377a5d60b7fdfeecb03a771b45406ec34802e5dbf068b71a117fd",
+      "read_ranges": [
+        [
+          85,
+          150
+        ],
+        [
+          155,
+          240
+        ]
+      ],
+      "symbols": [
+        "SafeHandle.Dispose",
+        "SafeHandle.DangerousAddRef",
+        "SafeHandle.DangerousRelease"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Physical reference leasing and logical admission are separate; source checks Closed, not all disposed admission cases.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-03",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/GCHandle.cs",
+      "blob_sha": "060143b509f51794f3dad3d4a2d2f922d1d64f78",
+      "sha256": "cdb4e0d0b76ecf665fd16ef5d0b1560230cf8a57be980b39427196fbd69efa89",
+      "read_ranges": [
+        [
+          20,
+          125
+        ],
+        [
+          160,
+          212
+        ]
+      ],
+      "symbols": [
+        "GCHandle.Alloc",
+        "GCHandle.Free",
+        "GCHandle.Target",
+        "GCHandle.AddrOfPinnedObject",
+        "GCHandle.ToIntPtr"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Normal roots differ from pinned memory; raw cookies are not independently validated late-callback identities.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/GCHandle.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-04",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Buffers/MemoryManager.cs",
+      "blob_sha": "b0eeaf226631618d615bf1581972945d4bdb88f7",
+      "sha256": "57e39ed19ae5cfba73856d875ac124cf19ee033917d8f26c5c860f16ad3005e0",
+      "read_ranges": [
+        [
+          1,
+          73
+        ]
+      ],
+      "symbols": [
+        "MemoryManager<T>.Memory",
+        "GetSpan",
+        "Pin",
+        "Unpin",
+        "Dispose"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "BCL owner/Memory shape does not by itself make cached views safe against NativeWeave owner disposal; scoped reads selected.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Buffers/MemoryManager.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-05",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Buffers/IMemoryOwner.cs",
+      "blob_sha": "3df6a411c8780a7e4f4c4b6b054081e30a980f85",
+      "sha256": "fc846de74cb8f7ab653cbfc3ff6380a5620bdbf59435ef7bec0047ae658d6700",
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "symbols": [
+        "IMemoryOwner<T>.Memory"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Public BCL interface exposes persistent Memory; not adopted for general native buffer.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Buffers/IMemoryOwner.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-06",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/IAsyncDisposable.cs",
+      "blob_sha": "53b32a1956696db25db0ada392eaea0fde9f6b5c",
+      "sha256": "7d590f4f940af702f8d3797655412cdc64435a0cc6454985685e415ee5fe817f",
+      "read_ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "symbols": [
+        "IAsyncDisposable.DisposeAsync"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "ValueTask return convention is adopted for asynchronous disposal; NativeWeave adds exact retirement guarantees.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/IAsyncDisposable.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-07",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "blob_sha": "345b41a32acff711897868ffce28e6af287c431b",
+      "sha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "read_ranges": [
+        [
+          20,
+          135
+        ]
+      ],
+      "symbols": [
+        "Dispose",
+        "DisposeAsync",
+        "Unregister"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Unregister differs from external async drain; self-disposal exception must not be used as proof callback exited.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-08",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+      "blob_sha": "07106341f868bce21f858c999dca02d76f2ae4f8",
+      "sha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "read_ranges": [
+        [
+          155,
+          180
+        ],
+        [
+          245,
+          295
+        ]
+      ],
+      "symbols": [
+        "Register",
+        "UnsafeRegister"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Pre-canceled registration can synchronously invoke; UnsafeRegister does not capture ExecutionContext.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-09",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource_T.cs",
+      "blob_sha": "2a7f76029d1197586703b3966c6e7aed83ab3ec5",
+      "sha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "read_ranges": [
+        [
+          20,
+          85
+        ],
+        [
+          185,
+          225
+        ],
+        [
+          250,
+          300
+        ]
+      ],
+      "symbols": [
+        "TaskCompletionSource<TResult>",
+        "Task",
+        "TrySetResult",
+        "TrySetCanceled"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Explicit terminal authority; thread-safe completion source and Task shape, no native-retirement guarantee.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource_T.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-10",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceCollectionServiceExtensions.cs",
+      "blob_sha": "6aed5e65f7c6979fff34b8cd49ed1397d5c9ee4f",
+      "sha256": "d8723a24ce14b4718608cacea0d88097d3bfd31d971b811529df07d09a9b0d85",
+      "read_ranges": [
+        [
+          305,
+          340
+        ],
+        [
+          375,
+          415
+        ]
+      ],
+      "symbols": [
+        "AddScoped<TService>",
+        "AddSingleton"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Reuse DI registration/factory design; avoid hidden duplicate provider/registration.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceCollectionServiceExtensions.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-11",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/IHostedService.cs",
+      "blob_sha": "0bb8c07c22d77dd58af05122c3ec7a40f118931d",
+      "sha256": "0ba1cdee122a9e62e9dbd61b475db4778241c2529429d654906d0a76d39adf1b",
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "symbols": [
+        "StartAsync",
+        "StopAsync"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Generic Host adapter follows standard start/stop Task shape, with native drain defined separately.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/IHostedService.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-SRC-12",
+      "repository": "https://github.com/dotnet/runtime",
+      "tag": "v11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "blob_sha": "0d29de504ab327b2521c149fd508a31bca040c3c",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e",
+      "read_ranges": [
+        [
+          3495,
+          3510
+        ],
+        [
+          4706,
+          4735
+        ],
+        [
+          5112,
+          5200
+        ],
+        [
+          7980,
+          8025
+        ],
+        [
+          10920,
+          10976
+        ],
+        [
+          15735,
+          15758
+        ]
+      ],
+      "symbols": [
+        "IAsyncDisposable",
+        "Memory<T>",
+        "ReadOnlyMemory<T>",
+        "ReadOnlySpan<T>",
+        "IMemoryOwner<T>",
+        "MemoryManager<T>",
+        "Stream",
+        "SafeHandle"
+      ],
+      "evidence_kind": "source_read_this_round",
+      "supported_claim": "Actual v11 reference declarations establish precise stable Span/Memory/Stream/disposal signatures; no complete BCL enumeration claimed.",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "unread_scope": "All ranges outside the explicit read_ranges; no upstream test suite was executed."
+    },
+    {
+      "id": "I-DOC-01",
+      "url": "https://learn.microsoft.com/en-us/nuget/create-packages/native-files-in-net-packages",
+      "observed_date": "2026-11-14",
+      "evidence_kind": "official_documentation_read",
+      "scope": "Native assets/ref/lib selection; RID-specific native layout and publish behavior.",
+      "immutable_commit": null
+    },
+    {
+      "id": "I-DOC-02",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/interop",
+      "observed_date": "2026-11-14",
+      "evidence_kind": "official_documentation_read",
+      "scope": "Default lazy PInvoke versus opt-in DirectPInvoke/static linkage; no equivalence of load policy.",
+      "immutable_commit": null
+    },
+    {
+      "id": "I-DOC-03",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/",
+      "observed_date": "2026-11-14",
+      "evidence_kind": "official_documentation_read",
+      "scope": "Publish environment/prerequisites and native target restrictions; no new managed assembly loading claim.",
+      "immutable_commit": null
+    },
+    {
+      "id": "I-DOC-04",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/native-interop/native-library-loading",
+      "observed_date": "2026-11-14",
+      "evidence_kind": "official_documentation_read",
+      "scope": "OS filename variations and package-owned resolver mechanism.",
+      "immutable_commit": null
+    },
+    {
+      "id": "I-DOC-05",
+      "url": "https://dotnet.microsoft.com/en-us/download/dotnet/11.0",
+      "observed_date": "2026-11-14",
+      "evidence_kind": "official_documentation_read",
+      "scope": "Root revalidated stable SDK11.0.100/runtime11.0.0 on 2026-11-14; source tag independently rechecked here.",
+      "immutable_commit": null
+    }
+  ],
+  "reused_research": [
+    {
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "scope": "D04 and prior R07 SafeHandle/logical admission evidence; historical execution remains unchanged"
+    },
+    {
+      "path": "docs/contracts/async-v0.1.md",
+      "scope": "D06 typed create/start/take/retire source and actual prior two-OS probes"
+    },
+    {
+      "path": "docs/contracts/callback-v0.1.md",
+      "scope": "D05 notification and dispatcher drain; prior source/experiments preserved"
+    },
+    {
+      "path": "docs/contracts/error-v0.1.md",
+      "scope": "D08 status and panic policy; original isolated subprocess outcomes not relabelled"
+    },
+    {
+      "path": "docs/research/topics/R01/rust-1.100.md",
+      "scope": "Pinned stable Rust1.100 ABI/allocator/DropGuard source and real two-OS evidence reused"
+    },
+    {
+      "path": "verification/interop-completion/source-inspection.json",
+      "scope": "Pinned LibraryImportGenerator/Roslyn/UniFFI/build-generator study reused"
+    },
+    {
+      "path": "docs/extension/engine-integration.md",
+      "scope": "Mature-engine source map and two heterogeneous existing integration fixtures"
+    }
+  ],
+  "not_claimed": [
+    "Whole .NET11 runtime or BCL audit",
+    "Execution of upstream .NET test suites",
+    "Product NuGet publication",
+    "NativeWeave product runtime or performance implementation"
+  ]
+}

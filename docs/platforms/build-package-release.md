@@ -1,6 +1,6 @@
 # D10 — Precompiled Engine packaging and upstream maintenance
 
-Contract: **C-BUILD-001@0.3.0**. Status: complete design candidate; the registry holds the reviewed version/hash and acceptance. Product release verification remains separate. Existing R13/R14/R18/D10/A13–A16/A22/A24 and B24 own this work. This is the build/maintenance implementation specification, not an additional task graph.
+Contract: **C-BUILD-001@0.4.0**. Status: complete design candidate; the registry holds the reviewed version/hash and acceptance. Product release verification remains separate. Existing R13/R14/R18/D10/A13–A16/A22/A24 and B24 own this work. This is the build/maintenance implementation specification, not an additional task graph.
 
 ## 1. Separate maintainer and application builds
 
@@ -129,3 +129,29 @@ Record the upload archive SHA-256 and observed downloaded archive SHA-256 separa
 
 An incomplete release remains unadvertised in the project catalog; this does not prevent direct installation of already uploaded leaves. Nuget.org normally offers unlist/deprecation, not removal or replacement of an existing version. Known-version restores can still obtain an unlisted package, and caches remain. Unlist/revoke catalog exposure is therefore adoption guidance, not a consumer kill switch. Correct defective payloads with a new version and preserve a tested previous complete closure for deployment rollback. Existing deployments do not hot-swap or unload their native module. [Deleting packages policy](https://learn.microsoft.com/en-us/nuget/nuget-org/policies/deleting-packages)
 
+
+
+## 11. Canonical package graph and consumer API (2026-11-14)
+
+[NuGet and consumption](../api/nuget-and-consumption.md) fixes the package names, acyclic assembly
+graph, default provider installs, optional DI/Hosting/protocol packages, native basenames,
+asset-layout transformation, diagnostics and exact clean-consumer obligations. It takes precedence
+over illustrative package names in earlier examples. The NativeWeave.Query namespace compiles
+into NativeWeave.Database to avoid a Database/Query assembly cycle; source/task ownership remains
+B09/B11/B12/B13. SQLite and PostgreSQL use distinct provider/native packages and module identities.
+Neither requires Server. Core alone loads no native asset or runtime.
+
+The initial Server.Native package has one reviewed native HTTP/TLS/Tonic/rmcp closure. Optional
+managed Grpc/Mcp packages register only requested protocol state on the same host/runtime. This
+choice carries documented unused-code binary bytes, measured by A21/B24, while avoiding conflicting
+flavor DLLs, consumer Rust compilation or Rust-private cross-DLL interfaces. It does not claim
+protocol code absence when its managed API is not installed. Future compact profiles need their
+own complete closure and consumer tests.
+
+Raw LibraryImport bindings are maintainer-generated/compiled. Default provider/server packages
+include the required application generator/analyzer build assets; independent consumer fixtures
+must verify their transitive inclusion. Handwritten static metadata remains equivalent.
+Every shipping facade includes XML comments, compiled API compatibility data and generated
+reference output under the [API standard](../standards/csharp-public-api-and-documentation.md).
+A16/B24 own the no-Rust package-consumer evidence; normal Native AOT linker prerequisites remain
+required and must never be disguised as completely toolchain-free publishing.

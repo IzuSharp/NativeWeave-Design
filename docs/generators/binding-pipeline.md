@@ -1,6 +1,6 @@
 # D03 — Narrow binding description, generated imports and diagnostics
 
-Contract: **C-BINDING-001@0.3.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Research inputs: R03–R06, R07–R11. Future owners: A09–A12, B09/B10/B12. This specification creates no SQL AST, ORM translator, HTTP stack or global runtime in C#.
+Contract: **C-BINDING-001@0.4.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Research inputs: R03–R06, R07–R11. Future owners: A09–A12, B09/B10/B12. This specification creates no SQL AST, ORM translator, HTTP stack or global runtime in C#.
 
 ## 1. Decision and reuse
 
@@ -103,3 +103,25 @@ The research/design question is resolved by the explicit, independently reviewab
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## 9. Public signatures, XML reference and API compatibility (2026-11-14)
+
+The [C# API standard](../standards/csharp-public-api-and-documentation.md) and [public surface](../api/interop.md)
+are now required inputs to A09-A12. Generated raw imports stay internal; the public facade has exact
+namespace/type/member/generic/default/nullability declarations, a semantic group for every member,
+a coverage/engine/operation/task map and XML reference entries. A source generator must not invent
+a replacement public API when an accepted declaration exists. Unsupported translations fail with
+an actionable source diagnostic and supported alternative.
+
+A09 normalizes the operation/owner/ABI schema; A10 emits C# declarations and their stable XML member
+IDs; A11 emits native layouts/exports; A12 checks declaration drift, unsupported shapes, missing
+public XML, incompatible nullable/default changes and generator-input parity. Compilation and
+reference generation consume the same emitted facade assembly. Examples compile against that
+assembly; native/AOT execution evidence is recorded separately. Generated members need the same
+parameter/return/exception/lifetime/threading documentation as handwritten APIs.
+
+Do not create a second SQL/native engine in XML tooling or generators. Build-time documentation
+metadata may describe overloads and owner rules, but runtime applications pay no reflection scan
+or documentation generation cost. A22 owns public API compatibility baselines/Obsolete transitions;
+all future module scaffolds under A24 import the standard and its local AGENTS.md adoption checklist.
