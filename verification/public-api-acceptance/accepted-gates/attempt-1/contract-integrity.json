@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "actual_positive_binding": {
+    "accepted_contracts": 21,
+    "exact_input_entries": 1485,
+    "independent_reports": 3,
+    "binding_attestations": 3,
+    "product_implementation_authorized": false
+  },
+  "negative_cases": [
+    {
+      "case": "changed_accepted_api_semantics",
+      "passed": true,
+      "rejection": "('changed accepted input', 'docs/api/interop.md')"
+    },
+    {
+      "case": "missing_binding_attestations",
+      "passed": true,
+      "rejection": "Missing independent binding attestations"
+    },
+    {
+      "case": "stale_binding_attestation_hash",
+      "passed": true,
+      "rejection": "('changed accepted file', 'docs/traceability/reviews/public-api-final/interop-contract-bindings.json')"
+    },
+    {
+      "case": "changed_independent_review_report",
+      "passed": true,
+      "rejection": "('changed accepted file', 'docs/traceability/reviews/public-api-final/interop-review.json')"
+    },
+    {
+      "case": "foreign_attesting_reviewer",
+      "passed": true,
+      "rejection": "('unattributable attestation', 'C-PLATFORM-001', 'synthetic/unrelated-reviewer')"
+    },
+    {
+      "case": "changed_exact_attested_subject",
+      "passed": true,
+      "rejection": "('inexact attested subject', 'C-PLATFORM-001')"
+    }
+  ],
+  "scope": "In-memory integrity mutations of actual accepted Design records; no accepted file or product state changed."
+}

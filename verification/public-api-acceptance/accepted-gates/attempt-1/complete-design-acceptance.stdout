@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "repository": "NativeWeave-Design",
+  "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+  "translated_files": 64,
+  "immutable_originals": 16,
+  "independent_review_required": true,
+  "native_experiments_rerun": false,
+  "product_implementation_authorized": false
+}
+{
+  "passed": true,
+  "coverage_rows": {
+    "foundation": 33,
+    "database": 96,
+    "server": 65,
+    "interop": 40
+  },
+  "public_symbols": 1268,
+  "public_type_policy_keys": 178,
+  "historical_files_preserved": 1841,
+  "historical_english_gate_executed": true,
+  "accepted_contracts_required": true,
+  "product_implementation_authorized": false,
+  "exact_contract_acceptance": {
+    "accepted_contracts": 21,
+    "exact_input_entries": 1485,
+    "independent_reports": 3,
+    "binding_attestations": 3,
+    "product_implementation_authorized": false
+  }
+}

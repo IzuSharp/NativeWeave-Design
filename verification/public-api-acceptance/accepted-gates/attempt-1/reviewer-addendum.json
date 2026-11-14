@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/final_architecture_review",
+  "reviewed_at_utc": "2026-11-14T12:52:43.306649+00:00",
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "scope": "Independent execution and readback of the post-binding gates, completing the deferred actual-record verification for API-FINAL-ARCH-003. No new contract/task decision or product acceptance is created.",
+  "technical_review": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+    "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+  },
+  "evidence": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/accepted-gates/attempt-1/summary.json",
+    "sha256": "e923f571abbb7ddab0bba4299c30d254e903c7a5a04c16d8e72dcc27aa551393"
+  },
+  "actual_positive_binding": {
+    "accepted_contracts": 21,
+    "exact_input_entries": 1485,
+    "independent_reports": 3,
+    "binding_attestations": 3,
+    "product_implementation_authorized": false
+  },
+  "actual_negative_cases": [
+    {
+      "case": "changed_accepted_api_semantics",
+      "passed": true,
+      "rejection": "('changed accepted input', 'docs/api/interop.md')"
+    },
+    {
+      "case": "missing_binding_attestations",
+      "passed": true,
+      "rejection": "Missing independent binding attestations"
+    },
+    {
+      "case": "stale_binding_attestation_hash",
+      "passed": true,
+      "rejection": "('changed accepted file', 'docs/traceability/reviews/public-api-final/interop-contract-bindings.json')"
+    },
+    {
+      "case": "changed_independent_review_report",
+      "passed": true,
+      "rejection": "('changed accepted file', 'docs/traceability/reviews/public-api-final/interop-review.json')"
+    },
+    {
+      "case": "foreign_attesting_reviewer",
+      "passed": true,
+      "rejection": "('unattributable attestation', 'C-PLATFORM-001', 'synthetic/unrelated-reviewer')"
+    },
+    {
+      "case": "changed_exact_attested_subject",
+      "passed": true,
+      "rejection": "('inexact attested subject', 'C-PLATFORM-001')"
+    }
+  ],
+  "accepted_records_unchanged": true,
+  "finding_disposition": {
+    "API-FINAL-ARCH-003": "Closed after actual complete accepted-state validation and all six actual-record negative mutations rejected.",
+    "API-FINAL-ARCH-001": "The actual accepted index now has three attributable exact attestations; missing/stale/foreign/inexact attestation mutations reject. Earlier isolated coverage additionally exercised missing files, wrong kind, duplicate, self, blocker and nonaccepted cases."
+  },
+  "limits": [
+    "These local gates verify exact byte/source/review/attestation integrity, not human identity or GitHub approval.",
+    "Historical checks ran at their preserved committed sources. No old evidence was rewritten.",
+    "Native AOT CI artifacts were independently checked separately; this run performs no native or product workload."
+  ],
+  "github_approval_identity_claimed": false,
+  "product_implementation_authorized": false
+}

@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "actual_independent_contract_binding_attestation",
+  "reviewer": "/root/final_server_overall_review",
+  "reviewed_at_utc": "2026-11-14T12:50:35Z",
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "design_source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+  "technical_review_plan_commit": "fa7eaeedd6ce6362f8cdf7ca8d45afe714652a3d",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/server-review.json",
+    "sha256": "8183e49903fa0b15d7af64cf65ba760e68b912743c0e3d394b4a12ea64ee043c"
+  },
+  "subjects": [
+    {
+      "kind": "contract",
+      "id": "C-SERVER-001",
+      "evidence_sha256": [
+        "e11bd778e82f1f818f1fbe2405d5a6748604f15ae751266d4f0b91d96ccdf141"
+      ],
+      "review_sha256": [
+        "15b50bab8cb79d7bcae6ffb1a7211b99b462bfabfbf106ec913c4b45fb9f5050"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-PROTOCOL-001",
+      "evidence_sha256": [
+        "1040f76876b13a89154f92d431c677354c46b528cf1447982f9a977844cfcc4e"
+      ],
+      "review_sha256": [
+        "be2e34635dc8c3898c626e757bc0310fd9c2f2ba83cc68dbd0d8bef48470e255"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-REFERENCE-001",
+      "evidence_sha256": [
+        "1c49191c0d785d82c6d40de607e744ef38f16b5338e9779c853013d4ac1572e9"
+      ],
+      "review_sha256": [
+        "b7c52ace0766e95ded9827be1700463b84e271bbb80dc4dfe3d87ae740a49fe6"
+      ]
+    }
+  ],
+  "reviewed_records": [
+    {
+      "id": "C-SERVER-001",
+      "input_snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-SERVER-001.inputs.json",
+        "sha256": "3de6466062f923b6d02debd3c7aabd52501700031771571b768b12cba83ac623"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-SERVER-001.evidence.json",
+        "sha256": "e11bd778e82f1f818f1fbe2405d5a6748604f15ae751266d4f0b91d96ccdf141"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-SERVER-001.review.json",
+        "sha256": "15b50bab8cb79d7bcae6ffb1a7211b99b462bfabfbf106ec913c4b45fb9f5050"
+      },
+      "required_inputs_verified": 35,
+      "dependency_snapshot": {
+        "C-ENGINE-001@0.4.0": {
+          "spec_path": "docs/extension/engine-integration.md",
+          "content_sha256": "7910c717d103088f29ec6e64683b0160398d9c479365328655dd2db9260c749d",
+          "evidence_sha256": [
+            "137071fab7f63c1465a2fd0012fab71a280ebf80143f2602290e2a2ad469b328"
+          ],
+          "review_sha256": [
+            "b1ff60d434bd7ae86d4711ce9399d7c0aa9c2634116f6a137bfa9f7ccba84eb1"
+          ]
+        },
+        "C-ASYNC-001@0.4.0": {
+          "spec_path": "docs/contracts/async-v0.1.md",
+          "content_sha256": "e939648f87c5463687ca5ed34b173c0934cb28be528c1401898d0819bc213081",
+          "evidence_sha256": [
+            "59cbd6ef6ebdcdc2df1ab7d835e58ddbd1749cd86a2f9245a2f8be140640c55c"
+          ],
+          "review_sha256": [
+            "c895bfd40fd07e46d565a7e2729eb3d9ff7c1d0e94ae4a6dfed3ee9a2040475b"
+          ]
+        },
+        "C-BUFFER-001@0.4.0": {
+          "spec_path": "docs/contracts/buffer-v0.1.md",
+          "content_sha256": "524b76834de5573cedb1f4e4deca8d84554d445c608aaae7fad576873e3d0f76",
+          "evidence_sha256": [
+            "1ae9104709fa16ff9ad4f1936eae8831f6c7ba7817a633fbf6a109417e94b3a3"
+          ],
+          "review_sha256": [
+            "28f13375a3f896dec8dffe67b2f73bbf68a50d1a4efec11ac6554b78fe4802b3"
+          ]
+        },
+        "C-CONCURRENCY-001@0.4.0": {
+          "spec_path": "docs/contracts/concurrency-v0.1.md",
+          "content_sha256": "f5308445ccd3e9edf76f55ad13fc9e673d857901b90445227f0453da3407e825",
+          "evidence_sha256": [
+            "1031157bdadafd76ad6e9a92259527047de195b9c6514022973fb84f7126cc19"
+          ],
+          "review_sha256": [
+            "40e974e11423d2a4d622acb39aa0c9362dca8055718947f83ca1bf52632d1a9b"
+          ]
+        }
+      }
+    },
+    {
+      "id": "C-PROTOCOL-001",
+      "input_snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PROTOCOL-001.inputs.json",
+        "sha256": "5624c2c58f169b0f6b102824a3b79776c98861fa0e75d1453518b51172f2dd41"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PROTOCOL-001.evidence.json",
+        "sha256": "1040f76876b13a89154f92d431c677354c46b528cf1447982f9a977844cfcc4e"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PROTOCOL-001.review.json",
+        "sha256": "be2e34635dc8c3898c626e757bc0310fd9c2f2ba83cc68dbd0d8bef48470e255"
+      },
+      "required_inputs_verified": 31,
+      "dependency_snapshot": {
+        "C-SERVER-001@0.4.0": {
+          "spec_path": "docs/server/hosting-and-streaming.md",
+          "content_sha256": "959fdedf623d69ab284cdba685a260f24260e2e34014574fee7d890cbd221d73",
+          "evidence_sha256": [
+            "e11bd778e82f1f818f1fbe2405d5a6748604f15ae751266d4f0b91d96ccdf141"
+          ],
+          "review_sha256": [
+            "15b50bab8cb79d7bcae6ffb1a7211b99b462bfabfbf106ec913c4b45fb9f5050"
+          ]
+        },
+        "C-BINDING-001@0.4.0": {
+          "spec_path": "docs/generators/binding-pipeline.md",
+          "content_sha256": "ae3c30c3547b3508a95acbf1ae8f5d2d1a3a9aaf3c6a1f2a4bc317a6c8ccfe4e",
+          "evidence_sha256": [
+            "a5b4d1a7bb6c9a09cee1e48e0ba94775e1186fdcccd89e99cacb501bd1dfa99a"
+          ],
+          "review_sha256": [
+            "4b84e2cac9b0641d91ff45a25b10715b73cfb333b72a6650b4a11a65a178cb72"
+          ]
+        }
+      }
+    },
+    {
+      "id": "C-REFERENCE-001",
+      "input_snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-REFERENCE-001.inputs.json",
+        "sha256": "fce5eb0614c575cc65e4f7b9b7938fd2d1cb923562d06a9927cc1f5501c80a4b"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-REFERENCE-001.evidence.json",
+        "sha256": "1c49191c0d785d82c6d40de607e744ef38f16b5338e9779c853013d4ac1572e9"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-REFERENCE-001.review.json",
+        "sha256": "b7c52ace0766e95ded9827be1700463b84e271bbb80dc4dfe3d87ae740a49fe6"
+      },
+      "required_inputs_verified": 48,
+      "dependency_snapshot": {
+        "C-DB-001@0.4.0": {
+          "spec_path": "docs/database/drivers.md",
+          "content_sha256": "4f53cc6301b26153240ce398ea967a5ab61b05cab1f36f7a408625a6a5303ca5",
+          "evidence_sha256": [
+            "aa9ef21cd0a23805c6659c2060584a118c067e3c291a089b84de9d58d85d2224"
+          ],
+          "review_sha256": [
+            "5b6a93590b8afd15f36766d4a04921f6f256c03329e2ae44e85293bd3c04ce0f"
+          ]
+        },
+        "C-TX-001@0.4.0": {
+          "spec_path": "docs/database/transactions-and-pooling.md",
+          "content_sha256": "57d65e5fb540272c3ac005048f16d544410b69f15cf96ae3330297973bd55665",
+          "evidence_sha256": [
+            "06db5ab7d744aa33fa745474651a06370605076a73c9d6dad592ff20bcbbde02"
+          ],
+          "review_sha256": [
+            "534af23abaebb8633fbe12b33c35d3080cfdc2345fb372613b740f6d72eccb14"
+          ]
+        },
+        "C-QUERY-001@0.4.0": {
+          "spec_path": "docs/database/query-semantics.md",
+          "content_sha256": "d57033e097899d5fb8dba4d5aafa81eb5999277340fa5dbf56248c660d4fbc34",
+          "evidence_sha256": [
+            "4168992d95706e8720a9f8d887a595d086e3448b55048f28656fd4fa084fa84e"
+          ],
+          "review_sha256": [
+            "bddda4de71120865a0417d916f1200a66f26be256ff03e503c815f144aa93294"
+          ]
+        },
+        "C-QUERYGEN-001@0.4.0": {
+          "spec_path": "docs/generators/query-generation.md",
+          "content_sha256": "2d13ce00ad35e99f812cbfc6e0ab7b82e75a9ffd579410088332da2014a56e73",
+          "evidence_sha256": [
+            "da36cdc8a4983f9c48afe1c0d1fa11ff9293e7ac01d63a10cb48e4df140a1424"
+          ],
+          "review_sha256": [
+            "48a4b9b3023835f68d58a94e0e8a604a822219d72ce5aa82f342c01ac7c0a48e"
+          ]
+        },
+        "C-SERVER-001@0.4.0": {
+          "spec_path": "docs/server/hosting-and-streaming.md",
+          "content_sha256": "959fdedf623d69ab284cdba685a260f24260e2e34014574fee7d890cbd221d73",
+          "evidence_sha256": [
+            "e11bd778e82f1f818f1fbe2405d5a6748604f15ae751266d4f0b91d96ccdf141"
+          ],
+          "review_sha256": [
+            "15b50bab8cb79d7bcae6ffb1a7211b99b462bfabfbf106ec913c4b45fb9f5050"
+          ]
+        },
+        "C-PROTOCOL-001@0.4.0": {
+          "spec_path": "docs/server/protocols-and-observability.md",
+          "content_sha256": "34f2aeb124b24d3d22b5ca5ccd9a35a05555ad1c3870edca255a4e7d4228799c",
+          "evidence_sha256": [
+            "1040f76876b13a89154f92d431c677354c46b528cf1447982f9a977844cfcc4e"
+          ],
+          "review_sha256": [
+            "be2e34635dc8c3898c626e757bc0310fd9c2f2ba83cc68dbd0d8bef48470e255"
+          ]
+        }
+      }
+    }
+  ],
+  "observed_prepared_index_sha256": "f275d25e815e979d9ce6f9c91205d3e3ca71d2b8420dff2fb6191e769e8e4491",
+  "verification": [
+    "Personally read the three prepared input/evidence/review wrappers and compared every subject, version, specification digest, reviewer, author, evidence link and actual report reference.",
+    "Independently verified all 114 required file entries across the three snapshots (35/31/48), exact path sets, byte counts, current-file hashes and source Git blobs at the formal Design freeze.",
+    "Matched each complete dependency snapshot to current dependency specification and evidence/review hashes; read and hashed those dependency wrappers and their actual independent report references.",
+    "Confirmed the subjects exactly equal the prepared acceptance-index rows and that all three scoped verify_scoped_review checks still pass.",
+    "This attestation is authored by the actual independent reviewer after inspecting these concrete hashes; it is not inferred from the integrator-generated wrapper's accepted label."
+  ],
+  "scope": "Only the three exact contract bindings listed in subjects. This authorizes their research/design binding acceptance; it does not attest unseen task wrappers, future source rebinding, product implementation, release, GitHub approval or final overall accepted-state gates.",
+  "product_implementation_authorized": false,
+  "product_verification_accepted": false,
+  "task_bindings_attested": false,
+  "merged_source_bindings_attested": false
+}

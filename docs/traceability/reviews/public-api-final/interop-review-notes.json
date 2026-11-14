@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/final_architecture_review",
+  "recorded_at_utc": "2026-11-14T12:39:38.660465+00:00",
+  "state": "substantive_review_complete_awaiting_final_committed_inputs",
+  "scope": "Independent final Foundation, Interop, Native AOT consumption, packaging, source/evidence and acceptance-automation review. This progress record makes no subject acceptance decision.",
+  "author_or_integrator": false,
+  "github_approval_identity_claimed": false,
+  "product_implementation_authorized": false,
+  "native_experiments_rerun_by_this_reviewer": false,
+  "findings": [
+    {
+      "id": "API-FINAL-ARCH-001",
+      "severity": "blocking",
+      "original_defect": "Accepted-state verify_prepared did not validate the exact independent binding attestations before reusing prior acceptance during source rebinding.",
+      "repair_recheck": "The accepted-state verifier, explicit acceptance and completion share verify_binding_attestations; rebind invokes complete prior verification before archiving or replacing any record. Independently inspected the control flow and exercised one isolated valid two-subject fixture and twelve malformed fixtures in memory.",
+      "negative_cases": [
+        "absent references",
+        "missing referenced file",
+        "stale attestation hash",
+        "foreign reviewer with recomputed hash",
+        "changed evidence digest with recomputed hash",
+        "changed review digest with recomputed hash",
+        "wrong subject kind",
+        "missing subject",
+        "duplicate subject",
+        "self attestation",
+        "blocking finding",
+        "non-accepted verdict"
+      ],
+      "disposition": "Source repair and focused synthetic recheck passed; final committed-byte binding remains pending."
+    },
+    {
+      "id": "API-FINAL-ARCH-002",
+      "severity": "blocking",
+      "original_defect": "Graph public_api_standard_version used refinement version0.4.0 although the normative standard is version1.0.0.",
+      "repair_recheck": "Refinement and validation derive the standard version from the actual normative document, separately from the contract/task refinement. Independently checked all three generated graphs at1.0.0. Each graph separately rejects0.4.0 with API_STANDARD_VERSION; five additional missing/stale API-input/documentation-ownership fixtures reject as intended.",
+      "disposition": "Current generated values and eight focused negative checks passed; final committed-byte binding remains pending."
+    },
+    {
+      "id": "API-FINAL-ARCH-003",
+      "severity": "blocking",
+      "original_defect": "Design standalone acceptance checked shallow spec/wrapper identity without verifying full current/source input snapshots, actual independent report pins and exact attributable attestations.",
+      "repair_recheck": "Independently read verify_contract_acceptance.py and its CI call sites. The repair verifies every snapshot input against current and Git-source bytes, dependency snapshots, report hashes/subject decisions/full input pins, reviewer attribution, index membership and exact complete attestations. Reviewed actual-record negative mutations in contract_acceptance_checks.py. D31 now binds the changed integrity scripts, CI, schema, language-exception helper and adoption rules; D18 binds the current normative body-retirement protocol. Mutable whole graphs/indices and the reviewer reports themselves are not made circular inputs.",
+      "disposition": "Full source/control-flow recheck passed. Actual accepted-record positive/mutation checks must run after real wrappers and attestations exist; no early execution or acceptance is claimed."
+    },
+    {
+      "id": "API-FINAL-DOC-001",
+      "severity": "minor",
+      "original_defect": "SqlNullabilityExtensions inherited the numeric-operator summary and repeated XML summary groups obscured accurate declarations.",
+      "repair_recheck": "The nullable-lift summary now describes same-owner metadata lifting, the numeric summary remains on SqlArithmeticExtensions, and duplicate summary groups were removed. Compared prior and current source: only XML documentation lines changed.",
+      "disposition": "Resolved by source recheck and fresh compilation/export evidence."
+    }
+  ],
+  "supplemental_final_rechecks": [
+    "Reviewed the independent Relation transport repair: kind23 canonical identity, two registered model states, bounded source-local interning with separately owned wrappers, source-close dropping cache roots before joining leases, key copying, projection/session retention, Core operation admission and transferred cursor ownership.",
+    "Reviewed safe nullable lift opcode4, codec/configuration/collation retention and no reverse conversion or already-nullable lift. Main CI now retains both regression negatives.",
+    "Reviewed Server automatic HTTP finish before callbacks/disposal/scope retirement, protocol-specific terminal paths, gRPC safe-context and filter restrictions, Adapter-side comma-coalesced binary metadata splitting and peak-memory accounting.",
+    "Reviewed immediate nonwaiting native/managed payload admission, queue-grant rollback, cancellation versus retained owner lifetime, request-credit anchors surviving dispatch, and the absence of any promise that deadline completion reclaims live chunks.",
+    "Reviewed Server timeout/body-limit precedence, one monotonic deadline, checked tick-to-nanosecond conversion, per-direction gRPC payload totals, HTTP-vs-protocol size policy and exact frozen ABI agreement.",
+    "Checked the final Plan B16 repair covers both the rendered error/resource field and the unrendered authoritative failure_paths field, while B06 rejects oversized inline values and B14 requires caller-supplied CAS version updates.",
+    "Read the explicit UTF-8 reader/Windows CI repair. Preserved failed Windows jobs distinguish successful AOT/reference checks from later validation failures; the Linux ambient-encoding check is not labelled a Windows execution."
+  ],
+  "verified_evidence": {
+    "historical_records_preserved": 545,
+    "owned_research_triplet_files_identical_to_prior_accepted_commit": 63,
+    "foundation_and_interop_cached_source_hashes_verified": 19,
+    "packaging_attempt4": {
+      "command_log_bindings_verified": 16,
+      "scope": "Finite static generator/codec NuGet consumption and real AOT roundtrip; not Database/Server product execution. Native research package and its native payload were independently read and hashed. Rust absent from effective consumer PATH is not a pristine-machine claim."
+    },
+    "full_linux_attempt3": {
+      "summary_sha256": "3b3e2baca58f06dac5c000fd8154a70c40b2b799d1fd04aa55394dc60e810e24",
+      "step_logs_verified": 10,
+      "native_aot_executed_in_retained_run": true,
+      "product_operations_executed": false
+    },
+    "final_documentation_attempt2": {
+      "summary_sha256": "37cadd8613e009a25bb2638354d30a1581eefb28e9caa51e1e4d64dbc2c9f9e0",
+      "input_hashes_verified": 44,
+      "step_logs_verified": 8,
+      "restored_locks_verified": 4,
+      "negative_cases": 9,
+      "exporter_assertions": 63,
+      "exporter_input_and_snapshot_hashes_verified": 13,
+      "exporter_logs_verified": 5,
+      "exporter_artifact_hashes_verified": 26,
+      "canonical_reference_equal": true,
+      "native_aot_executed": false
+    },
+    "declaration_delta_from_attempt3": {
+      "non_XML_code_identical": true,
+      "Database.cs_non_XML_sha256": "5709450bb3691ce2cf2d639e039c3dd9359070ad81397a3fda1dde73f15f048c",
+      "Server.cs_non_XML_sha256": "37a5ef451d3c92e7bb8d80e5de2282c1f760a85921a746ee489ba10c8d80eb4d",
+      "Interop.cs_non_XML_sha256": "e906010a659d8e4ed37ea74a0532dadf923fc76c3638b886341d972ac65e7c75",
+      "note": "Only XML comments changed in declaration sources. The negative-check harness gained two additional diagnostics. The non-AOT restoration removes only AOT compiler/RID lock entries; ordinary package versions and content hashes remain unchanged."
+    },
+    "main_negative_diagnostic_boundary": "Eight cases produce errors; nullable-reference intentionally records the CS8625 warning diagnostic. A diagnostic observation is not misrepresented as a product runtime failure."
+  },
+  "pending_formal_sequence": [
+    "Receive final frozen technical Design and Plan commits; recheck every required input byte and task semantic node digest against those commits.",
+    "Write the actual scoped interop-review.json with exactly the owned14contracts and41Research/Documentation decisions.",
+    "Personally inspect generated exact wrappers and issue separate contract and task attestations.",
+    "Exercise actual accepted Design integrity positive/negative checks after bindings exist, without mutating accepted files.",
+    "Recheck and freshly attest the post-Design-merge task source binding; required CI and actual GitHub rules remain integrator merge gates."
+  ],
+  "limitations": [
+    "No product API, Database/Server request, product NuGet release, long-running load or production performance is accepted by this review.",
+    "Retained finite experiments are reviewed at their exact scope; this reviewer did not reexecute expensive native experiments or claim upstream test source was executed.",
+    "The static declaration AOT program executes design-only evidence code, not unimplemented product method bodies.",
+    "Independent scoped Database and Server reviewers own their domain decisions. Cross-domain review here assesses shared ABI, ownership, deadline, AOT and evidence consistency and does not duplicate those decisions.",
+    "Local hash validators check byte integrity and recorded attribution; they do not authenticate a human or create a GitHub approval identity."
+  ]
+}

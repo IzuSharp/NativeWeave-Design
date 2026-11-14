@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-QUERY-001",
+    "version": "0.4.0",
+    "content_sha256": "d57033e097899d5fb8dba4d5aafa81eb5999277340fa5dbf56248c660d4fbc34"
+  },
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "reviewer": "/root/final_database_review",
+  "author": "/root/database_research",
+  "reviewed_at": "2026-11-14T12:45:38.440026+00:00",
+  "reviewed_evidence_sha256": [
+    "4168992d95706e8720a9f8d887a595d086e3448b55048f28656fd4fa084fa84e"
+  ],
+  "review_kind": "binding_of_actual_independent_technical_review",
+  "recorded_by": "/root",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/database-review.json",
+    "sha256": "0caf6a0f92707fd73fb0de9dfbebb44285964ad50aa3c3640fdf23ee6963a495"
+  },
+  "binding_boundary": "Integrator-generated binding of the cited real review. Formal status requires the same independent executor to attest these exact manifest hashes.",
+  "github_approval_identity_claimed": false,
+  "product_verification_accepted": false
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-LIFETIME-001",
+    "version": "0.4.0",
+    "content_sha256": "de5cf64b2b113cccbe5d2cf5489d22bee48f6c1e586937118f97eb1cb3602774"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-LIFETIME-001.inputs.json",
+    "sha256": "206219793bf0b089e659a59305281d5f0ae695d6a2ff73aa29a0c7428cb4039a"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

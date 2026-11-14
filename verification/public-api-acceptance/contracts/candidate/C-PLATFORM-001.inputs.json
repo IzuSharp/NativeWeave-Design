@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-PLATFORM-001",
+    "version": "0.4.0",
+    "content_sha256": "fc7fa75462cd42f159568eb37342367f3302801745b731fc630f3a730d62ee7e"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/api/README.md",
+      "sha256": "e9b8a59dcade380d52239f4177e144ab1e16f3353c58038d861741ee4ab55301",
+      "bytes": 3930,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/documentation-system.md",
+      "sha256": "49fa32115777c296c361016f99f6921ad3ce1b0087e4dbd39185c107e0c8c03e",
+      "bytes": 10616,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/foundation-coverage.json",
+      "sha256": "6d10e4adda289591246ce9d5e5e6395cf5f1c869cda55c33f44a9fbc4db9cc45",
+      "bytes": 35803,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/foundation-sources.json",
+      "sha256": "2efd7e1a05f7cbb35681a438e8a6700973592d58bb9141f5e3ee49012d9bb321",
+      "bytes": 7673,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/getting-started.md",
+      "sha256": "1a78365da1422d12f793beef06e13e3a543902c2d7ccd84c79cf01bf322affe2",
+      "bytes": 10390,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/guides.md",
+      "sha256": "40645d16ab0fb88b33fb90847a2beef79d73354293f4c210373f17cda92c5ecf",
+      "bytes": 12823,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/interop-coverage.json",
+      "sha256": "e6e1de9c087158a179e73e74fd30d9b8c3c691e069cac25d3371d7743a8c0aa8",
+      "bytes": 41469,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/interop-sources.json",
+      "sha256": "7660f18a73d08accbc0ce8743e764e0eb212393a8d0575e20bda431cd17395a1",
+      "bytes": 19829,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/interop.md",
+      "sha256": "2b32e5c2dcdfe78dd0b39014949a88bf91d6b2d011f8d75117e00507ecae4b74",
+      "bytes": 38576,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+      "sha256": "7aab2485a5bfe21042b701bb1eda43b630330fe896b2ca8f80a81f93d3ffced9",
+      "bytes": 25217,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/public-api.json",
+      "sha256": "d3e989c4f8732f2514c66a2c1ecf038b460fc29e3581d0b36855612751e974e4",
+      "bytes": 2279158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/reference.md",
+      "sha256": "4bf3d37cbc423eacf9a308fe420b7564b4f92548fb3d164c65f53e16c9348b48",
+      "bytes": 683173,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/platforms/support-and-aot.md",
+      "sha256": "fc7fa75462cd42f159568eb37342367f3302801745b731fc630f3a730d62ee7e",
+      "bytes": 9937,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R01/coverage.json",
+      "sha256": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a",
+      "bytes": 3401,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R01/evidence.json",
+      "sha256": "c9696e64ed82c383cde5c10b0a8dda49fb990a0e7dbc11bb5cfee6ee90695425",
+      "bytes": 7058,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R01/report.md",
+      "sha256": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11",
+      "bytes": 7083,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R01/rust-1.100.md",
+      "sha256": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d",
+      "bytes": 20256,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/coverage.json",
+      "sha256": "e792f4386fa45895634d3c6c0d6ffd3433c6c25083f443392d86c1a289052f82",
+      "bytes": 5566,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/evidence.json",
+      "sha256": "8ffd451a7944eb36ad3a47e922f323fb8e1a71391814c24bee529bc537f27195",
+      "bytes": 5753,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/report.md",
+      "sha256": "a7843818835bb8d0c760b8db7aa1f527ac347fc5e5ba65b663d28d6c08ac77e2",
+      "bytes": 6897,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R33/coverage.json",
+      "sha256": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53",
+      "bytes": 5344,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R33/evidence.json",
+      "sha256": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be",
+      "bytes": 9624,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R33/report.md",
+      "sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49",
+      "bytes": 4747,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+      "sha256": "78f2aab2212fbbc49267e7827231a3f64cf9b840206d0acdc33768417e2dbcac",
+      "bytes": 18269,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+      "sha256": "7b1ec450f8a61d21904084ee71ebff6bf179b2e165580511f7e37ca494e4b286",
+      "bytes": 1215,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+      "sha256": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+      "bytes": 2239,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {}
+}

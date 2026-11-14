@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-BUFFER-001",
+    "version": "0.4.0",
+    "content_sha256": "524b76834de5573cedb1f4e4deca8d84554d445c608aaae7fad576873e3d0f76"
+  },
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "reviewer": "/root/final_architecture_review",
+  "author": "/root/interop_research",
+  "reviewed_at": "2026-11-14T12:45:36.159535+00:00",
+  "reviewed_evidence_sha256": [
+    "1ae9104709fa16ff9ad4f1936eae8831f6c7ba7817a633fbf6a109417e94b3a3"
+  ],
+  "review_kind": "binding_of_actual_independent_technical_review",
+  "recorded_by": "/root",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+    "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+  },
+  "binding_boundary": "Integrator-generated binding of the cited real review. Formal status requires the same independent executor to attest these exact manifest hashes.",
+  "github_approval_identity_claimed": false,
+  "product_verification_accepted": false
+}

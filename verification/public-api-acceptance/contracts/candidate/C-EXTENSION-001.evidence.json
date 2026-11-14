@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-EXTENSION-001",
+    "version": "0.4.0",
+    "content_sha256": "ddd932826586f1cffee39d3fa625fbc6f46ae323a03b8eeb6d6b8b7d90ab9cd6"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-EXTENSION-001.inputs.json",
+    "sha256": "04ff878657c26ee3f584fb45d815ccccd637bf9fbe8b9989a24e91466fe123e0"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

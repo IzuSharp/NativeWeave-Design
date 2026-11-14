@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-VERIFY-001",
+    "version": "0.4.0",
+    "content_sha256": "355a8aade375e1dccf32742877baa1562ede5862c9aa1fa9161be8d7017fad47"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-VERIFY-001.inputs.json",
+    "sha256": "a0ad0f306eca79421fd0014b48a982d751f1c66759066e92e840c75084f733d2"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

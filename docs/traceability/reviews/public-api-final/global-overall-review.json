@@ -1,0 +1,536 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "public-api-final-overall-independent-content-review",
+  "reviewer": "/root/final_server_overall_review",
+  "reviewed_at_utc": "2026-11-14T12:49:10Z",
+  "decision": "accept_research_design_content",
+  "decision_scope": "Complete cross-repository technical content and final candidate CI. Actual wrapper acceptance, exact attestation integrity and merged-source rebinding are separately required subsequent records; this is not a claim that those uninspected records have already passed.",
+  "reviewed_source_commits": {
+    "NativeWeave-Design": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+    "Plan": "fa7eaeedd6ce6362f8cdf7ca8d45afe714652a3d"
+  },
+  "technical_blocking_findings": [],
+  "independent_review_records": [
+    {
+      "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+      "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80",
+      "reviewer": "/root/final_architecture_review",
+      "contracts": 14,
+      "tasks": 41,
+      "required_or_support_pins": 578
+    },
+    {
+      "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/database-review.json",
+      "sha256": "0caf6a0f92707fd73fb0de9dfbebb44285964ad50aa3c3640fdf23ee6963a495",
+      "reviewer": "/root/final_database_review",
+      "contracts": 4,
+      "tasks": 13,
+      "required_or_support_pins": 511
+    },
+    {
+      "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/server-review.json",
+      "sha256": "8183e49903fa0b15d7af64cf65ba760e68b912743c0e3d394b4a12ea64ee043c",
+      "reviewer": "/root/final_server_overall_review",
+      "contracts": 3,
+      "tasks": 12,
+      "required_or_support_pins": 164
+    }
+  ],
+  "subject_coverage": {
+    "contracts": 21,
+    "research_tasks": 34,
+    "documentation_tasks": 32,
+    "total_scoped_decisions": 87,
+    "duplicate_subjects": [],
+    "missing_subjects": [],
+    "verification": "All 87 actual scoped decisions were independently run through verify_scoped_review. Their complete reviewed pin sets form 706 unique paths; every hash equals the corresponding frozen Git blob and overlapping pins have no conflict. This report deliberately contains no contract_reviews or task_reviews arrays."
+  },
+  "independence": {
+    "technical_inputs_authored_by_overall_reviewer": false,
+    "peer_reports_written_by_their_actual_reviewers": true,
+    "current_reviewer_also_owns_server_scope": true,
+    "github_account_approval_claimed": false,
+    "statement": "The overall review integrates the three completed independent domain reviews and independently checks cross-repository coherence, evidence, ownership, documentation and workflow. It does not manufacture another domain decision or a GitHub account endorsement."
+  },
+  "completeness": {
+    "coverage_rows": {
+      "foundation": 33,
+      "interop": 40,
+      "database": 96,
+      "server": 65,
+      "total": 234
+    },
+    "public_symbols": {
+      "interop": 133,
+      "database": 710,
+      "server": 425,
+      "total": 1268,
+      "duplicate_ids": 0
+    },
+    "type_policies": {
+      "interop": 17,
+      "database": 97,
+      "server": 64,
+      "total": 178,
+      "unresolved_symbol_policy_refs": 0
+    },
+    "task_system": {
+      "research": 34,
+      "documentation": 32,
+      "contracts": 21,
+      "delivery": 48,
+      "packets": 114,
+      "fragments": 10,
+      "new_graph_added": false
+    },
+    "delivery_state": {
+      "planned_candidate": 48,
+      "not_authorized": 48,
+      "product_writes_or_delivery_execution_accepted": false
+    },
+    "interpretation": "Coverage categories state design support relative to the named feature families. Limited, planned and unsupported rows remain visible and do not become implemented functionality merely because upstream Rust or .NET exposes it."
+  },
+  "cross_repository_conclusions": [
+    {
+      "area": "Architecture and implementation boundary",
+      "conclusion": "The design consistently keeps database drivers, query AST/dialects/relations/execution and Server network/protocol/runtime work in mandatory mature Rust Engines. C# owns strongly typed application composition, static descriptors, serializers, materializers and handlers. Kestrel and managed database libraries are comparators. The final Server, Database, Core contracts and all 48 future task responsibilities agree; there is no managed SQL/network fallback or mandatory global Core runtime."
+    },
+    {
+      "area": "Complete public API and native mapping",
+      "conclusion": "The compiled declarations, per-type semantic policies, operation tables and feature matrices form one coherent design authority. Exact signatures, generic constraints, nullable/default semantics, overload limits, ownership, error/cancellation behavior, capability restrictions and cost profiles are documented. Domain reviewers independently closed concrete mapping omissions, including relation transport, nullable SQL lifting, HTTP completion, binary gRPC metadata, MCP gate continuation and retained-byte admission."
+    },
+    {
+      "area": "Ordinary C# consumption and Native AOT",
+      "conclusion": "Minimal and advanced consumers use natural factories/builders, typed columns/Fluent operations, static JSON/protobuf/handler metadata, normal Task/async enumeration and ordinary disposal. Default provider/Server packages carry the intended generator/native dependencies. An ordinary Entity/DTO/Handler edit rebuilds managed output while retaining precompiled native bytes; no user Rust build, rd.xml, reflection-preservation list or runtime expression compiler is required by the design. The handwritten static seam is explicit and is assigned parity tests."
+    },
+    {
+      "area": "Package, configuration and DI composition",
+      "conclusion": "Core is BCL-only and starts no runtime by itself. Database providers and Server are independently consumable; Query is a namespace in the Database assembly to avoid a cycle. Optional DI/Hosting/gRPC/MCP packages extend the same owners. One Server native module with optional protocol code has an explicit binary-size cost and does not introduce a second runtime or listener. DI root ownership, lazy request scopes, frozen configuration and same-host protocol lifetime are coherent."
+    },
+    {
+      "area": "Ownership, cancellation, liveness and errors",
+      "conclusion": "Managed task completion, native terminal result, owner release, callback quiescence, transport end and thread join remain different observations. Retained native/managed capacities stay charged until their true last owner. Server payload credit has no wait/retry cycle; queue/network waits are separately bounded. Unknown transaction outcomes remain unknown despite cancellation or cleanup. Response/protocol terminals and failure-isolated cleanup preserve exactly-once dispatch and release rules."
+    },
+    {
+      "area": "Security and protocol boundary",
+      "conclusion": "Finite route/binder/schema/header/body budgets, trusted-proxy processing, wire Host/Origin separation, explicit auth seams, MCP pre-parse authorization for automatic and business methods, gRPC framed denial, TLS capability/configuration and redacted diagnostics are specified together. Static root/nullability restrictions and no-reflection fallbacks are explicit. These are reviewed design constraints, not a claim of product security testing."
+    },
+    {
+      "area": "Documentation and future ownership",
+      "conclusion": "The standard and documentation system require XML, exact generated reference, guides, examples, compatibility review and real consumer/AOT evidence as part of each implementing task. Every one of the 48 Delivery tasks has exact API inputs and a documentation owner; all ten fragments mirror that task system without a new scheduling graph. A13 supplies shared build enforcement, A22 compatibility policy, A24 scaffold adoption and A16/B24 final package composition. New repositories must explicitly pin/adopt the standard; AGENTS links do not imply inheritance."
+    },
+    {
+      "area": "Version and compatibility coherence",
+      "conclusion": "The standard version is 1.0.0, distinct from the 0.4.0 contract/document/task refinement. Native source, C ABI, managed API/package and domain semantics are separately versioned. Source/binary/default/nullability/disposal changes require review and migration; future compatibility baselines cannot silently accept removals or behavioral changes."
+    },
+    {
+      "area": "Research and evidence honesty",
+      "conclusion": "Preserved source readings, finite models, actual native research, compiled declarations, static AOT fixture execution and future product gates retain separate labels. Historical accepted files are preserved; old translation or research acceptance is not reused as approval of new API bytes. No upstream whole-suite read/run, production workload, whole-process RSS bound or near-native performance winner is invented."
+    },
+    {
+      "area": "Exact acceptance and integration",
+      "conclusion": "The reviewed workflow now binds normative support files and enforcement/adoption rules, complete required paths, task semantic digests, actual reports and attributable exact wrapper attestations. It preserves earlier accepted snapshots. The correct sequence is fresh contract preparation and independent attestation, contract acceptance, fresh task preparation and attestation, complete accepted-state checks, final candidate review, one PR per repository, Design merge first, byte comparison plus fresh merged-source task bindings and same-reviewer attestations in the same Plan PR, then final checks/review before Plan merge. No source rebind inherits acceptance automatically."
+    }
+  ],
+  "finding_resolution_summary": {
+    "architecture": "API-FINAL-ARCH-001/002/003 and API-FINAL-DOC-001 are closed in the actual Interop/Foundation report after independent control-flow, source, hash and targeted negative rechecks. ARCH-003's actual accepted-record positive/mutation phase is correctly deferred until real wrappers and attestations exist; it remains a mandatory pre-merge gate.",
+    "database": "API-DB-FINAL-001/002/003 are closed in the actual Database report: independently registered/owned relation transport and load semantics, safe non-null-to-null SQL metadata lifting, and exact B06/B14 task language. Eleven earlier database finding families were rechecked without promoting stubs to product execution.",
+    "server": "API-SRV-001 through API-SRV-012 are closed in this reviewer's scoped report, including the new option-precedence and current body-retirement exact-input binding findings. Their required runtime tests remain assigned to B15–B24 as appropriate.",
+    "remaining_technical_blockers": []
+  },
+  "evidence_review": {
+    "scoped_report_audit": {
+      "reports": [
+        {
+          "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+          "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80",
+          "reviewer": "/root/final_architecture_review",
+          "contracts": 14,
+          "tasks": 41,
+          "required_or_support_pins": 578
+        },
+        {
+          "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/database-review.json",
+          "sha256": "0caf6a0f92707fd73fb0de9dfbebb44285964ad50aa3c3640fdf23ee6963a495",
+          "reviewer": "/root/final_database_review",
+          "contracts": 4,
+          "tasks": 13,
+          "required_or_support_pins": 511
+        },
+        {
+          "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/server-review.json",
+          "sha256": "8183e49903fa0b15d7af64cf65ba760e68b912743c0e3d394b4a12ea64ee043c",
+          "reviewer": "/root/final_server_overall_review",
+          "contracts": 3,
+          "tasks": 12,
+          "required_or_support_pins": 164
+        }
+      ],
+      "unique_contracts": 21,
+      "unique_tasks": 66,
+      "total_scoped_checks_passed": 87,
+      "union_review_input_pins": 706,
+      "all_union_pins_equal_frozen_git_bytes": true,
+      "shared_pin_conflicts": [],
+      "checker_errors": []
+    },
+    "final_ci": {
+      "run_id": 43595766652,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+      "plan_review_input": "fa7eaeedd6ce6362f8cdf7ca8d45afe714652a3d",
+      "url": "https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43595766652",
+      "github_run_jobs_and_artifact_digests_independently_retrieved": true,
+      "manifest_path": "NativeWeave-Design:verification/public-api-ci/43595766652/manifest.json",
+      "manifest_sha256": "22198a91710afaf2faf4a52347c31a141d013aaf5419d8c2d0335a99aee1727e",
+      "platform_archive_readback": [
+        {
+          "platform": "Windows",
+          "archive_sha256": "3cfdd53771c3bd2c4762578563be60f6844c595175cc7ed68e3b45277863ffc3",
+          "archive_files_verified": 48,
+          "source_input_count": 44,
+          "passed": true,
+          "native_aot_executed": true,
+          "product_operations_executed": false,
+          "step_results": [
+            [
+              "sdk",
+              0
+            ],
+            [
+              "consumer-build",
+              0
+            ],
+            [
+              "consumer-execute",
+              0
+            ],
+            [
+              "inventory-build",
+              0
+            ],
+            [
+              "checks-build",
+              0
+            ],
+            [
+              "inventory",
+              0
+            ],
+            [
+              "negative-consumers",
+              0
+            ],
+            [
+              "exporter-regressions",
+              0
+            ],
+            [
+              "native-aot-publish",
+              0
+            ],
+            [
+              "native-aot-execute",
+              0
+            ]
+          ],
+          "negative_cases": 9,
+          "negative_diagnostics": [
+            {
+              "id": "typed-column-value",
+              "diagnostics": [
+                [
+                  "CS0411",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "entity-column-owner",
+              "diagnostics": [
+                [
+                  "CS1503",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "nullable-reference",
+              "diagnostics": [
+                [
+                  "CS8625",
+                  "Warning"
+                ]
+              ]
+            },
+            {
+              "id": "aggregate-scalar-type",
+              "diagnostics": [
+                [
+                  "CS1503",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "nullable-lift-reverse",
+              "diagnostics": [
+                [
+                  "CS0029",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "nullable-lift-repeat",
+              "diagnostics": [
+                [
+                  "CS0453",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "handler-return-type",
+              "diagnostics": [
+                [
+                  "CS0029",
+                  "Error"
+                ],
+                [
+                  "CS1662",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "span-capture",
+              "diagnostics": [
+                [
+                  "CS9108",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "resource-not-copyable-value",
+              "diagnostics": [
+                [
+                  "CS0453",
+                  "Error"
+                ]
+              ]
+            }
+          ],
+          "exporter_assertions": 63,
+          "exporter_artifacts_verified": 26,
+          "inventory_comparison": {
+            "raw_sha256": "f7f954663db2eeee79e22d3ba1357052a7390e3bb9c470eac5f889f1de01825f",
+            "canonical_sha256": "d3e989c4f8732f2514c66a2c1ecf038b460fc29e3581d0b36855612751e974e4",
+            "raw_equal": false,
+            "exact_LF_or_CRLF_only_equivalence": true,
+            "parsed_equal": true
+          },
+          "aot_executable_sha256": "4325597dfdcbe3a280bc4d0ad9a4691282ea3d3d2f60547ce538d8209c772c14",
+          "aot_execution_log": "NativeWeave public API design consumer compiled and executed; product operations are unimplemented.\r\n{\"Scope\":\"design-only\",\"RuntimeMajor\":11}\r\n"
+        },
+        {
+          "platform": "Linux",
+          "archive_sha256": "f3876d9bd8668dd360d5e59589ac4eb33e7839e3e7ff605f2dd400215858c703",
+          "archive_files_verified": 48,
+          "source_input_count": 44,
+          "passed": true,
+          "native_aot_executed": true,
+          "product_operations_executed": false,
+          "step_results": [
+            [
+              "sdk",
+              0
+            ],
+            [
+              "consumer-build",
+              0
+            ],
+            [
+              "consumer-execute",
+              0
+            ],
+            [
+              "inventory-build",
+              0
+            ],
+            [
+              "checks-build",
+              0
+            ],
+            [
+              "inventory",
+              0
+            ],
+            [
+              "negative-consumers",
+              0
+            ],
+            [
+              "exporter-regressions",
+              0
+            ],
+            [
+              "native-aot-publish",
+              0
+            ],
+            [
+              "native-aot-execute",
+              0
+            ]
+          ],
+          "negative_cases": 9,
+          "negative_diagnostics": [
+            {
+              "id": "typed-column-value",
+              "diagnostics": [
+                [
+                  "CS0411",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "entity-column-owner",
+              "diagnostics": [
+                [
+                  "CS1503",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "nullable-reference",
+              "diagnostics": [
+                [
+                  "CS8625",
+                  "Warning"
+                ]
+              ]
+            },
+            {
+              "id": "aggregate-scalar-type",
+              "diagnostics": [
+                [
+                  "CS1503",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "nullable-lift-reverse",
+              "diagnostics": [
+                [
+                  "CS0029",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "nullable-lift-repeat",
+              "diagnostics": [
+                [
+                  "CS0453",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "handler-return-type",
+              "diagnostics": [
+                [
+                  "CS0029",
+                  "Error"
+                ],
+                [
+                  "CS1662",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "span-capture",
+              "diagnostics": [
+                [
+                  "CS9108",
+                  "Error"
+                ]
+              ]
+            },
+            {
+              "id": "resource-not-copyable-value",
+              "diagnostics": [
+                [
+                  "CS0453",
+                  "Error"
+                ]
+              ]
+            }
+          ],
+          "exporter_assertions": 63,
+          "exporter_artifacts_verified": 26,
+          "inventory_comparison": {
+            "raw_sha256": "d3e989c4f8732f2514c66a2c1ecf038b460fc29e3581d0b36855612751e974e4",
+            "canonical_sha256": "d3e989c4f8732f2514c66a2c1ecf038b460fc29e3581d0b36855612751e974e4",
+            "raw_equal": true,
+            "exact_LF_or_CRLF_only_equivalence": true,
+            "parsed_equal": true
+          },
+          "aot_executable_sha256": "ff30f0496d3a76e2e5fa91dca5853c77aca2e996af71da313a79acdf88c9d74b",
+          "aot_execution_log": "NativeWeave public API design consumer compiled and executed; product operations are unimplemented.\n{\"Scope\":\"design-only\",\"RuntimeMajor\":11}\n"
+        }
+      ],
+      "diagnostic_interpretation": "The nine expected diagnostic cases include eight error-producing cases and the intended nullable-reference CS8625 warning observation. They are not nine product runtime failures.",
+      "canonical_text_boundary": "Windows preserves raw CRLF inventory JSON in its artifact; parsed content and exact CRLF-to-LF-only comparison equal the frozen canonical JSON. Linux raw JSON equals it directly. Both generated reference.md files are byte-identical to the frozen reference. Original archive/member hashes are retained; no Windows raw stream is rewritten.",
+      "observed_execution_scope": "Both platforms actually published and executed the AOT fixture and passed exact-head reference/coverage gates. The executable output explicitly says product operations are unimplemented; this proves design compilation/link reachability and static JSON/evidence execution, not real Server/Database operations."
+    },
+    "plan_candidate_gates": {
+      "summary_path": "Plan:verification/public-api-plan/candidate-3/summary.json",
+      "summary_sha256": "9517fa0da8ccc9c7583c202e43a8a8c745cdd78ef6ba235e437e64c50bddcc38",
+      "command_log_hashes_independently_verified": 5,
+      "all_exit_codes_zero": true,
+      "commands": [
+        "host_selection_checks.py",
+        "verify_research_assets.py",
+        "verify_logical_admission_history.py",
+        "verify_source_lifecycle.py",
+        "rust1100_checks.py"
+      ],
+      "limits": "These are reviewed candidate/history/planning checks. At their recorded run they correctly report review_ready and zero accepted contracts; later accepted-state checks must run against the actual prepared/accepted bindings."
+    },
+    "preserved_history": {
+      "records_preserved_by_checked_architecture_audit": 545,
+      "historical_gate_pair": {
+        "Design": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+        "Plan": "dacaab7fc346da5b649e943a4d937a756345c492"
+      },
+      "boundary": "Original successful experiments were not rerun to refresh dates. Failed harness/Windows attempts remain preserved and are not relabelled as successful final candidates."
+    }
+  },
+  "acceptance_binding_state": {
+    "scoped_technical_reports_complete": true,
+    "all_scoped_subject_decisions_verified": true,
+    "prepared_wrappers_attested_by_this_overall_record": false,
+    "accepted_state_mutation_suite_claimed_complete": false,
+    "merged_source_rebind_attested": false,
+    "statement": "This content review is complete. Actual contract/task wrapper integrity and the final merged-source overall conclusion will be recorded separately after personal inspection and the required checks; no future hashes or results are approved here."
+  },
+  "material_limits": [
+    "All 48 Delivery tasks remain planned_candidate/not_authorized. Research/design acceptance authorizes no product implementation, package publication or release.",
+    "The complete product generators, relation/ORM runtime, foreign C# Server bridge, gRPC/MCP gate, byte coordinator, package resolver and clean-consumer release composition still require their assigned implementation evidence.",
+    "Finite native probes and static AOT consumers cannot substitute for real product Windows/Linux operations, PostgreSQL TLS/auth, cross-language cancellation/retirement faults, equivalent workloads or 30-minute/24-hour/72-hour soak profiles.",
+    "No universal process memory ceiling, zero-cost diagnostics guarantee, performance superiority, all-.NET-feature parity, dynamic managed-plugin discovery or live native hot replacement is accepted.",
+    "The reviewer did not author normative fixes, execute product work, publish packages or claim an additional GitHub approval identity."
+  ],
+  "required_followup_records": [
+    "Exact contract-wrapper attestation by each of the three actual scoped reviewers.",
+    "Exact task-wrapper attestation by those same reviewers after accepted contract snapshots are bound.",
+    "Successful complete Design/Plan accepted-state verification and real-record stale-input/report/attestation negative checks.",
+    "Final candidate binding-integrity addendum before PR integration.",
+    "Fresh same-reviewer task attestations and final overall review after Design merges and Plan binds its actual merged SHA."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-CONCURRENCY-001",
+    "version": "0.4.0",
+    "content_sha256": "f5308445ccd3e9edf76f55ad13fc9e673d857901b90445227f0453da3407e825"
+  },
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "reviewer": "/root/final_architecture_review",
+  "author": "/root/interop_research",
+  "reviewed_at": "2026-11-14T12:45:36.159535+00:00",
+  "reviewed_evidence_sha256": [
+    "1031157bdadafd76ad6e9a92259527047de195b9c6514022973fb84f7126cc19"
+  ],
+  "review_kind": "binding_of_actual_independent_technical_review",
+  "recorded_by": "/root",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+    "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+  },
+  "binding_boundary": "Integrator-generated binding of the cited real review. Formal status requires the same independent executor to attest these exact manifest hashes.",
+  "github_approval_identity_claimed": false,
+  "product_verification_accepted": false
+}

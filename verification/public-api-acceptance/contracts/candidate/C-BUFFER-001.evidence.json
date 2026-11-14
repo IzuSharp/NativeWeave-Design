@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-BUFFER-001",
+    "version": "0.4.0",
+    "content_sha256": "524b76834de5573cedb1f4e4deca8d84554d445c608aaae7fad576873e3d0f76"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUFFER-001.inputs.json",
+    "sha256": "1218098d26e670b0acbe34f156c3e7442ab4d36bbb687a72e0e329e1457e13eb"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}
