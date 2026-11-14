@@ -18,11 +18,11 @@ BASELINE = 'a0f6bca1f55ddf456fe931886da8be19e94a1413'
 DOMAINS = ('foundation','database','server','interop')
 
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
-def read(path): return json.loads(path.read_text())
+def read(path): return json.loads(path.read_text(encoding='utf-8'))
 def git(*args): return subprocess.check_output(['git',*args],cwd=ROOT)
 def headings(path):
     result=set()
-    for line in path.read_text().splitlines():
+    for line in path.read_text(encoding='utf-8').splitlines():
         if re.match(r'^#{1,6} ',line):
             value=re.sub(r'^#+ ','',line).lower()
             value=re.sub(r'[^\w\- ]','',value)

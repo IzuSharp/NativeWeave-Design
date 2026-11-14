@@ -1,0 +1,1079 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "server",
+  "inheritance": "Every public member inherits its declaring type policy plus the explicit member-family deviations in the semantic section. These are design semantics, not product execution evidence.",
+  "types": {
+    "NativeWeave.Server.BodyChunk": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#5-requestresponse-bodies-results-and-resource-semantics",
+      "native_operations": [
+        "nw_server_buffer_length",
+        "nw_server_buffer_copy",
+        "nw_server_buffer_managed_credit_acquire",
+        "nw_server_managed_credit_release",
+        "nw_server_buffer_release"
+      ],
+      "tasks": [
+        "B16",
+        "B17"
+      ],
+      "capability": "Owned native chunk; synchronous leased copy; no escaping native Span/Memory. Retained input remains charged across dispatch; further native reads/writes fail resource_limit immediately when request/global backing-capacity credit is exhausted.",
+      "cost_profile": "CopyTo O(bytes) with caller memory; ToArray allocates/charges overlap then transfers; full backing allocation stays charged until final native owner dies."
+    },
+    "NativeWeave.Server.BodyParameterAttribute": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#43-optional-generated-endpoint-binding",
+      "native_operations": [
+        "managed-only: compile-time handler metadata and direct typed wrapper generation",
+        "nw_server_routes_set"
+      ],
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "B15"
+      ],
+      "capability": "Finite annotated static handler whitelist; missing/ambiguous shapes are compile diagnostics.",
+      "cost_profile": "Build-time generation; no per-handler Rust compilation, reflection scan, Expression.Compile or runtime argument object[]."
+    },
+    "NativeWeave.Server.Grpc.GrpcCallContext": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_metadata_read",
+        "nw_server_grpc_headers_create",
+        "nw_server_grpc_status_create",
+        "nw_server_on_control_v1",
+        "nw_server_metadata_grpc_headers"
+      ],
+      "tasks": [
+        "B18",
+        "B22"
+      ],
+      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses. RequestContext admits metadata/services/identity/Items/cancellation/Abort, lifecycle hooks; raw body/trailers/output/OnStarting are INVALID_STATE/InvalidOperationException. Typed gRPC metadata/messages/status exclusively own protocol output.",
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact. Rust Adapter bounds post-split binary metadata at200 entries/MaxHeaderBytes, splits comma fields and trims SP/HTAB before public Tonic decoding per segment, preserving empty values and per-name order with charged scratch/overlap."
+    },
+    "NativeWeave.Server.Grpc.GrpcDecoder": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_grpc_read_create",
+        "nw_server_write_reserve_create",
+        "nw_server_grpc_write_create",
+        "nw_server_grpc_status_create"
+      ],
+      "tasks": [
+        "B18",
+        "A10",
+        "A12"
+      ],
+      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
+    },
+    "NativeWeave.Server.Grpc.GrpcEncoder": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_grpc_read_create",
+        "nw_server_write_reserve_create",
+        "nw_server_grpc_write_create",
+        "nw_server_grpc_status_create"
+      ],
+      "tasks": [
+        "B18",
+        "A10",
+        "A12"
+      ],
+      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
+    },
+    "NativeWeave.Server.Grpc.GrpcEndpointExtensions": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_grpc_read_create",
+        "nw_server_write_reserve_create",
+        "nw_server_grpc_write_create",
+        "nw_server_grpc_status_create"
+      ],
+      "tasks": [
+        "B18",
+        "A10",
+        "A12"
+      ],
+      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport. Reject direct or inherited HTTP ServerFilter at freeze. Auth/policy/middleware denial uses typed gRPC status; await typed terminal production before scope cleanup.",
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+    },
+    "NativeWeave.Server.Grpc.GrpcException": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_metadata_read",
+        "nw_server_grpc_headers_create",
+        "nw_server_grpc_status_create",
+        "nw_server_on_control_v1"
+      ],
+      "tasks": [
+        "B18",
+        "B22"
+      ],
+      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead."
+    },
+    "NativeWeave.Server.Grpc.GrpcMarshaller": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_grpc_read_create",
+        "nw_server_write_reserve_create",
+        "nw_server_grpc_write_create",
+        "nw_server_grpc_status_create"
+      ],
+      "tasks": [
+        "B18",
+        "A10",
+        "A12"
+      ],
+      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
+    },
+    "NativeWeave.Server.Grpc.GrpcMetadata": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_metadata_read",
+        "nw_server_grpc_headers_create",
+        "nw_server_grpc_status_create",
+        "nw_server_on_control_v1",
+        "nw_server_metadata_grpc_headers"
+      ],
+      "tasks": [
+        "B18",
+        "B22"
+      ],
+      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact. Rust Adapter bounds post-split binary metadata at200 entries/MaxHeaderBytes, splits comma fields and trims SP/HTAB before public Tonic decoding per segment, preserving empty values and per-name order with charged scratch/overlap."
+    },
+    "NativeWeave.Server.Grpc.GrpcMethod": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_grpc_read_create",
+        "nw_server_write_reserve_create",
+        "nw_server_grpc_write_create",
+        "nw_server_grpc_status_create"
+      ],
+      "tasks": [
+        "B18",
+        "A10",
+        "A12"
+      ],
+      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+    },
+    "NativeWeave.Server.Grpc.GrpcMethodKind": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_metadata_read",
+        "nw_server_grpc_headers_create",
+        "nw_server_grpc_status_create",
+        "nw_server_on_control_v1"
+      ],
+      "tasks": [
+        "B18",
+        "B22"
+      ],
+      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead."
+    },
+    "NativeWeave.Server.Grpc.GrpcMethodOptions": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_metadata_read",
+        "nw_server_grpc_headers_create",
+        "nw_server_grpc_status_create",
+        "nw_server_on_control_v1"
+      ],
+      "tasks": [
+        "B18",
+        "B22"
+      ],
+      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead."
+    },
+    "NativeWeave.Server.Grpc.GrpcStatusCode": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_metadata_read",
+        "nw_server_grpc_headers_create",
+        "nw_server_grpc_status_create",
+        "nw_server_on_control_v1"
+      ],
+      "tasks": [
+        "B18",
+        "B22"
+      ],
+      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead."
+    },
+    "NativeWeave.Server.Grpc.IGeneratedGrpcService": {
+      "package": "NativeWeave.Server.Grpc",
+      "semantic_section": "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_grpc_read_create",
+        "nw_server_write_reserve_create",
+        "nw_server_grpc_write_create",
+        "nw_server_grpc_status_create"
+      ],
+      "tasks": [
+        "B18",
+        "A10",
+        "A12"
+      ],
+      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+    },
+    "NativeWeave.Server.HeaderCollection": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#42-typed-input-and-output",
+      "native_operations": [
+        "nw_server_metadata_read",
+        "nw_server_metadata_headers",
+        "nw_server_body_read_create",
+        "nw_server_operation_take_chunk"
+      ],
+      "tasks": [
+        "B15",
+        "B16"
+      ],
+      "capability": "Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF.",
+      "cost_profile": "Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser."
+    },
+    "NativeWeave.Server.HeaderParameterAttribute": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#43-optional-generated-endpoint-binding",
+      "native_operations": [
+        "managed-only: compile-time handler metadata and direct typed wrapper generation",
+        "nw_server_routes_set"
+      ],
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "B15"
+      ],
+      "capability": "Finite annotated static handler whitelist; missing/ambiguous shapes are compile diagnostics.",
+      "cost_profile": "Build-time generation; no per-handler Rust compilation, reflection scan, Expression.Compile or runtime argument object[]."
+    },
+    "NativeWeave.Server.Hosting.NativeServerServiceCollectionExtensions": {
+      "package": "NativeWeave.Server.Hosting",
+      "semantic_section": "docs/api/server.md#6-host-lifecycle-and-native-tls",
+      "native_operations": [
+        "nw_server_start_create",
+        "nw_server_close_create",
+        "nw_server_try_retire"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Optional Hosting package; one IHostedService; borrows host provider; asynchronous disposal required.",
+      "cost_profile": "One singleton adapter; no Kestrel; stop budget returns explicit Pending and final async disposal joins retained owners."
+    },
+    "NativeWeave.Server.IServerAuthenticator": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#44-middleware-filters-failures-and-authentication",
+      "native_operations": [
+        "managed-only: ordered application callback/barrier and stable error projection",
+        "nw_server_dispatch_complete",
+        "nw_server_request_abort"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. Admitted gRPC denial uses Tonic Unauthenticated16/PermissionDenied7 framing; ordinary HTTP and MCP pre-parse denial use401/403.",
+      "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
+    },
+    "NativeWeave.Server.IServerAuthorizer": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#44-middleware-filters-failures-and-authentication",
+      "native_operations": [
+        "managed-only: ordered application callback/barrier and stable error projection",
+        "nw_server_dispatch_complete",
+        "nw_server_request_abort"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
+    },
+    "NativeWeave.Server.JsonRequestHandler": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#42-typed-input-and-output",
+      "native_operations": [
+        "managed-only: statically bound application delegate outside native callback",
+        "nw_server_request_take",
+        "nw_server_dispatch_complete"
+      ],
+      "tasks": [
+        "B15",
+        "A10",
+        "A12"
+      ],
+      "capability": "Closed static handler shapes and JsonTypeInfo; no arbitrary Delegate/reflection fallback.",
+      "cost_profile": "Per-request typed invocation/DTO and Task work; no object-array binder; lazy request DI scope only on demand."
+    },
+    "NativeWeave.Server.JsonResultHandler": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#42-typed-input-and-output",
+      "native_operations": [
+        "managed-only: statically bound application delegate outside native callback",
+        "nw_server_request_take",
+        "nw_server_dispatch_complete"
+      ],
+      "tasks": [
+        "B15",
+        "A10",
+        "A12"
+      ],
+      "capability": "Closed static handler shapes and JsonTypeInfo; no arbitrary Delegate/reflection fallback.",
+      "cost_profile": "Per-request typed invocation/DTO and Task work; no object-array binder; lazy request DI scope only on demand."
+    },
+    "NativeWeave.Server.Mcp.McpCallContext": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion. Raw request body is forbidden in every phase; after Allowed raw response access/OnStarting is forbidden, while lifecycle hooks remain. AwaitingGate/Denied alone admits managed HTTP denial output; endpoint/inherited ServerFilter fails freeze.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.Mcp.McpEndpointExtensions": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.Mcp.McpEndpointOptions": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.Mcp.McpPromptArgument": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.Mcp.McpPromptMessage": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.Mcp.McpProtocolVersion": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.Mcp.McpRegistry": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion. Non-null object-root input/output policy; registration rejects scalar/array/dictionary/open and CLR Nullable<T> roots with NWAPI-S004; admitted reference DTO schema roots are normalized through an empty-path transform without changing nested nullability.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.Mcp.McpTextResource": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.Mcp.McpToolResult": {
+      "package": "NativeWeave.Server.Mcp",
+      "semantic_section": "docs/api/server.md#8-mcp-exact-initial-profile-and-developer-contract",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_write_reserve_create",
+        "nw_server_mcp_reply_create",
+        "nw_server_on_control_v1",
+        "nw_server_mcp_gate_resume_create",
+        "nw_server_on_request_v1 dispatch_kind2/3"
+      ],
+      "tasks": [
+        "B19",
+        "B22"
+      ],
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion. Non-null object-root input/output policy; registration rejects scalar/array/dictionary/open and CLR Nullable<T> roots with NWAPI-S004; admitted reference DTO schema roots are normalized through an empty-path transform without changing nested nullability.",
+      "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
+    },
+    "NativeWeave.Server.NativeServer": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#2-developer-path-and-startup-defaults",
+      "native_operations": [
+        "nw_server_get_abi_v1",
+        "nw_server_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+    },
+    "NativeWeave.Server.NativeServerApplication": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#6-host-lifecycle-and-native-tls",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_start_create",
+        "nw_server_bound_addresses",
+        "nw_server_close_create",
+        "nw_server_operation_take_close",
+        "nw_server_try_retire",
+        "nw_server_release",
+        "nw_server_tls_reload_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17",
+        "B22"
+      ],
+      "capability": "Single required Rust host; no physical unload; optional capabilities negotiated before use.",
+      "cost_profile": "One app/provider/runtime; Core operation/cancellation records; Pending retains all owners/credits; DisposeAsync joins without a time limit."
+    },
+    "NativeWeave.Server.NativeServerBuilder": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#2-developer-path-and-startup-defaults",
+      "native_operations": [
+        "nw_server_get_abi_v1",
+        "nw_server_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+    },
+    "NativeWeave.Server.ParameterValues": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#42-typed-input-and-output",
+      "native_operations": [
+        "nw_server_metadata_read",
+        "nw_server_metadata_headers",
+        "nw_server_body_read_create",
+        "nw_server_operation_take_chunk"
+      ],
+      "tasks": [
+        "B15",
+        "B16"
+      ],
+      "capability": "Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF.",
+      "cost_profile": "Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser."
+    },
+    "NativeWeave.Server.QueryParameterAttribute": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#43-optional-generated-endpoint-binding",
+      "native_operations": [
+        "managed-only: compile-time handler metadata and direct typed wrapper generation",
+        "nw_server_routes_set"
+      ],
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "B15"
+      ],
+      "capability": "Finite annotated static handler whitelist; missing/ambiguous shapes are compile diagnostics.",
+      "cost_profile": "Build-time generation; no per-handler Rust compilation, reflection scan, Expression.Compile or runtime argument object[]."
+    },
+    "NativeWeave.Server.RequestBindingException": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#44-middleware-filters-failures-and-authentication",
+      "native_operations": [
+        "managed-only: ordered application callback/barrier and stable error projection",
+        "nw_server_dispatch_complete",
+        "nw_server_request_abort"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
+    },
+    "NativeWeave.Server.RequestContext": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#3-semantic-profiles-applying-to-every-declaration",
+      "native_operations": [
+        "nw_server_request_take",
+        "nw_server_metadata_read",
+        "nw_server_on_control_v1",
+        "nw_server_request_abort",
+        "nw_server_request_try_retire"
+      ],
+      "tasks": [
+        "B15",
+        "B17",
+        "B20"
+      ],
+      "capability": "Borrowed request lifecycle; available cancellation signal, not exact upstream H2 reset certification. gRPC permits metadata/services/identity/Items/cancel/Abort and lifecycle hooks only; raw body/output and OnStarting are rejected. MCP has only its pre-parse HTTP denial exception.",
+      "cost_profile": "Lazy scope/Items (<=128 entries); sticky bounded control notification; TimeRemaining is monotonic; no escaped context after dispatch."
+    },
+    "NativeWeave.Server.RequestHandler": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#42-typed-input-and-output",
+      "native_operations": [
+        "managed-only: statically bound application delegate outside native callback",
+        "nw_server_request_take",
+        "nw_server_dispatch_complete"
+      ],
+      "tasks": [
+        "B15",
+        "A10",
+        "A12"
+      ],
+      "capability": "Closed static handler shapes and JsonTypeInfo; no arbitrary Delegate/reflection fallback.",
+      "cost_profile": "Per-request typed invocation/DTO and Task work; no object-array binder; lazy request DI scope only on demand."
+    },
+    "NativeWeave.Server.ResponseHandler": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#42-typed-input-and-output",
+      "native_operations": [
+        "managed-only: statically bound application delegate outside native callback",
+        "nw_server_request_take",
+        "nw_server_dispatch_complete"
+      ],
+      "tasks": [
+        "B15",
+        "A10",
+        "A12"
+      ],
+      "capability": "Closed static handler shapes and JsonTypeInfo; no arbitrary Delegate/reflection fallback.",
+      "cost_profile": "Per-request typed invocation/DTO and Task work; no object-array binder; lazy request DI scope only on demand."
+    },
+    "NativeWeave.Server.Results": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#5-requestresponse-bodies-results-and-resource-semantics",
+      "native_operations": [
+        "nw_server_response_begin_create",
+        "nw_server_write_reserve_create",
+        "nw_server_response_write_create",
+        "nw_server_response_flush_create",
+        "nw_server_response_finish_create",
+        "nw_server_managed_credit_acquire"
+      ],
+      "tasks": [
+        "B15",
+        "B16",
+        "B17"
+      ],
+      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
+      "cost_profile": "Bounded metadata-only native queue wait followed by nonwaiting request/global payload grant and rollback before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
+    },
+    "NativeWeave.Server.RouteGroupBuilder": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#41-routing-surface-and-ordering",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_request_take"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation. A gRPC/MCP endpoint with a local or inherited ServerFilter is rejected at route freeze before listening.",
+      "cost_profile": "O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata."
+    },
+    "NativeWeave.Server.RouteParameterAttribute": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#43-optional-generated-endpoint-binding",
+      "native_operations": [
+        "managed-only: compile-time handler metadata and direct typed wrapper generation",
+        "nw_server_routes_set"
+      ],
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "B15"
+      ],
+      "capability": "Finite annotated static handler whitelist; missing/ambiguous shapes are compile diagnostics.",
+      "cost_profile": "Build-time generation; no per-handler Rust compilation, reflection scan, Expression.Compile or runtime argument object[]."
+    },
+    "NativeWeave.Server.ServerBudgetOptions": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#2-developer-path-and-startup-defaults",
+      "native_operations": [
+        "nw_server_get_abi_v1",
+        "nw_server_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17",
+        "B16"
+      ],
+      "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime. Native global/request payload grants are atomic and nonwaiting for both reads and writes; queue/network waits are separate, full backing capacity/overlap is charged, and all partial grants roll back without automatic retry."
+    },
+    "NativeWeave.Server.ServerCapabilities": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#2-developer-path-and-startup-defaults",
+      "native_operations": [
+        "nw_server_get_abi_v1",
+        "nw_server_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+    },
+    "NativeWeave.Server.ServerCloseResult": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#6-host-lifecycle-and-native-tls",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_start_create",
+        "nw_server_bound_addresses",
+        "nw_server_close_create",
+        "nw_server_operation_take_close",
+        "nw_server_try_retire",
+        "nw_server_release",
+        "nw_server_tls_reload_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17",
+        "B22"
+      ],
+      "capability": "Single required Rust host; no physical unload; optional capabilities negotiated before use.",
+      "cost_profile": "One app/provider/runtime; Core operation/cancellation records; Pending retains all owners/credits; DisposeAsync joins without a time limit."
+    },
+    "NativeWeave.Server.ServerCloseStatus": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#6-host-lifecycle-and-native-tls",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_start_create",
+        "nw_server_bound_addresses",
+        "nw_server_close_create",
+        "nw_server_operation_take_close",
+        "nw_server_try_retire",
+        "nw_server_release",
+        "nw_server_tls_reload_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17",
+        "B22"
+      ],
+      "capability": "Single required Rust host; no physical unload; optional capabilities negotiated before use.",
+      "cost_profile": "One app/provider/runtime; Core operation/cancellation records; Pending retains all owners/credits; DisposeAsync joins without a time limit."
+    },
+    "NativeWeave.Server.ServerEndpointBuilder": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#41-routing-surface-and-ordering",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_request_take"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation. A gRPC/MCP endpoint with a local or inherited ServerFilter is rejected at route freeze before listening.",
+      "cost_profile": "O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata."
+    },
+    "NativeWeave.Server.ServerEndpointsAttribute": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#43-optional-generated-endpoint-binding",
+      "native_operations": [
+        "managed-only: compile-time handler metadata and direct typed wrapper generation",
+        "nw_server_routes_set"
+      ],
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "B15"
+      ],
+      "capability": "Finite annotated static handler whitelist; missing/ambiguous shapes are compile diagnostics.",
+      "cost_profile": "Build-time generation; no per-handler Rust compilation, reflection scan, Expression.Compile or runtime argument object[]."
+    },
+    "NativeWeave.Server.ServerEvent": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#5-requestresponse-bodies-results-and-resource-semantics",
+      "native_operations": [
+        "nw_server_write_reserve_create",
+        "nw_server_sse_write_create"
+      ],
+      "tasks": [
+        "B15",
+        "B16",
+        "B17"
+      ],
+      "capability": "sse bit6; prevalidated Event/Id; finite whole-stream deadline.",
+      "cost_profile": "One enumerable event in flight; checked conservative expanded UTF-8 reserve; native Axum Event/Sse formatting; no replay retention."
+    },
+    "NativeWeave.Server.ServerException": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#44-middleware-filters-failures-and-authentication",
+      "native_operations": [
+        "managed-only: ordered application callback/barrier and stable error projection",
+        "nw_server_dispatch_complete",
+        "nw_server_request_abort"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
+    },
+    "NativeWeave.Server.ServerFilter": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#44-middleware-filters-failures-and-authentication",
+      "native_operations": [
+        "managed-only: ordered application callback/barrier and stable error projection",
+        "nw_server_dispatch_complete",
+        "nw_server_request_abort"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. HTTP ServerResult pipeline only; gRPC/MCP endpoint filters, including inherited group filters, fail route freeze.",
+      "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
+    },
+    "NativeWeave.Server.ServerListenOptions": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#2-developer-path-and-startup-defaults",
+      "native_operations": [
+        "nw_server_get_abi_v1",
+        "nw_server_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+    },
+    "NativeWeave.Server.ServerMiddleware": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#44-middleware-filters-failures-and-authentication",
+      "native_operations": [
+        "managed-only: ordered application callback/barrier and stable error projection",
+        "nw_server_dispatch_complete",
+        "nw_server_request_abort"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. gRPC middleware uses restricted RequestContext; short circuit without explicit GrpcException maps to Unauthenticated16/PermissionDenied7, never raw HTTP.",
+      "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
+    },
+    "NativeWeave.Server.ServerOptions": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#2-developer-path-and-startup-defaults",
+      "native_operations": [
+        "nw_server_get_abi_v1",
+        "nw_server_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+    },
+    "NativeWeave.Server.ServerProtocols": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#2-developer-path-and-startup-defaults",
+      "native_operations": [
+        "nw_server_get_abi_v1",
+        "nw_server_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+    },
+    "NativeWeave.Server.ServerRequest": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#42-typed-input-and-output",
+      "native_operations": [
+        "nw_server_metadata_read",
+        "nw_server_metadata_headers",
+        "nw_server_body_read_create",
+        "nw_server_operation_take_chunk"
+      ],
+      "tasks": [
+        "B15",
+        "B16"
+      ],
+      "capability": "Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF. Raw Body/ReadChunk/ReadJson/GetTrailers are rejected for gRPC/MCP before consumption or owner movement.",
+      "cost_profile": "Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser. Native read payload grant is a nonwaiting request/global try; failure returns resource_limit before new payload allocation/retention."
+    },
+    "NativeWeave.Server.ServerResponse": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#5-requestresponse-bodies-results-and-resource-semantics",
+      "native_operations": [
+        "nw_server_response_begin_create",
+        "nw_server_write_reserve_create",
+        "nw_server_response_write_create",
+        "nw_server_response_flush_create",
+        "nw_server_response_finish_create",
+        "nw_server_managed_credit_acquire"
+      ],
+      "tasks": [
+        "B15",
+        "B16",
+        "B17"
+      ],
+      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership. Every successful HTTP MapRaw/generated void/custom result/middleware path awaits one CompleteAsync/response_finish before lifecycle cleanup; preserve selected status/headers, untouched200. gRPC/Allowed MCP permit only lifecycle hooks on this facade.",
+      "cost_profile": "Bounded metadata-only queue admission may wait; native request/global payload grant and managed overlap grant are nonwaiting with all-or-none rollback. Serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded. Payload-free completion uses reserved control metadata."
+    },
+    "NativeWeave.Server.ServerResult": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#5-requestresponse-bodies-results-and-resource-semantics",
+      "native_operations": [
+        "nw_server_response_begin_create",
+        "nw_server_write_reserve_create",
+        "nw_server_response_write_create",
+        "nw_server_response_flush_create",
+        "nw_server_response_finish_create",
+        "nw_server_managed_credit_acquire"
+      ],
+      "tasks": [
+        "B15",
+        "B16",
+        "B17"
+      ],
+      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
+      "cost_profile": "Bounded metadata-only native queue wait followed by nonwaiting request/global payload grant and rollback before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
+    },
+    "NativeWeave.Server.ServerRouteAttribute": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#43-optional-generated-endpoint-binding",
+      "native_operations": [
+        "managed-only: compile-time handler metadata and direct typed wrapper generation",
+        "nw_server_routes_set"
+      ],
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "B15"
+      ],
+      "capability": "Finite annotated static handler whitelist; missing/ambiguous shapes are compile diagnostics.",
+      "cost_profile": "Build-time generation; no per-handler Rust compilation, reflection scan, Expression.Compile or runtime argument object[]."
+    },
+    "NativeWeave.Server.ServerRoutes": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#41-routing-surface-and-ordering",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_request_take"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation.",
+      "cost_profile": "O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata."
+    },
+    "NativeWeave.Server.ServerState": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#6-host-lifecycle-and-native-tls",
+      "native_operations": [
+        "nw_server_routes_set",
+        "nw_server_start_create",
+        "nw_server_bound_addresses",
+        "nw_server_close_create",
+        "nw_server_operation_take_close",
+        "nw_server_try_retire",
+        "nw_server_release",
+        "nw_server_tls_reload_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17",
+        "B22"
+      ],
+      "capability": "Single required Rust host; no physical unload; optional capabilities negotiated before use.",
+      "cost_profile": "One app/provider/runtime; Core operation/cancellation records; Pending retains all owners/credits; DisposeAsync joins without a time limit."
+    },
+    "NativeWeave.Server.ServerTlsOptions": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#6-host-lifecycle-and-native-tls",
+      "native_operations": [
+        "nw_server_create",
+        "nw_server_tls_reload_create"
+      ],
+      "tasks": [
+        "B17",
+        "B22"
+      ],
+      "capability": "tls bit2; pinned rustls crypto provider; PEM paths; mTLS roots explicit.",
+      "cost_profile": "Native immutable TLS snapshot parsed at startup/reload; old snapshot retained by connections; handshake limits separate from payload credit."
+    },
+    "NativeWeave.Server.ServiceParameterAttribute": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#43-optional-generated-endpoint-binding",
+      "native_operations": [
+        "managed-only: compile-time handler metadata and direct typed wrapper generation",
+        "nw_server_routes_set"
+      ],
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "B15"
+      ],
+      "capability": "Finite annotated static handler whitelist; missing/ambiguous shapes are compile diagnostics.",
+      "cost_profile": "Build-time generation; no per-handler Rust compilation, reflection scan, Expression.Compile or runtime argument object[]."
+    },
+    "NativeWeave.Server.TrustedProxyOptions": {
+      "package": "NativeWeave.Server",
+      "semantic_section": "docs/api/server.md#44-middleware-filters-failures-and-authentication",
+      "native_operations": [
+        "nw_server_get_abi_v1",
+        "nw_server_create"
+      ],
+      "tasks": [
+        "B15",
+        "B17"
+      ],
+      "capability": "Explicit exact IPs and1..16 right-to-left trusted hops; only coherent X-Forwarded-For/Proto/Host; original peer and MCP wire Host/Origin retained.",
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+    }
+  }
+}

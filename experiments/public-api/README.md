@@ -24,7 +24,7 @@ The checks cover:
 1. All Database, Server and Interop declarations with nullable types, constraints,
    overloads and the real Extensions 11 package references.
 2. All minimum/advanced consumer files and System.Text.Json generated contexts.
-3. Seven independent negative compilation cases: wrong scalar and entity columns,
+3. Nine independent negative compiler-diagnostic cases (the nullable-reference case requires CS8625; the others require their specified compiler errors): wrong scalar and entity columns, reverse/repeated nullable lifting,
    nullable references, invalid aggregation, incorrect handler results, span
    capture and attempting to treat an owning reference type as a copyable value.
 4. The generated exact public inventory/reference, with per-type package, semantic

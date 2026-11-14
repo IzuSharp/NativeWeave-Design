@@ -104,6 +104,57 @@ and leaves the app Created and editable; after successful freeze, mutations are
 rejected even if listener startup fails. Build opens no socket and starts no Tokio
 worker thread.
 
+### 2.1 Effective endpoint timeout and size limits
+
+Resolve options once when the route registry freezes; there is no runtime option
+merge or silently ignored endpoint override. The generic timeout is the endpoint's
+WithTimeout value when present, otherwise the Build snapshot of
+ServerOptions.RequestTimeout. Endpoint timeout replaces that default; it does not
+remove a separately configured protocol upper bound. All configured timeouts are
+positive and at most24hours. Convert TimeSpan ticks to uint64 nanoseconds with
+checked multiplication by100, without truncation or floating point.
+
+| Route kind | Effective whole-request/call timeout | Body, message and JSON limits |
+| --- | --- | --- |
+| HTTP | Selected generic timeout | WithMaxRequestBodyBytes overrides ServerOptions.MaxRequestBodyBytes; WithMaxJsonBytes overrides ServerOptions.MaxJsonBytes. Both are positive, the JSON cap cannot exceed total body or proven peak admission, and neither changes retained-byte credit. |
+| gRPC | Minimum of selected generic timeout and GrpcMethodOptions.Timeout; the client grpc-timeout deadline can only shorten it at admission | GrpcMethodOptions owns encoded/decoded per-message and per-direction cumulative stream limits. ServerOptions HTTP body/JSON defaults do not cap gRPC. Explicit WithMaxRequestBodyBytes or WithMaxJsonBytes is rejected at freeze; configure the protocol options instead. |
+| MCP | Selected generic timeout, including pre-parse gate, native parsing, business work and output | McpEndpointOptions.MaxRequestBytes caps UTF-8 HTTP wire body bytes before parsing; its depth/node/decoded-string limits and full parse-peak admission apply additionally. HTTP body/JSON defaults do not override these protocol limits. Explicit WithMaxRequestBodyBytes or WithMaxJsonBytes is rejected at freeze. |
+
+For example, WithTimeout(two minutes) with default gRPC options still yields a
+30second call bound; use a two-minute protocol Timeout as well when that is the
+intended bound. Changing either option later has no effect on the frozen route.
+All request timeouts use the same native monotonic admission instant and include
+queue admission, body/message reads, handler execution and output. No middleware,
+message, callback or SSE event refreshes the deadline. Deadline cancellation does
+not reclaim outstanding owners before native retirement or last buffer release.
+
+In gRPC, MaxEncodedMessageBytes and MaxDecodedMessageBytes are each positive
+per-message payload-byte caps (default1MiB). MaxStreamBytes is a positive sum of
+protobuf message payload bytes in each direction independently (default64MiB),
+excluding the five-byte gRPC framing prefix and HTTP headers/trailers. The
+compression identity profile makes encoded and decoded payload lengths equal,
+but both caps are validated and enforced. Zero-length messages count as messages
+for cardinality and queue/metadata admission; they do not permit an unbounded
+queued-message allocation. Framing, headers and all simultaneous backing capacities
+still consume their separate transport/metadata or application-payload budgets.
+This cumulative stream limit never permits a64MiB retained allocation in a4MiB
+request budget. MCP's wire cap likewise excludes neither header metadata admission
+nor the separate bounded JSON tree, DTO and bridge-copy peak calculation.
+
+The frozen nw_server_route_v1.timeout_ns is the resolved HTTP/MCP timeout or
+resolved gRPC minimum. For gRPC the protocol_descriptor.timeout_ns must equal it;
+native routes_set rejects disagreement, rather than selecting a second precedence.
+The client deadline further shortens the absolute runtime deadline, not those
+immutable registration values. route.max_request_bytes is the resolved HTTP body
+cap, gRPC MaxStreamBytes or MCP MaxRequestBytes respectively. Its counter is
+kind-specific: HTTP/MCP wire body bytes versus gRPC message payload bytes; native
+HTTP generic body limiting is not applied a second time to protocol-owned bodies.
+The protocol descriptor's corresponding stream/request value must match the route.
+route.max_json_bytes is the resolved HTTP JSON cap for kind0 and exactly0 for
+protocol kinds1/2, meaning the HTTP JSON binder is unavailable, not unlimited JSON.
+Native registration independently validates these invariants before any listener
+starts. Protocol message, preparse and retained-memory budgets remain in force.
+
 A default provider is built once; its services are application-owned. Request service
 scope creation is lazy: no scope for a static health handler unless middleware,
 authentication or a handler accesses `context.Services`. `UseServiceProvider(provider,

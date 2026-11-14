@@ -1,0 +1,39 @@
+2026-11-14T12:27:41.0386401Z sdk: exit 0
+2026-11-14T12:28:06.7822101Z consumer-build: exit 0
+2026-11-14T12:28:06.8535652Z consumer-execute: exit 0
+2026-11-14T12:28:10.2790731Z inventory-build: exit 0
+2026-11-14T12:28:13.1725988Z checks-build: exit 0
+2026-11-14T12:28:14.7861585Z inventory: exit 0
+2026-11-14T12:28:16.2299348Z negative-consumers: exit 0
+2026-11-14T12:28:22.0147562Z exporter-regressions: exit 0
+2026-11-14T12:28:53.4038871Z native-aot-publish: exit 0
+2026-11-14T12:28:53.4216059Z native-aot-execute: exit 0
+2026-11-14T12:28:53.5440487Z ##[group]Run git diff --exit-code -- docs/api/public-api.json docs/api/reference.md
+2026-11-14T12:28:53.5441152Z [36;1mgit diff --exit-code -- docs/api/public-api.json docs/api/reference.md[0m
+2026-11-14T12:28:53.5479419Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-14T12:28:53.5479754Z env:
+2026-11-14T12:28:53.5479938Z   DOTNET_CLI_TELEMETRY_OPTOUT: 1
+2026-11-14T12:28:53.5480180Z   DOTNET_NOLOGO: 1
+2026-11-14T12:28:53.5480399Z   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+2026-11-14T12:28:53.5480661Z   DOTNET_CLI_USE_MSBUILD_SERVER: 0
+2026-11-14T12:28:53.5480909Z   DOTNET_ROOT: C:\Program Files\dotnet
+2026-11-14T12:28:53.5481156Z ##[endgroup]
+2026-11-14T12:28:53.8438021Z warning: in the working copy of 'docs/api/public-api.json', CRLF will be replaced by LF the next time Git touches it
+2026-11-14T12:28:54.0901835Z ##[group]Run python tools/verify_public_api.py
+2026-11-14T12:28:54.0902247Z [36;1mpython tools/verify_public_api.py[0m
+2026-11-14T12:28:54.0940188Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-14T12:28:54.0940528Z env:
+2026-11-14T12:28:54.0940723Z   DOTNET_CLI_TELEMETRY_OPTOUT: 1
+2026-11-14T12:28:54.0940948Z   DOTNET_NOLOGO: 1
+2026-11-14T12:28:54.0941151Z   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+2026-11-14T12:28:54.0941403Z   DOTNET_CLI_USE_MSBUILD_SERVER: 0
+2026-11-14T12:28:54.0941646Z   DOTNET_ROOT: C:\Program Files\dotnet
+2026-11-14T12:28:54.0941887Z ##[endgroup]
+2026-11-14T12:28:54.4598015Z Traceback (most recent call last):
+2026-11-14T12:28:54.4599282Z   File "D:\a\NativeWeave-Design\NativeWeave-Design\tools\verify_public_api.py", line 117, in <module>
+2026-11-14T12:28:54.4600417Z     verify(args.history,args.require_acceptance)
+2026-11-14T12:28:54.4699000Z   File "D:\a\NativeWeave-Design\NativeWeave-Design\tools\verify_public_api.py", line 72, in verify
+2026-11-14T12:28:54.4701354Z     assert (ROOT/path).is_file() and fragment in headings(ROOT/path),(key,'bad semantic anchor',fragment)
+2026-11-14T12:28:54.4745071Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-14T12:28:54.4746764Z AssertionError: ('NativeWeave.Data.ConcurrencyConflictException', 'bad semantic anchor', '5-source-session-sql-and-crud-b01b04b06b08b14')
+2026-11-14T12:28:54.5725108Z ##[error]Process completed with exit code 1.

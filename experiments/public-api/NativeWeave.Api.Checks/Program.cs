@@ -24,6 +24,8 @@ var cases = new (string Id, string Code, string[] Expected)[] {
     ("entity-column-owner", "static class Case { static void Check(Column<Enrollment,int> credits) { new Changes<Student>().Set(credits, 1); } }", new[] { "CS0411", "CS1503" }),
     ("nullable-reference", "static class Case { static void Check(Column<Student,string> name) { new Changes<Student>().Set<string>(name, null); } }", new[] { "CS8625" }),
     ("aggregate-scalar-type", "static class Case { static void Check(SqlExpression<string> text) { _ = SqlFunctions.Sum(text); } }", new[] { "CS1503" }),
+    ("nullable-lift-reverse", "static class Case { static void Check(SqlExpression<long> value) { SqlExpression<long> narrowed = value.AsNullable(); } }", new[] { "CS0029" }),
+    ("nullable-lift-repeat", "static class Case { static void Check(SqlExpression<long> value) { _ = value.AsNullable().AsNullable(); } }", new[] { "CS0453" }),
     ("handler-return-type", "static class Case { static void Check(NativeServerApplication app) { app.MapGet(\"/\", static () => 42); } }", new[] { "CS0029", "CS1662", "CS1503" }),
     ("span-capture", "static class Case { static Func<int> Check(ReadOnlySpan<byte> span) => () => span.Length; }", new[] { "CS9108", "CS8175" }),
     ("resource-not-copyable-value", "static class Case { static void Value<T>(T value) where T : struct { } static void Check(NativeBuffer buffer) { Value(buffer); } }", new[] { "CS0453" })

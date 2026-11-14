@@ -64,9 +64,9 @@ namespace NativeWeave.Server
         public TimeSpan RequestTimeout { get; set; } = TimeSpan.FromSeconds(30);
         /// <summary>Gets or sets the graceful close wait; default 30 seconds.</summary>
         public TimeSpan ShutdownTimeout { get; set; } = TimeSpan.FromSeconds(30);
-        /// <summary>Gets or sets the default total request-body limit; default 1 MiB.</summary>
+        /// <summary>Gets or sets the default HTTP request-body limit; default 1 MiB. gRPC and MCP use their protocol options.</summary>
         public long MaxRequestBodyBytes { get; set; } = 1_048_576;
-        /// <summary>Gets or sets the buffered JSON wire limit; default 1 MiB.</summary>
+        /// <summary>Gets or sets the HTTP JSON binder wire limit; default 1 MiB. Protocol routes use their own finite limits.</summary>
         public int MaxJsonBytes { get; set; } = 1_048_576;
         /// <summary>Gets or sets the aggregate header limit; default 32 KiB.</summary>
         public int MaxHeaderBytes { get; set; } = 32_768;
@@ -274,11 +274,11 @@ namespace NativeWeave.Server
         public ServerEndpointBuilder WithTags(params string[] tags) => throw new NotSupportedException();
         /// <summary>Assigns documentation summary text.</summary>
         public ServerEndpointBuilder WithSummary(string summary) => throw new NotSupportedException();
-        /// <summary>Overrides the finite whole-request timeout.</summary>
+        /// <summary>Overrides the finite generic request timeout; gRPC additionally takes the minimum with its protocol Timeout.</summary>
         public ServerEndpointBuilder WithTimeout(TimeSpan timeout) => throw new NotSupportedException();
-        /// <summary>Overrides total upload length without increasing retained-byte limits.</summary>
+        /// <summary>Overrides HTTP total upload length without increasing retained-byte limits; rejected on gRPC and MCP routes at freeze.</summary>
         public ServerEndpointBuilder WithMaxRequestBodyBytes(long bytes) => throw new NotSupportedException();
-        /// <summary>Overrides buffered JSON length within the existing peak budget.</summary>
+        /// <summary>Overrides HTTP buffered JSON length within the existing peak budget; rejected on gRPC and MCP routes at freeze.</summary>
         public ServerEndpointBuilder WithMaxJsonBytes(int bytes) => throw new NotSupportedException();
         /// <summary>Attaches a named authorization requirement.</summary>
         public ServerEndpointBuilder RequireAuthorization(string policy) => throw new NotSupportedException();
@@ -639,9 +639,9 @@ namespace NativeWeave.Server.Grpc
         public int MaxEncodedMessageBytes { get; set; } = 1_048_576;
         /// <summary>Gets or sets decompressed message cap, default 1 MiB.</summary>
         public int MaxDecodedMessageBytes { get; set; } = 1_048_576;
-        /// <summary>Gets or sets whole-stream bytes in each direction, default 64 MiB.</summary>
+        /// <summary>Gets or sets cumulative message payload bytes per direction, excluding framing; default 64 MiB.</summary>
         public long MaxStreamBytes { get; set; } = 67_108_864;
-        /// <summary>Gets or sets whole-stream deadline, default 30 seconds.</summary>
+        /// <summary>Gets or sets the whole-call upper bound, default 30 seconds; the selected generic timeout and client deadline can only shorten it.</summary>
         public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(30);
     }
     /// <summary>Typed call context borrowed through completion of both stream directions.</summary>
