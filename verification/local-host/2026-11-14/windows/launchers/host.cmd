@@ -1,0 +1,8 @@
+@echo off
+call "C:\Program Files\Microsoft Visual Studio\18\Community\VC\Auxiliary\Build\vcvars64.bat"
+if errorlevel 1 exit /b %errorlevel%
+set "PATH=C:\Users\J7Rdm\scoop\apps\dotnet-sdk\current;C:\Users\J7Rdm\scoop\apps\rustup\current\.cargo\bin;C:\Users\J7Rdm\scoop\apps\python\current;C:\Users\J7Rdm\scoop\shims;%PATH%"
+set "DOTNET_ROOT=C:\Users\J7Rdm\scoop\apps\dotnet-sdk\current"
+cd /d "C:\MyFile\Projects\IzuSharp\NativeWeave-Design\.worktree\local-host-validation"
+python .work\local-host\host-probe.py
+exit /b %errorlevel%

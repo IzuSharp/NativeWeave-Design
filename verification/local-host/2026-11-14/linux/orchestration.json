@@ -1,0 +1,59 @@
+{
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "kind": "local MCP host research replication",
+  "records": [
+    {
+      "name": "protocol",
+      "command": [
+        "python3",
+        "experiments/server-completion/run.py",
+        "protocol",
+        "--output",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/protocol"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-11-14T08:54:17.250341+00:00",
+      "finished_at_utc": "2026-11-14T08:54:39.934331+00:00"
+    },
+    {
+      "name": "engine",
+      "command": [
+        "python3",
+        "experiments/engine-completion/run.py",
+        "--out",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/engine",
+        "--aot"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-11-14T08:54:39.936831+00:00",
+      "finished_at_utc": "2026-11-14T08:54:58.858485+00:00"
+    },
+    {
+      "name": "platform",
+      "command": [
+        "python3",
+        "experiments/platform-completion/run.py",
+        "--out",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform",
+        "--aot"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-11-14T08:54:58.860815+00:00",
+      "finished_at_utc": "2026-11-14T08:55:09.618514+00:00"
+    },
+    {
+      "name": "metadata",
+      "command": [
+        "python3",
+        "experiments/database-completion/run.py",
+        "--suite",
+        "metadata",
+        "--out",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/metadata"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-11-14T08:55:09.620516+00:00",
+      "finished_at_utc": "2026-11-14T08:55:33.708864+00:00"
+    }
+  ]
+}

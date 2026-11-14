@@ -1,0 +1,32 @@
+{
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "kind": "local MCP host research replication after installing link prerequisites",
+  "records": [
+    {
+      "name": "engine-attempt-2",
+      "command": [
+        "python3",
+        "experiments/engine-completion/run.py",
+        "--out",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/engine-attempt-2",
+        "--aot"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-11-14T08:56:09.902455+00:00",
+      "finished_at_utc": "2026-11-14T08:56:22.155750+00:00"
+    },
+    {
+      "name": "platform-attempt-2",
+      "command": [
+        "python3",
+        "experiments/platform-completion/run.py",
+        "--out",
+        "/home/sammiller/nativeweave-local-validation-20261114/NativeWeave-Design/verification/local-host/2026-11-14/linux/platform-attempt-2",
+        "--aot"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-11-14T08:56:22.158666+00:00",
+      "finished_at_utc": "2026-11-14T08:56:38.421492+00:00"
+    }
+  ]
+}

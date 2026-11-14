@@ -1,0 +1,123 @@
+{
+  "kind": "supplemental_actual_local_research_execution",
+  "date": "2026-11-14",
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "plan_baseline": "dacaab7fc346da5b649e943a4d937a756345c492",
+  "transport": {
+    "windows": "ArcForges Windows MCP",
+    "linux": "ArcForges Linux MCP"
+  },
+  "suites": [
+    {
+      "host": "windows",
+      "suite": "protocol",
+      "result": "passed",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/run.json",
+      "sha256": "84f6d674ca1e553d334e1fc06e639a1a77ff705f99bfc7dafeacf23dbea8b84f"
+    },
+    {
+      "host": "windows",
+      "suite": "metadata",
+      "result": "passed",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/manifest.json",
+      "sha256": "91412d83cb251f77f97a00b3c636316866baf43e0c7ec4e5e7e843280a4591d3"
+    },
+    {
+      "host": "windows",
+      "suite": "engine",
+      "result": "passed",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/result.json",
+      "sha256": "03c78c7b8d0eff79558812479bd546354eb598b00acb7569170df8ab7ca2d60d"
+    },
+    {
+      "host": "windows",
+      "suite": "platform",
+      "result": "failed_diagnostic_language",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/results.json",
+      "sha256": "0a5acfd3a49c8cb57f295840c87b884eeb26d3c52198ac1c19b3f6efcdcb1fff"
+    },
+    {
+      "host": "windows",
+      "suite": "platform",
+      "result": "failed_inherited_platform_path",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/results.json",
+      "sha256": "f2b1ca9defea62d4c3e243584adb0a2fe912be738714e486ebd2978280a7efd8"
+    },
+    {
+      "host": "windows",
+      "suite": "platform",
+      "result": "passed",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/results.json",
+      "sha256": "b464b72b194807dc3012d05d54f9b4c0ff56d2ed1c5492e87781c9cbc6080c7e"
+    },
+    {
+      "host": "linux",
+      "suite": "protocol",
+      "result": "passed",
+      "path": "verification/local-host/2026-11-14/linux/protocol/run.json",
+      "sha256": "749aceee316ab2a468b30dbbc5f0c21330399626b8c8ed878207f4456326a5f6"
+    },
+    {
+      "host": "linux",
+      "suite": "metadata",
+      "result": "passed",
+      "path": "verification/local-host/2026-11-14/linux/metadata/manifest.json",
+      "sha256": "961184772882b6744671a380d8f1cbc256909a2c25437e084241fc678c778bab"
+    },
+    {
+      "host": "linux",
+      "suite": "engine",
+      "result": "failed_missing_native_link_dependencies",
+      "path": "verification/local-host/2026-11-14/linux/engine/result.json",
+      "sha256": "4973b8246b308b4f6efc6e3ceafa4d911b1c9bab57e1aad2fd2ac7cd62d4c3e2"
+    },
+    {
+      "host": "linux",
+      "suite": "engine",
+      "result": "passed",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/result.json",
+      "sha256": "d8e1e3109d40fc7f8eb17d32f8b7f398da85831c5e951fe200a19031bd8715ab"
+    },
+    {
+      "host": "linux",
+      "suite": "platform",
+      "result": "failed_missing_native_link_dependencies",
+      "path": "verification/local-host/2026-11-14/linux/platform/results.json",
+      "sha256": "496420b63c2e985433914972e981115a884c530f1845c6a33a2d1e4cc4b50363"
+    },
+    {
+      "host": "linux",
+      "suite": "platform",
+      "result": "passed",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/results.json",
+      "sha256": "28a26cbcacbf30ff1d3144b17408833a8e7e44db90e3162a41311fd277c2820f"
+    }
+  ],
+  "host_instructions": [
+    {
+      "path": "verification/local-host/2026-11-14/windows/README.md",
+      "sha256": "08f15bf0d1402d024562109a96d726591235a8d1a69ce9ad110b6a019b44b6f3"
+    },
+    {
+      "path": "verification/local-host/2026-11-14/linux/README.md",
+      "sha256": "b0980a7a7167b8618daba39e9547698572d63c4cd9068ba545ebac37ae4030f1"
+    }
+  ],
+  "omitted_binary_inventories": [
+    {
+      "path": "verification/local-host/2026-11-14/windows/omitted-artifacts.json",
+      "sha256": "75c1a55105fb996add5f52f62dd0f36a441807b55d1f845d366d39128a21927b"
+    },
+    {
+      "path": "verification/local-host/2026-11-14/linux/omitted-binaries.json",
+      "sha256": "3285e2186c323c05fb6903c41393968b4a52accfacc76528d63c68ca6b45d89e"
+    }
+  ],
+  "source_identity_policy": "Linux retained snapshots equal Git bytes; Windows separately verifies exact Git bytes or LF-to-CRLF checkout conversion. Run manifests preserve actual executed bytes.",
+  "product_implementation_authorized": false,
+  "product_delivery_executed": false,
+  "pristine_operating_system_tested": false,
+  "performance_advantage_proven": false,
+  "existing_acceptance_changed": false,
+  "scope": "Finite current protocol, metadata, codec package/consumer and modern C# AOT research only; failures retained separately."
+}

@@ -1,0 +1,83 @@
+{
+  "os": "Linux",
+  "os_release": {
+    "NAME": "Debian GNU/Linux",
+    "ID": "debian",
+    "PRETTY_NAME": "Debian GNU/Linux 13 (trixie)",
+    "VERSION_ID": "13",
+    "VERSION": "13 (trixie)",
+    "VERSION_CODENAME": "trixie",
+    "DEBIAN_VERSION_FULL": "13.3",
+    "HOME_URL": "https://www.debian.org/",
+    "SUPPORT_URL": "https://www.debian.org/support",
+    "BUG_REPORT_URL": "https://bugs.debian.org/"
+  },
+  "arch": "x86_64",
+  "kernel": "6.12.63+deb13-amd64",
+  "recorded_at_utc": "2026-11-14T08:56:25.404613+00:00",
+  "commands": [
+    {
+      "command": [
+        "/home/linuxbrew/.linuxbrew/bin/dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "stdout": "tool-0.stdout",
+      "stderr": "tool-0.stderr"
+    },
+    {
+      "command": [
+        "/home/linuxbrew/.linuxbrew/opt/rustup/bin/rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "stdout": "tool-1.stdout",
+      "stderr": "tool-1.stderr"
+    },
+    {
+      "command": [
+        "/home/linuxbrew/.linuxbrew/opt/rustup/bin/cargo",
+        "-V"
+      ],
+      "exit_code": 0,
+      "stdout": "tool-2.stdout",
+      "stderr": "tool-2.stderr"
+    },
+    {
+      "command": [
+        "clang",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "tool-3.stdout",
+      "stderr": "tool-3.stderr"
+    },
+    {
+      "command": [
+        "ld",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "tool-4.stdout",
+      "stderr": "tool-4.stderr"
+    },
+    {
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "tool-5.stdout",
+      "stderr": "tool-5.stderr"
+    },
+    {
+      "command": [
+        "git",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "tool-6.stdout",
+      "stderr": "tool-6.stderr"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libbrotli1
+The following NEW packages will be installed:
+  libbrotli-dev libzstd-dev
+The following packages will be upgraded:
+  libbrotli1
+1 upgraded, 2 newly installed, 0 to remove and 131 not upgraded.
+Need to get 1,070 kB of archives.
+After this operation, 2,790 kB of additional disk space will be used.
+Get:1 http://security.debian.org/debian-security trixie-security/main amd64 libbrotli1 amd64 1.1.0-2+deb13u1 [304 kB]
+Get:2 http://debian.anexia.at/debian trixie/main amd64 libzstd-dev amd64 1.5.7+dfsg-1 [371 kB]
+Get:3 http://security.debian.org/debian-security trixie-security/main amd64 libbrotli-dev amd64 1.1.0-2+deb13u1 [396 kB]
+Fetched 1,070 kB in 1s (979 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65512 files and directories currently installed.)
+Preparing to unpack .../libbrotli1_1.1.0-2+deb13u1_amd64.deb ...
+Unpacking libbrotli1:amd64 (1.1.0-2+deb13u1) over (1.1.0-2+b7) ...
+Selecting previously unselected package libbrotli-dev:amd64.
+Preparing to unpack .../libbrotli-dev_1.1.0-2+deb13u1_amd64.deb ...
+Unpacking libbrotli-dev:amd64 (1.1.0-2+deb13u1) ...
+Selecting previously unselected package libzstd-dev:amd64.
+Preparing to unpack .../libzstd-dev_1.5.7+dfsg-1_amd64.deb ...
+Unpacking libzstd-dev:amd64 (1.5.7+dfsg-1) ...
+Setting up libzstd-dev:amd64 (1.5.7+dfsg-1) ...
+Setting up libbrotli1:amd64 (1.1.0-2+deb13u1) ...
+Setting up libbrotli-dev:amd64 (1.1.0-2+deb13u1) ...
+Processing triggers for libc-bin (2.41-12+deb13u4) ...

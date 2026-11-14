@@ -1,0 +1,207 @@
+{
+  "scope": "R13/R14/R18 finite integration research, not production support or performance acceptance",
+  "source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "platform": "Windows",
+  "rid": "win-x64",
+  "commands": [
+    {
+      "name": "rustc",
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:54:48.694354+00:00",
+      "finished_at": "2026-11-14T08:54:48.741742+00:00",
+      "stdout_sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sdk",
+      "command": [
+        "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\current\\dotnet.EXE",
+        "--info"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:54:48.748428+00:00",
+      "finished_at": "2026-11-14T08:54:48.838741+00:00",
+      "stdout_sha256": "65cfc6273eacd9a026bee34a0776ad0d21c2844c844e5e5110e75b50b3c78333",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native-test",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--manifest-path",
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\experiments\\engine-completion\\native\\Cargo.toml"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:54:48.846742+00:00",
+      "finished_at": "2026-11-14T08:54:55.479147+00:00",
+      "stdout_sha256": "466bcb209d4be7d0038e5ddad4d6a4ff4b55e3eba130fdaf34386a7ce5859479",
+      "stderr_sha256": "8e757e2b936816ad0043e2cabad99d8166184252d554c4f79c33a1087761ca32"
+    },
+    {
+      "name": "cargo-metadata",
+      "command": [
+        "cargo",
+        "metadata",
+        "--locked",
+        "--format-version",
+        "1",
+        "--manifest-path",
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\experiments\\engine-completion\\native\\Cargo.toml"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:54:55.494744+00:00",
+      "finished_at": "2026-11-14T08:54:55.552635+00:00",
+      "stdout_sha256": "e62b12e5e2b75a68f7b16cbaa1540d5131afba059de379fbd0aaac5585384437",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native-build",
+      "command": [
+        "cargo",
+        "build",
+        "--release",
+        "--locked",
+        "--manifest-path",
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\experiments\\engine-completion\\native\\Cargo.toml",
+        "--message-format=json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:54:55.570446+00:00",
+      "finished_at": "2026-11-14T08:54:56.881961+00:00",
+      "stdout_sha256": "a886163bcda862c60a86061516b4dbfd2da5257eec5124386cddd8dd29111488",
+      "stderr_sha256": "306149076c0019adc1f8fd74fe40bee5a2f7ef7c41a68f15d1c092860899c5ae"
+    },
+    {
+      "name": "pack",
+      "command": [
+        "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\current\\dotnet.EXE",
+        "pack",
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\experiments\\engine-completion\\managed\\Codec.csproj",
+        "-c",
+        "Release",
+        "-o",
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\experiments\\engine-completion\\.work\\feed",
+        "-p:NativeAsset=C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\experiments\\engine-completion\\.work\\target\\release\\nw_codec_research.dll",
+        "-p:NativeRid=win-x64",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:54:56.898414+00:00",
+      "finished_at": "2026-11-14T08:55:05.159308+00:00",
+      "stdout_sha256": "4a903602c6b63f7bc322ba67b82462f5e71c31fee4d960691723ba158dd858e6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "consumer-build-no-rid-no-rust",
+      "command": [
+        "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\current\\dotnet.EXE",
+        "build",
+        "-c",
+        "Release",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:55:05.297403+00:00",
+      "finished_at": "2026-11-14T08:55:08.177396+00:00",
+      "stdout_sha256": "05fe1d566646be3ead91d2774b31b1d01ec3b6d0d1fbefb2cb3b77c83ea04bd8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "consumer-run-no-rid-no-rust",
+      "command": [
+        "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\current\\dotnet.EXE",
+        "run",
+        "-c",
+        "Release",
+        "--no-build"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:55:08.184429+00:00",
+      "finished_at": "2026-11-14T08:55:09.074390+00:00",
+      "stdout_sha256": "2d5249bad4e65bbb45e2eeaaccd02053cd906016758e6c9e6fef926bcff3bb8c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "consumer-change-offline",
+      "command": [
+        "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\current\\dotnet.EXE",
+        "build",
+        "-c",
+        "Release",
+        "--no-restore",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:55:09.083018+00:00",
+      "finished_at": "2026-11-14T08:55:11.217634+00:00",
+      "stdout_sha256": "8cee67f11a6e3b08306bc462b8e6194ca4f54dffbcf1c79f7b7579d20ce48972",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "aot-publish-no-rust",
+      "command": [
+        "C:\\Users\\J7Rdm\\scoop\\apps\\dotnet-sdk\\current\\dotnet.EXE",
+        "publish",
+        "-c",
+        "Release",
+        "-r",
+        "win-x64",
+        "-p:PublishAot=true",
+        "-o",
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\verification\\local-host\\2026-11-14\\windows\\engine-attempt-1\\publish",
+        "--disable-build-servers"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:55:11.226773+00:00",
+      "finished_at": "2026-11-14T08:55:49.588153+00:00",
+      "stdout_sha256": "99e2b8e38a98dceb8527dc68b6291d4ae203f14b819c7811cb03e01194215364",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "actual-aot",
+      "command": [
+        "C:\\MyFile\\Projects\\IzuSharp\\NativeWeave-Design\\.worktree\\local-host-validation\\verification\\local-host\\2026-11-14\\windows\\engine-attempt-1\\publish\\Consumer.exe",
+        "--aot"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-14T08:55:49.658424+00:00",
+      "finished_at": "2026-11-14T08:55:49.881497+00:00",
+      "stdout_sha256": "3abe15e1fd851d99eb78ef2b818501d85574fb20790980ea7ab6182979b0bf3c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_files": {
+    "native/Cargo.lock": "9e17d190a5385ec98738a562f2d70561d5d9a40556b1e5e2235ce9c6d9bc0bb5",
+    "native/Cargo.toml": "39bbd25a60f005c3a771c2c5217ec358e2ad938aee3a1e724e42dc35261eb500",
+    "native/src/lib.rs": "57dd3920878100b9d291c1900a0d9534595842c8bd89689e3a89579233ff873b",
+    "managed/Codec.cs": "dfd72e739eaa87f32cb9cbe47aa22df2ccedda6bbae9004874efd4123ced0c7f",
+    "managed/Codec.csproj": "f73ced97b21d9f0f9515dfecce90204f70fa356a28f07d77e07cc0b6c0c35051",
+    "consumer/Consumer.csproj": "50f0e2a945912089da8342aad7a1cc0c882c5308fa3e18edf490586d74641db2",
+    "consumer/Program.cs": "c9344d246548e01ee581fd9ce6414cd27f22210f9b8d4c3e1740bf980170fa0c",
+    "run.py": "46b3335b4aeb981d132c81d985a8fe74966a8cbc730c3a904a9bd349e147325f"
+  },
+  "passed": true,
+  "clean_operating_system": false,
+  "consumer_rust_toolchain_discoverable": false,
+  "package_entries": [
+    "_rels/.rels",
+    "NativeWeave.Research.Codec.nuspec",
+    "lib/net11.0/Codec.dll",
+    "runtimes/win-x64/native/nw_codec_research.dll",
+    "[Content_Types].xml",
+    "package/services/metadata/core-properties/nuget.psmdcp"
+  ],
+  "native_sha256": "8dcecefde81920144053a00da6d7b9d3e5c2bcf1453deb6c8cb88e99c6b7fa6d",
+  "package_sha256": "0999bdcf415d6a839e8fe374e258c40d0f64be4621eeb370ce6fad6410fec862",
+  "rid_free_consumer": true,
+  "application_change_reuses_native": true,
+  "aot_executed": true,
+  "aot_binary_sha256": "00c306c7398d488d4b1d268b1912348fe66b23d56b31c765ac7ed27424f9156b",
+  "finished_at": "2026-11-14T08:55:49.903243+00:00"
+}

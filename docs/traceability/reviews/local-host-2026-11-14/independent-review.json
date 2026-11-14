@@ -1,0 +1,2007 @@
+{
+  "record_kind": "independent_technical_review_of_supplemental_local_research",
+  "reviewer": "/root/supplement_review",
+  "execution_authors": [
+    "/root/windows_validation",
+    "/root/linux_validation"
+  ],
+  "supplement_author": "/root",
+  "reviewed_at_utc": "2026-11-14T09:05:49.990132+00:00",
+  "decision": "accepted_supplemental_evidence_with_stated_limits",
+  "blocking_findings": [],
+  "closed_findings": [
+    "LH-REVIEW-001",
+    "LH-REVIEW-002"
+  ],
+  "design_source_commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+  "plan_baseline_commit": "dacaab7fc346da5b649e943a4d937a756345c492",
+  "native_experiments_rerun_by_reviewer": false,
+  "product_execution": false,
+  "product_acceptance": false,
+  "independent_github_account_approval": false,
+  "checked_runner_streams": 142,
+  "checked_command_records": 71,
+  "manifest_source_identity_entries": 76,
+  "distinct_manifest_source_paths": 25,
+  "source_exact_entries": 41,
+  "source_lf_to_crlf_entries": 35,
+  "linux_payload_entries": 167,
+  "linux_source_snapshot_entries": 40,
+  "windows_source_snapshot_entries": 37,
+  "independently_rehashed_linux_primary_binaries": 7,
+  "independently_rehashed_windows_binaries_and_assemblies": 12,
+  "source_read_scope": [
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/engine-completion/run.py",
+      "line_start": 1,
+      "line_end": 92,
+      "sha256": "31121daccf8f0a5e0df2a0e1b35de798bb2ec579d56763561915e9b8de6b8fa5",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/engine-completion/consumer/Program.cs",
+      "line_start": 1,
+      "line_end": 30,
+      "sha256": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/engine-completion/managed/Codec.cs",
+      "line_start": 1,
+      "line_end": 38,
+      "sha256": "a967a3a1ce6bfaa8873ae71bf298a7a8a2d3e9f7fbdf050442a35dbe68bbe0b4",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/engine-completion/native/src/lib.rs",
+      "line_start": 1,
+      "line_end": 65,
+      "sha256": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/platform-completion/run.py",
+      "line_start": 1,
+      "line_end": 70,
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/platform-completion/modern/Program.cs",
+      "line_start": 1,
+      "line_end": 55,
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/server-completion/run.py",
+      "line_start": 1,
+      "line_end": 52,
+      "sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/server-completion/protocol/src/lib.rs",
+      "line_start": 1,
+      "line_end": 348,
+      "sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/database-completion/run.py",
+      "line_start": 1,
+      "line_end": 72,
+      "sha256": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "commit": "4c5c385779b753a4f06e59d07f80ad27ca10a841",
+      "path": "experiments/database-completion/tests/runtime_metadata.rs",
+      "line_start": 1,
+      "line_end": 128,
+      "sha256": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1",
+      "coverage": "complete fixture file read; not upstream dependency source re-review"
+    }
+  ],
+  "reviewed_inputs": [
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/.gitattributes",
+      "bytes": 105,
+      "sha256": "160061b2099f7f67397fb157c0c44482696b2a83fd94380173fd4868d54cd7d0"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/local-host-validation-2026-11-14.md",
+      "bytes": 7981,
+      "sha256": "66dfe1440ac70f89bd103761a9e64abebc9cb13409d624a1e1e64944b9638119"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/reviews/local-host-2026-11-14/independent-review.md",
+      "bytes": 6603,
+      "sha256": "0b43854882c14ae189864c038175531880e274b37f570367390c484ada8ceb48"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/reviews/local-host-2026-11-14/integrity-readback.json",
+      "bytes": 47669,
+      "sha256": "b1379281efbfbd75b0050deb50c297bc1f80775726c95652bccef34b25641158"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/reviews/local-host-2026-11-14/linux-binary-readback.json",
+      "bytes": 1544,
+      "sha256": "57843cb4f4fab8d3c2e30e917226109179bf44ff8ad03c64110f372dc696b8e6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "docs/traceability/reviews/local-host-2026-11-14/windows-binary-readback.json",
+      "bytes": 2505,
+      "sha256": "6f4eec065c5a8ee338650ae38900e8d71addb0f43ebfe98855ce1c145f703596"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/index.json",
+      "bytes": 4961,
+      "sha256": "b2f45d3f28738aa8a96275ded3d2c8f74b8de9f6dc3d8e7210603a41ed8d4843"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/README.md",
+      "bytes": 4213,
+      "sha256": "b0980a7a7167b8618daba39e9547698572d63c4cd9068ba545ebac37ae4030f1"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2-runner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2-runner.stdout",
+      "bytes": 190,
+      "sha256": "a6e54f0fb7b587236b8d244db9aa4f3241c4d900f788397d24c59366338167ec"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/actual-aot.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/actual-aot.stdout",
+      "bytes": 25,
+      "sha256": "88dd00f25a04bf4ff4388554c1cbf3b263771955fe1e69cfb31d9f9e6beca9eb"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/aot-publish-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/aot-publish-no-rust.stdout",
+      "bytes": 573,
+      "sha256": "ff76178928e88a3effd29102a77704e9f3b62bdd6adc26cf0130aecdb86891db"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/cargo-metadata.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/cargo-metadata.stdout",
+      "bytes": 7883,
+      "sha256": "5f13bef8e8eb3c92ca4694143ce7c655e24f853636526eeb3911601f2c453dfe"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/consumer-build-no-rid-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/consumer-build-no-rid-no-rust.stdout",
+      "bytes": 460,
+      "sha256": "832fa47df567cad2555f9d816a39afac0e278c40be6150e94b54c015deb507e7"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/consumer-change-offline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/consumer-change-offline.stdout",
+      "bytes": 253,
+      "sha256": "ed8fe3e66c34eb994585f8fe7c648665b1e3789daedd68507ba56c33e7251a00"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/consumer-run-no-rid-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/consumer-run-no-rid-no-rust.stdout",
+      "bytes": 26,
+      "sha256": "442aacb1788435ed654567d4e4697ecd920218fb4fba0740ea90f6f74bd0772e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/dependency-inventory.json",
+      "bytes": 975,
+      "sha256": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/inputs/consumer/Consumer.csproj",
+      "bytes": 422,
+      "sha256": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/inputs/consumer/Program.cs",
+      "bytes": 1329,
+      "sha256": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/inputs/managed/Codec.cs",
+      "bytes": 1732,
+      "sha256": "a967a3a1ce6bfaa8873ae71bf298a7a8a2d3e9f7fbdf050442a35dbe68bbe0b4"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/inputs/managed/Codec.csproj",
+      "bytes": 744,
+      "sha256": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/inputs/native/Cargo.lock",
+      "bytes": 611,
+      "sha256": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/inputs/native/Cargo.toml",
+      "bytes": 202,
+      "sha256": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/inputs/native/src/lib.rs",
+      "bytes": 3024,
+      "sha256": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/native-build.stderr",
+      "bytes": 271,
+      "sha256": "2c25927a71cb126d9f5d8cfccda5a1538c33907248de705612a459ec89b6766c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/native-build.stdout",
+      "bytes": 3210,
+      "sha256": "bc83c1adcd7894d56f1487ba8fd0a4c628abbc567a6a3b3cc93cedc4e1dd03b5"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/native-test.stderr",
+      "bytes": 455,
+      "sha256": "f031fbdea2f439806051ee6704e7e489d5da7bf5cc7cfbd6c6c8e1841fb8b02d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/native-test.stdout",
+      "bytes": 363,
+      "sha256": "b9f79e66d918d30592791c83e50ad321984ed2699216efbaa2f8bb4bb842637e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/pack.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/pack.stdout",
+      "bytes": 695,
+      "sha256": "c4b96a3cc5152226859144e2f9774a98431d1b44bfa0d5ab59aa98cda323eb0a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/result.json",
+      "bytes": 8456,
+      "sha256": "d8e1e3109d40fc7f8eb17d32f8b7f398da85831c5e951fe200a19031bd8715ab"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/rustc.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/rustc.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/sdk.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-attempt-2/sdk.stdout",
+      "bytes": 1452,
+      "sha256": "533d453e3410f8edc9889911e2dd2fc0895fbc86b4578693b8930457ac0ccdf7"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-runner.stderr",
+      "bytes": 3349,
+      "sha256": "934be90c799ebb3f90ed4b7c8dbccdaec21ca5e79143b198b86d84473aa88cb8"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine-runner.stdout",
+      "bytes": 177,
+      "sha256": "0d9c62f3feb06d8952905a16c000a983152cc7711e4bc80b60c236c22b7b1ac8"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/aot-publish-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/aot-publish-no-rust.stdout",
+      "bytes": 3886,
+      "sha256": "aa5b4ffb4f67707910c3a6b4ee25abe9a115a8c3dd1c699ac9e0c57f64fd624e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/cargo-metadata.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/cargo-metadata.stdout",
+      "bytes": 7883,
+      "sha256": "5f13bef8e8eb3c92ca4694143ce7c655e24f853636526eeb3911601f2c453dfe"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/consumer-build-no-rid-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/consumer-build-no-rid-no-rust.stdout",
+      "bytes": 460,
+      "sha256": "fcec73bf84eec8bd89a1c60f2d8452c453be1e4924f5073d6e3be76102394476"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/consumer-change-offline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/consumer-change-offline.stdout",
+      "bytes": 253,
+      "sha256": "25a3d300cd0e1a5f6eaecf2f00c986f58032cbfaf994e88c3efedc53388fb3f3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/consumer-run-no-rid-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/consumer-run-no-rid-no-rust.stdout",
+      "bytes": 26,
+      "sha256": "442aacb1788435ed654567d4e4697ecd920218fb4fba0740ea90f6f74bd0772e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/dependency-inventory.json",
+      "bytes": 975,
+      "sha256": "f67acedde057b5d6d68a3a71345670c610f225307629ac69167ec263b5196ef3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/inputs/consumer/Consumer.csproj",
+      "bytes": 422,
+      "sha256": "f5bab70a741fc68ae8bb013ddb370531082adee95d8f75922cb17b3380a2e076"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/inputs/consumer/Program.cs",
+      "bytes": 1329,
+      "sha256": "4fcf1146223351c925161e8a5010a60a2a803f8e8bd5ebd7e99908aaf409bb6a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/inputs/managed/Codec.cs",
+      "bytes": 1732,
+      "sha256": "a967a3a1ce6bfaa8873ae71bf298a7a8a2d3e9f7fbdf050442a35dbe68bbe0b4"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/inputs/managed/Codec.csproj",
+      "bytes": 744,
+      "sha256": "f6e435b9f76bd64110656b1be8c753221c200c8fd41a00f77737780ab87268b9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/inputs/native/Cargo.lock",
+      "bytes": 611,
+      "sha256": "002b678a9ba6ff76039974c6895d5606654010264667e1a9c0fb7afe2414ccf6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/inputs/native/Cargo.toml",
+      "bytes": 202,
+      "sha256": "c8c4aa3dbc5f68cedc9a24a607643eb9ed8d71a3d6388133c6b298e60d8d3060"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/inputs/native/src/lib.rs",
+      "bytes": 3024,
+      "sha256": "b509aeed445d819481dd3433145947c9b4d965315bba7ce31d5c0f553a1e54a9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/native-build.stderr",
+      "bytes": 271,
+      "sha256": "174fa95d57d98b7abed8f27681f19ea25eaac142cbad98985cfccd87f1aa1383"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/native-build.stdout",
+      "bytes": 3210,
+      "sha256": "bc83c1adcd7894d56f1487ba8fd0a4c628abbc567a6a3b3cc93cedc4e1dd03b5"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/native-test.stderr",
+      "bytes": 567,
+      "sha256": "827605923cc888203f648e8d1890268f01852ab6473115c0d2b4f1bfee851c12"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/native-test.stdout",
+      "bytes": 363,
+      "sha256": "b9f79e66d918d30592791c83e50ad321984ed2699216efbaa2f8bb4bb842637e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/pack.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/pack.stdout",
+      "bytes": 696,
+      "sha256": "9bb65e4e4e31f1ba3f122eebfe159bea7002729247231ac4caae3699c545df60"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/result.json",
+      "bytes": 7772,
+      "sha256": "4973b8246b308b4f6efc6e3ceafa4d911b1c9bab57e1aad2fd2ac7cd62d4c3e2"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/rustc.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/rustc.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/sdk.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/engine/sdk.stdout",
+      "bytes": 1452,
+      "sha256": "533d453e3410f8edc9889911e2dd2fc0895fbc86b4578693b8930457ac0ccdf7"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/aot-link-deps.txt",
+      "bytes": 112,
+      "sha256": "db1e12e70ff4c46868006076acbea9ff77ca03e501a0bdcf9e9dfa7cc8938a5d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/host.json",
+      "bytes": 1798,
+      "sha256": "b6c745f472f790264ed6b18aec20a789a6020aaa5edea427ecf46507385084e8"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/install-aot-link-deps.stderr",
+      "bytes": 508,
+      "sha256": "059e628a8401f586e65a754c00a8aca1945bad445b2b347bab2301a53784c648"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/install-aot-link-deps.stdout",
+      "bytes": 2129,
+      "sha256": "b82cd66ca3a4ae8934670e64057dd901efbc669cd8df44b902a7ab99a51940b0"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/retry-local.py",
+      "bytes": 1565,
+      "sha256": "ffda5b22ff9890f8496af3d2305af645f0fb1277575f1dc6842aa78e9cfc9876"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/run-local.py",
+      "bytes": 1751,
+      "sha256": "6c58ef73a553b906a4e03f0919d4d3c20460fdd051f04ac9d5cc8306337f9a88"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-0.stdout",
+      "bytes": 1405,
+      "sha256": "a141c57a7cb6bddb2be44546a52f6695460d359e2a1f3307a13dfc76c60524b6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-1.stdout",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-2.stdout",
+      "bytes": 37,
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-3.stdout",
+      "bytes": 118,
+      "sha256": "d55fcb3e9abb393ac95ffffa5fe52c13c79abead018abb911a0f46a324b0f91d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-4.stdout",
+      "bytes": 281,
+      "sha256": "cfff299abc32f737f1cb856667d31ff328f3755d06d98bc093a3ed8e98d4339e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-5.stdout",
+      "bytes": 14,
+      "sha256": "01870de7caca112afeefd77b3c3b4c5e263cf5539a33af3f3411100727fad7d3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-6.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/environment/tool-6.stdout",
+      "bytes": 19,
+      "sha256": "677d4fdffca093d9560ed3480cbd75f8069d041bbb34bdae1286f6b0bb476738"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/execution-inputs/experiments/database-completion/run.py",
+      "bytes": 3277,
+      "sha256": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/execution-inputs/experiments/engine-completion/run.py",
+      "bytes": 7188,
+      "sha256": "31121daccf8f0a5e0df2a0e1b35de798bb2ec579d56763561915e9b8de6b8fa5"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/execution-inputs/experiments/platform-completion/run.py",
+      "bytes": 5312,
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/execution-inputs/experiments/server-completion/run.py",
+      "bytes": 3633,
+      "sha256": "23e87b4cc593ef87005bc8654653f458ca4467330d037be0987f66ec84fc384f"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata-runner.stderr",
+      "bytes": 10540,
+      "sha256": "2270e3b69fe94d5972b2dec2941b1787e06523b247fcda8dcdec40cab24e7990"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata-runner.stdout",
+      "bytes": 444,
+      "sha256": "dfed9c45c382fcdd5f9bb0af2dc12e897675dff0489084673627ab5484e0561d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/inputs/experiments/database-completion/Cargo.lock",
+      "bytes": 57336,
+      "sha256": "632a80dbf3b5df4aa2fc787c6b0c7d189d791425ec2abf884572c5095eba7e21"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/inputs/experiments/database-completion/Cargo.toml",
+      "bytes": 831,
+      "sha256": "f0686927dde6805aa01499faf46ee2e8b0b7f890fff082bc625185de679465f6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/inputs/experiments/database-completion/run.py",
+      "bytes": 3277,
+      "sha256": "fb986de9eccc0d95351936683de4e40f890fad5e758300fa5a73323baf9b525d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/inputs/experiments/database-completion/tests/postgres.rs",
+      "bytes": 12660,
+      "sha256": "f6f8bb75641c042341c7456d444d8f256ab24ef52897cf76b8f6dfdcacde4dd4"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/inputs/experiments/database-completion/tests/runtime_metadata.rs",
+      "bytes": 9092,
+      "sha256": "a2ea25515c3e505c449a103f3a9caab01756370c77dc65ed0534b81bf59b5ff1"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/inputs/experiments/native-slices/database/Cargo.toml",
+      "bytes": 537,
+      "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/inputs/experiments/native-slices/database/src/lib.rs",
+      "bytes": 9918,
+      "sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/manifest.json",
+      "bytes": 2169,
+      "sha256": "961184772882b6744671a380d8f1cbc256909a2c25437e084241fc678c778bab"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/stderr.log",
+      "bytes": 10540,
+      "sha256": "2270e3b69fe94d5972b2dec2941b1787e06523b247fcda8dcdec40cab24e7990"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/metadata/stdout.log",
+      "bytes": 444,
+      "sha256": "dfed9c45c382fcdd5f9bb0af2dc12e897675dff0489084673627ab5484e0561d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/omitted-binaries.json",
+      "bytes": 4532,
+      "sha256": "3285e2186c323c05fb6903c41393968b4a52accfacc76528d63c68ca6b45d89e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/orchestration.json",
+      "bytes": 1934,
+      "sha256": "34ecf95ab515a7a7e5d543b2e331cfb7f4905234059dcda9257a644da41cfabd"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/payload-manifest.json",
+      "bytes": 28194,
+      "sha256": "50ab04b0af00d0173ff6d2f31c5d9a373ddf0f4da6a2f06e07fc2081a59b0571"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2-runner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2-runner.stdout",
+      "bytes": 63,
+      "sha256": "e849619a4649c0076dfb4ea91d5ba7c7c76168fb428d72dc07d4b5d7d283d1f8"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/aot-default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/aot-default.stdout",
+      "bytes": 79,
+      "sha256": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/aot-runtime-async.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/aot-runtime-async.stdout",
+      "bytes": 79,
+      "sha256": "1d1262c5732608d1fbbd962570d3c8fd97cc1d7207a7044090306877b0896bee"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/external-closed-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/external-closed-negative.stdout",
+      "bytes": 1334,
+      "sha256": "d62631b96b0bd911cd7d12582408447fdcc8818c34a74931caceb6fb7a738899"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/inputs/inspect/Inspect.csproj",
+      "bytes": 262,
+      "sha256": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/inputs/inspect/Program.cs",
+      "bytes": 1062,
+      "sha256": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/inputs/modern/Modern.csproj",
+      "bytes": 374,
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/inputs/modern/Negative.cs.txt",
+      "bytes": 125,
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/inputs/modern/Program.cs",
+      "bytes": 2773,
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/inputs/run.py",
+      "bytes": 5312,
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/metadata-default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/metadata-default.stdout",
+      "bytes": 382,
+      "sha256": "7d87e4afb0fbf724914012394fc04203cd639892a70002106d1ad940ec09cfcb"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/metadata-runtime-async.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/metadata-runtime-async.stdout",
+      "bytes": 232,
+      "sha256": "77b9b00e1a94ec0653ce5757f6428c172abd9b692185e2259a1e36f2ac5e052c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/negative/External.cs",
+      "bytes": 125,
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/negative/External.csproj",
+      "bytes": 326,
+      "sha256": "fcfc7f7e84e8772578209b6dd86e9450388d488880bba4f0053072352da0c7ca"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/ordinary.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/ordinary.stdout",
+      "bytes": 79,
+      "sha256": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/publish-default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/publish-default.stdout",
+      "bytes": 124224,
+      "sha256": "bab5e476c215bfcaab86d7a18241b13a24d08d016fcd5d3de9e3be25ea50a2b9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/publish-runtime-async.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/publish-runtime-async.stdout",
+      "bytes": 125601,
+      "sha256": "11726087fe0788bb249bfe95e60205c8f2629dce62dc766fbcb3a86bce32c8ff"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/results.json",
+      "bytes": 9821,
+      "sha256": "28a26cbcacbf30ff1d3144b17408833a8e7e44db90e3162a41311fd277c2820f"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/sdk-info.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-attempt-2/sdk-info.stdout",
+      "bytes": 1452,
+      "sha256": "533d453e3410f8edc9889911e2dd2fc0895fbc86b4578693b8930457ac0ccdf7"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-runner.stderr",
+      "bytes": 3860,
+      "sha256": "58fd4dc9be3ed89e1276e3b676e33773d21d7f0f0a234ef3c52d1efc97a2cfb6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform-runner.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/external-closed-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/external-closed-negative.stdout",
+      "bytes": 1284,
+      "sha256": "5c2b0cef45317d5357e8b3b3799b7b1297a116a702d5a0910c487961b70c8f61"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/inputs/inspect/Inspect.csproj",
+      "bytes": 262,
+      "sha256": "9906751f12410ec2566eea5a58b800a28e4c3bf32c76c7e4e49acebb38bbd80c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/inputs/inspect/Program.cs",
+      "bytes": 1062,
+      "sha256": "a4c2d57bd60ff038ad318fc22c82e0d8f822b5af4c36a08c0cc2928fd5afd84a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/inputs/modern/Modern.csproj",
+      "bytes": 374,
+      "sha256": "c44cff87a2f16ee3ae3034ecf42f2edac4f9f48af5311201966ce4025867cf4d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/inputs/modern/Negative.cs.txt",
+      "bytes": 125,
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/inputs/modern/Program.cs",
+      "bytes": 2773,
+      "sha256": "ff3b0d973d378a1e40c834bc5e3fadda44d2b259aa68286a3999c8fde2e6579f"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/inputs/run.py",
+      "bytes": 5312,
+      "sha256": "9e99449534c6622dfb27872c9938ba36461a3cf663e2dc5ce44f46d61994e498"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/negative/External.cs",
+      "bytes": 125,
+      "sha256": "6dc5bdfbca2314598ce519f3a43a0178da5815145185e50465bacdc1620be5a1"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/negative/External.csproj",
+      "bytes": 326,
+      "sha256": "fcfc7f7e84e8772578209b6dd86e9450388d488880bba4f0053072352da0c7ca"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/ordinary.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/ordinary.stdout",
+      "bytes": 79,
+      "sha256": "200c6432bd611c2bc108e8dff303c60c6cfdb7d1921f3a75ee474d44fb3f299d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/publish-default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/publish-default.stdout",
+      "bytes": 127950,
+      "sha256": "58d4e9212c60762b2cd2d489f371dcfebe8e331449dce980f6e0bfe44643f963"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/results.json",
+      "bytes": 4011,
+      "sha256": "496420b63c2e985433914972e981115a884c530f1845c6a33a2d1e4cc4b50363"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/sdk-info.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/platform/sdk-info.stdout",
+      "bytes": 1452,
+      "sha256": "533d453e3410f8edc9889911e2dd2fc0895fbc86b4578693b8930457ac0ccdf7"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol-runner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol-runner.stdout",
+      "bytes": 57,
+      "sha256": "14bbf6f141946ad5ba90a5f9bfb95d9381f51759329f0c4e8e883d7b7d09c0a2"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/cargo-version.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/cargo-version.stdout.txt",
+      "bytes": 37,
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/dependency-tree.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/dependency-tree.stdout.txt",
+      "bytes": 10551,
+      "sha256": "b0a19a58956b501eb35294bf6ebfc8c45825da4511755ca271ca1dbade8301d7"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/inputs/protocol/Cargo.lock",
+      "bytes": 38057,
+      "sha256": "4c4ba87c92bc81d3a1cff3ae2120fed9279b9dba06990c1ca5dfbad469662c74"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/inputs/protocol/Cargo.toml",
+      "bytes": 911,
+      "sha256": "b9b901245c868b8127881e3ecad2b1e2b1ddf4f5545e5f164707e213314dd52f"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/inputs/protocol/src/lib.rs",
+      "bytes": 20177,
+      "sha256": "efce92ba0fb6fbbcc02aec484719ea015bf32d2b93d67cfdf9c8ce2d4f8ccd96"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/run.json",
+      "bytes": 2706,
+      "sha256": "749aceee316ab2a468b30dbbc5f0c21330399626b8c8ed878207f4456326a5f6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/rustc-version.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/rustc-version.stdout.txt",
+      "bytes": 198,
+      "sha256": "be69adad9137eaa0bdac1dd07e2fe286b1831fc8bad193ea27806ca0c7c8e7c6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/test.stderr.txt",
+      "bytes": 7726,
+      "sha256": "8a568d7498e63dd21e3c0c80019a6724bd2ec23d248015fb8afff67937d93fb2"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/protocol/test.stdout.txt",
+      "bytes": 1553,
+      "sha256": "169619f27e446c3431dd9db161241edc8a46ecd2a14108edf234def6010e66de"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/retry-orchestration.json",
+      "bytes": 1094,
+      "sha256": "ed7787a3974243e13e95bdfc5f39b773c1e7f6616211f8058596606b12ba85af"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/linux/source-verification.json",
+      "bytes": 9304,
+      "sha256": "4b1516cfb391c372d27ad4ff8cb2ba8ca386d3299f417c2f58527683f2223e19"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/.gitignore",
+      "bytes": 9,
+      "sha256": "dc54502337ba56cd7a53d47c80afa549f8172707c1e5c0cff69c1100ca4ee84e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/README.md",
+      "bytes": 5506,
+      "sha256": "08f15bf0d1402d024562109a96d726591235a8d1a69ce9ad110b6a019b44b6f3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/bootstrap-console.txt",
+      "bytes": 145,
+      "sha256": "a3ba4a65615619be0bf7995545cecb208a5732be06b99fc38552eac5f2daeb8d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/collection-check.json",
+      "bytes": 10512,
+      "sha256": "56f883e66e15d1135953937c63fb922d6d7a46d8e7b81c8b42c02d289d992fe3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/actual-aot.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/actual-aot.stdout",
+      "bytes": 26,
+      "sha256": "3abe15e1fd851d99eb78ef2b818501d85574fb20790980ea7ab6182979b0bf3c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/aot-publish-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/aot-publish-no-rust.stdout",
+      "bytes": 608,
+      "sha256": "99e2b8e38a98dceb8527dc68b6291d4ae203f14b819c7811cb03e01194215364"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/cargo-metadata.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/cargo-metadata.stdout",
+      "bytes": 8156,
+      "sha256": "e62b12e5e2b75a68f7b16cbaa1540d5131afba059de379fbd0aaac5585384437"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/consumer-build-no-rid-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/consumer-build-no-rid-no-rust.stdout",
+      "bytes": 497,
+      "sha256": "05fe1d566646be3ead91d2774b31b1d01ec3b6d0d1fbefb2cb3b77c83ea04bd8"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/consumer-change-offline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/consumer-change-offline.stdout",
+      "bytes": 272,
+      "sha256": "8cee67f11a6e3b08306bc462b8e6194ca4f54dffbcf1c79f7b7579d20ce48972"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/consumer-run-no-rid-no-rust.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/consumer-run-no-rid-no-rust.stdout",
+      "bytes": 27,
+      "sha256": "2d5249bad4e65bbb45e2eeaaccd02053cd906016758e6c9e6fef926bcff3bb8c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/dependency-inventory.json",
+      "bytes": 1014,
+      "sha256": "af0afd34f1bd486ea1534a344b320894ed47c47ae7203393182917d4c2bebbbf"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/inputs/consumer/Consumer.csproj",
+      "bytes": 430,
+      "sha256": "50f0e2a945912089da8342aad7a1cc0c882c5308fa3e18edf490586d74641db2"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/inputs/consumer/Program.cs",
+      "bytes": 1359,
+      "sha256": "c9344d246548e01ee581fd9ce6414cd27f22210f9b8d4c3e1740bf980170fa0c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/inputs/managed/Codec.cs",
+      "bytes": 1770,
+      "sha256": "dfd72e739eaa87f32cb9cbe47aa22df2ccedda6bbae9004874efd4123ced0c7f"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/inputs/managed/Codec.csproj",
+      "bytes": 761,
+      "sha256": "f73ced97b21d9f0f9515dfecce90204f70fa356a28f07d77e07cc0b6c0c35051"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/inputs/native/Cargo.lock",
+      "bytes": 636,
+      "sha256": "9e17d190a5385ec98738a562f2d70561d5d9a40556b1e5e2235ce9c6d9bc0bb5"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/inputs/native/Cargo.toml",
+      "bytes": 216,
+      "sha256": "39bbd25a60f005c3a771c2c5217ec358e2ad938aee3a1e724e42dc35261eb500"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/inputs/native/src/lib.rs",
+      "bytes": 3089,
+      "sha256": "57dd3920878100b9d291c1900a0d9534595842c8bd89689e3a89579233ff873b"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/mcp-console.txt",
+      "bytes": 603,
+      "sha256": "263779d1a9530229f6b7915581bfce6b0d5aa86d7ffeefbd2f4494f64357d5ac"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/native-build.stderr",
+      "bytes": 277,
+      "sha256": "306149076c0019adc1f8fd74fe40bee5a2f7ef7c41a68f15d1c092860899c5ae"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/native-build.stdout",
+      "bytes": 4000,
+      "sha256": "a886163bcda862c60a86061516b4dbfd2da5257eec5124386cddd8dd29111488"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/native-test.stderr",
+      "bytes": 577,
+      "sha256": "8e757e2b936816ad0043e2cabad99d8166184252d554c4f79c33a1087761ca32"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/native-test.stdout",
+      "bytes": 363,
+      "sha256": "466bcb209d4be7d0038e5ddad4d6a4ff4b55e3eba130fdaf34386a7ce5859479"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/pack.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/pack.stdout",
+      "bytes": 717,
+      "sha256": "4a903602c6b63f7bc322ba67b82462f5e71c31fee4d960691723ba158dd858e6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/result.json",
+      "bytes": 8946,
+      "sha256": "03c78c7b8d0eff79558812479bd546354eb598b00acb7569170df8ab7ca2d60d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/rustc.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/rustc.stdout",
+      "bytes": 196,
+      "sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/sdk.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/engine-attempt-1/sdk.stdout",
+      "bytes": 2928,
+      "sha256": "65cfc6273eacd9a026bee34a0776ad0d21c2844c844e5e5110e75b50b3c78333"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/host-console.txt",
+      "bytes": 508,
+      "sha256": "14069a938b21b4b83692b5f7f490a035a8c4a689432e5ea07b1b40f206b3d16d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/host-environment.json",
+      "bytes": 2645,
+      "sha256": "707dd305b8e9bf231e47c8a0a976b9ac813b705dfae95dd5f35dab8add89c776"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/launchers/engine.cmd",
+      "bytes": 721,
+      "sha256": "182006811d3e68a49ca6c0d9bad70214a7897006490941c208365d36ea575aa9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/launchers/host-probe.py",
+      "bytes": 1227,
+      "sha256": "9babb12373696fe74247265f066576ab1275365d9a99bce779bd1432320b8b2b"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/launchers/host.cmd",
+      "bytes": 540,
+      "sha256": "d525523ef063222da52a378ae061f47e763e89978ff6ac25b8addfa35d5ef315"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/launchers/metadata.cmd",
+      "bytes": 736,
+      "sha256": "a2daac633630757bd03313fe2215a051cb8bb24fab98d33edb7064b329d7a140"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/launchers/platform-english-anycpu.cmd",
+      "bytes": 778,
+      "sha256": "2c7fede1de9d7e3c9a3e9db348150d97ebaf84b57acaf44b9aecbbe2cfdeb18d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/launchers/platform-english.cmd",
+      "bytes": 761,
+      "sha256": "57f4bb112dbcd21e977eb83d2bfaf1b9452e18463bdee9962cadb08c3b1b945e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/launchers/platform.cmd",
+      "bytes": 725,
+      "sha256": "39e60d8e2bae8b2806431450ea694f76df2cd15a860ba6ca49c968d66b6e5bd9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/launchers/protocol.cmd",
+      "bytes": 729,
+      "sha256": "b9d52e5ba36e16d7a4af3e92c4b804a27a1e56ff93b6a8b9f9f89f32d96391ce"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/inputs/experiments/database-completion/Cargo.lock",
+      "bytes": 59655,
+      "sha256": "8de967ba203d829a734591b2c7d0af30578518b396e4f2ca4d544203cc6f454a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/inputs/experiments/database-completion/Cargo.toml",
+      "bytes": 851,
+      "sha256": "939173c62c85a0d0e67bb7772cd36c776f59b4b656d1e9ba1c07dc9b8745f46a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/inputs/experiments/database-completion/run.py",
+      "bytes": 3349,
+      "sha256": "511be33e3be404a05126a8eb0ceb18a6a492ef507fe5a25e9985c290a758f968"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/inputs/experiments/database-completion/tests/postgres.rs",
+      "bytes": 12851,
+      "sha256": "09127e713b177bcaaa24b0879d4c77b483323740b72a4b8ec17c26fda30c2c71"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/inputs/experiments/database-completion/tests/runtime_metadata.rs",
+      "bytes": 9220,
+      "sha256": "96e1b00983cf76564520febc670085ea5be40723f43f164ad5bab177cd0092c7"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/inputs/experiments/native-slices/database/Cargo.toml",
+      "bytes": 537,
+      "sha256": "b1592fcef17c4e9e95e7f2a9df809d217e2152efe96271c7fb52d8be62602bb3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/inputs/experiments/native-slices/database/src/lib.rs",
+      "bytes": 9918,
+      "sha256": "20a383289b76c29a7f7067a86421ed1b74179387bf5b88c9d247e8d881fa58a9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/manifest.json",
+      "bytes": 2213,
+      "sha256": "91412d83cb251f77f97a00b3c636316866baf43e0c7ec4e5e7e843280a4591d3"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/mcp-console.txt",
+      "bytes": 11802,
+      "sha256": "496ab6a544668298906676fcee067ef7f5823b246edb8ca72921927f12eecf14"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/stderr.log",
+      "bytes": 10619,
+      "sha256": "3278db90dd3e8a1e2518c593b8263284d9eb303f43796018ea0b2d27e8719f17"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/metadata-attempt-1/stdout.log",
+      "bytes": 444,
+      "sha256": "a6f514cbf953f1b31ec5a62dc9fea80945aaf6af75179d54ec64e3ac8309787e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/omitted-artifacts.json",
+      "bytes": 2397,
+      "sha256": "75c1a55105fb996add5f52f62dd0f36a441807b55d1f845d366d39128a21927b"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/external-closed-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/external-closed-negative.stdout",
+      "bytes": 1434,
+      "sha256": "aa60a4955d88096d6a1063d48feee38954f337b081ee8384c997755a75adb38d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/inputs/inspect/Inspect.csproj",
+      "bytes": 270,
+      "sha256": "a8becaa5eb6656f587ecfc49f8083fafc809cd6dace4a7f994a7b54b4a7f77b4"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/inputs/inspect/Program.cs",
+      "bytes": 1085,
+      "sha256": "d076d5902d9c279240dda8caac7687db9de9e04f44ce4178d7b54ca80401be78"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/inputs/modern/Modern.csproj",
+      "bytes": 385,
+      "sha256": "9d7326b9ea4e9eea0c3f699653ae6c0ff84f79c370f9d13310648ac57e9e507a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/inputs/modern/Negative.cs.txt",
+      "bytes": 127,
+      "sha256": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/inputs/modern/Program.cs",
+      "bytes": 2828,
+      "sha256": "8732a5f3b1de028ffafc10eba6356ca128f74c34b606d14bcf0336046bd9eda0"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/inputs/run.py",
+      "bytes": 5382,
+      "sha256": "c8c746eb8a1b28f453fd573cfbba9c0b1a96bfc7e036bd5855792455e8d5b4fc"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/mcp-console.txt",
+      "bytes": 732,
+      "sha256": "4e18b879d526403989de3e943a1b3be61da7f9121bc117ef442b2ce531fdc8ef"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/negative/External.cs",
+      "bytes": 127,
+      "sha256": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/negative/External.csproj",
+      "bytes": 332,
+      "sha256": "c1d5cfe5f70b02c9dd71be5555bfdad6b18b6a2a2ebdf9324b387087766ab21d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/ordinary.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/ordinary.stdout",
+      "bytes": 80,
+      "sha256": "422dd0a8ae4ade3a64dd259bae5662c67e79031e302c3319c752674119d2db09"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/results.json",
+      "bytes": 3192,
+      "sha256": "0a5acfd3a49c8cb57f295840c87b884eeb26d3c52198ac1c19b3f6efcdcb1fff"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/sdk-info.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-1/sdk-info.stdout",
+      "bytes": 2928,
+      "sha256": "65cfc6273eacd9a026bee34a0776ad0d21c2844c844e5e5110e75b50b3c78333"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/external-closed-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/external-closed-negative.stdout",
+      "bytes": 1396,
+      "sha256": "3c505af226eecf283c9382d35ce65cc1064252509991b411a946606cd2096154"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/inputs/inspect/Inspect.csproj",
+      "bytes": 270,
+      "sha256": "a8becaa5eb6656f587ecfc49f8083fafc809cd6dace4a7f994a7b54b4a7f77b4"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/inputs/inspect/Program.cs",
+      "bytes": 1085,
+      "sha256": "d076d5902d9c279240dda8caac7687db9de9e04f44ce4178d7b54ca80401be78"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/inputs/modern/Modern.csproj",
+      "bytes": 385,
+      "sha256": "9d7326b9ea4e9eea0c3f699653ae6c0ff84f79c370f9d13310648ac57e9e507a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/inputs/modern/Negative.cs.txt",
+      "bytes": 127,
+      "sha256": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/inputs/modern/Program.cs",
+      "bytes": 2828,
+      "sha256": "8732a5f3b1de028ffafc10eba6356ca128f74c34b606d14bcf0336046bd9eda0"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/inputs/run.py",
+      "bytes": 5382,
+      "sha256": "c8c746eb8a1b28f453fd573cfbba9c0b1a96bfc7e036bd5855792455e8d5b4fc"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/mcp-console.txt",
+      "bytes": 726,
+      "sha256": "a0e1383215833e85ea967bae43ac2efdebcab817d306148c8f08ec69202fb5d5"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/negative/External.cs",
+      "bytes": 127,
+      "sha256": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/negative/External.csproj",
+      "bytes": 332,
+      "sha256": "c1d5cfe5f70b02c9dd71be5555bfdad6b18b6a2a2ebdf9324b387087766ab21d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/ordinary.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/ordinary.stdout",
+      "bytes": 80,
+      "sha256": "422dd0a8ae4ade3a64dd259bae5662c67e79031e302c3319c752674119d2db09"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/publish-default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/publish-default.stdout",
+      "bytes": 118025,
+      "sha256": "9085a38b629739acf1fde14a568941f5389ffbb8761acded66bbf3ecc59cece9"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/results.json",
+      "bytes": 4242,
+      "sha256": "f2b1ca9defea62d4c3e243584adb0a2fe912be738714e486ebd2978280a7efd8"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/sdk-info.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-2/sdk-info.stdout",
+      "bytes": 3014,
+      "sha256": "94e5b60a498ace7106f6d75f4b09dac7a72087461c9fde392ae95ed76a61a78d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/aot-default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/aot-default.stdout",
+      "bytes": 80,
+      "sha256": "5fec69bf744c4969b40462ecec89053afeaef47e9289297789dc94b60d7e9e69"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/aot-runtime-async.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/aot-runtime-async.stdout",
+      "bytes": 80,
+      "sha256": "5fec69bf744c4969b40462ecec89053afeaef47e9289297789dc94b60d7e9e69"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/external-closed-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/external-closed-negative.stdout",
+      "bytes": 1393,
+      "sha256": "76c6891cee7832525596bcfdc3fef5bccf120909895fc894ba4ca72a6629c647"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/inputs/inspect/Inspect.csproj",
+      "bytes": 270,
+      "sha256": "a8becaa5eb6656f587ecfc49f8083fafc809cd6dace4a7f994a7b54b4a7f77b4"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/inputs/inspect/Program.cs",
+      "bytes": 1085,
+      "sha256": "d076d5902d9c279240dda8caac7687db9de9e04f44ce4178d7b54ca80401be78"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/inputs/modern/Modern.csproj",
+      "bytes": 385,
+      "sha256": "9d7326b9ea4e9eea0c3f699653ae6c0ff84f79c370f9d13310648ac57e9e507a"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/inputs/modern/Negative.cs.txt",
+      "bytes": 127,
+      "sha256": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/inputs/modern/Program.cs",
+      "bytes": 2828,
+      "sha256": "8732a5f3b1de028ffafc10eba6356ca128f74c34b606d14bcf0336046bd9eda0"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/inputs/run.py",
+      "bytes": 5382,
+      "sha256": "c8c746eb8a1b28f453fd573cfbba9c0b1a96bfc7e036bd5855792455e8d5b4fc"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/mcp-console.txt",
+      "bytes": 464,
+      "sha256": "ab73ceffc48102960a7b68dce540d93ba5025270d70d4f8b7de004e45113c759"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/metadata-default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/metadata-default.stdout",
+      "bytes": 407,
+      "sha256": "60f091aecdb21ec3679e836bb25224745a90ed9d8ebf9de1848f02b62bd0d8d6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/metadata-runtime-async.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/metadata-runtime-async.stdout",
+      "bytes": 257,
+      "sha256": "98496487d648100111a53e6bff32cdbb9f7346375f483a3510bb60babc7c1482"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/negative/External.cs",
+      "bytes": 127,
+      "sha256": "4b6bbb1f709415b2590aa7de5ff101fdf9af024c6dc5458c6e8f449c6fd8d635"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/negative/External.csproj",
+      "bytes": 332,
+      "sha256": "c1d5cfe5f70b02c9dd71be5555bfdad6b18b6a2a2ebdf9324b387087766ab21d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/ordinary.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/ordinary.stdout",
+      "bytes": 80,
+      "sha256": "422dd0a8ae4ade3a64dd259bae5662c67e79031e302c3319c752674119d2db09"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/publish-default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/publish-default.stdout",
+      "bytes": 113500,
+      "sha256": "b986e22ae389e7f7a7bb532836cb9f1c317458f16f10e6f76d2d96867ccf0fd8"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/publish-runtime-async.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/publish-runtime-async.stdout",
+      "bytes": 114871,
+      "sha256": "9d18c177d6f918f3142ff7e1d998a622cd6c19dbff6aefb1286625b1c362ca87"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/results.json",
+      "bytes": 10470,
+      "sha256": "b464b72b194807dc3012d05d54f9b4c0ff56d2ed1c5492e87781c9cbc6080c7e"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/sdk-info.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/platform-attempt-3/sdk-info.stdout",
+      "bytes": 3014,
+      "sha256": "94e5b60a498ace7106f6d75f4b09dac7a72087461c9fde392ae95ed76a61a78d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/cargo-version.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/cargo-version.stdout.txt",
+      "bytes": 37,
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/dependency-tree.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/dependency-tree.stdout.txt",
+      "bytes": 10495,
+      "sha256": "7ef3a9506dca1322be629ac0c2b9cc0cfc302035cd60bdbb06453dbe9cc06bb6"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/inputs/protocol/Cargo.lock",
+      "bytes": 39569,
+      "sha256": "0974affb37393e609b85d3b90102a7be7be569510affff1dcd6d7ee20264436c"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/inputs/protocol/Cargo.toml",
+      "bytes": 937,
+      "sha256": "36116de5e455e23813a8f0d6b77408d1503774e5af6a1fa8398804b9f23b341d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/inputs/protocol/src/lib.rs",
+      "bytes": 20525,
+      "sha256": "7083f9ddfb6c2befa5bd614c3a5f69a14b58fce7d85fc35a650590210bc6a8c2"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/mcp-console.txt",
+      "bytes": 461,
+      "sha256": "f8a2fcda1449610c8809e83f3080845ffb50144b312ed37546203873018e6342"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/run.json",
+      "bytes": 2817,
+      "sha256": "84f6d674ca1e553d334e1fc06e639a1a77ff705f99bfc7dafeacf23dbea8b84f"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/rustc-version.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/rustc-version.stdout.txt",
+      "bytes": 196,
+      "sha256": "698f45a67e59874026cab3dd64e006568182c32cd41b91ebee512d8ab10c398d"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/test.stderr.txt",
+      "bytes": 7778,
+      "sha256": "b6cb0ca45c4d630b5462ec240a0fa7ba596f6b2b5cd15e88896782f5727e91ca"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/protocol-attempt-1/test.stdout.txt",
+      "bytes": 1553,
+      "sha256": "e2c72b9186bae6702b50e70a073202f25198d0ec7638dacfe273acbb7c16db72"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/runner-snapshots/database-completion-run.py",
+      "bytes": 3349,
+      "sha256": "511be33e3be404a05126a8eb0ceb18a6a492ef507fe5a25e9985c290a758f968"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/runner-snapshots/engine-completion-run.py",
+      "bytes": 7280,
+      "sha256": "46b3335b4aeb981d132c81d985a8fe74966a8cbc730c3a904a9bd349e147325f"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/runner-snapshots/platform-completion-run.py",
+      "bytes": 5382,
+      "sha256": "c8c746eb8a1b28f453fd573cfbba9c0b1a96bfc7e036bd5855792455e8d5b4fc"
+    },
+    {
+      "repository": "NativeWeave-Design",
+      "path": "verification/local-host/2026-11-14/windows/runner-snapshots/server-completion-run.py",
+      "bytes": 3685,
+      "sha256": "c5820b29c249958fc2a5109bf5f306a71973955825fbd80ca8a8cbe2fa595eac"
+    },
+    {
+      "repository": "Plan",
+      "path": "local-validation-2026-11-14.md",
+      "bytes": 6004,
+      "sha256": "46b1304b96f231c18fb40f247adb72dcaca16c3c7d13503e9ff9771bcab7a4fd"
+    }
+  ],
+  "input_scope_note": "Exact reviewed new bytes. Later Plan gate/index outputs and PR metadata are outside this binding. The review manifest excludes itself to avoid self-reference.",
+  "byte_preservation_attributes_review": "New docs/traceability/.gitattributes covers only this new supplement and its new review directory with -text -whitespace; existing traceability files keep their existing attributes."
+}
