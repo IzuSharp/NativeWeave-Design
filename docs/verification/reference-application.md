@@ -2,7 +2,7 @@
 
 | Item | Value |
 | --- | --- |
-| Contract | C-REFERENCE-001, 0.3.0 |
+| Contract | C-REFERENCE-001, 0.4.0 |
 | Input tasks | R31; cross-cutting R16/R18/R19/R20/R21/R26/R27/R28/R29/R30 |
 | Baseline | Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`; Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5` |
 | Status | Design specification 0.3.0 candidate; product implementation/release acceptance remains in Delivery; acceptance is determined by the matching content hash and independent Review in the registry; five SQLite research-prototype checks have run; C#/Rust code examples are uncompiled, and product/AOT/cross-platform/stress acceptance is unverified |
@@ -208,3 +208,10 @@ TLS/protocol, filesystem durability, long-load or performance test.
 ### Published research CI evidence
 
 The [database CI confirmation](../../verification/database-completion/ci-confirmation.json) binds source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80` and run `43388468172` to actual Windows/Linux metadata/SQLite results (5/5 on each) and Linux PostgreSQL 18.0 results (6/6). Archived inputs/logs were checked byte-for-byte; Windows CRLF inputs remain separately identified. This confirms the finite native research oracles and leaves the specified C# product, TLS, concurrency, long-load and independent design-review obligations distinct.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+Future B21 uses the [exact Database](../api/database.md) and [Server](../api/server.md) APIs and [NuGet consumption](../api/nuget-and-consumption.md) package graph. The minimum path installs only the relevant provider and Server packages, adds ordinary C# Entity/DTO/Handler source, supplies static metadata/JSON and uses precompiled Rust assets without Cargo. The advanced path covers DI ownership, migration version ledger, optimistic conflict, unknown commit, bounded DB/HTTP streams, cancellation propagation and shutdown. Samples and XML/reference must be compiled against packed artifacts; B22 verifies faults/retirement, B23 costs and B24 clean no-Rust deployment/compatibility. The Design consumers demonstrate syntax only and cannot replace this future integrated product application.

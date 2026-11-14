@@ -1,0 +1,989 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "foundation",
+  "baseline": {
+    "dotnet": "11.0.0",
+    "csharp": "15.0"
+  },
+  "support_scope": "Design coverage only; all NativeWeave product implementations remain future Delivery.",
+  "rows": [
+    {
+      "id": "FOUND-01",
+      "feature": "Namespaces and discoverability",
+      "reference_apis": [
+        "System.* namespaces",
+        "Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSourceBuilder",
+        "NativeWeave.Server.NativeServer"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "configuration only"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Namespace import has no runtime cost. Extension calls follow their target method costs.",
+      "limitations": "Package/namespace map is explicit; no global using dependency.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A13",
+        "A24",
+        "B01",
+        "B15"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-02",
+      "feature": "Native-resource owners versus value types",
+      "reference_apis": [
+        "System.IDisposable",
+        "System.IAsyncDisposable",
+        "System.Runtime.InteropServices.SafeHandle"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSession",
+        "NativeWeave.Server.NativeServerApplication",
+        "NativeWeave.Interop.NativeBuffer"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "logical close",
+        "native retirement",
+        "owner release"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "One sealed owner/lease object where needed; no copyable struct owning native storage.",
+      "limitations": "Disposal does not imply physical module unloading.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A03",
+        "A04",
+        "A07",
+        "B04",
+        "B17"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-03",
+      "feature": "Nullability and optional values",
+      "reference_apis": [
+        "Nullable<T>",
+        "NullableAttribute",
+        "NotNullWhenAttribute"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Data.DbValue",
+        "NativeWeave.Database.DataSession"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "typed null encoding",
+        "missing-row policy"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Null bitmap/tag plus typed codecs; no object/dynamic universal payload.",
+      "limitations": "SQL NULL, nullable C# values and no row are separate; exact mappings in Database spec.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B01",
+        "B07",
+        "B12"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-04",
+      "feature": "Generic constraints and static metadata",
+      "reference_apis": [
+        "System.Text.Json.Serialization.Metadata.JsonTypeInfo<T>",
+        "generic type constraints"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Server.Results",
+        "NativeWeave.Database.DataSession"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "static DTO codec",
+        "native entity metadata registration"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Generated delegates/metadata initialized once; bounded per-row materialization.",
+      "limitations": "Only closed known shapes; unsupported shape diagnostic, no reflection fallback.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A10",
+        "A12",
+        "B10",
+        "B12",
+        "B15"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-05",
+      "feature": "Factories and builders",
+      "reference_apis": [
+        "DbDataSource",
+        "HostApplicationBuilder",
+        "WebApplicationBuilder"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSourceBuilder",
+        "NativeWeave.Server.NativeServerBuilder"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "validated configuration snapshot",
+        "engine creation"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Configuration allocation once per owner; no per-request builder.",
+      "limitations": "Builder mutations after Build do not alter running native state.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B01",
+        "B04",
+        "B15",
+        "B17"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-06",
+      "feature": "Options defaults and validation",
+      "reference_apis": [
+        "Microsoft.Extensions.Options.OptionsBuilder<TOptions>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSourceBuilder",
+        "NativeWeave.Server.NativeServerBuilder"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "validate before native admission"
+      ],
+      "support": "limited",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "One options snapshot per owner; validate synchronously where possible.",
+      "limitations": "Async Options validation is not invoked through synchronous snapshot reload; engine reload explicit.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A24",
+        "B04",
+        "B17"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-07",
+      "feature": "DI registrations and ownership",
+      "reference_apis": [
+        "IServiceCollection",
+        "IServiceProvider",
+        "ServiceDescriptor",
+        "IAsyncDisposable"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSourceBuilder",
+        "NativeWeave.Server.NativeServerBuilder"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "one source singleton",
+        "lazy request scope"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "One root provider; request scope only when services requested.",
+      "limitations": "Duplicate registration and provider ownership must be documented; no nested BuildServiceProvider.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A13",
+        "B01",
+        "B15",
+        "B20"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-08",
+      "feature": "Generic Host lifecycle",
+      "reference_apis": [
+        "IHost",
+        "IHostedService",
+        "IHostApplicationLifetime"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerApplication"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "start",
+        "stop",
+        "bounded close",
+        "shutdown completion"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Host adapter owns no extra network runtime.",
+      "limitations": "Standalone server and external Host ownership are distinct; no Kestrel product host.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B15",
+        "B17",
+        "B20"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-09",
+      "feature": "Ordinary asynchronous methods",
+      "reference_apis": [
+        "Task",
+        "Task<T>",
+        "TaskCreationOptions.RunContinuationsAsynchronously"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSession",
+        "NativeWeave.Server.NativeServerApplication"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "start operation",
+        "terminal completion",
+        "native quiescence"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Task/bridge allocation admitted explicitly; pool only after measured proof.",
+      "limitations": "Continuation dispatch avoids unmanaged callback frame/locks.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A07",
+        "A08",
+        "B04",
+        "B17"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-10",
+      "feature": "ValueTask fast paths",
+      "reference_apis": [
+        "ValueTask",
+        "ValueTask<T>",
+        "IValueTaskSource"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.NativeBuffer",
+        "NativeWeave.Server.ServerRequest"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "borrowed/owned fast path where declared"
+      ],
+      "support": "limited",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Can avoid Task allocation on established fast paths; conversion to Task may allocate.",
+      "limitations": "No blanket ValueTask API; single consumption and token/generation hazards explicit.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A04",
+        "A07",
+        "B16"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-11",
+      "feature": "Asynchronous streaming",
+      "reference_apis": [
+        "IAsyncEnumerable<T>",
+        "IAsyncEnumerator<T>",
+        "EnumeratorCancellationAttribute"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSession",
+        "NativeWeave.Server.ServerRequest"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "stream start",
+        "next batch/chunk",
+        "cancel",
+        "drain",
+        "release"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Bounded batches/retained-byte budgets; no implicit full materialization.",
+      "limitations": "Single active MoveNext; enumeration and element lifetime explicitly documented.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A07",
+        "B06",
+        "B16"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-12",
+      "feature": "Cancellation and token races",
+      "reference_apis": [
+        "CancellationToken",
+        "CancellationTokenRegistration",
+        "OperationCanceledException"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSession",
+        "NativeWeave.Server.RequestContext"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "cancel operation",
+        "completion arbitration"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Registration may allocate; dispose registrations only after safe revocation.",
+      "limitations": "Cancellation does not prove zero remote effect or native quiescence.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A06",
+        "A07",
+        "B05",
+        "B20"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-13",
+      "feature": "Timeout and deadline budgets",
+      "reference_apis": [
+        "TimeSpan",
+        "TimeProvider",
+        "Task.WaitAsync"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSourceBuilder",
+        "NativeWeave.Server.NativeServerBuilder"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "admission deadline",
+        "remaining budget propagation"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "One monotonic deadline conversion; no repeated timer reset across layers.",
+      "limitations": "Cancellation and timeout categories stay distinct; no universal Deadline type required.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A08",
+        "B05",
+        "B20"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-14",
+      "feature": "Synchronous APIs",
+      "reference_apis": [
+        "Stream.Read",
+        "DbCommand.ExecuteReader"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.NativeBuffer"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "bounded native synchronous call"
+      ],
+      "support": "limited",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Direct bounded call; no hidden blocking wait on async Rust task.",
+      "limitations": "No sync-over-async Database/Server execution convenience.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A03",
+        "A17"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-15",
+      "feature": "Async disposal and bounded close",
+      "reference_apis": [
+        "IAsyncDisposable.DisposeAsync",
+        "DbConnection.DisposeAsync",
+        "Stream.DisposeAsync"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSession",
+        "NativeWeave.Server.NativeServerApplication"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "logical close",
+        "wait quiescence",
+        "report cleanup"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Wait may retain resources until native obligation ends.",
+      "limitations": "Deadline-expired close reports retained obligations and cannot free reachable buffers.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A03",
+        "A07",
+        "B04",
+        "B17"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-16",
+      "feature": "Borrowed spans",
+      "reference_apis": [
+        "ReadOnlySpan<T>",
+        "Span<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.NativeBuffer"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "synchronous borrow/copy"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "No copy for scoped read where alignment/lifetime proven.",
+      "limitations": "Span cannot escape call or cross await; owner invalidation checked.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A04",
+        "A17"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-17",
+      "feature": "Asynchronous memory",
+      "reference_apis": [
+        "ReadOnlyMemory<T>",
+        "Memory<T>",
+        "MemoryPool<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.NativeBuffer",
+        "NativeWeave.Server.ServerResponse"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "copy or retained lease",
+        "release notification"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Explicit bounded copy/pin/lease contract; original mutable source must stay valid if borrowed.",
+      "limitations": "Zero-copy is not assumed through JSON/TLS/Engine.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A04",
+        "B06",
+        "B16"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-18",
+      "feature": "Stream adapters",
+      "reference_apis": [
+        "System.IO.Stream"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRequest",
+        "NativeWeave.Server.ServerResponse"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "body pull",
+        "body write",
+        "body complete"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Adapter dispatch and native credit crossings; buffering configurable and bounded.",
+      "limitations": "Borrowed request stream cannot outlive handler; no seek assumed.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B16",
+        "B17"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-19",
+      "feature": "Pipelines interoperability",
+      "reference_apis": [
+        "System.IO.Pipelines.PipeReader",
+        "System.IO.Pipelines.PipeWriter"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRequest",
+        "NativeWeave.Server.ServerResponse"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "body lease/credit adapter"
+      ],
+      "support": "planned",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Potential extra managed buffering/AdvanceTo accounting; measured independently.",
+      "limitations": "No stable PipeReader/PipeWriter facade until examined-buffer versus retained-byte semantics implemented.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B16"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-20",
+      "feature": "Expected absence and Try APIs",
+      "reference_apis": [
+        "TryParse",
+        "Dictionary<TKey,TValue>.TryGetValue"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.EngineCatalog",
+        "NativeWeave.Database.DataSession"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "capability lookup",
+        "row cardinality"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "No exceptions for expected absence; no universal Result wrapper.",
+      "limitations": "Provider failure/poison must not be swallowed as absence.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A02",
+        "B01"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-21",
+      "feature": "Errors and native diagnostics",
+      "reference_apis": [
+        "Exception",
+        "ArgumentException",
+        "TimeoutException",
+        "OperationCanceledException"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.NativeEngineException",
+        "NativeWeave.Interop.EngineLoadException"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "status/error copy",
+        "error release",
+        "poison state"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Allocate exception on failure; bounded copied diagnostic text.",
+      "limitations": "No managed exception crosses reverse P/Invoke; abort/OOM not recoverable.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A05",
+        "A02",
+        "B07"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-22",
+      "feature": "Thread safety and reentrancy",
+      "reference_apis": [
+        "Interlocked",
+        "SynchronizationContext",
+        "TaskScheduler"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSession",
+        "NativeWeave.Server.RequestContext",
+        "NativeWeave.Interop.NativeBuffer"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "admission serialization",
+        "callback dispatch",
+        "affinity check"
+      ],
+      "support": "limited",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Serialization only for documented owner state; no blanket global locks.",
+      "limitations": "Sessions/builders/requests not universally concurrent; future UI affinity separate capability.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A03",
+        "A06",
+        "A08",
+        "A23"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-23",
+      "feature": "Logging",
+      "reference_apis": [
+        "ILogger",
+        "LoggerMessageAttribute"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerBuilder"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "diagnostic record bridge"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Static logging templates; disabled path avoids message construction.",
+      "limitations": "No secrets/payload values by default; per-event enabled cost measured.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B20",
+        "A21"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-24",
+      "feature": "Tracing and metrics",
+      "reference_apis": [
+        "ActivitySource",
+        "ActivityContext",
+        "Meter",
+        "Counter<T>",
+        "Histogram<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Server.RequestContext"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "correlation context",
+        "bounded counters"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Optional instrumentation; histogram/cardinality budgets explicit.",
+      "limitations": "Logical retained bytes not RSS; native/kernel/TLS memory measured separately.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B20",
+        "A21",
+        "B23"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-25",
+      "feature": "Configuration reload",
+      "reference_apis": [
+        "IConfiguration",
+        "IOptionsMonitor<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerBuilder"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "configuration snapshot",
+        "explicit reload operations"
+      ],
+      "support": "limited",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Read configuration once by default; explicit reload copies validated state.",
+      "limitations": "Native owner settings do not automatically follow a mutable options object.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B15",
+        "B17",
+        "B20"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-26",
+      "feature": "Native AOT and trimming",
+      "reference_apis": [
+        "LibraryImportAttribute",
+        "UnmanagedCallersOnlyAttribute",
+        "RequiresDynamicCodeAttribute"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.EngineCatalog"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "generated FFI",
+        "rooted static callbacks"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Compile-time generation increases code size; no per-call reflection binder.",
+      "limitations": "Required initial RIDs linux-x64/win-x64; every formal target needs real execution.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "A14",
+        "A15"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-27",
+      "feature": "Source generators and analyzers",
+      "reference_apis": [
+        "IIncrementalGenerator",
+        "DiagnosticAnalyzer",
+        "JsonSerializerContext"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSession",
+        "NativeWeave.Server.Results"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "static descriptors",
+        "static binding table",
+        "static JSON"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Build-time cost; normal Entity/DTO change rebuilds managed code only.",
+      "limitations": "Generator cannot fabricate supported Engine capability or silently fall back to reflection.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A09",
+        "A10",
+        "A12",
+        "B10",
+        "B15"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-28",
+      "feature": "Runtime native loading versus managed plugins",
+      "reference_apis": [
+        "NativeLibrary.Load",
+        "AssemblyLoadContext"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.EngineCatalog",
+        "NativeWeave.Interop.EnginePackage"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "bootstrap compatibility",
+        "module lease"
+      ],
+      "support": "limited",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Load once; module pins retained for safe callback pointers.",
+      "limitations": "New managed executable code is not dynamically loaded into Native AOT; hot replacement/unload unsupported.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A02",
+        "A16",
+        "A22",
+        "A24"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-29",
+      "feature": "API compatibility and deprecation",
+      "reference_apis": [
+        "ObsoleteAttribute",
+        "Microsoft.DotNet.ApiCompat.Tool",
+        "EnablePackageValidation"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.EngineInfo"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "managed/native version compatibility check"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Build/release-time diff, runtime constant-time ABI prefix checks.",
+      "limitations": "Semantic/default/overload compatibility needs review beyond binary diff.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A22",
+        "B24"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-30",
+      "feature": "XML documentation and API Reference",
+      "reference_apis": [
+        "DocumentationCommentId",
+        "GenerateDocumentationFile",
+        "DocFX metadata"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Interop.NativeEngineException",
+        "NativeWeave.Database.DataSession",
+        "NativeWeave.Server.NativeServer"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "documentation-only"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Build-time generation only.",
+      "limitations": "Design stubs are not released API docs; product XML generated from actual assemblies.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A13",
+        "A22",
+        "A24",
+        "B24"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-31",
+      "feature": "Ordinary build and NuGet consumption",
+      "reference_apis": [
+        "dotnet build",
+        "dotnet run",
+        "dotnet publish",
+        "runtime-specific native assets"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [
+        "NativeWeave.Database.DataSourceBuilder",
+        "NativeWeave.Server.NativeServer"
+      ],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [
+        "asset resolve",
+        "bootstrap",
+        "owner create"
+      ],
+      "support": "equivalent",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Native assets contribute package/download/disk size; engines loaded on demand.",
+      "limitations": "User needs target AOT toolchain prerequisites, not Rust; pristine consumption remains future product gate.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A13",
+        "A14",
+        "A15",
+        "A16",
+        "B24"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-32",
+      "feature": "Dynamic expression compilation",
+      "reference_apis": [
+        "Expression<TDelegate>.Compile",
+        "IQueryable<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "Avoid managed SQL AST/provider and runtime compiler/reflection cost.",
+      "limitations": "Typed Fluent plus bounded native expression descriptors; arbitrary LINQ/provider translation is out of scope.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "B09",
+        "B10",
+        "B13"
+      ],
+      "product_implemented": false
+    },
+    {
+      "id": "FOUND-33",
+      "feature": "Preview language features",
+      "reference_apis": [
+        "C# language version selection",
+        "updated memory-safety preview"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0",
+      "public_api": [],
+      "rust_engine": "Domain Engine where applicable; none for pure managed configuration/documentation",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Static ordinary C# and closed generics; no runtime code generation.",
+      "cost": "No mandatory preview dependency.",
+      "limitations": "Stable C#15 is pinned; any future preview experiment remains isolated and labeled.",
+      "specification": "docs/standards/csharp-public-api-and-documentation.md",
+      "tasks": [
+        "A10",
+        "A12",
+        "A13"
+      ],
+      "product_implemented": false
+    }
+  ]
+}

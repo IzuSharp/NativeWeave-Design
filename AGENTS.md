@@ -12,3 +12,14 @@ This repository preserves research, proposed specifications, accepted specificat
 8. Do not modify LICENSE, repository permissions, or protection rules. Proceed with branches and PRs under the existing authorization. On 2026-11-12, the user permitted Design PR5/Plan PR2 to merge after rigorous self-review and actual checks when no independent reviewer was available; the absence of independent review must be recorded and subsequent review retained. This exception does not change mandatory GitHub rules or automatically accept proposed product contracts. CURRENT-PHASE.md governs the current phase: advance only research, actual experiments, detailed design, and future Codex planning; do not execute formal Delivery or write NativeWeave product source code.
 9. Do not record credentials, private user data, or unrelated environment variables in published evidence. Benchmark parameters and anonymized environment descriptions should be sufficient for reproduction.
 10. Record defects with a finding ID, impact, evidence, and disposition; a promise to fix something later cannot close a blocker to formal acceptance.
+
+## Mandatory C# public API and documentation standard
+
+Read [the versioned standard](docs/standards/csharp-public-api-and-documentation.md) and [the complete API specification](docs/api/README.md) for every new or changed public API, native mapping, generator output or documented behavior.
+
+1. Research the relevant current stable .NET/C# public API families and actual fixed source; never confuse Preview or upstream capability with NativeWeave product support.
+2. Provide complete exact C# signatures, natural minimum/advanced consumers, nullability/defaults, ownership/lifetime, async/cancellation, errors, concurrency, capabilities and cost. Map the public member through managed adapter, C ABI, Rust adapter and actual Engine operation.
+3. Keep SQL/network/domain execution in Rust and Core minimal; ordinary Entity/DTO/Handler additions must reuse precompiled native assets with normal dotnet build/run/publish.
+4. The implementing task owns XML documentation, generated API Reference, guides, examples, compatibility and the required compilation/AOT/consumer checks. Record justified applicability for internal-only work; do not add unreviewed public scaffolding.
+5. Independently review API completeness, usability, correctness, allocation/copy cost, compatibility and documentation. Preserve historical accepted inputs and bind materially changed content to fresh review and hashes.
+6. New Engines and independent repositories must actually adopt the versioned standard and install its checks using the Design templates; AGENTS.md is not inherited across repositories. Product adoption is a future A13/A22/A24 obligation, not permission to write product code in this phase.

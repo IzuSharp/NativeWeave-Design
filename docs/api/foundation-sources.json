@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0.0",
+  "observed_at_utc": "2026-11-14T10:18:24.657390+00:00",
+  "domain": "foundation",
+  "stable_baseline": {
+    "sdk": "11.0.100",
+    "runtime": "11.0.0",
+    "csharp": "15.0",
+    "rust": "1.100.0",
+    "preview_required": false
+  },
+  "official_releases": [
+    {
+      "url": "https://dotnet.microsoft.com/en-us/download/dotnet/11.0",
+      "observation": "Stable SDK11.0.100/runtime11.0.0 released2026-11-10; C#15 included."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+      "observation": "net11.0 defaults to C#15; language15.0 not preview."
+    },
+    {
+      "url": "https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/",
+      "observation": "Stable1.100.0 released2026-11-12; earlier exact experiments reused."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/fundamentals/package-validation/overview",
+      "observation": "Baseline/framework/runtime package validation used as future release gate."
+    },
+    {
+      "url": "https://dotnet.github.io/docfx/docs/dotnet-api-docs.html",
+      "observation": "Assembly/XML metadata stage and HTML build stage; no executed DocFX claim."
+    }
+  ],
+  "sources": [
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "source_commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "bytes": 396178,
+      "sha256": "10a7544d61bd627e50313e864f4007b0f68311374e3d7fad08c746a86c69f70e",
+      "read_ranges": [
+        [
+          2590,
+          2635
+        ],
+        [
+          3610,
+          3655
+        ],
+        [
+          5640,
+          5685
+        ]
+      ],
+      "read_state": "source_inspected_selected_ranges",
+      "application": "Task await/configuration, asynchronous continuations, canceled task token precondition; preserve accepted bridge rather than pool by default.",
+      "coverage_limit": "Only the listed ranges were inspected; no complete repository inspection or upstream execution is claimed."
+    },
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
+      "source_commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
+      "bytes": 39568,
+      "sha256": "41fba7ab6350a0a24a5025a456d0b213a0a2be5e1035a08d9fe02132927e3fc1",
+      "read_ranges": [
+        [
+          1,
+          155
+        ]
+      ],
+      "read_state": "source_inspected_selected_ranges",
+      "application": "Single consumption and reusable source hazards; inherited fast paths only, no blanket Task replacement.",
+      "coverage_limit": "Only the listed ranges were inspected; no complete repository inspection or upstream execution is claimed."
+    },
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/Collections/Generic/IAsyncEnumerable.cs",
+      "source_commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/IAsyncEnumerable.cs",
+      "bytes": 958,
+      "sha256": "5fba109dbe6930ce5ce9ba973ce8d2ddfe1e4d18f31229c7d2917197aafe7134",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "read_state": "source_inspected_selected_ranges",
+      "application": "Enumerator cancellation parameter; bounded row/body streaming and owned element semantics.",
+      "coverage_limit": "Only the listed ranges were inspected; no complete repository inspection or upstream execution is claimed."
+    },
+    {
+      "path": "src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceCollectionServiceExtensions.cs",
+      "source_commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceCollectionServiceExtensions.cs",
+      "bytes": 38627,
+      "sha256": "d8723a24ce14b4718608cacea0d88097d3bfd31d971b811529df07d09a9b0d85",
+      "read_ranges": [
+        [
+          430,
+          555
+        ]
+      ],
+      "read_state": "source_inspected_selected_ranges",
+      "application": "Factory-based singleton registration, repeated registration and trimming annotations; one owner and predictable duplicate policy.",
+      "coverage_limit": "Only the listed ranges were inspected; no complete repository inspection or upstream execution is claimed."
+    },
+    {
+      "path": "src/libraries/Microsoft.Extensions.Options/src/OptionsBuilder.cs",
+      "source_commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/Microsoft.Extensions.Options/src/OptionsBuilder.cs",
+      "bytes": 54794,
+      "sha256": "611d595781840b1bc994eed34aad5f6d73394d77fae928d0b38479c8cb43a80a",
+      "read_ranges": [
+        [
+          30,
+          80
+        ],
+        [
+          590,
+          635
+        ]
+      ],
+      "read_state": "source_inspected_selected_ranges",
+      "application": "Configure registration and asynchronous validation boundaries; NativeWeave snapshots configuration and does not invent hot reload for native state.",
+      "coverage_limit": "Only the listed ranges were inspected; no complete repository inspection or upstream execution is claimed."
+    },
+    {
+      "path": "src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/HostingAbstractionsHostBuilderExtensions.cs",
+      "source_commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/HostingAbstractionsHostBuilderExtensions.cs",
+      "bytes": 1507,
+      "sha256": "b0abd62d44ae5514b0c8bc0726a1a8f6eb427b95532d2bd59ce9a517611c0a02",
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "read_state": "source_inspected_selected_ranges",
+      "application": "Host StartAsync task/cancellation pattern and synchronous wrapper; NativeWeave avoids native sync-over-async.",
+      "coverage_limit": "Only the listed ranges were inspected; no complete repository inspection or upstream execution is claimed."
+    },
+    {
+      "path": "docs/coding-guidelines/breaking-change-rules.md",
+      "source_commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/docs/coding-guidelines/breaking-change-rules.md",
+      "bytes": 15671,
+      "sha256": "017899a5b8401f08c7d9ccfdc391ddac2017e12921dfb552f569023747019996",
+      "read_ranges": [
+        [
+          1,
+          90
+        ],
+        [
+          128,
+          285
+        ]
+      ],
+      "read_state": "source_inspected_selected_ranges",
+      "application": "Behavior, exception, default, type/member/parameter/source/binary compatibility rules.",
+      "coverage_limit": "Only the listed ranges were inspected; no complete repository inspection or upstream execution is claimed."
+    }
+  ],
+  "upstream_tests_executed": false,
+  "native_product_implemented": false
+}

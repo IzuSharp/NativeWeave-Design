@@ -1,6 +1,6 @@
 # D21 — Future native engines, affinity and mobile platform boundaries
 
-Contract C-EXTENSION-001. Design revision **0.3.0 design candidate**. Acceptance is recorded by the registry
+Contract C-EXTENSION-001. Design revision **0.4.0 design candidate**. Acceptance is recorded by the registry
 against exact content and independent review; this document does not authorize product
 implementation. Inputs R18, R32, R33; cross-contract D01–D12. GPU, GPUI, NSH, media,
 SIMD and mobile UI are future domain integrations, not dependencies of Database/Server.
@@ -130,3 +130,10 @@ requests, module unload prevention and real platform AOT/installation execution.
 No current Windows/Linux task waits on an unimplemented mobile/GPU product. This
 contract can be accepted as an extension design after R18/R32/R33 and independent
 review, while future device/product evidence remains a release obligation.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+Every future GPU/GPUI/NSH/media/SIMD/mobile module explicitly adopts the [versioned C# API/documentation standard](../standards/csharp-public-api-and-documentation.md) using [the adoption templates](../../templates/public-api/). It must inspect relevant stable .NET APIs, design a complete convenient C# surface, map actual native operations, state affinity/ownership/AOT/platform/cost and maintain XML/reference/examples/compatibility in its owning tasks. The templates create no generic execution runtime and promise no current GUI/GPU/mobile product API. The new repository must install or pin the rules in its own AGENTS/build/CI; it does not inherit this repository implicitly. A23/A24 and A22 own conformance/adoption/upgrade rules.

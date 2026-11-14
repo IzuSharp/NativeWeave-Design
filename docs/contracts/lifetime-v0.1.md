@@ -1,6 +1,6 @@
 # C-LIFETIME-001: Ownership, resource leases and reclamation protocol
 
-Version: 0.3.0. Task: D04; research: completion evidence for R07–R12 and R15/R16. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This file selects the v1 protocol; the research slice has explicit evidence of actual concurrency and Windows/Linux Native AOT execution, while full product implementation/platform/production acceptance is recorded separately. Only the integrator updates the registry after independent review; the author does not self-accept it.
+Version: 0.4.0. Task: D04; research: completion evidence for R07–R12 and R15/R16. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This file selects the v1 protocol; the research slice has explicit evidence of actual concurrency and Windows/Linux Native AOT execution, while full product implementation/platform/production acceptance is recorded separately. Only the integrator updates the registry after independent review; the author does not self-accept it.
 
 ## 1. Goals and non-goals
 
@@ -158,3 +158,10 @@ R07 now provides a complete research decision and scope; the unselected Qt/Pytho
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+Public resource owners are sealed reference types; value structs never own disposable native allocations. NativeBuffer exposes a scoped synchronous read or explicit copy, not an escaping raw pointer. Domain CloseAsync returns an explicit cleanup observation; pending cleanup is not memory reclamation. DisposeAsync follows the existing quiescence protocol even when the caller stopped waiting. Domain descriptions must identify whether children pin a parent and which calls reject immediately after logical close. A03/A04 and each owner task implement the exact [Interop](../api/interop.md), [Database](../api/database.md) and [Server](../api/server.md) signatures, XML lifetime notes and early-disposal consumers.

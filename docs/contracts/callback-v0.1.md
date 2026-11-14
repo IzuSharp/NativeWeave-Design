@@ -1,6 +1,6 @@
 # C-CALLBACK-001: Registration, callback admission, revocation and quiescence
 
-Version: 0.3.0; D05 / R08, R07, R09. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This protocol defines the recommended v1 design; code examples are uncompiled design skeletons. Implementation, AOT and cross-platform evidence undergo separate acceptance.
+Version: 0.4.0; D05 / R08, R07, R09. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This protocol defines the recommended v1 design; code examples are uncompiled design skeletons. Implementation, AOT and cross-platform evidence undergo separate acceptance.
 
 ## 1. Problems to solve
 
@@ -180,3 +180,10 @@ The notification mailbox's dirty and scheduled states must be modified in the sa
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+Ordinary application handlers are managed delegates bound through statically generated domain adapters. Public APIs do not expose GCHandle tokens or require user-supplied unmanaged function pointers. The maintainer SPI cannot revoke a callback by disposing its managed owner while native ingress or accepted callback work remains. Domain operation catalogs bind stable request/operation identifiers, terminal and quiescence notifications, and exact copy/borrow boundaries. A06/A10/A12/B15/B17 must test synchronous completion/reentry and document callback exception conversion; user continuations run outside raw FFI frames.

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "observed_at_utc": "2026-11-14T10:18:24.657390+00:00",
+  "repositories": [
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "observed_main": "a0f6bca1f55ddf456fe931886da8be19e94a1413"
+    },
+    {
+      "repository": "IzuSharp/Plan",
+      "observed_main": "352bd56dad9804dab1b3de358c404987c26f3e4f"
+    },
+    {
+      "repository": "IzuSharp/NativeWeave",
+      "observed_main": "658ed6a410783de356a7b9b2cd6601336fff5148"
+    }
+  ],
+  "scope": "Latest remote HEAD verified with git ls-remote before changes. Product read-only clone contains LICENSE only.",
+  "product_implementation_authorized": false
+}

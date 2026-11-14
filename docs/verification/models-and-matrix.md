@@ -1,6 +1,6 @@
 # D12 — Proof obligations, experiments and implementation acceptance
 
-Contract **C-VERIFY-001@0.3.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Inputs R15/R16/R34 and the actual per-domain evidence. This specification defines how future A19/A20/A21/B22/B23 evidence is produced; it is not a claim that NativeWeave product tests have run.
+Contract **C-VERIFY-001@0.4.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Inputs R15/R16/R34 and the actual per-domain evidence. This specification defines how future A19/A20/A21/B22/B23 evidence is produced; it is not a claim that NativeWeave product tests have run.
 
 ## 1. Two acceptance scopes
 
@@ -93,3 +93,10 @@ The concrete current evidence is indexed in `verification/interop-completion/`; 
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+Add public-interface verification to the existing matrix: stable SDK11.0.100/C#15 declaration compilation; exact compiler symbol inventory; positive minimum/advanced consumers; intended negative overload/generic/nullability cases; source-generator output compilation; Native AOT publish and actual fixture execution with explicit rooted scope; coverage-to-native-operation/task checks; generated documentation/reference consistency; and managed API compatibility deltas. Design stubs cannot establish Database/HTTP behavior or pristine NuGet consumption. A13/A22/A24 own shared checks; each module owns its symbols/examples; A16/B24 own actual product package consumers. Require independent user-experience review and final exact-content recheck. Historical raw evidence and translation gates remain checked at their original commits, with new versions receiving separate binding.
