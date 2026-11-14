@@ -1,12 +1,12 @@
-# C-ASYNC-001：异步操作、取消、结果与退休
+# C-ASYNC-001: Asynchronous operations, cancellation, results and retirement
 
-版本：0.3.0；D06 / R09、R08、R07。作者：interop_design。状态：**研究/设计候选已完成；registry记录精确审查版本、内容hash与接受状态；产品验证保留在Delivery阶段**。本文件作出v1实现选择，保留真实语言、AOT与生产验证义务。源码证据见[R09报告](../research/topics/R09/report.md)。
+Version: 0.3.0; D06 / R09, R08, R07. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This file makes the v1 implementation choices while retaining actual-language, AOT and production-verification obligations. See [the R09 report](../research/topics/R09/report.md) for source evidence.
 
-## 1. 公共编程模型与范围
+## 1. Public programming model and scope
 
-普通I/O与长期native操作向应用返回`Task<T>`，接受`CancellationToken`，可以自然await和组合。同步引擎提供直接同步方法；不把同步工作强制包装为Task.Run。流式结果使用领域定义的有界`IAsyncEnumerable<T>`或Stream，由相应driver/server契约规定提前退出。
+Ordinary I/O and long-running native operations return `Task<T>` to applications, accept `CancellationToken`, and support natural await and composition. Synchronous engines provide direct synchronous methods; synchronous work is not forcibly wrapped in Task.Run. Streaming results use domain-defined bounded `IAsyncEnumerable<T>` or Stream, with early-exit behavior specified by the corresponding driver/server contract.
 
-v1不池化`IValueTaskSource`或callback context。`ValueTask`只用于已有明确同步完成热路径及单次消费约束的API；采用前需证明收益并通过token/generation、迟到通知、重复await等测试。C#15新类型机制可以减少样板，但不能据语法断言无装箱或零分配。
+v1 does not pool `IValueTaskSource` or callback contexts. `ValueTask` is used only for APIs with an established synchronous-completion hot path and a single-consumption constraint; adoption requires demonstrated benefits and passing tests for tokens/generations, late notifications, repeated await and related cases. New C#15 type mechanisms can reduce boilerplate, but syntax alone cannot establish no boxing or zero allocation.
 
 ```csharp
 // Public API illustration; not yet compiled.
@@ -18,24 +18,24 @@ using OwnedResult result = await engine.ExecuteAsync(input, cancellationToken);
 await result.CopyToAsync(destinationStream, cancellationToken);
 ```
 
-取消后的操作可能仍等待native合作完成。数据库持久化效果另由领域结果表达，不能从Task状态推导提交/回滚。
+A canceled operation may still be waiting for native cooperation to complete. Durable database effects are expressed separately through domain results; commit/rollback cannot be inferred from Task status.
 
-OwnedResult按D07提供安全copy/read操作；上例不授予任意native-backed Memory的长期借用。具体结果若需要异步释放则实现IAsyncDisposable并使用await using，其拥有权、lease和预算由领域类型明确。
+OwnedResult provides safe copy/read operations under D07; the example does not grant long-term borrowing of arbitrary native-backed Memory. A concrete result requiring asynchronous release implements IAsyncDisposable and uses await using, with its ownership, leases and budgets specified by the domain type.
 
-## 2. 关键决定
+## 2. Key decisions
 
-| 议题 | v1选择 | 理由与成本 |
+| Issue | v1 choice | Rationale and cost |
 | --- | --- | --- |
-| 创建与开始 | create与start分开；先获得操作身份并初始化managed context | 处理同步完成与同步取消注册；增加一次FFI |
-| 结果完成权 | accepted操作由native唯一终态通知决定；cancel只请求停止 | 避免把请求取消伪装为native已停止或事务未发生 |
-| managed结果容器 | TaskCompletionSource<T>，RunContinuationsAsynchronously | 多await自然；不在外来线程内联应用continuation；每操作有分配 |
-| 结果所有权 | terminal通知只复制固定状态，结果通过一次typed take取得 | 明确转移时点；额外一次FFI与managed协调 |
-| 资源回收 | native try_retire + managed setup/cancel/control/callback屏障 | Task结果与资源生命周期可独立观测 |
-| 性能优化 | 同步快路径、批处理优先；暂不context/ValueTaskSource池化 | 减少ABA、复用与版本负担；以后凭端到端证据引入 |
+| Creation and start | Separate create from start; first obtain the operation identity and initialize managed context | Handles synchronous completion and synchronous cancellation registration; adds one FFI call |
+| Authority to complete the result | The sole native terminal notification decides the outcome of an accepted operation; cancel only requests stop | Avoids representing a cancellation request as native execution having stopped or a transaction not having occurred |
+| managed result container | TaskCompletionSource<T>, RunContinuationsAsynchronously | Natural multiple-await support; application continuations do not run inline on foreign threads; per-operation allocations |
+| Result ownership | Terminal notification copies only fixed status; result is obtained through one typed take | Explicit transfer point; one additional FFI call and managed coordination |
+| Resource reclamation | native try_retire + managed setup/cancel/control/callback barriers | Task result and resource lifetime are independently observable |
+| Performance optimization | Prioritize synchronous fast paths and batching; no context/ValueTaskSource pooling for now | Reduces ABA, reuse and versioning burdens; introduce later based on end-to-end evidence |
 
-## 3. 互操作形状
+## 3. Interop shape
 
-所有名称由生成器加Engine前缀；本文件的公共状态值由[D08](error-v0.1.md)定义，表布局与调用约定由D02定义，Buffer遵从D07。
+The generator adds Engine prefixes to all names; [D08](error-v0.1.md) defines this file's public status values, D02 defines table layout and calling conventions, and buffers follow D07.
 
 ```c
 typedef struct nw_operation nw_operation;
@@ -62,11 +62,11 @@ uint32_t NW_CDECL nw_operation_try_retire(nw_operation *);
 void NW_CDECL nw_operation_release(nw_operation *);
 ```
 
-`nw_parameters_v1`和`nw_result_v1`是各操作的生成typed结构，不是统一动态对象或通用variant。参数所有权在ABI描述中逐字段指定。create可以复制参数或取得明确owner lease，但在失败时必须回滚已取得的拥有权，out_operation为null。
+`nw_parameters_v1` and `nw_result_v1` are generated typed structures for each operation, not a unified dynamic object or generic variant. Parameter ownership is specified field by field in the ABI description. create may copy parameters or acquire an explicit owner lease, but on failure it must roll back acquired ownership and leave out_operation null.
 
-`borrowed_error`为可选固定记录，回调入口在返回前复制；不得缓存其指针。native在终态发布前冻结结果及错误记录，release/acquire同步由Engine实现。callback不携带任意拥有result，避免“已adopt但callback最后返回失败”产生双重责任。
+`borrowed_error` is an optional fixed record that the callback entry point copies before returning; its pointer must not be cached. Native code freezes the result and error record before terminal publication, with release/acquire synchronization implemented by the Engine. The callback carries no arbitrary owned result, avoiding conflicting responsibilities when “the result has been adopted but the callback ultimately returns failure.”
 
-## 4. native操作状态机
+## 4. Native operation state machine
 
 ```mermaid
 stateDiagram-v2
@@ -78,139 +78,139 @@ stateDiagram-v2
     Retired --> Released: owner release
 ```
 
-cancel_requested是正交标志，可在Created、Running或TerminalReady出现；它不单独产生Task终态。失败的start保持Created且没有回调/工作留存；一旦start提交，任何随后业务失败走TerminalReady而不能再把start报告为未接管。
+cancel_requested is an orthogonal flag that may occur in Created, Running or TerminalReady; it does not independently produce a terminal Task state. A failed start leaves the operation Created without retained callbacks/work; once start commits, every subsequent business failure goes through TerminalReady, and start cannot subsequently report that responsibility was not accepted.
 
-native job与callback都持有内部state引用。terminal提交一次：冻结结果、记录状态、排队或同步调用on_terminal。等待callback返回和其他访问该cookie/输入的work结束后，try_retire才能成功。native不能在持有回调或take_result需要的锁时调用managed。
+Native jobs and callbacks both hold internal state references. Terminal state commits once: freeze the result, record status, and queue or synchronously invoke on_terminal. try_retire can succeed only after the callback returns and other work accessing that cookie/input ends. Native code must not call managed code while holding locks needed by the callback or take_result.
 
-## 5. managed三个独立维度
+## 5. Three independent managed dimensions
 
-| 维度 | 状态 | 含义 |
+| Dimension | States | Meaning |
 | --- | --- | --- |
-| setup | Allocated / Registering / Starting / Settled | Settled带StartSkipped、StartRejected或StartAcceptedReturned；注册另带Registered或NoRegistration哨兵，不能等待从未开始的步骤 |
-| application result | Pending / Succeeded / Faulted / Canceled | TCS唯一发布，不代表所有内存已回收 |
-| cleanup | NotRequested / Closing / CancelDrained / NativeRetired / Reclaimed | 真正关闭的可观察进度 |
+| setup | Allocated / Registering / Starting / Settled | Settled carries StartSkipped, StartRejected or StartAcceptedReturned; registration separately carries a Registered or NoRegistration sentinel, without waiting for steps that never began |
+| application result | Pending / Succeeded / Faulted / Canceled | Single TCS publication; does not mean all memory has been reclaimed |
+| cleanup | NotRequested / Closing / CancelDrained / NativeRetired / Reclaimed | Observable progress of actual closure |
 
-每个操作有固定context、setup lease、control-call计数、native-callback计数和一项cleanup队列成员身份。计数的获取与Closing检查必须原子；不得用“读bool，再++”作为并发实现。外部业务/取消准入与协调器独占的lifetime capability分开：Closing拒绝新的普通调用，协调器仍可为已有操作执行take_result、try_retire和release。该内部能力不能逃逸给应用或被其他线程绕过准入使用，其每次native调用仍受owner保护并记入在途计数。
+Each operation has a fixed context, setup lease, control-call count, native-callback count and one cleanup-queue membership. Counter acquisition and the Closing check must be atomic; “read bool, then ++” is not a concurrent implementation. External business/cancellation admission is separate from the coordinator's exclusive lifetime capability: Closing rejects new ordinary calls, while the coordinator may still perform take_result, try_retire and release for existing operations. This internal capability must not escape to applications or be used by other threads to bypass admission; each of its native calls is still owner-protected and counted as in flight.
 
-## 6. 启动算法及失败补偿
+## 6. Start algorithm and failure compensation
 
-1. 参数检查；已取消token可直接返回Task.FromCanceled，不创建native操作。同步参数异常与异步操作失败在API文档中区分。在native接管前预留operation、in-flight bytes和完成/清理slot配额；容量不足按领域策略立即拒绝，或先进入同样有界且尚未持有大payload的准入等待。
-2. 获取Engine准入/调用lease，调用create。成功后立即把拥有指针放入预分配的SafeHandle；创建失败不分配callback cookie并归还预算。
-3. 创建并完全初始化context、TCS、结果/错误状态、计数和Normal GCHandle。此阶段失败须释放所有已取得资源；setup lease保护尚未发布的状态。
-4. 设置Registering，然后`token.UnsafeRegister(static state => state.RequestCancel(), context)`。回调可能在此调用返回前同步运行，必须只访问已经初始化的context。它可设置cancel_requested，并在取得control-call lease后调用允许Created状态的native request_cancel。
-5. 赋值CancellationTokenRegistration并发布registration_ready。若取消已被观察且尚未调用start，可放弃start，记录本地Canceled；没有native业务被接受。否则进入Starting并持有start调用lease。
-6. 调用start。同步on_terminal合法；它只登记终态并通知managed完成协调器，不能释放setup/start拥有权。
-7. start返回OK表示已接管；非OK必须意味着完全未接管且没有callback。失败时发布相应Faulted并安排未启动清理。finally标记StartReturned、归还start/setup lease，并唤醒协调器。
+1. Validate arguments; an already-canceled token may directly return Task.FromCanceled without creating a native operation. API documentation distinguishes synchronous argument exceptions from asynchronous operation failures. Before native code accepts responsibility, reserve operation, in-flight-byte and completion/cleanup-slot quotas; if capacity is insufficient, reject immediately according to domain policy, or first enter admission waiting that is also bounded and does not yet retain a large payload.
+2. Acquire Engine admission/a call lease and invoke create. On success, immediately place the owned pointer into a preallocated SafeHandle; creation failure does not allocate a callback cookie and returns the budget.
+3. Create and fully initialize the context, TCS, result/error state, counters and Normal GCHandle. Failure at this stage must release all acquired resources; the setup lease protects state that has not yet been published.
+4. Set Registering, then call `token.UnsafeRegister(static state => state.RequestCancel(), context)`. The callback may run synchronously before this call returns and must access only the already-initialized context. It may set cancel_requested and, after acquiring a control-call lease, invoke native request_cancel, which permits Created state.
+5. Assign CancellationTokenRegistration and publish registration_ready. If cancellation has been observed and start has not yet been called, start may be skipped and local Canceled recorded; no native business operation was accepted. Otherwise enter Starting and hold a start-call lease.
+6. Call start. Synchronous on_terminal is legal; it only records terminal state and notifies the managed completion coordinator, without releasing setup/start ownership.
+7. start returning OK means responsibility was accepted; non-OK must mean no responsibility was accepted and no callback occurred. On failure, publish the corresponding Faulted result and schedule never-started cleanup. In finally, mark StartReturned, return start/setup leases and wake the coordinator.
 
-注册失败、GCHandle分配失败、native create/start拒绝等逐个有补偿路径；不得让“catch里再调用可能抛出的方法”破坏最终释放。native若已回调却返回start失败，记为CONTRACT_VIOLATION并隔离该Engine，不执行可能双free的未接管清理。
+Registration failure, GCHandle allocation failure, native create/start rejection and other failures each have compensation paths; “calling another potentially throwing method inside catch” must not defeat final release. If native code has already called back but returns start failure, record CONTRACT_VIOLATION and isolate that Engine; do not execute the ownership-not-transferred cleanup path, which could double-free.
 
-setup由单一执行者持有setup lease，所有正常、取消和可补偿失败出口都经过同一finally发布**不会再进行后续setup**的Settled状态。`registration_ready`表示已发布真实registration，或已发布NoRegistration且永不再注册；`start_settled`表示已发布StartSkipped（从未进入native）、StartRejected（已返回且未接管）或StartAcceptedReturned（已返回且接管）。清理检查这些明确结果，不要求每条失败路径都真的调用Register/start。Closing与setup推进在同一协议下协调，不能先按NoRegistration清理，随后setup又创建注册。
+A single setup executor holds the setup lease, and every normal, cancellation and compensable-failure exit passes through the same finally to publish a Settled state meaning **no further setup will occur**. `registration_ready` means a real registration has been published, or NoRegistration has been published and registration will never occur; `start_settled` means StartSkipped (native code was never entered), StartRejected (returned without accepting responsibility) or StartAcceptedReturned (returned after accepting responsibility) has been published. Cleanup checks these explicit outcomes without requiring every failure path to actually call Register/start. Closing and setup progress are coordinated under the same protocol; cleanup must not assume NoRegistration and then allow setup to create a registration afterward.
 
-| 失败/取消位置 | 已拥有的资源 | 必须发布/执行的补偿 |
+| Failure/cancellation location | Resources already owned | Required publication/compensation |
 | --- | --- | --- |
-| 预算、参数、create前失败 | 尚无native/context，可能只有预算 | 同步归还预算/输入临时副本；不启动通用cleanup |
-| create失败 | out_operation=null | callee回滚其部分分配，caller归还预算；无callback cookie |
-| create成功，但context/TCS/GCHandle准备未完整发布 | Created native owner和部分managed资源；没有注册/start | 直接按初始化日志逐项回滚；release Created owner，free仅已实际分配的cookie；不得等待context的未建立promise |
-| context完整，确定未进入Register便放弃 | context与Created owner | 发布NoRegistration、StartSkipped及本地失败/取消；NoRegistration视为已drained |
-| Register在可证明未安装callback的阶段失败 | context、Created owner | 发布NoRegistration与StartSkipped；同上清理；该“未安装”必须由所选运行时实现/契约验证 |
-| Register成功后观察预取消、关闭或其他setup失败 | 真实registration、context与Created owner | 发布Registered与StartSkipped，外部DisposeAsync排空registration，再释放Created owner |
-| start返回拒绝 | registration、context；native保证无义务 | 发布StartRejected；Faulted并走外部registration drain与Created release |
-| start返回OK，含同步terminal | registration、native accepted义务 | 发布StartAcceptedReturned；按终态/retire协议清理，不按失败初始化回滚 |
-| 无法判定Register是否留存callback，或start是否接管 | 可能有未知义务 | 记录Indeterminate/CONTRACT_VIOLATION并隔离，保留owner与预算；不能伪造NoRegistration/StartSkipped或cleanup成功 |
+| Budget, argument or pre-create failure | No native/context yet; possibly budget only | Synchronously return budgets/temporary input copies; do not start generic cleanup |
+| create failure | out_operation=null | Callee rolls back its partial allocations; caller returns budgets; no callback cookie |
+| create succeeded but context/TCS/GCHandle preparation is not fully published | Created native owner and partial managed resources; no registration/start | Roll back directly item by item using the initialization log; release the Created owner, free only an actually allocated cookie; do not wait for context promises that were never established |
+| Context complete; abandon with certainty before entering Register | Context and Created owner | Publish NoRegistration, StartSkipped and local failure/cancellation; NoRegistration counts as drained |
+| Register fails at a stage provably before callback installation | Context, Created owner | Publish NoRegistration and StartSkipped; clean up as above; “not installed” must be verified against the selected runtime implementation/contract |
+| Pre-cancellation, closure or another setup failure observed after Register succeeds | Real registration, context and Created owner | Publish Registered and StartSkipped; externally drain registration with DisposeAsync, then release the Created owner |
+| start returns rejection | Registration, context; native code guarantees no obligations | Publish StartRejected; publish Faulted and follow external registration drain and Created release |
+| start returns OK, including synchronous terminal notification | Registration and native accepted obligations | Publish StartAcceptedReturned; clean up through the terminal/retire protocol, not failed-initialization rollback |
+| Cannot determine whether Register retained a callback or start accepted responsibility | Potentially unknown obligations | Record Indeterminate/CONTRACT_VIOLATION and isolate, retaining owner and budgets; do not fabricate NoRegistration/StartSkipped or cleanup success |
 
-内部CancellationToken delegate为无用户代码、无分配依赖的受控入口，普通异常必须在其内部锁存，不允许异常从delegate逃出令UnsafeRegister的同步调用变成不明接管。运行时致命异常仍遵循D08。初始化日志、状态哨兵和最终发布本身须在真实故障注入中验证；本轮有限模型包含skip-start，但不包含所有分配/注册失败分支。
+The internal CancellationToken delegate is a controlled entry point with no user code or allocation dependency; ordinary exceptions must be latched internally and must not escape the delegate, making UnsafeRegister's synchronous invocation indeterminate as to responsibility. Fatal runtime exceptions still follow D08. The initialization log, state sentinels and final publication themselves require verification through actual fault injection; this round's finite model includes skip-start but not every allocation/registration failure branch.
 
-## 7. 取消与结果线性化
+## 7. Cancellation and result linearization
 
-CancellationToken回调不调用TCS.TrySetCanceled。它原子设置cancel_requested；在控制准入仍开放且handle存在时取得control lease，调用非阻塞、幂等的request_cancel，然后finally归还lease。request_cancel返回OK仅表示请求被记录/已不需要动作。
+The CancellationToken callback does not call TCS.TrySetCanceled. It atomically sets cancel_requested; while control admission remains open and a handle exists, it acquires a control lease, calls non-blocking, idempotent request_cancel and returns the lease in finally. request_cancel returning OK means only that the request has been recorded/no action is needed anymore.
 
-native终态CAS决定成功、取消或失败。取消已请求仍可能返回Success，例如业务已完成；native确认合作停止可发布CANCELED。TIMEOUT独立映射为TimeoutException，不能仅检查caller token的当前值覆盖native结果。Owner关闭拒绝新操作，已接受操作按领域关闭策略请求停止；原生取消无caller token时Task可以带默认token结束。
+The native terminal CAS decides success, cancellation or failure. Success may still be returned after cancellation was requested, for example when the business operation has already completed; native confirmation of cooperative stop may publish CANCELED. TIMEOUT maps separately to TimeoutException, and the caller token's current value alone must not overwrite the native result. Owner closure rejects new operations and requests stop for accepted operations according to the domain closure policy; native cancellation without a caller token may end the Task with the default token.
 
-数据库提交响应丢失时，DOMAIN_ERROR的领域结果可以包含`Effect=Unknown`；即使用户token同时取消也不得改写为“确定回滚”。native本地静默与这种知识状态分别保留。
+When a database commit response is lost, the domain result of DOMAIN_ERROR may include `Effect=Unknown`; even simultaneous user-token cancellation must not rewrite this as “confirmed rollback.” Native local quiescence and this knowledge state remain separate.
 
-## 8. 结果接管与Task发布
+## 8. Result ownership acquisition and Task publication
 
-on_terminal只检查并复制固定记录，以一次原子发布登记terminal_notice。重复通知是native契约缺陷；managed保留第一次结果，诊断并poison，不能把重复通知当第二个owner。callback内不执行应用continuation。
+on_terminal only validates and copies the fixed record, registering terminal_notice through one atomic publication. Duplicate notifications are a native contract defect; managed code preserves the first result, diagnoses and poisons, without treating the duplicate as a second owner. The callback does not execute application continuations.
 
-context预先拥有一个不分配的terminal latch，分别记录`notice_claimed`、`native_status/error_snapshot`、`notice_received`和`binding_failure`。只要cookie能安全解析，入口先以CAS取得notice_claimed的唯一写权限；重复通知只记录独立契约错误，不覆盖第一份latch或第二次发布Task。取得权限后保存native status，再校验/复制允许的固定error字段；普通检查/复制后处理异常不能让context永远停在“没有通知”。catch在同一预分配latch写binding_failure，finally以release发布notice_received并唤醒已预留的协调slot，返回CALLBACK_FAILED；协调器以acquire读取已完整发布的字段。通知队列满只改slot标志，由共享扫描重试；不依赖此时分配新的Task、Exception或queue node。
+The context owns a preallocated terminal latch that performs no allocation, separately recording `notice_claimed`, `native_status/error_snapshot`, `notice_received` and `binding_failure`. As long as the cookie can be safely resolved, the entry point first uses CAS to acquire sole write authority through notice_claimed; duplicate notifications only record a separate contract error, without overwriting the first latch or publishing the Task a second time. After acquiring authority, save native status, then validate/copy the permitted fixed error fields; an ordinary validation/copy-postprocessing exception must not leave the context permanently at “no notification.” catch writes binding_failure to the same preallocated latch, and finally release-publishes notice_received, wakes the reserved coordination slot and returns CALLBACK_FAILED; the coordinator acquire-reads the fully published fields. A full notification queue only changes slot flags for retry by the shared scanner; it does not depend on allocating a new Task, Exception or queue node at that point.
 
-native收到terminal callback的CALLBACK_FAILED时只记录桥接投递失败并继续自己的callback退出/retire；**不得再提交第二个业务终态或重发另一终态**。协调器看到binding_failure后发布managed Faulted，保留原native状态、可用error快照与领域effect信息；native已成功或效果Unknown不能被改写为“未执行/已回滚”。未接管结果仍由native owner清理；如需领域恢复身份，使用已预存的operation/recovery ID，不能依赖失败时临时解码大payload。Task异常对象在callback外建立；若运行时已无法建立任何可观察失败结果，进入D08的致命/隔离策略，不能报告成功。
+When native code receives CALLBACK_FAILED from the terminal callback, it only records bridge-delivery failure and continues its own callback exit/retire; **it must not commit a second business terminal state or send another terminal state again**. On observing binding_failure, the coordinator publishes managed Faulted while preserving the original native status, available error snapshot and domain effect information; native success or an Unknown effect must not be rewritten as “not executed/rolled back.” The native owner still cleans up results whose ownership has not been acquired; any required domain recovery identity uses a prestored operation/recovery ID and must not depend on decoding a large payload during failure. Task exception objects are created outside the callback; if the runtime can no longer construct any observable failure result, enter D08's fatal/isolation policy rather than report success.
 
-上述latch不是对任意失效cookie、不可读native指针或致命运行时错误的恢复承诺；这些属于契约破坏/fatal路径。合法callback的固定字段复制和no-throw退出必须有独立故障注入；模型暂不覆盖binding-failure latch。
+The latch above is not a recovery promise for arbitrary invalid cookies, unreadable native pointers or fatal runtime errors; these belong to contract-violation/fatal paths. Fixed-field copying and no-throw exit for a valid callback require independent fault injection; the model does not yet cover the binding-failure latch.
 
-managed完成协调器从callback以外运行。若终态成功，先准备托管结果包装及结果预算，再以内部lifetime capability和调用lease执行按操作生成的take_result。native原子把结果从Ready变为Taken：成功时把owner移到out_result并将自身对应字段归零；失败时out_result保持空，native保留原owner。第二次take返回INVALID_STATE且不交出资源。take前包装分配失败时native仍拥有结果；take后转换失败时managed包装负责释放，再发布Faulted。typed take须保持这种失败原子性；禁止先移出owner，再执行可能失败且没有补偿的分配。
+The managed completion coordinator runs outside the callback. For a successful terminal state, first prepare the managed result wrapper and result budget, then use the internal lifetime capability and a call lease to execute the operation-specific generated take_result. Native code atomically moves the result from Ready to Taken: on success, move the owner to out_result and zero the corresponding native field; on failure, out_result remains empty and native code retains the original owner. A second take returns INVALID_STATE without yielding resources. If wrapper allocation fails before take, native code still owns the result; if conversion fails after take, the managed wrapper releases it before Faulted is published. Typed take must preserve this failure atomicity; moving the owner out and then performing a fallible allocation without compensation is prohibited.
 
-非成功结果按D08转换；需要丰富领域错误时使用领域定义的一次take_error/typed结果，遵从同一转移协议。未取走的结果由operation最终release释放。TCS使用RunContinuationsAsynchronously，但其他线程可以在callback返回前执行continuation，因此不能依赖该选项充当回收屏障。
+Non-success results are converted under D08; rich domain errors use a domain-defined one-time take_error/typed result following the same transfer protocol. Results not taken are freed by the operation's final release. TCS uses RunContinuationsAsynchronously, but other threads may execute continuations before the callback returns, so this option cannot serve as a reclamation barrier.
 
-普通Task可在native退休之前完成；返回给应用的拥有结果必须已从operation独立接管，不可随随后operation释放失效。结果转移是正交状态，native已经Retired但尚未Released时仍允许一次take；Retired不意味着已销毁结果。
+An ordinary Task may complete before native retirement; an owned result returned to the application must already have been acquired independently from the operation and must not become invalid when the operation is subsequently released. Result transfer is orthogonal state: one take is still permitted when native state is Retired but not yet Released; Retired does not mean the result has been destroyed.
 
-用户从不await、丢弃Task或应用continuation抛出，都不能阻止operation cleanup。Engine的有界活跃操作集合/协调器保持context强根，自动处理终态并推进清理，Reclaimed后移除强根。成功返回的独立OwnedResult仍遵循应用Dispose责任与其非阻塞最终释放后备；忽略Task不能承诺确定地释放这个已转移给Task结果的资源，相关held-result预算必须独立计量。
+Failure to await, discarding the Task or an application continuation throwing must not prevent operation cleanup. The Engine's bounded active-operation set/coordinator holds the context as a strong root, automatically processes terminal state and advances cleanup, then removes the strong root after Reclaimed. An independent OwnedResult returned successfully still follows the application's Dispose responsibility and its non-blocking final-release fallback; ignoring the Task cannot promise deterministic release of this resource already transferred to the Task result, and the associated held-result budget must be accounted for independently.
 
-## 9. 清理算法
+## 9. Cleanup algorithm
 
-完成/失败、Owner关闭和用户请求关闭都会合并到同一cleanup请求。每个context只允许一个活跃清理执行者：
+Completion/failure, Owner closure and user-requested closure coalesce into the same cleanup request. Each context permits only one active cleanup executor:
 
-1. 请求所需stop并关闭普通control-call准入，保持协调器专用的take/retire/release能力。若stop尚未送出，协调器以内部能力送出非阻塞stop；不能因准入关闭而丢失关闭请求。
-2. 等待setup Settled和registration_ready/start_settled；NoRegistration立即满足managed drain，StartSkipped/StartRejected没有native接管义务。Indeterminate进入隔离，不能等一个永不发布的正常事件或假定其已完成。
-3. 对Registered分支，从native callback及CancellationToken回调以外调用并await registration.DisposeAsync，令取消注册与在途取消callback真实结束；NoRegistration无需调用它。
-4. 等待已经取得的普通control-call lease归零。协调器串行处理terminal_notice、take或放弃结果、发布Task，并保持owner直到结果处理结束；这可以在native退休前完成。Owner关闭早于终态时，不得因普通准入关闭而拒绝内部take。不允许并发的另一协调器回收正在take_result的handle。
-5. 对未启动操作使用Created无接管路径；对accepted操作轮询非阻塞try_retire，只有OK表示native不再访问context、输入或调用回调。
-6. 确认managed callback计数为0、所有native调用已返回且结果已发布或按失败路径处置；在一次Reclaimed状态转换中释放GCHandle、未转移结果、输入lease及operation owner。顺序不得使某个释放回调访问已经free的context。
-7. 完成独立cleanup promise；成功的DisposeAsync等待此promise。
+1. Request the required stop and close ordinary control-call admission while preserving the coordinator's exclusive take/retire/release capability. If stop has not yet been sent, the coordinator sends non-blocking stop through the internal capability; the closure request must not be lost because admission closed.
+2. Wait for setup Settled and registration_ready/start_settled; NoRegistration immediately satisfies managed drain, and StartSkipped/StartRejected has no native accepted obligations. Indeterminate enters isolation rather than waiting for a normal event that will never be published or assuming it has completed.
+3. For the Registered branch, call and await registration.DisposeAsync outside both native callbacks and CancellationToken callbacks, actually ending cancellation registration and any cancellation callback in flight; NoRegistration does not call it.
+4. Wait for previously acquired ordinary control-call leases to reach zero. The coordinator serially processes terminal_notice, takes or abandons the result, publishes the Task and holds the owner until result processing ends; this may complete before native retirement. If Owner closure precedes terminal state, closed ordinary admission must not reject internal take. Another concurrent coordinator must not reclaim a handle while take_result is using it.
+5. For never-started operations, use the Created path without accepted obligations; for accepted operations, poll non-blocking try_retire. Only OK means native code no longer accesses context/input or invokes callbacks.
+6. Confirm the managed callback count is 0, all native calls have returned, and the result has been published or disposed of through the failure path; in one transition to Reclaimed, release the GCHandle, untransferred result, input leases and operation owner. Release ordering must not allow any release callback to access a context that has already been freed.
+7. Complete the independent cleanup promise; successful DisposeAsync waits for this promise.
 
-实际实现可以在保持上述偏序的前提下重叠不冲突的等待，例如native退休与取消排空。关键条件是最终release前全部成立，且任何等待都不持有业务锁。
+An actual implementation may overlap non-conflicting waits, such as native retirement and cancellation drain, while preserving the partial order above. The key conditions are that all hold before final release and no wait holds a business lock.
 
-## 10. 清理推进、失败和资源预算
+## 10. Cleanup progress, failure and resource budgets
 
-每个异步Engine有一个按需激活的managed完成/清理协调器。每个操作在native接受前预留一个已计入Engine上限的slot；活跃集合与排队容量由同一上限约束。通知对每个操作去重，队列饱和时只更新已经预留的slot标志并唤醒共享扫描，不能丢终态，也不能让外来callback阻塞等待入队。PENDING重试合并到Engine单一计时源，采用有上限退避。通知只能加速重试，不能代替最终retire检查；不为每次PENDING无界创建Task或计时器。
+Each asynchronous Engine has an on-demand managed completion/cleanup coordinator. Every operation reserves a slot charged to the Engine limit before native acceptance; the active set and queue capacity are bounded by the same limit. Notifications are deduplicated per operation. When the queue is saturated, only the already-reserved slot flags are updated and the shared scanner is awakened; terminal state must not be lost, nor may a foreign callback block waiting to enqueue. PENDING retries coalesce into a single Engine timing source with bounded backoff. Notifications only accelerate retries and cannot replace the final retire check; do not create unbounded Tasks or timers for each PENDING result.
 
-bounded queue加无界的awaiting writers或持有大payload的待入队Task并不构成有界系统。准入等待者数、等待者持有bytes和已接受操作分别有上限；超过上限必须产生可观察拒绝。配额释放点是Reclaimed，或结果独立转移时转账到held-result预算，不能在Task先完成时偷偷归还仍被native占用的bytes。
+A bounded queue plus unbounded awaiting writers or enqueue-waiting Tasks holding large payloads does not make a bounded system. Admission-waiter count, bytes held by waiters and accepted operations have separate limits; exceeding a limit must produce observable rejection. Quotas are released at Reclaimed, or transferred to the held-result budget when result ownership transfers independently; bytes still held by native code must not be silently returned when the Task completes first.
 
-Engine必须配置最大accepted operations和in-flight bytes；已公开完成但尚未退休的操作仍占用预算。长期不推进时报告阶段、年龄、callback/control计数、retire状态和隔离原因，并停止或限制新业务准入。`CloseAsync`等待可由调用方取消，但保留后台owner；无论超时多久，都不得以释放仍可能被访问的内存换取“关闭成功”。
+The Engine must configure maximum accepted operations and in-flight bytes; operations whose completion is already public but which have not retired still consume budget. During prolonged lack of progress, report phase, age, callback/control counts, retire status and isolation reason, and stop or limit new business admission. The caller may cancel the `CloseAsync` wait, but the background owner is retained; no timeout duration permits freeing memory that may still be accessed in exchange for “successful closure.”
 
-native执行器已经损坏或无法再证明静默时，Engine进入隔离，清理promise报告不能完成的原因或继续等待；进程重启/隔离策略交宿主。代码不允许伪造retire成功。同步Engine不需要上述队列或线程。
+If the native executor is damaged or quiescence can no longer be proven, the Engine enters isolation, and the cleanup promise reports why it cannot complete or continues waiting; process restart/isolation policy belongs to the host. Code must not fabricate successful retirement. Synchronous Engines do not require these queues or threads.
 
-## 11. 禁止的捷径
+## 11. Prohibited shortcuts
 
-- cancel callback直接TrySetCanceled后free cookie。
-- 在native callback、取消callback或持锁状态中同步等待drain。
-- 对未知GCHandle做`Target != null`检查来“防止”复用。
-- 凭Task完成、CancellationTokenRegistration.Unregister的bool或native queue长度为0推断全部静默。
-- 用`ValueTask`或pool作为未经测量的默认性能承诺。
-- 将线程池continuation排队、源码测试存在或Python模型通过写成AOT/竞态实现已验证。
+- A cancel callback directly calls TrySetCanceled and then frees the cookie.
+- Synchronously waiting for drain in a native callback, cancellation callback or while holding a lock.
+- Checking `Target != null` on an unknown GCHandle to “prevent” reuse.
+- Inferring full quiescence from Task completion, CancellationTokenRegistration.Unregister's bool or a native queue length of 0.
+- Using `ValueTask` or a pool as an unmeasured default performance promise.
+- Presenting ThreadPool continuation enqueueing, the existence of source tests or a passing Python model as verification of the AOT/race implementation.
 
-## 12. 成本与演进
+## 12. Cost and evolution
 
-基线含create/start/take/retire/release控制调用、一个GCHandle、context/TCS与可能的input copy，额外调度使callback保持简短。对高吞吐短操作应优先提供批量或同步API。记录FFI次数、复制字节、分配、P50/P99、cleanup延迟、未退休bytes与线程数。
+The baseline includes create/start/take/retire/release control calls, one GCHandle, context/TCS and a possible input copy; additional scheduling keeps callbacks short. Prefer batch or synchronous APIs for high-throughput short operations. Record FFI calls, bytes copied, allocations, P50/P99, cleanup latency, unretired bytes and thread counts.
 
-只有完整负载显示桥接成本显著时，才评估单调用启动、内联拥有结果转移、ValueTaskSource池化或原生完成队列；每种优化必须保留同步完成、版本、迟到通知和退役证明。ABI v1能力集合不强迫所有Engine支持异步profile。
+Evaluate single-call start, inline owned-result transfer, ValueTaskSource pooling or native completion queues only when full workloads show significant bridging cost; every optimization must preserve synchronous-completion, versioning, late-notification and retirement proofs. The ABI v1 capability set does not force all Engines to support the asynchronous profile.
 
-## 13. 验证与正式任务
+## 13. Verification and formal tasks
 
-| ID | 关键用例/反例 | Delivery |
+| ID | Key cases/counterexamples | Delivery |
 | --- | --- | --- |
-| AS-01 | 未取消、预取消、注册内同步取消、注册与Cancel并发 | A07、A19、A20 |
-| AS-02 | create/GCHandle/TCS/Register逐阶段失败、NoRegistration、StartSkipped/Rejected、Indeterminate隔离、同步终态先于start返回 | A07、A20 |
-| AS-03 | cancel与Success/Failure竞争，重复终态，owner关闭重入；terminal复制/锁存/唤醒故障仍有单一managed结果且不篡改native effect | A07、A18、A20 |
-| AS-04 | terminal已发布但start/cancel/take/control lease仍在途 | A07、A19、A20 |
-| AS-05 | take一次、take后managed转换失败、未取result release、Closing后内部take、丢弃Task仍清理operation | A04、A07、A20 |
-| AS-06 | native工作停滞、协调队列/等待者饱和、通知合并、执行器故障和超时等待 | A08、A18、B22 |
-| AS-07 | 多await、continuation线程、ExecutionContext/AsyncLocal语义 | A07、A14、A15 |
-| AS-08 | win-x64/linux-x64 AOT、长时间取消/恢复和资源归零 | A14、A15、A21、B22 |
+| AS-01 | No cancellation, pre-cancellation, synchronous cancellation within registration, registration concurrent with Cancel | A07, A19, A20 |
+| AS-02 | Per-stage create/GCHandle/TCS/Register failures, NoRegistration, StartSkipped/Rejected, Indeterminate isolation, synchronous terminal state before start returns | A07, A20 |
+| AS-03 | Cancel races with Success/Failure, duplicate terminal states, Owner-closure reentrancy; terminal copy/latch/wakeup failures still yield one managed result without altering native effect | A07, A18, A20 |
+| AS-04 | Terminal state published while start/cancel/take/control leases remain in flight | A07, A19, A20 |
+| AS-05 | One take, managed conversion failure after take, untaken-result release, internal take after Closing, operation cleanup despite discarded Task | A04, A07, A20 |
+| AS-06 | Stalled native work, saturated coordinator queue/waiters, notification coalescing, executor failure and timed-out waits | A08, A18, B22 |
+| AS-07 | Multiple await, continuation threads, ExecutionContext/AsyncLocal semantics | A07, A14, A15 |
+| AS-08 | win-x64/linux-x64 AOT, long-duration cancellation/recovery and resource return to zero | A14, A15, A21, B22 |
 
-有限模型位于[R09实验目录](../research/topics/R09/)，其模型结果仅支撑声明范围的抽象状态。正式实现必须把CAS、memory ordering、GC roots与native引用计数映射到模型事件，加入Loom/Coyote或等价调度测试、属性与模糊测试；工具是否适用按R15/R16决定，不能通过列工具名称完成验收。
+The finite model resides in the [R09 experiment directory](../research/topics/R09/); its results support only abstract states within the declared scope. Formal implementation must map CAS, memory ordering, GC roots and native reference counts to model events and add Loom/Coyote or equivalent scheduling tests, property tests and fuzzing. R15/R16 determines tool applicability; listing tool names does not complete acceptance.
 
-## 14. 设计问题关闭范围
+## 14. Scope of design-question closure
 
-Q05的v1Task/ValueTask/池化选择已有明确决定；Q04的async完成、取消与回收协议已有具体偏序和不变量。独立审查通过后可关闭这些设计研究问题，并保留AS/CB/LT系列实际验证。R12执行器公平性与特殊线程profile、R10具体Buffer映射、R15弱内存模型进一步补证，不阻止当前协议草案被审查或不相关文档推进。
+Q05's v1 Task/ValueTask/pooling choice has an explicit decision; Q04's asynchronous-completion, cancellation and reclamation protocol has a concrete partial order and invariants. These design research questions may close after independent review passes, while retaining the actual AS/CB/LT verification series. R12 executor fairness and specialized thread profiles, R10 concrete buffer mappings and R15 weak-memory models provide further evidence without preventing review of the current protocol draft or progress on unrelated documents.
 
-## 15. 本次完成复核与版本约束（2026-11-13）
+## 15. Completion review and version constraints for this round (2026-11-13)
 
-[R09 完成报告](../research/topics/R09/report.md) 继续使用已经成功的退休有限模型，不重跑充数；补入 .NET 11 `ManualResetValueTaskSourceCore`、UniFFI future/scheduler 的固定源码，以及 [真实 normal/AOT 探针](../../verification/interop-completion/linux/result.json)。后者实际覆盖同步/外来 native thread 完成、预取消、注册期间同步回调、晚到取消不篡改成功、重复 terminal/take 拒绝、转换抛出后结果释放和 callback 在途退休失败。它验证指定控制边界，未实现整个产品协调器。
+[The R09 completion report](../research/topics/R09/report.md) continues to use the already successful finite retirement model without rerunning it merely to add volume; it adds pinned source for .NET 11 `ManualResetValueTaskSourceCore`, UniFFI future/scheduler, and the [actual normal/AOT probe](../../verification/interop-completion/linux/result.json). The latter actually covers synchronous/foreign-native-thread completion, pre-cancellation, synchronous callbacks during registration, late cancellation not altering success, rejection of duplicate terminal/take, result release after conversion throws, and failed retirement while a callback is in flight. It verifies the specified control boundaries without implementing the entire product coordinator.
 
-v1 首选 Task 与异步 continuation；ValueTask 池化必须等待具体测量和额外证明。`ManualResetValueTaskSourceCore` 的 short 版本与 Reset 并不证明旧 native cookie 已静默，也不允许单靠 token 回卷检测保证无限复用。当前 .NET 11 Runtime Async 特性状态与编译配置以 R01/D01 最新证据为准；历史“preview”描述不能继续成为当前限制，也不改变本协议的 native quiet 义务。
+v1 prefers Task and asynchronous continuations; ValueTask pooling must await concrete measurements and additional proof. The short version and Reset in `ManualResetValueTaskSourceCore` do not prove that an old native cookie is quiescent, nor permit token-wraparound detection alone to guarantee unlimited reuse. The current .NET 11 Runtime Async feature status and compilation configuration follow the latest R01/D01 evidence; historical “preview” descriptions must not remain current restrictions and do not change this protocol's native quiet obligations.
 
-清理通知采用 [D09](concurrency-v0.1.md) 的有限 mailbox 和单一重试源；dirty 检查与取消 scheduled 必须原子。设计接受与 A07/A19/A20 的实现测试独立：本规范已经定义每个需要实现的状态、失败原子性与释放偏序；正式实现再逐项将真实 CAS、GC roots、native引用和各平台行为映射到这些不变量。
+Cleanup notifications use [D09](concurrency-v0.1.md)'s finite mailbox and single retry source; checking dirty and clearing scheduled must be atomic. Design acceptance is separate from A07/A19/A20 implementation tests: this specification already defines every required implementation state, failure atomicity and release partial order; formal implementation then maps actual CAS, GC roots, native references and platform behavior to these invariants item by item.
 
 
 ### Committed target evidence

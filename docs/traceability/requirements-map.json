@@ -5,7 +5,7 @@
   "requirements": [
     {
       "id": "NW-A01",
-      "scope": "ABI、类型布局、版本、目标差异",
+      "scope": "ABI, type layout, versions, and target differences",
       "research": [
         "R03",
         "R04"
@@ -21,12 +21,12 @@
         "A11",
         "A22"
       ],
-      "validation": "源码+三方layout/调用+旧新版本组合",
+      "validation": "Source+three-way layout/call checks+old/new version combinations",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A02",
-      "scope": "绑定、强类型Adapter、Generator、Analyzer",
+      "scope": "Bindings, strongly typed Adapters, Generators, and Analyzers",
       "research": [
         "R04",
         "R05",
@@ -42,12 +42,12 @@
         "A11",
         "A12"
       ],
-      "validation": "生成快照+增量/负例诊断+实际AOT",
+      "validation": "Generated snapshots+incremental/negative diagnostics+actual AOT",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A03",
-      "scope": "Ownership、Lifetime、GC、父子资源",
+      "scope": "Ownership, Lifetime, GC, and parent-child resources",
       "research": [
         "R07",
         "R10",
@@ -63,12 +63,12 @@
         "A19",
         "A20"
       ],
-      "validation": "lease模型+释放竞争+真实FFI",
+      "validation": "Lease models+release races+actual FFI",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A04",
-      "scope": "Callback、注销、重入、释放竞争",
+      "scope": "Callbacks, unregistration, reentrancy, and release races",
       "research": [
         "R08",
         "R11",
@@ -85,12 +85,12 @@
         "A19",
         "A20"
       ],
-      "validation": "注销静默+进程隔离callback负例",
+      "validation": "Unregistration quiescence+process-isolated callback negative cases",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A05",
-      "scope": "Async、Cancellation、恰好一次完成",
+      "scope": "Async, Cancellation, and exactly-once completion",
       "research": [
         "R09",
         "R12",
@@ -106,12 +106,12 @@
         "A18",
         "A19"
       ],
-      "validation": "终态/静默分离+模型+真实AOT异步",
+      "validation": "Terminal-state/quiescence separation+models+actual AOT async",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A06",
-      "scope": "Memory、Buffer、Pinning、传输与批量",
+      "scope": "Memory, Buffer, Pinning, transfer, and batching",
       "research": [
         "R10",
         "R16",
@@ -128,12 +128,12 @@
         "A20",
         "A21"
       ],
-      "validation": "allocator/alias/溢出+fuzz+复制账本",
+      "validation": "Allocator/alias/overflow+fuzz+copy ledger",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A07",
-      "scope": "Error、panic、ABI异常边界",
+      "scope": "Error, panic, and ABI exception boundaries",
       "research": [
         "R11",
         "R04"
@@ -147,12 +147,12 @@
         "A12",
         "A20"
       ],
-      "validation": "unwind/abort/UCO签名+subprocess",
+      "validation": "Unwind/abort/UCO signatures+subprocess",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A08",
-      "scope": "Concurrency、线程、Runtime、背压",
+      "scope": "Concurrency, threads, Runtime, and backpressure",
       "research": [
         "R12",
         "R09",
@@ -168,12 +168,12 @@
         "A19",
         "A23"
       ],
-      "validation": "有界资源+shutdown+线程亲和",
+      "validation": "Bounded resources+shutdown+thread affinity",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A09",
-      "scope": "Build、AOT、NuGet/Cargo、发布兼容",
+      "scope": "Build, AOT, NuGet/Cargo, and release compatibility",
       "research": [
         "R01",
         "R02",
@@ -192,12 +192,12 @@
         "A16",
         "A22"
       ],
-      "validation": "Windows/Linux真目标+clean consumer+SBOM",
+      "validation": "Actual Windows/Linux targets+clean consumer+SBOM",
       "status": "planned_coverage"
     },
     {
       "id": "NW-A10",
-      "scope": "标准Engine接入与至少两异质真实模块",
+      "scope": "Standard Engine integration and at least two heterogeneous real modules",
       "research": [
         "R18",
         "R17",
@@ -213,12 +213,12 @@
         "A23",
         "A24"
       ],
-      "validation": "同步与异步真实引擎+无Rust应用成本",
+      "validation": "Real synchronous and asynchronous engines+application costs without Rust",
       "status": "planned_coverage"
     },
     {
       "id": "NW-B01",
-      "scope": "Database、连接池、事务、迁移、恢复",
+      "scope": "Database, connection pools, transactions, migrations, and recovery",
       "research": [
         "R19",
         "R20",
@@ -240,12 +240,12 @@
         "B07",
         "B08"
       ],
-      "validation": "PG/SQLite实库+AOT+断连/未知提交",
+      "validation": "Real PG/SQLite databases+AOT+disconnection/unknown commit outcomes",
       "status": "planned_coverage"
     },
     {
       "id": "NW-B02",
-      "scope": "ORM、LINQ、代码生成、SQL语义",
+      "scope": "ORM, LINQ, code generation, and SQL semantics",
       "research": [
         "R23",
         "R24",
@@ -265,12 +265,12 @@
         "B13",
         "B14"
       ],
-      "validation": "支持/拒绝语法+SQL差分+静态映射",
+      "validation": "Supported/rejected syntax+SQL differential testing+static mapping",
       "status": "planned_coverage"
     },
     {
       "id": "NW-B03",
-      "scope": "Server、HTTP/TLS、gRPC/MCP、流与诊断",
+      "scope": "Server, HTTP/TLS, gRPC/MCP, streaming, and diagnostics",
       "research": [
         "R26",
         "R27",
@@ -291,12 +291,12 @@
         "B19",
         "B20"
       ],
-      "validation": "Kestrel对照+背压+协议AOT+drain",
+      "validation": "Kestrel comparison+backpressure+protocol AOT+drain",
       "status": "planned_coverage"
     },
     {
       "id": "NW-B04",
-      "scope": "DB/Server参考应用、故障长跑、发布",
+      "scope": "DB/Server reference application, sustained fault workloads, and release",
       "research": [
         "R31",
         "R17",
@@ -312,12 +312,12 @@
         "B23",
         "B24"
       ],
-      "validation": "相同语义三路线+独立真实验收",
+      "validation": "Three routes with identical semantics+independent actual acceptance",
       "status": "planned_coverage"
     },
     {
       "id": "NW-X01",
-      "scope": "GUI/GPU/NSH/线程亲和扩展",
+      "scope": "GUI/GPU/NSH/thread-affinity extensions",
       "research": [
         "R32",
         "R18"
@@ -330,12 +330,12 @@
         "A23",
         "A24"
       ],
-      "validation": "接入约束与探针，不承诺完整GUI",
+      "validation": "Integration constraints and probes; no complete GUI promised",
       "status": "planned_coverage"
     },
     {
       "id": "NW-X02",
-      "scope": "iOS/Android/静态链接与生命周期",
+      "scope": "iOS/Android/static linking and lifecycle",
       "research": [
         "R33",
         "R02"
@@ -348,7 +348,7 @@
         "A23",
         "A24"
       ],
-      "validation": "按目标profile核验，不gate无关桌面",
+      "validation": "Verification by target profile; does not gate unrelated desktop work",
       "status": "planned_coverage"
     },
     {
@@ -371,7 +371,7 @@
         "B15",
         "B23"
       ],
-      "validation": "纯C#原生编译基线与依赖图",
+      "validation": "Pure C# native-compilation baseline and dependency graph",
       "status": "planned_coverage"
     },
     {
@@ -390,7 +390,7 @@
         "A15",
         "B24"
       ],
-      "validation": "publish与真实运行分别记录",
+      "validation": "Record publish and actual execution separately",
       "status": "planned_coverage"
     },
     {
@@ -415,12 +415,12 @@
         "B17",
         "B23"
       ],
-      "validation": "能力/成本/可靠性或实测采用ADR",
+      "validation": "Adoption ADR based on capabilities/cost/reliability or measurements",
       "status": "planned_coverage"
     },
     {
       "id": "NW-P04",
-      "scope": "框架简洁优雅高效",
+      "scope": "Framework simplicity, elegance, and efficiency",
       "research": [
         "R06",
         "R12",
@@ -437,7 +437,7 @@
         "A21",
         "B23"
       ],
-      "validation": "抽象/运行时/依赖/开发体验成本账本",
+      "validation": "Abstraction/runtime/dependency/developer-experience cost ledger",
       "status": "planned_coverage"
     },
     {
@@ -457,12 +457,12 @@
         "A24",
         "B24"
       ],
-      "validation": "独立包/契约/发布profile",
+      "validation": "Independent package/contract/release profiles",
       "status": "planned_coverage"
     },
     {
       "id": "NW-P06",
-      "scope": "标准Native-ready接入",
+      "scope": "Standard Native-ready integration",
       "research": [
         "R18",
         "R13",
@@ -477,7 +477,7 @@
         "A24",
         "A16"
       ],
-      "validation": "端到端conformance及新引擎任务模板",
+      "validation": "End-to-end conformance and a new-engine task template",
       "status": "planned_coverage"
     },
     {
@@ -493,12 +493,12 @@
         "A21",
         "B23"
       ],
-      "validation": "可比负载、内存/线程/复制/分布",
+      "validation": "Comparable workloads, memory/threads/copies/distributions",
       "status": "planned_coverage"
     },
     {
       "id": "NW-P08",
-      "scope": "Research/Documentation/Delivery三种并行",
+      "scope": "Parallel Research/Documentation/Delivery work",
       "research": [
         "R15",
         "R16"
@@ -508,12 +508,12 @@
         "D32"
       ],
       "delivery_candidates": [],
-      "validation": "三图结构、局部依赖、文件所有权检查",
+      "validation": "Three-graph structure, local-dependency, and file-ownership checks",
       "status": "planned_coverage"
     },
     {
       "id": "NW-P09",
-      "scope": "两阶段同时深入规划",
+      "scope": "Plan both phases in depth concurrently",
       "research": [
         "R19",
         "R20",
@@ -568,24 +568,24 @@
         "B23",
         "B24"
       ],
-      "validation": "B阶段具体任务/规范覆盖",
+      "validation": "Concrete task/specification coverage for phase B",
       "status": "planned_coverage"
     },
     {
       "id": "NW-P10",
-      "scope": "NativeWeave内容独立；Arc只参考格式",
+      "scope": "Independent NativeWeave content; Arc is a formatting reference only",
       "research": [],
       "documentation": [
         "D31",
         "D32"
       ],
       "delivery_candidates": [],
-      "validation": "需求章程、文档和依赖审查",
+      "validation": "Requirements charter, documentation, and dependency review",
       "status": "planned_coverage"
     },
     {
       "id": "NW-P11",
-      "scope": "最新稳定技术与预览隔离",
+      "scope": "Latest stable technology with preview features isolated",
       "research": [
         "R01",
         "R02"
@@ -598,12 +598,12 @@
         "A12",
         "A13"
       ],
-      "validation": "日期化官方事实+功能状态+编译例",
+      "validation": "Dated official facts+feature status+compiled examples",
       "status": "planned_coverage"
     },
     {
       "id": "NW-P12",
-      "scope": "诚实证据与独立Review",
+      "scope": "Honest evidence and independent Review",
       "research": [
         "R15",
         "R16",
@@ -618,7 +618,7 @@
         "A20",
         "B22"
       ],
-      "validation": "状态/hash/来源+不同作者review",
+      "validation": "Status/hash/provenance+review by a different author",
       "status": "planned_coverage"
     }
   ]

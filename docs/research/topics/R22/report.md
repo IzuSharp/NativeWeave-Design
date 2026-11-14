@@ -33,9 +33,9 @@ B06/B07/B08/B12 now have concrete shape, range, cleanup and administrative oracl
 
 The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
-## 固定源码入口与实际阅读
+## Pinned Source Entry Points and Actual Reading
 
-| Claim | 固定文件/来源 | 实际范围与证据类别 |
+| Claim | Pinned file/source | Actual scope and evidence category |
 | --- | --- | --- |
 | R22-C01 | [src/Npgsql/Internal/Converters/Temporal/PgTimestamp.cs](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/Converters/Temporal/PgTimestamp.cs#L1-L44) | [[1, 44]]; source-observed; reader=database_design |
 | R22-C02 | [src/Npgsql/Internal/Converters/Temporal/DateTimeConverterResolver.cs](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/Converters/Temporal/DateTimeConverterResolver.cs#L1-L120) | [[1, 120]]; source-observed; reader=database_design |

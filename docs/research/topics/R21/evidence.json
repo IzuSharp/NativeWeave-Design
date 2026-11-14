@@ -12,7 +12,7 @@
     "path": "research-tasks/R21.md",
     "packet_sha256": "1f7c1b4bb1baaf188e3da40b1286e20d334fac10d941f04f103f00b80ecf7ab4"
   },
-  "claim_status_policy": "设计结论可独立审查后解决；本记录不自授accepted，实现验证另列Delivery任务。",
+  "claim_status_policy": "Design conclusions may be resolved after independent review; this record does not self-award accepted status, and implementation validation is separately assigned to Delivery tasks.",
   "claims": [
     {
       "claim_id": "R21-C01",
@@ -38,8 +38,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/NpgsqlTransaction.cs#L290-L390"
         ]
       },
-      "supported_claim": "提交走内部命令；Dispose有事务/ongoing-operation清理路径；异常处理不构成业务effect已知证明。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Commit uses internal commands; Dispose has transaction/ongoing-operation cleanup paths; exception handling does not prove that business effects are known.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -72,8 +72,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/NpgsqlConnector.cs#L2936-L2993"
         ]
       },
-      "supported_claim": "取消注册/用户操作结束与受控reset分别处理；预置reset与未知协议损坏不同。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Cancellation registration/user-operation completion and controlled reset are handled separately; prepared reset differs from unknown protocol corruption.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -126,8 +126,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/NpgsqlDataReader.cs#L1077-L1227"
         ]
       },
-      "supported_claim": "读取关闭需处理剩余结果/发送任务；清理结束才EndUserAction并可能解除reader绑定。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Reader closure must handle remaining results/send tasks; only after cleanup ends does EndUserAction run and potentially detach the reader binding.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -155,8 +155,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/PoolingDataSource.cs#L445-L455"
         ]
       },
-      "supported_claim": "broken/expired/stale generation剔除，池归还保持provider维护不变量。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Broken/expired/stale-generation connections are removed; pool return preserves provider-maintained invariants.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -179,8 +179,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/NpgsqlDataSource.cs#L242-L257"
         ]
       },
-      "supported_claim": "公开DataSource.Clear关闭idle并标记busy在归还时关闭，可作罕见无法单连接隔离时的保守代价。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Public DataSource.Clear closes idle connections and marks busy ones for closure on return, providing a conservative cost in the rare case where a single connection cannot be isolated.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -218,8 +218,8 @@
           "https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/test/Npgsql.Tests/TransactionTests.cs#L123-L145"
         ]
       },
-      "supported_claim": "已读相关测试范围，未执行/不覆盖本产品Unknown恢复。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Relevant test ranges were read; not executed and do not cover this product's Unknown recovery.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -252,8 +252,8 @@
           "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-core/src/pool/connection.rs#L271-L369"
         ]
       },
-      "supported_claim": "Drop安排回收；after_release及ping失败关闭，返回future中途drop存在状态注意事项。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Drop schedules recycling; after_release and ping failures cause closure, and dropping the returned future midway has state caveats.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null
     },
     {
@@ -285,8 +285,8 @@
           "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-postgres/src/connection/mod.rs#L211-L258"
         ]
       },
-      "supported_claim": "等待ReadyForQuery会先flush再消费pending responses，协议恢复是实际工作。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Waiting for ReadyForQuery first flushes and then consumes pending responses; protocol recovery is actual work.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null
     },
     {
@@ -301,8 +301,8 @@
         "section_or_observed_lines": "61–88",
         "accessed_at": "2026-11-12"
       },
-      "supported_claim": "ReadCommitted逐语句snapshot；ON CONFLICT DO NOTHING可因当前snapshot不可见事务而不插入。",
-      "limitations": "官方网页非固定Git commit；这里只记录所读明确规则，不声明本产品实现已验证。",
+      "supported_claim": "ReadCommitted uses a per-statement snapshot; ON CONFLICT DO NOTHING may skip insertion because of a transaction invisible to the current snapshot.",
+      "limitations": "Official web page, not a pinned Git commit; only the explicit rules read are recorded here, without claiming validation of this product's implementation.",
       "run_manifest": null
     },
     {
@@ -317,8 +317,8 @@
         "section_or_observed_lines": "43–56;120–128",
         "accessed_at": "2026-11-12"
       },
-      "supported_claim": "RETURNING只返回实际insert/update行；DO NOTHING不返回被跳过冲突行。",
-      "limitations": "官方网页非固定Git commit；这里只记录所读明确规则，不声明本产品实现已验证。",
+      "supported_claim": "RETURNING returns only rows actually inserted/updated; DO NOTHING does not return skipped conflicting rows.",
+      "limitations": "Official web page, not a pinned Git commit; only the explicit rules read are recorded here, without claiming validation of this product's implementation.",
       "run_manifest": null
     },
     {
@@ -332,8 +332,8 @@
       "locator": {
         "url": "https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/LICENSE-MIT"
       },
-      "supported_claim": "已读MIT许可要求保留copyright与permission notice；本交付不复制实现。",
-      "limitations": "不替代未来依赖发布的全部第三方许可证/资产审查。",
+      "supported_claim": "The MIT license was read and requires retention of copyright and permission notices; this delivery does not copy the implementation.",
+      "limitations": "Does not replace the complete third-party license/asset review for future dependency releases.",
       "run_manifest": null
     },
     {
@@ -360,9 +360,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/transaction.rs#L238-L410"
         ]
       },
-      "supported_claim": "SeaORM commit/rollback consume self且成功后才open=false；Drop调用try_lock/start_rollback并expect，不能当非阻塞FFI清理或确认rollback。",
+      "supported_claim": "SeaORM commit/rollback consume self and set open=false only after success; Drop calls try_lock/start_rollback and expect, so it cannot be treated as nonblocking FFI cleanup or confirmed rollback.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -389,9 +389,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/connection.rs#L167-L251"
         ]
       },
-      "supported_claim": "公开非sealed ConnectionTrait/StreamTrait允许自有executor；TransactionTrait关联Transaction要求固定点及TransactionSession，nested能力必须显式实现或拒绝。",
+      "supported_claim": "Public, non-sealed ConnectionTrait/StreamTrait allow a custom executor; TransactionTrait's associated Transaction requires a fixed point and TransactionSession, and nested capability must be implemented or rejected explicitly.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -418,9 +418,9 @@
           "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-core/src/transaction.rs#L260-L292"
         ]
       },
-      "supported_claim": "TransactionManager面向Connection实现；Transaction commit/rollback消费self，失败时Drop start_rollback仍可能运行；不是最终数据库效果证明。",
+      "supported_claim": "TransactionManager is implemented for Connection; Transaction commit/rollback consume self, and Drop start_rollback may still run on failure; this does not prove final database effects.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -442,9 +442,9 @@
           "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-postgres/src/transaction.rs#L1-L102"
         ]
       },
-      "supported_claim": "PG TransactionManager通过queue/execute及ready同步维护depth；commit错误不证明未发生提交；start_rollback只安排命令。",
+      "supported_claim": "The PG TransactionManager maintains depth through queue/execute and ready synchronization; a commit error does not prove that no commit occurred; start_rollback only schedules commands.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -476,9 +476,9 @@
           "https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-core/src/pool/connection.rs#L280-L355"
         ]
       },
-      "supported_claim": "PoolConnection.close保留permit到close结束，close_on_drop只安排关闭；Drop spawn回收，after_release/ping失败则关闭；detach可能允许池补开连接突破实际存活数。",
+      "supported_claim": "PoolConnection.close retains the permit until close finishes, while close_on_drop only schedules closure; Drop spawns recycling, and after_release/ping failures close the connection; detach may let the pool open replacements and exceed the actual live-connection count limit.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {

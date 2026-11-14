@@ -31,16 +31,16 @@ D17 now provides distinct ABI responsibilities and diagnostic/compatibility matr
 
 The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
-## 固定源码入口与实际阅读
+## Pinned Source Entry Points and Actual Reading
 
-| Claim | 固定文件/来源 | 实际范围与证据类别 |
+| Claim | Pinned file/source | Actual scope and evidence category |
 | --- | --- | --- |
 | R23-C01 | [src/EFCore/Query/Internal/QueryCompiler.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/Query/Internal/QueryCompiler.cs#L60-L115) | [[60, 115], [134, 156]]; source-observed; reader=database_design |
 | R23-C02 | [src/Dapper.AOT.Analyzers/CodeAnalysis/DapperInterceptorGenerator.cs](https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/src/Dapper.AOT.Analyzers/CodeAnalysis/DapperInterceptorGenerator.cs#L53-L74) | [[53, 74], [207, 236], [515, 543]]; source-observed; reader=database_design |
 | R23-C03 | [src/Dapper.AOT/Internal/AsyncQueryState.cs](https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/src/Dapper.AOT/Internal/AsyncQueryState.cs#L15-L54) | [[15, 54], [76, 116]]; source-observed; reader=database_design |
 | R23-C04 | [License.txt](https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/License.txt#L1-L10) | [[1, 10]]; license-text-observed; reader=database_design |
 | R23-C05 | [docs/features/incremental-generators.cookbook.md](https://github.com/dotnet/roslyn/blob/b907b90240f9f22873227aa510794dd280d61f57/docs/features/incremental-generators.cookbook.md) | [[1, 230]]; cross-task-source-evidence; reader=/root; source task=R06 |
-| R23-V1 | [refs/tags/1.1.0](https://api.github.com/repos/DapperLib/DapperAOT/git/refs/tags/1.1.0) | 定位见evidence; release-tag-metadata-observed; reader=database_design |
+| R23-V1 | [refs/tags/1.1.0](https://api.github.com/repos/DapperLib/DapperAOT/git/refs/tags/1.1.0) | See evidence for location; release-tag-metadata-observed; reader=database_design |
 | R23-RU01 | [src/entity/base_entity.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/base_entity.rs#L65-L135) | [[65, 135]]; source-observed; reader=/root/database_design |
 | R23-RU02 | [sea-orm-codegen/src/entity/writer/compact.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/sea-orm-codegen/src/entity/writer/compact.rs#L1-L159) | [[1, 159]]; source-observed; reader=/root/database_design |
 | R23-RU03 | [sea-orm-codegen/tests/compact/fruit.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/sea-orm-codegen/tests/compact/fruit.rs#L1-L39) | [[1, 39]]; test-source-observed; reader=/root/database_design |

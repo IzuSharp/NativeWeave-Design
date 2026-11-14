@@ -9,7 +9,7 @@
       "id": "C-PLATFORM-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "平台、工具链与AOT支持",
+      "title": "Platform, Toolchain, and AOT Support",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PLATFORM-001.evidence.json",
@@ -40,7 +40,7 @@
       "id": "C-ABI-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "C ABI类型布局和版本",
+      "title": "C ABI Type Layout and Versioning",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.evidence.json",
@@ -76,7 +76,7 @@
       "id": "C-BINDING-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "绑定与静态生成",
+      "title": "Bindings and Static Generation",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BINDING-001.evidence.json",
@@ -116,7 +116,7 @@
       "id": "C-LIFETIME-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "资源所有权与释放",
+      "title": "Resource Ownership and Release",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-LIFETIME-001.evidence.json",
@@ -127,7 +127,7 @@
         "/root/interop_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "03c9262018f9ab9f2b66f32ccddc4010d89565b2dbff6d108221b5b4d9542558",
+      "content_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/lifetime-v0.1.md",
       "dependencies": [
@@ -156,7 +156,7 @@
       "id": "C-CALLBACK-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "回调注册注销与重入",
+      "title": "Callback Registration, Unregistration, and Reentrancy",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-CALLBACK-001.evidence.json",
@@ -167,7 +167,7 @@
         "/root/interop_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "content_sha256": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/callback-v0.1.md",
       "dependencies": [
@@ -196,7 +196,7 @@
       "id": "C-ASYNC-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "异步完成取消与静默",
+      "title": "Asynchronous Completion, Cancellation, and Quiescence",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ASYNC-001.evidence.json",
@@ -207,7 +207,7 @@
         "/root/interop_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "content_sha256": "dd7138080915f25a8063cb7bca04379cbafc5cab70ae22e25360527d0e6fc16b",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/async-v0.1.md",
       "dependencies": [
@@ -240,7 +240,7 @@
       "id": "C-BUFFER-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "缓冲区与传输",
+      "title": "Buffers and Transfer",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUFFER-001.evidence.json",
@@ -251,7 +251,7 @@
         "/root/interop_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "content_sha256": "38ac67033a52f1318c7225b92cd595339c03d9c45dadd85a8bd07e3ddbf99626",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/buffer-v0.1.md",
       "dependencies": [
@@ -280,7 +280,7 @@
       "id": "C-ERROR-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "错误与panic边界",
+      "title": "Error and Panic Boundaries",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ERROR-001.evidence.json",
@@ -291,7 +291,7 @@
         "/root/interop_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "content_sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/error-v0.1.md",
       "dependencies": [
@@ -316,7 +316,7 @@
       "id": "C-CONCURRENCY-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "线程、runtime、背压",
+      "title": "Threads, Runtime, and Backpressure",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-CONCURRENCY-001.evidence.json",
@@ -356,7 +356,7 @@
       "id": "C-BUILD-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "构建打包发布",
+      "title": "Build, Packaging, and Release",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUILD-001.evidence.json",
@@ -400,7 +400,7 @@
       "id": "C-ENGINE-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "独立Engine接入",
+      "title": "Independent Engine Integration",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ENGINE-001.evidence.json",
@@ -448,7 +448,7 @@
       "id": "C-VERIFY-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "验证与证明义务",
+      "title": "Verification and Proof Obligations",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-VERIFY-001.evidence.json",
@@ -500,7 +500,7 @@
       "id": "C-PERF-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "性能与开发体验基准",
+      "title": "Performance and Developer-Experience Benchmarks",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PERF-001.evidence.json",
@@ -540,7 +540,7 @@
       "id": "C-DB-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "驱动与连接",
+      "title": "Drivers and Connections",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-DB-001.evidence.json",
@@ -551,7 +551,7 @@
         "/root/database_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "content_sha256": "28f1895d40b423ffcc2ee0e17c3841f70130ed773a9cdabefaf071d4251c2086",
       "author": "/root/database_research",
       "spec_path": "docs/database/drivers.md",
       "dependencies": [
@@ -588,7 +588,7 @@
       "id": "C-TX-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "事务与迁移语义",
+      "title": "Transaction and Migration Semantics",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-TX-001.evidence.json",
@@ -599,7 +599,7 @@
         "/root/database_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "content_sha256": "514c13d42579aa8f49a43e924540437be19c8890d487f4dca224de893d0641ff",
       "author": "/root/database_research",
       "spec_path": "docs/database/transactions-and-pooling.md",
       "dependencies": [
@@ -624,7 +624,7 @@
       "id": "C-QUERY-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "查询IR与SQL语义",
+      "title": "Query IR and SQL Semantics",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-QUERY-001.evidence.json",
@@ -664,7 +664,7 @@
       "id": "C-QUERYGEN-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "AOT查询与映射生成",
+      "title": "AOT Query and Mapper Generation",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-QUERYGEN-001.evidence.json",
@@ -704,7 +704,7 @@
       "id": "C-SERVER-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "服务端请求与生命周期",
+      "title": "Server Requests and Lifecycle",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-SERVER-001.evidence.json",
@@ -715,7 +715,7 @@
         "/root/server_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "content_sha256": "3381cd77a01bfe8467c611ff1b625decc45b46ba34705e8a67f136affb7b0543",
       "author": "/root/server_extensions",
       "spec_path": "docs/server/hosting-and-streaming.md",
       "dependencies": [
@@ -752,7 +752,7 @@
       "id": "C-PROTOCOL-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "gRPC/MCP等协议适配",
+      "title": "gRPC/MCP and Other Protocol Adapters",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PROTOCOL-001.evidence.json",
@@ -763,7 +763,7 @@
         "/root/server_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "content_sha256": "701aa6cbe88e110c4f11d0d8134504c547f093c76987f8ecc7b3302afae29b51",
       "author": "/root/server_extensions",
       "spec_path": "docs/server/protocols-and-observability.md",
       "dependencies": [
@@ -792,7 +792,7 @@
       "id": "C-REFERENCE-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "端到端参考应用",
+      "title": "End-to-End Reference Application",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-REFERENCE-001.evidence.json",
@@ -803,7 +803,7 @@
         "/root/server_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "content_sha256": "9db34505d5a7ab167fd1ddc7489de677e9cca5a7288a61b77262480d427b0e9e",
       "author": "/root/database_research",
       "spec_path": "docs/verification/reference-application.md",
       "dependencies": [
@@ -848,7 +848,7 @@
       "id": "C-EXTENSION-001",
       "version": "0.3.0",
       "status": "accepted",
-      "title": "未来GUI/GPU/移动扩展",
+      "title": "Future GUI/GPU/Mobile Extensions",
       "evidence": [
         {
           "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-EXTENSION-001.evidence.json",

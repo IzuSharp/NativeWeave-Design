@@ -4,7 +4,7 @@ Status: design-draft; version 0.2.0-draft. The following is a design space to be
 
 ## 1. Separate minimal mechanisms from domain semantics
 
-Evaluate four independent aspects:
+We recommend evaluating four independent aspects:
 
 | Aspect | Responsibilities | Must not assume |
 | --- | --- | --- |

@@ -1,183 +1,183 @@
-# 范围覆盖与遗漏检查
+# Scope coverage and omission checks
 
-状态：规划覆盖，不代表研究/实现已完成。完整机器映射见 [requirements-map.json](../traceability/requirements-map.json)。所有ID来自当前三图，已实际校验存在。
+Status: planning coverage; this does not mean research/implementation is complete. See [requirements-map.json](../traceability/requirements-map.json) for the full machine-readable mapping. All IDs come from the current three graphs and have actually been checked for existence.
 
-| 需求 | 范围 | Research | Documentation | Delivery候选 | 证据方式 |
+| Requirement | Scope | Research | Documentation | Delivery candidates | Evidence method |
 | --- | --- | --- | --- | --- | --- |
-| NW-A01 | ABI、类型布局、版本、目标差异 | R03, R04 | D02, D03 | A01, A02, A10, A11, A22 | 源码+三方layout/调用+旧新版本组合 |
-| NW-A02 | 绑定、强类型Adapter、Generator、Analyzer | R04, R05, R06 | D03, D23 | A09, A10, A11, A12 | 生成快照+增量/负例诊断+实际AOT |
-| NW-A03 | Ownership、Lifetime、GC、父子资源 | R07, R10, R15 | D04, D22 | A03, A04, A19, A20 | lease模型+释放竞争+真实FFI |
-| NW-A04 | Callback、注销、重入、释放竞争 | R08, R11, R12 | D05, D08, D24 | A06, A07, A19, A20 | 注销静默+进程隔离callback负例 |
-| NW-A05 | Async、Cancellation、恰好一次完成 | R09, R12, R15 | D06, D24 | A07, A08, A18, A19 | 终态/静默分离+模型+真实AOT异步 |
-| NW-A06 | Memory、Buffer、Pinning、传输与批量 | R10, R16, R17 | D07, D13 | A04, A17, A18, A20, A21 | allocator/alias/溢出+fuzz+复制账本 |
-| NW-A07 | Error、panic、ABI异常边界 | R11, R04 | D08, D03 | A05, A12, A20 | unwind/abort/UCO签名+subprocess |
-| NW-A08 | Concurrency、线程、Runtime、背压 | R12, R09, R29 | D09, D24 | A08, A18, A19, A23 | 有界资源+shutdown+线程亲和 |
-| NW-A09 | Build、AOT、NuGet/Cargo、发布兼容 | R01, R02, R13, R14 | D01, D10, D25 | A13, A14, A15, A16, A22 | Windows/Linux真目标+clean consumer+SBOM |
-| NW-A10 | 标准Engine接入与至少两异质真实模块 | R18, R17, R12 | D11, D26 | A17, A18, A23, A24 | 同步与异步真实引擎+无Rust应用成本 |
-| NW-B01 | Database、连接池、事务、迁移、恢复 | R19, R20, R21, R22 | D14, D15, D27 | B01, B02, B03, B04, B05, B06, B07, B08 | PG/SQLite实库+AOT+断连/未知提交 |
-| NW-B02 | ORM、LINQ、代码生成、SQL语义 | R23, R24, R25, R06 | D16, D17, D28 | B09, B10, B11, B12, B13, B14 | 支持/拒绝语法+SQL差分+静态映射 |
-| NW-B03 | Server、HTTP/TLS、gRPC/MCP、流与诊断 | R26, R27, R28, R29, R30 | D18, D19, D29 | B15, B16, B17, B18, B19, B20 | Kestrel对照+背压+协议AOT+drain |
-| NW-B04 | DB/Server参考应用、故障长跑、发布 | R31, R17, R16 | D20, D30 | B21, B22, B23, B24 | 相同语义三路线+独立真实验收 |
-| NW-X01 | GUI/GPU/NSH/线程亲和扩展 | R32, R18 | D21, D11 | A23, A24 | 接入约束与探针，不承诺完整GUI |
-| NW-X02 | iOS/Android/静态链接与生命周期 | R33, R02 | D21, D01 | A23, A24 | 按目标profile核验，不gate无关桌面 |
-| NW-P01 | C# First | R17, R19, R26 | D11, D13, D14, D18 | A21, B02, B15, B23 | 纯C#原生编译基线与依赖图 |
-| NW-P02 | Native AOT Required | R02, R13 | D01, D10 | A14, A15, B24 | publish与真实运行分别记录 |
-| NW-P03 | Rust When Justified | R17, R18, R19, R27 | D11, D13, D14, D18 | A17, A18, B04, B17, B23 | 能力/成本/可靠性或实测采用ADR |
-| NW-P04 | 框架简洁优雅高效 | R06, R12, R17, R25 | D03, D09, D13, D16 | A21, B23 | 抽象/运行时/依赖/开发体验成本账本 |
-| NW-P05 | Independent Engines | R14, R18 | D10, D11, D31 | A16, A24, B24 | 独立包/契约/发布profile |
-| NW-P06 | 标准Native-ready接入 | R18, R13, R14 | D10, D11, D31 | A24, A16 | 端到端conformance及新引擎任务模板 |
-| NW-P07 | Performance by Evidence | R17 | D13 | A21, B23 | 可比负载、内存/线程/复制/分布 |
-| NW-P08 | Research/Documentation/Delivery三种并行 | R15, R16 | D31, D32 | 治理检查 | 三图结构、局部依赖、文件所有权检查 |
-| NW-P09 | 两阶段同时深入规划 | R19, R20, R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31 | D14, D15, D16, D17, D18, D19, D20, D27, D28, D29, D30 | B01, B02, B03, B04, B05, B06, B07, B08, B09, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23, B24 | B阶段具体任务/规范覆盖 |
-| NW-P10 | NativeWeave内容独立；Arc只参考格式 | 需求约束 | D31, D32 | 治理检查 | 需求章程、文档和依赖审查 |
-| NW-P11 | 最新稳定技术与预览隔离 | R01, R02 | D01, D03 | A12, A13 | 日期化官方事实+功能状态+编译例 |
-| NW-P12 | 诚实证据与独立Review | R15, R16, R34 | D12, D32 | A19, A20, B22 | 状态/hash/来源+不同作者review |
+| NW-A01 | ABI, type layout, versions, and target differences | R03, R04 | D02, D03 | A01, A02, A10, A11, A22 | Source+three-way layout/call checks+old/new version combinations |
+| NW-A02 | Bindings, strongly typed Adapters, Generators, and Analyzers | R04, R05, R06 | D03, D23 | A09, A10, A11, A12 | Generated snapshots+incremental/negative diagnostics+actual AOT |
+| NW-A03 | Ownership, Lifetime, GC, and parent-child resources | R07, R10, R15 | D04, D22 | A03, A04, A19, A20 | Lease models+release races+actual FFI |
+| NW-A04 | Callbacks, unregistration, reentrancy, and release races | R08, R11, R12 | D05, D08, D24 | A06, A07, A19, A20 | Unregistration quiescence+process-isolated callback negative cases |
+| NW-A05 | Async, Cancellation, and exactly-once completion | R09, R12, R15 | D06, D24 | A07, A08, A18, A19 | Terminal-state/quiescence separation+models+actual AOT async |
+| NW-A06 | Memory, Buffer, Pinning, transfer, and batching | R10, R16, R17 | D07, D13 | A04, A17, A18, A20, A21 | Allocator/alias/overflow+fuzz+copy ledger |
+| NW-A07 | Error, panic, and ABI exception boundaries | R11, R04 | D08, D03 | A05, A12, A20 | Unwind/abort/UCO signatures+subprocess |
+| NW-A08 | Concurrency, threads, Runtime, and backpressure | R12, R09, R29 | D09, D24 | A08, A18, A19, A23 | Bounded resources+shutdown+thread affinity |
+| NW-A09 | Build, AOT, NuGet/Cargo, and release compatibility | R01, R02, R13, R14 | D01, D10, D25 | A13, A14, A15, A16, A22 | Actual Windows/Linux targets+clean consumer+SBOM |
+| NW-A10 | Standard Engine integration and at least two heterogeneous real modules | R18, R17, R12 | D11, D26 | A17, A18, A23, A24 | Real synchronous and asynchronous engines+application costs without Rust |
+| NW-B01 | Database, connection pools, transactions, migrations, and recovery | R19, R20, R21, R22 | D14, D15, D27 | B01, B02, B03, B04, B05, B06, B07, B08 | Real PG/SQLite databases+AOT+disconnection/unknown commit outcomes |
+| NW-B02 | ORM, LINQ, code generation, and SQL semantics | R23, R24, R25, R06 | D16, D17, D28 | B09, B10, B11, B12, B13, B14 | Supported/rejected syntax+SQL differential testing+static mapping |
+| NW-B03 | Server, HTTP/TLS, gRPC/MCP, streaming, and diagnostics | R26, R27, R28, R29, R30 | D18, D19, D29 | B15, B16, B17, B18, B19, B20 | Kestrel comparison+backpressure+protocol AOT+drain |
+| NW-B04 | DB/Server reference application, sustained fault workloads, and release | R31, R17, R16 | D20, D30 | B21, B22, B23, B24 | Three routes with identical semantics+independent actual acceptance |
+| NW-X01 | GUI/GPU/NSH/thread-affinity extensions | R32, R18 | D21, D11 | A23, A24 | Integration constraints and probes; no complete GUI promised |
+| NW-X02 | iOS/Android/static linking and lifecycle | R33, R02 | D21, D01 | A23, A24 | Verification by target profile; does not gate unrelated desktop work |
+| NW-P01 | C# First | R17, R19, R26 | D11, D13, D14, D18 | A21, B02, B15, B23 | Pure C# native-compilation baseline and dependency graph |
+| NW-P02 | Native AOT Required | R02, R13 | D01, D10 | A14, A15, B24 | Record publish and actual execution separately |
+| NW-P03 | Rust When Justified | R17, R18, R19, R27 | D11, D13, D14, D18 | A17, A18, B04, B17, B23 | Adoption ADR based on capabilities/cost/reliability or measurements |
+| NW-P04 | Framework simplicity, elegance, and efficiency | R06, R12, R17, R25 | D03, D09, D13, D16 | A21, B23 | Abstraction/runtime/dependency/developer-experience cost ledger |
+| NW-P05 | Independent Engines | R14, R18 | D10, D11, D31 | A16, A24, B24 | Independent package/contract/release profiles |
+| NW-P06 | Standard Native-ready integration | R18, R13, R14 | D10, D11, D31 | A24, A16 | End-to-end conformance and a new-engine task template |
+| NW-P07 | Performance by Evidence | R17 | D13 | A21, B23 | Comparable workloads, memory/threads/copies/distributions |
+| NW-P08 | Parallel Research/Documentation/Delivery work | R15, R16 | D31, D32 | Governance checks | Three-graph structure, local-dependency, and file-ownership checks |
+| NW-P09 | Plan both phases in depth concurrently | R19, R20, R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31 | D14, D15, D16, D17, D18, D19, D20, D27, D28, D29, D30 | B01, B02, B03, B04, B05, B06, B07, B08, B09, B10, B11, B12, B13, B14, B15, B16, B17, B18, B19, B20, B21, B22, B23, B24 | Concrete task/specification coverage for phase B |
+| NW-P10 | Independent NativeWeave content; Arc is a formatting reference only | Requirements constraints | D31, D32 | Governance checks | Requirements charter, documentation, and dependency review |
+| NW-P11 | Latest stable technology with preview features isolated | R01, R02 | D01, D03 | A12, A13 | Dated official facts+feature status+compiled examples |
+| NW-P12 | Honest evidence and independent Review | R15, R16, R34 | D12, D32 | A19, A20, B22 | Status/hash/provenance+review by a different author |
 
-## 特别防遗漏项
+## Items requiring particular attention to avoid omissions
 
-- 任务完成通知与原生资源静默、managed取消注册排空分别说明。
-- NULL、collation、排序tie-break、数值/时区、unknown事务结果单独验证。
-- 迁移、schema、池复用、流式提前退出都不是ORM映射的附属空项。
-- 包来源、许可证、平台ISA、加载路径、旧新ABI组合与Engine独立发布都有owner。
-- 高吞吐下P99、失败率、RSS/GC/native内存/线程、长跑和恢复分别测量。
-- GUI/mobile作为边界研究；桌面基线不等待所有未来平台完成。
-- 各领域草稿可立即开始，正式契约/产品接受依赖具体证据与独立review。
+- Explain task-completion notification, native resource quiescence, and draining managed cancellation registrations separately.
+- Validate NULL, collation, sorting tie-breaks, numbers/time zones, and unknown transaction outcomes separately.
+- Migrations, schema, pool reuse, and early exit from streaming are not empty subsidiary items of ORM mapping.
+- Package provenance, licenses, platform ISA, loading paths, old/new ABI combinations, and independent Engine releases all have owners.
+- Measure P99 under high throughput, failure rates, RSS/GC/native memory/threads, sustained workloads, and recovery separately.
+- GUI/mobile are boundary research; the desktop baseline does not wait for all future platforms to be complete.
+- Domain drafts may begin immediately; formal contract/product acceptance depends on specific evidence and independent review.
 
-## 三图完整索引
+## Complete index of the three graphs
 
 ### Research
 
-| ID | 任务 |
+| ID | Task |
 | --- | --- |
-| R01 | 稳定工具链与现代语言机制 |
-| R02 | Native AOT、裁剪与平台支持 |
-| R03 | C ABI、布局与版本协商 |
-| R04 | P/Invoke、回调入口与FFI调用成本 |
-| R05 | 绑定生成器与契约描述来源 |
-| R06 | Roslyn增量生成与分析器 |
-| R07 | 句柄、所有权、GC与父子资源 |
-| R08 | Callback注销、重入与释放竞态 |
-| R09 | 异步、取消与完成状态机 |
-| R10 | Buffer、Pinning、批处理与数据传输 |
-| R11 | Error、panic、异常与故障隔离 |
-| R12 | 并发、执行器、线程亲和与关闭 |
-| R13 | MSBuild/Cargo、链接与目标平台 |
-| R14 | 打包、兼容性、独立发布与来源 |
-| R15 | 形式化与并发证明义务 |
-| R16 | 差分、属性、模糊与故障测试 |
-| R17 | 端到端性能、内存与开发成本 |
-| R18 | 按能力组合的Engine接入与通用性 |
-| R19 | PostgreSQL驱动与纯C#对照 |
-| R20 | SQLite适配、并发与线程限制 |
-| R21 | 连接池、事务、取消与恢复 |
-| R22 | 类型映射、批量流与Schema演进 |
-| R23 | LINQ、Expression与编译期查询捕获 |
-| R24 | SQL语义、关系代数与参数安全 |
-| R25 | ORM特性、跟踪与现成方案比较 |
-| R26 | Kestrel与纯C# AOT服务器基线 |
-| R27 | Rust网络引擎与C# Handler边界 |
-| R28 | gRPC、MCP、TLS与协议适配 |
-| R29 | 请求流、背压、超时与优雅关闭 |
-| R30 | 可观测性、诊断关联与成本 |
-| R31 | 数据库+服务器参考应用与故障恢复 |
-| R32 | 桌面GUI/GPU与线程亲和扩展 |
-| R33 | iOS/Android、静态链接与平台生命周期 |
-| R34 | 边界安全、输入验证与资源滥用 |
+| R01 | Stable Toolchains and Modern Language Mechanisms |
+| R02 | Native AOT, Trimming, and Platform Support |
+| R03 | C ABI, Layout, and Version Negotiation |
+| R04 | P/Invoke, Callback Entry Points, and FFI Call Cost |
+| R05 | Binding Generators and Contract Description Sources |
+| R06 | Roslyn Incremental Generation and Analyzers |
+| R07 | Handles, Ownership, GC, and Parent-Child Resources |
+| R08 | Callback Unregistration, Reentrancy, and Release Races |
+| R09 | Async, Cancellation, and Completion State Machines |
+| R10 | Buffers, Pinning, Batching, and Data Transfer |
+| R11 | Errors, Panics, Exceptions, and Fault Isolation |
+| R12 | Concurrency, Executors, Thread Affinity, and Shutdown |
+| R13 | MSBuild/Cargo, Linking, and Target Platforms |
+| R14 | Packaging, Compatibility, Independent Releases, and Provenance |
+| R15 | Formal Methods and Concurrency Proof Obligations |
+| R16 | Differential, Property, Fuzz, and Fault Testing |
+| R17 | End-to-End Performance, Memory, and Development Cost |
+| R18 | Capability-Based Engine Integration and Generality |
+| R19 | PostgreSQL Drivers and Pure C# Baselines |
+| R20 | SQLite Adaptation, Concurrency, and Threading Restrictions |
+| R21 | Connection Pools, Transactions, Cancellation, and Recovery |
+| R22 | Type Mapping, Batched Streams, and Schema Evolution |
+| R23 | LINQ, Expression, and Compile-Time Query Capture |
+| R24 | SQL Semantics, Relational Algebra, and Parameter Safety |
+| R25 | ORM Features, Tracking, and Comparison of Existing Solutions |
+| R26 | Kestrel and Pure C# AOT Server Baselines |
+| R27 | Rust Networking Engines and C# Handler Boundaries |
+| R28 | gRPC, MCP, TLS, and Protocol Adaptation |
+| R29 | Request Streams, Backpressure, Timeouts, and Graceful Shutdown |
+| R30 | Observability, Diagnostic Correlation, and Cost |
+| R31 | Database + Server Reference Application and Fault Recovery |
+| R32 | Desktop GUI/GPU and Thread-Affinity Extensions |
+| R33 | iOS/Android, Static Linking, and Platform Lifecycles |
+| R34 | Boundary Security, Input Validation, and Resource Abuse |
 
 ### Documentation
 
-| ID | 任务 |
+| ID | Task |
 | --- | --- |
-| D01 | 工具链、AOT与平台规范 |
-| D02 | ABI及类型布局契约 |
-| D03 | 绑定IR、生成器与分析器规范 |
-| D04 | 所有权与资源生命周期契约 |
-| D05 | Callback注册撤销与静默契约 |
-| D06 | 异步完成与取消契约 |
-| D07 | Buffer、传输及内存契约 |
-| D08 | Error、panic与异常边界契约 |
-| D09 | 并发、Runtime与关闭规范 |
-| D10 | 构建打包、版本与来源规范 |
-| D11 | Engine接入规范与双模块验证 |
-| D12 | 证明义务与真实验证规范 |
-| D13 | 性能、内存与开发体验方法 |
-| D14 | 数据库驱动能力与适配规范 |
-| D15 | 连接池、事务与恢复契约 |
-| D16 | 查询IR、SQL语义与ORM范围 |
-| D17 | AOT查询捕获、生成与安全动态API |
-| D18 | Server生命周期与适配规范 |
-| D19 | 协议、可观测性与安全规范 |
-| D20 | 生产级参考应用与验收设计 |
-| D21 | 未来引擎和移动平台扩展边界 |
-| D22 | ABI、内存与资源开发任务编制 |
-| D23 | 生成器与分析器开发任务编制 |
-| D24 | Callback、async与Runtime任务编制 |
-| D25 | 构建、打包与独立发布任务编制 |
-| D26 | Engine、证明、测试与基准任务编制 |
-| D27 | Database完整实现任务编制 |
-| D28 | ORM与LINQ AOT实现任务编制 |
-| D29 | Server与协议实现任务编制 |
-| D30 | 端到端、长期负载与领域发布任务编制 |
-| D31 | 全局追溯、版本兼容与后续Engine任务规范 |
-| D32 | 独立交叉Review与交付准备审查 |
+| D01 | Toolchain, AOT, and Platform Specification |
+| D02 | ABI and Type Layout Contract |
+| D03 | Binding IR, Generator, and Analyzer Specification |
+| D04 | Ownership and Resource Lifetime Contract |
+| D05 | Callback Registration, Revocation, and Quiescence Contract |
+| D06 | Async Completion and Cancellation Contract |
+| D07 | Buffer, Transfer, and Memory Contract |
+| D08 | Error, Panic, and Exception Boundary Contract |
+| D09 | Concurrency, Runtime, and Shutdown Specification |
+| D10 | Build, Packaging, Versioning, and Provenance Specification |
+| D11 | Engine Integration Specification and Two-Module Verification |
+| D12 | Proof Obligations and Actual Verification Specification |
+| D13 | Performance, Memory, and Developer Experience Methodology |
+| D14 | Database Driver Capabilities and Adaptation Specification |
+| D15 | Connection Pool, Transaction, and Recovery Contract |
+| D16 | Query IR, SQL Semantics, and ORM Scope |
+| D17 | AOT Query Capture, Generation, and Safe Dynamic APIs |
+| D18 | Server Lifecycle and Adaptation Specification |
+| D19 | Protocol, Observability, and Security Specification |
+| D20 | Production-Grade Reference Application and Acceptance Design |
+| D21 | Extension Boundaries for Future Engines and Mobile Platforms |
+| D22 | Preparation of ABI, Memory, and Resource Development Tasks |
+| D23 | Preparation of Generator and Analyzer Development Tasks |
+| D24 | Preparation of Callback, Async, and Runtime Tasks |
+| D25 | Preparation of Build, Packaging, and Independent Release Tasks |
+| D26 | Preparation of Engine, Proof, Testing, and Benchmark Tasks |
+| D27 | Preparation of Complete Database Implementation Tasks |
+| D28 | Preparing ORM and LINQ AOT Implementation Tasks |
+| D29 | Preparation of Server and Protocol Implementation Tasks |
+| D30 | Preparation of End-to-End, Long-Running-Load, and Domain Release Tasks |
+| D31 | Global Traceability, Version Compatibility, and Future Engine Task Specification |
+| D32 | Independent Cross-Review and Delivery Readiness Review |
 
 ### Delivery A
 
-| ID | 任务 |
+| ID | Task |
 | --- | --- |
-| A01 | ABI描述、布局探针和版本读取 |
-| A02 | 状态、能力及兼容性协商入口 |
-| A03 | 同步句柄与资源lease |
-| A04 | 拥有Buffer与异步租约 |
-| A05 | 受控错误与panic转换边界 |
-| A06 | Callback注册、撤销与排空 |
-| A07 | Task异步桥与取消状态机 |
-| A08 | 可选执行器、容量与关闭 |
-| A09 | 绑定契约IR与输入验证 |
-| A10 | C# LibraryImport绑定发射 |
-| A11 | Rust导出与ABI一致性检查 |
-| A12 | ABI、生命周期与AOT分析器 |
-| A13 | MSBuild与Cargo可复现构建图 |
-| A14 | Linux原生产物与AOT包验证 |
-| A15 | Windows原生产物与AOT包验证 |
-| A16 | 独立NuGet/crate发布与来源记录 |
-| A17 | 真实同步Engine接入验证 |
-| A18 | 真实异步Engine接入验证 |
-| A19 | 生命周期与异步可执行模型 |
-| A20 | ABI和资源跨语言性质与模糊测试 |
-| A21 | 三路线基准与资源观测工具 |
-| A22 | ABI/API升级与兼容性测试 |
-| A23 | 线程亲和与特殊平台接入探针 |
-| A24 | Engine接入脚手架及conformance入口 |
+| A01 | ABI Descriptions, Layout Probes, and Version Reads |
+| A02 | Status, Capability, and Compatibility Negotiation Entry Points |
+| A03 | Synchronous Handles and Resource Leases |
+| A04 | Owned Buffers and Async Leases |
+| A05 | Controlled Error and Panic Conversion Boundaries |
+| A06 | Callback Registration, Revocation, and Draining |
+| A07 | Task Async Bridge and Cancellation State Machine |
+| A08 | Optional Executors, Capacity, and Shutdown |
+| A09 | Binding Contract IR and Input Validation |
+| A10 | C# LibraryImport Binding Emission |
+| A11 | Rust Exports and ABI Consistency Checks |
+| A12 | ABI, Lifetime, and AOT Analyzers |
+| A13 | MSBuild and Cargo Reproducible Build Graph |
+| A14 | Linux Native Artifacts and AOT Package Verification |
+| A15 | Windows Native Artifacts and AOT Package Verification |
+| A16 | Independent NuGet/Crate Releases and Provenance Records |
+| A17 | Actual Synchronous Engine Integration Verification |
+| A18 | Actual Async Engine Integration Verification |
+| A19 | Executable Lifetime and Async Models |
+| A20 | Cross-Language ABI and Resource Property and Fuzz Testing |
+| A21 | Three-Path Benchmark and Resource Observation Tools |
+| A22 | ABI/API Upgrades and Compatibility Testing |
+| A23 | Thread-Affinity and Special-Platform Integration Probes |
+| A24 | Engine Integration Scaffolding and Conformance Entry Points |
 
 ### Delivery B
 
-| ID | 任务 |
+| ID | Task |
 | --- | --- |
-| B01 | DataSource与数据库能力基础 |
-| B02 | PostgreSQL纯C#适配与基线 |
-| B03 | SQLite适配与线程/锁语义 |
-| B04 | 可选Rust PostgreSQL Engine与Adapter |
-| B05 | 事务状态、池租约与恢复策略 |
-| B06 | 批量、COPY与流式读取 |
-| B07 | 静态类型codec与值语义 |
-| B08 | 迁移、Schema检查与升级协调 |
-| B09 | 受限查询语义IR |
-| B10 | LINQ/Fluent语法捕获增量生成 |
-| B11 | PostgreSQL/SQLite SQL方言生成 |
-| B12 | 静态Mapper、实体元数据与AOT |
-| B13 | 运行时安全动态查询API |
-| B14 | 关系、工作单元与并发更新 |
-| B15 | Kestrel Native AOT Host与Handler |
-| B16 | HTTP流、请求预算与背压 |
-| B17 | 可选Rust Server Engine适配 |
-| B18 | gRPC强类型与AOT协议包 |
-| B19 | MCP协议包与静态JSON元数据 |
-| B20 | 诊断关联、超时与关闭协调 |
-| B21 | 通用幂等任务参考服务 |
-| B22 | 端到端故障、崩溃与长期资源验证 |
-| B23 | 领域全负载性能与内存报告 |
-| B24 | 领域兼容矩阵、独立包与发布验收 |
+| B01 | DataSource and Database Capability Foundations |
+| B02 | PostgreSQL Pure C# Adaptation and Baseline |
+| B03 | SQLite Adaptation and Thread/Lock Semantics |
+| B04 | Optional Rust PostgreSQL Engine and Adapter |
+| B05 | Transaction State, Pool Leases, and Recovery Policies |
+| B06 | Batching, COPY, and Streaming Reads |
+| B07 | Statically Typed Codecs and Value Semantics |
+| B08 | Migrations, Schema Checks, and Upgrade Coordination |
+| B09 | Restricted Query-Semantics IR |
+| B10 | Incremental Generation for LINQ/Fluent Syntax Capture |
+| B11 | PostgreSQL/SQLite SQL Dialect Generation |
+| B12 | Static Mappers, Entity Metadata, and AOT |
+| B13 | Safe Runtime Dynamic-Query API |
+| B14 | Relationships, Units of Work, and Concurrent Updates |
+| B15 | Kestrel Native AOT Host and Handler |
+| B16 | HTTP Streams, Request Budgets, and Backpressure |
+| B17 | Optional Rust Server Engine Adaptation |
+| B18 | Strongly Typed gRPC and AOT Protocol Packages |
+| B19 | MCP Protocol Packages and Static JSON Metadata |
+| B20 | Diagnostic Correlation, Timeouts, and Shutdown Coordination |
+| B21 | General-Purpose Idempotent Task Reference Service |
+| B22 | End-to-End Fault, Crash, and Long-Term Resource Verification |
+| B23 | Domain Full-Workload Performance and Memory Report |
+| B24 | Domain Compatibility Matrix, Independent Packages, and Release Acceptance |
 
 
 

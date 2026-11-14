@@ -61,7 +61,7 @@ Sources: [generator](https://github.com/DapperLib/DapperAOT/blob/3bd350451f840b1
 
 ### ORM-E002: EF Core's Normal Query Compilation and Precompilation Are Distinct Execution Paths
 
-In the pinned version, `QueryCompiler.ExecuteCore` first extracts parameters and then looks up the compiled-query cache; when new compilation is required, it checks `RuntimeFeature.IsDynamicCodeSupported`, otherwise throwing `QueryNotPrecompiled`. `PrecompileQuery` in the same source carries an experimental annotation. The design-time generation entry point connects `QueryLocator`, C#-to-expression-tree conversion, and precompiled output.
+In the pinned version, `QueryCompiler.ExecuteCore` first extracts parameters and then looks up the compiled-query cache; when new compilation is required, it checks `RuntimeFeature.IsDynamicCodeSupported` and throws `QueryNotPrecompiled` if dynamic code is unsupported. `PrecompileQuery` in the same source carries an experimental annotation. The design-time generation entry point connects `QueryLocator`, C#-to-expression-tree conversion, and precompiled output.
 
 Sources: [QueryCompiler](https://github.com/dotnet/efcore/blob/12b8d44bf691d2e6933a6d1003647cce4f13c3d3/src/EFCore/Query/Internal/QueryCompiler.cs), [PrecompiledQueryCodeGenerator](https://github.com/dotnet/efcore/blob/12b8d44bf691d2e6933a6d1003647cce4f13c3d3/src/EFCore.Design/Query/Internal/PrecompiledQueryCodeGenerator.cs), [official Native AOT documentation](https://learn.microsoft.com/ef/core/performance/nativeaot-and-precompiled-queries).
 
@@ -152,7 +152,7 @@ These are independent research boundaries that may start in parallel; formal IDs
 | SRV-Q01 | Which requirements Kestrel meets and when an additional Engine adds value | Benchmarks with identical TLS, connection reuse, payloads, business logic, and database access | Server capability boundaries, equivalent experiments, and selection ADR |
 | SRV-Q02 | How Rust request adaptation and streaming backpressure form a complete protocol | Complete request/response buffer, header, cancellation, thread callback, and shutdown chains | Request tokens, consumption acknowledgment, budgets, drain state machine |
 | SRV-Q03 | How gRPC/MCP compose without entering Core | Official SDKs, serialization, streaming methods, tool-registration AOT experiments | Separate protocol adapters, version matrices, and diagnostics |
-| SRV-Q04 | Who owns TLS, authentication, and observability | Kestrel/.NET and Rust native TLS, trace context, logging models | Ownership, certificate updates, disabling sensitive parameters, sampling overhead |
+| SRV-Q04 | Who owns TLS, authentication, and observability | Kestrel/.NET and Rust native TLS, trace context, logging models | Ownership, certificate updates, disabling sensitive-parameter logging, sampling overhead |
 | E2E-Q01 | Whether database and server can maintain end-to-end resource boundaries | Accounting/order-style transactional reference workloads without business dependencies | Reference application design, failure matrix, and three-approach benchmarks |
 
 The recommended reference application uses a small, verifiable resource-reservation or inventory-transaction model: record creation, idempotency keys, conditional updates, pagination/streaming queries, covering write conflicts and commit uncertainty. This model serves validation only and introduces no downstream business protocol into the framework.

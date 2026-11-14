@@ -26,8 +26,8 @@ Commit returned by the actual tag/ref: `1def4cdc07dc10fc267136060e3ef5c1a96d4a99
 
 Actually read in full:
 
-- [HttpResponsePipeWriter.cs](https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs)：blob `5e5078e05cc54865f02abfbed7a6396894f12e9d`。
-- [HttpResponsePipeWriterTests.cs](https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs)：blob `8fb8cb261d0ae8eefeecc5471d9e79ab537fc2e3`。
+- [HttpResponsePipeWriter.cs](https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/Internal/Http/HttpResponsePipeWriter.cs): blob `5e5078e05cc54865f02abfbed7a6396894f12e9d`.
+- [HttpResponsePipeWriterTests.cs](https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/test/HttpResponsePipeWriterTests.cs): blob `8fb8cb261d0ae8eefeecc5471d9e79ab537fc2e3`.
 
 These two blob SHAs are identical to those of the v10 files previously read. For these two specific files, the implementation and test contents can be confirmed unchanged: the Open/Closed/Aborted states, rejection of access after writes have stopped, and corresponding tests remain present.
 

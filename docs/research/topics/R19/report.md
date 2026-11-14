@@ -33,9 +33,9 @@ B02 implements this native provider contract, TLS validation and actual Windows/
 
 The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
-## 固定源码入口与实际阅读
+## Pinned Source Entry Points and Actual Reading
 
-| Claim | 固定文件/来源 | 实际范围与证据类别 |
+| Claim | Pinned file/source | Actual scope and evidence category |
 | --- | --- | --- |
 | R19-C01 | [src/Npgsql/PoolingDataSource.cs](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/PoolingDataSource.cs#L100-L356) | [[100, 356], [445, 455]]; source-observed; reader=database_design |
 | R19-C02 | [src/Npgsql/Internal/NpgsqlConnector.cs](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/src/Npgsql/Internal/NpgsqlConnector.cs#L2075-L2258) | [[2075, 2258], [2706, 2810], [2936, 2993]]; source-observed; reader=database_design |
@@ -44,8 +44,8 @@ The following original source observations are retained with their original read
 | R19-C05 | [test/Npgsql.Tests/PoolTests.cs](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/test/Npgsql.Tests/PoolTests.cs#L47-L143) | [[47, 143]]; test-source-observed; reader=database_design |
 | R19-C06 | [sqlx-core/src/pool/connection.rs](https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/sqlx-core/src/pool/connection.rs#L130-L163) | [[130, 163], [195, 225], [271, 369]]; source-observed; reader=database_design |
 | R19-C07 | [LICENSE](https://github.com/npgsql/npgsql/blob/d3768398c17877b3a916c3c4d87e8e11698991fc/LICENSE#L1-L18) | [[1, 18]]; license-text-observed; reader=database_design |
-| R19-C08 | [LICENSE-MIT](https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/LICENSE-MIT) | 定位见evidence; license-text-observed; reader=database_design |
-| R19-V1 | [refs/tags/v10.0.3](https://api.github.com/repos/npgsql/npgsql/git/refs/tags/v10.0.3) | 定位见evidence; release-tag-metadata-observed; reader=database_design |
+| R19-C08 | [LICENSE-MIT](https://github.com/transact-rs/sqlx/blob/bab1b022bd56a64f9a08b46b36b97c5cff19d77e/LICENSE-MIT) | See evidence for location; license-text-observed; reader=database_design |
+| R19-V1 | [refs/tags/v10.0.3](https://api.github.com/repos/npgsql/npgsql/git/refs/tags/v10.0.3) | See evidence for location; release-tag-metadata-observed; reader=database_design |
 | R19-RU01 | [Cargo.toml](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/Cargo.toml#L1-L195) | [[1, 195]]; source-observed; reader=/root/database_design |
 | R19-RU02 | [src/database/connection.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/database/connection.rs#L1-L88) | [[1, 88], [167, 251]]; source-observed; reader=/root/database_design |
 | R19-RU03 | [src/driver/sqlx_postgres.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_postgres.rs#L180-L275) | [[180, 275], [828, 898], [328, 354]]; source-observed; reader=/root/database_design |

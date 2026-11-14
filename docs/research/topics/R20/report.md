@@ -37,18 +37,18 @@ The current research design resolves worker ownership, cooperative cancellation 
 
 The following original source observations are retained with their original reader identities. They do not restore superseded integration decisions or claim that this author reread every old range.
 
-## 固定源码入口与实际阅读
+## Pinned Source Entry Points and Actual Reading
 
-| Claim | 固定文件/来源 | 实际范围与证据类别 |
+| Claim | Pinned file/source | Actual scope and evidence category |
 | --- | --- | --- |
 | R20-C01 | [src/Microsoft.Data.Sqlite.Core/SqliteCommand.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteCommand.cs#L357-L439) | [[357, 439], [458, 543]]; source-observed; reader=database_design |
 | R20-C02 | [src/Microsoft.Data.Sqlite.Core/SqliteDataReader.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteDataReader.cs#L118-L144) | [[118, 144], [154, 180], [182, 208], [243, 301]]; source-observed; reader=database_design |
 | R20-C03 | [src/Microsoft.Data.Sqlite.Core/SqliteTransaction.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/Microsoft.Data.Sqlite.Core/SqliteTransaction.cs#L70-L243) | [[70, 243]]; source-observed; reader=database_design |
 | R20-C04 | [test/Microsoft.Data.Sqlite.Tests/SqliteTransactionTest.cs](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/Microsoft.Data.Sqlite.Tests/SqliteTransactionTest.cs#L14-L32) | [[14, 32], [310, 328], [359, 377], [379, 397]]; test-source-observed; reader=database_design |
 | R20-C05 | [LICENSE.txt](https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/LICENSE.txt#L1-L23) | [[1, 23]]; license-text-observed; reader=database_design |
-| R20-C06 | https://www.sqlite.org/c3ref/interrupt.html | 定位见evidence; official-documentation-observed; reader=database_design |
-| R20-V1 | [refs/tags/v11.0.0](https://api.github.com/repos/dotnet/efcore/git/refs/tags/v11.0.0) | 定位见evidence; release-tag-metadata-observed; reader=database_design |
-| R20-V2 | [refs/tags/v3.0.5](https://api.github.com/repos/ericsink/SQLitePCL.raw/git/refs/tags/v3.0.5) | 定位见evidence; release-tag-metadata-observed; reader=database_design |
+| R20-C06 | https://www.sqlite.org/c3ref/interrupt.html | See evidence for location; official-documentation-observed; reader=database_design |
+| R20-V1 | [refs/tags/v11.0.0](https://api.github.com/repos/dotnet/efcore/git/refs/tags/v11.0.0) | See evidence for location; release-tag-metadata-observed; reader=database_design |
+| R20-V2 | [refs/tags/v3.0.5](https://api.github.com/repos/ericsink/SQLitePCL.raw/git/refs/tags/v3.0.5) | See evidence for location; release-tag-metadata-observed; reader=database_design |
 | R20-RU01 | [src/driver/sqlx_sqlite.rs](https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/driver/sqlx_sqlite.rs#L155-L254) | [[155, 254], [311, 337]]; source-observed; reader=/root/database_design |
 | R20-SQ09-SQLITE-01 | [sqlx-sqlite/src/connection/worker.rs](https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs) | 25-138;163-212;364-389; cross-task-source-evidence; reader=/root/interop_design |
 | R20-SQ09-SQLITE-02 | [sqlx-sqlite/src/connection/worker.rs](https://github.com/transact-rs/sqlx/blob/75bc0487eb661da811bb7a3c5d158f1bd463fef4/sqlx-sqlite/src/connection/worker.rs) | 213-313;538-574; cross-task-source-evidence; reader=/root/interop_design |

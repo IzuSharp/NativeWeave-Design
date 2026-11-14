@@ -12,7 +12,7 @@
     "path": "research-tasks/R25.md",
     "packet_sha256": "22a35bfe736e0f07bfb21bc10115a6ea7dd20233489b07d9a7926f1c0436524f"
   },
-  "claim_status_policy": "设计结论可独立审查后解决；本记录不自授accepted，实现验证另列Delivery任务。",
+  "claim_status_policy": "Design conclusions may be resolved after independent review; this record does not self-award accepted status, and implementation validation is separately assigned to Delivery tasks.",
   "claims": [
     {
       "claim_id": "R25-C01",
@@ -38,8 +38,8 @@
           "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/ChangeTracking/Internal/StateManager.cs#L1423-L1490"
         ]
       },
-      "supported_claim": "tracked查询建立identity map及snapshot订阅；成功保存与AcceptAllChanges有独立路径，失败丢弃store-generated值。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Tracked queries establish an identity map and snapshot subscriptions; successful saving and AcceptAllChanges have separate paths, while failure discards store-generated values.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -67,8 +67,8 @@
           "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/ChangeTracking/Internal/ChangeDetector.cs#L242-L317"
         ]
       },
-      "supported_claim": "snapshot检测扫描entries、flattened properties与关系，成本随跟踪图增长。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Snapshot detection scans entries, flattened properties, and relationships, with cost growing with the tracked graph.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -96,8 +96,8 @@
           "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Update/AffectedCountModificationCommandBatch.cs#L526-L590"
         ]
       },
-      "supported_claim": "affected rows不符构造并发异常，可由EF日志拦截器抑制；NativeWeave选择显式冲突而不静默成功。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "An affected-row mismatch constructs a concurrency exception that EF logging interceptors can suppress; NativeWeave chooses explicit conflicts rather than silent success.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -125,8 +125,8 @@
           "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/test/EFCore.Specification.Tests/OptimisticConcurrencyTestBase.cs#L351-L407"
         ]
       },
-      "supported_claim": "测试源码包含null original token及update/delete冲突/恢复，未运行。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Test source includes null original tokens and update/delete conflicts/recovery; not executed.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -154,8 +154,8 @@
           "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/Query/Internal/QueryCompiler.cs#L134-L156"
         ]
       },
-      "supported_claim": "动态query编译不是所有AOT调用的保证；只比较已读范围。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Dynamic query compilation does not guarantee all AOT calls; comparison is limited to the scope read.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -188,8 +188,8 @@
           "https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/src/Dapper.AOT.Analyzers/CodeAnalysis/DapperInterceptorGenerator.cs#L515-L543"
         ]
       },
-      "supported_claim": "静态mapper路线可借鉴，同时要提供完整生成覆盖诊断。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "The static-mapper approach provides a reference, but also needs complete generation-coverage diagnostics.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -217,8 +217,8 @@
           "https://github.com/DapperLib/DapperAOT/blob/0e071bf05e54caecfa98c885b075fa3e247f3ecc/src/Dapper.AOT/Internal/AsyncQueryState.cs#L76-L116"
         ]
       },
-      "supported_claim": "reader/数组清理需同时纳入静态mapper执行的正确性边界。",
-      "limitations": "仅实际列出的源码范围；源码/上游测试存在不代表本轮已编译、执行、Native AOT或生产验证。",
+      "supported_claim": "Reader/array cleanup must both fall within the correctness boundary of static-mapper execution.",
+      "limitations": "Only the source scope actually listed; the existence of source/upstream tests does not mean compilation, execution, Native AOT, or production validation occurred in this round.",
       "run_manifest": null,
       "current_product_role": "comparative_reference_only"
     },
@@ -241,9 +241,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/Cargo.toml#L1-L195"
         ]
       },
-      "supported_claim": "SeaORM2.0.4声明edition2024/MSRV1.94、SQLx0.9/sea-query-sqlx0.9/SeaQuery~1.0.0及可选feature；这是源码依赖范围，不是已解析Cargo.lock。",
+      "supported_claim": "SeaORM2.0.4 declares edition2024/MSRV1.94, SQLx0.9/sea-query-sqlx0.9/SeaQuery~1.0.0, and optional features; these are source dependency ranges, not a resolved Cargo.lock.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -265,9 +265,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/base_entity.rs#L65-L135"
         ]
       },
-      "supported_claim": "EntityTrait有静态Model/ActiveModel/Column/Relation/PrimaryKey关联类型；ActiveModelEx注释minor稳定性有限；未知C#schema不能凭runtime字符串获得这些Rust类型。",
+      "supported_claim": "EntityTrait has static associated Model/ActiveModel/Column/Relation/PrimaryKey types; ActiveModelEx comments limit minor-version stability; an unknown C# schema cannot obtain these Rust types merely through runtime strings.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -304,9 +304,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/active_model.rs#L440-L465"
         ]
       },
-      "supported_claim": "ActiveModel的Set/Unchanged/NotSet区分部分更新；try_set返回Result而set类型错会panic；insert/update经Entity executor再after_save，save按PK是否NotSet选分支而非exists-upsert。",
+      "supported_claim": "ActiveModel Set/Unchanged/NotSet distinguish partial updates; try_set returns Result, while set panics on a type mismatch; insert/update go through the Entity executor and then after_save, and save branches on whether PK is NotSet rather than performing an existence-based upsert.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -333,9 +333,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/entity/relation.rs#L301-L326"
         ]
       },
-      "supported_claim": "RelationTrait/Related/RelationDef表达关系方向、keys、junction via和ON condition；这些真实ORM机制可由生成实体复用。",
+      "supported_claim": "RelationTrait/Related/RelationDef express relationship directions, keys, junction via, and ON conditions; generated entities can reuse these actual ORM mechanisms.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -357,9 +357,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/executor/update.rs#L1-L220"
         ]
       },
-      "supported_claim": "SeaORM更新使用rows_affected或RETURNING，并为单行缺失返回RecordNotUpdated；自动optimistic-version CAS不是这段源码保证，NW必须明确加key/tenant/version谓词。",
+      "supported_claim": "SeaORM updates use rows_affected or RETURNING and return RecordNotUpdated for a missing single row; automatic optimistic-version CAS is not guaranteed by this source, and NW must explicitly add key/tenant/version predicates.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -386,9 +386,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/src/executor/select.rs#L869-L925"
         ]
       },
-      "supported_claim": "SeaORM Select可into_model/into_partial_model；one/all/stream通过ConnectionTrait/StreamTrait取得QueryResult并调用静态FromQueryResult，Rust ORM执行链是真实的。",
+      "supported_claim": "SeaORM Select supports into_model/into_partial_model; one/all/stream obtain QueryResult through ConnectionTrait/StreamTrait and call static FromQueryResult, forming an actual Rust ORM execution chain.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -415,9 +415,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/tests/relational_tests.rs#L711-L784"
         ]
       },
-      "supported_claim": "已读ActiveModel插入、many-to-many join实体及find_also_related/into_model、missing related为None和find_related测试；只读未执行。",
+      "supported_claim": "ActiveModel insertion, many-to-many junction entities, find_also_related/into_model, missing-related-as-None, and find_related tests were read; read only, not executed.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -459,9 +459,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/tests/transaction_tests.rs#L373-L455"
         ]
       },
-      "supported_claim": "已读scope-drop、commit/rollback/IMMEDIATE及hook失败测试；after_save报错时事务内行已存在，最终scope rollback才清除，证明hook失败不能推断写未发生。",
+      "supported_claim": "Scope-drop, commit/rollback/IMMEDIATE, and hook-failure tests were read; when after_save returns an error, the row already exists within the transaction and only final scope rollback removes it, proving that hook failure does not imply the write never occurred.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -483,9 +483,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/sea-orm-codegen/src/entity/writer/compact.rs#L1-L159"
         ]
       },
-      "supported_claim": "生成器真实发射DeriveEntityModel、column/PK属性、DeriveRelation与Related impl；可作为schema专属模型生成路线依据，不证明NW生成器已实现。",
+      "supported_claim": "The generator actually emits DeriveEntityModel, column/PK attributes, DeriveRelation, and Related impls; it supports a schema-specific model-generation approach, but does not prove that the NW generator is implemented.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -507,9 +507,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/sea-orm-codegen/tests/compact/fruit.rs#L1-L39"
         ]
       },
-      "supported_claim": "生成fixture包含Model/PK/nullable FK、belongs_to/has_many、Related与ActiveModelBehavior；测试文件阅读而未编译执行。",
+      "supported_claim": "The generated fixture contains Model/PK/nullable FK, belongs_to/has_many, Related, and ActiveModelBehavior; the test file was read but not compiled or executed.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
@@ -531,9 +531,9 @@
           "https://github.com/SeaQL/sea-orm/blob/db40a19a7bde7be8e1c4b346b1b70d72e87f0245/LICENSE-MIT#L1-L25"
         ]
       },
-      "supported_claim": "SeaORM MIT许可正文已读，Cargo声明MIT OR Apache-2.0；此记录不是全部依赖license/SBOM审计。",
+      "supported_claim": "The SeaORM MIT license text was read, while Cargo declares MIT OR Apache-2.0; this record is not a complete dependency-license/SBOM audit.",
       "source_reader": "/root/database_design",
-      "limitations": "仅列出的实际阅读范围；未编译/运行上游或NativeWeave Rust、C#、AOT；设计推断不升级为实现验证。",
+      "limitations": "Only the actual reading scope listed; neither upstream nor NativeWeave Rust, C#, or AOT was compiled/executed; design inferences are not promoted to implementation validation.",
       "run_manifest": null
     },
     {
