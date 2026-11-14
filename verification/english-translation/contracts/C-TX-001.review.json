@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-TX-001",
+    "version": "0.3.0",
+    "content_sha256": "514c13d42579aa8f49a43e924540437be19c8890d487f4dca224de893d0641ff"
+  },
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "reviewer": "/root/translate_research",
+  "author": "/root/database_research",
+  "reviewed_at": "2026-11-14T03:57:43Z",
+  "reviewed_evidence_sha256": [
+    "aaef9ff349cf3504ca789e3329e4fcc45fa1254820f67fa641168ffd7abc3a0a"
+  ],
+  "review_kind": "binding_of_actual_independent_technical_review",
+  "recorded_by": "/root",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/english-translation/contracts.json",
+    "sha256": "1f3a56d53bdb234c7a75fa1d3036d8afaf136c2de93089869840e8599dde0abf"
+  },
+  "binding_boundary": "Integrator-generated binding of the cited real review. Formal status requires the same independent executor to attest these exact manifest hashes.",
+  "github_approval_identity_claimed": false,
+  "product_verification_accepted": false,
+  "review_scope": "Independent technical translation-equivalence review and preservation of prior accepted conclusions; not a claim of rerunning the original technical research.",
+  "prior_accepted_source": "08e3aaee73aad174620dcff18ed21b3b14c5e632"
+}

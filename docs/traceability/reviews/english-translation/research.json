@@ -1,0 +1,3027 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/translate_contracts",
+  "reviewed_at_utc": "2026-11-14T03:58:00.754458+00:00",
+  "decision": "accepted",
+  "blocking_findings": [],
+  "review_scope": "independent English translation semantic equivalence and preservation of prior accepted technical conclusions; no experiments rerun",
+  "source_baselines": {
+    "Plan": "eff98a38068478cd4c2abb4ea66c62330156941b",
+    "NativeWeave-Design": "08e3aaee73aad174620dcff18ed21b3b14c5e632"
+  },
+  "identity_boundary": "This is an actual independent subagent translation/acceptance-equivalence review, not a second GitHub account approval and not fresh execution of historical experiments.",
+  "authorship_boundary": "No translation authored by /root/translate_contracts is included as an independently reviewed translation here. Its 12 Design translations are reviewed by other agents. All 30 changed Design research files listed here were personally read. The six general research seed documents are outside this report and retain separate actual review by /root/translate_plan.",
+  "methodology": [
+    "Derived source/target pairs from git-show accepted baselines and actual integrated files, rather than treating author replacement maps as evidence.",
+    "Read all 276 unique changed line pairs for the 45 assigned task packets, preserving a full occurrence map for repeated template text. Every final packet was reconstructed from the baseline plus the reviewed pairs and the separately reread final common-mandate correction, then compared byte for byte.",
+    "Read all 273 unique changed source/target pairs for the 25 remaining research files; these represent 454 actual changed line/JSON-value occurrences. Complete JSON shapes, nonlanguage scalars, line counts, numeric occurrences, link destinations, inline code, and executable examples were separately checked.",
+    "Personally read all 550 lines of the full R07 report/probe and R08/R09/R11 source/target documents, reading unchanged English once after equality comparison. Previously resolved peer findings in R11 were read in their final corrected source context.",
+    "Read every distinct Research-graph semantic change and every changed fragment title; compare every other JSON key, scalar, list length/order, dependency, requirement, and technical field with the accepted baseline.",
+    "Read all changed Plan current-policy, README, template, index, and renderer text; verify exact inventory coverage and nontext Python AST equality. The completion validator adaptation changes only the task-revision text marker.",
+    "Verified all 80 unchanged assigned output files byte for byte against accepted source commits, including the D32 ledger. Prior accepted technical conclusions, raw evidence identities, historical failure records, and future product obligations are retained; no unrelated experiment was rerun.",
+    "Re-read all six author fixes for the findings below and checked their final integrated bytes. Inspected the narrow final mandate, packet-hash, and graph-binding changes before recording these pins.",
+    "Used semantic_projection_v1 only for the cyclic Research graph; all actual packet/output/current-document review inputs remain full exact SHA-256 bindings."
+  ],
+  "coverage": {
+    "task_subjects": 45,
+    "research_tasks": 34,
+    "documentation_tasks": 11,
+    "translation_files": 99,
+    "personally_reviewed_changed_design_research_files": 30,
+    "plan_translation_files_including_graph_projection": 69,
+    "task_output_files": 119,
+    "unchanged_task_outputs": 80,
+    "full_file_input_pins": 178,
+    "native_experiments_rerun": false,
+    "product_implementation_authorized": false
+  },
+  "review_inputs_sha256": {
+    "NativeWeave-Design:docs/research/topics/R01/coverage.json": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a",
+    "NativeWeave-Design:docs/research/topics/R01/evidence.json": "c9696e64ed82c383cde5c10b0a8dda49fb990a0e7dbc11bb5cfee6ee90695425",
+    "NativeWeave-Design:docs/research/topics/R01/report.md": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11",
+    "NativeWeave-Design:docs/research/topics/R01/rust-1.100.md": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d",
+    "NativeWeave-Design:docs/research/topics/R02/coverage.json": "e792f4386fa45895634d3c6c0d6ffd3433c6c25083f443392d86c1a289052f82",
+    "NativeWeave-Design:docs/research/topics/R02/evidence.json": "8ffd451a7944eb36ad3a47e922f323fb8e1a71391814c24bee529bc537f27195",
+    "NativeWeave-Design:docs/research/topics/R02/report.md": "a7843818835bb8d0c760b8db7aa1f527ac347fc5e5ba65b663d28d6c08ac77e2",
+    "NativeWeave-Design:docs/research/topics/R03/coverage.json": "f9f41cad606353ad21a9ec7b46d18bf6c2178bdd161ede550df08a8793d57fcb",
+    "NativeWeave-Design:docs/research/topics/R03/evidence.json": "0bc5c9070e16c077844229c0239775856bcc0056e0057efeb96da8ddd6305cb1",
+    "NativeWeave-Design:docs/research/topics/R03/native-slice-validation.md": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997",
+    "NativeWeave-Design:docs/research/topics/R03/report.md": "23d2c9e1e615772482db4a67c5ffa9e860f4968092e0bb7406306c1259f53845",
+    "NativeWeave-Design:docs/research/topics/R04/coverage.json": "a6fca704612cf28cfe2bc7789fd4984c589fd13ec6f1fc2f50613e009c9d097b",
+    "NativeWeave-Design:docs/research/topics/R04/evidence.json": "40dc8eb7468d1a95fb6df63fe4ac5df81877073e3c8e180147da8d41efe54878",
+    "NativeWeave-Design:docs/research/topics/R04/report.md": "f4269b31a55b74522e50f290519be930d0a34db3e58cccb3364a2ace5f330b56",
+    "NativeWeave-Design:docs/research/topics/R05/coverage.json": "2771aae925be7521fd0a3fcfd4ec72e74c06197b0d761089e7823596c74b29ee",
+    "NativeWeave-Design:docs/research/topics/R05/evidence.json": "2b32c40f00e8a8a87d30a494f7972ec82e7fe70867d125c88eddd4d7eb9522da",
+    "NativeWeave-Design:docs/research/topics/R05/report.md": "5f0aadd52dcd8c060397d749752744d9046443d13d6ed1f27860b357532bed16",
+    "NativeWeave-Design:docs/research/topics/R06/coverage.json": "e63788b0742f73f46e388d05be284055ab8b89084b808f9081bdb0bcd0addd81",
+    "NativeWeave-Design:docs/research/topics/R06/evidence.json": "47e3e9f9508eb8d4b1b633d4936a27796d7af24ba2ff77dc1e9fc1bb855c0d88",
+    "NativeWeave-Design:docs/research/topics/R06/report.md": "eb0c840f0ebb5d4f3eae2c0839af473dba9b7117fe0ea123fe60bf1d17aa4bb7",
+    "NativeWeave-Design:docs/research/topics/R07/coverage.json": "ad4dafdaebb9c828fea953ea8e60145a4dcc6c03f8579d28c9a3444beb78dc5d",
+    "NativeWeave-Design:docs/research/topics/R07/evidence.json": "b2212e3dfd2fda25defec84fa899c3bb7ca5f876aeaa730045b46075bae2cc55",
+    "NativeWeave-Design:docs/research/topics/R07/logical-admission-probe.md": "d8e43a1de5ea68c7b28cbe90e32ce266b33febba610b0290720680873be9af7e",
+    "NativeWeave-Design:docs/research/topics/R07/report.md": "84a29f3b59a3e285b3e480f4f59ee6196efe4059535f67cd3e94aa66faf67ed2",
+    "NativeWeave-Design:docs/research/topics/R08/coverage.json": "25354de73b1b98bc5920a18109703226b427fc5f28fa6b1621f68fb65f127607",
+    "NativeWeave-Design:docs/research/topics/R08/evidence.json": "1119ad6ddeae6b94af8c5b03feab7cd4b8eaa7f8a1fc198e3e6df520a811fec3",
+    "NativeWeave-Design:docs/research/topics/R08/report.md": "8ffb1267bf4ae252e78b38b041bf889849a7cb22e1c28fdbc91afb09e96d7e3d",
+    "NativeWeave-Design:docs/research/topics/R09/coverage.json": "d557fb45c113a4048b6c2fde421bc2402a5341bfbb006d56b783c5234de83a48",
+    "NativeWeave-Design:docs/research/topics/R09/evidence.json": "ddbc929268a78737a7814a7818b33fa39ef04d5afe5c13fa4b563309367f4b63",
+    "NativeWeave-Design:docs/research/topics/R09/report.md": "c161827d0da067081c58c0650722784a8dd7526b2fa58850438ff6a87723522b",
+    "NativeWeave-Design:docs/research/topics/R10/coverage.json": "74080381ee38da43014f1a4b7c11b6aa578a8774ddc521df5fb94fe953ffd658",
+    "NativeWeave-Design:docs/research/topics/R10/evidence.json": "1dccc6fe89eb91c3bebbb38f4b7ee9339875bff8f31365e5c56d7d1e3f83fc77",
+    "NativeWeave-Design:docs/research/topics/R10/report.md": "bce20015ca5ce00e74aee6c5f542591918b89e971367ba2bde5c4edf131dc59e",
+    "NativeWeave-Design:docs/research/topics/R11/coverage.json": "0bac265d6d0ad11529f40d1ae6df298fd77d4782e29626e1ad8db221c6f9241c",
+    "NativeWeave-Design:docs/research/topics/R11/evidence.json": "b9e2457c32b7c73b034c1fe88a0050c3ca35a52562686a726fd65e90d7c52fb6",
+    "NativeWeave-Design:docs/research/topics/R11/report.md": "4176d1f3c773642212c5e6ca7c567106166f98f1fbecc81acc4321a7ac0b2b1c",
+    "NativeWeave-Design:docs/research/topics/R12/coverage.json": "65e1e2e17d60a44a00e8d3655af43866a2f6df6e406cd39a0fd6fe20c3573af3",
+    "NativeWeave-Design:docs/research/topics/R12/evidence.json": "fd016f23d0088bd7cd527fae9011d6405e4a4d316eafd883bf4aa46237911a57",
+    "NativeWeave-Design:docs/research/topics/R12/report.md": "8567a860b17da594c63845cb0f627ad2517222cf4032f50aba25e58f94f4b2c0",
+    "NativeWeave-Design:docs/research/topics/R13/coverage.json": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696",
+    "NativeWeave-Design:docs/research/topics/R13/evidence.json": "f891c8d8b2e7f50e3ba7ca16005bad630c8c4cc6add49573bb4ae4af3f9b7874",
+    "NativeWeave-Design:docs/research/topics/R13/report.md": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7",
+    "NativeWeave-Design:docs/research/topics/R14/coverage.json": "641dff377a13cb1a58f3b2eb0e5708d6f165ac8966e6eaa0f1b8817684dd8367",
+    "NativeWeave-Design:docs/research/topics/R14/evidence.json": "6e1dc5fcaf35cb2e5f9b8d46fbf0ce7eddf6b3abea953278b6c8f17c9cf67292",
+    "NativeWeave-Design:docs/research/topics/R14/report.md": "b353abde7c361ec0d8ad6cd36bc2747fa67d887c4cf7db3a2293781de94d494d",
+    "NativeWeave-Design:docs/research/topics/R15/coverage.json": "269b6eb7141d47fce15081b8763ee4111afa239c5cb3fdd8aad7eb6dfcb414f6",
+    "NativeWeave-Design:docs/research/topics/R15/evidence.json": "c15d1c7ab5e09af224c3f0109af6b4db0ebb5054a042065a7eae111d24c41146",
+    "NativeWeave-Design:docs/research/topics/R15/report.md": "9647f4658cd32c1d66ef3138ff27a42d5bde68223bc64a5729b8838e6b872de6",
+    "NativeWeave-Design:docs/research/topics/R16/coverage.json": "d0b9231eb1f726c4e756312750b31585046b00f244efc2fddc3bd9de513b2d97",
+    "NativeWeave-Design:docs/research/topics/R16/evidence.json": "e29c76262a7ba9b68ca2159121f64abdbdefe86ec4f1230c6d767cc03115dc12",
+    "NativeWeave-Design:docs/research/topics/R16/report.md": "fb220a379dfd8ade2716da031981cf4aa1860c50d57b941a2457f7a532840502",
+    "NativeWeave-Design:docs/research/topics/R17/coverage.json": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878",
+    "NativeWeave-Design:docs/research/topics/R17/evidence.json": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f",
+    "NativeWeave-Design:docs/research/topics/R17/report.md": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+    "NativeWeave-Design:docs/research/topics/R18/coverage.json": "c73e6b3ddafe23aa831b7b82f5733e767a23f84c17b2ea60dafad2b89bfd181f",
+    "NativeWeave-Design:docs/research/topics/R18/evidence.json": "72199f94b832bd02bba96a72f8d0561f17b82cc8ff88e36ffa05d601c0827888",
+    "NativeWeave-Design:docs/research/topics/R18/report.md": "bdf46e37799950570583df4bc31382b3d4253658c98bc14031bbae1c31de557d",
+    "NativeWeave-Design:docs/research/topics/R19/coverage.json": "9c1d2b473cf795bec48bb8654d0efde96d0567ae994b7dbb4d2d09a2ec52a589",
+    "NativeWeave-Design:docs/research/topics/R19/evidence.json": "de4a5aa9638f33be09ee718612b823fad1bffcff72c136425db756537a47f29f",
+    "NativeWeave-Design:docs/research/topics/R19/report.md": "4388dbde93502f770df649963fe650cf548246b6ab135143833cda34ff76aa47",
+    "NativeWeave-Design:docs/research/topics/R20/coverage.json": "4e0734448f5b27a656cfebe53c9a2022d686831585fe78b312e7db2b9dcf4bf3",
+    "NativeWeave-Design:docs/research/topics/R20/evidence.json": "a682bfa090924def3cb9df4ae461d2f9bcef58c0c7dd08eac8117a33581a9b58",
+    "NativeWeave-Design:docs/research/topics/R20/report.md": "d82bbd89e7d05822efb6e335f5ed69e351a070117dc47612055bb4c4131c174f",
+    "NativeWeave-Design:docs/research/topics/R21/coverage.json": "2ab4b8776470e2a19551f73f865a101de5d2594cfb8619dfad8ee29891a15fd9",
+    "NativeWeave-Design:docs/research/topics/R21/evidence.json": "7feccb6d21fee314fca91171bcd6557061f6a8fa8427bc2855e3b8ccf164e071",
+    "NativeWeave-Design:docs/research/topics/R21/report.md": "b998c4de172a5c24d4de7b01246f23b973cffa95036319338267fd41fc50d95e",
+    "NativeWeave-Design:docs/research/topics/R22/coverage.json": "81c21c00d79b401048d9a79b722abaf45c0f98b37d2a8789bb81ec2c698a8b42",
+    "NativeWeave-Design:docs/research/topics/R22/evidence.json": "1c5e49729a46c3ac31a77476749e95e6128fb99d40f9865cb92d6cba33ffa220",
+    "NativeWeave-Design:docs/research/topics/R22/native-slice-validation.md": "ed63b45332c83accc367fd17d34e844ddf9067a9083801dce59469b208e9c203",
+    "NativeWeave-Design:docs/research/topics/R22/report.md": "70d5c6863f6bf1458959f84894c6628f623b39f95ba4b4baf0d35cbd29d0796f",
+    "NativeWeave-Design:docs/research/topics/R23/coverage.json": "fe41ce8b7ff4898214347762bc4bed59855d464ad234df9da3bcf2b4eaba4842",
+    "NativeWeave-Design:docs/research/topics/R23/evidence.json": "10758e997dc9cb7d3cca57d4ca375161402bfa969f927da82f6a5604126e99c7",
+    "NativeWeave-Design:docs/research/topics/R23/report.md": "da36c0076ce05ba75ff51df6d0ad80eb9ae2ffebad850d148d24afd0225f643d",
+    "NativeWeave-Design:docs/research/topics/R24/coverage.json": "3aa7e3e928bfef42f299fc10e94b0c5a4da062dcf25b46fac0c918d2e938aa28",
+    "NativeWeave-Design:docs/research/topics/R24/evidence.json": "34bc39356d588257dd933daf5203b00654d2d8de0252cb78b0cdff831dc416e6",
+    "NativeWeave-Design:docs/research/topics/R24/report.md": "63daa303b3235aac8d042832d5494da56d68cd9f3b8a9a61460fd21c38ab8b03",
+    "NativeWeave-Design:docs/research/topics/R25/coverage.json": "f8fd20c42af411d509db99ca920a6aac17bd3eb3b6232b14b3d78cdfe3814b43",
+    "NativeWeave-Design:docs/research/topics/R25/evidence.json": "42865a2ad8c2f1dd3551b96402d2dc2b3f87d5bd818ee39050aee23581750931",
+    "NativeWeave-Design:docs/research/topics/R25/report.md": "66417b4b88888aad993b812dca3ee6f52a948fb42e66d82db7ffc4337e32e27c",
+    "NativeWeave-Design:docs/research/topics/R25/source-driven-seaquery.md": "d2bd3c03a92debc4e8d935eaf156d848e4ff6d9a13a68d2017bb6ec1f3a8ac7a",
+    "NativeWeave-Design:docs/research/topics/R26/coverage.json": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45",
+    "NativeWeave-Design:docs/research/topics/R26/evidence.json": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8",
+    "NativeWeave-Design:docs/research/topics/R26/report.md": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77",
+    "NativeWeave-Design:docs/research/topics/R27/coverage.json": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e",
+    "NativeWeave-Design:docs/research/topics/R27/evidence.json": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95",
+    "NativeWeave-Design:docs/research/topics/R27/native-slice-validation.md": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5",
+    "NativeWeave-Design:docs/research/topics/R27/report.md": "b8cf9581b322f4607455470a02a94ee4684fc0c4968a675e12ba3cbe2e965497",
+    "NativeWeave-Design:docs/research/topics/R27/source-driven-server.md": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113",
+    "NativeWeave-Design:docs/research/topics/R28/coverage.json": "ad0f906a070892d9c66e6ba06281ac2ac5cd77a1e2113ee5977ce96c92187b39",
+    "NativeWeave-Design:docs/research/topics/R28/evidence.json": "53a4334ca9aceb83ea8ed4d4b1a60720eeca12231f57c639ea7eec7af6bf726e",
+    "NativeWeave-Design:docs/research/topics/R28/report.md": "53c7853a03a74d912574188f0c3646986e9fbdb9f71b6a960450c5595d2b98cf",
+    "NativeWeave-Design:docs/research/topics/R29/coverage.json": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131",
+    "NativeWeave-Design:docs/research/topics/R29/evidence.json": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d",
+    "NativeWeave-Design:docs/research/topics/R29/report.md": "427bbf2611d5ad48272009b28395552f3efb86721e1b24740cdf442726bedf3c",
+    "NativeWeave-Design:docs/research/topics/R30/coverage.json": "01549bad229f0fbc2ff7d1d77f30dc528cfee29356467a3bc9ec0213786b0bd2",
+    "NativeWeave-Design:docs/research/topics/R30/evidence.json": "f7e71407de4ed1d23851d922b75b5dd91a7b3f698e019a4b57ba368d58f50d7e",
+    "NativeWeave-Design:docs/research/topics/R30/report.md": "f824ab93a79a7595f94fd38fd6758699b507a4fb199e3367858c436119cc03e5",
+    "NativeWeave-Design:docs/research/topics/R31/coverage.json": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745",
+    "NativeWeave-Design:docs/research/topics/R31/evidence.json": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301",
+    "NativeWeave-Design:docs/research/topics/R31/report.md": "79ad3b9abe308114661b8d45b288a607fd9014b1ca60b4e2a7ab877a96dff5d5",
+    "NativeWeave-Design:docs/research/topics/R32/coverage.json": "db4645b539ca0e93faf4afbc870551d3a1e6c2d0b22d9ea68ab58c4a0aed48f9",
+    "NativeWeave-Design:docs/research/topics/R32/evidence.json": "324df31b893b3a7cd547f7d8a8a99ba0d68f1cf8a68b5714ae45c679e7fb0caa",
+    "NativeWeave-Design:docs/research/topics/R32/report.md": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f",
+    "NativeWeave-Design:docs/research/topics/R33/coverage.json": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53",
+    "NativeWeave-Design:docs/research/topics/R33/evidence.json": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be",
+    "NativeWeave-Design:docs/research/topics/R33/report.md": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49",
+    "NativeWeave-Design:docs/research/topics/R34/coverage.json": "780ed9f8ce4f5ffc47356c3ee18c02a2b868999cb2284d10016f14811d9e8960",
+    "NativeWeave-Design:docs/research/topics/R34/evidence.json": "470aa544a5309db79714fdcaedf49c08962c5522c8c045a918799e7bc62b54be",
+    "NativeWeave-Design:docs/research/topics/R34/report.md": "1d1f043b863e9b33483d3e9f88b00a88396c330c5cf1dfc4eed9bc08a5a2f0a9",
+    "Plan:AGENTS.md": "05e621d8d1f3be8cce82bfdb5887b6d222cc1dd367e2a5f5ab6e753852d881d1",
+    "Plan:README.md": "59bad56358331ecf5fae7a0c9e2efcf204e97acd13a0b018f2dbf434f77dc7a9",
+    "Plan:acceptance-register.md": "a4f51adebe8e7f23b834b1dadb24ef5d3ef8f5535bc6cc25f14f33058b830c71",
+    "Plan:documentation-policy.md": "4d919a6f5dacbfe28a2786c1d1386e4e01cf313ae4f4bf34e1c45e807e611548",
+    "Plan:documentation-tasks/D22.md": "a29e2148785ee55cd3e64c2b7823bca9c680092241bd027d271c5bdeb517f0b9",
+    "Plan:documentation-tasks/D23.md": "496243d2c4d6efac9eebbe371b6f3e6c4825321bd3f87e8d027c14a9e8a3fe0b",
+    "Plan:documentation-tasks/D24.md": "f3033a530f108267e3745100ee0654d370ae180c72ad0d44d156ec33e904b0a5",
+    "Plan:documentation-tasks/D25.md": "b43c06468a19ec3f9e8226f69179703d80505c95c61c3d01759bd531ce0ae5c7",
+    "Plan:documentation-tasks/D26.md": "70b04fe93cb80e5ae379baf4b5b1fbd341eda88559c3f4785608b446e111c728",
+    "Plan:documentation-tasks/D27.md": "3dd4e08b539add97ac5209fdd1c02c2e872551f6b075bf5ef4f56f239991245a",
+    "Plan:documentation-tasks/D28.md": "b853aef70d6d98a01a95fa70e195c298a4873da7495776b08c60e3b25adb4489",
+    "Plan:documentation-tasks/D29.md": "b7d176e8c2dbbc9f0a9fff5924db245063c2cf4ccb479b6c7d2821c1553eb70f",
+    "Plan:documentation-tasks/D30.md": "7dbdcd62ff6bf8db364e8aca7edd08eae5f00d6e9e4ec795a6a87d7f6801f653",
+    "Plan:documentation-tasks/D31.md": "873811c8ef651fb25b1622bd3372b13e7d846052db0ea70cc37722cd6730c8ac",
+    "Plan:documentation-tasks/D32.md": "3beb8560c5f1e643981a9ee29208ff0944af303467741a664cf74e0909eb7a86",
+    "Plan:execution-policy.md": "a022ffb604ce9f02a5c683f9bbe07860b4352e980d3f180f5eaa535e9584b697",
+    "Plan:fragments/async-runtime.json": "6f88f026e2cae191839fce2cbcade1d05eaed157e8315d79f6873ea768ed7666",
+    "Plan:fragments/build-release.json": "df249a73c0dd126d29a47fd1debbca28d9194d6d44f2ec1f590339a4e7561909",
+    "Plan:fragments/database.json": "b28912145a8bf5c17d1db5e26d7ce3a74b37f1ff32f202d8abc0d08506812d07",
+    "Plan:fragments/end-to-end.json": "2c3867c36ce34775bce3dfa90a2cd4d2e6822fcda7ff2f2937e4ddda67de9af2",
+    "Plan:fragments/evolution.json": "f06f8850b0bdb64c8b7a2deaf2b1b09aa002829fba7fb8a003f9be341492f6de",
+    "Plan:fragments/generation.json": "b1b1a42ed34a1d8b84103b0ee234763cfdb5b4334bbc37b7284d91371caf9de9",
+    "Plan:fragments/interop-foundation.json": "70fd05631de4e3ea54f33a9b8b68dc94fa07857b5bc4c5dc42ccf9d533b26428",
+    "Plan:fragments/orm.json": "1268fc6c3ddef12c224dbfc1f4b64379c5bb07bbd141caf9d1c782c17d257b6c",
+    "Plan:fragments/server.json": "eef619c49f34ebd56a99bb4096ef4c42a38f20af4b4b126d4c307457e505d936",
+    "Plan:fragments/verification-engines.json": "992cabcc116988b8797d85d2faeda3b79bb932fa94183103013940fc2a2a8fa8",
+    "Plan:ledger/reviews/D32.md": "581c22a793f762d7b546efdcbceadc2a1dd58706e7537573cc265a5191a9fe21",
+    "Plan:milestones.md": "60c1ae69633622dabc7a9dc6bb06f93697c1ede7e0576ee7ea1d9fbbbb30271d",
+    "Plan:prompts/independent-review.md": "aefdb4cf9e074e778c36d15d26cb0765a929cc4be4015aacb9581a2f58a7ec00",
+    "Plan:research-policy.md": "407e853e942553396103c4f615a272d9c0f944a51e67477a66b32cf5d555fcfc",
+    "Plan:research-tasks/R01.md": "b7d9c409d94ebd7a1f2d842e06ba72407b5426c533ddb06c0dd659735543f66d",
+    "Plan:research-tasks/R02.md": "f308f2e2caf975880bb385bd9101d8b864d6371d4b5e091844101ceec5a2eacf",
+    "Plan:research-tasks/R03.md": "db79bbd4f535ecc698db4a8b763b18fee061a0d8201c34ad4d868d8e17ecf3ba",
+    "Plan:research-tasks/R04.md": "56de7fadaa63ba20eb141621edacae2ae3be28a3fc8a6d94bdc3fc53b006b7e9",
+    "Plan:research-tasks/R05.md": "a311b0b9b08819affc5099739ac9a2efc889d38c22ce4889c3fb37eb3d963c2c",
+    "Plan:research-tasks/R06.md": "2ea50be8d8c6227f62f7fade2cd5e6b4a1a82d2a5761429d732f880ffe21fc3b",
+    "Plan:research-tasks/R07.md": "3dd6ea978acb49fb6e14c53e6d38d651a394038c605e9bc782a44a1b8870a63e",
+    "Plan:research-tasks/R08.md": "05e4623cd28409b45afb9cc58b239c5c2126336b8c51a0aa1d97f84aa20c1249",
+    "Plan:research-tasks/R09.md": "2c6dba4044be63304dff923b7ff2eb5fe4fb02d9562a6ed08d58f3f8f6350fbd",
+    "Plan:research-tasks/R10.md": "40c7b51a2481a21b1ea999ce55c8b3b71349ce861c930f142e12c61798cd0ece",
+    "Plan:research-tasks/R11.md": "d179f68dc5ffea19606cb3ea5f04aab80b804debc923ca667eeeaa6d5b04f8df",
+    "Plan:research-tasks/R12.md": "2b8094661274ca38a21f3db2d58beb5025e8983dd3a781c3a37cb44ca058bb4a",
+    "Plan:research-tasks/R13.md": "062b2a6107c57e4a3ea55c6f1d80756c5ece16139ef8bb9f380989d3bdf5ed96",
+    "Plan:research-tasks/R14.md": "5b62db69b6e1167dbf623062916b59f71508a6aa1219fa4ac36b344d56c884b1",
+    "Plan:research-tasks/R15.md": "f168174eb050fa477e3f53e44ffc3f322d292c2c2cce07a8c886f6442e2d12c6",
+    "Plan:research-tasks/R16.md": "8dd897ee0d5783b3ec06a8f8bff727c20d947be7904f5addb3b855511da4590c",
+    "Plan:research-tasks/R17.md": "882ce3c305e2fcbafc39bda7e6b778fe860b5c0a3b88936eb397d5d7a910b17c",
+    "Plan:research-tasks/R18.md": "e3626d09921b9108563f37431701a4805977606ffdebfa4261b2f82f422e991e",
+    "Plan:research-tasks/R19.md": "f39860b748a2484721ceffa63631797ecb5a2595c5ef0f457a6441b9b032a8c5",
+    "Plan:research-tasks/R20.md": "25da43a2b5d43ed3e2a96de1cc309c3042dae0504f9a853384cb5fe0cc553aae",
+    "Plan:research-tasks/R21.md": "1e394b06a8552617b09d8b9b972d0f5b7a2a9981dc1203da5d126079ad5cf752",
+    "Plan:research-tasks/R22.md": "4f1da87e889022b1f72bbf5fa5362cd3a123cee9965405263073c2a8515af5f0",
+    "Plan:research-tasks/R23.md": "1bc40e2eb0180c721deaf58c8a6cbc05d31efdf92d66e8eae231c4c2cb95551f",
+    "Plan:research-tasks/R24.md": "7e039766164582dbe92ff19d4ea1d96aeb360715d6e13dae11ed95c1faf1ad60",
+    "Plan:research-tasks/R25.md": "af6ec9c97a91d1ff47da759a2610898847fa0d18d1117a3757aaac48a4406cc8",
+    "Plan:research-tasks/R26.md": "dfabd909462a18e6ae4f851eb0fd597912807093688d1dffa4b39cd507482bcd",
+    "Plan:research-tasks/R27.md": "cd363839febe18244a83c8d546179adf59f6bf89a3f7a1b8639b4d1b3f9e821b",
+    "Plan:research-tasks/R28.md": "5b5948b7b70440330c6c8e521820dd13b7b40d74764f8556efb928efe8dfb7a4",
+    "Plan:research-tasks/R29.md": "3435f468296231f532340bbcfe6c43144042cba7f0cd0c52115b17d162667200",
+    "Plan:research-tasks/R30.md": "825ce22c06ef8947b0b1fa1e97014b65d41e4d77d4f5013d50e0d97c22c23ded",
+    "Plan:research-tasks/R31.md": "d3dc9c02d5d1752b8e034fc7c081e345dc04de0de23ae5cb898a1bc005a94732",
+    "Plan:research-tasks/R32.md": "ea9f65980d7ebeb87fc9f936ef103e7a1aa780b56e95234a63962cb7860895f1",
+    "Plan:research-tasks/R33.md": "6cd6e2e9b47316053554f3e01bcc2ce38c6e1a2da1753e33d7927b8eb2aced5c",
+    "Plan:research-tasks/R34.md": "59939518da0bae4ac9386a2f56b757d3be5e159dbfb080e05d61149a68b1d990",
+    "Plan:task-index.md": "9af8a2fe0e0b949c88b8fa9d325d5279ce73e98b2576e9ad29a25f0642163a7d",
+    "Plan:templates/delivery-task-template.md": "091350c53fb6fcb56b0e0bd6537a8b22794eaeb2dbe7e4e7e8ad6456f74f3d09",
+    "Plan:tools/render_packets.py": "bfc42a729c0adcc8ddf8a4f75d7f2051ee089ef7120580eb5692f0587b0fe0d2",
+    "Plan:tools/verify_completion.py": "344e67b7d9a98100d6de766d90f13c1139919828922549319af3c4e60121c84c",
+    "Plan:verification/validator-contract.md": "5078a5ac0922b000b7f2e1e8ece052561b4f0768c4b9813b7768a5836de3ba59"
+  },
+  "task_reviews": [
+    {
+      "id": "R01",
+      "decision": "accepted",
+      "packet_sha256": "b7d9c409d94ebd7a1f2d842e06ba72407b5426c533ddb06c0dd659735543f66d",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Stable Toolchains and Modern Language Mechanisms",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R01/report.md",
+          "NativeWeave-Design:docs/research/topics/R01/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R01/coverage.json",
+          "NativeWeave-Design:docs/research/topics/R01/rust-1.100.md"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R01/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R02",
+      "decision": "accepted",
+      "packet_sha256": "f308f2e2caf975880bb385bd9101d8b864d6371d4b5e091844101ceec5a2eacf",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Native AOT, Trimming, and Platform Support",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R02/report.md",
+          "NativeWeave-Design:docs/research/topics/R02/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R02/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R02/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R03",
+      "decision": "accepted",
+      "packet_sha256": "db79bbd4f535ecc698db4a8b763b18fee061a0d8201c34ad4d868d8e17ecf3ba",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "C ABI, Layout, and Version Negotiation",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R03/report.md",
+          "NativeWeave-Design:docs/research/topics/R03/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R03/coverage.json",
+          "NativeWeave-Design:docs/research/topics/R03/native-slice-validation.md"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R03/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R04",
+      "decision": "accepted",
+      "packet_sha256": "56de7fadaa63ba20eb141621edacae2ae3be28a3fc8a6d94bdc3fc53b006b7e9",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "P/Invoke, Callback Entry Points, and FFI Call Cost",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R04/report.md",
+          "NativeWeave-Design:docs/research/topics/R04/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R04/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R04/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R05",
+      "decision": "accepted",
+      "packet_sha256": "a311b0b9b08819affc5099739ac9a2efc889d38c22ce4889c3fb37eb3d963c2c",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Binding Generators and Contract Description Sources",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R05/report.md",
+          "NativeWeave-Design:docs/research/topics/R05/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R05/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R05/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R06",
+      "decision": "accepted",
+      "packet_sha256": "2ea50be8d8c6227f62f7fade2cd5e6b4a1a82d2a5761429d732f880ffe21fc3b",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Roslyn Incremental Generation and Analyzers",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R06/report.md",
+          "NativeWeave-Design:docs/research/topics/R06/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R06/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R06/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R07",
+      "decision": "accepted",
+      "packet_sha256": "3dd6ea978acb49fb6e14c53e6d38d651a394038c605e9bc782a44a1b8870a63e",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Handles, Ownership, GC, and Parent-Child Resources",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R07/report.md",
+          "NativeWeave-Design:docs/research/topics/R07/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R07/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R07/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R08",
+      "decision": "accepted",
+      "packet_sha256": "05e4623cd28409b45afb9cc58b239c5c2126336b8c51a0aa1d97f84aa20c1249",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Callback Unregistration, Reentrancy, and Release Races",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R08/report.md",
+          "NativeWeave-Design:docs/research/topics/R08/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R08/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R08/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R09",
+      "decision": "accepted",
+      "packet_sha256": "2c6dba4044be63304dff923b7ff2eb5fe4fb02d9562a6ed08d58f3f8f6350fbd",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Async, Cancellation, and Completion State Machines",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R09/report.md",
+          "NativeWeave-Design:docs/research/topics/R09/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R09/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R09/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R10",
+      "decision": "accepted",
+      "packet_sha256": "40c7b51a2481a21b1ea999ce55c8b3b71349ce861c930f142e12c61798cd0ece",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Buffers, Pinning, Batching, and Data Transfer",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R10/report.md",
+          "NativeWeave-Design:docs/research/topics/R10/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R10/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R10/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R11",
+      "decision": "accepted",
+      "packet_sha256": "d179f68dc5ffea19606cb3ea5f04aab80b804debc923ca667eeeaa6d5b04f8df",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Errors, Panics, Exceptions, and Fault Isolation",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R11/report.md",
+          "NativeWeave-Design:docs/research/topics/R11/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R11/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R11/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R12",
+      "decision": "accepted",
+      "packet_sha256": "2b8094661274ca38a21f3db2d58beb5025e8983dd3a781c3a37cb44ca058bb4a",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Concurrency, Executors, Thread Affinity, and Shutdown",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R12/report.md",
+          "NativeWeave-Design:docs/research/topics/R12/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R12/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R12/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R13",
+      "decision": "accepted",
+      "packet_sha256": "062b2a6107c57e4a3ea55c6f1d80756c5ece16139ef8bb9f380989d3bdf5ed96",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "MSBuild/Cargo, Linking, and Target Platforms",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R13/report.md",
+          "NativeWeave-Design:docs/research/topics/R13/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R13/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R13/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R14",
+      "decision": "accepted",
+      "packet_sha256": "5b62db69b6e1167dbf623062916b59f71508a6aa1219fa4ac36b344d56c884b1",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Packaging, Compatibility, Independent Releases, and Provenance",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R14/report.md",
+          "NativeWeave-Design:docs/research/topics/R14/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R14/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R14/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R15",
+      "decision": "accepted",
+      "packet_sha256": "f168174eb050fa477e3f53e44ffc3f322d292c2c2cce07a8c886f6442e2d12c6",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Formal Methods and Concurrency Proof Obligations",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R15/report.md",
+          "NativeWeave-Design:docs/research/topics/R15/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R15/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R15/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R16",
+      "decision": "accepted",
+      "packet_sha256": "8dd897ee0d5783b3ec06a8f8bff727c20d947be7904f5addb3b855511da4590c",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Differential, Property, Fuzz, and Fault Testing",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R16/report.md",
+          "NativeWeave-Design:docs/research/topics/R16/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R16/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R16/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R17",
+      "decision": "accepted",
+      "packet_sha256": "882ce3c305e2fcbafc39bda7e6b778fe860b5c0a3b88936eb397d5d7a910b17c",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "End-to-End Performance, Memory, and Development Cost",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R17/report.md",
+          "NativeWeave-Design:docs/research/topics/R17/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R17/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R17/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R18",
+      "decision": "accepted",
+      "packet_sha256": "e3626d09921b9108563f37431701a4805977606ffdebfa4261b2f82f422e991e",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Capability-Based Engine Integration and Generality",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R18/report.md",
+          "NativeWeave-Design:docs/research/topics/R18/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R18/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R18/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R19",
+      "decision": "accepted",
+      "packet_sha256": "f39860b748a2484721ceffa63631797ecb5a2595c5ef0f457a6441b9b032a8c5",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "PostgreSQL Drivers and Pure C# Baselines",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R19/report.md",
+          "NativeWeave-Design:docs/research/topics/R19/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R19/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R19/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R20",
+      "decision": "accepted",
+      "packet_sha256": "25da43a2b5d43ed3e2a96de1cc309c3042dae0504f9a853384cb5fe0cc553aae",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "SQLite Adaptation, Concurrency, and Threading Restrictions",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R20/report.md",
+          "NativeWeave-Design:docs/research/topics/R20/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R20/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R20/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R21",
+      "decision": "accepted",
+      "packet_sha256": "1e394b06a8552617b09d8b9b972d0f5b7a2a9981dc1203da5d126079ad5cf752",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Connection Pools, Transactions, Cancellation, and Recovery",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R21/report.md",
+          "NativeWeave-Design:docs/research/topics/R21/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R21/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R21/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R22",
+      "decision": "accepted",
+      "packet_sha256": "4f1da87e889022b1f72bbf5fa5362cd3a123cee9965405263073c2a8515af5f0",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Type Mapping, Batched Streams, and Schema Evolution",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R22/report.md",
+          "NativeWeave-Design:docs/research/topics/R22/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R22/coverage.json",
+          "NativeWeave-Design:docs/research/topics/R22/native-slice-validation.md"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R22/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R23",
+      "decision": "accepted",
+      "packet_sha256": "1bc40e2eb0180c721deaf58c8a6cbc05d31efdf92d66e8eae231c4c2cb95551f",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Strongly Typed Queries, Expression Boundaries, and Static Capture",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R23/report.md",
+          "NativeWeave-Design:docs/research/topics/R23/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R23/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R23/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R24",
+      "decision": "accepted",
+      "packet_sha256": "7e039766164582dbe92ff19d4ea1d96aeb360715d6e13dae11ed95c1faf1ad60",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "SQL Semantics, Relational Algebra, and Parameter Safety",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R24/report.md",
+          "NativeWeave-Design:docs/research/topics/R24/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R24/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R24/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R25",
+      "decision": "accepted",
+      "packet_sha256": "af6ec9c97a91d1ff47da759a2610898847fa0d18d1117a3757aaac48a4406cc8",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "ORM Features, Tracking, and Comparison of Existing Solutions",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R25/report.md",
+          "NativeWeave-Design:docs/research/topics/R25/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R25/coverage.json",
+          "NativeWeave-Design:docs/research/topics/R25/source-driven-seaquery.md"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R25/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R26",
+      "decision": "accepted",
+      "packet_sha256": "dfabd909462a18e6ae4f851eb0fd597912807093688d1dffa4b39cd507482bcd",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Kestrel and Pure C# AOT Server Baselines",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R26/report.md",
+          "NativeWeave-Design:docs/research/topics/R26/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R26/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R26/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R27",
+      "decision": "accepted",
+      "packet_sha256": "cd363839febe18244a83c8d546179adf59f6bf89a3f7a1b8639b4d1b3f9e821b",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Rust Networking Engines and C# Handler Boundaries",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R27/report.md",
+          "NativeWeave-Design:docs/research/topics/R27/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R27/coverage.json",
+          "NativeWeave-Design:docs/research/topics/R27/source-driven-server.md",
+          "NativeWeave-Design:docs/research/topics/R27/native-slice-validation.md"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R27/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R28",
+      "decision": "accepted",
+      "packet_sha256": "5b5948b7b70440330c6c8e521820dd13b7b40d74764f8556efb928efe8dfb7a4",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "gRPC, MCP, TLS, and Protocol Adaptation",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R28/report.md",
+          "NativeWeave-Design:docs/research/topics/R28/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R28/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R28/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R29",
+      "decision": "accepted",
+      "packet_sha256": "3435f468296231f532340bbcfe6c43144042cba7f0cd0c52115b17d162667200",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Request Streams, Backpressure, Timeouts, and Graceful Shutdown",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R29/report.md",
+          "NativeWeave-Design:docs/research/topics/R29/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R29/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R29/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R30",
+      "decision": "accepted",
+      "packet_sha256": "825ce22c06ef8947b0b1fa1e97014b65d41e4d77d4f5013d50e0d97c22c23ded",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Observability, Diagnostic Correlation, and Cost",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R30/report.md",
+          "NativeWeave-Design:docs/research/topics/R30/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R30/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R30/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R31",
+      "decision": "accepted",
+      "packet_sha256": "d3dc9c02d5d1752b8e034fc7c081e345dc04de0de23ae5cb898a1bc005a94732",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Database + Server Reference Application and Fault Recovery",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R31/report.md",
+          "NativeWeave-Design:docs/research/topics/R31/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R31/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R31/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R32",
+      "decision": "accepted",
+      "packet_sha256": "ea9f65980d7ebeb87fc9f936ef103e7a1aa780b56e95234a63962cb7860895f1",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Desktop GUI/GPU and Thread-Affinity Extensions",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R32/report.md",
+          "NativeWeave-Design:docs/research/topics/R32/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R32/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R32/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R33",
+      "decision": "accepted",
+      "packet_sha256": "6cd6e2e9b47316053554f3e01bcc2ce38c6e1a2da1753e33d7927b8eb2aced5c",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "iOS/Android, Static Linking, and Platform Lifecycles",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R33/report.md",
+          "NativeWeave-Design:docs/research/topics/R33/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R33/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R33/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "R34",
+      "decision": "accepted",
+      "packet_sha256": "59939518da0bae4ac9386a2f56b757d3be5e159dbfb080e05d61149a68b1d990",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Boundary Security, Input Validation, and Resource Abuse",
+        "start_dependencies": [],
+        "acceptance_dependencies": [],
+        "contract_inputs": [],
+        "research_refs": [],
+        "documentation_refs": [],
+        "outputs": [
+          "NativeWeave-Design:docs/research/topics/R34/report.md",
+          "NativeWeave-Design:docs/research/topics/R34/evidence.json",
+          "NativeWeave-Design:docs/research/topics/R34/coverage.json"
+        ],
+        "write_scopes": [
+          "NativeWeave-Design:docs/research/topics/R34/"
+        ],
+        "dependency_pins": {}
+      }
+    },
+    {
+      "id": "D22",
+      "decision": "accepted",
+      "packet_sha256": "a29e2148785ee55cd3e64c2b7823bca9c680092241bd027d271c5bdeb517f0b9",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of ABI, Memory, and Resource Development Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R03",
+          "R07",
+          "R10",
+          "R11",
+          "D02",
+          "D04",
+          "D07",
+          "D08"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R03",
+          "R07",
+          "R10",
+          "R11"
+        ],
+        "documentation_refs": [
+          "D02",
+          "D04",
+          "D07",
+          "D08"
+        ],
+        "outputs": [
+          "Plan:fragments/interop-foundation.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/interop-foundation.json"
+        ],
+        "dependency_pins": {
+          "R03": "0.3.0",
+          "R07": "0.3.0",
+          "R10": "0.3.0",
+          "R11": "0.3.0",
+          "D02": "0.3.0",
+          "D04": "0.3.0",
+          "D07": "0.3.0",
+          "D08": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D23",
+      "decision": "accepted",
+      "packet_sha256": "496243d2c4d6efac9eebbe371b6f3e6c4825321bd3f87e8d027c14a9e8a3fe0b",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of Generator and Analyzer Development Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R04",
+          "R05",
+          "R06",
+          "D03"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R04",
+          "R05",
+          "R06"
+        ],
+        "documentation_refs": [
+          "D03"
+        ],
+        "outputs": [
+          "Plan:fragments/generation.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/generation.json"
+        ],
+        "dependency_pins": {
+          "R04": "0.3.0",
+          "R05": "0.3.0",
+          "R06": "0.3.0",
+          "D03": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D24",
+      "decision": "accepted",
+      "packet_sha256": "f3033a530f108267e3745100ee0654d370ae180c72ad0d44d156ec33e904b0a5",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of Callback, Async, and Runtime Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R08",
+          "R09",
+          "R12",
+          "D05",
+          "D06",
+          "D09"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R08",
+          "R09",
+          "R12"
+        ],
+        "documentation_refs": [
+          "D05",
+          "D06",
+          "D09"
+        ],
+        "outputs": [
+          "Plan:fragments/async-runtime.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/async-runtime.json"
+        ],
+        "dependency_pins": {
+          "R08": "0.3.0",
+          "R09": "0.3.0",
+          "R12": "0.3.0",
+          "D05": "0.3.0",
+          "D06": "0.3.0",
+          "D09": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D25",
+      "decision": "accepted",
+      "packet_sha256": "b43c06468a19ec3f9e8226f69179703d80505c95c61c3d01759bd531ce0ae5c7",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of Build, Packaging, and Independent Release Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R13",
+          "R14",
+          "R02",
+          "D01",
+          "D10"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R13",
+          "R14",
+          "R02"
+        ],
+        "documentation_refs": [
+          "D01",
+          "D10"
+        ],
+        "outputs": [
+          "Plan:fragments/build-release.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/build-release.json"
+        ],
+        "dependency_pins": {
+          "R13": "0.3.0",
+          "R14": "0.3.0",
+          "R02": "0.3.0",
+          "D01": "0.3.0",
+          "D10": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D26",
+      "decision": "accepted",
+      "packet_sha256": "70b04fe93cb80e5ae379baf4b5b1fbd341eda88559c3f4785608b446e111c728",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of Engine, Proof, Testing, and Benchmark Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R15",
+          "R16",
+          "R17",
+          "R18",
+          "D11",
+          "D12",
+          "D13",
+          "D21"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R15",
+          "R16",
+          "R17",
+          "R18"
+        ],
+        "documentation_refs": [
+          "D11",
+          "D12",
+          "D13",
+          "D21"
+        ],
+        "outputs": [
+          "Plan:fragments/verification-engines.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/verification-engines.json"
+        ],
+        "dependency_pins": {
+          "R15": "0.3.0",
+          "R16": "0.3.0",
+          "R17": "0.3.0",
+          "R18": "0.3.0",
+          "D11": "0.3.0",
+          "D12": "0.3.0",
+          "D13": "0.3.0",
+          "D21": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D27",
+      "decision": "accepted",
+      "packet_sha256": "3dd4e08b539add97ac5209fdd1c02c2e872551f6b075bf5ef4f56f239991245a",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of Complete Database Implementation Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R19",
+          "R20",
+          "R21",
+          "R22",
+          "D14",
+          "D15"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R19",
+          "R20",
+          "R21",
+          "R22"
+        ],
+        "documentation_refs": [
+          "D14",
+          "D15"
+        ],
+        "outputs": [
+          "Plan:fragments/database.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/database.json"
+        ],
+        "dependency_pins": {
+          "R19": "0.3.0",
+          "R20": "0.3.0",
+          "R21": "0.3.0",
+          "R22": "0.3.0",
+          "D14": "0.3.0",
+          "D15": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D28",
+      "decision": "accepted",
+      "packet_sha256": "b853aef70d6d98a01a95fa70e195c298a4873da7495776b08c60e3b25adb4489",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of Strongly Typed Fluent and Native ORM Implementation Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R23",
+          "R24",
+          "R25",
+          "D16",
+          "D17"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R23",
+          "R24",
+          "R25"
+        ],
+        "documentation_refs": [
+          "D16",
+          "D17"
+        ],
+        "outputs": [
+          "Plan:fragments/orm.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/orm.json"
+        ],
+        "dependency_pins": {
+          "R23": "0.3.0",
+          "R24": "0.3.0",
+          "R25": "0.3.0",
+          "D16": "0.3.0",
+          "D17": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D29",
+      "decision": "accepted",
+      "packet_sha256": "b7d176e8c2dbbc9f0a9fff5924db245063c2cf4ccb479b6c7d2821c1553eb70f",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of Server and Protocol Implementation Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R26",
+          "R27",
+          "R28",
+          "R29",
+          "R30",
+          "D18",
+          "D19"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R26",
+          "R27",
+          "R28",
+          "R29",
+          "R30"
+        ],
+        "documentation_refs": [
+          "D18",
+          "D19"
+        ],
+        "outputs": [
+          "Plan:fragments/server.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/server.json"
+        ],
+        "dependency_pins": {
+          "R26": "0.3.0",
+          "R27": "0.3.0",
+          "R28": "0.3.0",
+          "R29": "0.3.0",
+          "R30": "0.3.0",
+          "D18": "0.3.0",
+          "D19": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D30",
+      "decision": "accepted",
+      "packet_sha256": "7dbdcd62ff6bf8db364e8aca7edd08eae5f00d6e9e4ec795a6a87d7f6801f653",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Preparation of End-to-End, Long-Running-Load, and Domain Release Tasks",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R31",
+          "R17",
+          "R21",
+          "D20",
+          "D12",
+          "D13"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R31",
+          "R17",
+          "R21"
+        ],
+        "documentation_refs": [
+          "D20",
+          "D12",
+          "D13"
+        ],
+        "outputs": [
+          "Plan:fragments/end-to-end.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/end-to-end.json"
+        ],
+        "dependency_pins": {
+          "R31": "0.3.0",
+          "R17": "0.3.0",
+          "R21": "0.3.0",
+          "D20": "0.3.0",
+          "D12": "0.3.0",
+          "D13": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D31",
+      "decision": "accepted",
+      "packet_sha256": "873811c8ef651fb25b1622bd3372b13e7d846052db0ea70cc37722cd6730c8ac",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Global Traceability, Version Compatibility, and Future Engine Task Specification",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R14",
+          "R18",
+          "R34",
+          "D02",
+          "D10",
+          "D11"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R14",
+          "R18",
+          "R34"
+        ],
+        "documentation_refs": [
+          "D02",
+          "D10",
+          "D11"
+        ],
+        "outputs": [
+          "Plan:fragments/evolution.json"
+        ],
+        "write_scopes": [
+          "Plan:fragments/evolution.json"
+        ],
+        "dependency_pins": {
+          "R14": "0.3.0",
+          "R18": "0.3.0",
+          "R34": "0.3.0",
+          "D02": "0.3.0",
+          "D10": "0.3.0",
+          "D11": "0.3.0"
+        }
+      }
+    },
+    {
+      "id": "D32",
+      "decision": "accepted",
+      "packet_sha256": "3beb8560c5f1e643981a9ee29208ff0944af303467741a664cf74e0909eb7a86",
+      "semantic_node_projection": {
+        "revision": "0.3.0",
+        "title": "Independent Cross-Review and Delivery Readiness Review",
+        "start_dependencies": [],
+        "acceptance_dependencies": [
+          "R15",
+          "R16",
+          "R34",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12",
+          "D13",
+          "D14",
+          "D15",
+          "D16",
+          "D17",
+          "D18",
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D23",
+          "D24",
+          "D25",
+          "D26",
+          "D27",
+          "D28",
+          "D29",
+          "D30",
+          "D31"
+        ],
+        "contract_inputs": [],
+        "research_refs": [
+          "R15",
+          "R16",
+          "R34"
+        ],
+        "documentation_refs": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12",
+          "D13",
+          "D14",
+          "D15",
+          "D16",
+          "D17",
+          "D18",
+          "D19",
+          "D20",
+          "D21",
+          "D22",
+          "D23",
+          "D24",
+          "D25",
+          "D26",
+          "D27",
+          "D28",
+          "D29",
+          "D30",
+          "D31"
+        ],
+        "outputs": [
+          "Plan:ledger/reviews/D32.md"
+        ],
+        "write_scopes": [
+          "Plan:ledger/reviews/D32.md"
+        ],
+        "dependency_pins": {
+          "R15": "0.3.0",
+          "R16": "0.3.0",
+          "R34": "0.3.0",
+          "D01": "0.3.0",
+          "D02": "0.3.0",
+          "D03": "0.3.0",
+          "D04": "0.3.0",
+          "D05": "0.3.0",
+          "D06": "0.3.0",
+          "D07": "0.3.0",
+          "D08": "0.3.0",
+          "D09": "0.3.0",
+          "D10": "0.3.0",
+          "D11": "0.3.0",
+          "D12": "0.3.0",
+          "D13": "0.3.0",
+          "D14": "0.3.0",
+          "D15": "0.3.0",
+          "D16": "0.3.0",
+          "D17": "0.3.0",
+          "D18": "0.3.0",
+          "D19": "0.3.0",
+          "D20": "0.3.0",
+          "D21": "0.3.0",
+          "D22": "0.3.0",
+          "D23": "0.3.0",
+          "D24": "0.3.0",
+          "D25": "0.3.0",
+          "D26": "0.3.0",
+          "D27": "0.3.0",
+          "D28": "0.3.0",
+          "D29": "0.3.0",
+          "D30": "0.3.0",
+          "D31": "0.3.0"
+        }
+      }
+    }
+  ],
+  "translation_reviews": [
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R07/logical-admission-probe.md",
+      "source_sha256": "039d2096c84c0bf41a06474af4196a9784b690b036d7b5afe865e2cb166b1822",
+      "target_sha256": "d8e43a1de5ea68c7b28cbe90e32ce266b33febba610b0290720680873be9af7e",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R07/report.md",
+      "source_sha256": "cc301c5150289575bed36514fee1252632e358f6e6ca3510ca6d61cbff29a615",
+      "target_sha256": "84a29f3b59a3e285b3e480f4f59ee6196efe4059535f67cd3e94aa66faf67ed2",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R08/report.md",
+      "source_sha256": "a96b580cb861ab4bea9b7e10370ead61992ea57cd98f7c10901a7eba6670c1c8",
+      "target_sha256": "8ffb1267bf4ae252e78b38b041bf889849a7cb22e1c28fdbc91afb09e96d7e3d",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R09/report.md",
+      "source_sha256": "89ad565e1dd2ab0c3c1a7824d86d9b39adb0b2ee270a7483c1c56ff49870866c",
+      "target_sha256": "c161827d0da067081c58c0650722784a8dd7526b2fa58850438ff6a87723522b",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R11/report.md",
+      "source_sha256": "c3788b3fe9f0e698e862b7d43b53a03be1f789c4a9ea39d87a1cf934c9db7902",
+      "target_sha256": "4176d1f3c773642212c5e6ca7c567106166f98f1fbecc81acc4321a7ac0b2b1c",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R19/coverage.json",
+      "source_sha256": "911d62e6075f147fca5cd83dec011e8727323060ffbddefe0b41f66e7252553f",
+      "target_sha256": "9c1d2b473cf795bec48bb8654d0efde96d0567ae994b7dbb4d2d09a2ec52a589",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R19/evidence.json",
+      "source_sha256": "021e7c8283af7d8771b7eec7c6e300725ff1bec30765d7b4d9b10065faa61078",
+      "target_sha256": "de4a5aa9638f33be09ee718612b823fad1bffcff72c136425db756537a47f29f",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R19/report.md",
+      "source_sha256": "7463a51d2f413085beecd52ed67dc7ee52c01a7ad3a9ac9e72deef631838b006",
+      "target_sha256": "4388dbde93502f770df649963fe650cf548246b6ab135143833cda34ff76aa47",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R20/coverage.json",
+      "source_sha256": "3c45d8d93fe10b0da6f7ebeac149ec6fe17e1279494af6918fb2371c0365e464",
+      "target_sha256": "4e0734448f5b27a656cfebe53c9a2022d686831585fe78b312e7db2b9dcf4bf3",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R20/evidence.json",
+      "source_sha256": "4f100de2fbe7e8ac39ab0c325f113de37953483b813461a423781dbe7aa93828",
+      "target_sha256": "a682bfa090924def3cb9df4ae461d2f9bcef58c0c7dd08eac8117a33581a9b58",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R20/report.md",
+      "source_sha256": "5a31c55bf5e7deea359752c8fb537aebd36a835d58a1de81d2ffc120b05d3282",
+      "target_sha256": "d82bbd89e7d05822efb6e335f5ed69e351a070117dc47612055bb4c4131c174f",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R21/coverage.json",
+      "source_sha256": "db81b7d4369281576a4815b0ae1c37fb93892d1f998564be89da3abaa51a0a3b",
+      "target_sha256": "2ab4b8776470e2a19551f73f865a101de5d2594cfb8619dfad8ee29891a15fd9",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R21/evidence.json",
+      "source_sha256": "f7441bb4b438531fbf5a69f9ef557b61e173b1b9ba5aa6a4185bfabb0c59ae2e",
+      "target_sha256": "7feccb6d21fee314fca91171bcd6557061f6a8fa8427bc2855e3b8ccf164e071",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R21/report.md",
+      "source_sha256": "519460fedfa3918381541d7665a0391bfc8060a89f1ff83c705397123191d614",
+      "target_sha256": "b998c4de172a5c24d4de7b01246f23b973cffa95036319338267fd41fc50d95e",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R22/coverage.json",
+      "source_sha256": "293319f83dbc15c6f6f3b02bffe8d99aee5ab30767489816b02a8310de643afd",
+      "target_sha256": "81c21c00d79b401048d9a79b722abaf45c0f98b37d2a8789bb81ec2c698a8b42",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R22/evidence.json",
+      "source_sha256": "745bd943a14145075ab0652c6c11bb95fd1cab6dd8400d4dcc73482021e4dbcc",
+      "target_sha256": "1c5e49729a46c3ac31a77476749e95e6128fb99d40f9865cb92d6cba33ffa220",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R22/report.md",
+      "source_sha256": "3de6debaf443ef27c4db3ca4ca9ca9f0bd2d267eb39f73712e884799e28ad3dc",
+      "target_sha256": "70d5c6863f6bf1458959f84894c6628f623b39f95ba4b4baf0d35cbd29d0796f",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R23/coverage.json",
+      "source_sha256": "f50130005da98adacf82a7e0b837c9c7d8fc8a9912621d01a20895a570cc89aa",
+      "target_sha256": "fe41ce8b7ff4898214347762bc4bed59855d464ad234df9da3bcf2b4eaba4842",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R23/evidence.json",
+      "source_sha256": "bb4c030de2191ecaedafdce7a01236889955742e4b1ec8bb76582d8628d99257",
+      "target_sha256": "10758e997dc9cb7d3cca57d4ca375161402bfa969f927da82f6a5604126e99c7",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R23/report.md",
+      "source_sha256": "43eb13aa88a26e08697388d643ddd88a125179238b1a11af9b634537f1b458c1",
+      "target_sha256": "da36c0076ce05ba75ff51df6d0ad80eb9ae2ffebad850d148d24afd0225f643d",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R24/coverage.json",
+      "source_sha256": "4f4a42439e23e8b83a37c56e1bb680c3acd5e1294de3a7dcadb2c0a073dd0605",
+      "target_sha256": "3aa7e3e928bfef42f299fc10e94b0c5a4da062dcf25b46fac0c918d2e938aa28",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R24/evidence.json",
+      "source_sha256": "eac88a7abdc6136d44ccb4719926a218f153439453cd7175c8677617905494c1",
+      "target_sha256": "34bc39356d588257dd933daf5203b00654d2d8de0252cb78b0cdff831dc416e6",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R24/report.md",
+      "source_sha256": "4373edb0f171ef00125ac1e5454c0666b42db52150446ce82f594852b907ed08",
+      "target_sha256": "63daa303b3235aac8d042832d5494da56d68cd9f3b8a9a61460fd21c38ab8b03",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R25/coverage.json",
+      "source_sha256": "87b06243d2a7646dc71a07de4ad1676276fba93b4ba6148d20cb448e9b76db52",
+      "target_sha256": "f8fd20c42af411d509db99ca920a6aac17bd3eb3b6232b14b3d78cdfe3814b43",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R25/evidence.json",
+      "source_sha256": "de4b517a8c6a01408b216b91f6492acbbaa9767864dcac32b9a938dda4f103f5",
+      "target_sha256": "42865a2ad8c2f1dd3551b96402d2dc2b3f87d5bd818ee39050aee23581750931",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R25/report.md",
+      "source_sha256": "a6f011f73bed1022fe24cd60a855c9553cedeb2a1c0ad65082ff9942a55d0c5d",
+      "target_sha256": "66417b4b88888aad993b812dca3ee6f52a948fb42e66d82db7ffc4337e32e27c",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R27/report.md",
+      "source_sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9",
+      "target_sha256": "b8cf9581b322f4607455470a02a94ee4684fc0c4968a675e12ba3cbe2e965497",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R29/report.md",
+      "source_sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe",
+      "target_sha256": "427bbf2611d5ad48272009b28395552f3efb86721e1b24740cdf442726bedf3c",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R30/report.md",
+      "source_sha256": "2924c555ec1cf27494f36bf93e62b841b7ee0d59d979e82fe2d54fcf6b5bbebb",
+      "target_sha256": "f824ab93a79a7595f94fd38fd6758699b507a4fb199e3367858c436119cc03e5",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R31/report.md",
+      "source_sha256": "2df3f72bea0b8b48b9e895ba7496918da2288312838633f54733311b35cf4ac1",
+      "target_sha256": "79ad3b9abe308114661b8d45b288a607fd9014b1ca60b4e2a7ab877a96dff5d5",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "translation_author": "/root/translate_research",
+      "decision": "accepted",
+      "notes": "Personally compared every changed source/target line or JSON string value against the accepted baseline. Repeated identical source/target pairs were read once with every occurrence mapped; unchanged values and surrounding English were preserved exactly. Complete R07/R08/R09/R11 source/target documents were additionally read in full, including unchanged English. Preserved claim strength, historical status, actual execution limits, identifiers, links, numbers, APIs, and product obligations. No experiments rerun."
+    },
+    {
+      "path": "Plan:AGENTS.md",
+      "source_sha256": "7bb35e4610329d85c9b2166940195783ec2a9e6a157c11adc03aa59c3c8e698e",
+      "target_sha256": "05e621d8d1f3be8cce82bfdb5887b6d222cc1dd367e2a5f5ab6e753852d881d1",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:README.md",
+      "source_sha256": "e25889b7dd7c7e2a3c068f50806c9c1ee977fde1380cf414b3f0a07831b7624c",
+      "target_sha256": "59bad56358331ecf5fae7a0c9e2efcf204e97acd13a0b018f2dbf434f77dc7a9",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:acceptance-register.md",
+      "source_sha256": "641e795b8b3feb2ce4f3bd404e7b805a67ded6233eaf35c066ff2704d2f4c4a6",
+      "target_sha256": "a4f51adebe8e7f23b834b1dadb24ef5d3ef8f5535bc6cc25f14f33058b830c71",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:documentation-policy.md",
+      "source_sha256": "38d5422e956d886434d9113c93098c68fef1a29eb4452642201f8ad35a82fd5f",
+      "target_sha256": "4d919a6f5dacbfe28a2786c1d1386e4e01cf313ae4f4bf34e1c45e807e611548",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:documentation-tasks/D22.md",
+      "source_sha256": "4afaf4e2552551e5ae1451a0febd549f8619a3fe7629fe4269978e7cb22d7258",
+      "target_sha256": "a29e2148785ee55cd3e64c2b7823bca9c680092241bd027d271c5bdeb517f0b9",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D23.md",
+      "source_sha256": "418ebca29491bdfdd45cb11df21e06865c06be9f416ed0e154f990fffd877a7a",
+      "target_sha256": "496243d2c4d6efac9eebbe371b6f3e6c4825321bd3f87e8d027c14a9e8a3fe0b",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D24.md",
+      "source_sha256": "d2dbe31fa7cbf248da2db485d657ae1de30e5111834688bdf5a24d5568702b09",
+      "target_sha256": "f3033a530f108267e3745100ee0654d370ae180c72ad0d44d156ec33e904b0a5",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D25.md",
+      "source_sha256": "dad7b9ec2615257ae407b3d25c1b5e66113e9652b15a74e950718295dbe14069",
+      "target_sha256": "b43c06468a19ec3f9e8226f69179703d80505c95c61c3d01759bd531ce0ae5c7",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D26.md",
+      "source_sha256": "53fac0203216c63b5da3659c772630202d6f5665bd322de1a7334fa37e113141",
+      "target_sha256": "70b04fe93cb80e5ae379baf4b5b1fbd341eda88559c3f4785608b446e111c728",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D27.md",
+      "source_sha256": "d67334b9702e344d95ac14df071505edbea4409f85583d7a15161aa62e67ce56",
+      "target_sha256": "3dd4e08b539add97ac5209fdd1c02c2e872551f6b075bf5ef4f56f239991245a",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D28.md",
+      "source_sha256": "3031c1945d2d831bc39bc3d6b1a73bb6e0b1d1d4a74c556c76ae16cf2f667b97",
+      "target_sha256": "b853aef70d6d98a01a95fa70e195c298a4873da7495776b08c60e3b25adb4489",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D29.md",
+      "source_sha256": "b374b0626c326ddbaec2d4016e4d690a69a7b3f71410a2f162f2bb0c6e2879f5",
+      "target_sha256": "b7d176e8c2dbbc9f0a9fff5924db245063c2cf4ccb479b6c7d2821c1553eb70f",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D30.md",
+      "source_sha256": "f1396fd60c3769c09f6c74e1df4d47c9dcf9568b4044dfaf5a3a589bffc4447d",
+      "target_sha256": "7dbdcd62ff6bf8db364e8aca7edd08eae5f00d6e9e4ec795a6a87d7f6801f653",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D31.md",
+      "source_sha256": "c26ab7a2ae7ae5ecaf7f9b06ccb19cbb71992141c4a6671dae295eae6188e1f0",
+      "target_sha256": "873811c8ef651fb25b1622bd3372b13e7d846052db0ea70cc37722cd6730c8ac",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:documentation-tasks/D32.md",
+      "source_sha256": "889e9715f3da56714589806a5b9983064a6e54f315288f6c4b6ada6f82b36a71",
+      "target_sha256": "3beb8560c5f1e643981a9ee29208ff0944af303467741a664cf74e0909eb7a86",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:execution-policy.md",
+      "source_sha256": "604415c67bafe7750c1155badd4485c64931bd498da69e3b30806f259c917f8b",
+      "target_sha256": "a022ffb604ce9f02a5c683f9bbe07860b4352e980d3f180f5eaa535e9584b697",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:fragments/async-runtime.json",
+      "source_sha256": "64614ee25270ca69f7e2a7621600092ea152141fd0033f4a93cfc659d39acaae",
+      "target_sha256": "6f88f026e2cae191839fce2cbcade1d05eaed157e8315d79f6873ea768ed7666",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/build-release.json",
+      "source_sha256": "c26c081e809607865f055be30fa479c56103a004797d17171c07072fd1453bff",
+      "target_sha256": "df249a73c0dd126d29a47fd1debbca28d9194d6d44f2ec1f590339a4e7561909",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/database.json",
+      "source_sha256": "26fa4e6c5b5d570bb19180cc660705ddefd2208121018cebaf681b36b3696b2c",
+      "target_sha256": "b28912145a8bf5c17d1db5e26d7ce3a74b37f1ff32f202d8abc0d08506812d07",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/end-to-end.json",
+      "source_sha256": "217c78e4e6d1d7fe380025d8ef32c2406464900c4e2ffd71d17417973fd71160",
+      "target_sha256": "2c3867c36ce34775bce3dfa90a2cd4d2e6822fcda7ff2f2937e4ddda67de9af2",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/evolution.json",
+      "source_sha256": "e105a3b66f8c8a4917c728bb1ac3e8d021ecbe536476d66612a7e8a9141ae063",
+      "target_sha256": "f06f8850b0bdb64c8b7a2deaf2b1b09aa002829fba7fb8a003f9be341492f6de",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/generation.json",
+      "source_sha256": "a3b2506b9e9802e49be32469d31c36af038cd0460814427aa9108e761413e19e",
+      "target_sha256": "b1b1a42ed34a1d8b84103b0ee234763cfdb5b4334bbc37b7284d91371caf9de9",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/interop-foundation.json",
+      "source_sha256": "4f7682d004b9ad90a7fdeda9e5f5acadd3fad9461984cd9b3a54128450c87280",
+      "target_sha256": "70fd05631de4e3ea54f33a9b8b68dc94fa07857b5bc4c5dc42ccf9d533b26428",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/orm.json",
+      "source_sha256": "4221e71f145e6aea8cee1a5be76844ad8dc908b537ec7f9960078c140df895c3",
+      "target_sha256": "1268fc6c3ddef12c224dbfc1f4b64379c5bb07bbd141caf9d1c782c17d257b6c",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/server.json",
+      "source_sha256": "9b81edbf25672b020011b808e3b716c752388b210c808e7eb636a4a0f015e5a1",
+      "target_sha256": "eef619c49f34ebd56a99bb4096ef4c42a38f20af4b4b126d4c307457e505d936",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:fragments/verification-engines.json",
+      "source_sha256": "7da28aca906110f2fb308f6925276e8ad89da2165d8ddfd801117ce04db59338",
+      "target_sha256": "992cabcc116988b8797d85d2faeda3b79bb932fa94183103013940fc2a2a8fa8",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Recursively compared the complete source/target JSON. Every changed task title was personally compared with its Chinese source; all other keys, array positions, scalar values, interface/implementation/acceptance details, and task memberships are identical to the accepted baseline."
+    },
+    {
+      "path": "Plan:milestones.md",
+      "source_sha256": "1187927b46518d0dcf56097972e5caf8f134220a526ac689e8e7b757ad1970fc",
+      "target_sha256": "60c1ae69633622dabc7a9dc6bb06f93697c1ede7e0576ee7ea1d9fbbbb30271d",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:prompts/independent-review.md",
+      "source_sha256": "5bd5fb70f2181d552c58c758e65770f31384c6cfc356ed40557fcfe62efeae58",
+      "target_sha256": "aefdb4cf9e074e778c36d15d26cb0765a929cc4be4015aacb9581a2f58a7ec00",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:research-graph.json",
+      "mode": "semantic_projection_v1",
+      "source_sha256": "dbc8d3db3186ee5ff79963028e30f86e2cb1f61d82d54fb35d4f449e4a7da4f6",
+      "source_projection_sha256": "3d7ff2d4df461778060f47f5a21f7408836c42ec614ee0acd12aad42c56f021d",
+      "target_projection_sha256": "e872285c8a832d16ac147811879081fe85d7bd5ba5408bea317ac889fb2b5197",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every translated title, question, alternative, failure path, and verification statement. Recursively reconstructed all final semantic JSON from those reviewed source/target pairs. The projection removes only per-node packet_sha256, source_commit, acceptance_evidence, and independent_reviewers, which are rebound by exact packet snapshots and actual acceptance attestations. Every other key/scalar/array is preserved or individually reviewed; no global or technical field is omitted."
+    },
+    {
+      "path": "Plan:research-policy.md",
+      "source_sha256": "cfd76cd4527c4886d540274138bfc4a4122ae742627fca69b4ba6bfba02ad108",
+      "target_sha256": "407e853e942553396103c4f615a272d9c0f944a51e67477a66b32cf5d555fcfc",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:research-tasks/R01.md",
+      "source_sha256": "3ad45319701dc28269bc8ef3712cd496d77f37ed91b4a75786b13902a0357b07",
+      "target_sha256": "b7d9c409d94ebd7a1f2d842e06ba72407b5426c533ddb06c0dd659735543f66d",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R02.md",
+      "source_sha256": "b6061140e791fcc789beac1f6b70ba010a6daddc245b233fe94638e0f5373e8a",
+      "target_sha256": "f308f2e2caf975880bb385bd9101d8b864d6371d4b5e091844101ceec5a2eacf",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R03.md",
+      "source_sha256": "0249ba2d2835f60400edadd87c7c45f8ad5119d647cd1b6f6452abff64fca92d",
+      "target_sha256": "db79bbd4f535ecc698db4a8b763b18fee061a0d8201c34ad4d868d8e17ecf3ba",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R04.md",
+      "source_sha256": "21156789365db74bdf60f0441736a1ff316f6b0b58c94b6ad4543407af69787a",
+      "target_sha256": "56de7fadaa63ba20eb141621edacae2ae3be28a3fc8a6d94bdc3fc53b006b7e9",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R05.md",
+      "source_sha256": "3e91e78bfdf3523f588685c719dc7d2ea549236008c6eb79c14abdc419423d1e",
+      "target_sha256": "a311b0b9b08819affc5099739ac9a2efc889d38c22ce4889c3fb37eb3d963c2c",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R06.md",
+      "source_sha256": "1a78adee5e7e103aa2939a9f493c0d947c99a38aa9d17d33c9ee09e496b725c7",
+      "target_sha256": "2ea50be8d8c6227f62f7fade2cd5e6b4a1a82d2a5761429d732f880ffe21fc3b",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R07.md",
+      "source_sha256": "8c2b1ed3fe66f048446c2271f6de68bf56fb1370d6b6a3509ec569a503f1f862",
+      "target_sha256": "3dd6ea978acb49fb6e14c53e6d38d651a394038c605e9bc782a44a1b8870a63e",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R08.md",
+      "source_sha256": "512f428499e9b193c4d13bfcb3612abf52f37390963ff89557d6488ed5210b08",
+      "target_sha256": "05e4623cd28409b45afb9cc58b239c5c2126336b8c51a0aa1d97f84aa20c1249",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R09.md",
+      "source_sha256": "8bbf130c0a2edd789748168a98e8d592811fb03151c38c716cf24bbd1a9882ad",
+      "target_sha256": "2c6dba4044be63304dff923b7ff2eb5fe4fb02d9562a6ed08d58f3f8f6350fbd",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R10.md",
+      "source_sha256": "6d5ca3ec7418af0cb5f06e148694382b6e2555eca1bbd916a21748ff420f651c",
+      "target_sha256": "40c7b51a2481a21b1ea999ce55c8b3b71349ce861c930f142e12c61798cd0ece",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R11.md",
+      "source_sha256": "af957122144168f5845ca99d6bab21010690d0751535129e85ebef6bec95d9ee",
+      "target_sha256": "d179f68dc5ffea19606cb3ea5f04aab80b804debc923ca667eeeaa6d5b04f8df",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R12.md",
+      "source_sha256": "97b27cd1fdc7f3c6a8ed6e9af28853f46edbe08edfbe25ee5e4782a5ddc96f5a",
+      "target_sha256": "2b8094661274ca38a21f3db2d58beb5025e8983dd3a781c3a37cb44ca058bb4a",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R13.md",
+      "source_sha256": "6a7e9dad85db425d8125114aaf17f15dca3df37fdc57fd08c0d25565ca96a6c5",
+      "target_sha256": "062b2a6107c57e4a3ea55c6f1d80756c5ece16139ef8bb9f380989d3bdf5ed96",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R14.md",
+      "source_sha256": "3c66b7bd8e91a44284d9d5d1428cfb3833747ebaa04447cb49c196615e8c684a",
+      "target_sha256": "5b62db69b6e1167dbf623062916b59f71508a6aa1219fa4ac36b344d56c884b1",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R15.md",
+      "source_sha256": "3c1ebf9e3c252f447f38a719261abbdbe94f138285179eca08a67325504f524d",
+      "target_sha256": "f168174eb050fa477e3f53e44ffc3f322d292c2c2cce07a8c886f6442e2d12c6",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R16.md",
+      "source_sha256": "766ef346fa718f29fc26101701b2eb2b64cefbb311b44a61f64783148758e88b",
+      "target_sha256": "8dd897ee0d5783b3ec06a8f8bff727c20d947be7904f5addb3b855511da4590c",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R17.md",
+      "source_sha256": "3040e1007ba4f9f3f7673b58b56885e6ecad2f9adaeb33e03f6eb51c260dbdfa",
+      "target_sha256": "882ce3c305e2fcbafc39bda7e6b778fe860b5c0a3b88936eb397d5d7a910b17c",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R18.md",
+      "source_sha256": "25995859b30a62e2a9cc860335363abd508bae7cf8aecac8a0b8f853ce819a6a",
+      "target_sha256": "e3626d09921b9108563f37431701a4805977606ffdebfa4261b2f82f422e991e",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R19.md",
+      "source_sha256": "b075c4a5b2b141a5229861f8d4fc72977e08a67b8cecbfca925fa952eefa1189",
+      "target_sha256": "f39860b748a2484721ceffa63631797ecb5a2595c5ef0f457a6441b9b032a8c5",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R20.md",
+      "source_sha256": "e3bae7bb04ffd9925c642395e811548b0192ad78f9fbf423225c324ed60b194a",
+      "target_sha256": "25da43a2b5d43ed3e2a96de1cc309c3042dae0504f9a853384cb5fe0cc553aae",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R21.md",
+      "source_sha256": "d87064806673af44435d3f157bb5b66eef6b8e3666ecd78346452eeb175906e6",
+      "target_sha256": "1e394b06a8552617b09d8b9b972d0f5b7a2a9981dc1203da5d126079ad5cf752",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R22.md",
+      "source_sha256": "e5b41d07ec1a8d1d34bfc5f17583abded07d4cc2083ce2fe6d64f8c3477a7cd5",
+      "target_sha256": "4f1da87e889022b1f72bbf5fa5362cd3a123cee9965405263073c2a8515af5f0",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R23.md",
+      "source_sha256": "163e1b606c9b3a1a5f1da620af5be2e20ebb20771772017a761cf8cb9e6584f6",
+      "target_sha256": "1bc40e2eb0180c721deaf58c8a6cbc05d31efdf92d66e8eae231c4c2cb95551f",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R24.md",
+      "source_sha256": "f2976053790fe0070ac714100eaec77d0aea8840cdb47a3bf0cf7a8603803499",
+      "target_sha256": "7e039766164582dbe92ff19d4ea1d96aeb360715d6e13dae11ed95c1faf1ad60",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R25.md",
+      "source_sha256": "6a698012f10a6ff5d94cd39a5d42312bf586bf06ede1aa6ecefad16734afabc1",
+      "target_sha256": "af6ec9c97a91d1ff47da759a2610898847fa0d18d1117a3757aaac48a4406cc8",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R26.md",
+      "source_sha256": "296aedfc3fae421273d88cb88d31ec0f48f478672ca562e6326d6399a1febadc",
+      "target_sha256": "dfabd909462a18e6ae4f851eb0fd597912807093688d1dffa4b39cd507482bcd",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R27.md",
+      "source_sha256": "a4726846008686292a165e0691ea7be41a564f4621615e698f8bcce9e1a6287d",
+      "target_sha256": "cd363839febe18244a83c8d546179adf59f6bf89a3f7a1b8639b4d1b3f9e821b",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R28.md",
+      "source_sha256": "c8ad3f5dafeb775ed311cc56d236fd9bcb0e65427c3d1ef064ed112775ad58cd",
+      "target_sha256": "5b5948b7b70440330c6c8e521820dd13b7b40d74764f8556efb928efe8dfb7a4",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R29.md",
+      "source_sha256": "e1a23bd5a9506af8bfc36b7edfa3299c635a9c4e466e10fc26c41cb64d36b8af",
+      "target_sha256": "3435f468296231f532340bbcfe6c43144042cba7f0cd0c52115b17d162667200",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R30.md",
+      "source_sha256": "fb5c60f99e0ec58faee321c256fae6d36e654c7c3108de00ecfe21b6976888af",
+      "target_sha256": "825ce22c06ef8947b0b1fa1e97014b65d41e4d77d4f5013d50e0d97c22c23ded",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R31.md",
+      "source_sha256": "5d8b92f140bd68e4184c69d11696c9345d5248b61d0e885d03041e9f14cc8c8f",
+      "target_sha256": "d3dc9c02d5d1752b8e034fc7c081e345dc04de0de23ae5cb898a1bc005a94732",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R32.md",
+      "source_sha256": "2038f7a76a4a0b834fc7ed8cc4735831f51467b4e204114c9a88984da1bb2904",
+      "target_sha256": "ea9f65980d7ebeb87fc9f936ef103e7a1aa780b56e95234a63962cb7860895f1",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R33.md",
+      "source_sha256": "a4e7713dfb46d6f403982e56cf2c3e386ee289ade1f54433adf9d759207915b4",
+      "target_sha256": "6cd6e2e9b47316053554f3e01bcc2ce38c6e1a2da1753e33d7927b8eb2aced5c",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:research-tasks/R34.md",
+      "source_sha256": "e6e45d66337ef88ebc752108dc83a73780eae337d6d054a83072c0fe4514f032",
+      "target_sha256": "59939518da0bae4ac9386a2f56b757d3be5e159dbfb080e05d61149a68b1d990",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally read every distinct source/target sentence across all 45 assigned task packets; checked every occurrence against the actual full packet bytes. Verified unchanged IDs, paths, dependency/version inputs, output scopes, and acceptance requirements against the accepted baseline. Separately reread the final common queries and relationships correction and verified the exact final packet hash."
+    },
+    {
+      "path": "Plan:task-index.md",
+      "source_sha256": "c65ff7e52ec233a6e8b82904d0d9ad42912ac746fb5c5a08249c9844f771dabb",
+      "target_sha256": "9af8a2fe0e0b949c88b8fa9d325d5279ce73e98b2576e9ad29a25f0642163a7d",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:templates/delivery-task-template.md",
+      "source_sha256": "07c63d08a2ef7b3c7b21be44780797bdf1c76110af01190e3c6a1ff4e6d78141",
+      "target_sha256": "091350c53fb6fcb56b0e0bd6537a8b22794eaeb2dbe7e4e7e8ad6456f74f3d09",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    },
+    {
+      "path": "Plan:tools/render_packets.py",
+      "source_sha256": "932e547f1e3dbe5ae32f2a848defd5f3acedec5d179b6246c00fae91982a4b01",
+      "target_sha256": "bfc42a729c0adcc8ddf8a4f75d7f2051ee089ef7120580eb5692f0587b0fe0d2",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Read every changed renderer string and complete translation diff, including delivery/research/documentation branches and inventory generation. The final common queries and relationships correction was separately reread. Verified the full nontext Python AST equals the accepted baseline and that all task counts, expressions, interpolation inputs, paths, and binding behavior remain unchanged."
+    },
+    {
+      "path": "Plan:tools/verify_completion.py",
+      "source_sha256": "8ecbabf6d819576750d73f9ffdcdec78955829df7e8feb5b0706a5198955e0ab",
+      "target_sha256": "344e67b7d9a98100d6de766d90f13c1139919828922549319af3c4e60121c84c",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root",
+      "decision": "accepted",
+      "notes": "Read the complete one-line change from the Chinese task-revision marker to Task revision **. The revision comparison and all pre-existing gates are unchanged. Verified the entire nontext Python AST equals the accepted baseline; this is language adaptation, not weakening an acceptance condition."
+    },
+    {
+      "path": "Plan:verification/validator-contract.md",
+      "source_sha256": "f3084f9f8575ca9481d48b390dfd10f08cc2cd4b57e40fd12a279a2d51b1e291",
+      "target_sha256": "5078a5ac0922b000b7f2e1e8ece052561b4f0768c4b9813b7768a5836de3ba59",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "translation_author": "/root/translate_plan",
+      "decision": "accepted",
+      "notes": "Personally compared every changed heading, paragraph, table row, policy, template instruction, and requirement with the Chinese source. Repeated exact text and inventory titles were checked against already reviewed source/target pairs. Verified all 114 inventory IDs, exact title mappings, and linked packet paths against the source and current graphs. Historical acceptance evidence and product authorization limits are preserved."
+    }
+  ],
+  "unchanged_output_verification": [
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R01/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "837e62bffbd08dbbb9c8e139e304539d161e31a8fca09b564857ccd8a8213e6a",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R01/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "c9696e64ed82c383cde5c10b0a8dda49fb990a0e7dbc11bb5cfee6ee90695425",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R01/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "ecc890273255d322aa8ff90182d292c4a56d6201353bff829e1572f87a3e0d11",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R01/rust-1.100.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "dff0f4e94d0ba943bd382322c22758b5929162df387bccac12739c68f22aa69d",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "e792f4386fa45895634d3c6c0d6ffd3433c6c25083f443392d86c1a289052f82",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "8ffd451a7944eb36ad3a47e922f323fb8e1a71391814c24bee529bc537f27195",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "a7843818835bb8d0c760b8db7aa1f527ac347fc5e5ba65b663d28d6c08ac77e2",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R03/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "f9f41cad606353ad21a9ec7b46d18bf6c2178bdd161ede550df08a8793d57fcb",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R03/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "0bc5c9070e16c077844229c0239775856bcc0056e0057efeb96da8ddd6305cb1",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R03/native-slice-validation.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R03/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "23d2c9e1e615772482db4a67c5ffa9e860f4968092e0bb7406306c1259f53845",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "a6fca704612cf28cfe2bc7789fd4984c589fd13ec6f1fc2f50613e009c9d097b",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "40dc8eb7468d1a95fb6df63fe4ac5df81877073e3c8e180147da8d41efe54878",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "f4269b31a55b74522e50f290519be930d0a34db3e58cccb3364a2ace5f330b56",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R05/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "2771aae925be7521fd0a3fcfd4ec72e74c06197b0d761089e7823596c74b29ee",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R05/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "2b32c40f00e8a8a87d30a494f7972ec82e7fe70867d125c88eddd4d7eb9522da",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R05/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "5f0aadd52dcd8c060397d749752744d9046443d13d6ed1f27860b357532bed16",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "e63788b0742f73f46e388d05be284055ab8b89084b808f9081bdb0bcd0addd81",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "47e3e9f9508eb8d4b1b633d4936a27796d7af24ba2ff77dc1e9fc1bb855c0d88",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "eb0c840f0ebb5d4f3eae2c0839af473dba9b7117fe0ea123fe60bf1d17aa4bb7",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R07/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "ad4dafdaebb9c828fea953ea8e60145a4dcc6c03f8579d28c9a3444beb78dc5d",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R07/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "b2212e3dfd2fda25defec84fa899c3bb7ca5f876aeaa730045b46075bae2cc55",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R08/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "25354de73b1b98bc5920a18109703226b427fc5f28fa6b1621f68fb65f127607",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R08/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "1119ad6ddeae6b94af8c5b03feab7cd4b8eaa7f8a1fc198e3e6df520a811fec3",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R09/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "d557fb45c113a4048b6c2fde421bc2402a5341bfbb006d56b783c5234de83a48",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R09/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "ddbc929268a78737a7814a7818b33fa39ef04d5afe5c13fa4b563309367f4b63",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R10/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "74080381ee38da43014f1a4b7c11b6aa578a8774ddc521df5fb94fe953ffd658",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R10/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "1dccc6fe89eb91c3bebbb38f4b7ee9339875bff8f31365e5c56d7d1e3f83fc77",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R10/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "bce20015ca5ce00e74aee6c5f542591918b89e971367ba2bde5c4edf131dc59e",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R11/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "0bac265d6d0ad11529f40d1ae6df298fd77d4782e29626e1ad8db221c6f9241c",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R11/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "b9e2457c32b7c73b034c1fe88a0050c3ca35a52562686a726fd65e90d7c52fb6",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R12/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "65e1e2e17d60a44a00e8d3655af43866a2f6df6e406cd39a0fd6fe20c3573af3",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R12/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "fd016f23d0088bd7cd527fae9011d6405e4a4d316eafd883bf4aa46237911a57",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R12/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "8567a860b17da594c63845cb0f627ad2517222cf4032f50aba25e58f94f4b2c0",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R13/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R13/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "f891c8d8b2e7f50e3ba7ca16005bad630c8c4cc6add49573bb4ae4af3f9b7874",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R13/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R14/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "641dff377a13cb1a58f3b2eb0e5708d6f165ac8966e6eaa0f1b8817684dd8367",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R14/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "6e1dc5fcaf35cb2e5f9b8d46fbf0ce7eddf6b3abea953278b6c8f17c9cf67292",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R14/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "b353abde7c361ec0d8ad6cd36bc2747fa67d887c4cf7db3a2293781de94d494d",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R15/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "269b6eb7141d47fce15081b8763ee4111afa239c5cb3fdd8aad7eb6dfcb414f6",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R15/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "c15d1c7ab5e09af224c3f0109af6b4db0ebb5054a042065a7eae111d24c41146",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R15/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "9647f4658cd32c1d66ef3138ff27a42d5bde68223bc64a5729b8838e6b872de6",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R16/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "d0b9231eb1f726c4e756312750b31585046b00f244efc2fddc3bd9de513b2d97",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R16/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "e29c76262a7ba9b68ca2159121f64abdbdefe86ec4f1230c6d767cc03115dc12",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R16/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "fb220a379dfd8ade2716da031981cf4aa1860c50d57b941a2457f7a532840502",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R17/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R17/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R17/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R18/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "c73e6b3ddafe23aa831b7b82f5733e767a23f84c17b2ea60dafad2b89bfd181f",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R18/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "72199f94b832bd02bba96a72f8d0561f17b82cc8ff88e36ffa05d601c0827888",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R18/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "bdf46e37799950570583df4bc31382b3d4253658c98bc14031bbae1c31de557d",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R22/native-slice-validation.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "ed63b45332c83accc367fd17d34e844ddf9067a9083801dce59469b208e9c203",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R25/source-driven-seaquery.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "d2bd3c03a92debc4e8d935eaf156d848e4ff6d9a13a68d2017bb6ec1f3a8ac7a",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R26/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R26/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R26/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R27/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R27/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R27/native-slice-validation.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R27/source-driven-server.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R28/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "ad0f906a070892d9c66e6ba06281ac2ac5cd77a1e2113ee5977ce96c92187b39",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R28/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "53a4334ca9aceb83ea8ed4d4b1a60720eeca12231f57c639ea7eec7af6bf726e",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R28/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "53c7853a03a74d912574188f0c3646986e9fbdb9f71b6a960450c5595d2b98cf",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R29/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R29/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R30/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "01549bad229f0fbc2ff7d1d77f30dc528cfee29356467a3bc9ec0213786b0bd2",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R30/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "f7e71407de4ed1d23851d922b75b5dd91a7b3f698e019a4b57ba368d58f50d7e",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R31/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R31/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R32/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "db4645b539ca0e93faf4afbc870551d3a1e6c2d0b22d9ea68ab58c4a0aed48f9",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R32/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "324df31b893b3a7cd547f7d8a8a99ba0d68f1cf8a68b5714ae45c679e7fb0caa",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R32/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "5af7f7e948cf9dab804a1b6814a36e7c06177878c04f5897c1a991c53a08a25f",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R33/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "3757b499d16a13c95cbd8ccfdd698f28502a3a7a8a5180a43731ac67c1705d53",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R33/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "0673da2b103302bcf682e434115f72376e2556838ba4a6d9a5ecd4dd3489e7be",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R33/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "7f9e9b815e78b91737a4e166f099700f7dc93c7dd5020e687d4dfb229b581c49",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R34/coverage.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "780ed9f8ce4f5ffc47356c3ee18c02a2b868999cb2284d10016f14811d9e8960",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R34/evidence.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "470aa544a5309db79714fdcaedf49c08962c5522c8c045a918799e7bc62b54be",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R34/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "sha256": "1d1f043b863e9b33483d3e9f88b00a88396c330c5cf1dfc4eed9bc08a5a2f0a9",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    },
+    {
+      "path": "Plan:ledger/reviews/D32.md",
+      "source_commit": "eff98a38068478cd4c2abb4ea66c62330156941b",
+      "sha256": "581c22a793f762d7b546efdcbceadc2a1dd58706e7537573cc265a5191a9fe21",
+      "method": "Exact original and current bytes compared; preserves the prior accepted technical content without rerunning experiments."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "EN-REV-C01",
+      "path": "NativeWeave-Design:docs/research/topics/R27/report.md",
+      "source_line": 19,
+      "severity": "translation_ambiguity",
+      "issue": "The evidence-reuse sentence incorrectly made YetAnotherHttpHandler the actor using review evidence.",
+      "resolution": "The review is now explicitly the actor: Regarding YetAnotherHttpHandler, this review uses only ...",
+      "resolution_commit": "aa55cff570698634cee3a931ba6d42a098bf980d",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "reread": "Personally read the complete author correction diff with surrounding paragraphs, then checked the final integrated bytes against the reviewed target."
+    },
+    {
+      "id": "EN-REV-C02",
+      "path": "NativeWeave-Design:docs/research/topics/R27/report.md",
+      "source_line": 23,
+      "severity": "translation_ambiguity",
+      "issue": "Uncommitted layout/function surfaces could imply uncommitted Git source instead of absent ABI stability promises.",
+      "resolution": "Uses layout/function surfaces without stability guarantees.",
+      "resolution_commit": "aa55cff570698634cee3a931ba6d42a098bf980d",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "reread": "Personally read the complete author correction diff with surrounding paragraphs, then checked the final integrated bytes against the reviewed target."
+    },
+    {
+      "id": "EN-REV-C03",
+      "path": "NativeWeave-Design:docs/research/topics/R27/report.md",
+      "source_line": 62,
+      "severity": "translation_ambiguity",
+      "issue": "The source describes a lifetime/cost tradeoff with awkward directional wording; the initial translation reversed that direction without qualification.",
+      "resolution": "Uses balances provable lifetimes against measurable cost, preserving both dimensions without inventing a trade direction.",
+      "resolution_commit": "aa55cff570698634cee3a931ba6d42a098bf980d",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "reread": "Personally read the complete author correction diff with surrounding paragraphs, then checked the final integrated bytes against the reviewed target."
+    },
+    {
+      "id": "EN-REV-C04",
+      "path": "NativeWeave-Design:docs/research/topics/R29/report.md",
+      "source_line": 46,
+      "severity": "translation_ambiguity",
+      "issue": "Enters the wire could imply observed network transmission, while the accepted contract uses conservative local commit admission.",
+      "resolution": "Uses After DB COMMIT is admitted.",
+      "resolution_commit": "aa55cff570698634cee3a931ba6d42a098bf980d",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "reread": "Personally read the complete author correction diff with surrounding paragraphs, then checked the final integrated bytes against the reviewed target."
+    },
+    {
+      "id": "EN-REV-C05",
+      "path": "NativeWeave-Design:docs/research/topics/R31/report.md",
+      "source_line": 26,
+      "severity": "translation_ambiguity",
+      "issue": "After entering the wire had the same overly physical reading for commit admission.",
+      "resolution": "Uses after commit admission.",
+      "resolution_commit": "a7190c55a8c13d4b27dd9073757f81779fba718b",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "reread": "Personally read the complete author correction diff with surrounding paragraphs, then checked the final integrated bytes against the reviewed target."
+    },
+    {
+      "id": "EN-REV-C06",
+      "path": "NativeWeave-Design:docs/research/topics/R31/report.md",
+      "source_line": 88,
+      "severity": "translation_ambiguity",
+      "issue": "Fixes two decisive counterexamples could claim repaired behavior where the source means capturing pinned counterexamples.",
+      "resolution": "Uses captures two decisive counterexamples.",
+      "resolution_commit": "a7190c55a8c13d4b27dd9073757f81779fba718b",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "reread": "Personally read the complete author correction diff with surrounding paragraphs, then checked the final integrated bytes against the reviewed target."
+    }
+  ],
+  "supplementary_review_context": {
+    "reviewer": "/root/translate_plan",
+    "note": "This peer already independently read the six general research seed documents and the five R07/R08/R09/R11 files. Source/target hashes were checked against that record. The five task-related files were then personally read in full for this report; the six seed files are not attributed to this reviewer."
+  },
+  "final_verification": {
+    "all_45_final_packets_equal_reviewed_complete_translation_plus_reread_mandate_fix": true,
+    "all_11_final_top_documents_equal_reviewed_complete_translation": true,
+    "research_graph_and_10_fragments_equal_all_reviewed_leaf_pairs_except_rebound_graph_metadata": true,
+    "all_30_final_research_files_equal_personally_reviewed_complete_translation_and_reread_fixes": true,
+    "tools/render_packets.py_nontext_ast_equal": true,
+    "tools/verify_completion.py_nontext_ast_equal": true,
+    "all_45_subjects_keep_accepted_status_revision_and_exact_technical_dependency_scopes": true,
+    "native_experiments_rerun": false
+  }
+}

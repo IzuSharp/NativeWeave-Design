@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-ERROR-001",
+    "version": "0.3.0",
+    "content_sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "53388e2165919869a8864a3119c6bb510267ccfe"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/contracts/abi-v0.1.md",
+      "sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "bytes": 11956,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/error-v0.1.md",
+      "sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+      "bytes": 23377,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R11/coverage.json",
+      "sha256": "0bac265d6d0ad11529f40d1ae6df298fd77d4782e29626e1ad8db221c6f9241c",
+      "bytes": 13042,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R11/evidence.json",
+      "sha256": "b9e2457c32b7c73b034c1fe88a0050c3ca35a52562686a726fd65e90d7c52fb6",
+      "bytes": 18702,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R11/report.md",
+      "sha256": "4176d1f3c773642212c5e6ca7c567106166f98f1fbecc81acc4321a7ac0b2b1c",
+      "bytes": 18988,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R34/coverage.json",
+      "sha256": "780ed9f8ce4f5ffc47356c3ee18c02a2b868999cb2284d10016f14811d9e8960",
+      "bytes": 6317,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R34/evidence.json",
+      "sha256": "470aa544a5309db79714fdcaedf49c08962c5522c8c045a918799e7bc62b54be",
+      "bytes": 13758,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R34/report.md",
+      "sha256": "1d1f043b863e9b33483d3e9f88b00a88396c330c5cf1dfc4eed9bc08a5a2f0a9",
+      "bytes": 8399,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {
+    "C-ABI-001@0.3.0": {
+      "spec_path": "docs/contracts/abi-v0.1.md",
+      "content_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "evidence_sha256": [
+        "d15219bb2fa804d9542d94218c77265a3dd803a319ea296f4102945e76d7031a"
+      ],
+      "review_sha256": [
+        "05db192a468ac0b9f1e3c6eacd306ad6f035e7ed8f6f82459551bbc5f1d60585"
+      ]
+    }
+  },
+  "translation_provenance": {
+    "original_accepted_repository_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+    "original_accepted_subject": {
+      "id": "C-ERROR-001",
+      "version": "0.3.0",
+      "content_sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+      "evidence": [
+        {
+          "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ERROR-001.evidence.json",
+          "sha256": "2bf1e6ded2464bdcce32b3ef1239e8de8f1e4a2abae842c32c40cc2920176233"
+        }
+      ],
+      "reviews": [
+        {
+          "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ERROR-001.review.json",
+          "sha256": "0d08b21977360a5ebac8c74ff280f244715af5e7290747ebf24831f94bc6a928"
+        }
+      ]
+    },
+    "relationship": "English semantic-equivalent rendering of the accepted input; technical requirements and implementation authorization are unchanged.",
+    "native_experiments_rerun": false
+  }
+}

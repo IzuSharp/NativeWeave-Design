@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-LIFETIME-001",
+    "version": "0.3.0",
+    "content_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T04:02:49.563077+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/english-translation/contracts/C-LIFETIME-001.inputs.json",
+    "sha256": "c7775b14a89f6e1cb1be4251e120d5ccdccec256b8d7d7dbc50633b29f82e6bf"
+  },
+  "scope": "Committed English inputs, preserved original accepted research/design evidence, and actual independent translation-equivalence review; no new experiment or product result.",
+  "prior_accepted_evidence": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-LIFETIME-001.evidence.json",
+      "sha256": "7c0e4a0cda29ac811bfa671b2b3305e074a101be05264b326eb617198aeeed1c"
+    }
+  ],
+  "prior_accepted_reviews": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-LIFETIME-001.review.json",
+      "sha256": "e8fad319335c30b0e23e285d31f9d3eb4b455c3e47e55b9f5f9aaf761dd08d6b"
+    }
+  ]
+}

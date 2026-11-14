@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-BINDING-001",
+    "version": "0.3.0",
+    "content_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T04:02:49.563077+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/english-translation/contracts/C-BINDING-001.inputs.json",
+    "sha256": "dd6b7d49ec5d0e32a7df40acfa0fccbd8495266444b5e63bee131f616f77a46d"
+  },
+  "scope": "Committed English inputs, preserved original accepted research/design evidence, and actual independent translation-equivalence review; no new experiment or product result.",
+  "prior_accepted_evidence": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BINDING-001.evidence.json",
+      "sha256": "a09d95ad0aa6f8107eccb30e7310a3349e4205c2087421302fa6929ba3e2ca37"
+    }
+  ],
+  "prior_accepted_reviews": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BINDING-001.review.json",
+      "sha256": "100eeb369dcfabcc8f59fb24f0deafc8eb567b8df54a835218957ebfa683025c"
+    }
+  ]
+}

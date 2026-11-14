@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-ABI-001",
+    "version": "0.3.0",
+    "content_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "53388e2165919869a8864a3119c6bb510267ccfe"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/contracts/abi-v0.1.md",
+      "sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "bytes": 11956,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/platforms/support-and-aot.md",
+      "sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "bytes": 8726,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R03/coverage.json",
+      "sha256": "f9f41cad606353ad21a9ec7b46d18bf6c2178bdd161ede550df08a8793d57fcb",
+      "bytes": 5429,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R03/evidence.json",
+      "sha256": "0bc5c9070e16c077844229c0239775856bcc0056e0057efeb96da8ddd6305cb1",
+      "bytes": 5535,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R03/native-slice-validation.md",
+      "sha256": "221e93e0b8cd45b1e199b420035ba1b5c10ff450052604ff193952cc99cbb997",
+      "bytes": 5829,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R03/report.md",
+      "sha256": "23d2c9e1e615772482db4a67c5ffa9e860f4968092e0bb7406306c1259f53845",
+      "bytes": 6431,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/coverage.json",
+      "sha256": "a6fca704612cf28cfe2bc7789fd4984c589fd13ec6f1fc2f50613e009c9d097b",
+      "bytes": 6183,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/evidence.json",
+      "sha256": "40dc8eb7468d1a95fb6df63fe4ac5df81877073e3c8e180147da8d41efe54878",
+      "bytes": 6288,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/report.md",
+      "sha256": "f4269b31a55b74522e50f290519be930d0a34db3e58cccb3364a2ace5f330b56",
+      "bytes": 6364,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {
+    "C-PLATFORM-001@0.3.0": {
+      "spec_path": "docs/platforms/support-and-aot.md",
+      "content_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "evidence_sha256": [
+        "7dd30d6bb6c65005e7360d41cd607dd2200ea3f77a23f1e5ead80e3b5819674e"
+      ],
+      "review_sha256": [
+        "9049264fab02e401d8169e9dee5af4b2fe633b329892da7229f839cf3b47186f"
+      ]
+    }
+  },
+  "translation_provenance": {
+    "original_accepted_repository_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+    "original_accepted_subject": {
+      "id": "C-ABI-001",
+      "version": "0.3.0",
+      "content_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+      "evidence": [
+        {
+          "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.evidence.json",
+          "sha256": "9fc436bbc2bed8b1f91270b9331abf8d591778828cd796df63505b2a899938d9"
+        }
+      ],
+      "reviews": [
+        {
+          "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-ABI-001.review.json",
+          "sha256": "96dc29d3b088d4ec8881dff5989924200dc2b6e9336fd0958b1bf84bf12610e6"
+        }
+      ]
+    },
+    "relationship": "English semantic-equivalent rendering of the accepted input; technical requirements and implementation authorization are unchanged.",
+    "native_experiments_rerun": false
+  }
+}

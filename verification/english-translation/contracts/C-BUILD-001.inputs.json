@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-BUILD-001",
+    "version": "0.3.0",
+    "content_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "53388e2165919869a8864a3119c6bb510267ccfe"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/contracts/abi-v0.1.md",
+      "sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "bytes": 11956,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/generators/binding-pipeline.md",
+      "sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "bytes": 13007,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/platforms/build-package-release.md",
+      "sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "bytes": 17974,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/platforms/support-and-aot.md",
+      "sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "bytes": 8726,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/coverage.json",
+      "sha256": "e792f4386fa45895634d3c6c0d6ffd3433c6c25083f443392d86c1a289052f82",
+      "bytes": 5566,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/evidence.json",
+      "sha256": "8ffd451a7944eb36ad3a47e922f323fb8e1a71391814c24bee529bc537f27195",
+      "bytes": 5753,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R02/report.md",
+      "sha256": "a7843818835bb8d0c760b8db7aa1f527ac347fc5e5ba65b663d28d6c08ac77e2",
+      "bytes": 6897,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R13/coverage.json",
+      "sha256": "38d341fd337582a3f941ca1f1eec2559e06b7ce2fe49a75511c8e6d0a52ad696",
+      "bytes": 4523,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R13/evidence.json",
+      "sha256": "f891c8d8b2e7f50e3ba7ca16005bad630c8c4cc6add49573bb4ae4af3f9b7874",
+      "bytes": 6741,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R13/report.md",
+      "sha256": "2f48114612d0495ee70482f2973af156366855dc48436b33d8f821e0746b87d7",
+      "bytes": 5548,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R14/coverage.json",
+      "sha256": "641dff377a13cb1a58f3b2eb0e5708d6f165ac8966e6eaa0f1b8817684dd8367",
+      "bytes": 6357,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R14/evidence.json",
+      "sha256": "6e1dc5fcaf35cb2e5f9b8d46fbf0ce7eddf6b3abea953278b6c8f17c9cf67292",
+      "bytes": 9416,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R14/report.md",
+      "sha256": "b353abde7c361ec0d8ad6cd36bc2747fa67d887c4cf7db3a2293781de94d494d",
+      "bytes": 7342,
+      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {
+    "C-PLATFORM-001@0.3.0": {
+      "spec_path": "docs/platforms/support-and-aot.md",
+      "content_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "evidence_sha256": [
+        "7dd30d6bb6c65005e7360d41cd607dd2200ea3f77a23f1e5ead80e3b5819674e"
+      ],
+      "review_sha256": [
+        "9049264fab02e401d8169e9dee5af4b2fe633b329892da7229f839cf3b47186f"
+      ]
+    },
+    "C-ABI-001@0.3.0": {
+      "spec_path": "docs/contracts/abi-v0.1.md",
+      "content_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "evidence_sha256": [
+        "d15219bb2fa804d9542d94218c77265a3dd803a319ea296f4102945e76d7031a"
+      ],
+      "review_sha256": [
+        "05db192a468ac0b9f1e3c6eacd306ad6f035e7ed8f6f82459551bbc5f1d60585"
+      ]
+    },
+    "C-BINDING-001@0.3.0": {
+      "spec_path": "docs/generators/binding-pipeline.md",
+      "content_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "evidence_sha256": [
+        "cb589674efd277a82db4094fd92e4834cc15304178ccfe8cc71697ce8921c36e"
+      ],
+      "review_sha256": [
+        "19ca5b45d0f5f907c780b9bc8c0d7ca55f33852c6246b95130b28b614e9bfd12"
+      ]
+    }
+  },
+  "translation_provenance": {
+    "original_accepted_repository_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+    "original_accepted_subject": {
+      "id": "C-BUILD-001",
+      "version": "0.3.0",
+      "content_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "source_commit": "8594d43eb6efe5d10eecdeabcfa27771f193b00c",
+      "evidence": [
+        {
+          "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUILD-001.evidence.json",
+          "sha256": "82c16bf171f47547f034a1c054cf21b557e4283ad51737f0605785ea5a18eeb3"
+        }
+      ],
+      "reviews": [
+        {
+          "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUILD-001.review.json",
+          "sha256": "8abcbb60e3f7dd1c7148a245ab84e7ca96f4ad1984c2d6c7479784cbc6b66c61"
+        }
+      ]
+    },
+    "relationship": "English semantic-equivalent rendering of the accepted input; technical requirements and implementation authorization are unchanged.",
+    "native_experiments_rerun": false
+  }
+}

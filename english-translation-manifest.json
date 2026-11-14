@@ -1,0 +1,514 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "english_translation_coverage",
+  "source_repository": "IzuSharp/NativeWeave-Design",
+  "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+  "authoritative_language": "en",
+  "source_language": "zh",
+  "product_implementation_authorized": false,
+  "native_experiments_rerun": false,
+  "translated_files": [
+    {
+      "path": "AGENTS.md",
+      "source_sha256": "e42f4fd965744e1b8c5982ba11c80402a20b20858e32ed412ac1d75e54c962da",
+      "target_sha256": "a1b25b9c15a044fc657237eecac9fcefd106de671edcac8488c14e1a528df3be",
+      "translation_author": "/root"
+    },
+    {
+      "path": "README.md",
+      "source_sha256": "e3cf975589c7e808c72bee3304dfb0901eb6d1a7d6fa53b69a727660a6512ca5",
+      "target_sha256": "dbf6a35c453ec40531e51ff8cea32e9f6077e4c45e2e693790f54c6a53695f34",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/architecture/candidate-boundaries.md",
+      "source_sha256": "34aa0c69b2bc3638f6a1b3e3a8b51ad734d4c425a7d5eb0428a46a2b3c910498",
+      "target_sha256": "b01607b0f911690449bbd1b07b41843cbffad8d21a0a3731a7ce83f486baff39",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/contracts/async-v0.1.md",
+      "source_sha256": "1df4082287c9538bb24dc2f899b8073f4feff22f7b152a04cef65def4c80fda0",
+      "target_sha256": "dd7138080915f25a8063cb7bca04379cbafc5cab70ae22e25360527d0e6fc16b",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/contracts/buffer-v0.1.md",
+      "source_sha256": "8a94a24db45ab01a68c601abe4316de29c473aaa2e8aca3a4a6868a9f3c1b0b0",
+      "target_sha256": "38ac67033a52f1318c7225b92cd595339c03d9c45dadd85a8bd07e3ddbf99626",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/contracts/callback-v0.1.md",
+      "source_sha256": "014a13ceeaa683057117bc37bea6ea22e2af4ea27358455672bd3dde7ca1f7e0",
+      "target_sha256": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/contracts/error-v0.1.md",
+      "source_sha256": "76360ac7929781c8d19726c1bd24cbe1f8596ec9ffeb6092eb2b7885c9f118b9",
+      "target_sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/contracts/lifetime-v0.1.md",
+      "source_sha256": "03c9262018f9ab9f2b66f32ccddc4010d89565b2dbff6d108221b5b4d9542558",
+      "target_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/contracts/registry.json",
+      "source_sha256": "a7e39f474c8bc6327f7c5f9c3e51452e8b03100076d6957978fb4a662dbf56b2",
+      "target_sha256": "f1367e0f8cee6a7c79aabb5b4ee6ffb6bd75d4b3ff403b6f981eec032b76e856",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/database/drivers.md",
+      "source_sha256": "ce5845d0c4349a2bfcf58a4c7851ee96acd826d050dfaf8d7832c94d50ae459d",
+      "target_sha256": "28f1895d40b423ffcc2ee0e17c3841f70130ed773a9cdabefaf071d4251c2086",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/database/transactions-and-pooling.md",
+      "source_sha256": "7e4519b8c28d5fb8f1e7618a34883dfb312d45bb07d58454c968e0df662f433a",
+      "target_sha256": "514c13d42579aa8f49a43e924540437be19c8890d487f4dca224de893d0641ff",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/decisions/ADR-0001-three-graphs.md",
+      "source_sha256": "2e78346f3a464185c24d39bb33a12e12b8a43f826b719f47371dab93ffb331e7",
+      "target_sha256": "ddb22fa39ac26851b4fa719a7ff14cf57ce7407e0d516bfc84c8d7846c5dc5dc",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/requirements/charter.md",
+      "source_sha256": "2b64ce0df23a104d2e6acaca904595fa98e614463edc7082fe9d3b036c6b424e",
+      "target_sha256": "8ad74a1184d56b66be4297240a9b90b8d77cbc18c829ee2f9dc39eedf248d042",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/requirements/coverage-matrix.md",
+      "source_sha256": "205b352a9a57841cea040727231deb68a1df90cf82ff7fc467928e8e7fb9e429",
+      "target_sha256": "be2dc05b409a72e35482c8ad3ee4201c9ba28173d7235e09b5670aca742a9e01",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/research/domains/initial-findings.md",
+      "source_sha256": "558f6526d0fb33c2b0139427c85bc4c37839675c5d8e61dcc5e989bb7ed11248",
+      "target_sha256": "237fc9c562ddcd9fe4a519048774b66bc29bf5893cf85a14e4d56357abe9176a",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/domains/v11-recheck.md",
+      "source_sha256": "c48f5cfdcf28bff73620a0cdf675bb01c0045148cf862a0df7575f958944f3de",
+      "target_sha256": "eb7e9e83c75b43de0f667957638bd10cc27677e6661506075e114f08f7e26aed",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/environment-and-repositories.md",
+      "source_sha256": "437b7efdac24fb2d6ae0fb80c9c52b9da9e7b1fcfe2865a5431852f310793a30",
+      "target_sha256": "f0c86e43299646a12cd8185f7e7d44103cf52dec59a5b3badea3c4c277a18cd6",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/interop/initial-findings.md",
+      "source_sha256": "a6d13db5b491b2e5df48dc500445d1a3d44c721b52235f838b6cb3d93e938ead",
+      "target_sha256": "047a5704d338417c9566318eda93e14eea0abae5773223cacd4739679fccc432",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/source-catalog.md",
+      "source_sha256": "aea185f97720317c1bed53f7e728616e0ca7ac56fbd75d7d7ab7f68b323ffe59",
+      "target_sha256": "5b5ef6697dfc2f513a82fe0b086bfe0fc4d2c281c1a95a158f79da05a7315cbf",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/toolchain/report.md",
+      "source_sha256": "a35e0964543cf098c8c9f00eeac1ad822a402767ec2dd273af8639911de505c1",
+      "target_sha256": "7cb00d48572b2eea83ceb63c28c195b91441edb3ef38f8e0f4abe6990b925c08",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R07/logical-admission-probe.md",
+      "source_sha256": "039d2096c84c0bf41a06474af4196a9784b690b036d7b5afe865e2cb166b1822",
+      "target_sha256": "d8e43a1de5ea68c7b28cbe90e32ce266b33febba610b0290720680873be9af7e",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R07/report.md",
+      "source_sha256": "cc301c5150289575bed36514fee1252632e358f6e6ca3510ca6d61cbff29a615",
+      "target_sha256": "84a29f3b59a3e285b3e480f4f59ee6196efe4059535f67cd3e94aa66faf67ed2",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R08/report.md",
+      "source_sha256": "a96b580cb861ab4bea9b7e10370ead61992ea57cd98f7c10901a7eba6670c1c8",
+      "target_sha256": "8ffb1267bf4ae252e78b38b041bf889849a7cb22e1c28fdbc91afb09e96d7e3d",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R09/report.md",
+      "source_sha256": "89ad565e1dd2ab0c3c1a7824d86d9b39adb0b2ee270a7483c1c56ff49870866c",
+      "target_sha256": "c161827d0da067081c58c0650722784a8dd7526b2fa58850438ff6a87723522b",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R11/report.md",
+      "source_sha256": "c3788b3fe9f0e698e862b7d43b53a03be1f789c4a9ea39d87a1cf934c9db7902",
+      "target_sha256": "4176d1f3c773642212c5e6ca7c567106166f98f1fbecc81acc4321a7ac0b2b1c",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R19/coverage.json",
+      "source_sha256": "911d62e6075f147fca5cd83dec011e8727323060ffbddefe0b41f66e7252553f",
+      "target_sha256": "9c1d2b473cf795bec48bb8654d0efde96d0567ae994b7dbb4d2d09a2ec52a589",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R19/evidence.json",
+      "source_sha256": "021e7c8283af7d8771b7eec7c6e300725ff1bec30765d7b4d9b10065faa61078",
+      "target_sha256": "de4a5aa9638f33be09ee718612b823fad1bffcff72c136425db756537a47f29f",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R19/report.md",
+      "source_sha256": "7463a51d2f413085beecd52ed67dc7ee52c01a7ad3a9ac9e72deef631838b006",
+      "target_sha256": "4388dbde93502f770df649963fe650cf548246b6ab135143833cda34ff76aa47",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R20/coverage.json",
+      "source_sha256": "3c45d8d93fe10b0da6f7ebeac149ec6fe17e1279494af6918fb2371c0365e464",
+      "target_sha256": "4e0734448f5b27a656cfebe53c9a2022d686831585fe78b312e7db2b9dcf4bf3",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R20/evidence.json",
+      "source_sha256": "4f100de2fbe7e8ac39ab0c325f113de37953483b813461a423781dbe7aa93828",
+      "target_sha256": "a682bfa090924def3cb9df4ae461d2f9bcef58c0c7dd08eac8117a33581a9b58",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R20/report.md",
+      "source_sha256": "5a31c55bf5e7deea359752c8fb537aebd36a835d58a1de81d2ffc120b05d3282",
+      "target_sha256": "d82bbd89e7d05822efb6e335f5ed69e351a070117dc47612055bb4c4131c174f",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R21/coverage.json",
+      "source_sha256": "db81b7d4369281576a4815b0ae1c37fb93892d1f998564be89da3abaa51a0a3b",
+      "target_sha256": "2ab4b8776470e2a19551f73f865a101de5d2594cfb8619dfad8ee29891a15fd9",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R21/evidence.json",
+      "source_sha256": "f7441bb4b438531fbf5a69f9ef557b61e173b1b9ba5aa6a4185bfabb0c59ae2e",
+      "target_sha256": "7feccb6d21fee314fca91171bcd6557061f6a8fa8427bc2855e3b8ccf164e071",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R21/report.md",
+      "source_sha256": "519460fedfa3918381541d7665a0391bfc8060a89f1ff83c705397123191d614",
+      "target_sha256": "b998c4de172a5c24d4de7b01246f23b973cffa95036319338267fd41fc50d95e",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R22/coverage.json",
+      "source_sha256": "293319f83dbc15c6f6f3b02bffe8d99aee5ab30767489816b02a8310de643afd",
+      "target_sha256": "81c21c00d79b401048d9a79b722abaf45c0f98b37d2a8789bb81ec2c698a8b42",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R22/evidence.json",
+      "source_sha256": "745bd943a14145075ab0652c6c11bb95fd1cab6dd8400d4dcc73482021e4dbcc",
+      "target_sha256": "1c5e49729a46c3ac31a77476749e95e6128fb99d40f9865cb92d6cba33ffa220",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R22/report.md",
+      "source_sha256": "3de6debaf443ef27c4db3ca4ca9ca9f0bd2d267eb39f73712e884799e28ad3dc",
+      "target_sha256": "70d5c6863f6bf1458959f84894c6628f623b39f95ba4b4baf0d35cbd29d0796f",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R23/coverage.json",
+      "source_sha256": "f50130005da98adacf82a7e0b837c9c7d8fc8a9912621d01a20895a570cc89aa",
+      "target_sha256": "fe41ce8b7ff4898214347762bc4bed59855d464ad234df9da3bcf2b4eaba4842",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R23/evidence.json",
+      "source_sha256": "bb4c030de2191ecaedafdce7a01236889955742e4b1ec8bb76582d8628d99257",
+      "target_sha256": "10758e997dc9cb7d3cca57d4ca375161402bfa969f927da82f6a5604126e99c7",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R23/report.md",
+      "source_sha256": "43eb13aa88a26e08697388d643ddd88a125179238b1a11af9b634537f1b458c1",
+      "target_sha256": "da36c0076ce05ba75ff51df6d0ad80eb9ae2ffebad850d148d24afd0225f643d",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R24/coverage.json",
+      "source_sha256": "4f4a42439e23e8b83a37c56e1bb680c3acd5e1294de3a7dcadb2c0a073dd0605",
+      "target_sha256": "3aa7e3e928bfef42f299fc10e94b0c5a4da062dcf25b46fac0c918d2e938aa28",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R24/evidence.json",
+      "source_sha256": "eac88a7abdc6136d44ccb4719926a218f153439453cd7175c8677617905494c1",
+      "target_sha256": "34bc39356d588257dd933daf5203b00654d2d8de0252cb78b0cdff831dc416e6",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R24/report.md",
+      "source_sha256": "4373edb0f171ef00125ac1e5454c0666b42db52150446ce82f594852b907ed08",
+      "target_sha256": "63daa303b3235aac8d042832d5494da56d68cd9f3b8a9a61460fd21c38ab8b03",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R25/coverage.json",
+      "source_sha256": "87b06243d2a7646dc71a07de4ad1676276fba93b4ba6148d20cb448e9b76db52",
+      "target_sha256": "f8fd20c42af411d509db99ca920a6aac17bd3eb3b6232b14b3d78cdfe3814b43",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R25/evidence.json",
+      "source_sha256": "de4b517a8c6a01408b216b91f6492acbbaa9767864dcac32b9a938dda4f103f5",
+      "target_sha256": "42865a2ad8c2f1dd3551b96402d2dc2b3f87d5bd818ee39050aee23581750931",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R25/report.md",
+      "source_sha256": "a6f011f73bed1022fe24cd60a855c9553cedeb2a1c0ad65082ff9942a55d0c5d",
+      "target_sha256": "66417b4b88888aad993b812dca3ee6f52a948fb42e66d82db7ffc4337e32e27c",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R27/report.md",
+      "source_sha256": "bbf64843384902adb0066aa9859f0636c4a3337a46e94f9d8536f5f883162ee9",
+      "target_sha256": "b8cf9581b322f4607455470a02a94ee4684fc0c4968a675e12ba3cbe2e965497",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R29/report.md",
+      "source_sha256": "ab95163d05b2b6fd002d5d314af34b4e850666b06f633a607253b8d63dedf4fe",
+      "target_sha256": "427bbf2611d5ad48272009b28395552f3efb86721e1b24740cdf442726bedf3c",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R30/report.md",
+      "source_sha256": "2924c555ec1cf27494f36bf93e62b841b7ee0d59d979e82fe2d54fcf6b5bbebb",
+      "target_sha256": "f824ab93a79a7595f94fd38fd6758699b507a4fb199e3367858c436119cc03e5",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/research/topics/R31/report.md",
+      "source_sha256": "2df3f72bea0b8b48b9e895ba7496918da2288312838633f54733311b35cf4ac1",
+      "target_sha256": "79ad3b9abe308114661b8d45b288a607fd9014b1ca60b4e2a7ab877a96dff5d5",
+      "translation_author": "/root/translate_research"
+    },
+    {
+      "path": "docs/server/hosting-and-streaming.md",
+      "source_sha256": "1b2aee53926004b11535167ef44a1c7ca7bc1a148a8f676b182add5aa2344d1d",
+      "target_sha256": "3381cd77a01bfe8467c611ff1b625decc45b46ba34705e8a67f136affb7b0543",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/server/protocols-and-observability.md",
+      "source_sha256": "baf35e49784995322d5c25a65767ee7340678c0411d235c01ea53a84c6aeffeb",
+      "target_sha256": "701aa6cbe88e110c4f11d0d8134504c547f093c76987f8ecc7b3302afae29b51",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/traceability/initial-review.md",
+      "source_sha256": "5c39ae7509078f88fa075dee71f98c26702e1700e96cb784fb94a4de4406d232",
+      "target_sha256": "c7bb643105b156e92b24088c53979cd04db74ee011de2270f403b9d54b04c8e1",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/traceability/open-questions.md",
+      "source_sha256": "6173ff04b427887cd0b6342c40e20803ec6a38f3c9aa1a6134e95f18f7f469ea",
+      "target_sha256": "9ecaacc747251e03fcd60f28de4cce294714b6fcb44798793cf495397eb70242",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/traceability/requirements-map.json",
+      "source_sha256": "7803c5a92fae280801ed49e2c16ea3fa2aecf453d207aecd7ebf9795522961d5",
+      "target_sha256": "91bfbaa214ddf64b34358552316ff587f23d11097c15ec6041c4f7a9d682c25f",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/traceability/reviews/evidence/README.md",
+      "source_sha256": "1bc9382ec5a49c087c77c0a0da9e238ad24e5b67e595ff4f9db21b0ebfc70d7b",
+      "target_sha256": "5aff2e266ec4401f48b20cad7ee9c38e3a2c36701fdcd1bb53effa3c7cd4075a",
+      "translation_author": "/root"
+    },
+    {
+      "path": "docs/verification/evidence-policy.md",
+      "source_sha256": "f6c343fa613a282f837218f913fe5a1b850f82ab37ba40f254943b868f50ff4f",
+      "target_sha256": "20c6cce20607b31d2cc2987b7b271ac6c064baeedc8a573b8d6b169969691591",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "docs/verification/reference-application.md",
+      "source_sha256": "c6c7cefa5645a17a2d0bd19973969f6f46b4c0e6fb0556a99032e96a93db02be",
+      "target_sha256": "9db34505d5a7ab167fd1ddc7489de677e9cca5a7288a61b77262480d427b0e9e",
+      "translation_author": "/root/translate_contracts"
+    },
+    {
+      "path": "experiments/async-quiescence/README.md",
+      "source_sha256": "1bd30a4616749d3d2801287c17dcd670f8fd15adf2288e5bb583d71f21b59de3",
+      "target_sha256": "9eb20e2061fa202727b3731a8e60a1638cafdd210e93b11c7fffd42dcae19fea",
+      "translation_author": "/root"
+    },
+    {
+      "path": "templates/adr.md",
+      "source_sha256": "bfe674b927ec53bdeecb770a70d08d71142ea60ca011bfdd14ebffbbf15278e0",
+      "target_sha256": "5bb8f2a2bcd24483678831286602158f8747d7539c0e147c6f068415e7c20ad6",
+      "translation_author": "/root"
+    },
+    {
+      "path": "templates/code-validation.json",
+      "source_sha256": "d73d5f0b6511642e921e7f80f985cfe86f5e09104c25247969ef74912fdb3665",
+      "target_sha256": "04b302bd2e803f500fc49dc8fbff8309f074ddbb5d46ad2f47203f2e49c91703",
+      "translation_author": "/root"
+    },
+    {
+      "path": "templates/research-report.md",
+      "source_sha256": "14db0c6d8d55f368f46f68ed3d6a8a4a88d896adb4b421ff1dd156ad4dc173f9",
+      "target_sha256": "5ba39c05065e774b76a18fc7fb2f2cf7d8b572b0f0a819ee69a6d5d1a2b65eeb",
+      "translation_author": "/root"
+    },
+    {
+      "path": "templates/task.md",
+      "source_sha256": "e722716e7c8eb2eb6b4ef7a9a236e28d34d89992c3a3d5354ae4d097c096e8b2",
+      "target_sha256": "64c09723c9bf011c82bb9bb6661fd2d0391dc70bb7ef6bdf074df607223abf70",
+      "translation_author": "/root"
+    },
+    {
+      "path": "templates/technical-spec.md",
+      "source_sha256": "137f4a4ec42a400a0cef2220223c69da43a188fd9d36fbabb37f82baddcecbeb",
+      "target_sha256": "827e46f9a31ff84c3d4015ef0dedbfc5d58d144e3512540fe75b506b0bcf036d",
+      "translation_author": "/root"
+    }
+  ],
+  "immutable_originals": [
+    {
+      "path": "docs/traceability/reviews/domain-review.md",
+      "sha256": "db5f3cf56273ada57efb82c55809c0398e9e3a4cd6625ea7f8c71bc8a7041a2b",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/evidence/interop-lifecycle/interop-independent-review-by-database.json",
+      "sha256": "d8f126642086d38da008162c1922060cbe97f9c754c640cc24d4b5f39be86b23",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/final-2026-11-13/integrity-review.json",
+      "sha256": "a4d4208fc00e39093cdc28bd1e050f426ca942e626354a2a1260ab8b98e59ca7",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/final-2026-11-13/interop-review.json",
+      "sha256": "444b3cd319fca33d723544d0c3c5467b351ab97f3bc5fdc7145bf10eeeac266f",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/final-2026-11-13/server-review.json",
+      "sha256": "fe7141e58c8f573998f3cd5e41f361b387d983dcba0897a3b095cec486c75291",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/final-2026-11-13/server-review.md",
+      "sha256": "b5c06cf1016c6861adbf91b739453fced24eabcda48c0b404fb1b915a3af4e0a",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/migration-2026-11-12/PLAN-MIGRATION-REVIEW.md",
+      "sha256": "08c08c9fd37d04e1ba51cdeea4ad4a6c8250e9511b7330a958e69cf89d69f478",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/migration-2026-11-12/merged-plan-review-final.patch",
+      "sha256": "2b88c39f32beec75a4f1083a8e4afe498d5abb4b40e3db497938103a2ec3925d",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/source-lifecycle/ci/SOURCE-LIFECYCLE-CI-REVIEW.md",
+      "sha256": "58ab64f4da996ef138bc443b6a07e4f5df17f06a34182ddd68c51c7aa0094a3f",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/source-lifecycle/database/DATABASE-LIFECYCLE-REVIEW.md",
+      "sha256": "d8ce15d507cc6fae7dbb9e2104b0c857215ff6deed004ee49916e6395b454f35",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/source-lifecycle/pr8/PR8-IDENTITY-REVIEW.md",
+      "sha256": "c524be508d28ae75e7c78f0966ad02554b98e3fedf13261f125ac9bce08decea",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/reviews/toolchain-review.md",
+      "sha256": "de3009936613730e1d80f55336176b21515018d4d9ca6c7d854d24272c7fb051",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "docs/traceability/takeover-audit-2026-11-12.json",
+      "sha256": "12eca49fcb47441eac199c0291d68b294a63fcc084e8dc0378db213db0b2e558",
+      "authority": "historical_evidence_only",
+      "reason": "Original historical independent review, captured diff, or takeover audit; retained byte for byte as evidence, not as a parallel authoritative language version."
+    },
+    {
+      "path": "experiments/native-slices/migrate_pr1.py",
+      "sha256": "ec9510fe76bd449df6e8c72ab09d8b22b937903a5a473125a477caaf79254956",
+      "authority": "historical_evidence_only",
+      "reason": "Original executed migration/recovery program, retained with its historical generated prose and execution identity."
+    },
+    {
+      "path": "experiments/rust-1100/integrate.py",
+      "sha256": "0e5f952df0c69c46890b8e0eef67f76a8306c9a025d816d1e1cb365bc73ed3be",
+      "authority": "historical_evidence_only",
+      "reason": "Original executed migration/recovery program, retained with its historical generated prose and execution identity."
+    },
+    {
+      "path": "experiments/source-driven/recovery/integrate_design.py",
+      "sha256": "dc2a3b8f58aa7340b6d6c9d063fb99be0326609f5e70d8395c7404c0f31c4f00",
+      "authority": "historical_evidence_only",
+      "reason": "Original executed migration/recovery program, retained with its historical generated prose and execution identity."
+    }
+  ],
+  "existing_metadata_changes": [
+    "docs/contracts/acceptance-index.json"
+  ],
+  "binding_text_paths": [],
+  "independent_reviews": [
+    {
+      "path": "NativeWeave-Design:docs/traceability/reviews/english-translation/contracts.json",
+      "sha256": "1f3a56d53bdb234c7a75fa1d3036d8afaf136c2de93089869840e8599dde0abf"
+    },
+    {
+      "path": "NativeWeave-Design:docs/traceability/reviews/english-translation/general.json",
+      "sha256": "ef21b67d716239c8c9d55753be920e2fe21aa1708d65774e1bedd15ee6fcf0e7"
+    },
+    {
+      "path": "NativeWeave-Design:docs/traceability/reviews/english-translation/research.json",
+      "sha256": "58c63359ae6d5415313f648d52584a90c4cff9c5e1ed85a33f48f163cc81b4a0"
+    }
+  ],
+  "review_projection_policy": "semantic_projection_v1 removes only current content/source/evidence/review binding fields from graph nodes and the contract registry. Separate acceptance snapshots and independent binding attestations validate those exact fields. All other structural and semantic fields remain covered.",
+  "authorized_language_policy_change": "The user requested English-only authoritative documentation; prose-language instructions were updated to English. No architecture, technical version, task revision, dependency, acceptance criterion, or implementation authorization is changed."
+}

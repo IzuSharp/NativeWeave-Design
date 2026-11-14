@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-PROTOCOL-001",
+    "version": "0.3.0",
+    "content_sha256": "701aa6cbe88e110c4f11d0d8134504c547f093c76987f8ecc7b3302afae29b51"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T04:02:49.563077+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/english-translation/contracts/C-PROTOCOL-001.inputs.json",
+    "sha256": "66090a4124952937334f5395cea74bdd79f683f1abf1db944b99fe20077d6ad1"
+  },
+  "scope": "Committed English inputs, preserved original accepted research/design evidence, and actual independent translation-equivalence review; no new experiment or product result.",
+  "prior_accepted_evidence": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PROTOCOL-001.evidence.json",
+      "sha256": "71029a0eb15807aa23bf8940a49b0d0227ff0872ed4ad90ea8afae90fdefd9d0"
+    }
+  ],
+  "prior_accepted_reviews": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-PROTOCOL-001.review.json",
+      "sha256": "b725866ee1c2a7912b030dd94e1dfc13e893cb60aa65acc388fadd1a09dc41ef"
+    }
+  ]
+}

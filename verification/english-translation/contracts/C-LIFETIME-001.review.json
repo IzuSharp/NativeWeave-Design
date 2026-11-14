@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-LIFETIME-001",
+    "version": "0.3.0",
+    "content_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707"
+  },
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "reviewer": "/root/translate_research",
+  "author": "/root/interop_research",
+  "reviewed_at": "2026-11-14T03:57:43Z",
+  "reviewed_evidence_sha256": [
+    "a7660252c630626b26d4e7d7e6d26d268d5875156b18291093e9bad0d7631947"
+  ],
+  "review_kind": "binding_of_actual_independent_technical_review",
+  "recorded_by": "/root",
+  "independent_report": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/english-translation/contracts.json",
+    "sha256": "1f3a56d53bdb234c7a75fa1d3036d8afaf136c2de93089869840e8599dde0abf"
+  },
+  "binding_boundary": "Integrator-generated binding of the cited real review. Formal status requires the same independent executor to attest these exact manifest hashes.",
+  "github_approval_identity_claimed": false,
+  "product_verification_accepted": false,
+  "review_scope": "Independent technical translation-equivalence review and preservation of prior accepted conclusions; not a claim of rerunning the original technical research.",
+  "prior_accepted_source": "08e3aaee73aad174620dcff18ed21b3b14c5e632"
+}

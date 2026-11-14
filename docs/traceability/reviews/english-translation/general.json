@@ -1,0 +1,675 @@
+{
+  "reviewer": "/root/translate_plan",
+  "review_type": "independent_translation_semantic_review",
+  "source_repository": "IzuSharp/NativeWeave-Design",
+  "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+  "reviewed_at_utc": "2026-11-14T03:57:50.730306+00:00",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "source_sha256": "e42f4fd965744e1b8c5982ba11c80402a20b20858e32ed412ac1d75e54c962da",
+      "target_sha256": "a1b25b9c15a044fc657237eecac9fcefd106de671edcac8488c14e1a528df3be",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "README.md",
+      "source_sha256": "e3cf975589c7e808c72bee3304dfb0901eb6d1a7d6fa53b69a727660a6512ca5",
+      "target_sha256": "dbf6a35c453ec40531e51ff8cea32e9f6077e4c45e2e693790f54c6a53695f34",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/decisions/ADR-0001-three-graphs.md",
+      "source_sha256": "2e78346f3a464185c24d39bb33a12e12b8a43f826b719f47371dab93ffb331e7",
+      "target_sha256": "ddb22fa39ac26851b4fa719a7ff14cf57ce7407e0d516bfc84c8d7846c5dc5dc",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/requirements/charter.md",
+      "source_sha256": "2b64ce0df23a104d2e6acaca904595fa98e614463edc7082fe9d3b036c6b424e",
+      "target_sha256": "8ad74a1184d56b66be4297240a9b90b8d77cbc18c829ee2f9dc39eedf248d042",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "experiments/async-quiescence/README.md",
+      "source_sha256": "1bd30a4616749d3d2801287c17dcd670f8fd15adf2288e5bb583d71f21b59de3",
+      "target_sha256": "9eb20e2061fa202727b3731a8e60a1638cafdd210e93b11c7fffd42dcae19fea",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "templates/adr.md",
+      "source_sha256": "bfe674b927ec53bdeecb770a70d08d71142ea60ca011bfdd14ebffbbf15278e0",
+      "target_sha256": "5bb8f2a2bcd24483678831286602158f8747d7539c0e147c6f068415e7c20ad6",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "templates/research-report.md",
+      "source_sha256": "14db0c6d8d55f368f46f68ed3d6a8a4a88d896adb4b421ff1dd156ad4dc173f9",
+      "target_sha256": "5ba39c05065e774b76a18fc7fb2f2cf7d8b572b0f0a819ee69a6d5d1a2b65eeb",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "templates/task.md",
+      "source_sha256": "e722716e7c8eb2eb6b4ef7a9a236e28d34d89992c3a3d5354ae4d097c096e8b2",
+      "target_sha256": "64c09723c9bf011c82bb9bb6661fd2d0391dc70bb7ef6bdf074df607223abf70",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "templates/technical-spec.md",
+      "source_sha256": "137f4a4ec42a400a0cef2220223c69da43a188fd9d36fbabb37f82baddcecbeb",
+      "target_sha256": "827e46f9a31ff84c3d4015ef0dedbfc5d58d144e3512540fe75b506b0bcf036d",
+      "method": "Read complete source and target documents; compared every paragraph, heading, list/table row, requirement modality, technical claim, identifier, number, link and historical state.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/research/environment-and-repositories.md",
+      "author": "/root/translate_research",
+      "source_sha256": "437b7efdac24fb2d6ae0fb80c9c52b9da9e7b1fcfe2865a5431852f310793a30",
+      "target_sha256": "f0c86e43299646a12cd8185f7e7d44103cf52dec59a5b3badea3c4c277a18cd6",
+      "method": "Read full source/target pairs as line-aligned complete documents, including unchanged English once after equality comparison; compared every heading, paragraph, table/list row, claim strength, historical status, technical mechanism, number and link.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/research/domains/v11-recheck.md",
+      "author": "/root/translate_research",
+      "source_sha256": "c48f5cfdcf28bff73620a0cdf675bb01c0045148cf862a0df7575f958944f3de",
+      "target_sha256": "eb7e9e83c75b43de0f667957638bd10cc27677e6661506075e114f08f7e26aed",
+      "method": "Read full source/target pairs as line-aligned complete documents, including unchanged English once after equality comparison; compared every heading, paragraph, table/list row, claim strength, historical status, technical mechanism, number and link.",
+      "verdict": "pass",
+      "findings": [
+        "EN-REV-P01"
+      ],
+      "previous_reviewed_target_sha256": "c1ebd35163b6c72518ab2d83d2a5ce3b964d9886b4450fa7cc2f268d607fdb2b",
+      "reviewed_target_commit": "e664526288d4bc5e4bba191ed7aeb9a6a57b977a",
+      "correction_reread": "Independently read the entire correction diff with surrounding paragraphs at e664526; four punctuation rows and the two R11 wording changes preserve the previously reviewed source meaning. No other bytes changed from the recorded prior review."
+    },
+    {
+      "path": "docs/research/interop/initial-findings.md",
+      "author": "/root/translate_research",
+      "source_sha256": "a6d13db5b491b2e5df48dc500445d1a3d44c721b52235f838b6cb3d93e938ead",
+      "target_sha256": "047a5704d338417c9566318eda93e14eea0abae5773223cacd4739679fccc432",
+      "method": "Read full source/target pairs as line-aligned complete documents, including unchanged English once after equality comparison; compared every heading, paragraph, table/list row, claim strength, historical status, technical mechanism, number and link.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/research/domains/initial-findings.md",
+      "author": "/root/translate_research",
+      "source_sha256": "558f6526d0fb33c2b0139427c85bc4c37839675c5d8e61dcc5e989bb7ed11248",
+      "target_sha256": "237fc9c562ddcd9fe4a519048774b66bc29bf5893cf85a14e4d56357abe9176a",
+      "method": "Read full source/target pairs as line-aligned complete documents, including unchanged English once after equality comparison; compared every heading, paragraph, table/list row, claim strength, historical status, technical mechanism, number and link.",
+      "verdict": "pass",
+      "findings": [
+        "EN-REV-P02",
+        "EN-REV-P03"
+      ],
+      "previous_reviewed_target_sha256": "10e08529f481a3aba531a424686456294d4d09adae4a7fb289700477fbd89070",
+      "reviewed_target_commit": "3d989c43c99a2b924fd6d151efd7f767bbb8bba9",
+      "correction_reread": "Read the complete three-line correction diff with surrounding context; source semantics and all unchanged bytes remain as in the prior full-pair review."
+    },
+    {
+      "path": "docs/research/source-catalog.md",
+      "author": "/root/translate_research",
+      "source_sha256": "aea185f97720317c1bed53f7e728616e0ca7ac56fbd75d7d7ab7f68b323ffe59",
+      "target_sha256": "5b5ef6697dfc2f513a82fe0b086bfe0fc4d2c281c1a95a158f79da05a7315cbf",
+      "method": "Read full source/target pairs as line-aligned complete documents, including unchanged English once after equality comparison; compared every heading, paragraph, table/list row, claim strength, historical status, technical mechanism, number and link.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/research/toolchain/report.md",
+      "author": "/root/translate_research",
+      "source_sha256": "a35e0964543cf098c8c9f00eeac1ad822a402767ec2dd273af8639911de505c1",
+      "target_sha256": "7cb00d48572b2eea83ceb63c28c195b91441edb3ef38f8e0f4abe6990b925c08",
+      "method": "Read full source/target pairs as line-aligned complete documents, including unchanged English once after equality comparison; compared every heading, paragraph, table/list row, claim strength, historical status, technical mechanism, number and link.",
+      "verdict": "pass",
+      "findings": [
+        "EN-REV-P04"
+      ],
+      "previous_reviewed_target_sha256": "adaaed7eec91d9adca11eae95641dc478eceffa6508e578f5daafe531c1c82f5",
+      "reviewed_target_commit": "3d989c43c99a2b924fd6d151efd7f767bbb8bba9",
+      "correction_reread": "Read the complete three-line correction diff with surrounding context; source semantics and all unchanged bytes remain as in the prior full-pair review."
+    },
+    {
+      "path": "docs/research/topics/R07/report.md",
+      "author": "/root/translate_research",
+      "reviewed_target_commit": "53acf015dc33465c8b4c123b31e53d0cd0c1ccd9",
+      "source_sha256": "cc301c5150289575bed36514fee1252632e358f6e6ca3510ca6d61cbff29a615",
+      "target_sha256": "84a29f3b59a3e285b3e480f4f59ee6196efe4059535f67cd3e94aa66faf67ed2",
+      "method": "Read full line-aligned source/target pair, including unchanged current-completion English; compared every paragraph/table/list, gate/modality, safety assumption, actual execution and historical evidence limit. R07 report lines 61-112 and probe lines 1-10 separately reread after initial tool-output truncation.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/research/topics/R07/logical-admission-probe.md",
+      "author": "/root/translate_research",
+      "reviewed_target_commit": "53acf015dc33465c8b4c123b31e53d0cd0c1ccd9",
+      "source_sha256": "039d2096c84c0bf41a06474af4196a9784b690b036d7b5afe865e2cb166b1822",
+      "target_sha256": "d8e43a1de5ea68c7b28cbe90e32ce266b33febba610b0290720680873be9af7e",
+      "method": "Read full line-aligned source/target pair, including unchanged current-completion English; compared every paragraph/table/list, gate/modality, safety assumption, actual execution and historical evidence limit. R07 report lines 61-112 and probe lines 1-10 separately reread after initial tool-output truncation.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/research/topics/R08/report.md",
+      "author": "/root/translate_research",
+      "reviewed_target_commit": "e664526288d4bc5e4bba191ed7aeb9a6a57b977a",
+      "source_sha256": "a96b580cb861ab4bea9b7e10370ead61992ea57cd98f7c10901a7eba6670c1c8",
+      "target_sha256": "8ffb1267bf4ae252e78b38b041bf889849a7cb22e1c28fdbc91afb09e96d7e3d",
+      "method": "Read full line-aligned source/target pair, including unchanged current-completion English; compared every paragraph/table/list, gate/modality, safety assumption, actual execution and historical evidence limit. R07 report lines 61-112 and probe lines 1-10 separately reread after initial tool-output truncation.",
+      "verdict": "pass",
+      "findings": [],
+      "previous_reviewed_target_sha256": "a89ca9634ec8945fe3049567110c55ba4e072d6cfdf12c91becf1b76256e2d28",
+      "correction_reread": "Independently read the entire correction diff with surrounding paragraphs at e664526; four punctuation rows and the two R11 wording changes preserve the previously reviewed source meaning. No other bytes changed from the recorded prior review."
+    },
+    {
+      "path": "docs/research/topics/R09/report.md",
+      "author": "/root/translate_research",
+      "source_sha256": "89ad565e1dd2ab0c3c1a7824d86d9b39adb0b2ee270a7483c1c56ff49870866c",
+      "target_sha256": "c161827d0da067081c58c0650722784a8dd7526b2fa58850438ff6a87723522b",
+      "reviewed_target_commit": "e664526288d4bc5e4bba191ed7aeb9a6a57b977a",
+      "method": "Read every actual source/target line in complete bounded batches; unchanged English read once after equality comparison. Compared all requirements, qualifiers, source evidence, historical boundaries, numeric results and IDs; mechanically checked exact links and SHA sequences.",
+      "verdict": "pass",
+      "findings": [],
+      "previous_reviewed_target_sha256": "5bc93d4b016b5c43630c1ba2cc0b1356d424729c848dcc3d8e19a7958159884d",
+      "correction_reread": "Independently read the entire correction diff with surrounding paragraphs at e664526; four punctuation rows and the two R11 wording changes preserve the previously reviewed source meaning. No other bytes changed from the recorded prior review."
+    },
+    {
+      "path": "docs/research/topics/R11/report.md",
+      "author": "/root/translate_research",
+      "source_sha256": "c3788b3fe9f0e698e862b7d43b53a03be1f789c4a9ea39d87a1cf934c9db7902",
+      "target_sha256": "4176d1f3c773642212c5e6ca7c567106166f98f1fbecc81acc4321a7ac0b2b1c",
+      "reviewed_target_commit": "e664526288d4bc5e4bba191ed7aeb9a6a57b977a",
+      "method": "Read every actual source/target line in complete bounded batches; unchanged English read once after equality comparison. Compared all requirements, qualifiers, source evidence, historical boundaries, numeric results and IDs; mechanically checked exact links and SHA sequences.",
+      "verdict": "pass",
+      "findings": [
+        "EN-REV-P05",
+        "EN-REV-P06"
+      ],
+      "previous_reviewed_target_sha256": "e5eddfe4f73a782e24270bf89bc135c1e4aba0f1ff8ce40935b024146e4a21d3",
+      "correction_reread": "Independently read the entire correction diff with surrounding paragraphs at e664526; four punctuation rows and the two R11 wording changes preserve the previously reviewed source meaning. No other bytes changed from the recorded prior review."
+    },
+    {
+      "path": "docs/traceability/initial-review.md",
+      "author": "/root",
+      "source_sha256": "5c39ae7509078f88fa075dee71f98c26702e1700e96cb784fb94a4de4406d232",
+      "target_sha256": "c7bb643105b156e92b24088c53979cd04db74ee011de2270f403b9d54b04c8e1",
+      "reviewed_target_commit": "565384ef3f7cca86091faccaea45fe44792c506d",
+      "method": "Read complete line-aligned Chinese and English documents, including unchanged English; compared every paragraph, heading, list/table row, historical state, task ID, qualification and source reference.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/traceability/open-questions.md",
+      "author": "/root",
+      "source_sha256": "6173ff04b427887cd0b6342c40e20803ec6a38f3c9aa1a6134e95f18f7f469ea",
+      "target_sha256": "9ecaacc747251e03fcd60f28de4cce294714b6fcb44798793cf495397eb70242",
+      "reviewed_target_commit": "565384ef3f7cca86091faccaea45fe44792c506d",
+      "method": "Read complete line-aligned Chinese and English documents, including unchanged English; compared every paragraph, heading, list/table row, historical state, task ID, qualification and source reference.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/requirements/coverage-matrix.md",
+      "author": "/root",
+      "source_sha256": "205b352a9a57841cea040727231deb68a1df90cf82ff7fc467928e8e7fb9e429",
+      "target_sha256": "be2dc05b409a72e35482c8ad3ee4201c9ba28173d7235e09b5670aca742a9e01",
+      "reviewed_target_commit": "565384ef3f7cca86091faccaea45fe44792c506d",
+      "method": "Read complete line-aligned Chinese and English documents, including unchanged English; compared every paragraph, heading, list/table row, historical state, task ID, qualification and source reference.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/traceability/requirements-map.json",
+      "author": "/root",
+      "source_sha256": "7803c5a92fae280801ed49e2c16ea3fa2aecf453d207aecd7ebf9795522961d5",
+      "target_sha256": "91bfbaa214ddf64b34358552316ff587f23d11097c15ec6041c4f7a9d682c25f",
+      "reviewed_target_commit": "565384ef3f7cca86091faccaea45fe44792c506d",
+      "method": "Read complete source and target JSON content. Displayed every differing string as a full source/target pair and every unchanged subtree in full compact JSON, proving equal types, keys, ordering and array sizes before comparing all field semantics.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "templates/code-validation.json",
+      "author": "/root",
+      "source_sha256": "d73d5f0b6511642e921e7f80f985cfe86f5e09104c25247969ef74912fdb3665",
+      "target_sha256": "04b302bd2e803f500fc49dc8fbff8309f074ddbb5d46ad2f47203f2e49c91703",
+      "reviewed_target_commit": "565384ef3f7cca86091faccaea45fe44792c506d",
+      "method": "Read complete source and target JSON content. Displayed every differing string as a full source/target pair and every unchanged subtree in full compact JSON, proving equal types, keys, ordering and array sizes before comparing all field semantics.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/contracts/registry.json",
+      "author": "/root",
+      "source_sha256": "a7e39f474c8bc6327f7c5f9c3e51452e8b03100076d6957978fb4a662dbf56b2",
+      "target_sha256": "94f53671d059e753f2418f0b8c13a05ff5194f6548d8dc15d47bca6f4fcf9848",
+      "reviewed_target_commit": "cbedc6ad3b04ebb92ae6361cf87f2746b64d131b",
+      "method": "Read all 21 complete Chinese title/English title pairs at their exact JSON paths. Recursive equality checks proved that keys/order/types/array sizes and every other value were unchanged; inspected all 21 contract IDs, accepted states and 0.3.0 versions. This is review of title translation, not acceptance-binding migration.",
+      "verdict": "pass",
+      "findings": []
+    },
+    {
+      "path": "docs/traceability/reviews/evidence/README.md",
+      "author": "/root",
+      "source_sha256": "1bc9382ec5a49c087c77c0a0da9e238ad24e5b67e595ff4f9db21b0ebfc70d7b",
+      "target_sha256": "5aff2e266ec4401f48b20cad7ee9c38e3a2c36701fdcd1bb53effa3c7cd4075a",
+      "reviewed_target_commit": null,
+      "method": "Read all 13 source and target lines, including every evidence-navigation row, original 24/25 and 13 counts, raw-record boundaries and all exact links. Target was an uncommitted worktree file at review time; this review binds its exact bytes, not a future commit.",
+      "verdict": "pass",
+      "findings": []
+    }
+  ],
+  "authorized_exceptions": [
+    {
+      "path": "README.md",
+      "source": "Chinese prose, API names/symbols/paths accurate English",
+      "target": "English prose, accurate API names/symbols/paths",
+      "basis": "The current user explicitly requires English-only authoritative documents. This is the narrow language-policy change, not a technical architecture change."
+    }
+  ],
+  "observations": [
+    "ADR-0001 retains Proposed and its historical proposed-contract statements without silently updating history.",
+    "templates/technical-spec.md retains the source statement about optional Rust; this translation does not reinterpret its historical template scope.",
+    "The async-quiescence README retains the finite 226/159/9 counts, negative-control pruning qualification, SC/CAS assumptions, managed cancellation caveat and explicit non-product boundary.",
+    "coverage-matrix retains historical optional Rust, PostgreSQL pure C# baseline and Kestrel task titles together with its preexisting Source-driven amendment; no present-day architecture is silently substituted for historical text. requirements-map remains coverage_planned_not_accepted with all 28 exact requirement and task-ID mappings.",
+    "The registry translation review additionally binds semantic_projection_v1 from the actually reviewed cbedc6a file. The working registry projection was compared exactly and matched: only the declared acceptance-binding metadata may vary; statuses, IDs, versions, dependencies, paths, titles and all other fields remain pinned."
+  ],
+  "blocking_findings": [],
+  "identity_boundary": "Actual subagent technical review; not a separate GitHub approval identity.",
+  "coverage_note": "Independent semantic review of the exact 27 file pairs recorded here: 15 root-authored documents, 21 registry titles in one file, and 11 research documents. All six findings were resolved by their authors and the exact correction diffs independently reread. All 27 entries pass at their recorded target hashes. Integration must match these exact bytes; subsequent acceptance-binding edits need separate integrity review.",
+  "authors": [
+    "/root",
+    "/root/translate_research"
+  ],
+  "findings": [
+    {
+      "id": "EN-REV-P01",
+      "path": "docs/research/domains/v11-recheck.md",
+      "severity": "minor",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "source_location": "lines 29-30",
+      "issue": "Chinese colon/full-stop punctuation remains in two link/blob prose rows.",
+      "requested_fix": "Normalize punctuation to English while preserving exact URLs and blob SHAs.",
+      "resolution_commit": "e664526288d4bc5e4bba191ed7aeb9a6a57b977a"
+    },
+    {
+      "id": "EN-REV-P02",
+      "path": "docs/research/domains/initial-findings.md",
+      "severity": "minor_semantic_ambiguity",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "source_location": "line 64",
+      "issue": "The translated otherwise clause can attach to compilation being required rather than to dynamic-code support.",
+      "requested_fix": "Explicitly state that the throw occurs if dynamic code is unsupported when a new compilation is needed.",
+      "resolution_commit": "3d989c43c99a2b924fd6d151efd7f767bbb8bba9"
+    },
+    {
+      "id": "EN-REV-P03",
+      "path": "docs/research/domains/initial-findings.md",
+      "severity": "minor_semantic_ambiguity",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "source_location": "SRV-Q04 row, line 155",
+      "issue": "Disabling sensitive parameters can imply disabling parameter functionality rather than parameter logging in the stated logging-model context.",
+      "requested_fix": "Use disabling sensitive-parameter logging.",
+      "resolution_commit": "3d989c43c99a2b924fd6d151efd7f767bbb8bba9"
+    },
+    {
+      "id": "EN-REV-P04",
+      "path": "docs/research/toolchain/report.md",
+      "severity": "minor_semantic_ambiguity",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "source_location": "TC-V02 row, line 79",
+      "issue": "Native union can suggest native ABI/Rust/C rather than the built-in C# language union under discussion.",
+      "requested_fix": "Use built-in union.",
+      "resolution_commit": "3d989c43c99a2b924fd6d151efd7f767bbb8bba9"
+    },
+    {
+      "id": "EN-REV-P05",
+      "path": "docs/research/topics/R11/report.md",
+      "severity": "minor_semantic_ambiguity",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "source_location": "line 32",
+      "issue": "Permission to repair arbitrarily corrupted state can read as restricting repair actions rather than rejecting an unwarranted claim that AssertUnwindSafe repairs state.",
+      "requested_fix": "Use is not a license to treat arbitrarily corrupted state as repaired or an equivalent precise rendering.",
+      "resolution_commit": "e664526288d4bc5e4bba191ed7aeb9a6a57b977a"
+    },
+    {
+      "id": "EN-REV-P06",
+      "path": "docs/research/topics/R11/report.md",
+      "severity": "minor_semantic_ambiguity",
+      "status": "resolved_after_author_fix_and_independent_reread",
+      "source_location": "line 81",
+      "issue": "Copying its omitted state and cleanup logic is literally copying nonexistent content; the source cautions against treating a skeletal example with omitted logic as a complete implementation.",
+      "requested_fix": "Say that copying a skeleton that omits state and cleanup logic cannot justify claiming a completed product implementation.",
+      "resolution_commit": "e664526288d4bc5e4bba191ed7aeb9a6a57b977a"
+    }
+  ],
+  "decision": "accepted",
+  "translation_reviews": [
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:AGENTS.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "e42f4fd965744e1b8c5982ba11c80402a20b20858e32ed412ac1d75e54c962da",
+      "target_sha256": "a1b25b9c15a044fc657237eecac9fcefd106de671edcac8488c14e1a528df3be",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:README.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "e3cf975589c7e808c72bee3304dfb0901eb6d1a7d6fa53b69a727660a6512ca5",
+      "target_sha256": "dbf6a35c453ec40531e51ff8cea32e9f6077e4c45e2e693790f54c6a53695f34",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/decisions/ADR-0001-three-graphs.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "2e78346f3a464185c24d39bb33a12e12b8a43f826b719f47371dab93ffb331e7",
+      "target_sha256": "ddb22fa39ac26851b4fa719a7ff14cf57ce7407e0d516bfc84c8d7846c5dc5dc",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/requirements/charter.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "2b64ce0df23a104d2e6acaca904595fa98e614463edc7082fe9d3b036c6b424e",
+      "target_sha256": "8ad74a1184d56b66be4297240a9b90b8d77cbc18c829ee2f9dc39eedf248d042",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:experiments/async-quiescence/README.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "1bd30a4616749d3d2801287c17dcd670f8fd15adf2288e5bb583d71f21b59de3",
+      "target_sha256": "9eb20e2061fa202727b3731a8e60a1638cafdd210e93b11c7fffd42dcae19fea",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:templates/adr.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "bfe674b927ec53bdeecb770a70d08d71142ea60ca011bfdd14ebffbbf15278e0",
+      "target_sha256": "5bb8f2a2bcd24483678831286602158f8747d7539c0e147c6f068415e7c20ad6",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:templates/research-report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "14db0c6d8d55f368f46f68ed3d6a8a4a88d896adb4b421ff1dd156ad4dc173f9",
+      "target_sha256": "5ba39c05065e774b76a18fc7fb2f2cf7d8b572b0f0a819ee69a6d5d1a2b65eeb",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:templates/task.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "e722716e7c8eb2eb6b4ef7a9a236e28d34d89992c3a3d5354ae4d097c096e8b2",
+      "target_sha256": "64c09723c9bf011c82bb9bb6661fd2d0391dc70bb7ef6bdf074df607223abf70",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:templates/technical-spec.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "137f4a4ec42a400a0cef2220223c69da43a188fd9d36fbabb37f82baddcecbeb",
+      "target_sha256": "827e46f9a31ff84c3d4015ef0dedbfc5d58d144e3512540fe75b506b0bcf036d",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/environment-and-repositories.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "437b7efdac24fb2d6ae0fb80c9c52b9da9e7b1fcfe2865a5431852f310793a30",
+      "target_sha256": "f0c86e43299646a12cd8185f7e7d44103cf52dec59a5b3badea3c4c277a18cd6",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/domains/v11-recheck.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "c48f5cfdcf28bff73620a0cdf675bb01c0045148cf862a0df7575f958944f3de",
+      "target_sha256": "eb7e9e83c75b43de0f667957638bd10cc27677e6661506075e114f08f7e26aed",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/interop/initial-findings.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "a6d13db5b491b2e5df48dc500445d1a3d44c721b52235f838b6cb3d93e938ead",
+      "target_sha256": "047a5704d338417c9566318eda93e14eea0abae5773223cacd4739679fccc432",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/domains/initial-findings.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "558f6526d0fb33c2b0139427c85bc4c37839675c5d8e61dcc5e989bb7ed11248",
+      "target_sha256": "237fc9c562ddcd9fe4a519048774b66bc29bf5893cf85a14e4d56357abe9176a",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/source-catalog.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "aea185f97720317c1bed53f7e728616e0ca7ac56fbd75d7d7ab7f68b323ffe59",
+      "target_sha256": "5b5ef6697dfc2f513a82fe0b086bfe0fc4d2c281c1a95a158f79da05a7315cbf",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/toolchain/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "a35e0964543cf098c8c9f00eeac1ad822a402767ec2dd273af8639911de505c1",
+      "target_sha256": "7cb00d48572b2eea83ceb63c28c195b91441edb3ef38f8e0f4abe6990b925c08",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/topics/R07/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "cc301c5150289575bed36514fee1252632e358f6e6ca3510ca6d61cbff29a615",
+      "target_sha256": "84a29f3b59a3e285b3e480f4f59ee6196efe4059535f67cd3e94aa66faf67ed2",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/topics/R07/logical-admission-probe.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "039d2096c84c0bf41a06474af4196a9784b690b036d7b5afe865e2cb166b1822",
+      "target_sha256": "d8e43a1de5ea68c7b28cbe90e32ce266b33febba610b0290720680873be9af7e",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/topics/R08/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "a96b580cb861ab4bea9b7e10370ead61992ea57cd98f7c10901a7eba6670c1c8",
+      "target_sha256": "8ffb1267bf4ae252e78b38b041bf889849a7cb22e1c28fdbc91afb09e96d7e3d",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/topics/R09/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "89ad565e1dd2ab0c3c1a7824d86d9b39adb0b2ee270a7483c1c56ff49870866c",
+      "target_sha256": "c161827d0da067081c58c0650722784a8dd7526b2fa58850438ff6a87723522b",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/research/topics/R11/report.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "c3788b3fe9f0e698e862b7d43b53a03be1f789c4a9ea39d87a1cf934c9db7902",
+      "target_sha256": "4176d1f3c773642212c5e6ca7c567106166f98f1fbecc81acc4321a7ac0b2b1c",
+      "reviewer": "/root/translate_plan",
+      "author": "/root/translate_research",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/traceability/initial-review.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "5c39ae7509078f88fa075dee71f98c26702e1700e96cb784fb94a4de4406d232",
+      "target_sha256": "c7bb643105b156e92b24088c53979cd04db74ee011de2270f403b9d54b04c8e1",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/traceability/open-questions.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "6173ff04b427887cd0b6342c40e20803ec6a38f3c9aa1a6134e95f18f7f469ea",
+      "target_sha256": "9ecaacc747251e03fcd60f28de4cce294714b6fcb44798793cf495397eb70242",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/requirements/coverage-matrix.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "205b352a9a57841cea040727231deb68a1df90cf82ff7fc467928e8e7fb9e429",
+      "target_sha256": "be2dc05b409a72e35482c8ad3ee4201c9ba28173d7235e09b5670aca742a9e01",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/traceability/requirements-map.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "7803c5a92fae280801ed49e2c16ea3fa2aecf453d207aecd7ebf9795522961d5",
+      "target_sha256": "91bfbaa214ddf64b34358552316ff587f23d11097c15ec6041c4f7a9d682c25f",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:templates/code-validation.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "d73d5f0b6511642e921e7f80f985cfe86f5e09104c25247969ef74912fdb3665",
+      "target_sha256": "04b302bd2e803f500fc49dc8fbff8309f074ddbb5d46ad2f47203f2e49c91703",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/contracts/registry.json",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "a7e39f474c8bc6327f7c5f9c3e51452e8b03100076d6957978fb4a662dbf56b2",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact canonical projection retaining every field except the explicitly listed acceptance-binding metadata. That metadata needs the separate actual integrity/binding review; no future full-file SHA is claimed here.",
+      "reviewed_target_file_sha256": "94f53671d059e753f2418f0b8c13a05ff5194f6548d8dc15d47bca6f4fcf9848",
+      "mode": "semantic_projection_v1",
+      "source_projection_sha256": "4f9a4c1959d1f8f9d98d1a50af4c0501232e66d1cdc9c69b4c83acfa2ce83834",
+      "target_projection_sha256": "bd1ddf3261c7d3023ad298f4cf34dc178803e692b5374c70604d544917ca2064",
+      "projection_excluded_fields": [
+        "contracts[*].content_sha256",
+        "contracts[*].source_commit",
+        "contracts[*].evidence",
+        "contracts[*].reviews",
+        "contracts[*].reviewers"
+      ]
+    },
+    {
+      "repository": "IzuSharp/NativeWeave-Design",
+      "path": "NativeWeave-Design:docs/traceability/reviews/evidence/README.md",
+      "source_commit": "08e3aaee73aad174620dcff18ed21b3b14c5e632",
+      "source_sha256": "1bc9382ec5a49c087c77c0a0da9e238ad24e5b67e595ff4f9db21b0ebfc70d7b",
+      "target_sha256": "5aff2e266ec4401f48b20cad7ee9c38e3a2c36701fdcd1bb53effa3c7cd4075a",
+      "reviewer": "/root/translate_plan",
+      "author": "/root",
+      "decision": "accepted",
+      "scope": "Translation semantic equivalence for the exact recorded file bytes only; no product or new experimental validation."
+    }
+  ],
+  "acceptance_scope": "English translation semantic equivalence of the exact 27 source/target file pairs recorded here; no product or new experimental verification."
+}

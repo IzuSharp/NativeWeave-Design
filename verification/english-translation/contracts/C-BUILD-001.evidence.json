@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-BUILD-001",
+    "version": "0.3.0",
+    "content_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T04:02:49.563077+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/english-translation/contracts/C-BUILD-001.inputs.json",
+    "sha256": "3470a0625fb11b66678bd461934aa69c28c844456a2207cbba5fdcc21ca4f131"
+  },
+  "scope": "Committed English inputs, preserved original accepted research/design evidence, and actual independent translation-equivalence review; no new experiment or product result.",
+  "prior_accepted_evidence": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUILD-001.evidence.json",
+      "sha256": "82c16bf171f47547f034a1c054cf21b557e4283ad51737f0605785ea5a18eeb3"
+    }
+  ],
+  "prior_accepted_reviews": [
+    {
+      "manifest_path": "NativeWeave-Design:verification/design-acceptance/contracts/C-BUILD-001.review.json",
+      "sha256": "8abcbb60e3f7dd1c7148a245ab84e7ca96f4ad1984c2d6c7479784cbc6b66c61"
+    }
+  ]
+}
