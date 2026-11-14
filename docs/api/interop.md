@@ -36,6 +36,35 @@ The following rules apply to every member in the corresponding signature group. 
 | `EngineCatalog.TryGet(id, out descriptor)` / `Get(id)` | Null/empty/malformed ID is an argument error. Absent valid ID returns false/null or throws `KeyNotFoundException` respectively. `NotNullWhen(true)` supports natural nullable flow. | O(1) expected lookup. Does not claim that installing a package automatically adds it to a custom catalog. |
 | `EngineCatalog.Inspect(id, options = null)` | Equivalent to `Get(id).Inspect(options)`; no new overload semantics or extra initialization. | Same module cache as normal domain use, no second runtime. |
 
+### Identity grammar and metadata snapshot limits
+
+Every `EngineId` uses the same ordinal, case-sensitive ASCII grammar as
+`EngineCapability`: `^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$`, with 1–128 bytes.
+Manifest construction, catalog lookup and native-error identity construction apply
+that rule consistently. There is no case folding, whitespace trimming or Unicode
+normalization. A null ID throws `ArgumentNullException`; an empty, oversized or
+malformed ID throws `ArgumentException` before native loading. The initial IDs are
+`database.sqlite`, `database.postgresql` and `server`.
+
+These v1 cold-metadata limits are fixed implementation limits, not measured resource
+claims or optional defaults:
+
+| Snapshot | Exact limits and rejection |
+| --- | --- |
+| `EngineCatalog` | At most 256 descriptors. Enumerate once, stop at the first excess entry, dispose the enumerator and throw `ArgumentException` for `descriptors`; never publish a partial catalog or load a module. |
+| `EnginePackageManifest` | 1–64 assets and 0–64 capability definitions. Package ID/version and CPU baseline each use at most 256 UTF-8 bytes; RID at most 128 ASCII bytes; relative native path at most 4,096 UTF-8 bytes; bootstrap symbol at most 128 ASCII bytes matching `[A-Za-z_][A-Za-z0-9_]*`. Each asset hash remains exactly 64 lowercase hexadecimal characters. Total UTF-8 bytes of all manifest string fields, including repeated asset/capability records, must not exceed 65,536. |
+| `EngineLoadOptions` snapshot | At most 64 additional required capabilities, with no duplicate names. An explicit native path uses at most 4,096 UTF-8 bytes and the absolute-path rule above. Invalid/default capability entries or excess count/bytes throw `ArgumentException` before file access or native load. |
+
+Collection snapshots validate counts and cumulative checked byte sizes as entries
+are observed; they do not fully materialize an unbounded enumeration and validate
+afterward. Null collections/entries retain their declared argument errors. User
+enumeration exceptions propagate without publishing a descriptor/catalog or
+performing preflight. Manifest entries and strings are immutable; catalogs may
+share validated descriptor objects instead of duplicating their contents.
+`EngineInfo` and descriptor property snapshots inherit the same manifest limits;
+actual known capabilities never exceed the 64-bit bootstrap map. These limits do
+not attempt to bound all metadata objects explicitly created by application code.
+
 ### Preflight state and loading policy
 
 A generated package stores one lazy descriptor and one typed module loader. Descriptor creation does not trigger native loading. Under a short module admission lock, the loader establishes a single content identity for `(engine_id, ABI major)`; it does not hold that lock during user callbacks, domain work or unloading. A single in-progress load has one completion/failure publication. All callers observe the same completed base validation. Additional caller capability requirements are checked against the validated module; a failed extra requirement does not poison an otherwise valid module.
@@ -60,6 +89,20 @@ Failed ABI/asset validation never publishes domain handles. A module already pas
 | `Read(NativeBufferReader)` / `Read<TResult>(NativeBufferReader<TResult>)` | Reader cannot be null. Invoke synchronously on the calling managed thread, outside all admission locks, with a span under an active lease. Reader exceptions propagate after lease release. Return scalar/copied result. | No native callback/UCO occurs. A cached static delegate avoids per-call delegate/closure allocation; captured lambdas may allocate. O(reader work). No cancellation is promised during arbitrary synchronous reader code. |
 | `CopyToAsync(Stream, CancellationToken = default)` | Validate non-null writable destination, acquire one source lease for entire operation, allocate one staging array of exactly min(Length, 64 KiB) bytes, synchronously copy each chunk then await destination.WriteAsync. Keep that array live until the awaited write completes. Leave destination open. Hold source lease until copy completes/faults/cancels. Empty input needs no staging allocation. | Task-based because completion may span arbitrary I/O. One bounded staging array allocation and copy; no zero-copy claim. Pre-cancellation avoids copying. Cancellation/stream errors may occur after partial output and never undo bytes. No native pointer or call-scoped span survives await. A future pooled optimization must account for actual rented capacity and retained pool bytes; ArrayPool.Rent promises a minimum size, not this exact bound. |
 | `Dispose()` | Atomically closes new read admission then drops the owner reference outside lock; idempotent. Already admitted reads/copy keep native memory alive. A reader may call Dispose on the same buffer and continue reading its current span. | Nonblocking, no user callbacks or network shutdown. May return before active reads finish. Finalizer fallback belongs only to the private SafeHandle and is not deterministic cleanup. |
+
+`CopyToAsync` has a synchronous validation/admission wrapper. It checks destination
+nullability and `CanWrite`, then acquires the source's logical read lease; null,
+non-writable and already-closed usage errors throw synchronously in that order.
+Only after valid admission does it observe pre-cancellation: a canceled token
+returns a canceled Task associated with that token and releases the lease. It
+performs no staging/native allocation, byte copy or stream write; the returned
+canceled Task may allocate. This cancellation rule also wins for an empty buffer.
+An admitted, uncanceled empty buffer releases its lease and returns a successfully
+completed Task without calling the destination. Once asynchronous copying starts,
+copy/write failures fault the returned Task and cancellation cancels it; `finally`
+releases the staging array reference and source lease only after any admitted write
+has completed. Cancellation never retroactively changes synchronous usage errors
+or undoes already written bytes.
 
 No naked `Memory<byte>`, `ReadOnlyMemory<byte>`, `Span<byte>` property, public pointer or `IMemoryOwner<byte>` implementation is provided: cached Memory/Span can outlive disposal and bypass the intended lease. This is an intentional limited equivalent to BCL memory ownership, with safer synchronous borrowing and explicit copies. Advanced domain APIs may define their own retained lease when they can prove its lifetime. Reading is concurrently safe because bytes are immutable; two concurrent writes to the same caller destination are the caller's responsibility.
 
@@ -172,3 +215,12 @@ Explicitly unsupported in this initial profile: runtime loading of new managed a
 | A17/A18/A23/A24 | At least two distinct real Engine kinds; generated package scaffold, minimal/no-runtime synchronous case, async/affine capability declarations; no unproven universal abstraction. |
 
 This round's declaration compilation, native header layout checks and source review establish interface feasibility only. All product execution, performance, leak/soak and deployment claims remain future Delivery obligations. Historical accepted evidence stays bound to its original bytes. Any superseding contract version must receive new independent review and exact content binding.
+
+The resumed [Interop/package-flow evidence](../../verification/public-api/interop-packaging/README.md)
+includes actual .NET11/C#15 compilation of Interop.cs and its consumers, a rejected ref-like result
+escape, and the five-record Linux x64 C layout probe. Its separate package experiment executes
+normal and Native AOT consumers over an unchanged inherited research codec, with automatic
+transitive model/DTO/handler metadata generation. That successful AOT row establishes this bounded
+design mechanism; none of the throwing public-API declarations are described as a functioning
+product implementation. [Type semantic policies](interop-symbol-policies.json) bind every public
+type/member family to this document's exact semantics, native operation family and owning tasks.

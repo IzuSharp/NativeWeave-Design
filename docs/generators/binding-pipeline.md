@@ -125,3 +125,17 @@ Do not create a second SQL/native engine in XML tooling or generators. Build-tim
 metadata may describe overloads and owner rules, but runtime applications pay no reflection scan
 or documentation generation cost. A22 owns public API compatibility baselines/Obsolete transitions;
 all future module scaffolds under A24 import the standard and its local AGENTS.md adoption checklist.
+
+### Default transitive application generation
+
+The concrete package inclusion route is [NuGet and consumption](../api/nuget-and-consumption.md#generator-inclusion-without-hidden-runtime-work).
+Provider/Server facades retain exact generator/analyzer dependencies in their packed nuspec.
+Each tools package supplies one buildTransitive target that includes its canonical compiler payload
+exactly once; it never changes PackageReference or target-framework selection during restore.
+Compiler/IDE-host compatibility is verified separately from the application's target framework.
+Do not rely on default analyzer asset propagation or duplicate the same generator in both automatic
+analyzer assets and an explicit Analyzer item. An independent consumer installs only the facade,
+then adds Entity/DTO/Handler source and verifies regenerated static metadata with unchanged native
+asset hashes. [The design packaging probe](../../experiments/public-api/packaging-probe/README.md)
+exercises this asset-flow mechanism with a deliberately limited experimental generator; it does
+not implement B10/B12/B15 or certify the production generator.

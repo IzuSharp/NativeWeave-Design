@@ -16,5 +16,5 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
           persist-credentials: false
-      - name: Verify complete English coverage and independently attested acceptance
-        run: python3 tools/verify_english_translation.py
+      - name: Verify frozen English acceptance and current reviewed API refinement
+        run: python3 tools/verify_public_api.py --history --require-acceptance

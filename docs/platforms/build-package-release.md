@@ -155,3 +155,10 @@ Every shipping facade includes XML comments, compiled API compatibility data and
 reference output under the [API standard](../standards/csharp-public-api-and-documentation.md).
 A16/B24 own the no-Rust package-consumer evidence; normal Native AOT linker prerequisites remain
 required and must never be disguised as completely toolchain-free publishing.
+
+The same package specification now fixes the buildTransitive generator/analyzer inclusion route,
+deduplication and bounded per-Engine output-location record. A16 verifies the actual generated
+nuget imports and resolved package graph, not merely a ProjectReference solution build. The record
+is derived from the SDK's output/publish items and checked against the embedded descriptor; a
+publish transform must not preserve a stale development-only native path. Independent Engine
+packages retain separate unique native basenames and separate location files.

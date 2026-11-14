@@ -1,10 +1,22 @@
 # Transactions, connection pooling and uncertain-outcome recovery
 
-- Task: D15; contract: C-TX-001@0.3.0; author: database_design / source-lifecycle continuation; 2026-11-12.
+- Task: D15; contract: C-TX-001@0.4.0; author: database_design / source-lifecycle continuation; 2026-11-12.
 - Historical input packet: revision0.1.1, SHA-256 `cce4d00e3cc7983c2808cf7a5d47e4a08707885973c497ba5a929a78c5bd554c`, which matched the Plan graph at that time; see [database-completion](../../verification/database-completion/task-status.json) for the current revised inputs and hashes.
 - Historical baseline: Design `1f7d89aa754647a6a530fa34a49acc4b0f5d9997`; Plan `da9e4a6337a5af0ec3d5e40a4695a2760d6ac5f5`.
-- Status: **0.3.0 design candidate; the registry records exact-content independent review and acceptance, while product implementation/release acceptance remains in Delivery**; acceptance is determined by the matching content hash and independent Review in the registry. Contract code examples remain design-draft and uncompiled; full production adapters and C# AOT verification are not complete. See section 12 for historical finite Rust/SQLite reclamation experiments and section 13 for this round's actual PostgreSQL response-loss, protocol-recovery and migration-lock experiments.
-- Inputs: [R19](../research/topics/R19/report.md), [R20](../research/topics/R20/report.md), [R21](../research/topics/R21/report.md); shares WeaveDataSource/DataSession naming with the [driver specification](drivers.md).
+- Status: **0.4.0 design candidate; the registry records exact-content independent review and acceptance, while product implementation/release acceptance remains in Delivery**; acceptance is determined by the matching content hash and independent Review in the registry. Contract code examples remain design-draft and uncompiled; full production adapters and C# AOT verification are not complete. See section 12 for historical finite Rust/SQLite reclamation experiments and section 13 for this round's actual PostgreSQL response-loss, protocol-recovery and migration-lock experiments.
+- Inputs: [R19](../research/topics/R19/report.md), [R20](../research/topics/R20/report.md), [R21](../research/topics/R21/report.md); shares DataSource/DataSession naming with the [driver specification](drivers.md).
+
+## Public API refinement 0.4.0
+
+The exact public declarations and complete native operation inventory are now
+[Database/ORM API 0.4.0](../api/database.md), its
+[coverage matrix](../api/database-coverage.json), and
+[Database.cs](../../experiments/public-api/NativeWeave.Api.Design/Database.cs).
+They replace earlier provisional signature spellings; the lifecycle, native-source
+findings and historical experiment identities below remain normative within that
+explicit scope. Native AOT fixture compilation is separate from product execution.
+Fresh exact-content review is required; prior accepted versions remain immutable.
+
 
 > Old packets and Reviews provide historical provenance for the original versions only; they cannot accept this round's new content hashes.
 
@@ -69,17 +81,12 @@ Commit is prohibited for a known Failed transaction: ending a failed PostgreSQL 
 
 ## 5. Public API and exception paths
 
-The following code is **design-draft and uncompiled**. This section defines the interfaces' strict semantics.
+The following is a design composition example; WorkCommands/recovery are application placeholders. Exact framework signatures are compiled separately by the public API fixture.
 
 ```csharp
-public enum TransactionOutcome { InProgress, Committed, RolledBack, Unknown }
-public sealed record TransactionOptions(
-    IsolationLevel? Isolation = null,
-    string? RecoveryKey = null);
-
 await using DataSession session = await source.OpenSessionAsync(requestToken);
 await using DataTransaction tx = await session.BeginTransactionAsync(
-    new TransactionOptions(RecoveryKey: operationId), requestToken);
+    new TransactionOptions { RecoveryKey = operationId }, requestToken);
 try
 {
     await WorkCommands.UpdateAsync(session, change, requestToken);
@@ -92,15 +99,15 @@ catch (CommitOutcomeUnknownException ex)
 }
 ```
 
-`CommitOutcomeUnknownException` contains Outcome=Unknown, optional RecoveryKey, ProviderCode and CorrelationId; it contains no connection passwords, SQL parameters or raw sensitive payloads. `DataTransaction.Outcome`, `CommitAttempted` and `Cleanup` remain readable after Dispose; successful CommitAsync means only Committed. Confirmed transaction rollback/failure returns the corresponding DataException; an unknown outcome must not be downgraded to an ordinary OperationCanceledException.
+`CommitOutcomeUnknownException` contains Outcome=Unknown, optional RecoveryKey, ProviderCode and CorrelationId; it contains no connection passwords, SQL parameters or raw sensitive payloads. `DataTransaction.Outcome`, `CommitAttempted` and `Cleanup` remain readable after Dispose; successful CommitAsync means only Committed. Confirmed transaction rollback/failure returns the corresponding DatabaseException; an unknown outcome must not be downgraded to an ordinary OperationCanceledException.
 
 Commit, Rollback and cleanup use configurable but finite independent deadlines, without inheriting an already-canceled request token. Default commit and cleanup deadlines are 30 seconds and 5 seconds respectively for initial implementation/counterexamples; these are operation policies, not guarantees of database completion time. When a provider cannot interrupt a synchronous call, record deadline exceeded while retaining worker/resource obligations rather than fabricate termination. Waiter timeout and executor stop are observed separately.
 
-`DisposeAsync` closes application admission; it requests rollback if Active or joins an existing commit. Business failure and cleanup failure are latched separately: explicit RollbackAsync failure throws DataCleanupException, while automatic Dispose does not overwrite an already-reported primary error with a cleanup exception. `tx.Cleanup` is an immutable snapshot with fields Status (NotStarted/Pending/Succeeded/RollbackUnconfirmed/Failed), CorrelationId, ProviderCode, LocalResourcesReleased, ConnectionDisposition and DeadlineExceeded; it contains no sensitive parameters. Diagnostic events use the same correlation ID as this snapshot.
+`DisposeAsync` closes application admission; it requests rollback if Active or joins an existing commit. Business failure and cleanup failure are latched separately: explicit RollbackAsync failure throws DatabaseCleanupException, while automatic Dispose does not overwrite an already-reported primary error with a cleanup exception. `tx.Cleanup` is an immutable snapshot with fields Status (NotStarted/Pending/Succeeded/RollbackUnconfirmed/Failed), CorrelationId, ProviderCode, LocalResourcesReleased, ConnectionDisposition and DeadlineExceeded; it contains no sensitive parameters. Diagnostic events use the same correlation ID as this snapshot.
 
-Successful return from DisposeAsync requires LocalResourcesReleased=true; this expresses local safety only and does not guarantee Outcome=RolledBack. If native accessors remain when the deadline is reached, **DisposeAsync still joins and does not succeed early**; the Engine retains cleanup responsibility, roots and budget. Explicit `CloseAsync(deadline)` for a bounded wait returns a CleanupResult snapshot (Status=Pending, ConnectionDisposition=Quarantined, LocalResourcesReleased=false), allowing the caller to stop waiting; that result does not masquerade as Disposed. Subsequent DisposeAsync/join waits for the same cleanup task without restarting rollback. Ordinary rollback/close errors are recorded in Cleanup and do not overwrite an already-reported CommitUnknown/business error through await using cleanup; explicit RollbackAsync still reports its own error. For bounded closure, use CloseAsync's explicit control flow rather than expecting await using to guarantee finite time.
+Successful return from DisposeAsync requires LocalResourcesReleased=true; this expresses local safety only and does not guarantee Outcome=RolledBack. If native accessors remain when the deadline is reached, **DisposeAsync still joins and does not succeed early**; the Engine retains cleanup responsibility, roots and budget. Explicit `CloseAsync(waitBudget, cancellationToken)` for a bounded wait returns a DatabaseCloseResult snapshot (Status=Pending, ConnectionDisposition=Quarantined, LocalResourcesReleased=false), allowing the caller to stop waiting; that result does not masquerade as Disposed. Subsequent DisposeAsync/join waits for the same cleanup task without restarting rollback. Ordinary rollback/close errors are recorded in Cleanup and do not overwrite an already-reported CommitUnknown/business error through await using cleanup; explicit RollbackAsync still reports its own error. For bounded closure, use CloseAsync's explicit control flow rather than expecting await using to guarantee finite time.
 
-DataSession/DataSource also provide CloseAsync(deadline) with the same semantics: an Engine cleanup owner retains the session and its parent lease and joins existing transactions/cursors; a finite HTTP-response path does not additionally force waiting through await using. This API starts no new business work and does not prematurely return admission/connection budgets still in use.
+DataSession/DataSource also provide CloseAsync(waitBudget, cancellationToken) with the same semantics: an Engine cleanup owner retains the session and its parent lease and joins existing transactions/cursors; a finite HTTP-response path does not additionally force waiting through await using. This API starts no new business work and does not prematurely return admission/connection budgets still in use.
 
 Synchronous Dispose only requests closure and hands responsibility to a registered cleanup owner; it neither blocks finalizers nor promises a completed drain. Use DisposeAsync when local safety must be confirmed. Closed TxLifecycle may coexist with LocalLifetime=Closing and Cleanup=Pending; “the application may not continue using it” does not mean “the memory can already be released.”
 

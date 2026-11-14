@@ -1,6 +1,18 @@
 # D17 — Static metadata and DTO generation, not a second SQL compiler
 
-Contract: **C-QUERYGEN-001@0.3.0**; design candidate. The registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Existing task D17 and B09/B10/B12/B13 are retained. Source evidence and executed scope: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered probe](../research/source-driven-evidence/README.md). The previous declaration-only LINQ plus generated per-application Rust Entity/dispatcher pipeline is superseded as the ordinary route.
+Contract: **C-QUERYGEN-001@0.4.0**; design candidate. The registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Existing task D17 and B09/B10/B12/B13 are retained. Source evidence and executed scope: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered probe](../research/source-driven-evidence/README.md). The previous declaration-only LINQ plus generated per-application Rust Entity/dispatcher pipeline is superseded as the ordinary route.
+
+## Public API refinement 0.4.0
+
+The exact public declarations and complete native operation inventory are now
+[Database/ORM API 0.4.0](../api/database.md), its
+[coverage matrix](../api/database-coverage.json), and
+[Database.cs](../../experiments/public-api/NativeWeave.Api.Design/Database.cs).
+They replace earlier provisional signature spellings; the lifecycle, native-source
+findings and historical experiment identities below remain normative within that
+explicit scope. Native AOT fixture compilation is separate from product execution.
+Fresh exact-content review is required; prior accepted versions remain immutable.
+
 
 ## 1. Required application experience
 
@@ -22,7 +34,7 @@ Generate directly into the consumer compilation; do not expect to read another g
 
 A minimal descriptor declaration (draft, not compiled product API):
 ```csharp
-[WeaveTable("students")]
+[WeaveTable("students", DescriptorName = "Students")]
 public sealed partial record Student(
     [property: WeaveKey] long Id,
     string Name,
@@ -38,7 +50,7 @@ public static class Students
     public static readonly Projection<Student> Row = /* static constructor mapping */;
 }
 ```
-C# code and model metadata vary; the native binary does not. The exact attribute/API names are provisional. The recovered probe used handwritten static descriptors and DTO constructors, so it is evidence for that path, not for this generator's implementation.
+C# code and model metadata vary; the native binary does not. The exact attribute/API names are fixed by the 0.4.0 declaration fixture; generated output remains an implementation obligation. The recovered probe used handwritten static descriptors and DTO constructors, so it is evidence for that path, not for this generator's implementation.
 
 ## 4. Static materialization and errors
 

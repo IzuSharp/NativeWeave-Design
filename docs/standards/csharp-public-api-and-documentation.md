@@ -20,7 +20,7 @@ Each coverage row must identify reference APIs and versions, NativeWeave symbols
 
 ## 3. Public surface and package boundaries
 
-Use a `NativeWeave.<Domain>` namespace matching a developer concept. Keep ABI records, raw handles, `GCHandle`, function pointers, Rust discriminants and loader plumbing internal. Put maintainer-only extension contracts in a clearly separate namespace and package. Public SPI receives compatibility review even when most applications never use it.
+Use a `NativeWeave.<Domain>` namespace matching a developer concept. Keep ABI records, raw handles, `GCHandle`, function pointers, Rust discriminants and loader plumbing internal. Put maintainer-only extension contracts in a clearly separate namespace; use a separate package when optional dependencies or tooling justify that boundary. The BCL-only `NativeWeave.Interop.Extensibility` descriptor/buffer seam stays in the minimal Core package because its types participate in the same ownership contract and introduce no optional runtime or domain engine. This explicit exception avoids another package solely for namespacing; other extensions document their own dependency/cost decision. Public SPI receives compatibility review even when most applications never use it.
 
 Packages compose by capability. Installing a Database provider must not install Server, GPU or protocol Engines. Server must not require Database. Optional DI/Hosting/protocol packages may depend on the relevant application packages; Core must not depend on them. A package may depend on a small Extensions abstraction when its visible API actually uses that abstraction. Record transitive dependencies and their startup/allocation costs rather than calling every dependency free.
 

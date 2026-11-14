@@ -1,0 +1,9 @@
+// Intentionally invalid design consumer: compiler must reject this source.
+#nullable enable
+using NativeWeave.Data;
+using NativeWeave.Query;
+using NativeWeave.Api.Consumers;
+public static class DatabaseNonNumericArithmetic
+{
+    public static void Reject(Query<Student> query) { _ = query.Column(Students.Name).Add("suffix"); }
+}

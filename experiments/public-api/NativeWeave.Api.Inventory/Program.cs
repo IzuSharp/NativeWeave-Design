@@ -9,6 +9,15 @@ string source = Path.GetFullPath(args[0]);
 string runtimeRoot = Path.GetFullPath(args[1]);
 string output = Path.GetFullPath(args[2]);
 Directory.CreateDirectory(output);
+var policies = new Dictionary<string, JsonElement>(StringComparer.Ordinal);
+foreach (string domain in new[] { "database", "server", "interop" })
+{
+    using var document = JsonDocument.Parse(File.ReadAllText(Path.Combine(output, domain + "-symbol-policies.json")));
+    foreach (var entry in document.RootElement.GetProperty("types").EnumerateObject())
+        if (!policies.TryAdd(entry.Name, entry.Value.Clone()))
+            throw new InvalidOperationException("Duplicate semantic type policy: " + entry.Name);
+}
+var documentedIds = new HashSet<string>(StringComparer.Ordinal);
 var sourceFiles = Directory.GetFiles(source, "*.cs", SearchOption.AllDirectories)
     .Where(x => !x.Split(Path.DirectorySeparatorChar).Any(p => p is "obj" or "bin"))
     .OrderBy(x => x, StringComparer.Ordinal).ToArray();
@@ -48,15 +57,33 @@ void Add(ISymbol symbol, INamedTypeSymbol? containingType)
     string ns = symbol.ContainingNamespace.ToDisplayString();
     string domain = ns.StartsWith("NativeWeave.Server", StringComparison.Ordinal) || ns.StartsWith("NativeWeave.Grpc", StringComparison.Ordinal) || ns.StartsWith("NativeWeave.Mcp", StringComparison.Ordinal)
         ? "server" : ns.StartsWith("NativeWeave.Interop", StringComparison.Ordinal) ? "interop"
-        : ns.StartsWith("NativeWeave.Data", StringComparison.Ordinal) || ns.StartsWith("NativeWeave.Query", StringComparison.Ordinal) ? "database"
+        : ns.StartsWith("NativeWeave.Data", StringComparison.Ordinal) || ns.StartsWith("NativeWeave.Database", StringComparison.Ordinal) || ns.StartsWith("NativeWeave.Query", StringComparison.Ordinal) || ns == "Microsoft.Extensions.DependencyInjection" ? "database"
         : throw new InvalidOperationException("Unmapped public namespace: " + ns);
     var parameters = symbol is IMethodSymbol method ? method.Parameters : symbol is IPropertySymbol property ? property.Parameters : default;
     string signature = symbol.ToDisplayString(format);
     var attributes = symbol.GetAttributes().Select(a => a.ToString()).OrderBy(x => x, StringComparer.Ordinal).ToArray();
+    if (!documentedIds.Add(id)) throw new InvalidOperationException("Duplicate public documentation ID: " + id);
+    var ownerType = symbol as INamedTypeSymbol ?? containingType ?? throw new InvalidOperationException(id);
+    string policyKey = ownerType.ContainingNamespace.ToDisplayString() + "." + ownerType.Name;
+    if (!policies.TryGetValue(policyKey, out var policy))
+        throw new InvalidOperationException("Missing explicit public type semantic policy: " + policyKey);
+    foreach (string field in new[] { "package", "semantic_section", "native_operations", "tasks", "capability", "cost_profile" })
+        if (!policy.TryGetProperty(field, out _)) throw new InvalidOperationException(policyKey + " is missing " + field);
+    var namedType = symbol as INamedTypeSymbol;
+    string? returns = symbol switch {
+        IMethodSymbol methodSymbol => methodSymbol.ReturnType.ToDisplayString(format),
+        IPropertySymbol propertySymbol => propertySymbol.Type.ToDisplayString(format),
+        IFieldSymbol fieldSymbol => fieldSymbol.Type.ToDisplayString(format),
+        _ => null
+    };
     rows.Add(new {
         id, name = symbol.Name, @namespace = ns, containing_type = containingType?.ToDisplayString(), kind = symbol.Kind.ToString(),
         signature, domain, specification = "docs/api/" + domain + ".md", implicit_member = symbol.IsImplicitlyDeclared,
         accessibility = symbol.DeclaredAccessibility.ToString(), attributes,
+        return_or_value_type = returns,
+        base_type = namedType?.BaseType?.ToDisplayString(format),
+        interfaces = namedType?.Interfaces.Select(x => x.ToDisplayString(format)).ToArray() ?? Array.Empty<string>(),
+        semantic_policy = policyKey,
         parameters = parameters.IsDefault ? Array.Empty<object>() : parameters.Select(p => (object)new {
             name = p.Name, type = p.Type.ToDisplayString(format), nullable = p.NullableAnnotation.ToString(),
             ref_kind = p.RefKind.ToString(), optional = p.IsOptional, @params = p.IsParams,
@@ -67,8 +94,21 @@ void Add(ISymbol symbol, INamedTypeSymbol? containingType)
     if (symbol is INamedTypeSymbol) lines.Append("## ").Append(signature).Append("\n\n");
     else lines.Append("### ").Append(id.Replace("`", "\\`", StringComparison.Ordinal)).Append("\n\n");
     lines.Append("```csharp\n").Append(signature).Append("\n```\n\n");
-    lines.Append("Semantics and native mapping: [").Append(domain).Append("](").Append(domain).Append(".md). Documentation ID: `").Append(id).Append("`. ");
+    string semanticLink = policy.GetProperty("semantic_section").GetString()!;
+    if (semanticLink.StartsWith("docs/api/", StringComparison.Ordinal)) semanticLink = semanticLink[9..];
+    lines.Append("Semantics and native mapping: [").Append(policyKey).Append("](").Append(semanticLink).Append("). Documentation ID: `").Append(id).Append("`. ");
     lines.Append(symbol.IsImplicitlyDeclared ? "Compiler-synthesized member of the declared type; no independent native operation.\n\n" : "Design declaration; not an implemented product operation.\n\n");
+    if (namedType is not null)
+    {
+        lines.Append("Package: `").Append(policy.GetProperty("package").GetString()).Append("`. Owning tasks: ")
+            .Append(string.Join(", ", policy.GetProperty("tasks").EnumerateArray().Select(x => x.GetString()))).Append(".\n\n");
+        lines.Append("Availability: ").Append(policy.GetProperty("capability").GetString()).Append("\n\n")
+            .Append("Cost policy: ").Append(policy.GetProperty("cost_profile").GetString()).Append("\n\n");
+    }
+    if (namedType?.BaseType is { SpecialType: not SpecialType.System_Object } baseType)
+        lines.Append("Base type: `").Append(baseType.ToDisplayString(format)).Append("`.\n\n");
+    if (namedType is not null && namedType.Interfaces.Length != 0)
+        lines.Append("Interfaces: ").Append(string.Join(", ", namedType.Interfaces.Select(x => "`" + x.ToDisplayString(format) + "`"))).Append(".\n\n");
 }
 void WalkType(INamedTypeSymbol type)
 {
@@ -85,7 +125,11 @@ void WalkNamespace(INamespaceSymbol ns)
 WalkNamespace(compilation.Assembly.GlobalNamespace);
 File.WriteAllText(Path.Combine(output, "public-api.json"), JsonSerializer.Serialize(new {
     schema_version = "1.0.0", version = "0.4.0", sdk = "11.0.100", language = "15.0",
-    state = "design_declarations", product_implemented = false, symbols = rows
+    state = "design_declarations", product_implemented = false,
+    declaration_sources = sourceFiles.Select(x => new {
+        path = "experiments/public-api/NativeWeave.Api.Design/" + Path.GetFileName(x),
+        sha256 = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(x))).ToLowerInvariant()
+    }).ToArray(), semantic_policies = policies, symbols = rows
 }, new JsonSerializerOptions { WriteIndented = true }) + "\n");
 File.WriteAllText(Path.Combine(output, "reference.md"), lines.ToString());
 Console.WriteLine(JsonSerializer.Serialize(new { symbols = rows.Count, source_files = sourceFiles.Length, product_implemented = false }));

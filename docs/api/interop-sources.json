@@ -386,6 +386,22 @@
       "evidence_kind": "official_documentation_read",
       "scope": "Root revalidated stable SDK11.0.100/runtime11.0.0 on 2026-11-14; source tag independently rechecked here.",
       "immutable_commit": null
+    },
+    {
+      "id": "I-DOC-06",
+      "url": "https://learn.microsoft.com/en-us/nuget/concepts/msbuild-props-and-targets",
+      "observed_date": "2026-11-14",
+      "evidence_kind": "official_documentation_read",
+      "scope": "buildTransitive imports flow to consuming PackageReference projects; package targets must not rewrite restore-affecting items.",
+      "immutable_commit": null
+    },
+    {
+      "id": "I-DOC-07",
+      "url": "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files",
+      "observed_date": "2026-11-14",
+      "evidence_kind": "official_documentation_read",
+      "scope": "Asset categories and PrivateAssets defaults; an exact generator dependency plus buildTransitive inclusion is required, not assumed analyzer flow.",
+      "immutable_commit": null
     }
   ],
   "reused_research": [
@@ -423,5 +439,43 @@
     "Execution of upstream .NET test suites",
     "Product NuGet publication",
     "NativeWeave product runtime or performance implementation"
-  ]
+  ],
+  "resumption_verification": {
+    "observed_date": "2026-11-14",
+    "reviewer": "/root/platform_recovery",
+    "kind": "primary-release-and-tag-readback; earlier source inspection retained",
+    "sdk_executed": "11.0.100",
+    "runtime_executed": "11.0.0",
+    "sources": [
+      {
+        "url": "https://dotnet.microsoft.com/en-us/download/dotnet/11.0",
+        "observation": "Official download matrix: SDK11.0.100, .NET/ASP.NET11.0.0, C#15; stable release date2026-11-10."
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+        "observation": "net11 default language C#15; no Preview needed."
+      },
+      {
+        "url": "https://api.github.com/repos/dotnet/runtime/git/ref/tags/v11.0.0",
+        "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce"
+      },
+      {
+        "url": "https://api.github.com/repos/dotnet/aspnetcore/git/ref/tags/v11.0.0",
+        "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99"
+      },
+      {
+        "url": "https://api.github.com/repos/dotnet/efcore/git/ref/tags/v11.0.0",
+        "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f"
+      },
+      {
+        "url": "https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/11.0.0",
+        "observation": "Microsoft stable11.0.0 package published2026-11-10, distinct from rc.3; older Learn planning page still calls EF11 planned and is not release authority."
+      },
+      {
+        "url": "https://www.nuget.org/packages/Microsoft.Extensions.Hosting/11.0.0",
+        "observation": "Official stable11.0.0 package and explicit Extensions dependency graph."
+      }
+    ],
+    "limits": "No upstream test execution or complete source reread; prior fixed-source evidence remains authoritative."
+  }
 }

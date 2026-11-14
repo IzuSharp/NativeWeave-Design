@@ -1,0 +1,494 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "server",
+  "observed_date": "2026-11-14",
+  "baseline": {
+    "dotnet": "11.0.0",
+    "sdk": "11.0.100",
+    "csharp": "15.0",
+    "aspnetcore": "11.0.0",
+    "grpc_dotnet": "2.85.0",
+    "mcp_csharp": "2.4.0"
+  },
+  "sources": [
+    {
+      "id": "SERVER-DOTNET-01",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/DefaultBuilder/src/WebApplication.cs",
+      "symbols": [
+        "Services",
+        "CreateBuilder",
+        "CreateSlimBuilder",
+        "StartAsync",
+        "RunAsync",
+        "DisposeAsync"
+      ],
+      "read_ranges": [
+        [
+          41,
+          69
+        ],
+        [
+          90,
+          205
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "ae62ba3495160ed6ffc707677754e30f3813337894f9d942df0a80ae30055c49",
+      "git_blob_sha": "8f10bf20d3af656e2934ce34024d2e51c237f6fd",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/DefaultBuilder/src/WebApplication.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-02",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/DefaultBuilder/src/WebApplicationBuilder.cs",
+      "symbols": [
+        "Services",
+        "Configuration",
+        "Logging",
+        "Build"
+      ],
+      "read_ranges": [
+        [
+          300,
+          351
+        ],
+        [
+          354,
+          408
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "0e94e86c72a8755d55b7b9bd3d074e9ec091e23a69e70d6025976add51bab22c",
+      "git_blob_sha": "0d62c741ff5ec08fe206a99471646f5214328d60",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/DefaultBuilder/src/WebApplicationBuilder.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-03",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Abstractions/src/HttpContext.cs",
+      "symbols": [
+        "HttpContext",
+        "RequestServices",
+        "RequestAborted",
+        "User",
+        "Abort"
+      ],
+      "read_ranges": [
+        [
+          17,
+          78
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "90881468902edd1541687085e1d308c9a384961660156efd4e193af62ce0d58e",
+      "git_blob_sha": "6aa00a5b7ff287e6e483170f8149cf5a7f4ccf44",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Abstractions/src/HttpContext.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-04",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Abstractions/src/HttpRequest.cs",
+      "symbols": [
+        "HttpRequest",
+        "Body",
+        "BodyReader",
+        "ReadFormAsync",
+        "RouteValues"
+      ],
+      "read_ranges": [
+        [
+          20,
+          153
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "b34eef3a22e5b353fa75af531b179226d402b88d39fbefa3f0d8d4372def62a3",
+      "git_blob_sha": "f471f33159374612ef4347b95385b892c8edeecd",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Abstractions/src/HttpRequest.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-05",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Abstractions/src/HttpResponse.cs",
+      "symbols": [
+        "HttpResponse",
+        "BodyWriter",
+        "OnStarting",
+        "OnCompleted",
+        "StartAsync",
+        "CompleteAsync"
+      ],
+      "read_ranges": [
+        [
+          20,
+          156
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "ab90db2d8cc50f168d71432ad53a29a4a1a54cdac4b8e5073db4ed63469b0178",
+      "git_blob_sha": "330d1c423e19dfb56a4adb68dea6fc58b054afa0",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Abstractions/src/HttpResponse.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-06",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Abstractions/src/HttpResults/IResult.cs",
+      "symbols": [
+        "IResult.ExecuteAsync"
+      ],
+      "read_ranges": [
+        [
+          6,
+          17
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "63eb27493622cc6d8be6e6b3c53350bc7bad836ace463373b338862ac30d383a",
+      "git_blob_sha": "7ecc2ee139909b379b93da152a57f043dcd6c819",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Abstractions/src/HttpResults/IResult.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-07",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Abstractions/src/IEndpointFilter.cs",
+      "symbols": [
+        "IEndpointFilter.InvokeAsync"
+      ],
+      "read_ranges": [
+        [
+          6,
+          20
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "a3eec1065b659b1c008aae14948e32cfb50b64e2810d639eadff5bbc3385f09e",
+      "git_blob_sha": "03aa83adf908c3daf50c8a94b91b722c4827400c",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Abstractions/src/IEndpointFilter.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-08",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Abstractions/src/EndpointFilterInvocationContext.cs",
+      "symbols": [
+        "Arguments",
+        "GetArgument<T>",
+        "Create<T>"
+      ],
+      "read_ranges": [
+        [
+          15,
+          51
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "3295df1006e488ef3a72f5ebbdf8f9a5f75e0af81570b06368be610d0c85fad4",
+      "git_blob_sha": "ca32022e983a4fc5519a24d613b4a0b95f9dca43",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Abstractions/src/EndpointFilterInvocationContext.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-09",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Routing/src/Builder/EndpointRouteBuilderExtensions.cs",
+      "symbols": [
+        "MapDelete",
+        "MapPatch",
+        "MapMethods",
+        "MapGet",
+        "MapPost"
+      ],
+      "read_ranges": [
+        [
+          110,
+          310
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "1307e6cca078ed7a8d6c7f926c8bbbb06b863be4cd0ba0503daf305e606d131c",
+      "git_blob_sha": "aa745b1b9829eac3b46c6f56af51c735d071d24d",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Routing/src/Builder/EndpointRouteBuilderExtensions.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-10",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Routing/src/RouteGroupBuilder.cs",
+      "symbols": [
+        "RouteGroupBuilder",
+        "GroupEndpointDataSource"
+      ],
+      "read_ranges": [
+        [
+          1,
+          140
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "d42b8f8feda3bfb3dc17f1033a52ce45931e0d5066c46a4d834c08ed46e00a06",
+      "git_blob_sha": "513ff3651b7a33f288b2b4f43f661a4489575904",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Routing/src/RouteGroupBuilder.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-11",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Results/src/TypedResults.cs",
+      "symbols": [
+        "Json<T>(JsonTypeInfo<T>)",
+        "Stream(PipeReader)",
+        "Stream(Func<Stream,Task>)",
+        "Problem",
+        "ValidationProblem"
+      ],
+      "read_ranges": [
+        [
+          195,
+          218
+        ],
+        [
+          442,
+          485
+        ],
+        [
+          750,
+          855
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "05b32438230e9af2f9b0b1eb895c736e28ab150586a7150d6033d512f6c6abb6",
+      "git_blob_sha": "6676ce5dd1091268d443da175b8500dfd6a5db5d",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Results/src/TypedResults.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-12",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Http/Http.Extensions/src/RequestDelegateFactory.cs",
+      "symbols": [
+        "RequiresDynamicCode",
+        "RequiresUnreferencedCode"
+      ],
+      "read_ranges": [
+        [
+          25,
+          45
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "395b4b6e704a9c7bc34e82d78c8ccefd1b0aa3726bda5a275c8d83e9e984360b",
+      "git_blob_sha": "49bab261b9542ad8fb26c1051512da6ff52f6060",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Http/Http.Extensions/src/RequestDelegateFactory.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-13",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/HttpsConnectionAdapterOptions.cs",
+      "symbols": [
+        "HandshakeTimeout",
+        "ServerCertificate",
+        "ClientCertificateValidation"
+      ],
+      "read_ranges": [
+        [
+          20,
+          127
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "4b55e60143c09cc85b06e77b561369c7764e9e46d9bf277c7c8028587196a086",
+      "git_blob_sha": "4180d1e72f420acf04c92864b02c98f9494ab9f8",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/HttpsConnectionAdapterOptions.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-DOTNET-14",
+      "repository": "dotnet/aspnetcore",
+      "version": "11.0.0",
+      "commit": "1def4cdc07dc10fc267136060e3ef5c1a96d4a99",
+      "path": "src/Servers/Kestrel/Core/src/HttpProtocols.cs",
+      "symbols": [
+        "HttpProtocols"
+      ],
+      "read_ranges": [
+        [
+          9,
+          41
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "d724088c724b7edc7f84082fdb8276bdf0726d1f92e3e643e855519f356d1a1a",
+      "git_blob_sha": "e12b4fe691aec9178789848cc106643603e39cc5",
+      "url": "https://github.com/dotnet/aspnetcore/blob/1def4cdc07dc10fc267136060e3ef5c1a96d4a99/src/Servers/Kestrel/Core/src/HttpProtocols.cs",
+      "limitations": "Only listed ranges/declarations inspected; no upstream tests executed. Whole-file hash is identity, not a full-file read claim."
+    },
+    {
+      "id": "SERVER-RUST-SSE",
+      "repository": "tokio-rs/axum",
+      "version": "0.8.9",
+      "commit": "c59208c86fded335cd85e388030ad59347b0e5ae",
+      "path": "axum/src/response/sse.rs",
+      "symbols": [
+        "Sse::new",
+        "Sse::into_response",
+        "Event::data",
+        "Event::event",
+        "Event::id",
+        "Event::retry"
+      ],
+      "read_ranges": [
+        [
+          50,
+          105
+        ],
+        [
+          225,
+          243
+        ],
+        [
+          300,
+          395
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "7df949388820fb32ddb6726a6860832cf588abcb4f3302d235c57f0a99ac6bcb",
+      "git_blob_sha": "d8455baf4dfb0c84e1ccd3aeb0e2dc6076b9456e",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/axum/src/response/sse.rs",
+      "finding": "Event/id setters panic on forbidden characters/repeated assignment; prevalidate before calling, reserve expanded event bytes. No actual native SSE test executed in this round."
+    },
+    {
+      "id": "SERVER-RUST-QUERY-FORM_URLENCODED",
+      "repository": "servo/rust-url",
+      "version": "1.2.2",
+      "commit": "91377f48bf35011d042aa5abef9e7f2a0a625aaa",
+      "path": "form_urlencoded/src/lib.rs",
+      "symbols": [
+        "parse",
+        "Parse::next",
+        "decode",
+        "replace_plus"
+      ],
+      "read_ranges": [
+        [
+          25,
+          100
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "766b5d679064e01f7e6cce6f127a23885f79806ce3bccc49e4fe41933b83fd8d",
+      "git_blob_sha": "639545ae675ed9cd9d97834b9493d8d61b6abf8f",
+      "url": "https://static.crates.io/crates/form_urlencoded/form_urlencoded-1.2.2.crate",
+      "source_browser_url": "https://docs.rs/form_urlencoded/1.2.2/src/form_urlencoded/lib.rs.html",
+      "package_sha256": "cb4cb245038516f5f85277875cdaa4f7d2c9a0fa0468de06ed190163b1581fcf",
+      "source_identity_note": "Published package .cargo_vcs_info reports the recorded commit with dirty=true. The immutable registry archive and extracted file hashes are the source authority; no claim that the package bytes equal a clean checkout of that commit.",
+      "limitations": "Only the recorded source ranges were read; no Rust query parser execution or new product dependency was performed. B17 must adopt/pin this source when implementing the native query adapter.",
+      "finding": "form_urlencoded uses lossy UTF-8 and percent-encoding leaves malformed escapes unchanged; strict NativeWeave input validation must precede the mature parsing primitive."
+    },
+    {
+      "id": "SERVER-RUST-QUERY-PERCENT-ENCODING",
+      "repository": "servo/rust-url",
+      "version": "2.3.2",
+      "commit": "91377f48bf35011d042aa5abef9e7f2a0a625aaa",
+      "path": "percent_encoding/src/lib.rs",
+      "symbols": [
+        "percent_decode",
+        "PercentDecode::next",
+        "PercentDecode::decode_utf8"
+      ],
+      "read_ranges": [
+        [
+          210,
+          360
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "641903d385581e76f31ef8c991d83c2a5d7fbbc2879d93909c539037e4e1e3e2",
+      "git_blob_sha": "ee36e0c5a1235b7840a1022a01080cdcb7950f11",
+      "url": "https://static.crates.io/crates/percent-encoding/percent-encoding-2.3.2.crate",
+      "source_browser_url": "https://docs.rs/percent-encoding/2.3.2/src/percent_encoding/lib.rs.html",
+      "package_sha256": "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220",
+      "source_identity_note": "Published package .cargo_vcs_info reports the recorded commit with dirty=true. The immutable registry archive and extracted file hashes are the source authority; no claim that the package bytes equal a clean checkout of that commit.",
+      "limitations": "Only the recorded source ranges were read; no Rust query parser execution or new product dependency was performed. B17 must adopt/pin this source when implementing the native query adapter.",
+      "finding": "form_urlencoded uses lossy UTF-8 and percent-encoding leaves malformed escapes unchanged; strict NativeWeave input validation must precede the mature parsing primitive."
+    }
+  ],
+  "reused_evidence": [
+    {
+      "path": "docs/research/topics/R26/coverage.json",
+      "scope": "RDG, request/response pipeline and prior Kestrel source study; original commit/ranges remain authoritative."
+    },
+    {
+      "path": "docs/research/topics/R27/source-driven-server.md",
+      "scope": "Fixed Tokio/Hyper/Tower/Axum/rustls service/body/connection/runtime seams."
+    },
+    {
+      "path": "docs/research/topics/R28/coverage.json",
+      "scope": "grpc-dotnet v2.85.0 a7767e28a2c2f4e89a17e9efb95f75e8a82637d0; MCP C# v2.4.0 4cbf42ef107763f0bc75c358af8cb2dfe47a769a; exact Tonic/rmcp methods and ranges."
+    },
+    {
+      "path": "verification/server-completion/source-inspection.json",
+      "scope": "Tonic Codec/Grpc/service traits, rmcp public transport/handler and limits; actual prior execution identities remain separate."
+    },
+    {
+      "path": "experiments/server-retained-bytes/source-inspection.json",
+      "scope": "Native Bytes owner charging, Tokio permits and Hyper EOF/flow-credit semantics."
+    },
+    {
+      "path": "docs/research/topics/R30/coverage.json",
+      "scope": "ActivitySource and bounded telemetry costs; no full production measurement inferred."
+    }
+  ],
+  "official_reference_pages": [
+    {
+      "url": "https://dotnet.microsoft.com/en-us/download/dotnet/11.0",
+      "scope": "Release11.0.0/SDK11.0.100 and C#15 stable baseline; checked 2026-11-14."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0",
+      "scope": "Minimal API binding-failure filters and asynchronous validation family; stable exact code is authoritative."
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/releases/tag/v2.4.0",
+      "scope": "Stable2.4.0 release; experimental Skills package does not become NativeWeave stable scope."
+    },
+    {
+      "url": "https://www.nuget.org/packages/Grpc.Core.Api/2.85.0",
+      "scope": "Stable gRPC2.85.0 API reference version."
+    }
+  ],
+  "evidence_boundary": "Design/source research and declaration compilation only. Do not label prior experiments as this public API runtime or product execution."
+}

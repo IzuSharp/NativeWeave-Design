@@ -1,0 +1,3426 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "database",
+  "baseline": {
+    "dotnet": "11.0.0",
+    "sdk": "11.0.100",
+    "csharp": "15.0",
+    "efcore": "11.0.0",
+    "dapper": "2.1.89",
+    "seaquery": "1.0.2",
+    "sqlx": "0.9.0",
+    "seaorm": "2.0.4 optional native profile",
+    "SqlSugarCore": "5.1.4.221"
+  },
+  "classification_scope": "Design support only; no released API or product execution claimed.",
+  "rows": [
+    {
+      "id": "DB-001",
+      "feature": "Provider package and source construction",
+      "reference_apis": [
+        "System.Data.Common.DbDataSource",
+        "System.Data.Common.DbProviderFactory"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.Sqlite.SqliteDataSource.Create",
+        "NativeWeave.Database.PostgreSql.PostgreSqlDataSource.Create"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Source.Create"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Independent provider leaf packages, no ADO.NET inheritance or managed-provider fallback; no connections/schema creation at construction.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "A16",
+        "B24"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-07",
+        "DBSRC-20"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-002",
+      "feature": "Builder and configuration snapshot",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.DbContextOptionsBuilder"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSourceBuilder.ConfigureLimits",
+        "NativeWeave.Database.DataSourceBuilder.WithName",
+        "NativeWeave.Database.DataSourceBuilder.Build"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Source.Create"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Single-use builder, options snapshotted once; no hot reload of existing native pools.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B04"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [],
+      "reference_source_scope": "No individual source inspection is claimed for these named comparison APIs; the row records the explicit NativeWeave design boundary, supported by the linked native evidence and normative specification.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-003",
+      "feature": "DI and keyed sources",
+      "reference_apis": [
+        "Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton",
+        "Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddKeyedSingleton"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "Microsoft.Extensions.DependencyInjection.NativeWeaveDatabaseServiceCollectionExtensions.AddNativeWeaveDatabase",
+        "Microsoft.Extensions.DependencyInjection.NativeWeaveDatabaseServiceCollectionExtensions.AddKeyedNativeWeaveDatabase"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Source.Create"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One singleton per source; standard DI resolution costs, no second scope system.",
+      "limitations": "Optional DI package; singleton source only; sessions explicitly opened; duplicate keys reject.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B04",
+        "A16"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [],
+      "reference_source_scope": "No individual source inspection is claimed for these named comparison APIs; the row records the explicit NativeWeave design boundary, supported by the linked native evidence and normative specification.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-004",
+      "feature": "Pool acquisition",
+      "reference_apis": [
+        "System.Data.Common.DbDataSource.OpenConnectionAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSource.OpenSessionAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Session.Open"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Bounded SQLx pool/waiters, one physical connection lease; no global Core runtime.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-20"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-005",
+      "feature": "Connection health probe",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.CanConnectAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSource.CanConnectAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Session.Open",
+        "Owner.Close"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Connectivity false only; configuration, cancellation and ABI failures throw; no schema bootstrap.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [],
+      "reference_source_scope": "No individual source inspection is claimed for these named comparison APIs; the row records the explicit NativeWeave design boundary, supported by the linked native evidence and normative specification.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-006",
+      "feature": "Connection/source closure",
+      "reference_apis": [
+        "System.IAsyncDisposable.DisposeAsync",
+        "System.Data.Common.DbConnection.CloseAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSource.CloseAsync",
+        "NativeWeave.Database.DataSession.CloseAsync",
+        "NativeWeave.Database.DataSource.DisposeAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Owner.Close",
+        "Operation.Retire"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Bounded waiting and actual local safety are distinct; pending native work stays rooted/charged.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B04",
+        "B05"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-01",
+        "DBSRC-20"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-007",
+      "feature": "Static metadata and ordinary entity registration",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.ModelBuilder.Entity",
+        "Microsoft.EntityFrameworkCore.DbSet<TEntity>"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.WeaveTableAttribute",
+        "NativeWeave.Data.TableBuilder<TEntity>",
+        "NativeWeave.Data.Table<TEntity>"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Metadata.Register"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "Bounded startup metadata/delegates; one native registration per source/schema hash.",
+      "limitations": "Entity classes/record classes; DTO projections may be structs. First use auto-registers generated immutable descriptor; no per-entity Cargo.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B10",
+        "B12"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-09"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-008",
+      "feature": "Typed property and nullability mapping",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder",
+        "System.Data.Common.DbParameter.DbType"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.Column<TEntity,T>",
+        "NativeWeave.Data.ColumnOptions",
+        "NativeWeave.Data.ValueCodec<T>"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Metadata.Register",
+        "Codec.Register"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Supported codec set only; NRT metadata plus independent native shape checks.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B07",
+        "B10"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-06"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-009",
+      "feature": "Handwritten static fallback",
+      "reference_apis": [
+        "Dapper.SqlMapper.QueryAsync<T>",
+        "System.Data.Common.DbDataReader.GetFieldValue<T>"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.RowMaterializer<T>",
+        "NativeWeave.Data.EntityWriter<T>",
+        "NativeWeave.Data.RowReader",
+        "NativeWeave.Data.RowWriter"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Row.Materialize"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "Direct constructor calls and necessary owned string/bytes copies; no object-array typed path.",
+      "limitations": "Explicit static mappings use same native engine as generated form; no reflection setters.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B12"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04",
+        "DBSRC-16"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-010",
+      "feature": "Parameterized SQL command",
+      "reference_apis": [
+        "System.Data.Common.DbCommand",
+        "System.Data.Common.DbParameter",
+        "Dapper.CommandDefinition"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.SqlCommand.Create",
+        "NativeWeave.Data.SqlParameters.Add"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Sql.Create",
+        "Projection.Register (result-bearing SQL)",
+        "Sql.Create(kind20 options and kind21 parameter names)"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Trusted SQL template, typed parameters, native placeholder rewriting; no arbitrary SQL sanitization promise.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B02",
+        "B03",
+        "B07"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-02",
+        "DBSRC-06",
+        "DBSRC-15"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-011",
+      "feature": "Safe interpolation convenience",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.RelationalQueryableExtensions.FromSql"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.SqlCommand.Parameterized"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Sql.Create"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "Explicit FormattableString object array/boxing plus native value snapshot; typed SqlParameters path avoids boxing.",
+      "limitations": "Values only, reject alignment/format specifiers and untyped null; identifiers never holes.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B07"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-11"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-012",
+      "feature": "Execute affected rows",
+      "reference_apis": [
+        "System.Data.Common.DbCommand.ExecuteNonQueryAsync",
+        "Dapper.SqlMapper.ExecuteAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.ExecuteAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Execute.Create"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Int64 affected rows; query-result commands reject, no silently discarded rows.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B02",
+        "B03",
+        "B06"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-02",
+        "DBSRC-16"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-013",
+      "feature": "Typed scalar",
+      "reference_apis": [
+        "System.Data.Common.DbCommand.ExecuteScalarAsync",
+        "Dapper.SqlMapper.ExecuteScalarAsync<T>"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.ScalarAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Execute.Create",
+        "Cursor.Fetch",
+        "Projection.Register (result-bearing SQL)",
+        "Sql.Create(kind20 options and kind21 parameter names)"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Exactly one row/column; explicit nullable codec; not untyped object conversion.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B02",
+        "B03",
+        "B07"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-02",
+        "DBSRC-16"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-014",
+      "feature": "Buffered list and array",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync",
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToArrayAsync",
+        "Dapper.SqlMapper.QueryAsync<T>"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.QueryAsync",
+        "NativeWeave.Query.QuerySelection<T>.ToListAsync",
+        "NativeWeave.Query.QuerySelection<T>.ToArrayAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Execute.Create",
+        "Cursor.Fetch",
+        "Projection.Register (result-bearing SQL)",
+        "Sql.Create(kind20 options and kind21 parameter names)"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "O(rows) owned DTO/list or array memory plus bounded native batches; simultaneous native/wire/managed bytes counted.",
+      "limitations": "Finite rows/bytes, owned DTOs; exceeding limits fails rather than unbounded fetch_all.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B06",
+        "B12",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10",
+        "DBSRC-16"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-015",
+      "feature": "True asynchronous row stream",
+      "reference_apis": [
+        "System.Collections.Generic.IAsyncEnumerable<T>",
+        "Dapper.SqlMapper.QueryUnbufferedAsync<T>",
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AsAsyncEnumerable"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.StreamAsync",
+        "NativeWeave.Query.QuerySelection<T>.AsAsyncEnumerable"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Execute.Create",
+        "Cursor.Fetch",
+        "Operation.Retire",
+        "Projection.Register (result-bearing SQL)",
+        "Sql.Create(kind20 options and kind21 parameter names)"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One bounded current batch; DTO allocations remain; no hidden sync deferred reader.",
+      "limitations": "One-shot sequence, one active MoveNext, no prefetch; early break joins cleanup.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B06",
+        "B12",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-09",
+        "DBSRC-10",
+        "DBSRC-16",
+        "DBSRC-17"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-016",
+      "feature": "First and single cardinality",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstAsync",
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.SingleAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.QuerySelection<T>.FirstAsync",
+        "NativeWeave.Query.QuerySelection<T>.SingleAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Seal",
+        "Cursor.Fetch"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "First observes one row, Single at most two then cleanup; empty/multiple required cardinality throws.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B06",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-017",
+      "feature": "Optional first/single results",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstOrDefaultAsync",
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.SingleOrDefaultAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.QuerySelection<T>.FirstOrDefaultAsync",
+        "NativeWeave.Query.QuerySelection<T>.SingleOrDefaultAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Seal",
+        "Cursor.Fetch"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Unconstrained T? follows C# annotation behavior: value types yield default(T), not automatic Nullable<T>.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B06",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-018",
+      "feature": "Find primary key",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.DbSet<TEntity>.FindAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.FindAsync",
+        "NativeWeave.Data.Table<TEntity>.Key",
+        "NativeWeave.Data.EntityKey<TEntity>.And"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Entity.Find: Query.Create -> Expression.Column/Value/Binary.Equal -> WHERE -> SELECT -> Query.Seal(cursor; fetch up to two rows) -> Execute.Create/Cursor.Fetch"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One bounded native query construction per key component plus execute/fetch operations; no identity map or cache and no separate Mutation.KeyQuery entry.",
+      "limitations": "No identity-map/cache return; complete key including explicit tenant components.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-09"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-019",
+      "feature": "Insert and generated keys",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.DbSet<TEntity>.AddAsync",
+        "Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.InsertAsync",
+        "NativeWeave.Database.DataSession.InsertReturningAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Mutation.Insert",
+        "Mutation.InsertReturning"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Immediate native insert; generated columns omitted; returned DTO explicit, input entity not mutated.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B11",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-08",
+        "DBSRC-09"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-020",
+      "feature": "Partial update and explicit NULL",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.ChangeTracking.PropertyEntry.IsModified",
+        "Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.UpdateAsync",
+        "NativeWeave.Data.Changes<TEntity>.Set",
+        "NativeWeave.Data.Changes<TEntity>.Unset"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Mutation.Update"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Unset differs from SQL NULL; no hidden change tracking or managed SQL AST.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-08"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-021",
+      "feature": "Delete by key",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.DbSet<TEntity>.Remove"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.DeleteAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Mutation.Delete"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Immediate parameterized key delete with affected count; no graph cascade policy beyond database constraints.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-09"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-022",
+      "feature": "Optimistic concurrency",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException",
+        "Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder.IsConcurrencyToken"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.UpdateCheckedAsync",
+        "NativeWeave.Database.DataSession.DeleteCheckedAsync",
+        "NativeWeave.Data.ConcurrencyCheck<TEntity>",
+        "NativeWeave.Data.ConcurrencyConflictException"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Mutation.UpdateChecked",
+        "Mutation.DeleteChecked"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Key/token comparison and mutation in same statement; explicit version update, no retry or read-before-write.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B05",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-08"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-023",
+      "feature": "Set based update/delete",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteUpdateAsync",
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteDeleteAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.UpdateAsync",
+        "NativeWeave.Query.UpdateSetters<TEntity>",
+        "NativeWeave.Query.Query<TEntity>.DeleteAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Seal",
+        "Execute.Create"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "WHERE required in v1; unsupported join/group/window mutation shapes reject; concurrency token explicit.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-024",
+      "feature": "Batch insert",
+      "reference_apis": [
+        "System.Data.Common.DbBatch",
+        "Dapper.SqlMapper.ExecuteAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.InsertManyAsync",
+        "NativeWeave.Database.BulkOptions",
+        "NativeWeave.Database.BulkResult",
+        "NativeWeave.Database.BulkProgress",
+        "NativeWeave.Database.BulkFailure.TryGetProgress"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Bulk.Insert",
+        "Tx.Begin",
+        "Tx.Finish"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "Bounded input/batch pull; multirow native inserts; provider parameter limits constrain batch size.",
+      "limitations": "All atomic default; PerBatch explicitly partial; caller-owned transaction not committed; no COPY claim. Failed/canceled operations expose immutable progress without replacing Unknown or cancellation exception categories. All inside a caller transaction owns an internal savepoint; failures roll back that savepoint or mark the outer transaction Failed and prohibit Commit.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B06",
+        "B07",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-05",
+        "DBSRC-16"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-025",
+      "feature": "Native conflict upsert",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteUpdateAsync (comparison only; not a general EF upsert promise)"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.UpsertAsync",
+        "NativeWeave.Database.ConflictTarget<TEntity>"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Mutation.Upsert"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "ON CONFLICT target explicit; named constraints PG-only; not SeaORM save/exists-based upsert.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-026",
+      "feature": "Transactions and isolation",
+      "reference_apis": [
+        "System.Data.Common.DbConnection.BeginTransactionAsync",
+        "System.Data.Common.DbTransaction.IsolationLevel"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.BeginTransactionAsync",
+        "NativeWeave.Database.TransactionOptions"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Tx.Begin"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "null provider default, PG RC/RR/Serializable; SQLite Serializable plus separate begin mode; unsupported levels reject.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B05"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-01",
+        "DBSRC-03"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-027",
+      "feature": "Commit and uncertain outcome",
+      "reference_apis": [
+        "System.Data.Common.DbTransaction.CommitAsync",
+        "Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction.CommitAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataTransaction.CommitAsync",
+        "NativeWeave.Database.TransactionOutcome",
+        "NativeWeave.Database.CommitOutcomeUnknownException"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Tx.Finish"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Cancellation controls pre-send admission only; possible send with no confirmation is Unknown and never auto-retried.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B05",
+        "B22"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-03",
+        "DBSRC-12"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-028",
+      "feature": "Rollback and cleanup state",
+      "reference_apis": [
+        "System.Data.Common.DbTransaction.RollbackAsync",
+        "System.IAsyncDisposable.DisposeAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataTransaction.RollbackAsync",
+        "NativeWeave.Database.DatabaseCloseResult",
+        "NativeWeave.Database.DatabaseCleanupException"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Tx.Finish",
+        "Owner.Close"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Unconfirmed rollback is distinct from Unknown commit; cleanup cannot overwrite prior remote outcome.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B05",
+        "B22"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-03",
+        "DBSRC-12"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-029",
+      "feature": "Savepoints",
+      "reference_apis": [
+        "System.Data.Common.DbTransaction.SaveAsync",
+        "System.Data.Common.DbTransaction.RollbackAsync(string)",
+        "System.Data.Common.DbTransaction.ReleaseAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataTransaction.CreateSavepointAsync",
+        "NativeWeave.Database.Savepoint.RollbackAsync",
+        "NativeWeave.Database.Savepoint.ReleaseAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Savepoint.Create",
+        "Savepoint.Action"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Generated identifiers, generation-bound LIFO scopes, no implicit outer commit.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B05"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-03",
+        "DBSRC-12"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-030",
+      "feature": "Cancellation and deadlines",
+      "reference_apis": [
+        "System.Data.Common.DbCommand.Cancel",
+        "System.Data.Common.DbCommand.CommandTimeout",
+        "System.Threading.CancellationToken"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.WithTimeout",
+        "NativeWeave.Database.DatabaseLimits.CommandTimeout",
+        "NativeWeave.Database.DataSession.ExecuteAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Operation.Cancel",
+        "Execute.Create"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Native cancellation is cooperative; no blanket PG CancelRequest or SQLite hard-preemption guarantee; local retirement distinct.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B02",
+        "B03",
+        "B05",
+        "B06"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-02",
+        "DBSRC-15"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-031",
+      "feature": "Provider errors and structured diagnostics",
+      "reference_apis": [
+        "System.Data.Common.DbException",
+        "Microsoft.EntityFrameworkCore.DbUpdateException"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.DatabaseException",
+        "NativeWeave.Data.DatabaseErrorKind",
+        "NativeWeave.Data.DatabaseCapabilityException"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Operation.TakeError"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Provider code/correlation preserved; IsTransient is not retry permission; no credentials/parameter logging.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B07"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-08"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-032",
+      "feature": "Typed filtering and composition",
+      "reference_apis": [
+        "System.Linq.Queryable.Where"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.Where",
+        "NativeWeave.Query.QueryRow<TEntity>",
+        "NativeWeave.Query.SqlPredicate"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Expression.Binary",
+        "Query.Clause1"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "Direct fluent entry native AST allocation; optional delegate/closure allocation explicit.",
+      "limitations": "Builder delegate runs now over proxies; not Func<TEntity,bool> translation or IQueryable provider.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-033",
+      "feature": "Boolean conditions",
+      "reference_apis": [
+        "System.Linq.Queryable.Where",
+        "System.Linq.Enumerable.All"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.SqlPredicate.And",
+        "NativeWeave.Query.SqlPredicate.Or",
+        "NativeWeave.Query.SqlPredicate.Not"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Expression.Binary",
+        "Expression.Unary"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "SQL three-valued logic; no CLR Boolean compensation.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-034",
+      "feature": "Null equality and NULL tests",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.RelationalDbContextOptionsBuilder.UseRelationalNulls"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.SqlExpression<T>.IsNull",
+        "NativeWeave.Query.SqlExpression<T>.IsNotNull",
+        "NativeWeave.Query.SqlExpression<T>.NullSafeEqual"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Expression.Unary",
+        "Expression.Binary"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Ordinary equality with NULL yields UNKNOWN; NullSafeEqual codec/collation capability-bound.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [],
+      "reference_source_scope": "No individual source inspection is claimed for these named comparison APIs; the row records the explicit NativeWeave design boundary, supported by the linked native evidence and normative specification.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-035",
+      "feature": "Membership and empty sets",
+      "reference_apis": [
+        "System.Linq.Queryable.Contains"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.SqlExpression<T>.In",
+        "NativeWeave.Query.SqlExpression<T>.NotIn"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Expression.List"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Empty sets deliberate FALSE/TRUE; NULL-containing sets retain SQL UNKNOWN; spans snapshotted before return.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-036",
+      "feature": "Numeric arithmetic",
+      "reference_apis": [
+        "System.Linq.Queryable.Select"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.SqlArithmeticExtensions.Add",
+        "NativeWeave.Query.SqlArithmeticExtensions.Subtract",
+        "NativeWeave.Query.SqlArithmeticExtensions.Multiply",
+        "NativeWeave.Query.SqlArithmeticExtensions.Divide"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Expression.Binary"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "INumber generic constraint; provider arithmetic/overflow remains explicit, decimal-text math rejected. Nullable value/expression overloads preserve SQL NULL propagation and numeric generic constraints.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-037",
+      "feature": "String search and collations",
+      "reference_apis": [
+        "System.String.Contains",
+        "System.String.StartsWith",
+        "Microsoft.EntityFrameworkCore.DbFunctionsExtensions.Like"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.SqlStringExtensions.ContainsLiteral",
+        "NativeWeave.Query.SqlStringExtensions.StartsWithLiteral",
+        "NativeWeave.Query.SqlStringExtensions.EndsWithLiteral",
+        "NativeWeave.Query.SqlStringExtensions.Like",
+        "NativeWeave.Query.SqlStringExtensions.Collate"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause16"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "SQL collation not .NET culture/UTF16 ordinal; literal helpers escape wildcard characters; nullable operations named explicitly.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-038",
+      "feature": "Typed DTO projection",
+      "reference_apis": [
+        "System.Linq.Queryable.Select",
+        "Dapper.SqlMapper.QueryAsync<T>"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.Select",
+        "NativeWeave.Query.Query<TEntity>.Projection",
+        "NativeWeave.Query.ProjectionBuilder<T>",
+        "NativeWeave.Data.Projection<T>"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause6",
+        "Row.Materialize"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Static constructors, explicit selected expressions, exact shape; arbitrary class reflection unsupported.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B10",
+        "B12",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21",
+        "DBSRC-16"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-039",
+      "feature": "Inner join and aliases",
+      "reference_apis": [
+        "System.Linq.Queryable.Join"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.InnerJoin",
+        "NativeWeave.Query.JoinedTable<TEntity>",
+        "NativeWeave.Query.JoinPredicate<TLeft,TRight>"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "query_import(model)",
+        "clause18 JOIN RESERVE",
+        "expr_column/binary ON",
+        "clause7 JOIN COMMIT; clause19 JOIN ABORT on failure"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Explicit typed alias/ON; cross-owner tokens reject; self joins retain separate aliases.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-040",
+      "feature": "Left join null lifting",
+      "reference_apis": [
+        "System.Linq.Queryable.LeftJoin"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.LeftJoin",
+        "NativeWeave.Query.LeftJoinedTable<TEntity>",
+        "NativeWeave.Query.Query<TEntity>.NullableValue",
+        "NativeWeave.Query.Query<TEntity>.NullableReference",
+        "NativeWeave.Query.Query<TEntity>.HasMatch"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "query_import(model)",
+        "clause18 JOIN RESERVE",
+        "expr_column/binary ON",
+        "clause7 JOIN COMMIT; clause19 JOIN ABORT on failure",
+        "clause20 JOIN MATCH"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Right-side projected scalars nullable; match marker distinct from null data; ON not moved to WHERE.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-041",
+      "feature": "Right/full outer join including .NET11 FullJoin",
+      "reference_apis": [
+        "System.Linq.Queryable.RightJoin",
+        "System.Linq.Queryable.FullJoin"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "SeaQuery capability is not automatically a C# binding",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 API allocation/performance claim.",
+      "limitations": "No stable v1 fluent method; both-side null-lifting and provider parity must be designed/verified before adding; explicit trusted SQL alternative.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-042",
+      "feature": "Explicit relationship load",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.Include",
+        "Microsoft.EntityFrameworkCore.ChangeTracking.CollectionEntry.LoadAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DataSession.LoadRelatedAsync",
+        "NativeWeave.Data.Relation<TParent,TChild>"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Relation.Load"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Explicit one-parent bounded FK query/composite metadata; no recursive Include/identity fix-up or hidden N+1.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-043",
+      "feature": "Bounded eager loading for many parents",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ThenInclude"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "SeaORM 2.0.4 loader algorithms; currently static associated-type boundary",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "Must bound key/result/group bytes before claiming support.",
+      "limitations": "Needs native runtime-metadata generalization of source-inspected SeaORM loader algorithm; static ModelTrait bounds are not ordinary runtime entity support.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-044",
+      "feature": "Grouping and HAVING",
+      "reference_apis": [
+        "System.Linq.Queryable.GroupBy"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.GroupBy",
+        "NativeWeave.Query.Query<TEntity>.Having"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause4",
+        "Query.Clause2"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Native grouping keys/aggregates; no materialized IGrouping or arbitrary C# group delegates.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-045",
+      "feature": "Count and existence",
+      "reference_apis": [
+        "System.Linq.Queryable.Count",
+        "System.Linq.Queryable.LongCount",
+        "System.Linq.Queryable.Any"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.CountAsync",
+        "NativeWeave.Query.Query<TEntity>.AnyAsync",
+        "NativeWeave.Query.Query<TEntity>.CountRows",
+        "NativeWeave.Query.SqlFunctions.Count"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Seal",
+        "Query.Clause13"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Int64 count; honors query distinct/group/paging through native subquery as needed; no client enumeration.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-046",
+      "feature": "Numeric aggregate",
+      "reference_apis": [
+        "System.Linq.Queryable.Sum",
+        "System.Linq.Queryable.Average"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.SqlFunctions.Sum",
+        "NativeWeave.Query.SqlFunctions.Average"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause13"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Declared int/long/decimal/double overloads; empty SUM/AVG nullable, checked provider result conversion, no implicit CLR empty zero. Nullable overloads are explicit; empty/all-NULL results stay nullable; integer AVG returns Double with documented rounding.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-047",
+      "feature": "Min/max aggregate",
+      "reference_apis": [
+        "System.Linq.Queryable.Min",
+        "System.Linq.Queryable.Max"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.SqlFunctions.Min",
+        "NativeWeave.Query.SqlFunctions.Max",
+        "NativeWeave.Query.SqlFunctions.MinText",
+        "NativeWeave.Query.SqlFunctions.MaxText"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause13"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Nullable empty results; SQL collation for text, provider comparison domain required.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-048",
+      "feature": "Deterministic ordering",
+      "reference_apis": [
+        "System.Linq.Queryable.OrderBy",
+        "System.Linq.Queryable.ThenBy",
+        "System.Linq.Queryable.OrderByDescending"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.OrderBy",
+        "NativeWeave.Query.Query<TEntity>.ThenBy",
+        "NativeWeave.Query.SortDirection",
+        "NativeWeave.Query.NullOrder"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause3"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "OrderBy replaces and ThenBy appends; explicit null ordering, paging needs unique tie-breaker.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-049",
+      "feature": "Offset pagination and limit",
+      "reference_apis": [
+        "System.Linq.Queryable.Skip",
+        "System.Linq.Queryable.Take"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.Skip",
+        "NativeWeave.Query.Query<TEntity>.Take"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause5"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Nonnegative finite bounds; offset requires unique ordered result; Take without ordering explicitly nondeterministic.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-050",
+      "feature": "Keyset pagination",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AsAsyncEnumerable (pagination guide comparison)"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.SeekAfter"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Expression.Binary",
+        "Query.Clause3"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Single nonnull unique ascending key only; no opaque client cursor signing/snapshot guarantee; composite/descending cursor convenience planned.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-051",
+      "feature": "Distinct and SQL sets",
+      "reference_apis": [
+        "System.Linq.Queryable.Distinct",
+        "System.Linq.Queryable.Union",
+        "System.Linq.Queryable.Intersect",
+        "System.Linq.Queryable.Except"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.Distinct",
+        "NativeWeave.Query.QuerySelection<T>.Combine",
+        "NativeWeave.Query.SetOperation"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause8",
+        "Query.Clause9"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Same source/exact projected codec shape; SQL duplicate/NULL semantics, native cloning charged.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-052",
+      "feature": "Subqueries and EXISTS",
+      "reference_apis": [
+        "System.Linq.Queryable.Any",
+        "System.Linq.Queryable.Contains"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.Exists",
+        "NativeWeave.Query.SqlExpression<T>.In"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause14"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "One compatible scalar for IN; same source and bounded shape; explicit native composition.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-053",
+      "feature": "CTEs and recursive CTEs",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.RelationalQueryableExtensions.FromSql (advanced SQL comparison)"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.CommonTable<T>.Create",
+        "NativeWeave.Query.Query<TEntity>.With"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "nw_db_cte_create_v1",
+        "query_import(kind3)",
+        "clause10 CTE ATTACH"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Explicit declared shape, validated anchor/member; SEARCH/CYCLE not promised; malformed native renderer inputs rejected.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-11"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-054",
+      "feature": "Window functions",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.RelationalQueryableExtensions.FromSql (window comparison)"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.Window",
+        "NativeWeave.Query.WindowDefinition",
+        "NativeWeave.Query.SqlExpression<T>.Over",
+        "NativeWeave.Query.SqlFunctions.RowNumber",
+        "NativeWeave.Query.SqlFunctions.Rank"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "clause11 Window create/append/set",
+        "clause13 Aggregate",
+        "clause21 Over"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Inline ROWS unbounded/current boundaries; no arbitrary named-window list/RANGE/GROUPS/offset frames.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-11"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-055",
+      "feature": "Conditional expressions and coalescing",
+      "reference_apis": [
+        "System.Linq.Queryable.Select"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.SqlFunctions.Case",
+        "NativeWeave.Query.SqlFunctions.Coalesce",
+        "NativeWeave.Query.SqlFunctions.CoalesceReference"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause15",
+        "Expression.Binary"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Explicit native CASE/COALESCE with compatible codecs; no arbitrary C# expression rewriting.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-056",
+      "feature": "Row locks",
+      "reference_apis": [
+        "System.Data.Common.DbTransaction",
+        "Microsoft.EntityFrameworkCore.RelationalQueryableExtensions.FromSql"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.ForUpdate",
+        "NativeWeave.Query.RowLockMode",
+        "NativeWeave.Query.LockWait"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause12"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "PG active transaction only; SQLite rejects rather than ignored lock SQL; no hidden emulation.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B05",
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-03",
+        "DBSRC-11"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-057",
+      "feature": "Prepared reusable shape",
+      "reference_apis": [
+        "System.Data.Common.DbCommand.PrepareAsync",
+        "Microsoft.EntityFrameworkCore.EF.CompileAsyncQuery"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.QuerySelection<T>.Prepare",
+        "NativeWeave.Query.PreparedQuery<T>",
+        "NativeWeave.Query.QueryParameter<T>",
+        "NativeWeave.Query.QueryParameters"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Seal",
+        "Execute.Create"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "Bounded shape cache + per-execution values; reuse across separate sessions, explicit native clones.",
+      "limitations": "Immutable source-bound native shape; per-connection SQLx prepared caches distinct; no dynamic IL.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-02",
+        "DBSRC-05",
+        "DBSRC-20"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-058",
+      "feature": "Dynamic allowlisted filters",
+      "reference_apis": [
+        "System.Linq.Queryable.Where",
+        "Dapper.DynamicParameters"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.Table<TEntity>.TryGetColumn",
+        "NativeWeave.Query.Query<TEntity>.WhereEqual"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Metadata.Resolve",
+        "Expression.Binary"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Only registered allowed column+codec IDs; no arbitrary property-name reflection, untrusted identifiers or runtime generic types.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B01",
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-059",
+      "feature": "SQL diagnostics",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToQueryString"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.QuerySelection<T>.ToSql"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Render"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "O(query shape/SQL text) native render and managed UTF-8 decode; not zero-cost logging.",
+      "limitations": "Native render clone, placeholders only, no parameter values; bounded diagnostic allocation.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-11"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-060",
+      "feature": "Integer/bool/string/binary codecs",
+      "reference_apis": [
+        "System.Data.Common.DbDataReader.GetInt64",
+        "System.Data.Common.DbDataReader.GetBoolean",
+        "System.Data.Common.DbDataReader.GetString",
+        "System.Data.Common.DbDataReader.GetBytes"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.Codecs.Int16",
+        "NativeWeave.Data.Codecs.Int32",
+        "NativeWeave.Data.Codecs.Int64",
+        "NativeWeave.Data.Codecs.Boolean",
+        "NativeWeave.Data.Codecs.String",
+        "NativeWeave.Data.Codecs.Bytes"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Codec.Register",
+        "Row.Materialize"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Checked widths/strict UTF8; SQLite boolean0/1; owned strings/arrays.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B12"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-061",
+      "feature": "UUID/date/time/instant codecs",
+      "reference_apis": [
+        "System.Data.Common.DbDataReader.GetGuid",
+        "System.DateOnly",
+        "System.TimeOnly",
+        "System.DateTimeOffset"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.Codecs.Guid",
+        "NativeWeave.Data.Codecs.Date",
+        "NativeWeave.Data.Codecs.Time",
+        "NativeWeave.Data.Codecs.UtcInstant",
+        "NativeWeave.Data.Codecs.UtcDateTime"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Codec.Register",
+        "Row.Materialize"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "RFC4122 GUID byte order, microsecond precision, explicit SQLite representations, checked range/loss. DateTime defaults to explicit UTC-only semantics: Kind=Utc required, no local timezone inference; DateTimeOffset is normalized to UTC.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B12"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-062",
+      "feature": "Decimal/money codecs",
+      "reference_apis": [
+        "System.Data.Common.DbDataReader.GetDecimal",
+        "System.Data.Common.DbParameter.Precision",
+        "System.Data.Common.DbParameter.Scale"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.Codecs.Decimal",
+        "NativeWeave.Data.Codecs.DecimalText",
+        "NativeWeave.Data.Codecs.FixedScaleMoney"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Codec.Register",
+        "Row.Materialize"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "PG numeric precision/scale explicit; SQLite text roundtrip not numeric ordering; fixed-scale Int64 separate profile.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04",
+        "DBSRC-06"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-063",
+      "feature": "Nullable and enum codecs",
+      "reference_apis": [
+        "System.Data.Common.DbDataReader.IsDBNull",
+        "System.Nullable<T>"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.Codecs.Nullable",
+        "NativeWeave.Data.Codecs.NullableReference",
+        "NativeWeave.Data.Codecs.EnumInt32"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Codec.Register",
+        "Row.Materialize"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "SQL NULL flag differs from missing field/default value; enum backing checked Int32, undefined values remain application policy.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B10"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-064",
+      "feature": "Static JSON DTO codecs",
+      "reference_apis": [
+        "System.Text.Json.Serialization.Metadata.JsonTypeInfo<T>",
+        "Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Data.Codecs.Json"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Codec.Register",
+        "Row.Materialize"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Explicit JsonTypeInfo and enabled native JSON profile; no reflection JSON fallback/automatic arbitrary-type JSON query engine.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B07",
+        "B10",
+        "B12"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [],
+      "reference_source_scope": "No individual source inspection is claimed for these named comparison APIs; the row records the explicit NativeWeave design boundary, supported by the linked native evidence and normative specification.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-065",
+      "feature": "Migrations and checksums",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.Migrations.IMigrator.MigrateAsync",
+        "Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.GetAppliedMigrationsAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DatabaseAdministration.MigrateAsync",
+        "NativeWeave.Database.MigrationBundle",
+        "NativeWeave.Database.Migration",
+        "NativeWeave.Database.DatabaseAdministration.GetMigrationStatusAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Admin.Migrate",
+        "Admin.Status"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Explicit immutable provider SQL bundles; dedicated connection; SQLx ledger/checksum/locking; no automatic startup migration.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B08"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-14"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-066",
+      "feature": "Migration validation",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.Migrations.IMigrator.HasPendingModelChanges"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DatabaseAdministration.ValidateMigrationsAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Admin.Validate"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Ledger/checksum/dirty validation only, not model/schema diff; AOT static bundle path.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B08"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-14"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-067",
+      "feature": "Schema inspection",
+      "reference_apis": [
+        "System.Data.Common.DbConnection.GetSchemaAsync",
+        "System.Data.Common.DbDataReader.GetColumnSchemaAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Database.DatabaseAdministration.GetTablesAsync",
+        "NativeWeave.Database.SchemaTable",
+        "NativeWeave.Database.SchemaColumn"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Admin.Tables"
+      ],
+      "support": "limited",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
+      "limitations": "Bounded tables/columns/key/nullability catalog; no arbitrary ADO metadata collections, DataTable or designer.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B08"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-01",
+        "DBSRC-04"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-068",
+      "feature": "No tracking query default",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AsNoTracking"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [
+        "NativeWeave.Query.QuerySelection<T>.ToListAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Row.Materialize"
+      ],
+      "support": "equivalent",
+      "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
+      "cost": "No identity-map/change-snapshot allocation; DTO construction still costs.",
+      "limitations": "All query DTOs untracked; absence of tracking is default, no redundant AsNoTracking call.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B12",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-069",
+      "feature": "ADO.NET provider compatibility",
+      "reference_apis": [
+        "System.Data.Common.DbConnection",
+        "System.Data.Common.DbProviderFactories"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "No DbConnection subclass/provider registration; Dapper cannot consume DataSession directly. Dapper-inspired convenience exists without duplicating ADO.NET architecture.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B01"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-01",
+        "DBSRC-07",
+        "DBSRC-20"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-070",
+      "feature": "DataTable/DataSet disconnected designer model",
+      "reference_apis": [
+        "System.Data.DataTable",
+        "System.Data.DataSet",
+        "System.Data.Common.DbDataAdapter"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "Disconnected mutable tables, designer adapters and object-valued row model add allocations/runtime surface outside this typed native design.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B01",
+        "B12"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-071",
+      "feature": "Synchronous database I/O",
+      "reference_apis": [
+        "System.Data.Common.DbCommand.ExecuteReader",
+        "System.Data.Common.DbConnection.Open"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "No sync-over-async/public blocking query facade; sync metadata/native builder calls remain available.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B04",
+        "B06"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-01",
+        "DBSRC-02"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-072",
+      "feature": "Distributed/ambient transactions",
+      "reference_apis": [
+        "System.Transactions.TransactionScope",
+        "System.Data.Common.DbConnection.EnlistTransaction"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "No distributed coordinator/ambient transaction propagation; explicit single native session transactions only.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B05"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-01"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-073",
+      "feature": "Multiple active readers on one session",
+      "reference_apis": [
+        "System.Data.Common.DbDataReader"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "One active physical-session operation; separate sessions provide concurrency.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B04",
+        "B06"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-074",
+      "feature": "Automatic write/transaction retry",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.Storage.IExecutionStrategy"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "Unknown effects cannot be replayed safely without application idempotency; framework exposes outcome and recovery identity.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B05",
+        "B21"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [],
+      "reference_source_scope": "No individual source inspection is claimed for these named comparison APIs; the row records the explicit NativeWeave design boundary, supported by the linked native evidence and normative specification.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-075",
+      "feature": "General change tracking/graph persistence",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker",
+        "Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "Explicit native CRUD/changesets/CAS; no C# state manager, graph traversal or hidden identity map.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-08",
+        "DBSRC-10"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-076",
+      "feature": "Transparent lazy loading/proxies",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "Hidden queries and runtime proxies conflict with explicit bounded operations/AOT.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [],
+      "reference_source_scope": "No individual source inspection is claimed for these named comparison APIs; the row records the explicit NativeWeave design boundary, supported by the linked native evidence and normative specification.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-077",
+      "feature": "Arbitrary IQueryable and C# predicates",
+      "reference_apis": [
+        "System.Linq.IQueryable<T>",
+        "System.Linq.Expressions.Expression<TDelegate>"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "No complete managed LINQ provider, method-body interception or client evaluation; normal proxy builder lambdas only.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B09",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-09",
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-078",
+      "feature": "CLR custom query comparers",
+      "reference_apis": [
+        "System.Linq.Queryable.OrderBy(IComparer<TKey>)",
+        "System.Linq.Queryable.Join(IEqualityComparer<TKey>)"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "SQL collation/operator semantics are native; arbitrary CLR comparer cannot be pushed to Rust/database faithfully.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-079",
+      "feature": "Automatic schema creation/down migrations",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreatedAsync",
+        "Microsoft.EntityFrameworkCore.Migrations.IMigrator.GenerateScript"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "No automatic schema diff/synchronization/destructive downgrade; reviewed SQL bundles are explicit.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B08"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-14"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-080",
+      "feature": "Runtime dynamic generic mapper",
+      "reference_apis": [
+        "Dapper.SqlMapper.Query(Type)",
+        "System.Reflection.Emit.DynamicMethod"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "Static DTO factories/closed generics/JsonTypeInfo only for ordinary AOT.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B10",
+        "B12"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [],
+      "reference_source_scope": "No individual source inspection is claimed for these named comparison APIs; the row records the explicit NativeWeave design boundary, supported by the linked native evidence and normative specification.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-081",
+      "feature": "SQL Server/MySQL/Oracle provider packages",
+      "reference_apis": [
+        "System.Data.Common.DbProviderFactory"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Not provided",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "No v1 implementation or performance claim; documented alternative only.",
+      "limitations": "Only PostgreSQL/SQLite are designed current product providers; SQLx support for another backend is not a public NativeWeave provider.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B02",
+        "B03"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-07"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-082",
+      "feature": "Multiple result grids",
+      "reference_apis": [
+        "Dapper.SqlMapper.QueryMultipleAsync",
+        "System.Data.Common.DbDataReader.NextResultAsync"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Potential native extension; not a current binding",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "Requires separate cost/ownership/native parity design before surface admission.",
+      "limitations": "Separate explicit queries in one transaction are available; future grid API needs ordered per-grid shape/ownership and skip/drain semantics.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B06",
+        "B12"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04",
+        "DBSRC-16",
+        "DBSRC-17"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-083",
+      "feature": "Stored procedure output/ref-cursor parameters",
+      "reference_apis": [
+        "System.Data.ParameterDirection.Output",
+        "Dapper.DynamicParameters"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Potential native extension; not a current binding",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "Requires separate cost/ownership/native parity design before surface admission.",
+      "limitations": "Trusted SQL CALL is possible within ordinary result rules; no output parameter or cursor ownership abstraction claimed.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B02",
+        "B06",
+        "B07"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-06"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-084",
+      "feature": "COPY and single-field incremental BLOB streams",
+      "reference_apis": [
+        "System.Data.Common.DbDataReader.GetStream",
+        "System.Data.Common.DbDataReader.GetTextReader"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Potential native extension; not a current binding",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "Requires separate cost/ownership/native parity design before surface admission.",
+      "limitations": "Row streaming is implemented separately; ordinary SQLx fields may materialize fully. New native streaming profile requires source-backed API and bounds.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B02",
+        "B03",
+        "B06"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-04"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-085",
+      "feature": "Provider arrays/composites/ranges/infinity values",
+      "reference_apis": [
+        "System.Data.Common.DbParameter.DbType"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Potential native extension; not a current binding",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "Requires separate cost/ownership/native parity design before surface admission.",
+      "limitations": "Separate codecs/capabilities and wire versions before exposing; no automatic claim from upstream implementations.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B07"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-06"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "verification/database-completion/source-inspection.json",
+        "docs/database/sqlx-retirement-study.md"
+      ]
+    },
+    {
+      "id": "DB-086",
+      "feature": "Advanced windows/CTE clauses/lateral joins",
+      "reference_apis": [
+        "Microsoft.EntityFrameworkCore.RelationalQueryableExtensions.FromSql"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Potential native extension; not a current binding",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "Requires separate cost/ownership/native parity design before surface admission.",
+      "limitations": "Named-window registries, frame offsets/RANGE/GROUPS, SEARCH/CYCLE and lateral policies need explicit bindings and provider parity.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-11"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-087",
+      "feature": "CLR GroupJoin/IGrouping object projection",
+      "reference_apis": [
+        "System.Linq.Queryable.GroupJoin"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Potential native extension; not a current binding",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "Requires separate cost/ownership/native parity design before surface admission.",
+      "limitations": "Native grouping and explicit joins available; general nested in-memory grouping would hide materialization/resource policy.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B12",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-088",
+      "feature": "LINQ TakeWhile/SkipWhile/Zip/DistinctBy",
+      "reference_apis": [
+        "System.Linq.Queryable.TakeWhile",
+        "System.Linq.Queryable.SkipWhile",
+        "System.Linq.Queryable.Zip",
+        "System.Linq.Queryable.DistinctBy"
+      ],
+      "reference_version": "BCL/LINQ .NET 11.0.0; EF Core 11.0.0; Dapper 2.1.89 (only named reference families apply)",
+      "public_api": [],
+      "rust_engine": "Potential native extension; not a current binding",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "Not a released/specified v1 product surface; no AOT support claimed.",
+      "cost": "Requires separate cost/ownership/native parity design before surface admission.",
+      "limitations": "No guessed SQL equivalence; explicit native windows/grouping/filters may express a particular query.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only",
+      "reference_source_ids": [
+        "DBSRC-21"
+      ],
+      "reference_source_scope": "Only the named declaration/body ranges in these source records are claimed inspected; a row may compare additional familiar API family members whose individual implementations were not read.",
+      "native_evidence_paths": [
+        "docs/research/topics/R25/source-driven-seaquery.md",
+        "docs/research/topics/R25/coverage.json"
+      ]
+    },
+    {
+      "id": "DB-089",
+      "feature": "Conditional Fluent filters",
+      "reference_apis": [
+        "SqlSugar.ISugarQueryable<T>.WhereIF"
+      ],
+      "reference_version": "SqlSugarCore 5.1.4.221 stable package; fixed project-version source snapshot 06789315fcea02f17901506b0cbf670a25192083",
+      "reference_source_ids": [
+        "DBSRC-23",
+        "DBSRC-25"
+      ],
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.WhereIf"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Expression.Binary",
+        "Query.Clause1"
+      ],
+      "support": "equivalent",
+      "aot": "Static typed design; product Windows/Linux AOT remains required.",
+      "cost": "Only explicit native query/value operations; no managed expression tree, runtime compilation or implicit query/result cache.",
+      "limitations": "False skips callback/native construction; predicate is a normal immediate builder delegate, not Expression<Func<TEntity,bool>>.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only"
+    },
+    {
+      "id": "DB-090",
+      "feature": "Composable dynamic predicates",
+      "reference_apis": [
+        "SqlSugar.Expressionable<T>.And/Or/AndIF/OrIF"
+      ],
+      "reference_version": "SqlSugarCore 5.1.4.221 stable package; fixed project-version source snapshot 06789315fcea02f17901506b0cbf670a25192083",
+      "reference_source_ids": [
+        "DBSRC-24"
+      ],
+      "public_api": [
+        "NativeWeave.Query.SqlPredicate.And/Or/Not"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Expression.Binary"
+      ],
+      "support": "equivalent",
+      "aot": "Static typed design; product Windows/Linux AOT remains required.",
+      "cost": "Only explicit native query/value operations; no managed expression tree, runtime compilation or implicit query/result cache.",
+      "limitations": "Native tokens are arena-scoped. Reusable C# functions construct predicates for the current query; no cross-arena predicate borrowing or expression compilation.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only"
+    },
+    {
+      "id": "DB-091",
+      "feature": "Explicit update columns and null intent",
+      "reference_apis": [
+        "SqlSugar.IUpdateable<T>.SetColumns/UpdateColumns/IgnoreNullColumns"
+      ],
+      "reference_version": "SqlSugarCore 5.1.4.221 stable package; fixed project-version source snapshot 06789315fcea02f17901506b0cbf670a25192083",
+      "reference_source_ids": [
+        "DBSRC-26"
+      ],
+      "public_api": [
+        "NativeWeave.Data.Changes<TEntity>.Set/Unset"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Mutation3",
+        "Query.Seal6"
+      ],
+      "support": "equivalent",
+      "aot": "Static typed design; product Windows/Linux AOT remains required.",
+      "cost": "Only explicit native query/value operations; no managed expression tree, runtime compilation or implicit query/result cache.",
+      "limitations": "Explicit null differs from absent assignment; no default-value heuristic or automatic reflective property comparison.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only"
+    },
+    {
+      "id": "DB-092",
+      "feature": "Paged rows with a separate total",
+      "reference_apis": [
+        "SqlSugar.ISugarQueryable<T>.ToPageListAsync(RefAsync<int>)"
+      ],
+      "reference_version": "SqlSugarCore 5.1.4.221 stable package; fixed project-version source snapshot 06789315fcea02f17901506b0cbf670a25192083",
+      "reference_source_ids": [
+        "DBSRC-23"
+      ],
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.Clone/CountAsync/Skip/Take"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clone",
+        "Query.Seal4",
+        "Query.Clause5"
+      ],
+      "support": "limited",
+      "aot": "Static typed design; product Windows/Linux AOT remains required.",
+      "cost": "Only explicit native query/value operations; no managed expression tree, runtime compilation or implicit query/result cache.",
+      "limitations": "Compose separate clone count and page executions; no hidden second query or mutable out parameter. Count before pagination, use explicit transaction isolation when a consistent snapshot is required.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only"
+    },
+    {
+      "id": "DB-093",
+      "feature": "Joined static DTO selection",
+      "reference_apis": [
+        "SqlSugar.ISugarQueryable<T,T2>.LeftJoin/Select"
+      ],
+      "reference_version": "SqlSugarCore 5.1.4.221 stable package; fixed project-version source snapshot 06789315fcea02f17901506b0cbf670a25192083",
+      "reference_source_ids": [
+        "DBSRC-23"
+      ],
+      "public_api": [
+        "NativeWeave.Query.Query<TEntity>.LeftJoin/Projection/Select"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Query.Clause7",
+        "Query.Clause6"
+      ],
+      "support": "equivalent",
+      "aot": "Static typed design; product Windows/Linux AOT remains required.",
+      "cost": "Only explicit native query/value operations; no managed expression tree, runtime compilation or implicit query/result cache.",
+      "limitations": "Explicit alias scopes and nullable right-side fields; constructor/projection supplied statically, without auto-fill reflection.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B12",
+        "B13"
+      ],
+      "implementation_status": "not_implemented_design_only"
+    },
+    {
+      "id": "DB-094",
+      "feature": "Optimistic lock execution",
+      "reference_apis": [
+        "SqlSugar.IUpdateable<T>.ExecuteCommandWithOptLockAsync"
+      ],
+      "reference_version": "SqlSugarCore 5.1.4.221 stable package; fixed project-version source snapshot 06789315fcea02f17901506b0cbf670a25192083",
+      "reference_source_ids": [
+        "DBSRC-26"
+      ],
+      "public_api": [
+        "NativeWeave.Database.DataSession.UpdateCheckedAsync"
+      ],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [
+        "Mutation3"
+      ],
+      "support": "equivalent",
+      "aot": "Static typed design; product Windows/Linux AOT remains required.",
+      "cost": "Only explicit native query/value operations; no managed expression tree, runtime compilation or implicit query/result cache.",
+      "limitations": "Required key/version values participate in the same native mutation; affected-count mismatch is a typed conflict, with no transparent retry.",
+      "specification": "docs/api/database.md",
+      "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "tasks": [
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only"
+    },
+    {
+      "id": "DB-095",
+      "feature": "Automatic table partition/shard routing",
+      "reference_apis": [
+        "SqlSugar.ISugarQueryable<T>.SplitTable"
+      ],
+      "reference_version": "SqlSugarCore 5.1.4.221 stable package; fixed project-version source snapshot 06789315fcea02f17901506b0cbf670a25192083",
+      "reference_source_ids": [
+        "DBSRC-23"
+      ],
+      "public_api": [],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [],
+      "support": "planned",
+      "aot": "No v1 surface or AOT support claimed.",
+      "cost": "Only explicit native query/value operations; no managed expression tree, runtime compilation or implicit query/result cache.",
+      "limitations": "Physical partition routing, cross-shard transactions and generated schema lifecycles need a separately designed native capability; explicit sources/tables remain available.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B09",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only"
+    },
+    {
+      "id": "DB-096",
+      "feature": "Implicit query filters and result cache",
+      "reference_apis": [
+        "SqlSugar.ISugarQueryable<T>.Filter/ClearFilter/WithCache"
+      ],
+      "reference_version": "SqlSugarCore 5.1.4.221 stable package; fixed project-version source snapshot 06789315fcea02f17901506b0cbf670a25192083",
+      "reference_source_ids": [
+        "DBSRC-23"
+      ],
+      "public_api": [],
+      "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "aot": "No v1 surface or AOT support claimed.",
+      "cost": "Only explicit native query/value operations; no managed expression tree, runtime compilation or implicit query/result cache.",
+      "limitations": "v1 has no hidden global mutable filter/cache state. Application typed query factories attach tenant/soft-delete predicates explicitly; result caching remains an application concern with explicit invalidation.",
+      "specification": "docs/api/database.md",
+      "signature_source": null,
+      "tasks": [
+        "B13",
+        "B14"
+      ],
+      "implementation_status": "not_implemented_design_only"
+    }
+  ]
+}

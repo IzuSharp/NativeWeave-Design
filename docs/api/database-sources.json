@@ -1,0 +1,868 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "database",
+  "recorded_at": "2026-11-14",
+  "reader": "/root/database_api",
+  "version_resolution": [
+    {
+      "repository": "dotnet/runtime",
+      "tag": "v11.0.0",
+      "sha": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "method": "git ls-remote observed"
+    },
+    {
+      "repository": "dotnet/efcore",
+      "tag": "v11.0.0",
+      "sha": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "method": "git ls-remote observed"
+    },
+    {
+      "repository": "DapperLib/Dapper",
+      "tag": "2.1.89",
+      "sha": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+      "method": "git ls-remote + official GitHub release observed"
+    },
+    {
+      "repository": "DotNetNext/SqlSugar",
+      "package": "SqlSugarCore",
+      "version": "5.1.4.221",
+      "tag": null,
+      "sha": "06789315fcea02f17901506b0cbf670a25192083",
+      "method": "NuGet current stable page and pinned Src/Asp.NetCore2/SqlSugar/SqlSugar.csproj Version=5.1.4.221 observed; git ls-remote HEAD fixed at the listed SHA. No matching tag exists in observed refs. Package-to-commit reproducibility is not asserted."
+    }
+  ],
+  "official_release_sources": [
+    {
+      "url": "https://dotnet.microsoft.com/en-us/download/dotnet/11.0",
+      "fact": "Stable SDK11.0.100/runtime11.0.0 release 2026-11-10"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
+      "fact": "Official release includes EF11; current release announcement takes precedence over cached Learn pages still describing development"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+      "fact": "net11.0 stable default C#15; preview features excluded"
+    },
+    {
+      "url": "https://github.com/DapperLib/Dapper/releases/tag/2.1.89",
+      "fact": "Stable Dapper2.1.89 release 2026-09-23"
+    },
+    {
+      "url": "https://www.nuget.org/packages/SqlSugarCore/5.1.4.221",
+      "fact": "Stable package 5.1.4.221, published 2026-09-13; current gallery/version list inspected 2026-11-14."
+    }
+  ],
+  "source_records": [
+    {
+      "id": "DBSRC-01",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Data.Common/src/System/Data/Common/DbConnection.cs",
+      "git_blob_sha": "d983aad07c71bfc97d66de249efa8493f03bf15a",
+      "sha256": "b3ed9f8226a5f643ea5254d868339499e9f0342ddcb280d10d5074c9899c6b06",
+      "total_lines": 344,
+      "read_ranges": [
+        [
+          1,
+          130
+        ],
+        [
+          250,
+          344
+        ]
+      ],
+      "symbols": [
+        "BeginTransactionAsync",
+        "CloseAsync",
+        "DisposeAsync",
+        "GetSchemaAsync",
+        "OpenAsync"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Data.Common/src/System/Data/Common/DbConnection.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-02",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Data.Common/src/System/Data/Common/DbCommand.cs",
+      "git_blob_sha": "5538ea867a81b3e8e31868576302e6d2150875dd",
+      "sha256": "c8f6f56c13b82f0556f5c5235dafe96e6c434fbea4476ad0087220eea85d033f",
+      "total_lines": 251,
+      "read_ranges": [
+        [
+          1,
+          170
+        ]
+      ],
+      "symbols": [
+        "CommandTimeout",
+        "Parameters",
+        "Cancel",
+        "ExecuteNonQueryAsync",
+        "ExecuteReaderAsync"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Data.Common/src/System/Data/Common/DbCommand.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-03",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Data.Common/src/System/Data/Common/DbTransaction.cs",
+      "git_blob_sha": "9dfdf768eea915faff21305a6329254d5009db43",
+      "sha256": "3e5acfb236ca754674bcbc0f61fdea152e0e7c8896d26e91d97c724bce3b1699",
+      "total_lines": 187,
+      "read_ranges": [
+        [
+          1,
+          187
+        ]
+      ],
+      "symbols": [
+        "CommitAsync",
+        "RollbackAsync",
+        "SaveAsync",
+        "ReleaseAsync",
+        "SupportsSavepoints"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Data.Common/src/System/Data/Common/DbTransaction.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-04",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Data.Common/src/System/Data/Common/DbDataReader.cs",
+      "git_blob_sha": "77f2184ea1b03483fa3fad44b482ed8f49295a4e",
+      "sha256": "c2f3c2871cbc269fcb5ffb2c471c92336812a76ce642b22dd65228dad125a91e",
+      "total_lines": 340,
+      "read_ranges": [
+        [
+          1,
+          160
+        ],
+        [
+          220,
+          340
+        ]
+      ],
+      "symbols": [
+        "FieldCount",
+        "GetFieldValue",
+        "GetSchemaTableAsync",
+        "GetColumnSchemaAsync",
+        "ReadAsync",
+        "NextResultAsync"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Data.Common/src/System/Data/Common/DbDataReader.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-05",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Data.Common/src/System/Data/Common/DbBatch.cs",
+      "git_blob_sha": "8b9e9888a046bc159dd55a58d993ff06e2455214",
+      "sha256": "28854df2fcdaa7d6ed8fb29f143c4b75fabfc08a6f7bd921793b448c11cf7790",
+      "total_lines": 76,
+      "read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "symbols": [
+        "ExecuteReaderAsync",
+        "ExecuteNonQueryAsync",
+        "PrepareAsync"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Data.Common/src/System/Data/Common/DbBatch.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-06",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Data.Common/src/System/Data/Common/DbParameter.cs",
+      "git_blob_sha": "c637e4fd62d576d328ce0a765408a6e9fb31d0d1",
+      "sha256": "fdb1e5d41943b93e9f35aea257487cb6b0572cc4587fa38b2d5e666604b9872b",
+      "total_lines": 80,
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "symbols": [
+        "DbType",
+        "Direction",
+        "Precision",
+        "Scale",
+        "Value"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Data.Common/src/System/Data/Common/DbParameter.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-07",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Data.Common/src/System/Data/Common/DbProviderFactory.cs",
+      "git_blob_sha": "f133e5a0cddbf4916e9c80e1f7a61ed343e30c4a",
+      "sha256": "3fc2770840ee351c0de4b9a5b4cb56c618a9ae6cedc2f2a6e96e958f3b48669c",
+      "total_lines": 73,
+      "read_ranges": [
+        [
+          1,
+          73
+        ]
+      ],
+      "symbols": [
+        "CreateDataSource",
+        "CreateConnection",
+        "CreateParameter"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Data.Common/src/System/Data/Common/DbProviderFactory.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-08",
+      "repository": "https://github.com/dotnet/efcore",
+      "version": "11.0.0",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/DbContext.cs",
+      "git_blob_sha": "7af3bf24a1f3fd66941f352aead6f1810a865966",
+      "sha256": "305da66750a8aa477b39a80b7f0c0feae21abd0d765051608586db7d99b6e07d",
+      "total_lines": 2326,
+      "read_ranges": [
+        [
+          716,
+          809
+        ]
+      ],
+      "symbols": [
+        "SaveChangesAsync",
+        "TryDetectChanges",
+        "DbUpdateConcurrencyException"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/DbContext.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-09",
+      "repository": "https://github.com/dotnet/efcore",
+      "version": "11.0.0",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/DbSet.cs",
+      "git_blob_sha": "7a89377df71cc4e7c19bd09c203f67094097b34d",
+      "sha256": "016c00eb59f523a227d70a80b71a812cf3d5b990423cab52800b51fd36c020d0",
+      "total_lines": 749,
+      "read_ranges": [
+        [
+          1,
+          76
+        ],
+        [
+          118,
+          156
+        ],
+        [
+          187,
+          210
+        ]
+      ],
+      "symbols": [
+        "AsAsyncEnumerable",
+        "AsQueryable",
+        "FindAsync",
+        "AddAsync"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/DbSet.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-10",
+      "repository": "https://github.com/dotnet/efcore",
+      "version": "11.0.0",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/Extensions/EntityFrameworkQueryableExtensions.cs",
+      "git_blob_sha": "c333c9ff04915f6c9525bb1e9160a9622a70b0d3",
+      "sha256": "71da0d15f75bacdbb7423755678b5706652993d127f4c0f62f1fe323ead641ed",
+      "total_lines": 3632,
+      "read_ranges": [
+        [
+          2571,
+          2600
+        ],
+        [
+          2721,
+          2745
+        ],
+        [
+          2971,
+          3036
+        ],
+        [
+          3440,
+          3468
+        ],
+        [
+          3502,
+          3538
+        ],
+        [
+          3580,
+          3625
+        ]
+      ],
+      "symbols": [
+        "ToListAsync",
+        "Include",
+        "AsNoTracking",
+        "AsNoTrackingWithIdentityResolution",
+        "AsAsyncEnumerable",
+        "ExecuteDeleteAsync",
+        "ExecuteUpdateAsync"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/Extensions/EntityFrameworkQueryableExtensions.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-11",
+      "repository": "https://github.com/dotnet/efcore",
+      "version": "11.0.0",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore.Relational/Extensions/RelationalQueryableExtensions.cs",
+      "git_blob_sha": "2188e7a6f90a8db2456739aed3e107e16bd932b3",
+      "sha256": "3eaab01716bbdc85e4cb0ca750f6b5122ababc2a8f6b9af46931e9b5088f4224",
+      "total_lines": 267,
+      "read_ranges": [
+        [
+          60,
+          95
+        ],
+        [
+          113,
+          138
+        ],
+        [
+          155,
+          181
+        ]
+      ],
+      "symbols": [
+        "FromSqlRaw",
+        "FromSqlInterpolated",
+        "FromSql"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Extensions/RelationalQueryableExtensions.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-12",
+      "repository": "https://github.com/dotnet/efcore",
+      "version": "11.0.0",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/Storage/IDbContextTransaction.cs",
+      "git_blob_sha": "45448af7343b60956901dea4971037423b8c11fa",
+      "sha256": "f0c28b68a6adb91ea7242630930f11a14a64abcf8f355c3ed5e84864a2d200f5",
+      "total_lines": 170,
+      "read_ranges": [
+        [
+          18,
+          65
+        ],
+        [
+          100,
+          170
+        ]
+      ],
+      "symbols": [
+        "CommitAsync",
+        "RollbackAsync",
+        "RollbackToSavepointAsync",
+        "ReleaseSavepointAsync",
+        "SupportsSavepoints"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/Storage/IDbContextTransaction.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-13",
+      "repository": "https://github.com/dotnet/efcore",
+      "version": "11.0.0",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore/Infrastructure/DatabaseFacade.cs",
+      "git_blob_sha": "62792251a55776fd2860d21a68a977c1336adcd1",
+      "sha256": "71ddb2ce55ef091fabc0518c413fafbd3da49249a47a936d2fff833c2a397869",
+      "total_lines": 529,
+      "read_ranges": [],
+      "symbols": [],
+      "read_status": "downloaded_unread",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore/Infrastructure/DatabaseFacade.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-14",
+      "repository": "https://github.com/dotnet/efcore",
+      "version": "11.0.0",
+      "commit": "9e685c7a52d1a344d133a3d370e458db97417b3f",
+      "path": "src/EFCore.Relational/Migrations/IMigrator.cs",
+      "git_blob_sha": "c7d1bf45c1113f83183dfda8a633be5c6b371345",
+      "sha256": "2a5e830ec28c1dafcf1fc0d1e885ffd897a92d2c2a07062df8fba7b21c9edf72",
+      "total_lines": 93,
+      "read_ranges": [
+        [
+          1,
+          93
+        ]
+      ],
+      "symbols": [
+        "MigrateAsync",
+        "GenerateScript",
+        "HasPendingModelChanges",
+        "RequiresDynamicCode",
+        "RequiresUnreferencedCode"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/efcore/blob/9e685c7a52d1a344d133a3d370e458db97417b3f/src/EFCore.Relational/Migrations/IMigrator.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-15",
+      "repository": "https://github.com/DapperLib/Dapper",
+      "version": "2.1.89",
+      "commit": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+      "path": "Dapper/CommandDefinition.cs",
+      "git_blob_sha": "19963ba6718ec3c827cede921cd8391150fc28dd",
+      "sha256": "3ce9d8efb1faa39f4b03698604d2be0f8f575a85595cd9850e337c2b820690f6",
+      "total_lines": 211,
+      "read_ranges": [
+        [
+          20,
+          110
+        ]
+      ],
+      "symbols": [
+        "CommandText",
+        "Parameters",
+        "CommandTimeout",
+        "Buffered",
+        "CommandDefinition"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/CommandDefinition.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-16",
+      "repository": "https://github.com/DapperLib/Dapper",
+      "version": "2.1.89",
+      "commit": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+      "path": "Dapper/SqlMapper.Async.cs",
+      "git_blob_sha": "eade08cb26b6f8eb3a2cf4fe2a717af64d71d828",
+      "sha256": "db398197bcf0ab46a130924adda9d23eb95004867e1a01a0869eaf405db5c647",
+      "total_lines": 1352,
+      "read_ranges": [
+        [
+          422,
+          472
+        ],
+        [
+          1022,
+          1109
+        ],
+        [
+          1281,
+          1352
+        ]
+      ],
+      "symbols": [
+        "QueryAsync buffered/deferred branch",
+        "QueryMultipleAsync",
+        "QueryUnbufferedAsync",
+        "finally reader disposal"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/SqlMapper.Async.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-17",
+      "repository": "https://github.com/DapperLib/Dapper",
+      "version": "2.1.89",
+      "commit": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+      "path": "Dapper/SqlMapper.GridReader.Async.cs",
+      "git_blob_sha": "a32d5312403c13aa8b4b55959a32cdb74224d0c0",
+      "sha256": "34e975c7d8b3f0d3ce46ee4c85dba50f92e00f4acca4c73cc5d8a85215098e35",
+      "total_lines": 314,
+      "read_ranges": [
+        [
+          230,
+          314
+        ]
+      ],
+      "symbols": [
+        "ReadUnbufferedAsync",
+        "DisposeAsync"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/SqlMapper.GridReader.Async.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-18",
+      "repository": "https://github.com/DapperLib/Dapper",
+      "version": "2.1.89",
+      "commit": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+      "path": "Dapper/SqlMapper.cs",
+      "git_blob_sha": "8f3956cab6742a1505561dae145ebeac597c09b4",
+      "sha256": "86b7b8e2fec90482eda1d87807c850d495131270175e11b188446c39fcc87cec",
+      "total_lines": 4207,
+      "read_ranges": [],
+      "symbols": [],
+      "read_status": "downloaded_unread",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/SqlMapper.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-19",
+      "repository": "https://github.com/DapperLib/Dapper",
+      "version": "2.1.89",
+      "commit": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+      "path": "Readme.md",
+      "git_blob_sha": "c259528a544ab2d14487db6e323238c1824de5ae",
+      "sha256": "39ae4c8dd31e397e6578ed01affcae7c5c7e1425cf31880f2de3a862d28aebbb",
+      "total_lines": 474,
+      "read_ranges": [],
+      "symbols": [],
+      "read_status": "downloaded_unread",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Readme.md",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-20",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Data.Common/src/System/Data/Common/DbDataSource.cs",
+      "git_blob_sha": "566813eb362c1406a89b146dac9f12f67975dbc3",
+      "sha256": "e27eb6abbbeed2e0feb4769fc7f2f978212434607e115fa9575e30e4b4c42eef",
+      "total_lines": 584,
+      "read_ranges": [
+        [
+          1,
+          584
+        ]
+      ],
+      "symbols": [
+        "OpenConnectionAsync",
+        "CreateCommand",
+        "CreateBatch",
+        "DisposeAsync",
+        "DbCommandWrapper.Prepare"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Data.Common/src/System/Data/Common/DbDataSource.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed."
+    },
+    {
+      "id": "DBSRC-21",
+      "repository": "https://github.com/dotnet/runtime",
+      "version": "11.0.0",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Linq.Queryable/src/System/Linq/Queryable.cs",
+      "git_blob_sha": "e6363aff993446f46bc833f3080832b91c3c9c79",
+      "sha256": "1a0a9f75a25e74c1e17b00aa6f517c5161beffd5f70ab1fc667de119cd8aec71",
+      "total_lines": 3391,
+      "read_ranges": [
+        [
+          1241,
+          1294
+        ]
+      ],
+      "symbols": [
+        "FullJoin result-selector overload",
+        "FullJoin tuple overload",
+        "Where/Select/Join/LeftJoin/RightJoin/GroupBy/OrderBy/Take/Skip/Distinct/set declarations"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Linq.Queryable/src/System/Linq/Queryable.cs",
+      "limitations": "Only listed ranges and explicitly named declaration scans were inspected; unlisted bodies/dependencies/tests are not claimed read or executed.",
+      "declaration_scan_lines": [
+        48,
+        61,
+        98,
+        111,
+        124,
+        137,
+        150,
+        164,
+        281,
+        396,
+        429,
+        457,
+        472,
+        488,
+        602,
+        717,
+        746,
+        834,
+        847,
+        933,
+        946,
+        1056,
+        1170,
+        1199,
+        1251,
+        1282,
+        1297,
+        1310,
+        1323,
+        1336,
+        1349,
+        1367,
+        1379,
+        1392,
+        1405,
+        1417,
+        1430,
+        1443,
+        1456,
+        1470,
+        1483,
+        1497,
+        1512,
+        1526,
+        1540,
+        1555,
+        1567,
+        1586,
+        1607,
+        1669,
+        1707,
+        1720,
+        1743,
+        1766,
+        1800,
+        1813,
+        1836,
+        1861,
+        1878
+      ]
+    },
+    {
+      "id": "DBSRC-22",
+      "repository": "https://github.com/DotNetNext/SqlSugar",
+      "version": "5.1.4.221 project-version snapshot",
+      "commit": "06789315fcea02f17901506b0cbf670a25192083",
+      "path": "Src/Asp.NetCore2/SqlSugar/SqlSugar.csproj",
+      "git_blob_sha": "9a0e3a22d4e68afdd728cb6d34ed6001604bd8ba",
+      "sha256": "aa779274d0cd753788df6611ffaff09eccd27d1a418319168b144a2038e4c413",
+      "total_lines": 37,
+      "read_ranges": [
+        [
+          1,
+          37
+        ]
+      ],
+      "symbols": [
+        "Version",
+        "TargetFramework",
+        "PackageReference"
+      ],
+      "read_status": "read_full",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DotNetNext/SqlSugar/blob/06789315fcea02f17901506b0cbf670a25192083/Src/Asp.NetCore2/SqlSugar/SqlSugar.csproj",
+      "limitations": "Only the listed source ranges and specifically named declaration scans were read; no SqlSugar binary, upstream tests or AOT workload was executed. Project version matches the stable NuGet version but build provenance is not independently reproduced."
+    },
+    {
+      "id": "DBSRC-23",
+      "repository": "https://github.com/DotNetNext/SqlSugar",
+      "version": "5.1.4.221 project-version snapshot",
+      "commit": "06789315fcea02f17901506b0cbf670a25192083",
+      "path": "Src/Asp.NetCore2/SqlSugar/Interface/IQueryable.cs",
+      "git_blob_sha": "14eff8e27d16ec6b8a6abf42fe2263cd6b3c628b",
+      "sha256": "823b011372681e07c1d0318768a00463a4e9c2216526c9d8115493ec9c02fefb",
+      "total_lines": 1963,
+      "read_ranges": [
+        [
+          1,
+          245
+        ],
+        [
+          300,
+          410
+        ]
+      ],
+      "symbols": [
+        "ISugarQueryable<T>",
+        "WhereIF",
+        "LeftJoin",
+        "Select",
+        "ToPageListAsync",
+        "CountAsync",
+        "SumAsync",
+        "GetAsyncEnumerable",
+        "Clone",
+        "WithCache",
+        "SplitTable"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DotNetNext/SqlSugar/blob/06789315fcea02f17901506b0cbf670a25192083/Src/Asp.NetCore2/SqlSugar/Interface/IQueryable.cs",
+      "limitations": "Only the listed source ranges and specifically named declaration scans were read; no SqlSugar binary, upstream tests or AOT workload was executed. Project version matches the stable NuGet version but build provenance is not independently reproduced."
+    },
+    {
+      "id": "DBSRC-24",
+      "repository": "https://github.com/DotNetNext/SqlSugar",
+      "version": "5.1.4.221 project-version snapshot",
+      "commit": "06789315fcea02f17901506b0cbf670a25192083",
+      "path": "Src/Asp.NetCore2/SqlSugar/Abstract/ExpressionableProvider/Expressionable.cs",
+      "git_blob_sha": "53fbbc8b2d0d619031f6ad5859f769e43fd19677",
+      "sha256": "df8f86bcab96a50df924d6780e443a3234402351d14f316b4240db8dc5d352a2",
+      "total_lines": 589,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "symbols": [
+        "Expressionable<T>.And",
+        "Or",
+        "AndIF",
+        "OrIF",
+        "ToExpression"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DotNetNext/SqlSugar/blob/06789315fcea02f17901506b0cbf670a25192083/Src/Asp.NetCore2/SqlSugar/Abstract/ExpressionableProvider/Expressionable.cs",
+      "limitations": "Only the listed source ranges and specifically named declaration scans were read; no SqlSugar binary, upstream tests or AOT workload was executed. Project version matches the stable NuGet version but build provenance is not independently reproduced."
+    },
+    {
+      "id": "DBSRC-25",
+      "repository": "https://github.com/DotNetNext/SqlSugar",
+      "version": "5.1.4.221 project-version snapshot",
+      "commit": "06789315fcea02f17901506b0cbf670a25192083",
+      "path": "Src/Asp.NetCore2/SqlSugar/Abstract/QueryableProvider/QueryableProvider.cs",
+      "git_blob_sha": "b15ef18c25b7602250b274ae2f7348f5a815e8a9",
+      "sha256": "9c7a520a145efd8ae30858897a7da88c7f98a55c6da25c9a3c9a2a3cf2a8db57",
+      "total_lines": 1852,
+      "read_ranges": [
+        [
+          1090,
+          1125
+        ]
+      ],
+      "symbols": [
+        "QueryableProvider<T>.WhereIF"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DotNetNext/SqlSugar/blob/06789315fcea02f17901506b0cbf670a25192083/Src/Asp.NetCore2/SqlSugar/Abstract/QueryableProvider/QueryableProvider.cs",
+      "limitations": "Only the listed source ranges and specifically named declaration scans were read; no SqlSugar binary, upstream tests or AOT workload was executed. Project version matches the stable NuGet version but build provenance is not independently reproduced."
+    },
+    {
+      "id": "DBSRC-26",
+      "repository": "https://github.com/DotNetNext/SqlSugar",
+      "version": "5.1.4.221 project-version snapshot",
+      "commit": "06789315fcea02f17901506b0cbf670a25192083",
+      "path": "Src/Asp.NetCore2/SqlSugar/Interface/IUpdateable.cs",
+      "git_blob_sha": "415227b9135e713d96aa5f94b67c3b11772a11ae",
+      "sha256": "ea7ee75e7ee26a62269c85849380ddb81c74623a0264ab04b06658613ddd9a5d",
+      "total_lines": 153,
+      "read_ranges": [
+        [
+          1,
+          120
+        ]
+      ],
+      "symbols": [
+        "IUpdateable<T>.SetColumns",
+        "UpdateColumns",
+        "IgnoreNullColumns",
+        "ExecuteCommandWithOptLockAsync"
+      ],
+      "read_status": "read_partial",
+      "reader": "/root/database_api",
+      "url": "https://github.com/DotNetNext/SqlSugar/blob/06789315fcea02f17901506b0cbf670a25192083/Src/Asp.NetCore2/SqlSugar/Interface/IUpdateable.cs",
+      "limitations": "Only the listed source ranges and specifically named declaration scans were read; no SqlSugar binary, upstream tests or AOT workload was executed. Project version matches the stable NuGet version but build provenance is not independently reproduced."
+    }
+  ],
+  "reused_native_evidence": [
+    {
+      "path": "docs/research/source-driven-evidence/source-inspection.json",
+      "baseline_commit": "a0f6bca1f55ddf456fe931886da8be19e94a1413",
+      "sha256": "70cb01c8441e414194a0b8c4e298f07eb1ec12284afb5c706b3de04d3e80a44a",
+      "scope": "Reused accepted source/evidence records; read current design conclusions, not rerun native experiments. Exact original source readers/ranges/execution provenance remain in the linked file."
+    },
+    {
+      "path": "verification/database-completion/source-inspection.json",
+      "baseline_commit": "a0f6bca1f55ddf456fe931886da8be19e94a1413",
+      "sha256": "3460b9adf3bb5dbd86e03917f35a759df92eaca94d0d8e99090e5739e03c6622",
+      "scope": "Reused accepted source/evidence records; read current design conclusions, not rerun native experiments. Exact original source readers/ranges/execution provenance remain in the linked file."
+    },
+    {
+      "path": "docs/research/topics/R25/coverage.json",
+      "baseline_commit": "a0f6bca1f55ddf456fe931886da8be19e94a1413",
+      "sha256": "f8fd20c42af411d509db99ca920a6aac17bd3eb3b6232b14b3d78cdfe3814b43",
+      "scope": "Reused accepted source/evidence records; read current design conclusions, not rerun native experiments. Exact original source readers/ranges/execution provenance remain in the linked file."
+    },
+    {
+      "path": "docs/research/topics/R25/source-driven-seaquery.md",
+      "baseline_commit": "a0f6bca1f55ddf456fe931886da8be19e94a1413",
+      "sha256": "d2bd3c03a92debc4e8d935eaf156d848e4ff6d9a13a68d2017bb6ec1f3a8ac7a",
+      "scope": "Reused accepted source/evidence records; read current design conclusions, not rerun native experiments. Exact original source readers/ranges/execution provenance remain in the linked file."
+    },
+    {
+      "path": "docs/database/sqlx-retirement-study.md",
+      "baseline_commit": "a0f6bca1f55ddf456fe931886da8be19e94a1413",
+      "sha256": "b37aac712a8028ad5d985d6ca2a3644c02dc4f11c31ea394b65f7d0d0eb6ae32",
+      "scope": "Reused accepted source/evidence records; read current design conclusions, not rerun native experiments. Exact original source readers/ranges/execution provenance remain in the linked file."
+    }
+  ],
+  "execution": "No upstream tests or native database product operations executed in this API research. Root aggregate compile/AOT evidence is separate."
+}

@@ -1,0 +1,386 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "public API design compilation and static consumer fixture",
+  "recorded_at_utc": "2026-11-14T11:18:20.397802+00:00",
+  "platform": "Linux",
+  "architecture": "x86_64",
+  "sdk": "11.0.100",
+  "language": "15.0",
+  "passed": true,
+  "native_aot_executed": true,
+  "product_implemented": false,
+  "product_operations_executed": false,
+  "native_product_modules_loaded": false,
+  "inputs": [
+    {
+      "path": "experiments/public-api/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b",
+      "bytes": 501
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Checks/NativeWeave.Api.Checks.csproj",
+      "sha256": "f2d56357c548b66f8e839a7ec1054e66cbfac06c737ca9c3fdc0ad961189d034",
+      "bytes": 440
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Checks/Program.cs",
+      "sha256": "4a93babe4147eab56c5a0092bc90ef1b549756e9116598ea26713cfb79eba11b",
+      "bytes": 4318
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs",
+      "sha256": "e90abba48c149656f4a3c0a9c5651c3a313caa22f704c7e5f4dad03b36fe1ac8",
+      "bytes": 4746
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+      "sha256": "708799c449b6429dbbd6f5c0a3719c82a0c4f8b9171102f457a1a991af320f53",
+      "bytes": 6040
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+      "sha256": "7b1ec450f8a61d21904084ee71ebff6bf179b2e165580511f7e37ca494e4b286",
+      "bytes": 1215
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/NativeWeave.Api.Consumers.csproj",
+      "sha256": "512253eb605e2fb96a1fe9cbe3e826e7c63d39435be094b48621d83f4754de34",
+      "bytes": 681
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/Program.cs",
+      "sha256": "9261535d9b24d779c421d4828e4d0a76871778aa6a2eb38ea381dbf2bb953a74",
+      "bytes": 676
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+      "sha256": "9fa77efd76fc9283b2d3a2fa74d2562112fcebdf8c03dee6000891cf1f606c9a",
+      "bytes": 7432
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/packages.lock.json",
+      "sha256": "499464beee9f304e290ef0dc669c0e379fa3ba1e9e2091f886333905a2a1b99d",
+      "bytes": 8482
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "sha256": "872cf6df5abfd93bc337a1327c9873b48ac755780405c3e345e20f440b8998e4",
+      "bytes": 115879
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/NativeWeave.Api.Design.csproj",
+      "sha256": "4edbfff50aa1edaaf2e799a7589e3e2af143296519baaf4ce1d7a8bf13e17f4a",
+      "bytes": 1228
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+      "sha256": "42f2e3f9ceab631407d94c503e10b0522606f9f22d92ebf53509674dcdb38a89",
+      "bytes": 56719
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/packages.lock.json",
+      "sha256": "dad2f7eefc0d5d48168894933b0605dd0072c55d7ccc37fda80950d158dab425",
+      "bytes": 8259
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2",
+      "bytes": 472
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "b0afafc1cd9d42f890d5f83118073f8817b3f83cedd49f4dd36901100bc873c1",
+      "bytes": 11247
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61
+    },
+    {
+      "path": "experiments/public-api/NuGet.Config",
+      "sha256": "f9b648792322a9e10b4f1cbdaf37e947d7c9b7431f4c9eb5948d1d24bba97fb9",
+      "bytes": 258
+    },
+    {
+      "path": "experiments/public-api/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158
+    },
+    {
+      "path": "experiments/public-api/abi/layout_probe.c",
+      "sha256": "6a60995ce974477dc7e565b7c8c9a02f146d5b7cce29b31e46922ccef8ecb3f2",
+      "bytes": 2314
+    },
+    {
+      "path": "experiments/public-api/abi/nativeweave_api_v1.h",
+      "sha256": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+      "bytes": 2239
+    },
+    {
+      "path": "experiments/public-api/abi/nativeweave_server_api_v1.h",
+      "sha256": "1fc37b88d795a0d928504e5d87cdaef6a81b3fe58bd2494fb3320ceedc5ca50a",
+      "bytes": 10021
+    },
+    {
+      "path": "experiments/public-api/abi/server_layout_probe.c",
+      "sha256": "d7381b8852fdac662cd3f0aefa96a435e88681b8eafa95ab22e35eb2adf4b988",
+      "bytes": 1539
+    },
+    {
+      "path": "experiments/public-api/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58",
+      "bytes": 105
+    },
+    {
+      "path": "experiments/public-api/negative/DatabaseNonNumericArithmetic.cs.txt",
+      "sha256": "afbe6696a18b9d52e50cf1737adb3c16798cdb9db4542d321de19863efaeb2ae",
+      "bytes": 331
+    },
+    {
+      "path": "experiments/public-api/negative/DatabaseNullableJoin.cs.txt",
+      "sha256": "fbb87c2a7e21ce403c96a29aec8c6806fa3252ed115e10726bb81899ec1417f0",
+      "bytes": 387
+    },
+    {
+      "path": "experiments/public-api/negative/DatabaseStructEntity.cs.txt",
+      "sha256": "a2e82ded8b331a251f5661c4f86afbff461822cbfa342849c3a200013a7f7834",
+      "bytes": 294
+    },
+    {
+      "path": "experiments/public-api/negative/DatabaseWrongEntity.cs.txt",
+      "sha256": "95fec16025e02a4ea43323af2f2ec7715ba5d2442baae856cefed6ca7221640b",
+      "bytes": 313
+    },
+    {
+      "path": "experiments/public-api/negative/DatabaseWrongValue.cs.txt",
+      "sha256": "18e002a66f6e07a1bfb8ae429288d11262ed744d357e610498be0508d175d21e",
+      "bytes": 318
+    },
+    {
+      "path": "experiments/public-api/negative/server-arbitrary-delegate.cs",
+      "sha256": "bdbb6d66e34ec505a3d3fdb23c6ed5cdf18e441fda4e95a74168008201c166a2",
+      "bytes": 362
+    },
+    {
+      "path": "experiments/public-api/negative/server-cases.json",
+      "sha256": "dc12b5fd87f881afb01737de111d2a514a00ab606e26cf6824eb3ff39a0a10a0",
+      "bytes": 438
+    },
+    {
+      "path": "experiments/public-api/negative/server-wrong-response.cs",
+      "sha256": "a3df04d23c4ee481bde9f28f9cedabfd660310c97de23f6a4f2bde66a0578a4f",
+      "bytes": 461
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/Consumer.cs",
+      "sha256": "898bc00334748b792c60dbeb444e7eb4c466fbe3904d986b8b68abec4eb5e391",
+      "bytes": 1342
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/NativeWeave.Design.Probe.BuildAssets.targets",
+      "sha256": "b418faaa1ca203ef14a845e7804dcce596a52bf0f7214036fc29fb5c3fd9dcc9",
+      "bytes": 770
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/ProbeAttributes.cs",
+      "sha256": "42f085ddd2367b3a072c08ce04462deae08455d9bc5c23e2038b8af77e175d21",
+      "bytes": 533
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/ProbeGenerator.cs",
+      "sha256": "730432df5110eb50d301560155947c100e6d9d3843318241ddc90599b7101f49",
+      "bytes": 5511
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/README.md",
+      "sha256": "d8d9ead3f1dde6e0538d025de155ff063f297af4dc040db2a87ba1a5101b3f0c",
+      "bytes": 5566
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/run.py",
+      "sha256": "225884e6dd8fd3b89facd39ef60bfb7ce08403d8abf32d3be81d3e0402c7ce67",
+      "bytes": 16711
+    },
+    {
+      "path": "experiments/public-api/run.py",
+      "sha256": "da4259d0eaba6a1f0fcf1aa19ae8092e15757e846e838ad76f2b981b134c7192",
+      "bytes": 5845
+    },
+    {
+      "path": "docs/api/database-symbol-policies.json",
+      "sha256": "862e37827c0ad36db1527018e66ac73cf2db57f2c6d5e4b07d0c5ba70e4a7c74",
+      "bytes": 63999
+    },
+    {
+      "path": "docs/api/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138
+    },
+    {
+      "path": "docs/api/server-symbol-policies.json",
+      "sha256": "b1fa847262d5a76cbdaf6c955962a9518090a759b74db076996cca2174990797",
+      "bytes": 47655
+    }
+  ],
+  "steps": [
+    {
+      "id": "sdk",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 0.03,
+      "log": "sdk.log",
+      "log_sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff"
+    },
+    {
+      "id": "consumer-build",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "NativeWeave.Api.Consumers/NativeWeave.Api.Consumers.csproj",
+        "--configfile",
+        "NuGet.Config",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 4.806,
+      "log": "consumer-build.log",
+      "log_sha256": "ab37743913c9bf30f42f5518b2b5471109e2c7cd7fc9952bd9a2e4b7bcb8384e"
+    },
+    {
+      "id": "consumer-execute",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Consumers/bin/Debug/net11.0/NativeWeave.Api.Consumers.dll"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 0.033,
+      "log": "consumer-execute.log",
+      "log_sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c"
+    },
+    {
+      "id": "inventory-build",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+        "--configfile",
+        "NuGet.Offline.Config",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 2.562,
+      "log": "inventory-build.log",
+      "log_sha256": "b4a7cd3fb31d274dbdf378e13c6b37047af381b76029ef8a2a4bb6653f65030d"
+    },
+    {
+      "id": "checks-build",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "NativeWeave.Api.Checks/NativeWeave.Api.Checks.csproj",
+        "--configfile",
+        "NuGet.Offline.Config",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 2.473,
+      "log": "checks-build.log",
+      "log_sha256": "a765d7fc1c97b7f081bbb7d7329c74b9fa4d21424491d84a5b965aec73856947"
+    },
+    {
+      "id": "inventory",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Inventory/bin/Debug/net11.0/NativeWeave.Api.Inventory.dll",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Design",
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/docs/api"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 0.618,
+      "log": "inventory.log",
+      "log_sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093"
+    },
+    {
+      "id": "negative-consumers",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Checks/bin/Debug/net11.0/NativeWeave.Api.Checks.dll",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NativeWeave.Api.Design",
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/full-linux/attempt-1/negative-consumers.json"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 1.024,
+      "log": "negative-consumers.log",
+      "log_sha256": "d340a2e7709f4a8fd9d914a7ae73a9b1062ece36f16ca34772be756d4231b10f"
+    },
+    {
+      "id": "native-aot-publish",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "publish",
+        "NativeWeave.Api.Consumers/NativeWeave.Api.Consumers.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "linux-x64",
+        "-p:PublishAot=true",
+        "--configfile",
+        "NuGet.Config",
+        "--output",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/full-linux/attempt-1/publish",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 10.449,
+      "log": "native-aot-publish.log",
+      "log_sha256": "db8fef40429ae6c3daeea5fb0da18d6ffe96b47b86d820426da9dc18924a62e3"
+    },
+    {
+      "id": "native-aot-execute",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/full-linux/attempt-1/publish/NativeWeave.Api.Consumers"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 0.003,
+      "log": "native-aot-execute.log",
+      "log_sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c"
+    }
+  ],
+  "limits": [
+    "No real Database/Server request executed by these declaration stubs.",
+    "AOT execution runs static JSON/evidence code; rooted consumer bodies are compiled.",
+    "The separate packaging probe tests generator/native asset consumption."
+  ]
+}

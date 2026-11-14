@@ -37,6 +37,8 @@ namespace NativeWeave.Server
         public ConfigurationManager Configuration => throw new NotSupportedException();
         /// <summary>Gets logging configuration; no sink is installed by default.</summary>
         public ILoggingBuilder Logging => throw new NotSupportedException();
+        /// <summary>Applies supported server keys from a configuration section using a static binder immediately.</summary>
+        public NativeServerBuilder Configure(IConfiguration section) => throw new NotSupportedException();
         /// <summary>Registers an explicit listener; the first explicit listener replaces the default.</summary>
         public NativeServerBuilder Listen(IPAddress address, int port, Action<ServerListenOptions>? configure = null) => throw new NotSupportedException();
         /// <summary>Registers IPv4/IPv6 loopback listeners with the same policy.</summary>
@@ -98,13 +100,63 @@ namespace NativeWeave.Server
     }
 
     /// <summary>HTTP protocol selection without implicit upgrades.</summary>
-    [Flags] public enum ServerProtocols { None = 0, Http1 = 1, Http2 = 2, Http1AndHttp2 = 3 }
+    [Flags] public enum ServerProtocols
+    {
+        /// <summary>No protocol selected; invalid for a listener.</summary>
+        None = 0,
+        /// <summary>HTTP/1.1 transport.</summary>
+        Http1 = 1,
+        /// <summary>HTTP/2 transport.</summary>
+        Http2 = 2,
+        /// <summary>HTTP/1.1 and HTTP/2 negotiated by TLS ALPN.</summary>
+        Http1AndHttp2 = 3
+    }
     /// <summary>Immutable runtime lifecycle observations.</summary>
-    public enum ServerState { Created, Starting, Running, Stopping, Stopped, Faulted, Disposed }
+    public enum ServerState
+    {
+        /// <summary>Configured but no listeners started.</summary>
+        Created,
+        /// <summary>Startup has accepted responsibility.</summary>
+        Starting,
+        /// <summary>All listeners accept requests.</summary>
+        Running,
+        /// <summary>New admission is closed while owners retire.</summary>
+        Stopping,
+        /// <summary>All instance work has retired.</summary>
+        Stopped,
+        /// <summary>A host failure has been observed; cleanup still applies.</summary>
+        Faulted,
+        /// <summary>Owned application services and native instance are released.</summary>
+        Disposed
+    }
     /// <summary>Whether all managed/native work has retired before close returned.</summary>
-    public enum ServerCloseStatus { Completed, Pending }
+    public enum ServerCloseStatus
+    {
+        /// <summary>The safe retirement join completed.</summary>
+        Completed,
+        /// <summary>The wait ended while owners and credits remain retained.</summary>
+        Pending
+    }
     /// <summary>Negotiated optional host capabilities.</summary>
-    [Flags] public enum ServerCapabilities : ulong { None = 0, Http1 = 1, Http2 = 2, Tls = 4, Trailers = 8, Grpc = 16, Mcp = 32, ServerSentEvents = 64 }
+    [Flags] public enum ServerCapabilities : ulong
+    {
+        /// <summary>No capability bits.</summary>
+        None = 0,
+        /// <summary>Native HTTP/1.1 capability.</summary>
+        Http1 = 1,
+        /// <summary>Native HTTP/2 capability.</summary>
+        Http2 = 2,
+        /// <summary>Native rustls capability.</summary>
+        Tls = 4,
+        /// <summary>Validated HTTP trailer capability.</summary>
+        Trailers = 8,
+        /// <summary>Native Tonic method capability.</summary>
+        Grpc = 16,
+        /// <summary>Native rmcp capability.</summary>
+        Mcp = 32,
+        /// <summary>Native Axum SSE formatting capability.</summary>
+        ServerSentEvents = 64
+    }
     /// <summary>One listener's mutable startup policy.</summary>
     public sealed class ServerListenOptions
     {
@@ -515,9 +567,55 @@ namespace NativeWeave.Server.Hosting
 namespace NativeWeave.Server.Grpc
 {
     /// <summary>gRPC method cardinalities.</summary>
-    public enum GrpcMethodKind { Unary, ClientStreaming, ServerStreaming, DuplexStreaming }
+    public enum GrpcMethodKind
+    {
+        /// <summary>Exactly one request and response.</summary>
+        Unary,
+        /// <summary>Many requests and exactly one response.</summary>
+        ClientStreaming,
+        /// <summary>Exactly one request and many responses.</summary>
+        ServerStreaming,
+        /// <summary>Independently streaming requests and responses.</summary>
+        DuplexStreaming
+    }
     /// <summary>Wire-compatible gRPC statuses.</summary>
-    public enum GrpcStatusCode { Ok = 0, Cancelled = 1, Unknown = 2, InvalidArgument = 3, DeadlineExceeded = 4, NotFound = 5, AlreadyExists = 6, PermissionDenied = 7, ResourceExhausted = 8, FailedPrecondition = 9, Aborted = 10, OutOfRange = 11, Unimplemented = 12, Internal = 13, Unavailable = 14, DataLoss = 15, Unauthenticated = 16 }
+    public enum GrpcStatusCode
+    {
+        /// <summary>Successful protocol result.</summary>
+        Ok = 0,
+        /// <summary>Call cancellation confirmed.</summary>
+        Cancelled = 1,
+        /// <summary>Unclassified protocol failure.</summary>
+        Unknown = 2,
+        /// <summary>Invalid request argument.</summary>
+        InvalidArgument = 3,
+        /// <summary>Whole-call deadline expired.</summary>
+        DeadlineExceeded = 4,
+        /// <summary>Requested entity was not found.</summary>
+        NotFound = 5,
+        /// <summary>Entity already exists.</summary>
+        AlreadyExists = 6,
+        /// <summary>Authenticated principal is not permitted.</summary>
+        PermissionDenied = 7,
+        /// <summary>Protocol resource limit reached.</summary>
+        ResourceExhausted = 8,
+        /// <summary>Required application state is absent.</summary>
+        FailedPrecondition = 9,
+        /// <summary>Operation aborted by protocol or application.</summary>
+        Aborted = 10,
+        /// <summary>Value or encoded length is outside supported range.</summary>
+        OutOfRange = 11,
+        /// <summary>Requested method is not implemented.</summary>
+        Unimplemented = 12,
+        /// <summary>Internal protocol or application failure.</summary>
+        Internal = 13,
+        /// <summary>Service is unavailable.</summary>
+        Unavailable = 14,
+        /// <summary>Unrecoverable data loss reported.</summary>
+        DataLoss = 15,
+        /// <summary>Valid credentials are required.</summary>
+        Unauthenticated = 16
+    }
     /// <summary>Statically bound message decoder, never stored as an escaping native span.</summary>
     public delegate T GrpcDecoder<T>(ReadOnlySpan<byte> payload);
     /// <summary>Statically bound encoder writing to a budgeted managed buffer writer.</summary>
@@ -614,7 +712,11 @@ namespace NativeWeave.Server.Grpc
 namespace NativeWeave.Server.Mcp
 {
     /// <summary>Explicitly enabled modern protocol revision; no legacy fallback.</summary>
-    public enum McpProtocolVersion { V2026_07_28 }
+    public enum McpProtocolVersion
+    {
+        /// <summary>Modern stateless protocol revision 2026-07-28 without legacy fallback.</summary>
+        V2026_07_28
+    }
     /// <summary>Finite modern stateless MCP endpoint configuration.</summary>
     public sealed class McpEndpointOptions
     {

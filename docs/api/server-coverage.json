@@ -1,0 +1,1862 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "server",
+  "baseline": {
+    "dotnet": "11.0.0",
+    "csharp": "15.0",
+    "sdk": "11.0.100",
+    "aspnetcore": "11.0.0",
+    "grpc_dotnet": "2.85.0",
+    "mcp_csharp": "2.4.0"
+  },
+  "support_semantics": "Design coverage only; all product_implemented flags false. Referenced upstream capability is not NativeWeave implementation evidence.",
+  "rows": [
+    {
+      "id": "SERVER-001",
+      "feature": "Minimal standalone host builder",
+      "reference_apis": [
+        "Microsoft.AspNetCore.Builder.WebApplication.CreateSlimBuilder",
+        "WebApplicationBuilder.Build"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServer.CreateBuilder",
+        "NativeWeave.Server.NativeServerBuilder.Build"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One startup builder/options/provider/route registry; native module load; runtime starts only at Start.",
+      "limitations": "No Kestrel/ASP.NET FrameworkReference; finite loopback default; no global Initialize.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17",
+        "B24"
+      ]
+    },
+    {
+      "id": "SERVER-002",
+      "feature": "Independent Generic Host integration",
+      "reference_apis": [
+        "Microsoft.Extensions.Hosting.IHost",
+        "IHostedService",
+        "IHostApplicationBuilder"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Hosting.NativeServerServiceCollectionExtensions.AddNativeWeaveServer"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_start_create",
+        "nw_server_close_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One singleton/hosted-service adapter, no second network/runtime implementation.",
+      "limitations": "Async host disposal required; pending close reported explicitly; cannot also RunAsync same instance.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-003",
+      "feature": "Dependency injection and scoped services",
+      "reference_apis": [
+        "IServiceCollection",
+        "IServiceProvider",
+        "IServiceScopeFactory",
+        "AsyncServiceScope"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerBuilder.Services",
+        "NativeWeave.Server.NativeServerBuilder.UseServiceProvider",
+        "NativeWeave.Server.RequestContext.Services"
+      ],
+      "rust_engine": "Rust request admission and lifetime; Microsoft.Extensions DI owns managed services",
+      "adapter_operations": [
+        "managed DI adapter"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One provider; per-request scope allocated lazily only on access.",
+      "limitations": "External provider ownership explicit; no assembly scan; background work cannot retain scoped request services.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15"
+      ]
+    },
+    {
+      "id": "SERVER-004",
+      "feature": "Configuration/options/defaults",
+      "reference_apis": [
+        "ConfigurationManager",
+        "IConfiguration",
+        "Microsoft.Extensions.Options.IOptions<TOptions>"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerBuilder.Configuration",
+        "NativeWeave.Server.NativeServerBuilder.Configure",
+        "NativeWeave.Server.ServerOptions"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Static bounded configuration binder and immutable snapshot at Build.",
+      "limitations": "No implicit file/env/secrets scans or live options reload; typed listener/callback configuration.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-005",
+      "feature": "Structured logging",
+      "reference_apis": [
+        "Microsoft.Extensions.Logging.ILogger",
+        "ILoggingBuilder"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerBuilder.Logging"
+      ],
+      "rust_engine": "Rust tracing scope plus .NET ILogger",
+      "adapter_operations": [
+        "D19 bounded diagnostics adapter"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "IsEnabled guards before formatting; sink cost explicit.",
+      "limitations": "No default sink/exporter; no credentials/body values; logging does not control safety checks.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B20",
+        "B23"
+      ]
+    },
+    {
+      "id": "SERVER-006",
+      "feature": "Startup and readiness",
+      "reference_apis": [
+        "WebApplication.StartAsync",
+        "IHost.StartAsync"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerApplication.StartAsync",
+        "NativeWeave.Server.NativeServerApplication.BoundAddresses"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_start_create",
+        "nw_server_operation_take_void",
+        "nw_server_bound_addresses"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Task/context allocation and native listener/runtime creation once.",
+      "limitations": "Success only after all listeners bind; partial failure unwinds; second Start rejected.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-007",
+      "feature": "Run and process shutdown signals",
+      "reference_apis": [
+        "WebApplication.RunAsync",
+        "HostingAbstractionsHostExtensions.RunAsync"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerApplication.RunAsync"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_start_create",
+        "nw_server_close_create",
+        "nw_server_try_retire",
+        "nw_server_on_control_v1",
+        "nw_server_request_try_retire"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Scoped managed signal registrations and safe join.",
+      "limitations": "Shutdown token signals graceful close after startup; no forced freeing on timeout.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-008",
+      "feature": "Bounded stop and disposal",
+      "reference_apis": [
+        "IHost.StopAsync",
+        "IAsyncDisposable.DisposeAsync"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerApplication.CloseAsync",
+        "NativeWeave.Server.NativeServerApplication.DisposeAsync",
+        "NativeWeave.Server.ServerCloseResult"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_close_create",
+        "nw_server_operation_take_close",
+        "nw_server_try_retire",
+        "nw_server_release"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Retains roots/credits while Pending; final join may wait for uncooperative work.",
+      "limitations": "Pending is not quiescence; self-dispose inside handler prohibited; no module unload.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B16",
+        "B17",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-009",
+      "feature": "Listener/protocol selection",
+      "reference_apis": [
+        "KestrelServerOptions.Listen",
+        "ListenLocalhost",
+        "HttpProtocols"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerBuilder.Listen",
+        "NativeWeave.Server.NativeServerBuilder.ListenLocalhost",
+        "NativeWeave.Server.ServerProtocols"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_create",
+        "nw_server_start_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One native listener per address, runtime scoped to host.",
+      "limitations": "HTTP1/2; h2 cleartext prior knowledge; combined cleartext rejected; no HTTP3.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-010",
+      "feature": "Native TLS and mTLS roots",
+      "reference_apis": [
+        "HttpsConnectionAdapterOptions",
+        "UseHttps"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerTlsOptions.FromPemFiles",
+        "NativeWeave.Server.ServerListenOptions.Tls",
+        "NativeWeave.Server.ServerTlsOptions.ClientCertificateAuthorityFile"
+      ],
+      "rust_engine": "rustls 0.23.46 / Hyper 1.12.0",
+      "adapter_operations": [
+        "nw_server_create",
+        "nw_server_start_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Native handshake buffers and concurrency separate from payload budgets.",
+      "limitations": "PEM files; explicit client roots; pinned rustls provider; no development trust bypass or per-connection managed callback.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B17",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-011",
+      "feature": "TLS certificate reload",
+      "reference_apis": [
+        "KestrelServerOptions.Configure",
+        "IOptionsMonitor<TOptions>"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerApplication.ReloadTlsAsync"
+      ],
+      "rust_engine": "rustls 0.23.46",
+      "adapter_operations": [
+        "nw_server_tls_reload_create"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Parse new immutable config then atomic swap; old snapshots retained by active connections.",
+      "limitations": "Explicit named-listener reload only, not mutable options hot reload.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B17",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-012",
+      "feature": "GET and HEAD minimal route",
+      "reference_apis": [
+        "EndpointRouteBuilderExtensions.MapGet"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRoutes.MapGet"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_routes_set",
+        "nw_server_request_take"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Static/synchronous handlers avoid an extra application async state machine; native request bridge still costs.",
+      "limitations": "Three explicit delegate shapes; HEAD suppresses body; no arbitrary Delegate reflection.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-013",
+      "feature": "POST/PUT/PATCH/DELETE and custom methods",
+      "reference_apis": [
+        "MapPost",
+        "MapPut",
+        "MapPatch",
+        "MapDelete",
+        "MapMethods"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRoutes.MapPost",
+        "NativeWeave.Server.ServerRoutes.MapPut",
+        "NativeWeave.Server.ServerRoutes.MapPatch",
+        "NativeWeave.Server.ServerRoutes.MapDelete",
+        "NativeWeave.Server.ServerRoutes.MapMethods"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_routes_set"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One immutable descriptor per endpoint; O(metadata bytes) startup.",
+      "limitations": "MapMethods covers custom methods, HEAD/OPTIONS; no automatic arbitrary overload inference.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-014",
+      "feature": "Typed JSON endpoints",
+      "reference_apis": [
+        "RequestDelegateFactory",
+        "RequestDelegateGenerator",
+        "TypedResults.Json<TValue>"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRoutes.MapPost<TRequest,TResponse>",
+        "NativeWeave.Server.ServerRoutes.MapJson<TRequest,TResponse>"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_routes_set",
+        "nw_server_body_read_create",
+        "nw_server_response_write_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Static serializer + DTO and bounded native/managed copies.",
+      "limitations": "JsonTypeInfo or registered context required; required body null rejected; response null serializes JSON null.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-015",
+      "feature": "Route groups and policy inheritance",
+      "reference_apis": [
+        "EndpointRouteBuilderExtensions.MapGroup",
+        "RouteGroupBuilder"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRoutes.MapGroup",
+        "NativeWeave.Server.RouteGroupBuilder"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_routes_set"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Group prefix/policy flattening at freeze, no per-request group allocation.",
+      "limitations": "Static groups only; AND authorization and explicit AllowAnonymous.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-016",
+      "feature": "Named endpoints/metadata",
+      "reference_apis": [
+        "RoutingEndpointConventionBuilderExtensions.WithName",
+        "WithTags",
+        "Produces<TResponse>"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerEndpointBuilder.WithName",
+        "NativeWeave.Server.ServerEndpointBuilder.WithTags",
+        "NativeWeave.Server.ServerEndpointBuilder.WithSummary",
+        "NativeWeave.Server.ServerEndpointBuilder.Produces<T>"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_routes_set"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded startup strings/type metadata.",
+      "limitations": "Documentation metadata does not itself produce OpenAPI or response validation.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B20"
+      ]
+    },
+    {
+      "id": "SERVER-017",
+      "feature": "Route grammar and constraints",
+      "reference_apis": [
+        "RoutePatternFactory.Parse",
+        "IRouteConstraint",
+        "RouteOptions"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRoutes.MapMethods",
+        "NativeWeave.Server.ParameterValues.Get<T>"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_routes_set"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Native matching and managed IParsable scalar validation.",
+      "limitations": "Literal, single segment, terminal catch-all only; no regex/default/optional/inline constraint grammar.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-018",
+      "feature": "Scalar route/query/header binding",
+      "reference_apis": [
+        "FromRouteAttribute",
+        "FromQueryAttribute",
+        "FromHeaderAttribute",
+        "IParsable<T>"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ParameterValues.Get<T>",
+        "NativeWeave.Server.ParameterValues.TryGet<T>",
+        "NativeWeave.Server.ParameterValues.GetValues",
+        "NativeWeave.Server.HeaderCollection.GetSingle"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_metadata_read"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Lazy bounded UTF-8->managed text; static parsing, no boxing-based binder.",
+      "limitations": "Invariant culture; repeated scalars rejected; query arrays explicit.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15"
+      ]
+    },
+    {
+      "id": "SERVER-019",
+      "feature": "Generated handler parameter binding",
+      "reference_apis": [
+        "RequestDelegateGenerator",
+        "RequestDelegateFactory.Create"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerEndpointsAttribute",
+        "NativeWeave.Server.ServerRouteAttribute",
+        "NativeWeave.Server.RouteParameterAttribute",
+        "NativeWeave.Server.QueryParameterAttribute",
+        "NativeWeave.Server.HeaderParameterAttribute",
+        "NativeWeave.Server.BodyParameterAttribute",
+        "NativeWeave.Server.ServiceParameterAttribute"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_routes_set"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Generated wrappers/static metadata; no runtime expression compilation.",
+      "limitations": "Finite whitelist; no ref/out/span/open generic/async void/arbitrary Delegate; product generator still future.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "A10",
+        "A11",
+        "A12",
+        "B15"
+      ]
+    },
+    {
+      "id": "SERVER-020",
+      "feature": "Middleware pipeline",
+      "reference_apis": [
+        "IApplicationBuilder.Use",
+        "RequestDelegate"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerApplication.Use",
+        "NativeWeave.Server.ServerMiddleware",
+        "NativeWeave.Server.RequestHandler"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_request_take",
+        "nw_server_dispatch_complete"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Managed delegate chain only when configured; no native callback executes user code.",
+      "limitations": "next exactly once and awaited; not binary ASP.NET middleware compatible.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-021",
+      "feature": "Endpoint filters and binding errors",
+      "reference_apis": [
+        "IEndpointFilter",
+        "EndpointFilterInvocationContext.Arguments",
+        "ASP.NET11 filter binding-failure observation"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerEndpointBuilder.AddFilter",
+        "NativeWeave.Server.ServerFilter",
+        "NativeWeave.Server.RequestBindingException"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "managed filter/binder barrier"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "No object[] argument list; typed binding inside filter scope.",
+      "limitations": "Filters inspect context/catch binding errors; not arbitrary boxed argument rewriting.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15"
+      ]
+    },
+    {
+      "id": "SERVER-022",
+      "feature": "Request context, principal, cancellation",
+      "reference_apis": [
+        "HttpContext",
+        "HttpContext.User",
+        "RequestAborted",
+        "Items",
+        "TraceIdentifier"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.RequestContext"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_request_take",
+        "nw_server_metadata_read",
+        "nw_server_request_abort",
+        "nw_server_on_control_v1",
+        "nw_server_request_try_retire"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One borrowed wrapper; Items/scope lazy, metadata bounded.",
+      "limitations": "Cannot escape request; cancellation not proof of side-effect rollback.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-023",
+      "feature": "Request method/URI/protocol/peer metadata",
+      "reference_apis": [
+        "HttpRequest.Method",
+        "HttpRequest.Path",
+        "QueryString",
+        "ConnectionInfo"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRequest"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_metadata_read"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Native parsed snapshot; bounded lazy strings.",
+      "limitations": "Encoded path separators preserved; original peer retained; metadata immutable.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-024",
+      "feature": "Header multivalue behavior",
+      "reference_apis": [
+        "IHeaderDictionary",
+        "StringValues",
+        "HeaderNames"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.HeaderCollection"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_metadata_headers",
+        "nw_server_response_begin_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded immutable input; copies only when snapshot requested.",
+      "limitations": "Repeated values retained; GetSingle rejects duplicates; forbidden framing headers owned by native protocol.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-025",
+      "feature": "Header injection and Content-Length integrity",
+      "reference_apis": [
+        "HttpResponse.ContentLength",
+        "HttpResponse.Headers"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerResponse.ContentLength",
+        "NativeWeave.Server.ServerResponse.Headers"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_response_begin_create",
+        "nw_server_response_finish_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Native HeaderName/HeaderValue checks and final byte accounting.",
+      "limitations": "No CR/LF; length mismatch abort; no implicit truncation/padding.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B16",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-026",
+      "feature": "Raw async request body and upload",
+      "reference_apis": [
+        "HttpRequest.Body",
+        "Stream.ReadAsync",
+        "Stream.CopyToAsync"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRequest.Body",
+        "NativeWeave.Server.ServerRoutes.MapRaw"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_body_read_create",
+        "nw_server_operation_take_chunk"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One bounded copy/chunk and one read at a time, no whole-body materialization.",
+      "limitations": "Async-only nonseekable stream; total and retained-byte caps separate.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-027",
+      "feature": "Owned low-copy body chunks",
+      "reference_apis": [
+        "HttpRequest.BodyReader",
+        "ReadResult",
+        "ReadOnlySequence<byte>"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRequest.ReadChunkAsync",
+        "NativeWeave.Server.BodyChunk"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_body_read_create",
+        "nw_server_operation_take_chunk",
+        "nw_server_buffer_copy",
+        "nw_server_buffer_release",
+        "nw_server_managed_credit_acquire/release"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Native owned Bytes until Dispose; explicit CopyTo/ToArray cost.",
+      "limitations": "No escaping native memory; this is an owner API rather than direct Pipelines compatibility.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B16"
+      ]
+    },
+    {
+      "id": "SERVER-028",
+      "feature": "Bounded JSON body reading",
+      "reference_apis": [
+        "HttpRequestJsonExtensions.ReadFromJsonAsync<TValue>",
+        "JsonSerializer.DeserializeAsync"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRequest.ReadJsonAsync<T>"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_body_read_create",
+        "nw_server_managed_credit_acquire/release"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Static metadata + conservative materialization budget.",
+      "limitations": "Explicit JsonTypeInfo; nullable reference root returned; mode exclusive with raw/chunk reads.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16"
+      ]
+    },
+    {
+      "id": "SERVER-029",
+      "feature": "Async response body/flush/complete",
+      "reference_apis": [
+        "HttpResponse.Body",
+        "StartAsync",
+        "CompleteAsync",
+        "Stream.WriteAsync"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerResponse.Body",
+        "NativeWeave.Server.ServerResponse.WriteAsync",
+        "NativeWeave.Server.ServerResponse.StartAsync",
+        "NativeWeave.Server.ServerResponse.FlushAsync",
+        "NativeWeave.Server.ServerResponse.CompleteAsync"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_response_begin_create",
+        "nw_server_response_write_create",
+        "nw_server_response_flush_create",
+        "nw_server_response_finish_create",
+        "nw_server_write_reserve_create",
+        "nw_server_operation_take_write_reservation"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded synchronous ABI copy per chunk, native retained-owner credit.",
+      "limitations": "One writer; acknowledgment not peer receipt; input Memory unchanged until terminal Task.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B16",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-030",
+      "feature": "HTTP request/response trailers",
+      "reference_apis": [
+        "HttpRequestTrailerExtensions.GetTrailer",
+        "HttpResponseTrailerExtensions.AppendTrailer"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerRequest.GetTrailers",
+        "NativeWeave.Server.ServerResponse.Trailers"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_operation_take_chunk",
+        "nw_server_metadata_headers",
+        "nw_server_response_finish_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded native header owner and copied wrapper.",
+      "limitations": "Negotiated capability/protocol; input only after EndObserved; forbidden trailer fields rejected.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B16",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-031",
+      "feature": "Response lifecycle hooks/disposal",
+      "reference_apis": [
+        "HttpResponse.OnStarting",
+        "OnCompleted",
+        "RegisterForDisposeAsync"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerResponse.OnStarting",
+        "NativeWeave.Server.ServerResponse.OnCompleted",
+        "NativeWeave.Server.ServerResponse.RegisterForDisposeAsync"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "managed completion barrier",
+        "nw_server_dispatch_complete"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "At most32 callbacks/resources of each type per request; optional lists.",
+      "limitations": "Callbacks awaited outside native frames; OnCompleted is not native retirement.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16"
+      ]
+    },
+    {
+      "id": "SERVER-032",
+      "feature": "Typed status/text/JSON/Created responses",
+      "reference_apis": [
+        "TypedResults.StatusCode",
+        "Text",
+        "Json",
+        "Created",
+        "NoContent",
+        "NotFound"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Results.StatusCode",
+        "NativeWeave.Server.Results.Text",
+        "NativeWeave.Server.Results.Json<T>",
+        "NativeWeave.Server.Results.Created<T>",
+        "NativeWeave.Server.Results.NoContent",
+        "NativeWeave.Server.Results.NotFound"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_response_begin_create",
+        "nw_server_response_write_create",
+        "nw_server_response_finish_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Immutable result wrapper/static codec; bounded text/JSON output.",
+      "limitations": "No universal object-result serialization or implicit null->204 mapping.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16"
+      ]
+    },
+    {
+      "id": "SERVER-033",
+      "feature": "Problem/validation/redirect responses",
+      "reference_apis": [
+        "TypedResults.Problem",
+        "ValidationProblem",
+        "Redirect"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Results.Problem",
+        "NativeWeave.Server.Results.ValidationProblem",
+        "NativeWeave.Server.Results.Redirect"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_response_begin_create",
+        "nw_server_response_write_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Framework static problem codec; bounded field/messages; checked location.",
+      "limitations": "No arbitrary extension object graph; external redirects explicit caller choice.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15"
+      ]
+    },
+    {
+      "id": "SERVER-034",
+      "feature": "Byte/stream producers and ownership",
+      "reference_apis": [
+        "TypedResults.Bytes",
+        "TypedResults.Stream"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Results.Bytes",
+        "NativeWeave.Server.Results.Stream"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_response_write_create",
+        "nw_server_write_reserve_create",
+        "nw_server_operation_take_write_reservation"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bytes construction copies <=1MiB; streaming callback has one chunk in flight.",
+      "limitations": "leaveOpen explicitly controls source disposal; streams single-execution; no automatic file-range/cache service.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16"
+      ]
+    },
+    {
+      "id": "SERVER-035",
+      "feature": "Streaming JSON enumerable",
+      "reference_apis": [
+        "IAsyncEnumerable<T>",
+        "JsonSerializer.SerializeAsync",
+        "TypedResults.Json"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Results.JsonStream<T>"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_response_write_create",
+        "nw_server_response_finish_create",
+        "nw_server_write_reserve_create",
+        "nw_server_operation_take_write_reservation"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One enumerated/encoded DTO at a time, O(chunk/element peak).",
+      "limitations": "Single-use; static codec; canceled/failing stream may be truncated and aborted.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16"
+      ]
+    },
+    {
+      "id": "SERVER-036",
+      "feature": "Server-sent events",
+      "reference_apis": [
+        "TypedResults.ServerSentEvents",
+        "SseItem<T>"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Results.ServerSentEvents",
+        "NativeWeave.Server.ServerEvent"
+      ],
+      "rust_engine": "Axum 0.8.9 Event / Sse",
+      "adapter_operations": [
+        "nw_server_sse_write_create",
+        "nw_server_write_reserve_create",
+        "nw_server_operation_take_write_reservation"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One bounded event; explicit line-expansion reserve; native Axum formatting.",
+      "limitations": "No implicit heartbeat/persistence/replay; metadata prevalidated against upstream panic conditions.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-037",
+      "feature": "Application authentication/authorization",
+      "reference_apis": [
+        "IAuthenticationService",
+        "IAuthorizationService",
+        "RequireAuthorization"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.IServerAuthenticator",
+        "NativeWeave.Server.IServerAuthorizer",
+        "NativeWeave.Server.ServerEndpointBuilder.RequireAuthorization",
+        "NativeWeave.Server.ServerEndpointBuilder.AllowAnonymous"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "managed policy adapter after native admission"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "User-configured managed auth logic; lazy services; no transport rewrite.",
+      "limitations": "No automatic JWT/OAuth/cookie validator; named policy required; principal/policy lifecycle provided.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B19",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-038",
+      "feature": "Trusted forwarded metadata",
+      "reference_apis": [
+        "ForwardedHeadersOptions.KnownProxies",
+        "ForwardLimit"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.TrustedProxyOptions",
+        "NativeWeave.Server.ServerOptions.TrustedProxies"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_create",
+        "nw_server_metadata_read"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Finite native policy checks before effective metadata publication.",
+      "limitations": "Exact IP peers only; no untrusted identity forwarding or implicit proxy trust.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B17",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-039",
+      "feature": "Request timeouts and cancellation",
+      "reference_apis": [
+        "RequestTimeoutOptions",
+        "CancellationToken",
+        "HttpContext.RequestAborted"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerOptions.RequestTimeout",
+        "NativeWeave.Server.ServerEndpointBuilder.WithTimeout",
+        "NativeWeave.Server.RequestContext.TimeRemaining"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_request_abort",
+        "nw_server_operation_request_cancel",
+        "nw_server_on_control_v1",
+        "nw_server_request_try_retire"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One monotonic deadline per request, min for child operations.",
+      "limitations": "Includes admission/body/output; chunk cannot reset it; no durable side-effect rollback inference.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B16",
+        "B17",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-040",
+      "feature": "Admission/rate/resource limits",
+      "reference_apis": [
+        "RateLimiterOptions",
+        "KestrelServerLimits",
+        "ConcurrencyLimiterOptions"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.ServerBudgetOptions"
+      ],
+      "rust_engine": "Tokio 1.54.1 / Hyper 1.12.0 / Axum 0.8.9",
+      "adapter_operations": [
+        "nw_server_create",
+        "nw_server_body_read_create",
+        "nw_server_managed_credit_acquire/release"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded metadata queues, active/retiring slots and dual-side byte reservations.",
+      "limitations": "Concurrency/resource admission only; no complete tenant/token-bucket rate-limit product.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B16",
+        "B17",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-041",
+      "feature": "Observability/tracing/metrics",
+      "reference_apis": [
+        "ActivitySource",
+        "Meter",
+        "ILogger",
+        "OpenTelemetry"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.NativeServerBuilder.Logging",
+        "NativeWeave.Server.RequestContext.TraceIdentifier"
+      ],
+      "rust_engine": "Rust tracing / .NET DiagnosticSource 11.0.0",
+      "adapter_operations": [
+        "nw_server_get_snapshot",
+        "nw_server_metadata_read trace_context/trace_state",
+        "D19 bounded diagnostic adapter",
+        "nw_server_managed_credit_acquire/release"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Enabled checks, bounded tags/queues; exporters explicit.",
+      "limitations": "Full tracing/disabled costs measured separately; no global subscriber or unbounded IDs in metrics.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B20",
+        "B23"
+      ]
+    },
+    {
+      "id": "SERVER-042",
+      "feature": "gRPC unary methods",
+      "reference_apis": [
+        "Grpc.Core.Method<TRequest,TResponse>",
+        "ServerCallContext",
+        "MapGrpcService<TService>"
+      ],
+      "reference_version": "grpc-dotnet / Grpc.Core.Api 2.85.0; ASP.NET Core 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Grpc.GrpcMethod<TRequest,TResponse>",
+        "NativeWeave.Server.Grpc.GrpcEndpointExtensions.MapGrpcUnary"
+      ],
+      "rust_engine": "Tonic 0.14.9",
+      "adapter_operations": [
+        "nw_server_routes_set",
+        "nw_server_grpc_read_create",
+        "nw_server_grpc_write_create",
+        "nw_server_grpc_status_create",
+        "nw_server_write_reserve_create",
+        "nw_server_operation_take_write_reservation"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One complete-message codec copy each direction and typed DTO.",
+      "limitations": "HTTP2 only; generated descriptor registration, no reflection service scan.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B18"
+      ]
+    },
+    {
+      "id": "SERVER-043",
+      "feature": "gRPC server streaming",
+      "reference_apis": [
+        "IServerStreamWriter<T>",
+        "ServerStreamingServerMethod<TRequest,TResponse>"
+      ],
+      "reference_version": "grpc-dotnet / Grpc.Core.Api 2.85.0; ASP.NET Core 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Grpc.GrpcEndpointExtensions.MapGrpcServerStreaming"
+      ],
+      "rust_engine": "Tonic 0.14.9",
+      "adapter_operations": [
+        "nw_server_grpc_write_create",
+        "nw_server_grpc_status_create",
+        "nw_server_write_reserve_create",
+        "nw_server_operation_take_write_reservation"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One awaited output message; bounded whole-stream total.",
+      "limitations": "Single-use enumerable; deadline persists after response head.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B18"
+      ]
+    },
+    {
+      "id": "SERVER-044",
+      "feature": "gRPC client streaming",
+      "reference_apis": [
+        "IAsyncStreamReader<T>",
+        "ClientStreamingServerMethod<TRequest,TResponse>"
+      ],
+      "reference_version": "grpc-dotnet / Grpc.Core.Api 2.85.0; ASP.NET Core 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Grpc.GrpcEndpointExtensions.MapGrpcClientStreaming"
+      ],
+      "rust_engine": "Tonic 0.14.9",
+      "adapter_operations": [
+        "nw_server_grpc_read_create",
+        "nw_server_grpc_write_create",
+        "nw_server_write_reserve_create",
+        "nw_server_operation_take_write_reservation"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One read message/DTO at a time.",
+      "limitations": "Early break drains/cancels via native policy; no concurrent MoveNext.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B18"
+      ]
+    },
+    {
+      "id": "SERVER-045",
+      "feature": "gRPC duplex streaming",
+      "reference_apis": [
+        "DuplexStreamingServerMethod<TRequest,TResponse>"
+      ],
+      "reference_version": "grpc-dotnet / Grpc.Core.Api 2.85.0; ASP.NET Core 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Grpc.GrpcEndpointExtensions.MapGrpcDuplex"
+      ],
+      "rust_engine": "Tonic 0.14.9",
+      "adapter_operations": [
+        "nw_server_grpc_read_create",
+        "nw_server_grpc_write_create",
+        "nw_server_write_reserve_create",
+        "nw_server_operation_take_write_reservation"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One read and one write simultaneously; independent bounded directions.",
+      "limitations": "One-call context/scope retained through both directions and handler cleanup.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B18",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-046",
+      "feature": "gRPC static protobuf marshalling",
+      "reference_apis": [
+        "Grpc.Core.Marshaller<T>",
+        "Google.Protobuf.IBufferMessage"
+      ],
+      "reference_version": "grpc-dotnet / Grpc.Core.Api 2.85.0; ASP.NET Core 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Grpc.GrpcMarshaller<T>",
+        "NativeWeave.Server.Grpc.GrpcEncoder<T>",
+        "NativeWeave.Server.Grpc.GrpcDecoder<T>",
+        "NativeWeave.Server.Grpc.IGeneratedGrpcService"
+      ],
+      "rust_engine": "Tonic public RawCodec seam",
+      "adapter_operations": [
+        "managed static codec",
+        "nw_server_routes_set"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded IBufferWriter growth and span-call borrowing; generated code rooted.",
+      "limitations": "No per-service Cargo; codec fixture compilation is not protobuf interoperability execution.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B18",
+        "A10",
+        "A12"
+      ]
+    },
+    {
+      "id": "SERVER-047",
+      "feature": "gRPC headers/trailers/status/deadline",
+      "reference_apis": [
+        "Metadata",
+        "Status",
+        "RpcException",
+        "ServerCallContext"
+      ],
+      "reference_version": "grpc-dotnet / Grpc.Core.Api 2.85.0; ASP.NET Core 11.0.0",
+      "public_api": [
+        "NativeWeave.Server.Grpc.GrpcMetadata",
+        "NativeWeave.Server.Grpc.GrpcException",
+        "NativeWeave.Server.Grpc.GrpcStatusCode",
+        "NativeWeave.Server.Grpc.GrpcCallContext",
+        "NativeWeave.Server.Grpc.GrpcMethodOptions"
+      ],
+      "rust_engine": "Tonic 0.14.9",
+      "adapter_operations": [
+        "nw_server_grpc_headers_create",
+        "nw_server_grpc_status_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded copied metadata, separate encoded/decoded caps.",
+      "limitations": "Strict timeout grammar; raw status preserved; native errors and protocol status separate.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B18",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-048",
+      "feature": "MCP typed tool registration and calls",
+      "reference_apis": [
+        "McpServerTool.Create",
+        "McpServerBuilderExtensions.WithTools",
+        "McpServerToolAttribute"
+      ],
+      "reference_version": "MCP C# SDK 2.4.0; MCP 2026-07-28",
+      "public_api": [
+        "NativeWeave.Server.Mcp.McpRegistry.AddTool<TInput,TOutput>",
+        "NativeWeave.Server.Mcp.McpToolResult<T>",
+        "NativeWeave.Server.Mcp.McpEndpointExtensions.MapMcp"
+      ],
+      "rust_engine": "rmcp 3.10.0",
+      "adapter_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_mcp_reply_create"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Schema/metadata once; explicit extra native JSON/UTF8/DTO representations.",
+      "limitations": "Static codecs and finite schema subset; tool error distinct from protocol error.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B19"
+      ]
+    },
+    {
+      "id": "SERVER-049",
+      "feature": "MCP fixed text resources",
+      "reference_apis": [
+        "McpServerResource",
+        "ListResourcesRequestParams",
+        "ReadResourceRequestParams"
+      ],
+      "reference_version": "MCP C# SDK 2.4.0; MCP 2026-07-28",
+      "public_api": [
+        "NativeWeave.Server.Mcp.McpRegistry.AddResource",
+        "NativeWeave.Server.Mcp.McpTextResource"
+      ],
+      "rust_engine": "rmcp 3.10.0",
+      "adapter_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_mcp_reply_create"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded static registry and UTF-8 text copy.",
+      "limitations": "Fixed URI/text only; no templates/subscription/binary replay.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B19"
+      ]
+    },
+    {
+      "id": "SERVER-050",
+      "feature": "MCP text prompts",
+      "reference_apis": [
+        "McpServerPrompt",
+        "GetPromptRequestParams"
+      ],
+      "reference_version": "MCP C# SDK 2.4.0; MCP 2026-07-28",
+      "public_api": [
+        "NativeWeave.Server.Mcp.McpRegistry.AddPrompt",
+        "NativeWeave.Server.Mcp.McpPromptArgument",
+        "NativeWeave.Server.Mcp.McpPromptMessage"
+      ],
+      "rust_engine": "rmcp 3.10.0",
+      "adapter_operations": [
+        "nw_server_routes_set",
+        "nw_server_mcp_call_take",
+        "nw_server_mcp_reply_create"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Bounded argument/message lists and static DTO bridge.",
+      "limitations": "Required string arguments, user/assistant text messages only; no rich embedded media.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B19"
+      ]
+    },
+    {
+      "id": "SERVER-051",
+      "feature": "MCP modern HTTP transport/session policy",
+      "reference_apis": [
+        "HttpServerSessionMode",
+        "MapMcp",
+        "StreamableHttpHandler"
+      ],
+      "reference_version": "MCP C# SDK 2.4.0; MCP 2026-07-28",
+      "public_api": [
+        "NativeWeave.Server.Mcp.McpEndpointOptions",
+        "NativeWeave.Server.Mcp.McpProtocolVersion"
+      ],
+      "rust_engine": "rmcp 3.10.0 StreamableHttpService",
+      "adapter_operations": [
+        "nw_server_routes_set"
+      ],
+      "support": "limited",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "One native service on existing host; finite preparse peak reserves.",
+      "limitations": "Only2026-07-28 stateless/no event store; strict Host/Origin/metadata; no legacy fallback.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B19",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-052",
+      "feature": "MCP hostile JSON/schema memory bounds",
+      "reference_apis": [
+        "JsonSerializerOptions.MaxDepth",
+        "JsonSchemaExporter",
+        "MCP typed schemas"
+      ],
+      "reference_version": "MCP C# SDK 2.4.0; MCP 2026-07-28",
+      "public_api": [
+        "NativeWeave.Server.Mcp.McpEndpointOptions.MaxJsonDepth",
+        "NativeWeave.Server.Mcp.McpEndpointOptions.MaxJsonNodes",
+        "NativeWeave.Server.Mcp.McpEndpointOptions.MaxJsonStringBytes"
+      ],
+      "rust_engine": "rmcp 3.10.0 / serde_json",
+      "adapter_operations": [
+        "nw_server_routes_set",
+        "native serde_json admission adapter",
+        "nw_server_managed_credit_acquire/release"
+      ],
+      "support": "equivalent",
+      "product_implemented": false,
+      "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
+      "cost": "Conservative retained wire/tree/bridge/DTO peak reserve before SDK parse.",
+      "limitations": "Wire cap alone not peak bound; recursive/arbitrary converter schema rejected.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B19",
+        "B22"
+      ]
+    },
+    {
+      "id": "SERVER-053",
+      "feature": "Direct Pipelines compatibility",
+      "reference_apis": [
+        "PipeReader",
+        "PipeWriter",
+        "AdvanceTo",
+        "FlushResult"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Future capability; not enabled in v1",
+      "adapter_operations": [],
+      "support": "planned",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No implementation or cost benefit asserted; future proposal must budget complete native and managed route.",
+      "limitations": "Advance/Flush lease semantics need a separate reviewed bounded facade; Stream/chunk APIs do not claim full compatibility.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B16"
+      ]
+    },
+    {
+      "id": "SERVER-054",
+      "feature": "Multipart forms and file upload models",
+      "reference_apis": [
+        "IFormFile",
+        "ReadFormAsync",
+        "MultipartReader"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Future capability; not enabled in v1",
+      "adapter_operations": [],
+      "support": "planned",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No implementation or cost benefit asserted; future proposal must budget complete native and managed route.",
+      "limitations": "Raw streaming upload is designed; mature native multipart parser/temp-file quotas need separate extension.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B16",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-055",
+      "feature": "Cookies/session/antiforgery/JWT/OAuth facade",
+      "reference_apis": [
+        "IRequestCookieCollection",
+        "IResponseCookies",
+        "ISession",
+        "IAntiforgery",
+        "JwtBearerOptions"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Future capability; not enabled in v1",
+      "adapter_operations": [],
+      "support": "planned",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No implementation or cost benefit asserted; future proposal must budget complete native and managed route.",
+      "limitations": "Header/raw auth SPI exists, but first-party credential/session/CSRF stack is not claimed. Reuse mature implementations with AOT and native-host adapter.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15"
+      ]
+    },
+    {
+      "id": "SERVER-056",
+      "feature": "CORS policy middleware",
+      "reference_apis": [
+        "CorsPolicyBuilder",
+        "RequireCors"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Future capability; not enabled in v1",
+      "adapter_operations": [],
+      "support": "planned",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No implementation or cost benefit asserted; future proposal must budget complete native and managed route.",
+      "limitations": "Explicit native-header/policy adapter and preflight rules needed; no permissive default.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-057",
+      "feature": "Static directory/range/cache/compression service",
+      "reference_apis": [
+        "UseStaticFiles",
+        "MapStaticAssets",
+        "FileResult",
+        "ResponseCompressionOptions",
+        "OutputCacheOptions"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Future capability; not enabled in v1",
+      "adapter_operations": [],
+      "support": "planned",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No implementation or cost benefit asserted; future proposal must budget complete native and managed route.",
+      "limitations": "Stream result serves app-selected data; native static file traversal/range/cache/compression policy is a separate capability.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-058",
+      "feature": "OpenAPI document generation",
+      "reference_apis": [
+        "Microsoft.AspNetCore.OpenApi.AddOpenApi",
+        "MapOpenApi"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Future capability; not enabled in v1",
+      "adapter_operations": [],
+      "support": "planned",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No implementation or cost benefit asserted; future proposal must budget complete native and managed route.",
+      "limitations": "Endpoint names/Produces/static schemas supplied; emitting/validating an OpenAPI document is a future optional package.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B24"
+      ]
+    },
+    {
+      "id": "SERVER-059",
+      "feature": "gRPC compression/reflection/client package",
+      "reference_apis": [
+        "GrpcServiceOptions.CompressionProviders",
+        "AddGrpcReflection",
+        "GrpcChannel"
+      ],
+      "reference_version": "grpc-dotnet / Grpc.Core.Api 2.85.0; ASP.NET Core 11.0.0",
+      "public_api": [],
+      "rust_engine": "Future capability; not enabled in v1",
+      "adapter_operations": [],
+      "support": "planned",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No implementation or cost benefit asserted; future proposal must budget complete native and managed route.",
+      "limitations": "Initial identity compression and server surface only; optional native capability/source/conformance required.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B18"
+      ]
+    },
+    {
+      "id": "SERVER-060",
+      "feature": "MCP advanced protocol extensions",
+      "reference_apis": [
+        "MCP Tasks",
+        "Sampling",
+        "Elicitation",
+        "Resource subscriptions",
+        "Persisted events"
+      ],
+      "reference_version": "MCP C# SDK 2.4.0; MCP 2026-07-28",
+      "public_api": [],
+      "rust_engine": "Future capability; not enabled in v1",
+      "adapter_operations": [],
+      "support": "planned",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No implementation or cost benefit asserted; future proposal must budget complete native and managed route.",
+      "limitations": "No stable public members until explicit profile/storage/auth/deadline/retention contracts accepted.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B19"
+      ]
+    },
+    {
+      "id": "SERVER-061",
+      "feature": "ASP.NET binary middleware/host compatibility",
+      "reference_apis": [
+        "HttpContext",
+        "IApplicationBuilder",
+        "KestrelServer"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Not exposed",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No supported execution/cost path.",
+      "limitations": "The public surface follows familiar patterns but does not implement the complete ASP.NET feature system or run Kestrel.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15",
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-062",
+      "feature": "Full MVC/UI/server sessions stack",
+      "reference_apis": [
+        "Controllers",
+        "MVC",
+        "Razor",
+        "Blazor",
+        "SignalR",
+        "IIS"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Not exposed",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No supported execution/cost path.",
+      "limitations": "Different product/runtime scope; not a hidden requirement of a native typed HTTP server.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B15"
+      ]
+    },
+    {
+      "id": "SERVER-063",
+      "feature": "Unbounded dynamic handler/serializer binding",
+      "reference_apis": [
+        "RequestDelegateFactory.Create(Delegate)",
+        "Reflection.Emit",
+        "dynamic JSON type discovery"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Not exposed",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No supported execution/cost path.",
+      "limitations": "Conflicts with statically analyzable Native AOT and hidden allocation/ownership control.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "A12",
+        "B15"
+      ]
+    },
+    {
+      "id": "SERVER-064",
+      "feature": "HTTP3/QUIC/WebSockets/CONNECT/h2c upgrades",
+      "reference_apis": [
+        "HttpProtocols.Http3",
+        "WebSocketManager",
+        "HTTP CONNECT"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Not exposed",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No supported execution/cost path.",
+      "limitations": "Not in initial native adapter capability set; calling raw headers does not enable a transport extension.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "B17"
+      ]
+    },
+    {
+      "id": "SERVER-065",
+      "feature": "In-place route/module hot replacement",
+      "reference_apis": [
+        "EndpointDataSource change tokens",
+        "AssemblyLoadContext.Unload"
+      ],
+      "reference_version": "ASP.NET Core / Extensions 11.0.0",
+      "public_api": [],
+      "rust_engine": "Not exposed",
+      "adapter_operations": [],
+      "support": "unsupported",
+      "product_implemented": false,
+      "aot": "No stable NativeWeave surface or product AOT claim for this feature.",
+      "cost": "No supported execution/cost path.",
+      "limitations": "Initial routes immutable and modules process-lifetime; use a new owned app instance plus drain, without claiming code unload.",
+      "specification": "docs/api/server.md",
+      "tasks": [
+        "A22",
+        "B17"
+      ]
+    }
+  ]
+}

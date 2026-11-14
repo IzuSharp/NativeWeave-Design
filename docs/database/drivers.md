@@ -1,6 +1,18 @@
 # D14 — Rust Database Engine and precompiled application boundary
 
-Contract: **C-DB-001@0.3.0**. Status: design candidate; the registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Supersedes DB-D004/DB-D005/DB-D006's ordinary SeaORM model-build assumptions, not the historical source facts. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered prototype](../research/source-driven-evidence/README.md), existing R19–R22. Transaction safety remains [D15](transactions-and-pooling.md).
+Contract: **C-DB-001@0.4.0**. Status: design candidate; the registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Supersedes DB-D004/DB-D005/DB-D006's ordinary SeaORM model-build assumptions, not the historical source facts. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered prototype](../research/source-driven-evidence/README.md), existing R19–R22. Transaction safety remains [D15](transactions-and-pooling.md).
+
+## Public API refinement 0.4.0
+
+The exact public declarations and complete native operation inventory are now
+[Database/ORM API 0.4.0](../api/database.md), its
+[coverage matrix](../api/database-coverage.json), and
+[Database.cs](../../experiments/public-api/NativeWeave.Api.Design/Database.cs).
+They replace earlier provisional signature spellings; the lifecycle, native-source
+findings and historical experiment identities below remain normative within that
+explicit scope. Native AOT fixture compilation is separate from product execution.
+Fresh exact-content review is required; prior accepted versions remain immutable.
+
 
 ## 1. Architecture and selection
 
@@ -18,13 +30,14 @@ Use disjoint implementation scopes and versioned driver fixtures. Do not create 
 
 ## 3. Public API and ownership
 
-Draft application shape, **not compiled product API**:
+Design consumer shape, with exact declarations in the public API fixture:
 ```csharp
-await using WeaveDataSource source = DataSources.Postgres(options);
+await using DataSource source = PostgreSqlDataSource.Create(connectionString);
 await using DataSession session = await source.OpenSessionAsync(ct);
 using var query = session.From(Students.Table);
-query.Select(Students.Row).WhereGe(Students.Age, minAge).Take(100);
-IReadOnlyList<Student> rows = await query.ToListAsync(ct);
+IReadOnlyList<Student> rows = await query
+    .WhereGreaterThanOrEqual(Students.Age, minAge).Take(100)
+    .SelectAll().ToListAsync(ct);
 ```
 The recovered experiment executed a narrower synchronous static-descriptor API. DataSource owns its Engine-local runtime/pool; Session holds one physical connection lease. Transactions/cursors/operations retain parent owners. A Session admits at most one user command/reader/COPY at a time, rejecting concurrency rather than silently changing transaction order. Cleanup admission is independent of the closed public gate.
 
@@ -42,7 +55,13 @@ Direct native-builder calls are the reference route. Batched native operations a
 
 Metadata hashes identify runtime table/column/projection declarations and cache content, not entities compiled into a schema-specific library. Validate enabled native codecs/operators and actual metadata/database compatibility. New application metadata does not by itself change the native Engine binary.
 
-### 4.1 db-wire/1 result and parameter candidate
+### 4.1 db-wire/1 result and parameter transport
+
+The public API refinement fixes the scalar bytes, NULL/nullable bits, payload/profile
+IDs, parameter names and shape hashes in [API section9.1.2](../api/database.md#912-exact-db-wire-scalar-and-identity-encoding).
+Those rules specialize the retained container below; B01/B07 must generate and
+round-trip the same canonical bytes independently on both sides. They do not freeze
+a general query-operation IR: query operations remain the typed native builder calls.
 
 
 The following is a field serialization format, **not C struct memory layout**; integers are little-endian, with no implicit padding. B01 generates codecs for both sides, and D07 owns the outer bytes. The fixed header is 96 bytes: magic `NWDB`(4), version u16, payload_kind u16, header_bytes u32, flags u32, total_bytes u64, metadata_hash[32], record_count u32, descriptor_count u32, entity_id u32, query_id u32, projection_id u32, semantic_profile_id u32, descriptor_offset u64, payload_offset u64. All reserved flags are 0; unknown required versions are rejected. descriptor_offset must be 96 (8-byte aligned); the descriptor table immediately follows the header.
@@ -51,7 +70,7 @@ Ordinary parameter/row-batch payloads use a row-major cell table. `cell_table_of
 
 
 
-This retained header is a candidate value/result transport, not a frozen query-operation protocol. Its metadata_hash meaning supersedes compiled-entity inventory semantics and requires explicit compatibility versioning. Native builders may use direct typed ABI methods instead. Reject unknown required versions/tags, oversized allocation, overlapping payload regions, malformed UTF-8 and profile mismatch before submission. B09 compares representations without reimplementing SQL semantics.
+This retained header is the versioned value/result transport refined by API section9.1.2, not a general query-operation protocol. Its metadata_hash meaning supersedes compiled-entity inventory semantics and requires explicit compatibility versioning. Native builders may use direct typed ABI methods instead. Reject unknown required versions/tags, oversized allocation, overlapping payload regions, malformed UTF-8 and profile mismatch before submission. B09 compares representations without reimplementing SQL semantics.
 
 ## 5. Type semantics and Rust database codecs
 
@@ -75,7 +94,7 @@ Npgsql date/UUID source is comparison evidence only and does not directly prove 
 
 ## 6. Bounded resources, streams and costs
 
-The following values are configurable design starting points, not measured capacity or performance conclusions: per DataSource, at most 32 leased Sessions, 128 waiters and a 15-second admission timeout; buffered results are limited to 10,000 rows/16MiB of charged data; each fetch to 256 rows/1MiB; the general field limit is 8MiB, but an inline cell must also fit within the current max-batch-bytes. Oversized values return LargeValueRequiresStreaming rather than silently exceeding the batch limit. Large BLOBs use dedicated bounded chunk streams. Every limit is finite, configurable and checked; D16/D17 separately limit total parameter bytes/collection elements.
+The following values are configurable design starting points, not measured capacity or performance conclusions: per DataSource, at most 32 leased Sessions, 128 waiters and a 15-second admission timeout; buffered results are limited to 10,000 rows/16MiB of charged data; each fetch to 256 rows/1MiB; the general field limit is 8MiB, but an inline cell must also fit within the current max-batch-bytes. Oversized values return LargeValueRequiresStreaming rather than silently exceeding the batch limit. Single-field incremental BLOB streaming is an explicit future capability; v1 rejects oversized inline fields and does not pretend ordinary SQLx row decoding supplies it. Every limit is finite, configurable and checked; D16/D17 separately limit total parameter bytes/collection elements.
 
 A Rust cursor permits at most one fetch at a time and one owned batch not yet taken; each batch's byte permit transfers with its actual owner and is returned after C# mapping completes. Prefetch is off by default; enabling it requires explicit total-page and byte budgets. Backpressure stops producer progress; cancellation/consumer break/decoder exceptions stop admission, request stop, join the stream, perform protocol cleanup and then retire under D06. A result owner must not leak because the user does not await the Task.
 
@@ -140,7 +159,7 @@ The recovered Linux SQLite AOT experiment is real but finite. Its JSON/fetch_all
 
 ## 11. Concrete native boundary and binding obligations
 
-The following signatures specify the domain boundary. `nw_status`, opaque creating-engine pointers and `nw_bytes_view_v1` reuse D02/D07/D08; they do not introduce a second Core status enum or a universal SQL IR. The shown declarations are **design examples, not compiled product exports**. Operation create/start/take_result/retire/release follows D06.
+The following historical signature sketch explains the domain boundary; API 0.4.0 section 9 now supplies the exact versioned operation signatures. `nw_status`, opaque creating-engine pointers and `nw_bytes_view_v1` reuse D02/D07/D08; they do not introduce a second Core status enum or a universal SQL IR. The shown declarations are **design examples, not compiled product exports**. Operation create/start/take_result/retire/release follows D06.
 
 ```c
 nw_status NW_CDECL nw_db_metadata_register(nw_db_source* source,

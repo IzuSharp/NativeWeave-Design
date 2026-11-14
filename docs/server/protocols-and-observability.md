@@ -1,6 +1,6 @@
 # D19 — Native gRPC/MCP/TLS and cross-language diagnostics
 
-Contract C-PROTOCOL-001. Design revision **0.3.0 design candidate**. Inputs R28/R30/R34 with D18 and
+Contract C-PROTOCOL-001. Design revision **0.4.0 public API refinement**. Inputs R28/R30/R34 with D18 and
 Core ownership/async/error/buffer contracts. Exact-content acceptance belongs to the
 registry and independent review; this specification does not assert product execution.
 
@@ -13,8 +13,11 @@ method/tool registration and business Handlers. Kestrel/grpc-dotnet/MCP C# SDK r
 comparators, not the production transport. A standalone Server app has a native
 Server dependency even when it has no Database dependency.
 
-Protocol NuGet/native feature packages are independently selectable. An application
-without gRPC/MCP does not load their adapters or require protocol services in Core.
+The managed gRPC and MCP NuGet facades are independently selectable. The initial
+`NativeWeave.Server.Native` asset contains one precompiled HTTP/TLS/Tonic/rmcp closure;
+no protocol runtime, registry or services are initialized unless configured, but unused
+protocol machine code may remain in the binary and B24 must measure that cost. Separate
+native feature variants are not promised by v1. No protocol services belong in Core.
 All packages negotiate native version/feature support; they cannot silently activate
 a managed Host fallback. Ordinary new services, tool metadata and DTOs use the existing
 native module. No .proto/tool-specific Rust compilation is required of consumers.
@@ -64,7 +67,7 @@ with an application build while the precompiled native module stays identical.
 
 | Native adapter operation | C# semantic API | Ownership/ordering |
 |---|---|---|
-| `grpc_register_methods(descriptor_batch)` | `MapGrpc(GeneratedServices.All)` | validate paths/kinds/caps, freeze descriptor generation before serving; no arbitrary runtime assemblies |
+| `grpc_register_methods(descriptor_batch)` | `app.MapGrpc(generatedService)` | validate paths/kinds/caps, freeze descriptor generation before serving; no arbitrary runtime assemblies |
 | `grpc_receive_message(op)` | `ReadAsync<TRequest>(cancel)` | pull, one pending read, owned bytes taken once after terminal success; decode failure releases lease |
 | `grpc_send_message(op, bytes)` | `WriteAsync<TResponse>(value,cancel)` | serialize into bounded owner; one pending write; retain until native ack; bytes are not a gRPC frame |
 | `grpc_set_status(code, detail, metadata)` | typed completion/result | native validates finite status/metadata; exactly one status commit; never append an HTTP JSON error |
@@ -211,8 +214,10 @@ failure/cancel, and preserve normal MCP semantics for admitted requests. Product
 implementation of these cases remains future Delivery; the current source reading
 exposes the allocation seam and defines its concrete required adapter behavior.
 
-The C# API shape is `MapMcp(GeneratedTools.All, profile, ApiJsonContext.Default)` with
-typed tool delegates. Native descriptors hold tool name/schema, Handler ID and limits;
+The exact C# API is `app.MapMcp("/mcp", registry, options)`; `McpRegistry.AddTool`
+receives static input/output JsonTypeInfo and a typed delegate. Generated bindings
+may call this same explicit API; no undeclared GeneratedTools or alternate registration
+path is required. Native descriptors hold tool name/schema, Handler ID and limits;
 C# owns typed argument/result mapping and business authorization. Native rmcp returns
 tool execution failures as tool error results; malformed/unroutable protocol requests
 produce JSON-RPC errors, and pre-parser failures use HTTP errors. These layers cannot
@@ -345,3 +350,21 @@ These are single-run observations, not transferable latency or native-memory gua
 The retrieved archive digest, byte-exact logs, source checkout transformation and executable
 digest are bound by `verification/server-completion/diagnostics-final-ci.json`.
 The earlier Windows failure remains preserved and is not relabelled as successful.
+
+
+## Public API refinement 0.4.0
+
+[Server API sections7–10](../api/server.md) define exact closed generic gRPC method
+registration, typed text MCP tools/resources/prompts, static codecs/schema limits,
+capabilities and the v1 C payload/export inventory. The earlier semantic operation
+table is explanatory; implementation uses the declared nw_server_* exports. Public
+RequestAborted/GrpcCallContext cancellation is delivered by bounded control signals
+plus a pre-take snapshot, outside raw native callback frames. Optional trace context
+uses the exact32-byte record above and bounded tracestate; enabled metrics read a
+fixed native snapshot, with no default exporter/global subscriber.
+
+B18/B19/B20 own their public XML/reference/guides/examples and API compatibility in
+the same implementation task. They must verify four gRPC cardinalities, typed schema
+and serializer agreement, hostile input allocation peaks, no per-DTO/tool Rust rebuild,
+and independent Windows/Linux AOT consumption. Finite historical research evidence
+above is preserved and cannot be reclassified as execution of this new public surface.

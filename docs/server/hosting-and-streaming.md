@@ -1,6 +1,6 @@
 # D18 — Required Rust Server: Handler, Body and resource lifecycle
 
-Contract C-SERVER-001. Design revision **0.3.0 design candidate**. Research inputs R26/R27/R29;
+Contract C-SERVER-001. Design revision **0.4.0 public API refinement**. Research inputs R26/R27/R29;
 cross-contract D02/D04–D09/D13–D15/D19/D20. Acceptance is recorded in the registry
 against this exact content and independent review. API fragments below are design
 pseudocode unless explicitly linked to an executed fixture. No product task is executed.
@@ -52,14 +52,15 @@ than starting additional runtimes. Domain adapters retain private upstream types
 
 ## 3. C# application and native operation surface
 
-Design example (not compiled product API):
+Design example; its exact declarations and compilation witnesses are in
+[the complete Server API](../api/server.md) and `experiments/public-api`. This is not
+a released product API:
 
 ```csharp
-var app = NativeServer.CreateBuilder()
-    .UseRust(options => options.Budget = ServerBudgetOptions.ReferenceSmall)
+await using var app = NativeServer.CreateBuilder()
     .UseJson(ApiJsonContext.Default)
     .Build();
-app.MapGet("/health/ready", static (request, cancel) => Responses.Text("ok"));
+app.MapGet("/health/ready", static () => Results.Text("ok"));
 app.MapPost<CreateItemRequest, CreateItemResponse>("/items", Items.CreateAsync);
 await app.RunAsync(cancellationToken);
 ```
@@ -82,7 +83,11 @@ Fluent registration is valid when it supplies all required metadata without refl
 | `response_finish(trailers)` / `request_abort(reason)` | terminal competition has one winner; native protocol validates trailer legality; later callbacks still retire safely |
 | `server_close(deadline)` | closes admission, drains/aborts operations and reports Stopped or ClosePending; never frees callback roots on timeout |
 
-These names specify implementation semantics, not a second Core ABI. Layout, status,
+The table above retains semantic operation names for explanation. The exact v1
+C exports, payloads, capability bits, typed take operations, cancellation/host-control
+notifications and retirement rules are authoritative in [API section10](../api/server.md#10-exact-native-payloads-operations-and-state)
+and its [canonical C header](../../experiments/public-api/abi/nativeweave_server_api_v1.h). Implement those declarations, not these abbreviated names.
+This is an extension of the existing Core ABI. Layout, status,
 ErrorRecord, opaque-handle ownership, cancellation registration and create/start/take/
 retire are governed by the existing D02/D04–D09 contracts. Domain operation tables have
 size/version/capability negotiation. Native private IDs may carry generations without
@@ -99,21 +104,23 @@ callback return value transfers an owned buffer. These rules follow D05/D06's se
 between notification, result transfer and two-sided retirement.
 
 The managed request provides owned/leased body reads and bounded writes with natural
-ValueTask/async APIs. A PipeReader/PipeWriter compatibility facade may be added only
+Task-returning public async APIs; ValueTask is used only by the inherited BCL Stream
+and IAsyncDisposable contracts. A PipeReader/PipeWriter compatibility facade may be added only
 if it preserves AdvanceTo/Flush lifetime and budgets; it is not the semantic owner.
 One pending read and one pending write per request are the initial contract. DTO
 serialization uses explicit JsonTypeInfo; a raw native pointer cannot back arbitrary
 ReadOnlyMemory across await without a lease. Handler completion, response-body end,
 backing-buffer release and callback retirement are separate events.
 
-`ReferenceSmall` is an initial test profile, not a performance promise: 512 connections,
+The finite defaults (historically called `ReferenceSmall` in research notes) are an initial profile, not a performance promise: 512 connections,
 32 HTTP2 streams/connection, 256 active/retiring requests, 128 metadata waiters,
 64MiB managed/native application-payload budgets configured separately, 4MiB/request/side,
 32KiB max chunk and 32KiB headers. JSON cap is 1MiB; larger attachment routes declare
 their own finite limit and stream in chunks. TLS/socket/allocator/GC/protocol buffers
 are separately accounted/observed; the payload cap is not a process RSS bound. The
-1MiB buffered JSON limit fits within the per-request budget with bounded copy/serializer
-headroom; actual allocated capacity is charged. A single allocation/decoded body whose
+1MiB buffered JSON wire cap alone does not prove that all decoded graphs fit the
+per-request budget; static DTO metadata and bounded serializer/collection expansion
+must justify the charged peak before admission. Actual allocated capacity is charged. A single allocation/decoded body whose
 required peak exceeds the route's absolute budget fails before enqueueing, rather than
 waiting forever for credit that this request can never receive. Streaming attachment
 total length and concurrently retained bytes are separate limits.
@@ -241,3 +248,20 @@ run manifests, stdout/stderr and source snapshots are retained under
 exact Windows LF-to-CRLF conversion are recorded in
 `verification/server-completion/ci-verification.json`. This extends platform coverage
 for these same distinct cases, not their product/FFI/soak scope or independent review.
+
+
+## Public API refinement 0.4.0
+
+The [Server API specification](../api/server.md), exact C# declarations and coverage
+matrix refine this contract without claiming product execution. Build freezes options
+and services; first Start freezes routes/handlers and checks static metadata before
+native admission. Core callbacks only enqueue bounded notifications. The new control
+notification/initial cancellation snapshot closes pre-take and in-flight cancellation
+races; request_try_retire prevents removing managed ticket state before control
+callbacks retire. BoundAddresses comes from an actual native startup snapshot, including
+port zero. Close Pending retains all outstanding ownership and budget obligations.
+
+B15/B16/B17 implement these signatures and native payloads together with their XML,
+generated reference, minimal/advanced consumers, negative compiler/configuration cases
+and actual Windows/Linux AOT behavior. Historical experiment identities and accepted
+snapshots above remain unchanged; this revision needs fresh exact-content review.

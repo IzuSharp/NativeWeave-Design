@@ -9,5 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="../NativeWeave.Api.Design/NativeWeave.Api.Design.csproj" />
     <TrimmerRootAssembly Include="NativeWeave.Api.Design" />
+    <TrimmerRootAssembly Include="NativeWeave.Api.Consumers" />
   </ItemGroup>
 </Project>

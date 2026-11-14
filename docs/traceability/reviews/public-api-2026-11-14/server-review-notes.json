@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "public-api-server-2026-11-14",
+  "reviewer_id": "/root/database_api",
+  "reviewer_role": "independent domain reviewer; authored Database, not Server",
+  "recorded_at": "2026-11-14T11:37:29.853744+00:00",
+  "review_kind": "design/source/consumer/ABI semantic review; not product acceptance or GitHub approval",
+  "state": "in_progress_open_findings",
+  "scope": [
+    "all Server C# declarations and member policies",
+    "HTTP typed binding, DI, static JSON and request lifecycle",
+    "bounded native reservations/control/cancellation/retirement",
+    "gRPC/MCP/TLS and D18/D19 consistency",
+    "consumer, C header/probe and negative compile witnesses",
+    "root Getting Started and guides Server consistency"
+  ],
+  "initial_inputs": [
+    {
+      "path": "docs/api/server.md",
+      "sha256": "8e3f5cb210dcea62d0da1bd4d5364b530119fbdc4db4d313e4d30c1bf16edbc0",
+      "bytes": 88022
+    },
+    {
+      "path": "docs/api/server-coverage.json",
+      "sha256": "09037652f1506c47d7d6317a16562ad5a36faaa8f0952cae7e4d5a2c9eb7f624",
+      "bytes": 71348
+    },
+    {
+      "path": "docs/api/server-sources.json",
+      "sha256": "d260b3dd71c6cab5b551f735f2dd96503e3b05bc3fc8c767e4e58e075939a688",
+      "bytes": 19848
+    },
+    {
+      "path": "docs/api/server-symbol-policies.json",
+      "sha256": "b1fa847262d5a76cbdaf6c955962a9518090a759b74db076996cca2174990797",
+      "bytes": 47655
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+      "sha256": "42f2e3f9ceab631407d94c503e10b0522606f9f22d92ebf53509674dcdb38a89",
+      "bytes": 56719
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+      "sha256": "9fa77efd76fc9283b2d3a2fa74d2562112fcebdf8c03dee6000891cf1f606c9a",
+      "bytes": 7432
+    },
+    {
+      "path": "docs/server/hosting-and-streaming.md",
+      "sha256": "5a79f5bab23de7971587eef1ab38ce32e2056765bdf9bc6333b1e2282d235241",
+      "bytes": 31379
+    },
+    {
+      "path": "docs/server/protocols-and-observability.md",
+      "sha256": "719e6ee04f7aad362b59de017aa85f872229d13a13baacc1e90b5be5313b935c",
+      "bytes": 29733
+    },
+    {
+      "path": "experiments/public-api/abi/nativeweave_server_api_v1.h",
+      "sha256": "1fc37b88d795a0d928504e5d87cdaef6a81b3fe58bd2494fb3320ceedc5ca50a",
+      "bytes": 10021
+    },
+    {
+      "path": "experiments/public-api/abi/server_layout_probe.c",
+      "sha256": "d7381b8852fdac662cd3f0aefa96a435e88681b8eafa95ab22e35eb2adf4b988",
+      "bytes": 1539
+    },
+    {
+      "path": "experiments/public-api/negative/server-cases.json",
+      "sha256": "dc12b5fd87f881afb01737de111d2a514a00ab606e26cf6824eb3ff39a0a10a0",
+      "bytes": 438
+    },
+    {
+      "path": "experiments/public-api/negative/server-wrong-response.cs",
+      "sha256": "a3df04d23c4ee481bde9f28f9cedabfd660310c97de23f6a4f2bde66a0578a4f",
+      "bytes": 461
+    },
+    {
+      "path": "experiments/public-api/negative/server-arbitrary-delegate.cs",
+      "sha256": "bdbb6d66e34ec505a3d3fdb23c6ed5cdf18e441fda4e95a74168008201c166a2",
+      "bytes": 362
+    },
+    {
+      "path": "docs/api/getting-started.md",
+      "sha256": "d9c27b903f8a3b1c66997553472e1a092b29065d88c49f02c45ec93b51f00d48",
+      "bytes": 9949
+    },
+    {
+      "path": "docs/api/guides.md",
+      "sha256": "40645d16ab0fb88b33fb90847a2beef79d73354293f4c210373f17cda92c5ecf",
+      "bytes": 12823
+    },
+    {
+      "path": "docs/standards/csharp-public-api-and-documentation.md",
+      "sha256": "e14e02e86d1f13c4fe6d670e3edde219f24e1500ad92d9afb045bdd817a3e7d4",
+      "bytes": 18259
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "e4ccc3241f3d1c37bf1c1156fd2591fcc263cf8422c4b1a4f41df057adf22f40",
+      "bytes": 4619
+    }
+  ],
+  "findings": [
+    {
+      "id": "API-SRV-001",
+      "severity": "high",
+      "blocking": true,
+      "status": "open",
+      "title": "Final response permits informational status and omits the 205 no-content rule",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "section": "5",
+          "line": 345,
+          "observation": "StatusCode/NoContent/NotFound validates100\u2013599 and only204/304 suppress output; response_begin is a single final commit and Upgrade is unsupported."
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html#section-15.2",
+          "observation": "Informational status precedes a final response and cannot carry content or trailers."
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3.6",
+          "observation": "205 responses prohibit content."
+        }
+      ],
+      "impact": "An accepted public status can fail to terminate the request correctly or allow protocol-invalid body framing.",
+      "expected_fix": "Define final response validation independently from informational handling; v1 should reject1xx through final status APIs, include205 body prohibition, and specify compatible HEAD/204/205/304 content-length/trailer behavior in managed/native validation."
+    },
+    {
+      "id": "API-SRV-002",
+      "severity": "high",
+      "blocking": true,
+      "status": "open",
+      "title": "HTTP header strings and decoded gRPC binary metadata lack distinct ABI projections",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "section": "10.1\u201310.2",
+          "line": 679,
+          "observation": "request_info exposes one headers view while the gRPC metadata convention requires raw binary values for-bin and explicitly no ABI base64."
+        },
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+          "section": "GrpcCallContext.RequestContext/RequestHeaders and ServerRequest.Headers",
+          "observation": "One public context exposes both ordinary HTTP HeaderCollection strings and typed gRPC text/binary metadata."
+        }
+      ],
+      "impact": "The current projection cannot unambiguously preserve HTTP wire header text and independently decoded binary gRPC values; one wrapper can incorrectly UTF8-decode raw binary or decode base64 twice.",
+      "expected_fix": "Define a separate exact typed ABI projection/field for gRPC metadata, including owner kind, lease, byte budget and whether wire HTTP headers remain intact; update C header/probe if layout changes."
+    },
+    {
+      "id": "API-SRV-003",
+      "severity": "medium",
+      "blocking": true,
+      "status": "open",
+      "title": "Trusted forwarded metadata has no deterministic parsing and trust contract",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "section": "4.4",
+          "line": 275,
+          "observation": "Exact direct-peer addresses and a finite hop count are stated, but header names/precedence, hop traversal/trust, mismatched repeated lists, scheme/authority validation and MCP Host boundary are not fixed."
+        }
+      ],
+      "impact": "Different implementations can accept different client-supplied identity metadata or apply a forwarded authority to an unrelated Host allowlist.",
+      "expected_fix": "Define the supported forwarding header family, bounded right-to-left trusted-hop traversal, per-hop trust checks, invalid/duplicate/mismatched input behavior, effective Scheme/Host and original-peer preservation, and the authority used by MCP Host checks."
+    },
+    {
+      "id": "API-SRV-004",
+      "severity": "medium",
+      "blocking": true,
+      "status": "open",
+      "title": "Completion or disposal failure can leave request retirement obligations unspecified",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "section": "5",
+          "line": 329,
+          "observation": "OnStarting is LIFO and scope waits for callbacks/disposables, but OnCompleted/disposable ordering and behavior after one throws are not stated."
+        }
+      ],
+      "impact": "An implementation could skip later cleanup, omit dispatch_complete, leak the DI scope or leave Close pending forever after a user cleanup exception.",
+      "expected_fix": "Fix the ordering and exactly-once rules, isolate failures so remaining registered cleanup and scope disposal still run, retain the original/first error with bounded safe diagnostics, and always signal dispatch completion and join native retirement in the outer finally path."
+    },
+    {
+      "id": "API-SRV-005",
+      "severity": "medium",
+      "blocking": true,
+      "status": "open",
+      "title": "Unexecuted Stream result does not specify source ownership",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "section": "5 Results.Stream(source,leaveOpen)",
+          "line": 351,
+          "observation": "The source is disposed on completion/error unless leaveOpen, but construction versus execution transfer is undefined. A filter can replace a returned result before execution; ServerResult has no disposal contract."
+        }
+      ],
+      "impact": "The normal caller cannot determine who closes an already-open Stream when execution never starts or early validation/cancellation fails.",
+      "expected_fix": "Define exact transfer at execution admission or another implementable ownership seam; unexecuted results must retain caller ownership, or expose an actual deterministic release mechanism. Prefer a producer example that opens resources inside its awaited execution and guarantees closure on failure."
+    },
+    {
+      "id": "API-SRV-006",
+      "severity": "high",
+      "blocking": true,
+      "status": "open",
+      "title": "MCP pre-parse authentication and native automatic-method authorization have no ABI continuation",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "section": "8 and13",
+          "line": 1005,
+          "observation": "B19 requires Host/Origin/auth before parse and lists/get/read/call share the authenticated policy."
+        },
+        {
+          "path": "docs/api/server.md",
+          "section": "10.2\u201310.3",
+          "observation": "The MCP exports take already-native-parsed arguments and submit replies; no explicit pre-auth route ticket and allow/deny resume operation admits the public rmcp service before its parser or automatic list handlers."
+        }
+      ],
+      "impact": "The current exact export inventory cannot demonstrate the required order for managed auth callbacks before native parsing; automatic list/metadata responses may bypass the application authorization path.",
+      "expected_fix": "Specify the outer native protocol request gate, bounded pre-auth ticket/context, asynchronous managed middleware/auth outside the callback, precise allow/deny continuation ABI, cancellation/failure cleanup, and subsequent business dispatch identity without duplicate request ownership. All protocol methods, including native automatic lists, must pass the gate."
+    },
+    {
+      "id": "API-SRV-007",
+      "severity": "low",
+      "blocking": false,
+      "status": "open",
+      "title": "Metadata-view paragraph ambiguously claims ownership transfer",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "section": "10.2",
+          "line": 824,
+          "observation": "After metadata_headers is declared to return a borrowed view, the same paragraph says this operation transfers an independently released metadata owner."
+        }
+      ],
+      "impact": "The intended bound_addresses owner transfer is easy to confuse with the borrowed metadata_headers projection.",
+      "expected_fix": "Name bound_addresses explicitly as the owner-returning operation and metadata_headers as a view-only borrow under that owner lease."
+    },
+    {
+      "id": "API-SRV-008",
+      "severity": "medium",
+      "blocking": true,
+      "status": "open",
+      "title": "Coverage rows do not identify their inspected-source evidence",
+      "evidence": [
+        {
+          "path": "docs/api/server-coverage.json",
+          "observation": "All65 feature rows list comparison APIs but lack per-row source IDs or exact reused native-evidence paths; the companion manifest gives scoped reads without a mechanically explicit feature mapping."
+        }
+      ],
+      "impact": "A future maintainer cannot distinguish source-supported comparisons from uninspected family members or locate the pinned native evidence for a row without inference.",
+      "expected_fix": "Map rows to actual SERVER-DOTNET/RUST source IDs and relevant reused native evidence, with explicit coverage limits where a named comparison member was not individually read; do not cite unread files or claim a whole-file read from a hash."
+    },
+    {
+      "id": "API-SRV-009",
+      "severity": "medium",
+      "blocking": true,
+      "status": "open",
+      "title": "MCP tool root-shape admissibility is ambiguous",
+      "evidence": [
+        {
+          "path": "docs/api/server.md",
+          "section": "8 and10",
+          "observation": "AddTool generics and supported schema forms include scalar/array/object shapes, while the exact argument bridge describes a registered input object and output structuredContent; root shape and null-root rejection are unstated."
+        }
+      ],
+      "impact": "A static codec alone could appear to authorize a scalar/array registration that the selected method/argument model does not bind.",
+      "expected_fix": "Declare and validate the selected root policy at registration. The author-selected v1 repair is a non-null object input and output root, with scalar/array/null allowed only at explicitly described nested properties, and actionable diagnostics."
+    }
+  ],
+  "checks": [],
+  "limitations": [
+    "No product Server exists in this phase. No HTTP/TLS/protocol execution, production budget proof, Windows certification or generated handler execution is inferred from declarations.",
+    "No acceptance binding or GitHub approval has been created. Exact-content recheck is required after fixes."
+  ],
+  "observations": [
+    "Ordinary handlers, JSON DTOs, gRPC descriptors and MCP registrations reuse one maintainer-built Rust asset; no per-application Rust build path is required by the inspected declarations.",
+    "Control callback, sticky request cancellation snapshot, host-fault latch and request_try_retire make cancellation and dispatch-root retirement explicit; raw callbacks do not run application work.",
+    "Native write reservation -> nonwaiting managed credit -> bounded synchronous copy -> final-owner credit release is explicit, including never-started/failed-create rollback.",
+    "BoundAddresses has an actual startup metadata-owner path for port zero; request, metadata, body-chunk and operation ownership are separated.",
+    "Whole-call gRPC deadlines, four cardinalities, identity-only compression and distinct status/error layers are declared; no production protocol execution is inferred.",
+    "MCP parsing/schema allocation proof remains an explicit B19 gate; its current documents do not assert that wire size alone bounds JSON/DTO peak.",
+    "Getting Started and the Server section of guides use the same minimal/typed handler overloads as the compile-only consumer; static System.Text.Json generation is separated from the unimplemented endpoint generator."
+  ]
+}
