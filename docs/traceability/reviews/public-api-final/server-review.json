@@ -1,0 +1,660 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "public-api-final-server-independent-review",
+  "reviewer": "/root/final_server_overall_review",
+  "reviewer_role": "Independent final Server reviewer and subsequent overall cross-repository reviewer; not the author or integrator of the reviewed technical changes",
+  "reviewed_at_utc": "2026-11-14T12:45:30Z",
+  "decision": "accept_research_design",
+  "state": "accepted_scoped_technical_review_not_wrapper_acceptance",
+  "source_snapshot": {
+    "NativeWeave-Design": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+    "Plan": "fa7eaeedd6ce6362f8cdf7ca8d45afe714652a3d",
+    "formal_freeze_confirmed_by_root": true,
+    "all_required_working_bytes_equal_frozen_git_blobs": true
+  },
+  "scope": {
+    "contracts": [
+      "C-SERVER-001",
+      "C-PROTOCOL-001",
+      "C-REFERENCE-001"
+    ],
+    "tasks": [
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R30",
+      "R31",
+      "D18",
+      "D19",
+      "D20",
+      "D29",
+      "D30",
+      "D32"
+    ],
+    "product_implementation_authorized": false,
+    "product_delivery_executed": false
+  },
+  "independence": {
+    "normative_changes_authored_by_this_reviewer": false,
+    "product_files_written_by_this_reviewer": false,
+    "historical_successful_experiments_rerun_by_this_reviewer": false,
+    "record": "The reviewer independently read the original user scope, both repositories' rules, current declarations/specifications/coverage/policies, author repairs, relevant native source seams, saved research and actual evidence. Only reviewer records are authored here. Earlier notes and author reports remain preserved and are not substituted for this decision."
+  },
+  "required_input_paths_count": 142,
+  "supporting_frozen_input_paths_count": 22,
+  "review_inputs_sha256": {
+    "NativeWeave-Design:.gitattributes": "1565b43c76a7f32d49ce4d4ee72a60b805496c48280770e0b4377e0f22ca7432",
+    "NativeWeave-Design:.github/workflows/english-translation.yml": "2c96978ebe50cc34e983a73ebf67bd5532415090abae55c4a56cb15325276375",
+    "NativeWeave-Design:.github/workflows/public-api-design.yml": "b9a46ebe8251c44eb52466195a97157fe8b14ca8dc05350f44731d326a62646b",
+    "NativeWeave-Design:AGENTS.md": "e4ccc3241f3d1c37bf1c1156fd2591fcc263cf8422c4b1a4f41df057adf22f40",
+    "NativeWeave-Design:docs/api/README.md": "e9b8a59dcade380d52239f4177e144ab1e16f3353c58038d861741ee4ab55301",
+    "NativeWeave-Design:docs/api/database-coverage.json": "c8b6af8f50e04d2ac286024a936c8183896999aa7b8434f9c3c870e9cd9b565e",
+    "NativeWeave-Design:docs/api/database-sources.json": "173f89299550e6927b64a4091030730e3e4224af1a258729c27b0176926b6188",
+    "NativeWeave-Design:docs/api/database-symbol-policies.json": "a21d78f1c603f7a34c2e0b976075b03d26832a63fd4a7a559f17c9f0d5d7beb7",
+    "NativeWeave-Design:docs/api/database.md": "1667c15e905b642717e77e5dfda322a0fc329dc7df31fd72e6d86e57b5c1c0ea",
+    "NativeWeave-Design:docs/api/documentation-system.md": "49fa32115777c296c361016f99f6921ad3ce1b0087e4dbd39185c107e0c8c03e",
+    "NativeWeave-Design:docs/api/foundation-coverage.json": "6d10e4adda289591246ce9d5e5e6395cf5f1c869cda55c33f44a9fbc4db9cc45",
+    "NativeWeave-Design:docs/api/foundation-sources.json": "2efd7e1a05f7cbb35681a438e8a6700973592d58bb9141f5e3ee49012d9bb321",
+    "NativeWeave-Design:docs/api/getting-started.md": "1a78365da1422d12f793beef06e13e3a543902c2d7ccd84c79cf01bf322affe2",
+    "NativeWeave-Design:docs/api/guides.md": "40645d16ab0fb88b33fb90847a2beef79d73354293f4c210373f17cda92c5ecf",
+    "NativeWeave-Design:docs/api/interop-coverage.json": "e6e1de9c087158a179e73e74fd30d9b8c3c691e069cac25d3371d7743a8c0aa8",
+    "NativeWeave-Design:docs/api/interop-sources.json": "7660f18a73d08accbc0ce8743e764e0eb212393a8d0575e20bda431cd17395a1",
+    "NativeWeave-Design:docs/api/interop-symbol-policies.json": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+    "NativeWeave-Design:docs/api/interop.md": "2b32e5c2dcdfe78dd0b39014949a88bf91d6b2d011f8d75117e00507ecae4b74",
+    "NativeWeave-Design:docs/api/nuget-and-consumption.md": "7aab2485a5bfe21042b701bb1eda43b630330fe896b2ca8f80a81f93d3ffced9",
+    "NativeWeave-Design:docs/api/public-api.json": "d3e989c4f8732f2514c66a2c1ecf038b460fc29e3581d0b36855612751e974e4",
+    "NativeWeave-Design:docs/api/reference.md": "4bf3d37cbc423eacf9a308fe420b7564b4f92548fb3d164c65f53e16c9348b48",
+    "NativeWeave-Design:docs/api/server-coverage.json": "e7227247075b8d2cc68c107ef3be8c1f5b61e1d63cedb923584ab3d9d90805c4",
+    "NativeWeave-Design:docs/api/server-sources.json": "f333f15c7f07b9994c37d265bb9a2e3ebdee981fab37f51edc0cad9fb5e18a68",
+    "NativeWeave-Design:docs/api/server-symbol-policies.json": "2cfa139c8c50bf711bf553722b2be06ea6ab5f8bcd04860a37ede0c41802c9eb",
+    "NativeWeave-Design:docs/api/server.md": "188d8b24b8912e89dd1b36bb15c496d94727af2dbede638b0ff8b36bff3f6ea2",
+    "NativeWeave-Design:docs/contracts/abi-v0.1.md": "d9e8fd60ff33d3c56410cd4cc3a6ad591609c0b49282bd3ccf9ad7b93f06e9f2",
+    "NativeWeave-Design:docs/contracts/async-v0.1.md": "e939648f87c5463687ca5ed34b173c0934cb28be528c1401898d0819bc213081",
+    "NativeWeave-Design:docs/contracts/buffer-v0.1.md": "524b76834de5573cedb1f4e4deca8d84554d445c608aaae7fad576873e3d0f76",
+    "NativeWeave-Design:docs/contracts/callback-v0.1.md": "7e336f16b8a1c15522b98965dd107af67c122e9b3c49cbd6e1ecce963aae694c",
+    "NativeWeave-Design:docs/contracts/concurrency-v0.1.md": "f5308445ccd3e9edf76f55ad13fc9e673d857901b90445227f0453da3407e825",
+    "NativeWeave-Design:docs/contracts/error-v0.1.md": "f110fba00ee2479c8a12648ecc1fbb592ca45866e1e25dc31b5445a694b95bd4",
+    "NativeWeave-Design:docs/contracts/lifetime-v0.1.md": "de5cf64b2b113cccbe5d2cf5489d22bee48f6c1e586937118f97eb1cb3602774",
+    "NativeWeave-Design:docs/database/drivers.md": "4f53cc6301b26153240ce398ea967a5ab61b05cab1f36f7a408625a6a5303ca5",
+    "NativeWeave-Design:docs/database/query-semantics.md": "d57033e097899d5fb8dba4d5aafa81eb5999277340fa5dbf56248c660d4fbc34",
+    "NativeWeave-Design:docs/database/transactions-and-pooling.md": "57d65e5fb540272c3ac005048f16d544410b69f15cf96ae3330297973bd55665",
+    "NativeWeave-Design:docs/decisions/ADR-0004-csharp-public-api-and-documentation.md": "8fdc05a6dc117e33060bfb1b457acd9c444512645f44a31b10c3bcf70b2bcc0c",
+    "NativeWeave-Design:docs/extension/engine-integration.md": "7910c717d103088f29ec6e64683b0160398d9c479365328655dd2db9260c749d",
+    "NativeWeave-Design:docs/extension/future-platforms.md": "ddd932826586f1cffee39d3fa625fbc6f46ae323a03b8eeb6d6b8b7d90ab9cd6",
+    "NativeWeave-Design:docs/generators/binding-pipeline.md": "ae3c30c3547b3508a95acbf1ae8f5d2d1a3a9aaf3c6a1f2a4bc317a6c8ccfe4e",
+    "NativeWeave-Design:docs/generators/query-generation.md": "2d13ce00ad35e99f812cbfc6e0ab7b82e75a9ffd579410088332da2014a56e73",
+    "NativeWeave-Design:docs/performance/methodology.md": "a628825741ae7ca7a3187ba1d36958f63059e667a48bb57f15c0ee3b1e9af670",
+    "NativeWeave-Design:docs/platforms/build-package-release.md": "4810c05f0af850dadc1c814ca7707ff348e7b448a9fcb792ec2a7aeb2d7c46cc",
+    "NativeWeave-Design:docs/platforms/support-and-aot.md": "fc7fa75462cd42f159568eb37342367f3302801745b731fc630f3a730d62ee7e",
+    "NativeWeave-Design:docs/research/topics/R15/coverage.json": "269b6eb7141d47fce15081b8763ee4111afa239c5cb3fdd8aad7eb6dfcb414f6",
+    "NativeWeave-Design:docs/research/topics/R15/evidence.json": "c15d1c7ab5e09af224c3f0109af6b4db0ebb5054a042065a7eae111d24c41146",
+    "NativeWeave-Design:docs/research/topics/R15/report.md": "9647f4658cd32c1d66ef3138ff27a42d5bde68223bc64a5729b8838e6b872de6",
+    "NativeWeave-Design:docs/research/topics/R16/coverage.json": "d0b9231eb1f726c4e756312750b31585046b00f244efc2fddc3bd9de513b2d97",
+    "NativeWeave-Design:docs/research/topics/R16/evidence.json": "e29c76262a7ba9b68ca2159121f64abdbdefe86ec4f1230c6d767cc03115dc12",
+    "NativeWeave-Design:docs/research/topics/R16/report.md": "fb220a379dfd8ade2716da031981cf4aa1860c50d57b941a2457f7a532840502",
+    "NativeWeave-Design:docs/research/topics/R17/coverage.json": "a3143374630425bf878ab479cff7b63ba1622c01c0d0ea356a91784295bb1878",
+    "NativeWeave-Design:docs/research/topics/R17/evidence.json": "bd2fe1def8e7e54ac695c727b430d6d6472b3a025266d3bd2dcea2080c4ae46f",
+    "NativeWeave-Design:docs/research/topics/R17/report.md": "beb4bc4507a3b1763f34891e0f218bc1aea7c7cc644d68546a40b579bb6866a4",
+    "NativeWeave-Design:docs/research/topics/R21/coverage.json": "2ab4b8776470e2a19551f73f865a101de5d2594cfb8619dfad8ee29891a15fd9",
+    "NativeWeave-Design:docs/research/topics/R21/evidence.json": "7feccb6d21fee314fca91171bcd6557061f6a8fa8427bc2855e3b8ccf164e071",
+    "NativeWeave-Design:docs/research/topics/R21/report.md": "b998c4de172a5c24d4de7b01246f23b973cffa95036319338267fd41fc50d95e",
+    "NativeWeave-Design:docs/research/topics/R26/coverage.json": "51c6108fa00abc94a1d4c885637aead56106dac5fc05f147f03b4ee83c025d45",
+    "NativeWeave-Design:docs/research/topics/R26/evidence.json": "cceaa3f74f35eb5d65158cfb7312a02b103de2abe16db4bf66d8e378a410f0b8",
+    "NativeWeave-Design:docs/research/topics/R26/report.md": "0ae243cd14bd209aa7c50ae7cd75325d7372b7e954efea0e9cc9522dccd10a77",
+    "NativeWeave-Design:docs/research/topics/R27/coverage.json": "7664d681be6cb8dea20e923c284ec7b551def90f0910e2b339a4149f88d6f15e",
+    "NativeWeave-Design:docs/research/topics/R27/evidence.json": "55cc97e4c2e6a4593bc665fd249b26bcfb8e8d170529de128a5451a6fb906c95",
+    "NativeWeave-Design:docs/research/topics/R27/native-slice-validation.md": "72885d5340748bc3668d2f4131d7977092d8626c2ee5d2be068ef2e554491fc5",
+    "NativeWeave-Design:docs/research/topics/R27/report.md": "b8cf9581b322f4607455470a02a94ee4684fc0c4968a675e12ba3cbe2e965497",
+    "NativeWeave-Design:docs/research/topics/R27/source-driven-server.md": "da0e8596585a3ba5e6fef6d7bdab3eee96d9f925516d40dfed64628bf4401113",
+    "NativeWeave-Design:docs/research/topics/R28/coverage.json": "ad0f906a070892d9c66e6ba06281ac2ac5cd77a1e2113ee5977ce96c92187b39",
+    "NativeWeave-Design:docs/research/topics/R28/evidence.json": "53a4334ca9aceb83ea8ed4d4b1a60720eeca12231f57c639ea7eec7af6bf726e",
+    "NativeWeave-Design:docs/research/topics/R28/report.md": "53c7853a03a74d912574188f0c3646986e9fbdb9f71b6a960450c5595d2b98cf",
+    "NativeWeave-Design:docs/research/topics/R29/coverage.json": "f3d5fc6750288603edd18089b7c3cd5f7dffee4eb6686376929cedcf010f8131",
+    "NativeWeave-Design:docs/research/topics/R29/evidence.json": "3f2c39cbb10f9367dee51373fa3469329dadf0d870e00221722ea347afe6b36d",
+    "NativeWeave-Design:docs/research/topics/R29/report.md": "427bbf2611d5ad48272009b28395552f3efb86721e1b24740cdf442726bedf3c",
+    "NativeWeave-Design:docs/research/topics/R30/coverage.json": "01549bad229f0fbc2ff7d1d77f30dc528cfee29356467a3bc9ec0213786b0bd2",
+    "NativeWeave-Design:docs/research/topics/R30/evidence.json": "f7e71407de4ed1d23851d922b75b5dd91a7b3f698e019a4b57ba368d58f50d7e",
+    "NativeWeave-Design:docs/research/topics/R30/report.md": "f824ab93a79a7595f94fd38fd6758699b507a4fb199e3367858c436119cc03e5",
+    "NativeWeave-Design:docs/research/topics/R31/coverage.json": "c5fe2a3d63eb6504bf1233d78e054bbd61ec4c18c064d025f337ba3681bb4745",
+    "NativeWeave-Design:docs/research/topics/R31/evidence.json": "12b4825fc395d57fcc33c1477538ae7b6e90520290951d55b49addf7d9ed6301",
+    "NativeWeave-Design:docs/research/topics/R31/report.md": "79ad3b9abe308114661b8d45b288a607fd9014b1ca60b4e2a7ab877a96dff5d5",
+    "NativeWeave-Design:docs/research/topics/R34/coverage.json": "780ed9f8ce4f5ffc47356c3ee18c02a2b868999cb2284d10016f14811d9e8960",
+    "NativeWeave-Design:docs/research/topics/R34/evidence.json": "470aa544a5309db79714fdcaedf49c08962c5522c8c045a918799e7bc62b54be",
+    "NativeWeave-Design:docs/research/topics/R34/report.md": "1d1f043b863e9b33483d3e9f88b00a88396c330c5cf1dfc4eed9bc08a5a2f0a9",
+    "NativeWeave-Design:docs/server/body-retirement-protocol.md": "ef7c3f5a32a1d9b047d884edada7b2bafd409b36d79b798d8da273be1a4338cd",
+    "NativeWeave-Design:docs/server/hosting-and-streaming.md": "959fdedf623d69ab284cdba685a260f24260e2e34014574fee7d890cbd221d73",
+    "NativeWeave-Design:docs/server/protocols-and-observability.md": "34f2aeb124b24d3d22b5ca5ccd9a35a05555ad1c3870edca255a4e7d4228799c",
+    "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md": "78f2aab2212fbbc49267e7827231a3f64cf9b840206d0acdc33768417e2dbcac",
+    "NativeWeave-Design:docs/verification/models-and-matrix.md": "355a8aade375e1dccf32742877baa1562ede5862c9aa1fa9161be8d7017fad47",
+    "NativeWeave-Design:docs/verification/reference-application.md": "de0c1235602f9cb6e6c5d2f065642113c0768c129310dfa19ed0e722b7bfea0f",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs": "f71eeaf8b7541d76fe5d7b9f9a27f3ced72eba96411519d8c680e70805c27182",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs": "c329f9d0404ad9c6d6884dd8e265e2af2d69253766975595f17297153b133a16",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs": "7b1ec450f8a61d21904084ee71ebff6bf179b2e165580511f7e37ca494e4b286",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "dc97889bd7abaadaaf6567011bad462284f1cd8780a45e65ccdfe7acb249b07d",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs": "904816521ba65abe182859d12f5e461fd778ea64e409e8d50f4c4ca390998369",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs": "1a6d4ab4b53d56d8a7d6cefdf1ab5af7106ed46f60dd828cfc11c4e0335612d6",
+    "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+    "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h": "f7316b35bfb8cce5cb4fded82a0907e602626c4e9e54ff18d99fe242f2b4b681",
+    "NativeWeave-Design:templates/public-api/AGENTS.fragment.md": "dd903ddc4edcbf2834a178cebd3075b663b8f4024f8200387bc0ac123540b28e",
+    "NativeWeave-Design:templates/public-api/adoption-checklist.md": "44daf25f07a809e2a523683aedf2960d6ec5b8bb1a32154539ee6c8b0df68dd0",
+    "NativeWeave-Design:templates/public-api/api-change-template.md": "94832ff05fd49865bae73158336d1f3e67f343ea86f833e7e2aa2752d00bc264",
+    "NativeWeave-Design:tools/contract_acceptance_checks.py": "b9d16a1c2bd3fae28543a34e5d938de791ddaee648b0d405222782666e1831a0",
+    "NativeWeave-Design:tools/local_host_raw_evidence.py": "d776d0f3674e21bc6c0c501de57c823f61cd565eeb7ae96293e280c462388aca",
+    "NativeWeave-Design:tools/verify_contract_acceptance.py": "5c9848696b9b53a30adce1216058498c84eb3397dcec7ff6ecd930aeffa8ffe2",
+    "NativeWeave-Design:tools/verify_english_translation.py": "a99e0a17dac2bf7cb218cbd7f9cb704954616824ce4e98038864be0c62518092",
+    "NativeWeave-Design:tools/verify_public_api.py": "1912aa6ebf1f7973955c3591dfc7babbf6dd8b81eb41e5c8a1f83a3a766146ce",
+    "Plan:.github/workflows/native-slices-final-check.yml": "0c25f28d1afb2d1c0677a0d45b9ad89657b5a2c626f609f3702796e3564d3434",
+    "Plan:AGENTS.md": "91be4173a9a53ea055977ef1acd7348d4dadafb990a5502290b5510ada749d6f",
+    "Plan:api-execution-requirements.md": "e38f802ca2248418fb47ce746dd1d89be434b3f249b69a064d5e5710b54e1247",
+    "Plan:documentation-tasks/D18.md": "79b6a95f3d61c04eb6f120c777dddb58c80c7e171b43df72016eeec60357e94f",
+    "Plan:documentation-tasks/D19.md": "59ec69207b9798babcb65fe42a064a6fd788b80d593fca9f7e702349b068d83b",
+    "Plan:documentation-tasks/D20.md": "625b130aee67facac1c23e5691ea6607c882bf8a128914b549d7b3ee5531b686",
+    "Plan:documentation-tasks/D29.md": "910c943834c6214bb5fbc7b625a3882cefd6b4c4735d3943f4af8e28df7fd319",
+    "Plan:documentation-tasks/D30.md": "cd1d1e729fb3cd58a50057e9a16222ad77c6d0eebde3c1a13ff85e7a7e4dfb4d",
+    "Plan:documentation-tasks/D32.md": "3b4d1739c0800e746f81f7ebdb12a31e201fa16c847b0f5517439dea647ec3b2",
+    "Plan:execution-policy.md": "3ee38dc91ba86245962fa2d658f0306c95d3699c16a5ae83792e46b92a8d5117",
+    "Plan:fragments/async-runtime.json": "90dd220d04888fc460382b253eca0ecb0b80b896f35b30927fe4c9a41e08999a",
+    "Plan:fragments/build-release.json": "14c25ba81841bf968c1d1dd5f373cabd3515adf869b1021406a0a0c6f994f437",
+    "Plan:fragments/database.json": "0d5e34a11999230fb667b112fe1de10ec8ac2a149bbef68b706f1e0b145daacd",
+    "Plan:fragments/end-to-end.json": "e4cf5d852dcae45439907604520b3decab110566e159101df11c3c9ab454eb18",
+    "Plan:fragments/evolution.json": "35e584888fc3b5698decbf9bc8080c0747013a10c4912bbde8cf01407beb7078",
+    "Plan:fragments/generation.json": "11e7e04c17993310ee0d8eaa05e11257a80ac4d60b3b2e1d3a491bb50174fe54",
+    "Plan:fragments/interop-foundation.json": "95b600857135f97d14df57eb81f85b500e3e30371ed1de849d45d1e72b76abfc",
+    "Plan:fragments/orm.json": "dbd493a4584342e42125523a19d134a58ad51ec59b8c8a27ad4866f005ec4f76",
+    "Plan:fragments/server.json": "cb80659770d919d089a491c9e90e2b630481ee1b7bfc240d26b7266afbb6f835",
+    "Plan:fragments/verification-engines.json": "bfc9093cd98c9e26a5b33ad3f0da979f4c3665cf3283b2886382a813cc9932f4",
+    "Plan:ledger/public-api-2026-11-14/review-readiness.md": "bb824c1b9ffab53e553f1129fbeb0c2e5051febd74f3fb370973da289aee7a43",
+    "Plan:ledger/reviews/D32.md": "581c22a793f762d7b546efdcbceadc2a1dd58706e7537573cc265a5191a9fe21",
+    "Plan:public-api-acceptance-workflow.md": "f0ed84f05eb03a55ecf05276e697d5c16c7a3fbaa6b92e9f386268ee06c51bb1",
+    "Plan:research-tasks/R26.md": "dfabd909462a18e6ae4f851eb0fd597912807093688d1dffa4b39cd507482bcd",
+    "Plan:research-tasks/R27.md": "b83afaf13d77c8a37992a26c0026c5222dbcba6d3c0bfa9709810572b85a592c",
+    "Plan:research-tasks/R28.md": "5b5948b7b70440330c6c8e521820dd13b7b40d74764f8556efb928efe8dfb7a4",
+    "Plan:research-tasks/R29.md": "3435f468296231f532340bbcfe6c43144042cba7f0cd0c52115b17d162667200",
+    "Plan:research-tasks/R30.md": "825ce22c06ef8947b0b1fa1e97014b65d41e4d77d4f5013d50e0d97c22c23ded",
+    "Plan:research-tasks/R31.md": "d3dc9c02d5d1752b8e034fc7c081e345dc04de0de23ae5cb898a1bc005a94732",
+    "Plan:schemas/graph-v1.schema.json": "995e97229363c7873589114e0c24ef8083465a2a4194f961168f999031312a29",
+    "Plan:tools/binding_attestation_checks.py": "a18d30360a8c066af092119c9a2ec49f0fd2a4b317e377a39f219985ff705021",
+    "Plan:tools/host_selection_checks.py": "a839e362318e3583ff4511e629135cd142914a775103bf0b37bfbc02f128980c",
+    "Plan:tools/mutation_checks.py": "9bbef28cd8f92b9669cbfb47037ec68fb2eb5460e6aa67faa21f29ecee4a024a",
+    "Plan:tools/prepare_acceptance.py": "c054163a8945d6759f293d3c165f703e513790b843be8e1434d57aae197372b9",
+    "Plan:tools/refine_public_api.py": "9f4e0ee18bfb86c03cb5cc11a0067af575dbd8c3c1207098520f60b5bb1f8d1f",
+    "Plan:tools/render_packets.py": "82e24dc6cbb30f5e26f8e52eb2ce912acbb936d7dceeae2e14f2ff6a27c65cac",
+    "Plan:tools/review_bindings.py": "64eb48c082fafeecdae2ef6bd55c456f3f276eb759a86b55d491ff07512715c6",
+    "Plan:tools/validate_graphs.py": "25bba231342c876ea7ad9ddd044aee342c91241565566815cd0340b8d6c230e5",
+    "Plan:tools/verify_completion.py": "a7720fba13a4f919064dfda5712a4dfac026899a1eeeee30b116b51a1b466840",
+    "Plan:tools/verify_public_api_history.py": "36cd216fb2a1d1c3e28ea09e182724814a6d69adc2f312346e00ee5685ad0901",
+    "Plan:tools/verify_public_api_plan.py": "b8ead35183f275e996002c999b1487fe35d29957f0952d4bc4fd150706ae2a16",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-final/server-review-notes.json": "1d33ccba4089aed9b16db3d13ba23df910e6d18fe1e0675bd6e64f0adc2563ee",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-final/server-author-fixes.json": "ee7088175074265e9cdb51f42772980d44274f7dfa255dbe2bba3e53432f902d",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-2026-11-14/server-review-notes.json": "1b5b7a67ef0b339a7c0fc261675a36345df7508af19d33793d0f8c04fc963595",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-2026-11-14/server-fixes.json": "f98fa8fa39f31133bcb1b33b44b8310bcffc199582e10c54404a4692c31043e8",
+    "NativeWeave-Design:experiments/public-api/abi/server_layout_probe.c": "95c33fd748a9382e0b077427d6ece654a07d7a0dbe67ecdf931de2422e038202",
+    "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/c-results.json": "50e3cb04f178a1a0e00047926af21ccdcd369abf39797297003ef26eb6702aef",
+    "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/prototype-parity.json": "049d77ec2fa0afd7a02ae2ddd14fab89b4599f7c4928a014b31765567da3f20f",
+    "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-results.json": "d94e54ddd4c5d3a3c3de0d00a2da8b5910a17ab0888d80b86a467f9ac54c7391",
+    "NativeWeave-Design:verification/public-api/server-review-fixes/mcp-schema-root-witness/Program.cs": "cea6cba257eabcb381fb16111cffd094019caa46d2a485ea1f6d02d42e64a145",
+    "NativeWeave-Design:verification/public-api/server-review-fixes/mcp-schema-root-witness/SchemaRootWitness.csproj": "5fdf10733eb0e2301ad4c50bb5bb5ea0e7de8ae3fe5646e1ba18a7c027ca1548",
+    "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-2/consistency-results.json": "264f7b07715ce3489e55758f3ca9ca02e9d339e64500d7123c3b7a20ca1b2eef",
+    "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-2/source-identity.json": "bc603b06a2b295dcb3e7b1c9a1ffe3d8025ab4927778b33f0f6f72bfda0a792c",
+    "NativeWeave-Design:verification/public-api/full-linux/attempt-3/summary.json": "3b3e2baca58f06dac5c000fd8154a70c40b2b799d1fd04aa55394dc60e810e24",
+    "NativeWeave-Design:verification/public-api/full-linux/attempt-3/negative-consumers.json": "72341eb5c13beed9a543713e39f00a1f6fdab0d20d434ba81def0f2bd243b713",
+    "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/summary.json": "d6adfccaabb103af4bc2ca462fa27e727cd6c515753407926bd1f7a8d113b74b",
+    "NativeWeave-Design:verification/public-api/full-linux/attempt-3/native-aot-execute.log": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+    "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/summary.json": "1ef04184d713bf569430dd20d4b37b8c17317a589fb74b5097db316d53fee053",
+    "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/summary.json": "37cadd8613e009a25bb2638354d30a1581eefb28e9caa51e1e4d64dbc2c9f9e0",
+    "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/negative-consumers.json": "5d3ff74c818c937d8ca250bb5472ca29f782c3465a294997337c8915cb0df0f6",
+    "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/summary.json": "03376ce857e7b73735f2bcbbeec0482662f8d83ada8348b894f4f81b1d7a6888",
+    "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/summary.json": "12d1d1573f25ab5eea8e0668ce5fff25dd4cbc9db998211ed21e2ea32f294fea",
+    "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/artifact-readback.json": "7cea142c263f2308303e6e682cd9ef842d2b7cecd57b1d5cc270a1bdc453d24c"
+  },
+  "contract_reviews": [
+    {
+      "id": "C-SERVER-001",
+      "version": "0.4.0",
+      "spec_path": "docs/server/hosting-and-streaming.md",
+      "content_sha256": "959fdedf623d69ab284cdba685a260f24260e2e34014574fee7d890cbd221d73",
+      "decision": "accept_research_design",
+      "required_path_count": 35,
+      "scope_limit": "Research/detailed design only; fresh exact wrappers and this reviewer's separate binding attestation are still required."
+    },
+    {
+      "id": "C-PROTOCOL-001",
+      "version": "0.4.0",
+      "spec_path": "docs/server/protocols-and-observability.md",
+      "content_sha256": "34f2aeb124b24d3d22b5ca5ccd9a35a05555ad1c3870edca255a4e7d4228799c",
+      "decision": "accept_research_design",
+      "required_path_count": 31,
+      "scope_limit": "Research/detailed design only; fresh exact wrappers and this reviewer's separate binding attestation are still required."
+    },
+    {
+      "id": "C-REFERENCE-001",
+      "version": "0.4.0",
+      "spec_path": "docs/verification/reference-application.md",
+      "content_sha256": "de0c1235602f9cb6e6c5d2f065642113c0768c129310dfa19ed0e722b7bfea0f",
+      "decision": "accept_research_design",
+      "required_path_count": 48,
+      "scope_limit": "Research/detailed design only; fresh exact wrappers and this reviewer's separate binding attestation are still required."
+    }
+  ],
+  "task_reviews": [
+    {
+      "id": "R26",
+      "revision": "0.3.0",
+      "packet_sha256": "dfabd909462a18e6ae4f851eb0fd597912807093688d1dffa4b39cd507482bcd",
+      "semantic_node_sha256": "30610396d58ddd18399ea402b8c97516c3d29bb587c41f2f572ff9e36a0998a1",
+      "decision": "accept_research_design",
+      "required_path_count": 4,
+      "basis": "Scoped ASP.NET11 public/source comparison and preserved .NET11 Native AOT Kestrel comparator evidence; mandatory product networking remains Rust."
+    },
+    {
+      "id": "R27",
+      "revision": "0.4.0",
+      "packet_sha256": "b83afaf13d77c8a37992a26c0026c5222dbcba6d3c0bfa9709810572b85a592c",
+      "semantic_node_sha256": "212b1d86b953df8c8d1c8e5cde21f2978fe6b174a7ee8c94df93a8f314ea37b1",
+      "decision": "accept_research_design",
+      "required_path_count": 7,
+      "basis": "Public native Service/Body composition, required native host, bounded dispatcher and lifecycle source/experiment evidence; current Server source manifest is bound."
+    },
+    {
+      "id": "R28",
+      "revision": "0.3.0",
+      "packet_sha256": "5b5948b7b70440330c6c8e521820dd13b7b40d74764f8556efb928efe8dfb7a4",
+      "semantic_node_sha256": "cdc6537653c69f9f1d28742cee975b932a48ad79e365ab735a6f81a1793aeacf",
+      "decision": "accept_research_design",
+      "required_path_count": 4,
+      "basis": "Four gRPC cardinalities, whole-call deadlines and exact modern MCP profile are mapped through public Tonic/rmcp seams with bounded static C# metadata and explicit unsupported features."
+    },
+    {
+      "id": "R29",
+      "revision": "0.3.0",
+      "packet_sha256": "3435f468296231f532340bbcfe6c43144042cba7f0cd0c52115b17d162667200",
+      "semantic_node_sha256": "642fb88b9414d70d8ea6badff7b1483d384c6af776325500629479d883fdf093",
+      "decision": "accept_research_design",
+      "required_path_count": 4,
+      "basis": "Body EOF, transport termination, queue permits, backing bytes and callback retirement remain distinct; historical finite models are not promoted to product liveness or RSS proof."
+    },
+    {
+      "id": "R30",
+      "revision": "0.3.0",
+      "packet_sha256": "825ce22c06ef8947b0b1fa1e97014b65d41e4d77d4f5013d50e0d97c22c23ded",
+      "semantic_node_sha256": "a9399150b32f083ca8f357cdc649d72c1f7a42bfee12d98766eea5af7ca72b63",
+      "decision": "accept_research_design",
+      "required_path_count": 4,
+      "basis": "Corrected Windows/Linux diagnostics observations and failed preliminary measurement are preserved; no-observer measurements and layout witnesses do not claim full FFI tracing/exporter performance."
+    },
+    {
+      "id": "R31",
+      "revision": "0.3.0",
+      "packet_sha256": "d3dc9c02d5d1752b8e034fc7c081e345dc04de0de23ae5cb898a1bc005a94732",
+      "semantic_node_sha256": "ed909bf3e03887c397abda5ba183e050cd6861c9acf12262fa00b344b920496c",
+      "decision": "accept_research_design",
+      "required_path_count": 4,
+      "basis": "Reference idempotency/recovery, scoped native database evidence and Python prototype limits remain explicit; no product outbox/filesystem/network or full reference-application execution is claimed."
+    },
+    {
+      "id": "D18",
+      "revision": "0.4.0",
+      "packet_sha256": "79b6a95f3d61c04eb6f120c777dddb58c80c7e171b43df72016eeec60357e94f",
+      "semantic_node_sha256": "141a98f8b6dbd67d43e80c7961fa0905ea53c6098fc89725214cf440dd18d3e1",
+      "decision": "accept_research_design",
+      "required_path_count": 17,
+      "basis": "Complete Server declaration-to-C-ABI-to-Rust mapping, route freeze, host/request ownership, automatic HTTP finish, cancellation, nonwaiting payload admission and body retirement are coherent."
+    },
+    {
+      "id": "D19",
+      "revision": "0.4.0",
+      "packet_sha256": "59ec69207b9798babcb65fe42a064a6fd788b80d593fca9f7e702349b068d83b",
+      "semantic_node_sha256": "9d297db1733ec29d59f9e5f30634d4927532f18a80c4030421a03e1fcd2cafcd",
+      "decision": "accept_research_design",
+      "required_path_count": 11,
+      "basis": "Tonic framing/metadata/deadlines, MCP pre-parse authorization continuation, TLS/security, tracing/metrics and explicit finite protocol restrictions are coherent on one required native host."
+    },
+    {
+      "id": "D20",
+      "revision": "0.4.0",
+      "packet_sha256": "625b130aee67facac1c23e5691ea6607c882bf8a128914b549d7b3ee5531b686",
+      "semantic_node_sha256": "5042b3bb36dca36b768d86dfafd106575f40b716cb73da75691f8d883cdb1813",
+      "decision": "accept_research_design",
+      "required_path_count": 13,
+      "basis": "The four-table work-item reference design preserves transaction Unknown, replay scope, outbox at-least-once behavior, authorized blob references and bounded cleanup; its payload policy agrees with D18."
+    },
+    {
+      "id": "D29",
+      "revision": "0.4.0",
+      "packet_sha256": "910c943834c6214bb5fbc7b625a3882cefd6b4c4735d3943f4af8e28df7fd319",
+      "semantic_node_sha256": "5559071ad462f54e0c8d8a6dcedb4119d5346faa3513a16cc85d31400e4d62e6",
+      "decision": "accept_research_design",
+      "required_path_count": 25,
+      "basis": "The existing B15–B20 task fragment has complete local ownership, real native-host integration obligations, typed API/documentation duties and all repaired Server conformance cases."
+    },
+    {
+      "id": "D30",
+      "revision": "0.4.0",
+      "packet_sha256": "cd1d1e729fb3cd58a50057e9a16222ad77c6d0eebde3c1a13ff85e7a7e4dfb4d",
+      "semantic_node_sha256": "ca36f0a4890e50b2e137b8139bd7b5118eeffb2e139ec9a19f28168ecf713015",
+      "decision": "accept_research_design",
+      "required_path_count": 18,
+      "basis": "The existing B21–B24 fragment assigns real reference-app, fault/soak, measured comparison and package-release duties without claiming those future product rows executed."
+    },
+    {
+      "id": "D32",
+      "revision": "0.4.0",
+      "packet_sha256": "3b4d1739c0800e746f81f7ebdb12a31e201fa16c847b0f5517439dea647ec3b2",
+      "semantic_node_sha256": "e95f1ff888daf77311738aa1a494f52a19ad426febc063b6c31e5ef0677dfb26",
+      "decision": "accept_research_design",
+      "required_path_count": 89,
+      "basis": "The complete current review-readiness material, 114 packets, ten fragments, 48 future ownership roles, native/AOT constraints and exact acceptance workflow have been reviewed. The separately authored overall record confirms all peer reports and subsequent binding phases; this scoped decision does not itself mark wrappers accepted."
+    }
+  ],
+  "findings": [
+    {
+      "id": "API-SRV-001",
+      "severity": "high",
+      "title": "Final HTTP status and bodyless-response semantics",
+      "resolution": "The public final-response path accepts only status 200–599. HEAD, 204, 205 and 304 each have explicit producer suppression, direct-write, Content-Length and trailer rules; status-specific restrictions still apply to HEAD. Native framing owns the resulting response.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "experiments/public-api/NativeWeave.Api.Design/Server.cs"
+      ],
+      "verification_boundary": "Specification/declaration recheck; actual wire framing remains B15/B17/B22 product work.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-002",
+      "severity": "high",
+      "title": "HTTP wire metadata and decoded binary gRPC metadata are distinct",
+      "resolution": "HTTP metadata retains its wire values. A separately owned gRPC projection performs bounded Rust Adapter comma splitting, SP/HTAB edge trimming, empty-segment preservation, per-name order preservation, entry/byte/scratch preflight and atomic rollback before per-segment public Tonic from_headers/get_bin/to_bytes decoding. No managed base64 decoder or nonexistent Tonic splitting behavior is assumed.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "docs/server/protocols-and-observability.md",
+        "docs/api/server-sources.json",
+        "experiments/public-api/abi/nativeweave_server_api_v1.h"
+      ],
+      "verification_boundary": "Pinned public Tonic source seams independently inspected; private util configuration read only to establish padding behavior. No new gRPC runtime test.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-003",
+      "severity": "medium",
+      "title": "Trusted forwarding requires one coherent bounded proxy chain",
+      "resolution": "Only explicitly trusted direct peers enable the three X-Forwarded fields. Field counts and aligned bounded lists are validated together; right-to-left trusted-hop processing is bounded and publication is atomic. Original wire Host/Origin and peer identity remain available and MCP authorization is not bypassed by forwarded values.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "docs/api/server-symbol-policies.json"
+      ],
+      "verification_boundary": "Design/security-boundary review; no claim of product penetration or network conformance execution.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-004",
+      "severity": "medium",
+      "title": "Every successful ordinary HTTP path finishes before cleanup",
+      "resolution": "MapRaw, generated void/Task, custom ServerResult and middleware short-circuit success join the one idempotent CompleteAsync/response_finish before OnCompleted, registered disposal, scope disposal and dispatch completion. Untouched status is 200; explicitly selected status is preserved. Failures do not send a second final response. Cleanup remains LIFO, failure-isolated and independent of cancellation. Protocol-owned paths use typed protocol terminals; denied MCP retains its documented HTTP exception.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "docs/server/hosting-and-streaming.md",
+        "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs"
+      ],
+      "verification_boundary": "Complete semantic path recheck and consumer compilation evidence; automatic native completion is a future B15/B16/B22 witness.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-005",
+      "severity": "medium",
+      "title": "Streaming result ownership transfers at successful execution admission",
+      "resolution": "The caller retains the source until a single-use execution claim succeeds. The cleanup finally is installed before later fallible work; an admitted suppressed HEAD result still disposes its transferred source. An unexecuted or replaced result retains caller ownership, and the producer example opens its source only during execution.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs"
+      ],
+      "verification_boundary": "Static ownership/consumer review; no product streaming execution claimed.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-006",
+      "severity": "high",
+      "title": "Protocol contexts cannot bypass typed framing or MCP pre-parse authentication",
+      "resolution": "gRPC exposes only safe request metadata/services/identity/items/time/cancellation/abort plus completion/disposal lifecycle. Raw body/JSON/trailers and all raw HTTP response access including HasStarted and OnStarting are rejected; local or inherited ServerFilter is rejected at freeze. Auth denial uses gRPC16/7 without DTO/business admission. MCP dispatch kind2 applies the managed pre-parse gate to every method; kind3 uses the same ticket and reserved continuation without a second take, scope, auth chain or final dispatch completion. Pending HTTP denial cannot become Allow; post-Allow protocol output belongs to rmcp. Nested managed-work leases and native retirement prevent early cleanup under cancellation.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "docs/server/protocols-and-observability.md",
+        "docs/api/server-symbol-policies.json",
+        "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "experiments/public-api/abi/nativeweave_server_api_v1.h"
+      ],
+      "verification_boundary": "Independent state-machine and cross-layer mapping review. The cross-language gate, framing restrictions and retirement races remain explicit B18/B19/B22 product obligations.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-007",
+      "severity": "low",
+      "title": "Metadata ownership transfer is distinct from borrowed views",
+      "resolution": "bound_addresses transfers one metadata owner. metadata_headers and metadata_grpc_headers borrow only while an owner lease remains live. Wrappers copy decoded metadata before releasing that lease, and binary public values are owned arrays rather than escaped native views. Wrong-owner-kind operations return empty outputs and a deterministic error.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "experiments/public-api/abi/nativeweave_server_api_v1.h"
+      ],
+      "verification_boundary": "ABI/declaration ownership review, including current 48-export prototype/layout evidence; no product interop execution.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-008",
+      "severity": "medium",
+      "title": "Server coverage rows identify actual inspected source and evidence limits",
+      "resolution": "All 65 rows were inspected and their source IDs, local evidence paths, costs, restrictions and owners audited. The unsupported full MVC/UI row explicitly claims no source-read or implementation coverage; it is an honest scope exclusion. Upstream source reads, historical finite native runs, new compile checks and future product obligations remain distinct.",
+      "rechecked_paths": [
+        "docs/api/server-coverage.json",
+        "docs/api/server-sources.json"
+      ],
+      "verification_boundary": "Coverage/source-reference audit, not a whole-upstream repository or test-suite audit.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-009",
+      "severity": "medium",
+      "title": "MCP schemas preserve non-null object roots and nested nullability",
+      "resolution": "Tool roots must have static finite object metadata; Nullable<T>, scalar/array/dictionary/open/polymorphic roots are rejected. A root-only exporter transform narrows reference DTO object|null to object without changing nested nullability. Registration has finite metadata/schema/scratch bounds; successful null results are rejected. The finite BCL witness preserves its initial failing nullable-value-root attempt and final seven positive/five negative-root checks.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "docs/server/protocols-and-observability.md",
+        "verification/public-api/server-review-fixes/mcp-schema-root-witness/Program.cs",
+        "verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-results.json"
+      ],
+      "verification_boundary": "Witness tests BCL static metadata only, not NativeWeave registration, network MCP or AOT execution.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-010",
+      "severity": "medium",
+      "title": "Retained inbound owners cannot create an awaited payload-credit cycle",
+      "resolution": "Both read and write payload admission use complete request/global backing-capacity grants without waiting or retrying. Partial credit, queue reservations and managed/native copy overlap roll back on failure. Queue/network waits hold only their documented bounded state and remain separate. Taken chunks retain actual backing-capacity charges after dispatch until last release. The 128x32KiB/4MiB and cross-request global exhaustion cases require immediate resource_limit rather than deadline-based progress. D18, D20, the current body-retirement design and both visible and unrendered B16 fields now agree; the historical awaited-permit experiment remains preserved and explicitly superseded as product policy.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "docs/server/hosting-and-streaming.md",
+        "docs/server/body-retirement-protocol.md",
+        "docs/verification/reference-application.md",
+        "Plan:fragments/server.json",
+        "Plan:fragments/end-to-end.json",
+        "Plan:delivery-graph.json",
+        "Plan:tasks/B16.md"
+      ],
+      "verification_boundary": "Reasoned liveness counterexample and independent exact-policy recheck. No product quota coordinator was executed; B16/B17/B22 own the implementation witnesses.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-011",
+      "severity": "medium",
+      "title": "Timeout and body-limit precedence must resolve identically in both ABI records",
+      "resolution": "New section2.1 defines endpoint-over-default generic timeout selection, gRPC minimum with method timeout and admission-time client deadline, and one monotonic whole-call budget. TimeSpan ticks convert to checked uint64 nanoseconds with a positive 24-hour maximum. gRPC/MCP reject explicit generic body/JSON modifiers and use protocol-specific limits; per-direction cumulative payload units exclude framing but not its separate budget. route and protocol descriptor values must agree; protocol max_json_bytes=0 means unavailable HTTP JSON binding, not unlimited JSON. Server XML descriptions now agree.",
+      "rechecked_paths": [
+        "docs/api/server.md",
+        "experiments/public-api/NativeWeave.Api.Design/Server.cs"
+      ],
+      "verification_boundary": "New finding discovered and independently rechecked by this reviewer; compilation/export regenerated after the XML change. Runtime option-freeze validation remains future implementation.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    },
+    {
+      "id": "API-SRV-012",
+      "severity": "medium",
+      "title": "Current body-retirement design must be an exact acceptance input",
+      "resolution": "The changed body-retirement-protocol is now a D18 output and Server API input. It appears in required_paths for C-SERVER, C-PROTOCOL, C-REFERENCE, D18 and D32, and is pinned by B15–B24 delivery inputs. The current normative byte-owner rules can no longer drift solely behind an unbound prose link.",
+      "rechecked_paths": [
+        "docs/server/body-retirement-protocol.md",
+        "Plan:documentation-graph.json",
+        "Plan:fragments/server.json",
+        "Plan:fragments/end-to-end.json",
+        "Plan:tools/refine_public_api.py",
+        "docs/contracts/registry.json"
+      ],
+      "verification_boundary": "Required-path/ownership/hash audit; the architecture reviewer independently concurred with the binding requirement.",
+      "state": "resolved_by_author_and_independently_rechecked",
+      "blocking": false,
+      "rechecked_at_utc": "2026-11-14T12:45:30Z"
+    }
+  ],
+  "unresolved_blocking_findings": [],
+  "verification": [
+    {
+      "id": "frozen-required-paths",
+      "result": "passed",
+      "scope": "All142 required input paths were independently hashed and compared to the frozen repository Git objects; all12 task semantic digests also match their frozen graph nodes. Complete support pinning adds22 preserved evidence/review/probe files."
+    },
+    {
+      "id": "server-surface-and-coverage",
+      "result": "passed",
+      "scope": "All65 Server coverage rows, all425 current Server symbols and their64 type policies inspected/audited. Native C header exposes48 reviewed exports. The full inventory has1268 unique symbols,178 type policies and234 coverage rows; every symbol resolves to a policy."
+    },
+    {
+      "id": "tonic-public-metadata-seam",
+      "result": "passed",
+      "scope": "Cached map.rs/value.rs/encoding.rs hashes equal the recorded pinned source; relevant public paths were read. util.rs was independently fetched at commit4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70 and its padding configuration read. The Adapter does not call private utilities.",
+      "source_url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/util.rs"
+    },
+    {
+      "id": "mcp-schema-witness",
+      "result": "passed",
+      "scope": "Witness source, project, initial failure and final log hashes checked. Final finite BCL witness has7 positive assertions and5 rejected roots; nested properties are unchanged and reflection serialization is disabled. No NativeWeave MCP/AOT execution is inferred."
+    },
+    {
+      "id": "preserved-owned-research",
+      "result": "passed",
+      "scope": "R26–R31 report/evidence/coverage triplets are18 byte-identical files relative to prior accepted Design4c5c385779b753a4f06e59d07f80ad27ca10a841. Fifteen resolvable local evidence/source file hashes referenced by their records were independently verified. Source-read, finite model, native research and actual platform runs retain their distinct claims."
+    },
+    {
+      "id": "current-declaration-export",
+      "result": "passed",
+      "path": "verification/public-api/final-documentation/attempt-2/summary.json",
+      "scope": "All44 input hashes and all8 step-log hashes match final frozen bytes/results;9 named negative compilation cases and63 exporter assertions pass. This is design-only compilation/static execution, not product operation execution."
+    },
+    {
+      "id": "prior-current-linux-aot",
+      "result": "passed_for_recorded_inputs",
+      "path": "verification/public-api/full-linux/attempt-3/summary.json",
+      "scope": "All10 step/log identities checked. This earlier suite has7 negatives, not9. Subsequent Database/Server declaration deltas were inspected as XML-comment-only; current fresh compilation/export covers the final documentation bytes. The AOT executable runs static JSON/evidence code and roots design consumer bodies, not real Database/Server operations."
+    },
+    {
+      "id": "package-consumption-scope",
+      "result": "passed_for_recorded_inputs",
+      "path": "verification/public-api/interop-packaging/attempt-4/summary.json",
+      "scope": "All16 command log hashes and artifact-readback summary binding verified. The real Linux AOT codec roundtrip, transitive finite generator and unchanged native asset mechanism are observed; this is neither a pristine-machine claim nor full product ORM/Server/generator/package acceptance."
+    },
+    {
+      "id": "future-task-ownership",
+      "result": "passed",
+      "scope": "All48 Delivery nodes remain planned_candidate with implementation_authorization.status=not_authorized;114 packets and ten fragments remain. Every fragment task has one owner and exact API pins; repaired B16 rules were checked in both failure_paths and rendered fields. The new body-retirement design appears in the three owned contracts/D18/D32 and B15–B24 exact input sets."
+    },
+    {
+      "id": "final-exact-head-ci",
+      "result": "passed",
+      "run_id": 43595766652,
+      "head_sha": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+      "url": "https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43595766652",
+      "independently_retrieved_at_utc": "2026-11-14T12:45:30Z",
+      "jobs": [
+        {
+          "id": 132449792563,
+          "name": "api-interface (ubuntu-24.04)",
+          "head_sha": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+          "status": "completed",
+          "conclusion": "success",
+          "required_steps": [
+            {
+              "name": "Compile exact declarations and consumers, reject negative cases, execute Native AOT fixture",
+              "conclusion": "success"
+            },
+            {
+              "name": "Reject stale generated reference",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check coverage, exact policies and immutable prior evidence",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 132449792697,
+          "name": "api-interface (windows-2022)",
+          "head_sha": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+          "status": "completed",
+          "conclusion": "success",
+          "required_steps": [
+            {
+              "name": "Compile exact declarations and consumers, reject negative cases, execute Native AOT fixture",
+              "conclusion": "success"
+            },
+            {
+              "name": "Reject stale generated reference",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check coverage, exact policies and immutable prior evidence",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ],
+      "scope": "Both actual Windows2022 and Ubuntu24.04 jobs succeed at the formal Design freeze, including the Native AOT fixture, stale-reference check and coverage/history gate. This proves those workflow steps, not product runtime behavior."
+    }
+  ],
+  "evidence_limits": [
+    "No NativeWeave product Server, gRPC/MCP transport bridge, payload-credit coordinator, complete generator or reference application is implemented or executed by this review.",
+    "The MCP pre-parse gate, gRPC raw-context restrictions, automatic HTTP finish, quota rollback and retirement races are sufficiently specified for implementation, but still require their B15–B19/B22 actual product witnesses.",
+    "Historical six retained-owner tests,13 two-OS protocol cases,19 corrected Linux protocol cases, five independent cardinality checks and diagnostics observations are reused only at their recorded identities and finite scopes.",
+    "No equivalent-load performance winner, whole-process memory ceiling, long-soak result, pristine full-product NuGet environment or release acceptance is claimed.",
+    "This report supplies only the three contract and12 task decisions owned by this reviewer. Other technical domain decisions come from their actual independent reports; the separate overall report contains no duplicate contract/task decision rows.",
+    "Prepared contract/task wrappers, exact reviewer attestations, accepted-state negative checks and merged-Design source rebinding remain explicit subsequent integration gates. This scoped technical decision is not itself a fabricated wrapper approval or GitHub account review."
+  ],
+  "remaining_integration_steps": [
+    "Read actual completed Interop/Foundation and Database scoped reports and author the separate overall candidate review.",
+    "Inspect the newly prepared contract wrappers and independently attest this report's three exact subjects.",
+    "Inspect the newly prepared task wrappers and independently attest this report's12 exact subjects after all dependency snapshots are checked.",
+    "Confirm current accepted-state positive/negative gates and exact final CI before candidate PR integration.",
+    "After Design merges, compare all reviewed normative bytes, inspect new merged-source task wrappers, issue new same-reviewer attestations and complete final overall review before the same Plan PR merges."
+  ]
+}

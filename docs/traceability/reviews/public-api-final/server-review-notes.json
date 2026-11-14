@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "public-api-final-server-independent-review-notes",
+  "reviewer": "/root/final_server_overall_review",
+  "reviewer_role": "New independent final Server and subsequent overall reviewer; not Server author or integrator",
+  "reviewed_at_utc": "2026-11-14T12:13:33.021554+00:00",
+  "decision": "changes_required",
+  "state": "in_progress_not_acceptance",
+  "technical_scope": [
+    "C-SERVER-001",
+    "C-PROTOCOL-001",
+    "C-REFERENCE-001",
+    "R26",
+    "R27",
+    "R28",
+    "R29",
+    "R30",
+    "R31",
+    "D18",
+    "D19",
+    "D20",
+    "D29",
+    "D30",
+    "D32"
+  ],
+  "source_snapshot": {
+    "NativeWeave-Design": "cc3bd73fb6e17e042842a8951100038fa501c422",
+    "Plan": "ae9967358f033b5b865463106317a8e2bb1ad012",
+    "working_tree_content_reviewed": true,
+    "frozen_candidate_received": false
+  },
+  "review_inputs_sha256": {
+    "NativeWeave-Design:AGENTS.md": "e4ccc3241f3d1c37bf1c1156fd2591fcc263cf8422c4b1a4f41df057adf22f40",
+    "NativeWeave-Design:CURRENT-PHASE.md": "04cbc468953848f1f07c4b825d9716b2346c6450b3437c790cc9e9a202b30511",
+    "NativeWeave-Design:docs/api/README.md": "e9b8a59dcade380d52239f4177e144ab1e16f3353c58038d861741ee4ab55301",
+    "NativeWeave-Design:docs/api/server.md": "c6b4732b44d36ec2e00d8b0ab1c0a14a5b30e44139ab1e36ccebebcf1110e1b9",
+    "NativeWeave-Design:docs/api/server-symbol-policies.json": "6ae6f697062833bcb4a03b49df485453a7ae75e1aea688793464ad10b4e9161c",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs": "e1419cbbbde6cd7b4a61aee525294e1ea9562940f92082a440a0b5458469435c",
+    "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h": "7f0a149ef4a596df2b2f185c5166366437dc3cf8a3def4e6a1f04dc79e71d5e6",
+    "NativeWeave-Design:experiments/public-api/abi/server_layout_probe.c": "95c33fd748a9382e0b077427d6ece654a07d7a0dbe67ecdf931de2422e038202",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-2026-11-14/server-review-notes.json": "1b5b7a67ef0b339a7c0fc261675a36345df7508af19d33793d0f8c04fc963595",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-2026-11-14/server-fixes.json": "f98fa8fa39f31133bcb1b33b44b8310bcffc199582e10c54404a4692c31043e8",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-2026-11-14/integration-fixes.json": "c300e1b015fb9910e4b7a2130e2ee38255257aab7d9153b8765a90e78733946f",
+    "Plan:AGENTS.md": "91be4173a9a53ea055977ef1acd7348d4dadafb990a5502290b5510ada749d6f",
+    "Plan:public-api-acceptance-workflow.md": "f0ed84f05eb03a55ecf05276e697d5c16c7a3fbaa6b92e9f386268ee06c51bb1",
+    "Plan:tools/review_bindings.py": "735cbdd698899af863b33751232dae2e4d227e3332fee10e4a74f62945319df5"
+  },
+  "findings": [
+    {
+      "id": "API-SRV-002",
+      "severity": "high",
+      "blocking": true,
+      "state": "open_independently_confirmed",
+      "title": "Comma-coalesced binary gRPC metadata still attributes splitting to Tonic",
+      "evidence": [
+        {
+          "path": "NativeWeave-Design:docs/api/server.md",
+          "section": "10.2",
+          "lines": [
+            943,
+            959
+          ],
+          "observation": "Separate HTTP wire and decoded gRPC projections now exist, but the text still says comma-coalesced binary values are accepted by Tonic and projected individually without specifying Adapter splitting."
+        },
+        {
+          "path": "NativeWeave-Design:docs/traceability/reviews/public-api-2026-11-14/server-review-notes.json",
+          "finding": "API-SRV-002",
+          "observation": "Preserved source inspection reports MetadataMap::from_headers wraps HeaderMap; MetadataValue::to_bytes decodes the whole value without comma splitting."
+        }
+      ],
+      "impact": "The mapping would leave a valid coalesced binary field to a decoder that does not split it, causing failure or divergent metadata semantics.",
+      "required_resolution": "Specify bounded Rust Adapter splitting of coalesced -bin field values, permitted ASCII OWS trimming, individual validation and Tonic decoding per segment, original order and repeated-entry preservation, empty/malformed rules, aggregate limits and split/decode scratch reservation. Keep the wire HTTP block intact and require no managed base64 decode.",
+      "review_limit": "This reviewer independently inspected the current design and preserved source finding; no new upstream runtime experiment was run."
+    },
+    {
+      "id": "API-SRV-004",
+      "severity": "medium",
+      "blocking": true,
+      "state": "open_independently_confirmed",
+      "title": "Successful raw response lacks a guaranteed response_finish before cleanup",
+      "evidence": [
+        {
+          "path": "NativeWeave-Design:docs/api/server.md",
+          "section": "5",
+          "lines": [
+            363,
+            390
+          ],
+          "observation": "LIFO failure-isolated cleanup is specified, but no dispatcher rule completes an unfinished successful HTTP response before OnCompleted and scope release."
+        },
+        {
+          "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+          "symbol": "ServerExamples.AdvancedAsync",
+          "observation": "The MapRaw upload handler sets StatusCode201 and returns without CompleteAsync."
+        }
+      ],
+      "impact": "A normal documented handler can finish application dispatch without an admitted response_finish operation, leaving output incomplete and retirement ambiguous.",
+      "required_resolution": "For successful HTTP MapRaw, generated void/Task, custom result and middleware short-circuit paths, await the one idempotent CompleteAsync/response_finish if not already completed before OnCompleted/disposal/dispatch_complete. Preserve selected status and headers; untouched response is empty200. Failure must follow the existing redacted precommit error or postcommit abort path, and protocol-owned output must use its own terminal operation."
+    },
+    {
+      "id": "API-SRV-006",
+      "severity": "medium",
+      "blocking": true,
+      "state": "open_independently_confirmed",
+      "title": "gRPC RequestContext exposure lacks explicit raw HTTP and filter restrictions",
+      "evidence": [
+        {
+          "path": "NativeWeave-Design:docs/api/server.md",
+          "section": "7",
+          "lines": [
+            577,
+            591
+          ],
+          "observation": "GrpcCallContext exposes the ordinary RequestContext; typed protocol framing exists but raw body/response/OnStarting/filter restrictions are absent."
+        },
+        {
+          "path": "NativeWeave-Design:docs/api/server.md",
+          "section": "10.4",
+          "lines": [
+            1097,
+            1171
+          ],
+          "observation": "MCP has a concrete single-ticket pre-parse gate, continuation, scope and retirement contract, but remaining gRPC restrictions and complete cross-protocol policy need to agree."
+        }
+      ],
+      "impact": "Normal middleware or a gRPC handler can apparently consume transport body bytes or commit an HTTP response outside Tonic, corrupting protocol framing; inherited ServerFilter has no typed gRPC result to wrap.",
+      "required_resolution": "Explicitly permit safe metadata, services, identity, Items, cancellation/abort and lifecycle completion/disposal access. Reject gRPC raw Request.Body/ReadChunk/ReadJson/GetTrailers and response status/header/trailer/body/Start/Write/Flush/Complete/OnStarting mutation; use only typed gRPC metadata/status/output paths. Reject endpoint/inherited ServerFilter at route freeze. Define auth/policy denial through gRPC Unauthenticated/PermissionDenied framing. Reconcile declarations, type policies and D19. Preserve MCP AwaitingGate managed HTTP denial exception and post-Allow native ownership.",
+      "already_rechecked": "The main MCP gate defect is repaired in current design: all native automatic methods pass kind2 gate; kind3 uses same ticket with one take/scope/auth chain; nested managed invocation lease and native retirement prevent early release. This is a design review, not executed cross-language gate evidence."
+    },
+    {
+      "id": "API-SRV-010",
+      "severity": "medium",
+      "blocking": true,
+      "state": "open_independently_confirmed",
+      "title": "Retained inbound chunks can consume capacity required by an awaited response",
+      "evidence": [
+        {
+          "path": "NativeWeave-Design:docs/api/server.md",
+          "section": "2,5,10.3",
+          "observation": "The per-request native retained-byte cap may be filled by retained BodyChunk owners; a positive output write waits for that same request/global byte capacity. The existing managed/native acquisition order does not address same-side retained input owners."
+        }
+      ],
+      "counterexample": "With the default4MiB per-request native cap and32KiB chunks plus a route body override, retain128 complete chunks, then await positive Response.WriteAsync before disposing them in finally. Output cannot gain byte credit until the awaiting handler releases its chunks; only deadline/cancellation breaks the wait. Equivalent global exhaustion can occur across requests.",
+      "impact": "A currently admitted pattern has a deadline-bounded liveness failure. This is a semantic design gap, not an executed product failure or evidence of unbounded deadlock.",
+      "required_resolution": "Choose exact all-or-none nonwaiting native payload credit failure on both read/write capacity exhaustion, clearly separate queue/network flow-control waiting, and unwind partial grants; alternatively specify protected directional/request headroom plus globally atomic admission. Per-request minimum alone is insufficient. Charge actual backing capacities and preserve owned-chunk retirement. Require B16 boundary/global/cancellation/untaken-owner witnesses. Do not use a retry loop or timeout to claim progress."
+    }
+  ],
+  "unresolved_blocking_findings": [
+    "API-SRV-002",
+    "API-SRV-004",
+    "API-SRV-006",
+    "API-SRV-010"
+  ],
+  "preliminary_historical_rechecks": [
+    {
+      "id": "API-SRV-001",
+      "state": "current_design_repair_read_no_acceptance",
+      "scope": "Final200..599, explicit HEAD/204/205/304 body/length/trailer constraints."
+    },
+    {
+      "id": "API-SRV-003",
+      "state": "current_design_repair_read_no_acceptance",
+      "scope": "Coherent bounded right-to-left trusted forwarding chain and original wire MCP Host/Origin separation."
+    },
+    {
+      "id": "API-SRV-005",
+      "state": "current_design_repair_read_no_acceptance",
+      "scope": "Stream source transfer at successful execution claim; skipped result leaves ownership with caller; producer witness opens on actual execution."
+    },
+    {
+      "id": "API-SRV-007",
+      "state": "current_design_repair_read_no_acceptance",
+      "scope": "bound_addresses owner transfer distinguished from borrowed metadata projections."
+    },
+    {
+      "id": "API-SRV-009",
+      "state": "current_design_repair_read_no_acceptance",
+      "scope": "Static non-null object roots and Nullable<T> rejection; root-only schema transform leaves nested nullability unchanged."
+    }
+  ],
+  "read_coverage": {
+    "fully_read": [
+      "Original user scope",
+      "Design and Plan AGENTS.md",
+      "Design CURRENT-PHASE.md",
+      "Plan public-api-acceptance-workflow.md",
+      "Plan tools/review_bindings.py",
+      "Server.cs all declarations",
+      "ServerExamples.cs all consumers",
+      "server.md all sections",
+      "server-symbol-policies.json all64 policies",
+      "nativeweave_server_api_v1.h",
+      "server_layout_probe.c",
+      "All ten historical Server finding bodies",
+      "server-fixes.json author repair descriptions and evidence scopes"
+    ],
+    "partial_or_pending": [
+      "server-coverage.json65 rows: first and last ranges read; middle rows remain to read after output truncation",
+      "server-sources.json records",
+      "D18/D19/body-retirement contracts and dependency inputs",
+      "All owned research/documentation task packets",
+      "Full234-row/1265-symbol/177-policy cross-repository coherence after other independent reviewers conclude",
+      "Final exact required_paths and semantic_node_sha256 binding checks",
+      "Prepared contract/task wrapper attestations and merged-source rebind"
+    ]
+  },
+  "evidence_boundary": [
+    "No product code changed, no Delivery task executed.",
+    "No expensive successful native experiment rerun.",
+    "No technical source, declaration, policy or Plan file edited by this reviewer.",
+    "Historical findings preserved; this is the current reviewer's separate checkpoint.",
+    "No contract_reviews or task_reviews acceptance decisions are supplied while blockers remain.",
+    "Final accepting report and overall report require completed substantive review and final frozen bytes."
+  ]
+}

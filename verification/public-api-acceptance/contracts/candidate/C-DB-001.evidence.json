@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-DB-001",
+    "version": "0.4.0",
+    "content_sha256": "4f53cc6301b26153240ce398ea967a5ab61b05cab1f36f7a408625a6a5303ca5"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-DB-001.inputs.json",
+    "sha256": "ef0c71cc96cf29ccc4f09187228d6210e5b9572fdd9f7e29ebb966ccd4788ef0"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

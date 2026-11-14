@@ -1,0 +1,32 @@
+{
+  "scope": "Source/document consistency; no product, native runtime, AOT or HTTP/gRPC/MCP execution",
+  "passed": true,
+  "declarations": [
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+      "sha256": "9dc6cdf033164c3ccf3ecf9b77d28b764d434d1dab9ac1fe9cdff22730f23b81",
+      "bytes": 58423,
+      "baseline_index_blob": "a0f140605cd160770cfd352ac65d3cc7f2c3af93",
+      "only_comments_changed": true
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+      "sha256": "dc97889bd7abaadaaf6567011bad462284f1cd8780a45e65ccdfe7acb249b07d",
+      "bytes": 8072,
+      "baseline_index_blob": "543a1e934f402142d65227e861f23f02ff66750f",
+      "only_comments_changed": true
+    },
+    {
+      "path": "experiments/public-api/abi/nativeweave_server_api_v1.h",
+      "sha256": "f7316b35bfb8cce5cb4fded82a0907e602626c4e9e54ff18d99fe242f2b4b681",
+      "bytes": 11369,
+      "baseline_index_blob": "0de1671e757d2abfe7927c9a0a83178e061d3836",
+      "only_comments_changed": true
+    }
+  ],
+  "c_export_prototypes_equal": 48,
+  "csharp_xml_comment_groups_valid": 316,
+  "coverage_rows_source_ids_valid": 65,
+  "type_policy_count": 64,
+  "git_diff_check_passed": true
+}

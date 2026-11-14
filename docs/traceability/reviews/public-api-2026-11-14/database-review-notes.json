@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/platform_recovery",
+  "review_kind": "independent_database_public_api_design_review",
+  "recorded_at_utc": "2026-11-14T11:27:14.503141+00:00",
+  "status": "six_findings_closed_guide_and_final_evidence_sync_pending",
+  "independence": {
+    "reviewed_database_author": "/root/database_api",
+    "reviewer_authored_database_inputs": false,
+    "reviewer_scope_excludes_own_interop_nuget_work": true,
+    "reviewer_changed_reviewed_database_content": false
+  },
+  "scope": [
+    "Database public declarations, ordinary and advanced compile-only consumers and five negative inputs",
+    "Database public specification, coverage/source/type policies and D14-D17 revised contracts",
+    "Database consistency of getting-started.md and guides.md",
+    "Reused source identities and finite verification evidence; no repeat of native experiments"
+  ],
+  "review_inputs_sha256": {
+    "docs/api/database.md": "689c53f63a5db77c879361679e5202a8557d3e8585e8bc2d5240b540426f8498",
+    "docs/api/database-coverage.json": "1c734469d143173d2b1a85226da3f95d13beda3ed01e8dec4e9e1a719affe90d",
+    "docs/api/database-sources.json": "173f89299550e6927b64a4091030730e3e4224af1a258729c27b0176926b6188",
+    "docs/api/database-symbol-policies.json": "862e37827c0ad36db1527018e66ac73cf2db57f2c6d5e4b07d0c5ba70e4a7c74",
+    "experiments/public-api/NativeWeave.Api.Design/Database.cs": "872cf6df5abfd93bc337a1327c9873b48ac755780405c3e345e20f440b8998e4",
+    "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs": "708799c449b6429dbbd6f5c0a3719c82a0c4f8b9171102f457a1a991af320f53",
+    "experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs": "e90abba48c149656f4a3c0a9c5651c3a313caa22f704c7e5f4dad03b36fe1ac8",
+    "docs/database/drivers.md": "f02454458e719fcc94d19ed350782e6a93983d8e6baa16bd9e520edf970d87f5",
+    "docs/database/transactions-and-pooling.md": "57d65e5fb540272c3ac005048f16d544410b69f15cf96ae3330297973bd55665",
+    "docs/database/query-semantics.md": "4b1ead4a815388f1410699595cf9e0424d36b17c1ffedf10ecc36e2b9e0545aa",
+    "docs/generators/query-generation.md": "a5ccad4c1731bd6e6732cc18301049a9520849e1444e675a8f8a3fbb2eee9005",
+    "docs/api/getting-started.md": "d9c27b903f8a3b1c66997553472e1a092b29065d88c49f02c45ec93b51f00d48",
+    "docs/api/guides.md": "40645d16ab0fb88b33fb90847a2beef79d73354293f4c210373f17cda92c5ecf",
+    "experiments/public-api/negative/DatabaseNonNumericArithmetic.cs.txt": "afbe6696a18b9d52e50cf1737adb3c16798cdb9db4542d321de19863efaeb2ae",
+    "experiments/public-api/negative/DatabaseNullableJoin.cs.txt": "fbb87c2a7e21ce403c96a29aec8c6806fa3252ed115e10726bb81899ec1417f0",
+    "experiments/public-api/negative/DatabaseStructEntity.cs.txt": "a2e82ded8b331a251f5661c4f86afbff461822cbfa342849c3a200013a7f7834",
+    "experiments/public-api/negative/DatabaseWrongEntity.cs.txt": "95fec16025e02a4ea43323af2f2ec7715ba5d2442baae856cefed6ca7221640b",
+    "experiments/public-api/negative/DatabaseWrongValue.cs.txt": "18e002a66f6e07a1bfb8ae429288d11262ed744d357e610498be0508d175d21e"
+  },
+  "findings": [
+    {
+      "id": "API-DB-001",
+      "severity": "high",
+      "blocks_acceptance": true,
+      "status": "fixed_independently_rechecked",
+      "title": "JOIN right-side alias creation and HasMatch have no closed native call sequence",
+      "evidence": [
+        {
+          "path": "docs/api/database.md",
+          "section": "7.2; 9.1 signatures; 9.2 clause 7",
+          "observation": "JoinPredicate.Right requires expr_column(query, alias, column_id), but the only documented alias is returned after clause 7 accepts its already-built ON token. HasMatch promises a native explicit match marker without an opcode that creates/reads it."
+        },
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+          "symbol": "DatabaseExamples.JoinAsync",
+          "observation": "The ordinary LEFT JOIN consumer builds on.Right(Enrollments.StudentId) before LeftJoin returns."
+        }
+      ],
+      "impact": "The specified native-token-only adapter cannot construct even the ordinary JOIN example without an undocumented token rule or managed query state.",
+      "remediation": "Define native alias reserve/commit/abort or an equally explicit safe two-phase sequence; define ON-scope visibility and failure retirement; bind HasMatch to an explicit native operation and update matrix/type policies.",
+      "resolution": {
+        "reviewer": "/root/platform_recovery",
+        "location": "docs/api/database.md#92-operation-tables-no-inferred-binding",
+        "observed_change": "Clauses 18/7/19 define reserve, ON construction, commit and abort. Both commit and abort invalidate provisional-dependent public expression tokens; commit retains its native ON clone. Clause 20 defines the private derived-source match marker, preserving LEFT JOIN nullability even when ON expressions are captured.",
+        "recheck": "Static semantics and current source readback; not runtime product execution"
+      }
+    },
+    {
+      "id": "API-DB-002",
+      "severity": "high",
+      "blocks_acceptance": true,
+      "status": "fixed_independently_rechecked",
+      "title": "Expert SQL and returning mutations cannot pass required projection, named parameters and timeout through the stated ABI",
+      "evidence": [
+        {
+          "path": "docs/api/database.md",
+          "section": "4.1; 5; 9.1; 9.1.1; 9.2",
+          "observation": "sql_create takes template, db-wire parameters and kind only. QueryAsync/StreamAsync require Projection<T>, ScalarAsync requires a configured codec, SqlCommand carries an optional timeout, and named @parameters require name-to-ID binding. No argument carries these facts. Mutation record field 7 refers to a projection ID without a registration operation/ID assignment."
+        },
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+          "symbols": [
+            "SqlCommand.Create",
+            "SqlCommand.Parameterized",
+            "DataSession.QueryAsync",
+            "DataSession.ScalarAsync",
+            "DataSession.InsertReturningAsync"
+          ],
+          "observation": "These public members already require the missing facts; the omission is not an unexposed future feature."
+        }
+      ],
+      "impact": "C# and Rust cannot agree on result conversion, parameter placeholder rewriting or operation deadlines from the documented inputs.",
+      "remediation": "Add exact source-bound projection registration/lifetime and complete SQL control records containing terminal/shape/parameter schema/deadline data; define returning shape linkage and configured codec binding before execution.",
+      "resolution": {
+        "reviewer": "/root/platform_recovery",
+        "location": "docs/api/database.md#911-canonical-metadata-and-nested-control-records",
+        "observed_change": "projection_register interns exact source-bound shapes. Kind 20 carries command/result class, finite timeout, projection ID and kind 21 name/ID/codec schema. Raw commands and returning mutations register shape first; fluent timeout is clause 22.",
+        "recheck": "Static semantics and current source readback; not runtime product execution"
+      }
+    },
+    {
+      "id": "API-DB-003",
+      "severity": "high",
+      "blocks_acceptance": true,
+      "status": "fixed_independently_rechecked",
+      "title": "CTE owners and mutable window/Over calls lack native creation and mutation paths",
+      "evidence": [
+        {
+          "path": "docs/api/database.md",
+          "section": "7.3; 9.1; 9.2 clauses 10/11/13 and query_import",
+          "observation": "query_import kind 3 expects an engine-private CTE owner, but no operation creates one for CommonTable.Create. Clause 11 creates a fully populated Window token; WindowDefinition.PartitionBy/OrderBy/RowsBetween and SqlExpression.Over have no defined token mutation or attachment operation."
+        },
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs",
+          "symbols": [
+            "DatabaseAdvancedExamples.CommonTableAsync",
+            "DatabaseAdvancedExamples.WindowAsync"
+          ],
+          "observation": "The documented advanced consumers depend on these exact owner/state transitions."
+        }
+      ],
+      "impact": "Implementation would need to invent hidden operations or retain a parallel managed representation despite the immediate-native-builder contract.",
+      "remediation": "Specify a source-bound immutable CTE creation/clone/retention/release path and query-local window creation/mutation plus Over attachment, including freeze/copy semantics, rollback on failure and capability gates; synchronize policies and operation coverage.",
+      "resolution": {
+        "reviewer": "/root/platform_recovery",
+        "location": "docs/api/database.md#92-operation-tables-no-inferred-binding",
+        "observed_change": "cte_create clones a selected native body into an immutable owner; import kind 3 and clause 10 attach it. Clause 11 creates/mutates native windows and clause 21 snapshots Over. Source-generation parameter IDs survive Clone, Combine, subquery and CTE imports; incompatible duplicate names reject and execution validates the final schema.",
+        "recheck": "Static semantics and current source readback; not runtime product execution"
+      }
+    },
+    {
+      "id": "API-DB-004",
+      "severity": "high",
+      "blocks_acceptance": true,
+      "status": "fixed_independently_rechecked",
+      "title": "db-wire container layout is fixed but scalar payload bytes and flags are underspecified",
+      "evidence": [
+        {
+          "path": "docs/database/drivers.md",
+          "section": "4.1 and 5",
+          "observation": "The 96-byte header, 16-byte descriptor and 24-byte cell are specified, but payload_kind/flags/semantic-profile values and scalar encoding rules are not assigned."
+        },
+        {
+          "path": "docs/api/database.md",
+          "section": "4.2 and 9.1.1 scalar registry",
+          "observation": "Logical codec IDs 1..17 are fixed, but date/time epoch and width, UTC instant signed units, Boolean width, floating-point bits and decimal representation are not a complete byte contract."
+        }
+      ],
+      "impact": "Independent generated C# and Rust codecs can produce incompatible bytes while both satisfy the prose. NULL and malformed-input checks also cannot be implemented consistently.",
+      "remediation": "Provide one normative byte table for all ordinary logical codecs and configured variants, exact NULL/nullable flag bits, payload/profile IDs, field-width/range/reserved-bit checks, canonical metadata/parameter schema rules and representative golden vectors assigned to B01/B07.",
+      "resolution": {
+        "reviewer": "/root/platform_recovery",
+        "location": "docs/api/database.md#912-exact-db-wire-scalar-and-identity-encoding",
+        "observed_change": "All scalar payload widths, sign, epochs, finite values, decimal bytes, NULL flags, payload/profile kinds and identity hashes are fixed. Canonical JSON escaping and stable metadata-ID hashing are deterministic; metadata_register receives a complete kind-2 envelope containing raw JSON. The published sample IDs and DateOnly epoch limits were independently recomputed and matched.",
+        "recheck": "Static semantics and current source readback; not runtime product execution"
+      }
+    },
+    {
+      "id": "API-DB-005",
+      "severity": "high",
+      "blocks_acceptance": true,
+      "status": "fixed_independently_rechecked",
+      "title": "BulkAtomicity.All does not define rollback after failure inside a caller-owned transaction",
+      "evidence": [
+        {
+          "path": "docs/api/database.md",
+          "section": "5 InsertManyAsync and BulkProgress",
+          "observation": "All only says it participates in a caller transaction without committing. If batch 1 succeeds and the input enumerator/constructor fails before batch 2, no rule rolls back batch 1 or prevents the caller from committing that prefix."
+        }
+      ],
+      "impact": "The public All atomicity setting could permit a partial bulk write on SQLite or after a managed enumeration failure even though no provider error marks the outer transaction failed.",
+      "remediation": "Define an internal savepoint around All within a caller transaction and rollback/release it on every failure, or explicitly poison/close the outer transaction so commit cannot succeed until rollback; preserve primary exception, BulkProgress and independent cleanup/outcome state.",
+      "resolution": {
+        "reviewer": "/root/platform_recovery",
+        "location": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+        "observed_change": "All mode in a caller transaction owns an internal tracked savepoint, rolls back/releases it after every input/mapping/native/cancellation failure, and allows outer commit only after rollback is confirmed. Failure to establish cleanup marks the outer transaction Failed and prevents committing a partial prefix.",
+        "recheck": "Static semantics and current source readback; not runtime product execution"
+      }
+    },
+    {
+      "id": "API-DB-006",
+      "severity": "medium",
+      "blocks_acceptance": true,
+      "status": "consumer_fixed_guide_sync_pending",
+      "title": "The model example and its claimed generated-equivalent concurrency descriptor differ",
+      "evidence": [
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+          "symbol": "Student.Version / Students.Version",
+          "observation": "The record property has no WeaveVersion attribute, while the handwritten descriptor sets IsConcurrencyToken=true and is described as the generated equivalent."
+        },
+        {
+          "path": "docs/api/getting-started.md",
+          "section": "2 Define a model and query typed columns",
+          "observation": "The guide repeats the unannotated Version property and points to that equivalent handwritten mapping."
+        },
+        {
+          "path": "docs/api/database.md",
+          "section": "4.1 generator rules",
+          "observation": "WeaveVersion is the specified opt-in marker for concurrency tokens."
+        }
+      ],
+      "impact": "The generator-driven normal path and the compiled handwritten path would produce different metadata for the same published model.",
+      "remediation": "Annotate Version consistently or change the intended mapping consistently; compile the updated consumer and refresh source-hash evidence.",
+      "resolution": {
+        "reviewer": "/root/platform_recovery",
+        "observed_change": "DatabaseExamples.Student.Version now has WeaveVersion. getting-started.md still needs the matching attribute; integrated consumer evidence must be refreshed after this source change."
+      }
+    },
+    {
+      "id": "API-DB-007",
+      "severity": "medium",
+      "blocks_acceptance": true,
+      "status": "fixed_independently_rechecked",
+      "title": "Coverage includes an unbound Find adapter operation and weak source-record linkage",
+      "evidence": [
+        {
+          "path": "docs/api/database-coverage.json",
+          "row": "DB-018",
+          "observation": "The row names Mutation.KeyQuery, while the normative mutation registry contains only actions 0..6 insert/returning/update/checked/delete/checked/upsert and no KeyQuery sequence."
+        },
+        {
+          "path": "docs/api/database-coverage.json",
+          "rows": "DB-001..DB-088",
+          "observation": "These rows lack reference_source_ids, although new SqlSugar rows DB-089..DB-096 link their read source records."
+        }
+      ],
+      "impact": "Find cannot be traced to a defined implementation sequence; reviewers must infer most reference-source correspondence.",
+      "remediation": "Document the exact native query or mutation sequence for Find and make adapter names agree; add source IDs for the actually read reference families or explicitly link inherited native evidence. Do not treat downloaded-unread files as read evidence.",
+      "resolution": {
+        "reviewer": "/root/platform_recovery",
+        "location": "docs/api/database-coverage.json",
+        "observed_change": "DB-018 now defines Entity.Find as exact key-expression/query/cursor operations and checks a second row. All 96 rows carry read-source IDs or explicit limited inspection scope and inherited native evidence; no downloaded-unread record is promoted to read evidence.",
+        "recheck": "Static semantics and current source readback; not runtime product execution"
+      }
+    }
+  ],
+  "evidence_checks": {
+    "current_reference_sources_local_hash_matches": 26,
+    "current_reference_sources_count": 26,
+    "reused_native_evidence_hash_matches": 5,
+    "reused_native_evidence_count": 5,
+    "source_read_status_preserved": true,
+    "upstream_tests_executed_by_this_reviewer": false,
+    "native_database_experiments_reexecuted": false,
+    "product_code_changed": false,
+    "full_linux_declaration_probe": "verification/public-api/full-linux/attempt-1/summary.json",
+    "database_negative_existing_local_evidence": "/workspace/scratch/7d469df8fa51/database-validation/negative-results.json",
+    "negative_existing_local_diagnostics": [
+      "CS0311",
+      "CS0029",
+      "CS0452",
+      "CS1503",
+      "CS0411"
+    ],
+    "integrated_declaration_logs_hashes_verified": 9,
+    "integrated_declaration_probe_input_drift": [
+      "DatabaseExamples.cs changed only by required WeaveVersion attribute; final aggregate compilation evidence belongs to the root integration pass."
+    ],
+    "normative_c_abi_declaration_syntax_check": {
+      "reviewer": "/root/platform_recovery",
+      "scope": "Compile normative C declaration text against shared header; no product linkage or execution",
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fsyntax-only",
+        "/workspace/scratch/7d469df8fa51/db-review-final/database-abi-declarations.c"
+      ],
+      "exit_code": 0,
+      "database_md_sha256": "8be902e231cf501be9a96affe44654358017cb3f5016cbec5bb43e9f98779130",
+      "shared_header_sha256": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+      "extracted_translation_unit_sha256": "9d1eb4d9b40761b4627e0e7a1ac26f7bd5cfb41ae69457ce7a274423ef07c191",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "performed_at_utc": "2026-11-14T11:36:15.401374+00:00"
+    }
+  },
+  "conclusion": {
+    "scope": "Initial independent design review, not accepted contract binding or product approval",
+    "verdict": "changes_required",
+    "blocking_findings": 1,
+    "product_implementation_or_runtime_database_behavior_approved": false
+  },
+  "final_recheck": null,
+  "latest_recheck_at_utc": "2026-11-14T11:37:45.091188+00:00"
+}

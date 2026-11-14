@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "platform": "Linux",
+  "ambient_text_encoding": "ANSI_X3.4-1968",
+  "command": [
+    "python",
+    "tools/verify_public_api.py"
+  ],
+  "environment_overrides": {
+    "PYTHONUTF8": "0",
+    "PYTHONCOERCECLOCALE": "0",
+    "LC_ALL": "C"
+  },
+  "exit_code": 0,
+  "log_sha256": "144c14aed06f9e312bc6ec5bd70901cc2166d906914d0f138ae815af1659658d",
+  "reader_sha256": "1912aa6ebf1f7973955c3591dfc7babbf6dd8b81eb41e5c8a1f83a3a766146ce",
+  "scope": "Explicit UTF-8 readers under non-UTF8 ambient text encoding; actual Windows CI remains separately required."
+}

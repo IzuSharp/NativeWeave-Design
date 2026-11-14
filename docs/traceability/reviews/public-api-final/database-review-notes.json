@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/final_database_review",
+  "review_kind": "independent_final_database_public_api_review_in_progress",
+  "reviewed_at_utc": "2026-11-14T12:13:44.559882+00:00",
+  "decision": "changes_required",
+  "status": "checkpoint_before_author_repairs_not_final_acceptance",
+  "independence": {
+    "reviewer_authored_reviewed_technical_inputs": false,
+    "reviewer_changed_product_or_normative_files": false,
+    "reviewer_only_writes_own_review_files": true,
+    "github_approval_identity_claimed": false
+  },
+  "observed_heads": {
+    "NativeWeave-Design": "cc3bd73fb6e17e042842a8951100038fa501c422",
+    "Plan": "ae9967358f033b5b865463106317a8e2bb1ad012"
+  },
+  "freeze_status": "No final source freeze was supplied. This report cannot be used as accepting evidence.",
+  "acceptance_scope_reserved": {
+    "contracts": [
+      "C-DB-001",
+      "C-TX-001",
+      "C-QUERY-001",
+      "C-QUERYGEN-001"
+    ],
+    "tasks": [
+      "R19",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "D14",
+      "D15",
+      "D16",
+      "D17",
+      "D27",
+      "D28"
+    ]
+  },
+  "read_scope_completed": [
+    "Complete user scope and both repository AGENTS rules",
+    "Full current Database.cs declaration fixture",
+    "Full current database.md including scalar bytes and complete normative ABI/opcode table",
+    "All 96 database coverage rows and all 96 symbol type policies (grouped only when byte-equivalent)",
+    "Current D14 driver, D16 query, D17 generation documents",
+    "Both current database consumer files",
+    "Prior Database review findings and recovery author-fix record",
+    "Plan acceptance workflow, required_paths and task semantic digest binding functions"
+  ],
+  "read_scope_remaining": [
+    "D15 transaction contract detailed cross-check",
+    "Complete source-manifest and recorded-source byte verification; inherited native experiments and actual logs",
+    "Other required dependency documents and complete Plan R19-R25/D14-D17/D27-D28 semantic/packet review",
+    "B01-B14 implementation ownership and documentation responsibilities",
+    "Complete shared evidence byte checks for all 291 current required_paths",
+    "Independent recheck of author repairs and final frozen commits",
+    "Contract/task wrapper attestations and merged-source rebind"
+  ],
+  "review_inputs_sha256": {
+    "NativeWeave-Design:AGENTS.md": "e4ccc3241f3d1c37bf1c1156fd2591fcc263cf8422c4b1a4f41df057adf22f40",
+    "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md": "78f2aab2212fbbc49267e7827231a3f64cf9b840206d0acdc33768417e2dbcac",
+    "NativeWeave-Design:docs/api/README.md": "e9b8a59dcade380d52239f4177e144ab1e16f3353c58038d861741ee4ab55301",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb",
+    "NativeWeave-Design:docs/api/database.md": "8720507644ed3945ca9f2476d77925620c522b7b6c5ac994b992fda132676614",
+    "NativeWeave-Design:docs/api/database-symbol-policies.json": "f8cd8ddb159934865f94195e9e5e23aa249bbbeebadc3122d0aabf035f6ca5af",
+    "NativeWeave-Design:docs/api/database-coverage.json": "830957a9353590c5c817370cc7ed12299aa29c1eecd472d9bb9f7bf84f76e560",
+    "NativeWeave-Design:docs/database/drivers.md": "f100297946280c1363d57481840c2aa8e087f99f01855fd7aaebea781e6573f3",
+    "NativeWeave-Design:docs/database/query-semantics.md": "4b1ead4a815388f1410699595cf9e0424d36b17c1ffedf10ecc36e2b9e0545aa",
+    "NativeWeave-Design:docs/generators/query-generation.md": "ea92fa2e999b0883266d5e28915227c3adb4c7236ead3df6356dd59be22cdaaf",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs": "8cecfb5283c879d548b1fa2423610285141915813fa3b8d3902f4823795e8d30",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs": "e90abba48c149656f4a3c0a9c5651c3a313caa22f704c7e5f4dad03b36fe1ac8",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-2026-11-14/database-review-notes.json": "4a5839b6261e97685a3143d3abc2aef616cc3162ee34fb7082185955b69049b8",
+    "NativeWeave-Design:docs/traceability/reviews/public-api-2026-11-14/database-recovery-fixes.json": "070465c369892346d4f1c27bc0b2731b0d380cb9bfb3f11a5f162baff4f948b2",
+    "Plan:AGENTS.md": "91be4173a9a53ea055977ef1acd7348d4dadafb990a5502290b5510ada749d6f",
+    "Plan:public-api-acceptance-workflow.md": "f0ed84f05eb03a55ecf05276e697d5c16c7a3fbaa6b92e9f386268ee06c51bb1",
+    "Plan:tools/review_bindings.py": "735cbdd698899af863b33751232dae2e4d227e3332fee10e4a74f62945319df5",
+    "Plan:tools/verify_completion.py": "344e67b7d9a98100d6de766d90f13c1139919828922549319af3c4e60121c84c",
+    "Plan:tools/prepare_acceptance.py": "f7f5b1f7f5c8ad67960cd9d32778c5b2bb0ec6e075143ca98fe680769b3dc19b",
+    "Plan:tools/validate_graphs.py": "d55274f3800f07b239e8582d3ab7b94541dfd9e6e96ec078b7c5fc5f6e036daf"
+  },
+  "findings": [
+    {
+      "id": "API-DB-FINAL-001",
+      "severity": "high",
+      "blocks_acceptance": true,
+      "status": "open",
+      "title": "Runtime Relation has no complete native registration/load transport",
+      "evidence": [
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+          "symbols": [
+            "Relation<TParent,TChild>.Create",
+            "Relation<TParent,TChild>.And",
+            "DataSession.LoadRelatedAsync"
+          ],
+          "observation": "Relations are created only after immutable parent/child Tables are built; TableBuilder has no relation method."
+        },
+        {
+          "path": "docs/api/database.md",
+          "locations": [
+            "section4.1 TableBuilder.Build",
+            "section5 LoadRelatedAsync",
+            "section9.1 normative declarations",
+            "section9.1.1 canonical metadata relations",
+            "section9.2 Relation.Load"
+          ],
+          "observation": "Relations appear inside canonical immutable table metadata, but no specified ABI/opcode registers the independent post-Build relation, selects it, or transmits the parent key for native FK expansion."
+        },
+        {
+          "path": "docs/api/database-coverage.json",
+          "row": "DB-042",
+          "observation": "The mapping names only conceptual Relation.Load."
+        }
+      ],
+      "impact": "A future implementation must invent mutable metadata identities, an undisclosed native operation or managed relation construction to satisfy a currently declared public operation.",
+      "requested_repair": "Specify a closed source-bound relation registration and native load/query sequence (or an equally complete existing-operation sequence), with exact parent/child model identities, ordered key pairs, nullability/codec checks, key payload, bounded registry, owner retention/release, capability and failure semantics. Update DB-042, type policies and B09/B14 ownership."
+    },
+    {
+      "id": "API-DB-FINAL-002",
+      "severity": "high",
+      "blocks_acceptance": true,
+      "status": "open",
+      "title": "The Fluent surface cannot compare a nonnullable key expression with a nullable value-type foreign-key expression",
+      "evidence": [
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+          "symbols": [
+            "SqlExpression<T>.Equal(T)",
+            "SqlExpression<T>.Equal(SqlExpression<T>)",
+            "JoinPredicate<TLeft,TRight>.Left",
+            "JoinPredicate<TLeft,TRight>.Right"
+          ],
+          "observation": "For Column<Parent,long> and Column<Child,long?>, the returned SqlExpression<long> and SqlExpression<long?> have no safe same-type comparison or nonnull-to-nullable lift."
+        },
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+          "symbol": "DatabaseExamples.JoinAsync",
+          "observation": "The compiled join uses only nonnullable Enrollment.StudentId, so it does not cover this common optional-FK shape."
+        }
+      ],
+      "impact": "Ordinary strongly typed optional-FK joins and comparisons require a missing operation. Coalescing NULL to a sentinel is not semantically equivalent when the sentinel can match a real parent key.",
+      "requested_repair": "Add an explicit safe non-null-to-nullable expression lift or typed mixed-nullability comparison, with exact same-owner/configured-codec/native mapping and SQL three-valued semantics. Add a positive optional-FK join consumer and preserve rejection of nullable-to-nonnullable projections."
+    }
+  ],
+  "unresolved_blocking_findings": [
+    "API-DB-FINAL-001",
+    "API-DB-FINAL-002"
+  ],
+  "prior_fixes_observed": {
+    "API-DB-006_and_008": "Current consumer has WeaveVersion and explicit lower-case WeaveColumn annotations; full guide parity recheck remains.",
+    "API-DB-009": "Kind4 field8 distinctly transports upsert assignments; mutation0..6 required/forbidden payload table is present and consistent in current core specification.",
+    "API-DB-010": "Selection import uses source read admission, native clone/seal8/import2, destination clause and finally release; source remains mutable and self-composition avoids holding source and destination gates together."
+  },
+  "verification_claims": {
+    "new_compilation_executed": false,
+    "native_or_upstream_experiments_rerun": false,
+    "product_runtime_behavior_accepted": false,
+    "complete_review_finished": false,
+    "acceptance_bindings_attested": false
+  },
+  "contract_reviews": [],
+  "task_reviews": []
+}

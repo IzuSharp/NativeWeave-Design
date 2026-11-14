@@ -1,0 +1,2553 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "research_design_input_snapshot",
+  "subject": {
+    "kind": "contract",
+    "id": "C-BINDING-001",
+    "version": "0.4.0",
+    "content_sha256": "ae3c30c3547b3508a95acbf1ae8f5d2d1a3a9aaf3c6a1f2a4bc317a6c8ccfe4e"
+  },
+  "source_commits": {
+    "NativeWeave-Design": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+  },
+  "files": [
+    {
+      "path": "NativeWeave-Design:docs/api/README.md",
+      "sha256": "e9b8a59dcade380d52239f4177e144ab1e16f3353c58038d861741ee4ab55301",
+      "bytes": 3930,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/documentation-system.md",
+      "sha256": "49fa32115777c296c361016f99f6921ad3ce1b0087e4dbd39185c107e0c8c03e",
+      "bytes": 10616,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/foundation-coverage.json",
+      "sha256": "6d10e4adda289591246ce9d5e5e6395cf5f1c869cda55c33f44a9fbc4db9cc45",
+      "bytes": 35803,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/foundation-sources.json",
+      "sha256": "2efd7e1a05f7cbb35681a438e8a6700973592d58bb9141f5e3ee49012d9bb321",
+      "bytes": 7673,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/getting-started.md",
+      "sha256": "1a78365da1422d12f793beef06e13e3a543902c2d7ccd84c79cf01bf322affe2",
+      "bytes": 10390,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/guides.md",
+      "sha256": "40645d16ab0fb88b33fb90847a2beef79d73354293f4c210373f17cda92c5ecf",
+      "bytes": 12823,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/interop-coverage.json",
+      "sha256": "e6e1de9c087158a179e73e74fd30d9b8c3c691e069cac25d3371d7743a8c0aa8",
+      "bytes": 41469,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/interop-sources.json",
+      "sha256": "7660f18a73d08accbc0ce8743e764e0eb212393a8d0575e20bda431cd17395a1",
+      "bytes": 19829,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/interop.md",
+      "sha256": "2b32e5c2dcdfe78dd0b39014949a88bf91d6b2d011f8d75117e00507ecae4b74",
+      "bytes": 38576,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+      "sha256": "7aab2485a5bfe21042b701bb1eda43b630330fe896b2ca8f80a81f93d3ffced9",
+      "bytes": 25217,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/public-api.json",
+      "sha256": "d3e989c4f8732f2514c66a2c1ecf038b460fc29e3581d0b36855612751e974e4",
+      "bytes": 2279158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/api/reference.md",
+      "sha256": "4bf3d37cbc423eacf9a308fe420b7564b4f92548fb3d164c65f53e16c9348b48",
+      "bytes": 683173,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/abi-v0.1.md",
+      "sha256": "d9e8fd60ff33d3c56410cd4cc3a6ad591609c0b49282bd3ccf9ad7b93f06e9f2",
+      "bytes": 13192,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/contracts/error-v0.1.md",
+      "sha256": "f110fba00ee2479c8a12648ecc1fbb592ca45866e1e25dc31b5445a694b95bd4",
+      "bytes": 24707,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/generators/binding-pipeline.md",
+      "sha256": "ae3c30c3547b3508a95acbf1ae8f5d2d1a3a9aaf3c6a1f2a4bc317a6c8ccfe4e",
+      "bytes": 15744,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/coverage.json",
+      "sha256": "a6fca704612cf28cfe2bc7789fd4984c589fd13ec6f1fc2f50613e009c9d097b",
+      "bytes": 6183,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/evidence.json",
+      "sha256": "40dc8eb7468d1a95fb6df63fe4ac5df81877073e3c8e180147da8d41efe54878",
+      "bytes": 6288,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R04/report.md",
+      "sha256": "f4269b31a55b74522e50f290519be930d0a34db3e58cccb3364a2ace5f330b56",
+      "bytes": 6364,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R05/coverage.json",
+      "sha256": "2771aae925be7521fd0a3fcfd4ec72e74c06197b0d761089e7823596c74b29ee",
+      "bytes": 11908,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R05/evidence.json",
+      "sha256": "2b32c40f00e8a8a87d30a494f7972ec82e7fe70867d125c88eddd4d7eb9522da",
+      "bytes": 12036,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R05/report.md",
+      "sha256": "5f0aadd52dcd8c060397d749752744d9046443d13d6ed1f27860b357532bed16",
+      "bytes": 6077,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/coverage.json",
+      "sha256": "e63788b0742f73f46e388d05be284055ab8b89084b808f9081bdb0bcd0addd81",
+      "bytes": 4725,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/evidence.json",
+      "sha256": "47e3e9f9508eb8d4b1b633d4936a27796d7af24ba2ff77dc1e9fc1bb855c0d88",
+      "bytes": 4876,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/research/topics/R06/report.md",
+      "sha256": "eb0c840f0ebb5d4f3eae2c0839af473dba9b7117fe0ea123fe60bf1d17aa4bb7",
+      "bytes": 5877,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+      "sha256": "78f2aab2212fbbc49267e7827231a3f64cf9b840206d0acdc33768417e2dbcac",
+      "bytes": 18269,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b",
+      "bytes": 501,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Checks/NativeWeave.Api.Checks.csproj",
+      "sha256": "f2d56357c548b66f8e839a7ec1054e66cbfac06c737ca9c3fdc0ad961189d034",
+      "bytes": 440,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Checks/Program.cs",
+      "sha256": "dd18136576dfa17fa03a5e922b13bf24fc8096a347cba6b83bc4b5bbb9ad49a5",
+      "bytes": 4655,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Checks/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs",
+      "sha256": "f71eeaf8b7541d76fe5d7b9f9a27f3ced72eba96411519d8c680e70805c27182",
+      "bytes": 5739,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+      "sha256": "c329f9d0404ad9c6d6884dd8e265e2af2d69253766975595f17297153b133a16",
+      "bytes": 7426,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+      "sha256": "7b1ec450f8a61d21904084ee71ebff6bf179b2e165580511f7e37ca494e4b286",
+      "bytes": 1215,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/NativeWeave.Api.Consumers.csproj",
+      "sha256": "512253eb605e2fb96a1fe9cbe3e826e7c63d39435be094b48621d83f4754de34",
+      "bytes": 681,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/Program.cs",
+      "sha256": "9261535d9b24d779c421d4828e4d0a76871778aa6a2eb38ea381dbf2bb953a74",
+      "bytes": 676,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+      "sha256": "dc97889bd7abaadaaf6567011bad462284f1cd8780a45e65ccdfe7acb249b07d",
+      "bytes": 8072,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/packages.lock.json",
+      "sha256": "499464beee9f304e290ef0dc669c0e379fa3ba1e9e2091f886333905a2a1b99d",
+      "bytes": 8482,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "sha256": "904816521ba65abe182859d12f5e461fd778ea64e409e8d50f4c4ca390998369",
+      "bytes": 115689,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/NativeWeave.Api.Design.csproj",
+      "sha256": "4edbfff50aa1edaaf2e799a7589e3e2af143296519baaf4ce1d7a8bf13e17f4a",
+      "bytes": 1228,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs",
+      "sha256": "1a6d4ab4b53d56d8a7d6cefdf1ab5af7106ed46f60dd828cfc11c4e0335612d6",
+      "bytes": 58776,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/packages.lock.json",
+      "sha256": "dad2f7eefc0d5d48168894933b0605dd0072c55d7ccc37fda80950d158dab425",
+      "bytes": 8259,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2",
+      "bytes": 472,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5",
+      "bytes": 23497,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9",
+      "bytes": 19378,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NuGet.Config",
+      "sha256": "f9b648792322a9e10b4f1cbdaf37e947d7c9b7431f4c9eb5948d1d24bba97fb9",
+      "bytes": 258,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/README.md",
+      "sha256": "60dd6f987ee2f273682e3d2219545aad5a7d1849f1a86be3d15a6e64eea10d2f",
+      "bytes": 4204,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/abi/layout_probe.c",
+      "sha256": "6a60995ce974477dc7e565b7c8c9a02f146d5b7cce29b31e46922ccef8ecb3f2",
+      "bytes": 2314,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+      "sha256": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+      "bytes": 2239,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h",
+      "sha256": "f7316b35bfb8cce5cb4fded82a0907e602626c4e9e54ff18d99fe242f2b4b681",
+      "bytes": 11369,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/abi/server_layout_probe.c",
+      "sha256": "95c33fd748a9382e0b077427d6ece654a07d7a0dbe67ecdf931de2422e038202",
+      "bytes": 2269,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58",
+      "bytes": 105,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/DatabaseNonNumericArithmetic.cs.txt",
+      "sha256": "afbe6696a18b9d52e50cf1737adb3c16798cdb9db4542d321de19863efaeb2ae",
+      "bytes": 331,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/DatabaseNullableJoin.cs.txt",
+      "sha256": "fbb87c2a7e21ce403c96a29aec8c6806fa3252ed115e10726bb81899ec1417f0",
+      "bytes": 387,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/DatabaseNullableLiftRepeat.cs.txt",
+      "sha256": "b977cedc75df2bc96febd4574eb5822b3e1a90e4a9bc03a3c120d587155b6ee7",
+      "bytes": 280,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/DatabaseNullableLiftReverse.cs.txt",
+      "sha256": "b5ddd59d3e119e199114387adac5b5d90af758cbd5bb4e30acd6c21c67a1c03f",
+      "bytes": 313,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/DatabaseStructEntity.cs.txt",
+      "sha256": "a2e82ded8b331a251f5661c4f86afbff461822cbfa342849c3a200013a7f7834",
+      "bytes": 294,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/DatabaseWrongEntity.cs.txt",
+      "sha256": "95fec16025e02a4ea43323af2f2ec7715ba5d2442baae856cefed6ca7221640b",
+      "bytes": 313,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/DatabaseWrongValue.cs.txt",
+      "sha256": "18e002a66f6e07a1bfb8ae429288d11262ed744d357e610498be0508d175d21e",
+      "bytes": 318,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/server-arbitrary-delegate.cs",
+      "sha256": "bdbb6d66e34ec505a3d3fdb23c6ed5cdf18e441fda4e95a74168008201c166a2",
+      "bytes": 362,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/server-cases.json",
+      "sha256": "dc12b5fd87f881afb01737de111d2a514a00ab606e26cf6824eb3ff39a0a10a0",
+      "bytes": 438,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/negative/server-wrong-response.cs",
+      "sha256": "a3df04d23c4ee481bde9f28f9cedabfd660310c97de23f6a4f2bde66a0578a4f",
+      "bytes": 461,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/packaging-probe/Consumer.cs",
+      "sha256": "898bc00334748b792c60dbeb444e7eb4c466fbe3904d986b8b68abec4eb5e391",
+      "bytes": 1342,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/packaging-probe/NativeWeave.Design.Probe.BuildAssets.targets",
+      "sha256": "b418faaa1ca203ef14a845e7804dcce596a52bf0f7214036fc29fb5c3fd9dcc9",
+      "bytes": 770,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/packaging-probe/ProbeAttributes.cs",
+      "sha256": "42f085ddd2367b3a072c08ce04462deae08455d9bc5c23e2038b8af77e175d21",
+      "bytes": 533,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/packaging-probe/ProbeGenerator.cs",
+      "sha256": "730432df5110eb50d301560155947c100e6d9d3843318241ddc90599b7101f49",
+      "bytes": 5511,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/packaging-probe/README.md",
+      "sha256": "e453ae91a01adec03d0cfa6d9b195525bed30ae4b6b3a0644b8a6908ca2baa94",
+      "bytes": 5822,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/packaging-probe/run.py",
+      "sha256": "811b34a08e4e6f5089e964a5ee82302095dfcd98f5684a173dc9b24a048b83d9",
+      "bytes": 16868,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:experiments/public-api/run.py",
+      "sha256": "f9b1fd6ca9825ccdc405cf9da45baf2b85a0beee6c02a2c3aafeb814bd7cb0be",
+      "bytes": 6411,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/DatabaseNullableJoin.log",
+      "sha256": "d474a7a933e808bd9296b5ff1cec9a4ea104345a5b7852fc8f0f7aeb195271f0",
+      "bytes": 773,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/DatabaseNullableLiftRepeat.log",
+      "sha256": "695fb10c6078052731ec0be0c25927bab688f17f9662c3dd29392fd033abd4ce",
+      "bytes": 905,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/DatabaseNullableLiftReverse.log",
+      "sha256": "d820de506dde4b474f01730c311a3a0c07e4c797dc5d0d0860a01a8145828a79",
+      "bytes": 785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/ReferenceLiftConsumer.cs.txt",
+      "sha256": "99ef415bffaa8ea79a63fdfde2ddbdeaf035066d313a8b68cf2c2897a1129eb6",
+      "bytes": 245,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/c-abi-syntax.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/check.csproj",
+      "sha256": "0c1c70b953787fe4836e8173975dd0c3edd7d701871da3437730953fc630a0c2",
+      "bytes": 899,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/database-abi.c",
+      "sha256": "d25afba0e76e08c331675a03b07d3fdb2533632aee2458ebe7ee665f34c0186b",
+      "bytes": 5555,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/final-diff-check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/final-source-checks.json",
+      "sha256": "9a91879a7f10de33889059e84af70428dfaa13b62d9ba4435718e13dd3665eeb",
+      "bytes": 1085,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/input-hashes.json",
+      "sha256": "76b7bb759fea4706ba237714ea45ed600eab44b06547098b1a1fae79e62fc057",
+      "bytes": 1400,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/Database.cs",
+      "sha256": "7c3774ecd3b18923eb261ddef8735e234a2ade75d38584971ab07b17f415cf65",
+      "bytes": 117065,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/DatabaseAdvancedExamples.cs",
+      "sha256": "f71eeaf8b7541d76fe5d7b9f9a27f3ced72eba96411519d8c680e70805c27182",
+      "bytes": 5739,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/DatabaseExamples.cs",
+      "sha256": "c329f9d0404ad9c6d6884dd8e265e2af2d69253766975595f17297153b133a16",
+      "bytes": 7426,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/DatabaseNullableJoin.cs.txt",
+      "sha256": "fbb87c2a7e21ce403c96a29aec8c6806fa3252ed115e10726bb81899ec1417f0",
+      "bytes": 387,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/DatabaseNullableLiftRepeat.cs.txt",
+      "sha256": "b977cedc75df2bc96febd4574eb5822b3e1a90e4a9bc03a3c120d587155b6ee7",
+      "bytes": 280,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/DatabaseNullableLiftReverse.cs.txt",
+      "sha256": "b5ddd59d3e119e199114387adac5b5d90af758cbd5bb4e30acd6c21c67a1c03f",
+      "bytes": 313,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/database-coverage.json",
+      "sha256": "c8b6af8f50e04d2ac286024a936c8183896999aa7b8434f9c3c870e9cd9b565e",
+      "bytes": 161901,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/database-symbol-policies.json",
+      "sha256": "a21d78f1c603f7a34c2e0b976075b03d26832a63fd4a7a559f17c9f0d5d7beb7",
+      "bytes": 67486,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/database.md",
+      "sha256": "fbafe690f4fe9ae4cca0b32c609e04d8856c503fbb2972de801df96bb16ed445",
+      "bytes": 119685,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/inputs/nativeweave_api_v1.h",
+      "sha256": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+      "bytes": 2239,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/positive-consumers.log",
+      "sha256": "043c83e812ccc5a562f259044a0322e7c5f2ddac23a9409f369bd1e304e43a23",
+      "bytes": 317,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/restore.log",
+      "sha256": "22b82e8fed7b85f822bbda6a41d93844a80441375c9bf0aa8ccd1fc7057e38f0",
+      "bytes": 275,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/summary.json",
+      "sha256": "066bbfbbe9769b9b6d9976eb0a1d7ee5965d6e90509f32182c7c683c4b9e9e5a",
+      "bytes": 4699,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/database-final-fixes/attempt-1/verify.py",
+      "sha256": "2455a35cb56d23ab7fdaf165a9da3f1d3b9ef332eed349d6748c91f99783b561",
+      "bytes": 3898,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/NativeWeave.Api.Checks.packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/NativeWeave.Api.Consumers.packages.lock.json",
+      "sha256": "499464beee9f304e290ef0dc669c0e379fa3ba1e9e2091f886333905a2a1b99d",
+      "bytes": 8482,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/NativeWeave.Api.Design.packages.lock.json",
+      "sha256": "dad2f7eefc0d5d48168894933b0605dd0072c55d7ccc37fda80950d158dab425",
+      "bytes": 8259,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/NativeWeave.Api.Inventory.packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/checks-build.log",
+      "sha256": "07cbad8862afebd0c5b9387dec353e715d147d0b7cd284b12def2103c330ec40",
+      "bytes": 326,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/consumer-build.log",
+      "sha256": "3af817fb114cf3641871c1e270f80d8caee2ac32cb9e0382ee3a0f08aa3aba17",
+      "bytes": 770,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/consumer-execute.log",
+      "sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions.log",
+      "sha256": "b0811a93972491470a6317f6eeff7a36c0ead28526c863430b96622528ab11e0",
+      "bytes": 291,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/actual-export.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/actual/database-symbol-policies.json",
+      "sha256": "a21d78f1c603f7a34c2e0b976075b03d26832a63fd4a7a559f17c9f0d5d7beb7",
+      "bytes": 67486,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/actual/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/actual/public-api.json",
+      "sha256": "9267d48739b899ed6d56b4a27f58eba3d437902d98af7b87e2dfb62ea9e64a78",
+      "bytes": 2279158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/actual/reference.md",
+      "sha256": "4bf3d37cbc423eacf9a308fe420b7564b4f92548fb3d164c65f53e16c9348b48",
+      "bytes": 683173,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/actual/server-symbol-policies.json",
+      "sha256": "2cfa139c8c50bf711bf553722b2be06ea6ab5f8bcd04860a37ede0c41802c9eb",
+      "bytes": 54403,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/fixture-export.log",
+      "sha256": "52fbcf06db00f76b6e8aa13e46ae0694ef9d5d07f6c75977ad26df5e98420a68",
+      "bytes": 60,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/fixture-source/Fixture.cs",
+      "sha256": "269451a382995633c9d31842aefc1f96399bfe9d77feb80a0e111f31b2a1b9fa",
+      "bytes": 2546,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/fixture/database-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/fixture/interop-symbol-policies.json",
+      "sha256": "2581cd4b4163fb5c7f54c6262d4e9358b383ba97074c28a795271b1c044dc5f6",
+      "bytes": 5377,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/fixture/public-api.json",
+      "sha256": "7849a80d4ff7a58a00115e3e6a9fe3312ecbc2edd1ea0def354b891686f69bee",
+      "bytes": 134962,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/fixture/reference.md",
+      "sha256": "d6b262a4b2c5a69bfd3f3e4f47d6c4fb5b330449da59d1a359a17b4121ccc84c",
+      "bytes": 40222,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/fixture/server-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b",
+      "bytes": 501,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/NativeWeave.Api.Design/Database.cs",
+      "sha256": "904816521ba65abe182859d12f5e461fd778ea64e409e8d50f4c4ca390998369",
+      "bytes": 115689,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/NativeWeave.Api.Design/Server.cs",
+      "sha256": "9dc6cdf033164c3ccf3ecf9b77d28b764d434d1dab9ac1fe9cdff22730f23b81",
+      "bytes": 58423,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2",
+      "bytes": 472,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5",
+      "bytes": 23497,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9",
+      "bytes": 19378,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inputs/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58",
+      "bytes": 105,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/inventory-build.log",
+      "sha256": "820dcf787f2f38188bc3a39c8787a013f95bec904497f91b4ed401ade1a8bb2c",
+      "bytes": 458,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/repeat-export.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/exporter-regressions/summary.json",
+      "sha256": "c1d90119007450bf3452b0b360995610a66365257bc4c2c54c9f8f1c9f914f08",
+      "bytes": 18146,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/inventory-build.log",
+      "sha256": "95fb7af9d4ffb464d62f26cf3d71e08ae2d116e3ad319375be0b0129f12be881",
+      "bytes": 335,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/inventory.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/negative-consumers.json",
+      "sha256": "72341eb5c13beed9a543713e39f00a1f6fdab0d20d434ba81def0f2bd243b713",
+      "bytes": 3354,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/negative-consumers.log",
+      "sha256": "d340a2e7709f4a8fd9d914a7ae73a9b1062ece36f16ca34772be756d4231b10f",
+      "bytes": 64,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-1/summary.json",
+      "sha256": "1ef04184d713bf569430dd20d4b37b8c17317a589fb74b5097db316d53fee053",
+      "bytes": 15118,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/NativeWeave.Api.Checks.packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/NativeWeave.Api.Consumers.packages.lock.json",
+      "sha256": "499464beee9f304e290ef0dc669c0e379fa3ba1e9e2091f886333905a2a1b99d",
+      "bytes": 8482,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/NativeWeave.Api.Design.packages.lock.json",
+      "sha256": "dad2f7eefc0d5d48168894933b0605dd0072c55d7ccc37fda80950d158dab425",
+      "bytes": 8259,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/NativeWeave.Api.Inventory.packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/checks-build.log",
+      "sha256": "1aae713a87ca40704666aaf7f0a5e47dcd56e65a783c5d9aaf59038c78335996",
+      "bytes": 326,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/consumer-build.log",
+      "sha256": "763efa66859b4a772174f5ca59a01c301366f1297a625cd36eb825d035f09194",
+      "bytes": 505,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/consumer-execute.log",
+      "sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions.log",
+      "sha256": "abe857e02246fa16e02924eed64bbff8d2182a9891fcfaa711fb3f094cefa62d",
+      "bytes": 291,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/actual-export.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/actual/database-symbol-policies.json",
+      "sha256": "a21d78f1c603f7a34c2e0b976075b03d26832a63fd4a7a559f17c9f0d5d7beb7",
+      "bytes": 67486,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/actual/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/actual/public-api.json",
+      "sha256": "d3e989c4f8732f2514c66a2c1ecf038b460fc29e3581d0b36855612751e974e4",
+      "bytes": 2279158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/actual/reference.md",
+      "sha256": "4bf3d37cbc423eacf9a308fe420b7564b4f92548fb3d164c65f53e16c9348b48",
+      "bytes": 683173,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/actual/server-symbol-policies.json",
+      "sha256": "2cfa139c8c50bf711bf553722b2be06ea6ab5f8bcd04860a37ede0c41802c9eb",
+      "bytes": 54403,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture-export.log",
+      "sha256": "52fbcf06db00f76b6e8aa13e46ae0694ef9d5d07f6c75977ad26df5e98420a68",
+      "bytes": 60,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture-source/Fixture.cs",
+      "sha256": "269451a382995633c9d31842aefc1f96399bfe9d77feb80a0e111f31b2a1b9fa",
+      "bytes": 2546,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture/database-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture/interop-symbol-policies.json",
+      "sha256": "2581cd4b4163fb5c7f54c6262d4e9358b383ba97074c28a795271b1c044dc5f6",
+      "bytes": 5377,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture/public-api.json",
+      "sha256": "7849a80d4ff7a58a00115e3e6a9fe3312ecbc2edd1ea0def354b891686f69bee",
+      "bytes": 134962,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture/reference.md",
+      "sha256": "d6b262a4b2c5a69bfd3f3e4f47d6c4fb5b330449da59d1a359a17b4121ccc84c",
+      "bytes": 40222,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture/server-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b",
+      "bytes": 501,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Design/Database.cs",
+      "sha256": "904816521ba65abe182859d12f5e461fd778ea64e409e8d50f4c4ca390998369",
+      "bytes": 115689,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Design/Server.cs",
+      "sha256": "1a6d4ab4b53d56d8a7d6cefdf1ab5af7106ed46f60dd828cfc11c4e0335612d6",
+      "bytes": 58776,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2",
+      "bytes": 472,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5",
+      "bytes": 23497,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9",
+      "bytes": 19378,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58",
+      "bytes": 105,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/inventory-build.log",
+      "sha256": "5d4321f689b087cd46f789859be8b4b337f40cf444dc9a4323a90b6675a1bd8d",
+      "bytes": 458,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/repeat-export.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/exporter-regressions/summary.json",
+      "sha256": "03376ce857e7b73735f2bcbbeec0482662f8d83ada8348b894f4f81b1d7a6888",
+      "bytes": 18144,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/inventory-build.log",
+      "sha256": "bb70391bfb85e904437bd8e2d7988b0974f8ce95f5848a1f816b02a871c838e8",
+      "bytes": 335,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/inventory.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/negative-consumers.json",
+      "sha256": "5d3ff74c818c937d8ca250bb5472ca29f782c3465a294997337c8915cb0df0f6",
+      "bytes": 4262,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/negative-consumers.log",
+      "sha256": "9398e0b0068a246b38f34a6f2ee5d938eced3df0b2816caf2d293471db529717",
+      "bytes": 64,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/final-documentation/attempt-2/summary.json",
+      "sha256": "37cadd8613e009a25bb2638354d30a1581eefb28e9caa51e1e4d64dbc2c9f9e0",
+      "bytes": 15118,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/checks-build.log",
+      "sha256": "a765d7fc1c97b7f081bbb7d7329c74b9fa4d21424491d84a5b965aec73856947",
+      "bytes": 433,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/consumer-build.log",
+      "sha256": "ab37743913c9bf30f42f5518b2b5471109e2c7cd7fc9952bd9a2e4b7bcb8384e",
+      "bytes": 505,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/consumer-execute.log",
+      "sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/inventory-build.log",
+      "sha256": "b4a7cd3fb31d274dbdf378e13c6b37047af381b76029ef8a2a4bb6653f65030d",
+      "bytes": 335,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/inventory.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/native-aot-execute.log",
+      "sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/native-aot-publish.log",
+      "sha256": "db8fef40429ae6c3daeea5fb0da18d6ffe96b47b86d820426da9dc18924a62e3",
+      "bytes": 873,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/native-executable-sha256.txt",
+      "sha256": "34210b564f6f995b4492d7c8e092388c9f06c17b6b28cfde2455498b280f149c",
+      "bytes": 65,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/negative-consumers.json",
+      "sha256": "72341eb5c13beed9a543713e39f00a1f6fdab0d20d434ba81def0f2bd243b713",
+      "bytes": 3354,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/negative-consumers.log",
+      "sha256": "d340a2e7709f4a8fd9d914a7ae73a9b1062ece36f16ca34772be756d4231b10f",
+      "bytes": 64,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-1/summary.json",
+      "sha256": "31c3c306d723c6ec4552740bf3ab6b753418cdf3587d906fbb2c31715b9c7edc",
+      "bytes": 14860,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/NativeWeave.Api.Checks.packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/NativeWeave.Api.Consumers.packages.lock.json",
+      "sha256": "8c8e3394b4f80065a809dc9e2f56f5011a88acc527c7e1b57ccab6a73fd98967",
+      "bytes": 9588,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/NativeWeave.Api.Design.packages.lock.json",
+      "sha256": "40ebda06b7ad62e197f94dc2f21252f6121efd9dbb593435c18f27d3324969ad",
+      "bytes": 9365,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/NativeWeave.Api.Inventory.packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/checks-build.log",
+      "sha256": "c5fd9bb13d6e08a2bb344924616cf79d06bc6c393a6d4ca4564f695233e3a7fe",
+      "bytes": 326,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/consumer-build.log",
+      "sha256": "df6b4e6b8e72455a69f3274fadf478db469809732b6d27641d578daf1d444dc0",
+      "bytes": 770,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/consumer-execute.log",
+      "sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions.log",
+      "sha256": "66676cfda98796bf223908d349044ebb38b5d1a93a03d90b4ad96567342e4d22",
+      "bytes": 282,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/actual-export.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/actual/database-symbol-policies.json",
+      "sha256": "f8cd8ddb159934865f94195e9e5e23aa249bbbeebadc3122d0aabf035f6ca5af",
+      "bytes": 65682,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/actual/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/actual/public-api.json",
+      "sha256": "65a004f6c065a963726e9144aa25d2d4994c6c8f5fbd09c6047ae701cbb706de",
+      "bytes": 2267672,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/actual/reference.md",
+      "sha256": "db989ee3669b98264fea258dc81b173ef4233570fe2be100e46d85f92bc454ab",
+      "bytes": 677319,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/actual/server-symbol-policies.json",
+      "sha256": "6ae6f697062833bcb4a03b49df485453a7ae75e1aea688793464ad10b4e9161c",
+      "bytes": 50821,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/fixture-export.log",
+      "sha256": "52fbcf06db00f76b6e8aa13e46ae0694ef9d5d07f6c75977ad26df5e98420a68",
+      "bytes": 60,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/fixture-source/Fixture.cs",
+      "sha256": "269451a382995633c9d31842aefc1f96399bfe9d77feb80a0e111f31b2a1b9fa",
+      "bytes": 2546,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/fixture/database-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/fixture/interop-symbol-policies.json",
+      "sha256": "2581cd4b4163fb5c7f54c6262d4e9358b383ba97074c28a795271b1c044dc5f6",
+      "bytes": 5377,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/fixture/public-api.json",
+      "sha256": "7849a80d4ff7a58a00115e3e6a9fe3312ecbc2edd1ea0def354b891686f69bee",
+      "bytes": 134962,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/fixture/reference.md",
+      "sha256": "d6b262a4b2c5a69bfd3f3e4f47d6c4fb5b330449da59d1a359a17b4121ccc84c",
+      "bytes": 40222,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/fixture/server-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b",
+      "bytes": 501,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Design/Database.cs",
+      "sha256": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb",
+      "bytes": 115859,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Design/Server.cs",
+      "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+      "bytes": 57272,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2",
+      "bytes": 472,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5",
+      "bytes": 23497,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9",
+      "bytes": 19378,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inputs/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58",
+      "bytes": 105,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/inventory-build.log",
+      "sha256": "aa6a3c8081d5fda19eafdb9d63df05b304b4932cb1f9e1401cdebf7c32ac3719",
+      "bytes": 449,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/repeat-export.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/exporter-regressions/summary.json",
+      "sha256": "37080c8fffc5eb6257a54bcf63e756305ed5a377d76fc211a8e1fbb4b3512f4a",
+      "bytes": 18074,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/inventory-build.log",
+      "sha256": "c93fcef36beca709b750136cfd7a5035f9ab349629a66197c14a35c921a23364",
+      "bytes": 335,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/inventory.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/native-aot-execute.log",
+      "sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/native-aot-publish.log",
+      "sha256": "fdb25fbe7a8d1915a5901e73ea063909034bd4e6778b8e30e6a6608f21ed7c59",
+      "bytes": 869,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/native-executable-sha256.txt",
+      "sha256": "ff7571022bf454057b623136fc9408c011fd2e32c873679ad510164ae6de7f90",
+      "bytes": 65,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/negative-consumers.json",
+      "sha256": "72341eb5c13beed9a543713e39f00a1f6fdab0d20d434ba81def0f2bd243b713",
+      "bytes": 3354,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/negative-consumers.log",
+      "sha256": "d340a2e7709f4a8fd9d914a7ae73a9b1062ece36f16ca34772be756d4231b10f",
+      "bytes": 64,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-2/summary.json",
+      "sha256": "1411c5e39604f45b1443f857ad4c976c814f5763c87b876efa4d1fb95af915a9",
+      "bytes": 16075,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/NativeWeave.Api.Checks.packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/NativeWeave.Api.Consumers.packages.lock.json",
+      "sha256": "8c8e3394b4f80065a809dc9e2f56f5011a88acc527c7e1b57ccab6a73fd98967",
+      "bytes": 9588,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/NativeWeave.Api.Design.packages.lock.json",
+      "sha256": "40ebda06b7ad62e197f94dc2f21252f6121efd9dbb593435c18f27d3324969ad",
+      "bytes": 9365,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/NativeWeave.Api.Inventory.packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/checks-build.log",
+      "sha256": "29527888b461b9323aee5c7c426593006dff544b323c2786021ecde58f90eae2",
+      "bytes": 326,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/consumer-build.log",
+      "sha256": "6a5bc20e43c37c92207c24de000db1e690b89897c8164ac22190fb7719cb446a",
+      "bytes": 770,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/consumer-execute.log",
+      "sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions.log",
+      "sha256": "6133b24bf305e8e0ade71796a16750a8c7db8f23b194681e7b93621bf7a6a55f",
+      "bytes": 282,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/actual-export.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/actual/database-symbol-policies.json",
+      "sha256": "a21d78f1c603f7a34c2e0b976075b03d26832a63fd4a7a559f17c9f0d5d7beb7",
+      "bytes": 67486,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/actual/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/actual/public-api.json",
+      "sha256": "4dcda514404d26c4687d772f5268a21bb2d3be5d9073062b59bf928f32b02257",
+      "bytes": 2279158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/actual/reference.md",
+      "sha256": "4bf3d37cbc423eacf9a308fe420b7564b4f92548fb3d164c65f53e16c9348b48",
+      "bytes": 683173,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/actual/server-symbol-policies.json",
+      "sha256": "2cfa139c8c50bf711bf553722b2be06ea6ab5f8bcd04860a37ede0c41802c9eb",
+      "bytes": 54403,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/fixture-export.log",
+      "sha256": "52fbcf06db00f76b6e8aa13e46ae0694ef9d5d07f6c75977ad26df5e98420a68",
+      "bytes": 60,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/fixture-source/Fixture.cs",
+      "sha256": "269451a382995633c9d31842aefc1f96399bfe9d77feb80a0e111f31b2a1b9fa",
+      "bytes": 2546,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/fixture/database-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/fixture/interop-symbol-policies.json",
+      "sha256": "2581cd4b4163fb5c7f54c6262d4e9358b383ba97074c28a795271b1c044dc5f6",
+      "bytes": 5377,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/fixture/public-api.json",
+      "sha256": "7849a80d4ff7a58a00115e3e6a9fe3312ecbc2edd1ea0def354b891686f69bee",
+      "bytes": 134962,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/fixture/reference.md",
+      "sha256": "d6b262a4b2c5a69bfd3f3e4f47d6c4fb5b330449da59d1a359a17b4121ccc84c",
+      "bytes": 40222,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/fixture/server-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b",
+      "bytes": 501,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/NativeWeave.Api.Design/Database.cs",
+      "sha256": "7c3774ecd3b18923eb261ddef8735e234a2ade75d38584971ab07b17f415cf65",
+      "bytes": 117065,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/NativeWeave.Api.Design/Server.cs",
+      "sha256": "9dc6cdf033164c3ccf3ecf9b77d28b764d434d1dab9ac1fe9cdff22730f23b81",
+      "bytes": 58423,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2",
+      "bytes": 472,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5",
+      "bytes": 23497,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9",
+      "bytes": 19378,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inputs/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58",
+      "bytes": 105,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/inventory-build.log",
+      "sha256": "5a1dce064f14e264accf2323120a2b3d5b34182d025a0c0f7463e2b009c6497b",
+      "bytes": 449,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/repeat-export.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/exporter-regressions/summary.json",
+      "sha256": "d6adfccaabb103af4bc2ca462fa27e727cd6c515753407926bd1f7a8d113b74b",
+      "bytes": 18074,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/inventory-build.log",
+      "sha256": "f11d61320e31e37ed6bf7a8d3c6e82488364c5d7ade70be65075e0bff419a227",
+      "bytes": 335,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/inventory.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/native-aot-execute.log",
+      "sha256": "00db714bcffbbf66b2f86411f85090fe3d3b726072af8aab2d3705cd94e17f7c",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/native-aot-publish.log",
+      "sha256": "d0b63f06f509e63d4fe467ccec63b406b8651aa73e322374ca331dc426ef08b5",
+      "bytes": 869,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/native-executable-sha256.txt",
+      "sha256": "97a3839a88727a09653a0ab2bac88dd72db17008d6b4fc4baf76621a28845d63",
+      "bytes": 65,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/negative-consumers.json",
+      "sha256": "72341eb5c13beed9a543713e39f00a1f6fdab0d20d434ba81def0f2bd243b713",
+      "bytes": 3354,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/negative-consumers.log",
+      "sha256": "d340a2e7709f4a8fd9d914a7ae73a9b1062ece36f16ca34772be756d4231b10f",
+      "bytes": 64,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/full-linux/attempt-3/summary.json",
+      "sha256": "3b3e2baca58f06dac5c000fd8154a70c40b2b799d1fd04aa55394dc60e810e24",
+      "bytes": 16478,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/harness-guards/attempt-1/rejected-existing-evidence.log",
+      "sha256": "58a6caaf3dba80dd8888b5a98460adbf13d31a0fb8527c3335bb660a55228636",
+      "bytes": 79,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/harness-guards/attempt-1/summary.json",
+      "sha256": "47580e85b3276a02988641793447f36ff4e220c58edf0e5c5d2fc0a903918800",
+      "bytes": 2864,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/harness-guards/attempt-2/rejection.log",
+      "sha256": "e19f41df94a923c50ee09bb37adb288e878329f6e06ffc10c23e3572afbb5cb6",
+      "bytes": 477,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/harness-guards/attempt-2/summary.json",
+      "sha256": "d4af2cd4f72f8c7b073f5a85b8b490c2a6cb61cc6bc801217ac7ec4037e7c787",
+      "bytes": 8089,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/README.md",
+      "sha256": "e13549c37419bac403a7a21a5560f22017bc02d8fb64ea3071ff607a9d1ab61f",
+      "bytes": 4982,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-1/interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-1/interop-negative-borrow.log",
+      "sha256": "6b2092e4bbea877e3585c276348c775a692d40339a2e18cd2df29366bbf02bd0",
+      "bytes": 145,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-1/sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+      "bytes": 1340,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-1/summary.json",
+      "sha256": "612dec464c97ea7c826898be0ca6f5f6e16fdefe722d70975e152a47664eb466",
+      "bytes": 2801,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-2/c-layout-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-2/c-layout-execute.log",
+      "sha256": "4ed65c5b41881a45822013561d9a8a90533cf5dc3b6e19a854c62aebd17c9247",
+      "bytes": 93,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-2/generator-compile.log",
+      "sha256": "8c30c6044139f819191fb5798008c17cc8fd643a3731401e9b656856eeb36649",
+      "bytes": 649,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-2/interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-2/interop-negative-borrow.log",
+      "sha256": "17d1653b079f305a621eae48bc8fa6719bec987f1ee6c5fec09aad2878b7736f",
+      "bytes": 263,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-2/sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+      "bytes": 1340,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-2/summary.json",
+      "sha256": "9c415c5fd389d6ab3911e011830a111601c1ae0475349c6aeb152fb1d674b31b",
+      "bytes": 4035,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-3/c-layout-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-3/c-layout-execute.log",
+      "sha256": "4ed65c5b41881a45822013561d9a8a90533cf5dc3b6e19a854c62aebd17c9247",
+      "bytes": 93,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-3/generator-compile.log",
+      "sha256": "4c4195ac7c8e5b825eff0660fb0ea1116ac67537e1d48fcb3f4a19c9b77960e8",
+      "bytes": 653,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-3/interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-3/interop-negative-borrow.log",
+      "sha256": "17d1653b079f305a621eae48bc8fa6719bec987f1ee6c5fec09aad2878b7736f",
+      "bytes": 263,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-3/sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+      "bytes": 1340,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-3/summary.json",
+      "sha256": "3842c420862b0cd7653253ec8ae18993e1d9955b1d7ded31fb5d1596dd2d7e4e",
+      "bytes": 3966,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/artifact-readback.json",
+      "sha256": "7cea142c263f2308303e6e682cd9ef842d2b7cecd57b1d5cc270a1bdc453d24c",
+      "bytes": 2233,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/c-layout-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/c-layout-execute.log",
+      "sha256": "4ed65c5b41881a45822013561d9a8a90533cf5dc3b6e19a854c62aebd17c9247",
+      "bytes": 93,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/changed-model-build.log",
+      "sha256": "8daf7b79d453728b386e0708553e8a54832547fbd1a7c69058eaa727fb49ce33",
+      "bytes": 139,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/changed-model-run.log",
+      "sha256": "5ca45ed983d67c06b0348638b58f431beb0cf6d8d4c4831d3072752244ade078",
+      "bytes": 123,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/consumer-aot-publish.log",
+      "sha256": "8d4f31cd94c6d5db7ecdde255128834d313904830a2a1072dc05049d2a60a2c1",
+      "bytes": 220,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/consumer-aot-run.log",
+      "sha256": "cf504cc5d696572cc78ecd7ae74e32bd38fe7337e417414dc52544f4bb4dc51d",
+      "bytes": 122,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/consumer-build.log",
+      "sha256": "e21618f2c1bc780d8d0459e3a114494bef49896d78f1918ca7163609b9b5c701",
+      "bytes": 232,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/consumer-publish.log",
+      "sha256": "d9e4f4a76a41fc4e1d210236774ee80dd2748669f5a1a963fa8a986823f8162c",
+      "bytes": 95,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/consumer-run.log",
+      "sha256": "17d65bc5933e0b35f5e1fc6ce89c6f98c015361e790f1e70c8ec07204026dae0",
+      "bytes": 123,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/facade-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/generated-example.cs",
+      "sha256": "0b9282251c0d515eba1b549e50b3ccb35f70ae161a04db747e4b09d2b53a512d",
+      "bytes": 308,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/generator-compile.log",
+      "sha256": "4c4195ac7c8e5b825eff0660fb0ea1116ac67537e1d48fcb3f4a19c9b77960e8",
+      "bytes": 653,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/interop-negative-borrow.log",
+      "sha256": "17d1653b079f305a621eae48bc8fa6719bec987f1ee6c5fec09aad2878b7736f",
+      "bytes": 263,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/published-consumer-run.log",
+      "sha256": "5ca45ed983d67c06b0348638b58f431beb0cf6d8d4c4831d3072752244ade078",
+      "bytes": 123,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+      "bytes": 1340,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/summary.json",
+      "sha256": "12d1d1573f25ab5eea8e0668ce5fff25dd4cbc9db998211ed21e2ea32f294fea",
+      "bytes": 9640,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/interop-packaging/attempt-4/unsupported-model-negative.log",
+      "sha256": "eb9395d16de7f73d1831eb471aad5a66bd3444f446041baca3bd065602a538af",
+      "bytes": 824,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/archives/archive-manifest.json",
+      "sha256": "d798201df8275fd7a5b1d5d2d6296a9bd84c5d4e594112bcaebcb2a81fdf9e03",
+      "bytes": 5000,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/archives/attempt-1.zip",
+      "sha256": "899300a0c5bbea6d3388f6bce65abfc6a5396133d845bbc0aa8bb4452e738832",
+      "bytes": 195018,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/archives/attempt-2.zip",
+      "sha256": "f92e111c391814788b95bb4e808ca33183a86a9492ab2c1cae6dbaaaa6ee53ca",
+      "bytes": 195110,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/archives/preflight-1.zip",
+      "sha256": "dc130e24b15a727fd1e8b602f3de4b8aa75d9d227cef65498687a6431f397ff0",
+      "bytes": 178149,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/actual-export.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/actual/database-symbol-policies.json",
+      "sha256": "f8cd8ddb159934865f94195e9e5e23aa249bbbeebadc3122d0aabf035f6ca5af",
+      "bytes": 65682,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/actual/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/actual/public-api.json",
+      "sha256": "65a004f6c065a963726e9144aa25d2d4994c6c8f5fbd09c6047ae701cbb706de",
+      "bytes": 2267672,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/actual/reference.md",
+      "sha256": "db989ee3669b98264fea258dc81b173ef4233570fe2be100e46d85f92bc454ab",
+      "bytes": 677319,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/actual/server-symbol-policies.json",
+      "sha256": "6ae6f697062833bcb4a03b49df485453a7ae75e1aea688793464ad10b4e9161c",
+      "bytes": 50821,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/fixture-export.log",
+      "sha256": "52fbcf06db00f76b6e8aa13e46ae0694ef9d5d07f6c75977ad26df5e98420a68",
+      "bytes": 60,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/fixture-source/Fixture.cs",
+      "sha256": "269451a382995633c9d31842aefc1f96399bfe9d77feb80a0e111f31b2a1b9fa",
+      "bytes": 2546,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/fixture/database-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/fixture/interop-symbol-policies.json",
+      "sha256": "2581cd4b4163fb5c7f54c6262d4e9358b383ba97074c28a795271b1c044dc5f6",
+      "bytes": 5377,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/fixture/public-api.json",
+      "sha256": "574966a9a45250863449a7fbb02cc078497edc12ef4707d518d26f65c5368bf2",
+      "bytes": 134935,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/fixture/reference.md",
+      "sha256": "d6b262a4b2c5a69bfd3f3e4f47d6c4fb5b330449da59d1a359a17b4121ccc84c",
+      "bytes": 40222,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/fixture/server-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b",
+      "bytes": 501,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/NativeWeave.Api.Design/Database.cs",
+      "sha256": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb",
+      "bytes": 115859,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/NativeWeave.Api.Design/Server.cs",
+      "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+      "bytes": 57272,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2",
+      "bytes": 472,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "78279a9b9dc744ac949e85764a31614724df7297439398ed2075de438fa97922",
+      "bytes": 23262,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "87e3f7296a1df1826f299d9a20b7bae943afd3c72bec941252bf7dc9e9790a79",
+      "bytes": 19369,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inputs/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58",
+      "bytes": 105,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/inventory-build.log",
+      "sha256": "d7a0db9cce96bfda16fd18b06a0c1c7803d74c61e2bfcbf254e0e9a1c536fe9d",
+      "bytes": 436,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/repeat-export.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-1/summary.json",
+      "sha256": "aea051c5a297c48a9f0107bc520151c7ee1964dab17912751976ba8ce44c80eb",
+      "bytes": 17969,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/actual-export.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/actual/database-symbol-policies.json",
+      "sha256": "f8cd8ddb159934865f94195e9e5e23aa249bbbeebadc3122d0aabf035f6ca5af",
+      "bytes": 65682,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/actual/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/actual/public-api.json",
+      "sha256": "65a004f6c065a963726e9144aa25d2d4994c6c8f5fbd09c6047ae701cbb706de",
+      "bytes": 2267672,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/actual/reference.md",
+      "sha256": "db989ee3669b98264fea258dc81b173ef4233570fe2be100e46d85f92bc454ab",
+      "bytes": 677319,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/actual/server-symbol-policies.json",
+      "sha256": "6ae6f697062833bcb4a03b49df485453a7ae75e1aea688793464ad10b4e9161c",
+      "bytes": 50821,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/fixture-export.log",
+      "sha256": "52fbcf06db00f76b6e8aa13e46ae0694ef9d5d07f6c75977ad26df5e98420a68",
+      "bytes": 60,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/fixture-source/Fixture.cs",
+      "sha256": "269451a382995633c9d31842aefc1f96399bfe9d77feb80a0e111f31b2a1b9fa",
+      "bytes": 2546,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/fixture/database-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/fixture/interop-symbol-policies.json",
+      "sha256": "2581cd4b4163fb5c7f54c6262d4e9358b383ba97074c28a795271b1c044dc5f6",
+      "bytes": 5377,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/fixture/public-api.json",
+      "sha256": "7849a80d4ff7a58a00115e3e6a9fe3312ecbc2edd1ea0def354b891686f69bee",
+      "bytes": 134962,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/fixture/reference.md",
+      "sha256": "d6b262a4b2c5a69bfd3f3e4f47d6c4fb5b330449da59d1a359a17b4121ccc84c",
+      "bytes": 40222,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/fixture/server-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16",
+      "bytes": 18,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b",
+      "bytes": 501,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/NativeWeave.Api.Design/Database.cs",
+      "sha256": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb",
+      "bytes": 115859,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/NativeWeave.Api.Design/Server.cs",
+      "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+      "bytes": 57272,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2",
+      "bytes": 472,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5",
+      "bytes": 23497,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5",
+      "bytes": 61,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9",
+      "bytes": 19378,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709",
+      "bytes": 158,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inputs/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58",
+      "bytes": 105,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/inventory-build.log",
+      "sha256": "86e9c0bfa80f5a7b1de3b02c5ad5c6474f2389a75a009840d8ad000ffdfe2461",
+      "bytes": 436,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/repeat-export.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff",
+      "bytes": 9,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/attempt-2/summary.json",
+      "sha256": "98134c3acaae449a3c20a46610e3d96ceb10e0c489d639a7e070a695ad496703",
+      "bytes": 17968,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/Program.before.cs",
+      "sha256": "cb8da715cd8e8b988a998cffca12e260a75a38b220709f17e8245c2c2148f8c5",
+      "bytes": 11263,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/Program.build-2.cs",
+      "sha256": "4ea2e5b20447f5623f703c677c593fbddd8fdab3b930263a283560f582fb99a5",
+      "bytes": 22681,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/command.json",
+      "sha256": "0968c471b610288f35ab50e2abe8a89bb40c39f9f8ecb15122e362990e85acfa",
+      "bytes": 410,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/export.log",
+      "sha256": "649b9dcb254a9ad8f37c075d5f83c393918477f4175ef0d7181d24566392b093",
+      "bytes": 62,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/generated/database-symbol-policies.json",
+      "sha256": "f8cd8ddb159934865f94195e9e5e23aa249bbbeebadc3122d0aabf035f6ca5af",
+      "bytes": 65682,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/generated/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "bytes": 11138,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/generated/public-api.json",
+      "sha256": "65a004f6c065a963726e9144aa25d2d4994c6c8f5fbd09c6047ae701cbb706de",
+      "bytes": 2267672,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/generated/reference.md",
+      "sha256": "db989ee3669b98264fea258dc81b173ef4233570fe2be100e46d85f92bc454ab",
+      "bytes": 677319,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/generated/server-symbol-policies.json",
+      "sha256": "6ae6f697062833bcb4a03b49df485453a7ae75e1aea688793464ad10b4e9161c",
+      "bytes": 50821,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/source/Database.cs",
+      "sha256": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb",
+      "bytes": 115859,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/source/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "bytes": 25785,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/actual-1/source/Server.cs",
+      "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe",
+      "bytes": 57272,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/build-1.log",
+      "sha256": "964f14245392fdd7282b55f9551a0a63d8f0633d8b46f34203ce1899fa1df02d",
+      "bytes": 1305,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/build-2.log",
+      "sha256": "6e486cf796ea70ad803b2d7faaf1b1be7423336ca0810e2c2420495d9012a299",
+      "bytes": 999,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/build-3-command.json",
+      "sha256": "4f468d96477497fc9b18337bae7969bb7280e0665eea30dd8cf15099cadfecee",
+      "bytes": 397,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/build-3.log",
+      "sha256": "7951b87d8581832ab0523add919731622405f942e13956217e2978704cf93968",
+      "bytes": 434,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/inventory-recovery/preflight-1/summary.json",
+      "sha256": "c23a6cdd8abebf1f611ece72440354dbb365b719613b97bb28ec79f2cf2eb3dc",
+      "bytes": 5440,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/c-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/c-execute.log",
+      "sha256": "f7bff6eb72bfdc9cb63f911a6f788130ef08331e2a85d3973ac9552ae9535919",
+      "bytes": 81,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/c-results.json",
+      "sha256": "50e3cb04f178a1a0e00047926af21ccdcd369abf39797297003ef26eb6702aef",
+      "bytes": 923,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/coverage-source-links.json",
+      "sha256": "09f1cd4862f49248b505d268cfe11ac1b82d5db554389078c8215d3e62e47130",
+      "bytes": 142,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-final-run.log",
+      "sha256": "b09ea587d5c0b04a0dfd8fa535ce2e88864866399005886b4dc1fba86f3234d5",
+      "bytes": 401,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-initial-run.log",
+      "sha256": "c41ad344898d4a26505466c9017d5a1c61b2b20e8f4d52b00655812e98a76b66",
+      "bytes": 622,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-initial-source.txt",
+      "sha256": "8fcf9719f4e1dd816936b3cc2d7acea8863e7d35729407077bdb409f8d393e32",
+      "bytes": 4127,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/mcp-schema-root-results.json",
+      "sha256": "d94e54ddd4c5d3a3c3de0d00a2da8b5910a17ab0888d80b86a467f9ac54c7391",
+      "bytes": 2297,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/prototype-parity.json",
+      "sha256": "049d77ec2fa0afd7a02ae2ddd14fab89b4599f7c4928a014b31765567da3f20f",
+      "bytes": 1831,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/server-consumer-build.log",
+      "sha256": "6b9c821c43c6e25126add02cc3363f09f0e8a61528f41968c832a93094606eb6",
+      "bytes": 182,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-1/server-consumer-recheck.log",
+      "sha256": "d578a44866a0cf7d6a6b619a54db61a604ba8fcbfc301d456ec44b3e7c382bbc",
+      "bytes": 182,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-2/check_refinement.py",
+      "sha256": "9f4c649967ca33c8b62e08735263d232ae3e6175cbeae73fd8409947731f9ad1",
+      "bytes": 2979,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-2/consistency-results.json",
+      "sha256": "264f7b07715ce3489e55758f3ca9ca02e9d339e64500d7123c3b7a20ca1b2eef",
+      "bytes": 1236,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/attempt-2/source-identity.json",
+      "sha256": "bc603b06a2b295dcb3e7b1c9a1ffe3d8025ab4927778b33f0f6f72bfda0a792c",
+      "bytes": 3769,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/mcp-schema-root-witness/Program.cs",
+      "sha256": "cea6cba257eabcb381fb16111cffd094019caa46d2a485ea1f6d02d42e64a145",
+      "bytes": 4192,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/server-review-fixes/mcp-schema-root-witness/SchemaRootWitness.csproj",
+      "sha256": "5fdf10733eb0e2301ad4c50bb5bb5ea0e7de8ae3fe5646e1ba18a7c027ca1548",
+      "bytes": 429,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/windows-checkout/attempt-1/job-excerpt.log",
+      "sha256": "0f5189b08df20cddfae85ceebb0dfd068fa0529d737e2328ee01f564fc52185d",
+      "bytes": 4151,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/windows-checkout/attempt-1/summary.json",
+      "sha256": "68d9d4c2bb809402eee969ea8a1e11abeb6197d8f1b61bd57c4c6576ac68f086",
+      "bytes": 954,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/windows-checkout/attempt-2/job-excerpt.log",
+      "sha256": "b7ed7adc864388ed0aebccf56659d98cbd491f93ec88ee8029f44419a48ee86f",
+      "bytes": 2878,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/windows-checkout/attempt-2/summary.json",
+      "sha256": "8e179bd7b82a25a4d3417f9f32b33cf249e08fe1b85c66a8c7d2055184a9bc8c",
+      "bytes": 863,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/windows-checkout/attempt-3-local/summary.json",
+      "sha256": "8a608fc46ac9b621e4d6a4419ce3c8fef9ca6f2fe4242eb4034a1fa381e9acad",
+      "bytes": 574,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    },
+    {
+      "path": "NativeWeave-Design:verification/public-api/windows-checkout/attempt-3-local/utf8-explicit-reader.log",
+      "sha256": "144c14aed06f9e312bc6ec5bd70901cc2166d906914d0f138ae815af1659658d",
+      "bytes": 354,
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
+    }
+  ],
+  "product_execution": false,
+  "scope": "Reviewed research/design inputs and precise existing-task plan; not product validation.",
+  "contract_dependency_snapshot": {
+    "C-ABI-001@0.4.0": {
+      "spec_path": "docs/contracts/abi-v0.1.md",
+      "content_sha256": "d9e8fd60ff33d3c56410cd4cc3a6ad591609c0b49282bd3ccf9ad7b93f06e9f2",
+      "evidence_sha256": [
+        "1d4d2d9d01f9f7914a0525dfe9f30786f5185e8eaac2f6129f36d7390b199f31"
+      ],
+      "review_sha256": [
+        "dba8598260610edbe0f20ff4b58c4b30bb398af83dc818c900095a82cb4aa7fd"
+      ]
+    },
+    "C-ERROR-001@0.4.0": {
+      "spec_path": "docs/contracts/error-v0.1.md",
+      "content_sha256": "f110fba00ee2479c8a12648ecc1fbb592ca45866e1e25dc31b5445a694b95bd4",
+      "evidence_sha256": [
+        "6c924907bb5ae9ed81b9ae3ac341265455d710caf412a75d76f883cce59ed4b3"
+      ],
+      "review_sha256": [
+        "110d3664600120049ae93c92ef40534ca19cbbd63fc7e205f1ba7c8a9772569e"
+      ]
+    }
+  }
+}

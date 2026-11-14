@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><Nullable>enable</Nullable><GenerateDocumentationFile>true</GenerateDocumentationFile><NoWarn>CS1591</NoWarn><TreatWarningsAsErrors>true</TreatWarningsAsErrors><EnableDefaultCompileItems>false</EnableDefaultCompileItems><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><NuGetAudit>false</NuGetAudit><AllowUnsafeBlocks>true</AllowUnsafeBlocks></PropertyGroup>
+<ItemGroup>
+<Compile Include="inputs/Database.cs" /><Compile Include="inputs/Interop.cs" />
+<Compile Include="inputs/DatabaseExamples.cs" /><Compile Include="inputs/DatabaseAdvancedExamples.cs" />
+<Compile Include="ReferenceLiftConsumer.cs.txt" />
+<FrameworkReference Include="Microsoft.AspNetCore.App" />
+<Compile Include="$(NegativeFile)" Condition="'$(NegativeFile)' != ''" />
+</ItemGroup>
+</Project>

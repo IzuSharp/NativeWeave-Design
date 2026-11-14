@@ -7,886 +7,1389 @@
   "contracts": [
     {
       "id": "C-PLATFORM-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Platform, Toolchain, and AOT Support",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-PLATFORM-001.evidence.json",
-          "sha256": "7dd30d6bb6c65005e7360d41cd607dd2200ea3f77a23f1e5ead80e3b5819674e"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PLATFORM-001.evidence.json",
+          "sha256": "4d32ebab15cedf9c4a9d2b0215ae1a0294484cd1a148bfde0b20eb545fa077a1"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "e84e0b449c90340f396505d61504d41a7a3305fb6a02f0e3d7b540aef2adc470",
+      "content_sha256": "fc7fa75462cd42f159568eb37342367f3302801745b731fc630f3a730d62ee7e",
       "author": "/root",
       "spec_path": "docs/platforms/support-and-aot.md",
       "dependencies": [],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-PLATFORM-001.review.json",
-          "sha256": "9049264fab02e401d8169e9dee5af4b2fe633b329892da7229f839cf3b47186f"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PLATFORM-001.review.json",
+          "sha256": "cd96bc9d09e1a72191b87911c3bde360ed89f665d5f3b0ef6689454578bee743"
         }
       ],
       "documentation_task_id": "D01",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-ABI-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "C ABI Type Layout and Versioning",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-ABI-001.evidence.json",
-          "sha256": "d15219bb2fa804d9542d94218c77265a3dd803a319ea296f4102945e76d7031a"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ABI-001.evidence.json",
+          "sha256": "1d4d2d9d01f9f7914a0525dfe9f30786f5185e8eaac2f6129f36d7390b199f31"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "bced608ad11337e8906fc03a3ab6606042896c1467d2fc6bea639d33132ab99b",
+      "content_sha256": "d9e8fd60ff33d3c56410cd4cc3a6ad591609c0b49282bd3ccf9ad7b93f06e9f2",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/abi-v0.1.md",
       "dependencies": [
         {
           "id": "C-PLATFORM-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-ABI-001.review.json",
-          "sha256": "05db192a468ac0b9f1e3c6eacd306ad6f035e7ed8f6f82459551bbc5f1d60585"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ABI-001.review.json",
+          "sha256": "dba8598260610edbe0f20ff4b58c4b30bb398af83dc818c900095a82cb4aa7fd"
         }
       ],
       "documentation_task_id": "D02",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-BINDING-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Bindings and Static Generation",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-BINDING-001.evidence.json",
-          "sha256": "cb589674efd277a82db4094fd92e4834cc15304178ccfe8cc71697ce8921c36e"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BINDING-001.evidence.json",
+          "sha256": "a5b4d1a7bb6c9a09cee1e48e0ba94775e1186fdcccd89e99cacb501bd1dfa99a"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "804deba253893ebaf173e2caead770eff29683e73e840ab5c52df91bc79fbd81",
+      "content_sha256": "ae3c30c3547b3508a95acbf1ae8f5d2d1a3a9aaf3c6a1f2a4bc317a6c8ccfe4e",
       "author": "/root/interop_research",
       "spec_path": "docs/generators/binding-pipeline.md",
       "dependencies": [
         {
           "id": "C-ABI-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-BINDING-001.review.json",
-          "sha256": "19ca5b45d0f5f907c780b9bc8c0d7ca55f33852c6246b95130b28b614e9bfd12"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BINDING-001.review.json",
+          "sha256": "4b84e2cac9b0641d91ff45a25b10715b73cfb333b72a6650b4a11a65a178cb72"
         }
       ],
       "documentation_task_id": "D03",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-LIFETIME-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Resource Ownership and Release",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-LIFETIME-001.evidence.json",
-          "sha256": "a7660252c630626b26d4e7d7e6d26d268d5875156b18291093e9bad0d7631947"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-LIFETIME-001.evidence.json",
+          "sha256": "0c97af74382b3874d73640c97053bd8e3695ff66ca35254685063b5e5b277f22"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "cd2524c1345dfa52212271c73bd942a995c9b9b235c0288c90d19e0bcf452707",
+      "content_sha256": "de5cf64b2b113cccbe5d2cf5489d22bee48f6c1e586937118f97eb1cb3602774",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/lifetime-v0.1.md",
       "dependencies": [
         {
           "id": "C-ABI-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-LIFETIME-001.review.json",
-          "sha256": "2f7569b4f9f106005ca7aa2823f9475a7dc9c0d782b8fcda8e71f698f6ebf8c1"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-LIFETIME-001.review.json",
+          "sha256": "d4ba6602920a6b7c5f3673a08674f038b5214db679c1116acc444dacd5009e5b"
         }
       ],
       "documentation_task_id": "D04",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-CALLBACK-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Callback Registration, Unregistration, and Reentrancy",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-CALLBACK-001.evidence.json",
-          "sha256": "a05446af19062779ad8733408c43d02039af6107d32f9735228ab4a77369928a"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CALLBACK-001.evidence.json",
+          "sha256": "6ebef3abdda5718cb148fd54cfb85488e191b3ebbaa877aecb196282135d2000"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "657f84827980d291a213274d81eee21a2e2bffc209efd4cefec281527148a074",
+      "content_sha256": "7e336f16b8a1c15522b98965dd107af67c122e9b3c49cbd6e1ecce963aae694c",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/callback-v0.1.md",
       "dependencies": [
         {
           "id": "C-LIFETIME-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-CALLBACK-001.review.json",
-          "sha256": "89d853f33f446c9322110156277b63230fec992a20e19cbbc38ed0363157838b"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CALLBACK-001.review.json",
+          "sha256": "1cfb6cf203e9ccf374e61abcdbfbc5940a86478b4f1809a1f62b3992bd291347"
         }
       ],
       "documentation_task_id": "D05",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-ASYNC-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Asynchronous Completion, Cancellation, and Quiescence",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-ASYNC-001.evidence.json",
-          "sha256": "b70e3d161703e66961b76544581ba0b4eaa11f3d5dee7f80c9fee8a2b2647b6e"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ASYNC-001.evidence.json",
+          "sha256": "59cbd6ef6ebdcdc2df1ab7d835e58ddbd1749cd86a2f9245a2f8be140640c55c"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "dd7138080915f25a8063cb7bca04379cbafc5cab70ae22e25360527d0e6fc16b",
+      "content_sha256": "e939648f87c5463687ca5ed34b173c0934cb28be528c1401898d0819bc213081",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/async-v0.1.md",
       "dependencies": [
         {
           "id": "C-CALLBACK-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BUFFER-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-ASYNC-001.review.json",
-          "sha256": "afe7826aa0d4bf485d8faec0c4fb5df82342f3dcf1fd135275c2ff17555a79f1"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ASYNC-001.review.json",
+          "sha256": "c895bfd40fd07e46d565a7e2729eb3d9ff7c1d0e94ae4a6dfed3ee9a2040475b"
         }
       ],
       "documentation_task_id": "D06",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-BUFFER-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Buffers and Transfer",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-BUFFER-001.evidence.json",
-          "sha256": "4579676ab0893707d9d48f1c5b660c8efff24be56f5794a485845979fdf5dcf2"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUFFER-001.evidence.json",
+          "sha256": "1ae9104709fa16ff9ad4f1936eae8831f6c7ba7817a633fbf6a109417e94b3a3"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "38ac67033a52f1318c7225b92cd595339c03d9c45dadd85a8bd07e3ddbf99626",
+      "content_sha256": "524b76834de5573cedb1f4e4deca8d84554d445c608aaae7fad576873e3d0f76",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/buffer-v0.1.md",
       "dependencies": [
         {
           "id": "C-LIFETIME-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-BUFFER-001.review.json",
-          "sha256": "e621f8cb7ac2f21ef5d870789480df15f81f03cde4c25e667e942f9635dcdcce"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUFFER-001.review.json",
+          "sha256": "28f13375a3f896dec8dffe67b2f73bbf68a50d1a4efec11ac6554b78fe4802b3"
         }
       ],
       "documentation_task_id": "D07",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-ERROR-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Error and Panic Boundaries",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-ERROR-001.evidence.json",
-          "sha256": "9cc532bc67b8fc8a3c1bfc4902e95bb5641d5ce5413fcc5e24d0577dab33036b"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ERROR-001.evidence.json",
+          "sha256": "6c924907bb5ae9ed81b9ae3ac341265455d710caf412a75d76f883cce59ed4b3"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "2a9b768a2a59583530c4acdc3a274e3ec50a3ce3df49ae9903fd0eb710ddb778",
+      "content_sha256": "f110fba00ee2479c8a12648ecc1fbb592ca45866e1e25dc31b5445a694b95bd4",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/error-v0.1.md",
       "dependencies": [
         {
           "id": "C-ABI-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-ERROR-001.review.json",
-          "sha256": "420681e17ceefc265897cc7eb0ccbc320318e80715909397cce959fb8f30003b"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ERROR-001.review.json",
+          "sha256": "110d3664600120049ae93c92ef40534ca19cbbd63fc7e205f1ba7c8a9772569e"
         }
       ],
       "documentation_task_id": "D08",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-CONCURRENCY-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Threads, Runtime, and Backpressure",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-CONCURRENCY-001.evidence.json",
-          "sha256": "622a5337e0b114334e90661997d527757f4c7e40a93f117f1c6d2ce1e2d66067"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CONCURRENCY-001.evidence.json",
+          "sha256": "1031157bdadafd76ad6e9a92259527047de195b9c6514022973fb84f7126cc19"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "78b2d9a6fad76e03bfaded7625ab58948f444c08d6417c31df90e605e3bdc913",
+      "content_sha256": "f5308445ccd3e9edf76f55ad13fc9e673d857901b90445227f0453da3407e825",
       "author": "/root/interop_research",
       "spec_path": "docs/contracts/concurrency-v0.1.md",
       "dependencies": [
         {
           "id": "C-ASYNC-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-LIFETIME-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-CONCURRENCY-001.review.json",
-          "sha256": "62c070f3d63d2f55c9a89239147831d941d4ab49e5b21b06161a123f68700489"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CONCURRENCY-001.review.json",
+          "sha256": "40e974e11423d2a4d622acb39aa0c9362dca8055718947f83ca1bf52632d1a9b"
         }
       ],
       "documentation_task_id": "D09",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-BUILD-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Build, Packaging, and Release",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-BUILD-001.evidence.json",
-          "sha256": "71a1bf84b26e90ea617a8ad427bf40ac1938ca4f7dff9a4190927e193ed268d7"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUILD-001.evidence.json",
+          "sha256": "0da16913af23e941dad29ba68fad4cf00f13f19e2b0e576e17b15af86deb505f"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "06313b143b922d62a9b73ee4af2f1bc66287ef0085cb4d7ad4d82e4ef838efb0",
+      "content_sha256": "4810c05f0af850dadc1c814ca7707ff348e7b448a9fcb792ec2a7aeb2d7c46cc",
       "author": "/root",
       "spec_path": "docs/platforms/build-package-release.md",
       "dependencies": [
         {
           "id": "C-PLATFORM-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ABI-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BINDING-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-BUILD-001.review.json",
-          "sha256": "d4ad532df24eb872e642bb0ea47a3131753be2c48456069a377a23ab91c3862a"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUILD-001.review.json",
+          "sha256": "a047564e848ca783ce1a6b196b64dc7d230ee805f931cdf540a653762bef8612"
         }
       ],
       "documentation_task_id": "D10",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:docs/api/server.md",
+        "NativeWeave-Design:docs/api/server-coverage.json",
+        "NativeWeave-Design:docs/api/server-sources.json",
+        "NativeWeave-Design:docs/api/server-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h",
+        "NativeWeave-Design:docs/server/body-retirement-protocol.md"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-ENGINE-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Independent Engine Integration",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-ENGINE-001.evidence.json",
-          "sha256": "0f63003848f794d8b4ff04e7c0f2589ead600cfc2270024d92187a60e29ffe2a"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ENGINE-001.evidence.json",
+          "sha256": "137071fab7f63c1465a2fd0012fab71a280ebf80143f2602290e2a2ad469b328"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "2668b398c0812bbb2c5d4f1affb4a308247abfd2940949512ed74107328d22d4",
+      "content_sha256": "7910c717d103088f29ec6e64683b0160398d9c479365328655dd2db9260c749d",
       "author": "/root",
       "spec_path": "docs/extension/engine-integration.md",
       "dependencies": [
         {
           "id": "C-ABI-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-LIFETIME-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BUFFER-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-ENGINE-001.review.json",
-          "sha256": "f92adc4cc7ed3116c5ae1b0c180489bd8313828ad40c77089fb02fe893c5e1f9"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ENGINE-001.review.json",
+          "sha256": "b1ff60d434bd7ae86d4711ce9399d7c0aa9c2634116f6a137bfa9f7ccba84eb1"
         }
       ],
       "documentation_task_id": "D11",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-VERIFY-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Verification and Proof Obligations",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-VERIFY-001.evidence.json",
-          "sha256": "e83f805507bf46e073867f8fc6f3e13d67b754896a23a711cef1a7913af6f557"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-VERIFY-001.evidence.json",
+          "sha256": "f6c7f2a8d2c0fb2db7efc2d5693063f6f517664e228c38397d48c24816122dad"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "2f99f599ed4f78f9a5bc0a760210bce8b2296b87f43bbb34ebc5293810b45bef",
+      "content_sha256": "355a8aade375e1dccf32742877baa1562ede5862c9aa1fa9161be8d7017fad47",
       "author": "/root/interop_research",
       "spec_path": "docs/verification/models-and-matrix.md",
       "dependencies": [
         {
           "id": "C-LIFETIME-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-CALLBACK-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ASYNC-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BUFFER-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-VERIFY-001.review.json",
-          "sha256": "1c6d54212921b712b20d560b1b2c9e133bb6cfd819af26ad1ea5862f5f9d5aac"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-VERIFY-001.review.json",
+          "sha256": "1f6929164c2254d394ba35494b4d4a362d1b0a594f1e4741a9784c621e3f4206"
         }
       ],
       "documentation_task_id": "D12",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:docs/api/server.md",
+        "NativeWeave-Design:docs/api/server-coverage.json",
+        "NativeWeave-Design:docs/api/server-sources.json",
+        "NativeWeave-Design:docs/api/server-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h",
+        "NativeWeave-Design:docs/server/body-retirement-protocol.md"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-PERF-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Performance and Developer-Experience Benchmarks",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-PERF-001.evidence.json",
-          "sha256": "af1524f62c3caa65e649eb2e29602f52128a40a991e6cc69019d76e985927abe"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PERF-001.evidence.json",
+          "sha256": "4de0c4ee0e2d19e7bce04e57611b181b7c7d6a8057345110afc88b42e8dcec78"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "61014a12b683c74b7a7f66894357b878cfe7293a4c5e1c75f1d5d97f31bac1e0",
+      "content_sha256": "a628825741ae7ca7a3187ba1d36958f63059e667a48bb57f15c0ee3b1e9af670",
       "author": "/root",
       "spec_path": "docs/performance/methodology.md",
       "dependencies": [
         {
           "id": "C-BUFFER-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-CONCURRENCY-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-PERF-001.review.json",
-          "sha256": "3ba192c63d741b1a88515e96307b11f2c1ba3c00092000807bf4375b39a3435a"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PERF-001.review.json",
+          "sha256": "5c132c85687ded082f5760d0f870f2e5acb6995b6f45b9507319d66197c8fad1"
         }
       ],
       "documentation_task_id": "D13",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:docs/api/server.md",
+        "NativeWeave-Design:docs/api/server-coverage.json",
+        "NativeWeave-Design:docs/api/server-sources.json",
+        "NativeWeave-Design:docs/api/server-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h",
+        "NativeWeave-Design:docs/server/body-retirement-protocol.md"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-DB-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Drivers and Connections",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-DB-001.evidence.json",
-          "sha256": "3ab2a11212c97e57329d4cda26418e40289bb049b7319ee4331e90a183eed4b6"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-DB-001.evidence.json",
+          "sha256": "aa9ef21cd0a23805c6659c2060584a118c067e3c291a089b84de9d58d85d2224"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_database_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "28f1895d40b423ffcc2ee0e17c3841f70130ed773a9cdabefaf071d4251c2086",
+      "content_sha256": "4f53cc6301b26153240ce398ea967a5ab61b05cab1f36f7a408625a6a5303ca5",
       "author": "/root/database_research",
       "spec_path": "docs/database/drivers.md",
       "dependencies": [
         {
           "id": "C-ENGINE-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ASYNC-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BUFFER-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-DB-001.review.json",
-          "sha256": "aa9f8aa4f6ada854d76e4b417a78de4781de599edabbbfcbe2fae197740c13a3"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-DB-001.review.json",
+          "sha256": "5b6a93590b8afd15f36766d4a04921f6f256c03329e2ae44e85293bd3c04ce0f"
         }
       ],
       "documentation_task_id": "D14",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-TX-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Transaction and Migration Semantics",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-TX-001.evidence.json",
-          "sha256": "aaef9ff349cf3504ca789e3329e4fcc45fa1254820f67fa641168ffd7abc3a0a"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-TX-001.evidence.json",
+          "sha256": "06db5ab7d744aa33fa745474651a06370605076a73c9d6dad592ff20bcbbde02"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_database_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "514c13d42579aa8f49a43e924540437be19c8890d487f4dca224de893d0641ff",
+      "content_sha256": "57d65e5fb540272c3ac005048f16d544410b69f15cf96ae3330297973bd55665",
       "author": "/root/database_research",
       "spec_path": "docs/database/transactions-and-pooling.md",
       "dependencies": [
         {
           "id": "C-DB-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-TX-001.review.json",
-          "sha256": "1a3160d9fe7414d05e6d344a3ac58db94e1d1dc11be8275bb32ab6f3db58cb0f"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-TX-001.review.json",
+          "sha256": "534af23abaebb8633fbe12b33c35d3080cfdc2345fb372613b740f6d72eccb14"
         }
       ],
       "documentation_task_id": "D15",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-QUERY-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Query IR and SQL Semantics",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERY-001.evidence.json",
-          "sha256": "2718cccc7b0dc14e3a51133f535b16dcc96e14dffc2eaf146cfa2a76a1e148d5"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-QUERY-001.evidence.json",
+          "sha256": "4168992d95706e8720a9f8d887a595d086e3448b55048f28656fd4fa084fa84e"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_database_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "64b51934bde87a2ff1cc4a63dd61cada31d48e0f9be2b1fd02f114412e689fcc",
+      "content_sha256": "d57033e097899d5fb8dba4d5aafa81eb5999277340fa5dbf56248c660d4fbc34",
       "author": "/root/database_research",
       "spec_path": "docs/database/query-semantics.md",
       "dependencies": [
         {
           "id": "C-DB-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ERROR-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERY-001.review.json",
-          "sha256": "02441fd77a92111f5a30bcf3c8e0ea70c660c882142b3232947153fb29ff8db9"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-QUERY-001.review.json",
+          "sha256": "bddda4de71120865a0417d916f1200a66f26be256ff03e503c815f144aa93294"
         }
       ],
       "documentation_task_id": "D16",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-QUERYGEN-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "AOT Query and Mapper Generation",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERYGEN-001.evidence.json",
-          "sha256": "1487b5cbc5b1c071e43c1d6a078b0f3318a0a5c5a73d1c3521ae68094349498e"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-QUERYGEN-001.evidence.json",
+          "sha256": "da36cdc8a4983f9c48afe1c0d1fa11ff9293e7ac01d63a10cb48e4df140a1424"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_database_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "55617e94fb4d6d13086f7578ce93f8d7a3db04ba7e230daddae63c41ebe6cc1a",
+      "content_sha256": "2d13ce00ad35e99f812cbfc6e0ab7b82e75a9ffd579410088332da2014a56e73",
       "author": "/root/database_research",
       "spec_path": "docs/generators/query-generation.md",
       "dependencies": [
         {
           "id": "C-QUERY-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BINDING-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-QUERYGEN-001.review.json",
-          "sha256": "639fe0e6f6566b7a91e209bd7ba7cae5e20857df432c203bfe504d9e135a2024"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-QUERYGEN-001.review.json",
+          "sha256": "48a4b9b3023835f68d58a94e0e8a604a822219d72ce5aa82f342c01ac7c0a48e"
         }
       ],
       "documentation_task_id": "D17",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-SERVER-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Server Requests and Lifecycle",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-SERVER-001.evidence.json",
-          "sha256": "b707c3597bff5e872ac9ba1b29faacdddc4464df09251fa964c15724af525bad"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-SERVER-001.evidence.json",
+          "sha256": "e11bd778e82f1f818f1fbe2405d5a6748604f15ae751266d4f0b91d96ccdf141"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_server_overall_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "3381cd77a01bfe8467c611ff1b625decc45b46ba34705e8a67f136affb7b0543",
+      "content_sha256": "959fdedf623d69ab284cdba685a260f24260e2e34014574fee7d890cbd221d73",
       "author": "/root/server_extensions",
       "spec_path": "docs/server/hosting-and-streaming.md",
       "dependencies": [
         {
           "id": "C-ENGINE-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-ASYNC-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BUFFER-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-CONCURRENCY-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-SERVER-001.review.json",
-          "sha256": "c9be80b618c773fd0f0f92f0eae7996c223342dfb04b23ad1cf1c20716a4cc08"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-SERVER-001.review.json",
+          "sha256": "15b50bab8cb79d7bcae6ffb1a7211b99b462bfabfbf106ec913c4b45fb9f5050"
         }
       ],
       "documentation_task_id": "D18",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/server.md",
+        "NativeWeave-Design:docs/api/server-coverage.json",
+        "NativeWeave-Design:docs/api/server-sources.json",
+        "NativeWeave-Design:docs/api/server-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h",
+        "NativeWeave-Design:docs/server/body-retirement-protocol.md"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-PROTOCOL-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "gRPC/MCP and Other Protocol Adapters",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-PROTOCOL-001.evidence.json",
-          "sha256": "2f23cde9e78221f79f2a1c375958f008eb46dc3af6f8b73d771ab4219fe6a76d"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PROTOCOL-001.evidence.json",
+          "sha256": "1040f76876b13a89154f92d431c677354c46b528cf1447982f9a977844cfcc4e"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_server_overall_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "701aa6cbe88e110c4f11d0d8134504c547f093c76987f8ecc7b3302afae29b51",
+      "content_sha256": "34f2aeb124b24d3d22b5ca5ccd9a35a05555ad1c3870edca255a4e7d4228799c",
       "author": "/root/server_extensions",
       "spec_path": "docs/server/protocols-and-observability.md",
       "dependencies": [
         {
           "id": "C-SERVER-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BINDING-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-PROTOCOL-001.review.json",
-          "sha256": "a530aed3bb1def305c6d623cae226f03bb32abd8ff7453cf4afe855f73c05630"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PROTOCOL-001.review.json",
+          "sha256": "be2e34635dc8c3898c626e757bc0310fd9c2f2ba83cc68dbd0d8bef48470e255"
         }
       ],
       "documentation_task_id": "D19",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/server.md",
+        "NativeWeave-Design:docs/api/server-coverage.json",
+        "NativeWeave-Design:docs/api/server-sources.json",
+        "NativeWeave-Design:docs/api/server-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h",
+        "NativeWeave-Design:docs/server/body-retirement-protocol.md"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-REFERENCE-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "End-to-End Reference Application",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-REFERENCE-001.evidence.json",
-          "sha256": "3bc6f3d98bf8c9bd0a03f8af7db5b848030dedcd70a21012793ae266f9262e73"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-REFERENCE-001.evidence.json",
+          "sha256": "1c49191c0d785d82c6d40de607e744ef38f16b5338e9779c853013d4ac1572e9"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_server_overall_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "9db34505d5a7ab167fd1ddc7489de677e9cca5a7288a61b77262480d427b0e9e",
+      "content_sha256": "de0c1235602f9cb6e6c5d2f065642113c0768c129310dfa19ed0e722b7bfea0f",
       "author": "/root/database_research",
       "spec_path": "docs/verification/reference-application.md",
       "dependencies": [
         {
           "id": "C-DB-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-TX-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-QUERY-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-QUERYGEN-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-SERVER-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-PROTOCOL-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-REFERENCE-001.review.json",
-          "sha256": "0072f7cd25437fdcaeca2fd8dd4fd1b2ed5948b73f8fefa9bfedaf5a27bea999"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-REFERENCE-001.review.json",
+          "sha256": "b7c52ace0766e95ded9827be1700463b84e271bbb80dc4dfe3d87ae740a49fe6"
         }
       ],
       "documentation_task_id": "D20",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:docs/api/server.md",
+        "NativeWeave-Design:docs/api/server-coverage.json",
+        "NativeWeave-Design:docs/api/server-sources.json",
+        "NativeWeave-Design:docs/api/server-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h",
+        "NativeWeave-Design:docs/server/body-retirement-protocol.md"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     },
     {
       "id": "C-EXTENSION-001",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "status": "accepted",
       "title": "Future GUI/GPU/Mobile Extensions",
       "evidence": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-EXTENSION-001.evidence.json",
-          "sha256": "f1a08243b51f8bc4591b4ba11aa83b288ad898a9b93ece24847e2cef3293be7e"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-EXTENSION-001.evidence.json",
+          "sha256": "02269b813906cf1d06e2892efda15691c3faebd7118c46c1029e1b504983cddd"
         }
       ],
       "reviewers": [
-        "/root/translate_research"
+        "/root/final_architecture_review"
       ],
       "specification_status": "accepted_research_and_detailed_design",
-      "content_sha256": "fa41359b578e998feb9479d7e3ab47a400f69aca141967a75200ed3fa4febd54",
+      "content_sha256": "ddd932826586f1cffee39d3fa625fbc6f46ae323a03b8eeb6d6b8b7d90ab9cd6",
       "author": "/root/server_extensions",
       "spec_path": "docs/extension/future-platforms.md",
       "dependencies": [
         {
           "id": "C-ENGINE-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-CONCURRENCY-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         },
         {
           "id": "C-BUILD-001",
-          "version": "0.3.0"
+          "version": "0.4.0"
         }
       ],
       "reviews": [
         {
-          "manifest_path": "NativeWeave-Design:verification/english-translation/contracts/C-EXTENSION-001.review.json",
-          "sha256": "6c3c8f7254fbd92a980817469af32ceb58fa2e1a83d4bd80ad90f20bb2c154d0"
+          "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-EXTENSION-001.review.json",
+          "sha256": "3117657dce6429a79fb6bffd2e1aa2255ba126a3917bdf742203d45a69f3861f"
         }
       ],
       "documentation_task_id": "D21",
       "acceptance_scope": "research_and_detailed_design_only",
       "product_verification": "future Delivery; no product implementation or release accepted",
-      "version_note": "Current 0.3.0 concrete design; historical hashes/reviews remain historical. Acceptance is recorded only by exact current evidence and independent review.",
-      "source_commit": "53388e2165919869a8864a3119c6bb510267ccfe"
+      "version_note": "0.4.0 public API refinement. Earlier accepted snapshots remain historical; native ABI wire v1 is unchanged unless an explicit operation extension says otherwise.",
+      "api_specification_inputs": [
+        "NativeWeave-Design:docs/standards/csharp-public-api-and-documentation.md",
+        "NativeWeave-Design:docs/api/README.md",
+        "NativeWeave-Design:docs/api/documentation-system.md",
+        "NativeWeave-Design:docs/api/public-api.json",
+        "NativeWeave-Design:docs/api/reference.md",
+        "NativeWeave-Design:docs/api/foundation-sources.json",
+        "NativeWeave-Design:docs/api/foundation-coverage.json",
+        "NativeWeave-Design:docs/api/nuget-and-consumption.md",
+        "NativeWeave-Design:docs/api/getting-started.md",
+        "NativeWeave-Design:docs/api/guides.md",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_api_v1.h",
+        "NativeWeave-Design:docs/api/database.md",
+        "NativeWeave-Design:docs/api/database-coverage.json",
+        "NativeWeave-Design:docs/api/database-sources.json",
+        "NativeWeave-Design:docs/api/database-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs",
+        "NativeWeave-Design:docs/api/server.md",
+        "NativeWeave-Design:docs/api/server-coverage.json",
+        "NativeWeave-Design:docs/api/server-sources.json",
+        "NativeWeave-Design:docs/api/server-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Server.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+        "NativeWeave-Design:docs/api/interop.md",
+        "NativeWeave-Design:docs/api/interop-coverage.json",
+        "NativeWeave-Design:docs/api/interop-sources.json",
+        "NativeWeave-Design:docs/api/interop-symbol-policies.json",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+        "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs",
+        "NativeWeave-Design:experiments/public-api/abi/nativeweave_server_api_v1.h",
+        "NativeWeave-Design:docs/server/body-retirement-protocol.md"
+      ],
+      "api_refinement_integrator": "/root",
+      "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba"
     }
   ],
   "dependency_semantics": "Normative design prerequisite DAG. Informational cross-references are not scheduling edges; optional Engine capabilities do not create a mandatory Core runtime."

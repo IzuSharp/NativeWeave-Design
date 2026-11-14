@@ -1,7 +1,9 @@
 # R27/R29 → D18: body termination, reservations and retained byte ownership
 
-Status: proposed design plus selected-source inspection and six finite Linux
-Rust executions; no production Server adapter or C# Handler/TLS/load claim.
+Status: normative supporting design for C-SERVER-001 revision0.4.0, governed by
+its exact registry/content acceptance. Selected-source inspection and the six finite
+Linux Rust executions below retain their historical identities; no production Server
+adapter or C# Handler/TLS/load claim is made.
 Date: 2026-11-12 America/Los_Angeles. Continue the existing R27/R29 and D18;
 this is not a new task graph or a selection of the default Server engine.
 
@@ -70,10 +72,16 @@ deallocator also returns the charge for the allocation that remains alive.
 2. Validate length, frame kind and negotiated chunk limit with checked integer
    conversions. Reject impossible sizes before awaiting any resource. A
    request larger than an entire credit pool cannot be left waiting forever.
-3. Reserve bounded request/waiter metadata, queue position and byte credit
-   before materializing payload. The experiment uses message reservation then
-   byte reservation; a production global/per-request coordinator must also
-   prove rollback and freedom from cyclic resource acquisition.
+3. Reserve bounded request/waiter metadata and queue position before materializing
+   payload. The selected public API v1 then tries the complete native global/request
+   backing-capacity grant atomically and without waiting, for both reads and writes.
+   Failure returns resource_limit, releases any queue/partial grant and performs no
+   automatic retry. A writer's bounded queue wait holds no new payload/encoding
+   grant; network readiness/flow control may wait after an admitted bounded grant.
+   The historical experiment uses message reservation then an awaited byte
+   reservation; its evidence is preserved but that byte-wait policy is superseded
+   by docs/api/server.md section10.3 after API-SRV-010. There is no claim of protected
+   directional headroom, and retained input owners may immediately reject output.
 4. The byte credit belongs to an owner, not to a queue slot. Queue dequeue,
    successful local enqueue, response-head completion and Body EOF do not
    release it. A non-empty slice that keeps a larger backing allocation alive
@@ -89,9 +97,12 @@ deallocator also returns the charge for the allocation that remains alive.
 6. After close, drain or revoke outstanding operations and reservations through
    their own protocol. `Receiver::close` deliberately permits sends through
    previously issued `OwnedPermit`s. Account for these obligations until they
-   send or release. A producer holding that permit while awaiting byte credit
-   must be explicitly cancelled or completed; channel close does not cancel
-   the semaphore wait. The tests cover these obligations separately, not a
+   send or release. In the historical primitive, a producer holding that permit
+   while awaiting byte credit must be explicitly cancelled or completed; channel
+   close does not cancel the semaphore wait. Public API v1 rejects insufficient
+   payload credit immediately instead, while explicitly cancelling/draining its
+   bounded queue/network waits and preserving taken owners. The tests cover the
+   historical primitive's obligations separately, not a
    complete close coordinator. Dropping the receiver also drops queued frames but cannot
    reclaim frames already handed to another owner.
 7. Foreign byte leases remain rooted until explicit release and callback

@@ -1,0 +1,10 @@
+MSBuild server unavailable: could not connect to the server within the timeout window; the server may have failed to start. Falling back to an in-process build.
+/tmp/nativeweave-db-final-fixes-6kz0s9fu/inputs/DatabaseNullableJoin.cs.txt(8,121): error CS0029: Cannot implicitly convert type 'NativeWeave.Query.SqlExpression<long?>' to 'NativeWeave.Query.SqlExpression<long>' [/tmp/nativeweave-db-final-fixes-6kz0s9fu/check.csproj]
+
+Build FAILED.
+
+/tmp/nativeweave-db-final-fixes-6kz0s9fu/inputs/DatabaseNullableJoin.cs.txt(8,121): error CS0029: Cannot implicitly convert type 'NativeWeave.Query.SqlExpression<long?>' to 'NativeWeave.Query.SqlExpression<long>' [/tmp/nativeweave-db-final-fixes-6kz0s9fu/check.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:01.79

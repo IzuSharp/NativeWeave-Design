@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "design-declarations-and-package-flow",
+  "product_implemented": false,
+  "sdk": "11.0.100",
+  "runtime": "11.0.0",
+  "csharp": "15.0",
+  "platform": {
+    "system": "Linux",
+    "machine": "x86_64"
+  },
+  "consumer_has_rust_on_path": false,
+  "pristine_machine_claim": false,
+  "native_source": {
+    "path": "verification/engine-completion/linux-reviewed/NativeWeave.Research.Codec.0.0.1.nupkg",
+    "sha256": "2f45f6d4ab1f4fc10dae770fad2ac91c96612de193933365caf4ad25295dde1f",
+    "recompiled": false
+  },
+  "commands": [
+    {
+      "name": "sdk-info",
+      "argv": [
+        "<dotnet-root>/dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "seconds": 0.031,
+      "log": "sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e"
+    },
+    {
+      "name": "interop-declarations",
+      "argv": [
+        "<dotnet-root>/dotnet",
+        "<dotnet-root>/sdk/11.0.100/Roslyn/bincore/csc.dll",
+        "-noconfig",
+        "@<work>/interop-declarations.rsp"
+      ],
+      "exit_code": 0,
+      "seconds": 0.703,
+      "log": "interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "interop-negative-borrow",
+      "argv": [
+        "<dotnet-root>/dotnet",
+        "<dotnet-root>/sdk/11.0.100/Roslyn/bincore/csc.dll",
+        "-noconfig",
+        "@<work>/interop-negative-borrow.rsp"
+      ],
+      "exit_code": 1,
+      "seconds": 0.46,
+      "log": "interop-negative-borrow.log",
+      "sha256": "17d1653b079f305a621eae48bc8fa6719bec987f1ee6c5fec09aad2878b7736f"
+    },
+    {
+      "name": "c-layout-compile",
+      "argv": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "<repository>/experiments/public-api/abi/layout_probe.c",
+        "-o",
+        "<work>/layout_probe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.041,
+      "log": "c-layout-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "c-layout-execute",
+      "argv": [
+        "<work>/layout_probe"
+      ],
+      "exit_code": 0,
+      "seconds": 0.001,
+      "log": "c-layout-execute.log",
+      "sha256": "4ed65c5b41881a45822013561d9a8a90533cf5dc3b6e19a854c62aebd17c9247"
+    },
+    {
+      "name": "generator-compile",
+      "argv": [
+        "<dotnet-root>/dotnet",
+        "<dotnet-root>/sdk/11.0.100/Roslyn/bincore/csc.dll",
+        "-noconfig",
+        "@<work>/generator-compile.rsp"
+      ],
+      "exit_code": 0,
+      "seconds": 0.862,
+      "log": "generator-compile.log",
+      "sha256": "4c4195ac7c8e5b825eff0660fb0ea1116ac67537e1d48fcb3f4a19c9b77960e8"
+    }
+  ],
+  "checks": {
+    "interop_declarations": "design-compiled",
+    "borrow_escape_negative": "CS9244",
+    "shared_c_layout": "design-executed-linux-x64"
+  },
+  "inputs": {
+    "experiments/public-api/packaging-probe/Consumer.cs": "898bc00334748b792c60dbeb444e7eb4c466fbe3904d986b8b68abec4eb5e391",
+    "experiments/public-api/packaging-probe/NativeWeave.Design.Probe.BuildAssets.targets": "b418faaa1ca203ef14a845e7804dcce596a52bf0f7214036fc29fb5c3fd9dcc9",
+    "experiments/public-api/packaging-probe/ProbeAttributes.cs": "42f085ddd2367b3a072c08ce04462deae08455d9bc5c23e2038b8af77e175d21",
+    "experiments/public-api/packaging-probe/ProbeGenerator.cs": "730432df5110eb50d301560155947c100e6d9d3843318241ddc90599b7101f49",
+    "experiments/public-api/packaging-probe/run.py": "37bc2f071cce87ad77bfd749eb301305763badb4883592ac0d5fa818ead134b3",
+    "experiments/public-api/NativeWeave.Api.Design/Interop.cs": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+    "experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs": "7b1ec450f8a61d21904084ee71ebff6bf179b2e165580511f7e37ca494e4b286"
+  },
+  "status": "failed",
+  "failure": "can only concatenate tuple (not \"list\") to tuple"
+}

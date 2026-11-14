@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/run.py", line 107, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/run.py", line 36, in main
+    raise RuntimeError('Use a new evidence directory; earlier attempts must remain available.')
+RuntimeError: Use a new evidence directory; earlier attempts must remain available.

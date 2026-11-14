@@ -1,6 +1,6 @@
 # D11 — Source-driven deep native integration
 
-Contract: **C-ENGINE-001@0.3.0**. Status: complete design candidate; the registry records exact reviewed version/hash and acceptance. Actual product conformance remains with Delivery. This revision extends existing R18/D11/A24 rather than creating another coordination system. Source reports: [SeaQuery](../research/topics/R25/source-driven-seaquery.md), [Server](../research/topics/R27/source-driven-server.md). Build/maintenance: [D10](../platforms/build-package-release.md).
+Contract: **C-ENGINE-001@0.4.0**. Status: complete design candidate; the registry records exact reviewed version/hash and acceptance. Actual product conformance remains with Delivery. This revision extends existing R18/D11/A24 rather than creating another coordination system. Source reports: [SeaQuery](../research/topics/R25/source-driven-seaquery.md), [Server](../research/topics/R27/source-driven-server.md). Build/maintenance: [D10](../platforms/build-package-release.md).
 
 ## 1. Goal and non-goals
 
@@ -133,3 +133,27 @@ advertising interruptibility. Async close admits no new work, requests cancellat
 native and managed retirement and only then releases callback roots. Timeout reports incomplete
 cleanup while preserving safety; it does not force-free live owners. All diagnostics and benchmarks
 state their observation scope and count copies, retained allocations and adaptation code honestly.
+
+
+## 14. Public API and Engine author contract (2026-11-14)
+
+The complete proposed C# API is [Interop](../api/interop.md), with exact declaration source,
+per-member semantics, [coverage](../api/interop-coverage.json) and [source identities](../api/interop-sources.json).
+The former operation illustration in section 7 is historical explanatory shorthand; concrete
+domain operation inventories and the shared design-time C header now guide implementation.
+No application uses a raw handle, global Initialize or universal Core Execute operation.
+
+`EngineDescriptor` and optional `EngineCatalog` provide explicit AOT-safe preflight; ordinary
+Database/Server factories supply their descriptor automatically. `EngineInfo` reports actual
+loaded ABI/capabilities. `NativeBuffer` exposes scoped Read, explicit copies and bounded staged
+Stream export. Engine author facilities live in the separate Extensibility namespace, including
+static manifest creation and trusted creator-owned buffer adoption with failure atomicity.
+Core remains BCL-only, and unused modules start no native runtime.
+
+The initial module policy is one content identity per engine ID per process, resident until exit.
+Runtime loading of a known native ABI is supported; loading arbitrary new managed code into an
+existing AOT image and hot replacement/unload are not. A new Engine must provide a source-to-API
+coverage map, exact schema/signatures, generated XML/API reference and compile/consumer examples
+under the [long-term standard](../standards/csharp-public-api-and-documentation.md).
+A24 owns the reusable adoption scaffold; A03-A07 remain the sole owners of common lifecycle
+semantics. A module cannot infer public support merely from an upstream capability bit.

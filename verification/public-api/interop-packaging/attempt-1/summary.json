@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "design-declarations-and-package-flow",
+  "product_implemented": false,
+  "sdk": "11.0.100",
+  "runtime": "11.0.0",
+  "csharp": "15.0",
+  "platform": {
+    "system": "Linux",
+    "machine": "x86_64"
+  },
+  "consumer_has_rust_on_path": false,
+  "pristine_machine_claim": false,
+  "native_source": {
+    "path": "verification/engine-completion/linux-reviewed/NativeWeave.Research.Codec.0.0.1.nupkg",
+    "sha256": "2f45f6d4ab1f4fc10dae770fad2ac91c96612de193933365caf4ad25295dde1f",
+    "recompiled": false
+  },
+  "commands": [
+    {
+      "name": "sdk-info",
+      "argv": [
+        "<dotnet-root>/dotnet",
+        "--info"
+      ],
+      "exit_code": 0,
+      "seconds": 0.027,
+      "log": "sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e"
+    },
+    {
+      "name": "interop-declarations",
+      "argv": [
+        "<dotnet-root>/dotnet",
+        "<dotnet-root>/sdk/11.0.100/Roslyn/bincore/csc.dll",
+        "-noconfig",
+        "@<work>/interop-declarations.rsp"
+      ],
+      "exit_code": 0,
+      "seconds": 0.679,
+      "log": "interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "interop-negative-borrow",
+      "argv": [
+        "<dotnet-root>/dotnet",
+        "<dotnet-root>/sdk/11.0.100/Roslyn/bincore/csc.dll",
+        "-noconfig",
+        "@<work>/interop-negative-borrow.rsp"
+      ],
+      "exit_code": 1,
+      "seconds": 0.46,
+      "log": "interop-negative-borrow.log",
+      "sha256": "6b2092e4bbea877e3585c276348c775a692d40339a2e18cd2df29366bbf02bd0"
+    }
+  ],
+  "checks": {
+    "interop_declarations": "design-compiled"
+  },
+  "inputs": {
+    "experiments/public-api/packaging-probe/Consumer.cs": "898bc00334748b792c60dbeb444e7eb4c466fbe3904d986b8b68abec4eb5e391",
+    "experiments/public-api/packaging-probe/NativeWeave.Design.Probe.BuildAssets.targets": "b418faaa1ca203ef14a845e7804dcce596a52bf0f7214036fc29fb5c3fd9dcc9",
+    "experiments/public-api/packaging-probe/ProbeAttributes.cs": "42f085ddd2367b3a072c08ce04462deae08455d9bc5c23e2038b8af77e175d21",
+    "experiments/public-api/packaging-probe/ProbeGenerator.cs": "730432df5110eb50d301560155947c100e6d9d3843318241ddc90599b7101f49",
+    "experiments/public-api/packaging-probe/run.py": "32e716c289500357b1d153f01e1386a0e52035e03b675b6d612229825ab59ad7",
+    "experiments/public-api/NativeWeave.Api.Design/Interop.cs": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+    "experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs": "7b1ec450f8a61d21904084ee71ebff6bf179b2e165580511f7e37ca494e4b286"
+  },
+  "status": "failed",
+  "failure": "Borrow escape was not rejected with the expected ref-like generic diagnostic"
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "author": "/root/recover_database",
+  "recorded_at_utc": "2026-11-14T12:21:56.168631+00:00",
+  "record_kind": "author_repairs_after_new_independent_database_review",
+  "status": "fixed_pending_independent_recheck",
+  "independent_review_report": "docs/traceability/reviews/public-api-final/database-review-notes.json",
+  "independent_review_report_sha256_at_author_completion": "6a52dfc62663537b2ea0e2ae13b6735fa10e9e101f22137050ae4d8292e58c7f",
+  "scope": "Incremental fixes for API-DB-FINAL-001/002 only. No product repository, Delivery execution, prior research replacement, independent-report editing, staging or commit by this author.",
+  "findings": [
+    {
+      "id": "API-DB-FINAL-001",
+      "status": "author_fixed_pending_independent_recheck",
+      "fix": "Independent source-bound immutable relation registration and exact native load operation. Kind23 transports both admitted model identities/table IDs, ordered key pairs, nullable flags and a verified canonical relation hash. Parent complete-key kind4 payload and child projection ID drive one child SELECT and ordinary kind2 cursor lifecycle. Reserved-empty table relations preserve immutable Table.MetadataHash; complete codec/configuration/collation and key-order validation, bounded cache deduplication, distinct owned wrappers, both-model/projection retention, source-close ordering and every failure path are specified. DB-042, Relation/DataSession policies and D14/D16/D17 cross-layer descriptions agree.",
+      "owners": [
+        "B01",
+        "B07",
+        "B09",
+        "B14"
+      ]
+    },
+    {
+      "id": "API-DB-FINAL-002",
+      "status": "author_fixed_pending_independent_recheck",
+      "fix": "Add SqlNullabilityExtensions.AsNullable<T> where T:struct and AsNullableReference<T> where T:class, mapped to unary opcode4. A fresh same-arena token widens only result-nullability, retaining exact native value/codec/configuration/collation/alias dependencies; no CAST/COALESCE/sentinel or reverse conversion. Add optional-FK LEFT JOIN and independent relation consumers, update DB-034/039/040 and policies, retain original nullable-join compile failure and add reverse/re-lift compile negatives.",
+      "owners": [
+        "B07",
+        "B09",
+        "B11",
+        "B13"
+      ]
+    }
+  ],
+  "validation": {
+    "summary": "verification/public-api/database-final-fixes/attempt-1/summary.json",
+    "final_source_checks": "verification/public-api/database-final-fixes/attempt-1/final-source-checks.json",
+    "result": "All targeted author checks passed: SDK11.0.100 offline C#15 positive compilation, three expected compile failures, complete normative C syntax under -std=c11 -Wall -Wextra -Werror -fsyntax-only, JSON parsing and final diff check.",
+    "expected_negative_diagnostics": {
+      "DatabaseNullableJoin": "CS0029",
+      "DatabaseNullableLiftReverse": "CS0029",
+      "DatabaseNullableLiftRepeat": "CS0453"
+    },
+    "source_and_log_snapshots_preserved": true,
+    "new_product_execution": false,
+    "native_relation_runtime_or_SQL_truth_tables_executed": false,
+    "aot_publish": false,
+    "old_native_probes_reexecuted": false,
+    "independent_acceptance_claimed": false
+  },
+  "inputs_sha256": {
+    "docs/api/database.md": "1667c15e905b642717e77e5dfda322a0fc329dc7df31fd72e6d86e57b5c1c0ea",
+    "docs/api/database-coverage.json": "c8b6af8f50e04d2ac286024a936c8183896999aa7b8434f9c3c870e9cd9b565e",
+    "docs/api/database-symbol-policies.json": "a21d78f1c603f7a34c2e0b976075b03d26832a63fd4a7a559f17c9f0d5d7beb7",
+    "docs/database/drivers.md": "4f53cc6301b26153240ce398ea967a5ab61b05cab1f36f7a408625a6a5303ca5",
+    "docs/database/query-semantics.md": "d57033e097899d5fb8dba4d5aafa81eb5999277340fa5dbf56248c660d4fbc34",
+    "docs/generators/query-generation.md": "2d13ce00ad35e99f812cbfc6e0ab7b82e75a9ffd579410088332da2014a56e73",
+    "experiments/public-api/NativeWeave.Api.Design/Database.cs": "7c3774ecd3b18923eb261ddef8735e234a2ade75d38584971ab07b17f415cf65",
+    "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs": "c329f9d0404ad9c6d6884dd8e265e2af2d69253766975595f17297153b133a16",
+    "experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs": "f71eeaf8b7541d76fe5d7b9f9a27f3ced72eba96411519d8c680e70805c27182",
+    "experiments/public-api/negative/DatabaseNullableLiftReverse.cs.txt": "b5ddd59d3e119e199114387adac5b5d90af758cbd5bb4e30acd6c21c67a1c03f",
+    "experiments/public-api/negative/DatabaseNullableLiftRepeat.cs.txt": "b977cedc75df2bc96febd4574eb5822b3e1a90e4a9bc03a3c120d587155b6ee7"
+  },
+  "evidence_sha256": {
+    "verification/public-api/database-final-fixes/attempt-1/summary.json": "066bbfbbe9769b9b6d9976eb0a1d7ee5965d6e90509f32182c7c683c4b9e9e5a",
+    "verification/public-api/database-final-fixes/attempt-1/input-hashes.json": "76b7bb759fea4706ba237714ea45ed600eab44b06547098b1a1fae79e62fc057",
+    "verification/public-api/database-final-fixes/attempt-1/final-source-checks.json": "9a91879a7f10de33889059e84af70428dfaa13b62d9ba4435718e13dd3665eeb",
+    "verification/public-api/database-final-fixes/attempt-1/verify.py": "2455a35cb56d23ab7fdaf165a9da3f1d3b9ef332eed349d6748c91f99783b561",
+    "verification/public-api/database-final-fixes/attempt-1/final-diff-check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "integration_obligations": [
+    "Parent updates Plan B01/B07/B09/B11/B13/B14 with the exact ABI, canonical-byte, lifecycle and NULL-semantics obligations; these remain future product implementation gates.",
+    "Parent regenerates canonical public-api inventory/reference including SqlNullabilityExtensions and executes the final aggregate compile/AOT acceptance slice.",
+    "An independent reviewer rechecks these final bytes and exact Design/Plan acceptance bindings; this author record does not close findings independently.",
+    "Product tests must execute both providers with optional/composite FK, parent key zero versus NULL FK, malformed identity/shape/codec, cross-source/cache limits, cancellation/close and retained-cursor cases."
+  ]
+}

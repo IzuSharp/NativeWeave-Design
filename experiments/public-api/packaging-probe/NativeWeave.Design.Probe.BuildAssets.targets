@@ -1,0 +1,13 @@
+<Project>
+  <!-- The generator is deliberately outside analyzers/: this target is its sole inclusion route. -->
+  <PropertyGroup>
+    <_NativeWeaveProbeGenerator>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)../tools/net11.0/NativeWeave.Design.Probe.Generator.dll'))</_NativeWeaveProbeGenerator>
+  </PropertyGroup>
+  <Target Name="NativeWeaveDesignProbeIncludeGenerator" BeforeTargets="CoreCompile">
+    <Error Condition="!Exists('$(_NativeWeaveProbeGenerator)')" Code="NWPKGPROBE002" Text="Design probe generator asset is missing. Restore the exact local probe package closure." />
+    <ItemGroup>
+      <Analyzer Remove="$(_NativeWeaveProbeGenerator)" />
+      <Analyzer Include="$(_NativeWeaveProbeGenerator)" />
+    </ItemGroup>
+  </Target>
+</Project>

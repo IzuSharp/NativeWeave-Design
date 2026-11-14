@@ -1,6 +1,6 @@
 # C-ASYNC-001: Asynchronous operations, cancellation, results and retirement
 
-Version: 0.3.0; D06 / R09, R08, R07. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This file makes the v1 implementation choices while retaining actual-language, AOT and production-verification obligations. See [the R09 report](../research/topics/R09/report.md) for source evidence.
+Version: 0.4.0; D06 / R09, R08, R07. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This file makes the v1 implementation choices while retaining actual-language, AOT and production-verification obligations. See [the R09 report](../research/topics/R09/report.md) for source evidence.
 
 ## 1. Public programming model and scope
 
@@ -216,3 +216,10 @@ Cleanup notifications use [D09](concurrency-v0.1.md)'s finite mailbox and single
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+The exact public surface uses Task for ordinary asynchronous work. ValueTask is limited to established BCL contracts or specifically justified fast paths; pooled IValueTaskSource is not a mandatory public abstraction. Method and enumeration CancellationToken behavior, pre-admission validation and timeout classification are specified in the domain member-family rules. Cancelling a consumer task does not acknowledge native quiescence or known remote transaction effect. A07/A08/B05/B06/B16/B20 must compile cancellation/streaming examples and test completion-before-start-return, cancel-before-admission, late notifications and early enumerator disposal without changing this state machine.

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "source_commit": "89cd1cced707f0e9542b71ba48d605dfebc2ecbc",
+  "workflow_run": 43593975173,
+  "job_id": 132444448630,
+  "url": "https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43593975173/job/132444448630",
+  "platform": "windows-2022",
+  "native_aot_publish_exit_code": 0,
+  "native_aot_execute_exit_code": 0,
+  "consumer_and_exporter_regressions_exit_code": 0,
+  "overall_job_conclusion": "failure",
+  "failure": "Git checkout converted declaration LF bytes to CRLF; generated inventory source hashes differed from committed canonical LF hashes. The job correctly rejected stale byte identities.",
+  "log_excerpt_sha256": "0f5189b08df20cddfae85ceebb0dfd068fa0529d737e2328ee01f564fc52185d",
+  "repair": "Preserve raw Git blob bytes by default in .gitattributes, with explicit LF declaration/reference paths. Actual Windows recheck required on the next committed candidate.",
+  "product_implemented": false
+}

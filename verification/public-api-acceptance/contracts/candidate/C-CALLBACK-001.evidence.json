@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-CALLBACK-001",
+    "version": "0.4.0",
+    "content_sha256": "7e336f16b8a1c15522b98965dd107af67c122e9b3c49cbd6e1ecce963aae694c"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CALLBACK-001.inputs.json",
+    "sha256": "479cc8ded1ec4a7ea3dbef8816fb3baf58ac9b762016fbdfdd0321514975cc0e"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

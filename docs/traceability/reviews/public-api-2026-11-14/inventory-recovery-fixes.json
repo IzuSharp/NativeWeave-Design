@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at_utc": "2026-11-14T12:05:22.417608+00:00",
+  "author": "/root/repair_inventory",
+  "scope": "Compiler-symbol exporter repairs for API-INT-007 and API-INT-008",
+  "status": "author_fixed_pending_independent_review",
+  "independent_review": false,
+  "product_implementation_authorized": false,
+  "product_implemented": false,
+  "canonical_generated_outputs_updated": false,
+  "changes": [
+    {
+      "finding": "API-INT-007",
+      "status": "author_fixed_pending_independent_review",
+      "repair": "Export parameter, method/delegate return and getter-return attributes; render annotations at their compiler-derived parameter/return/accessor positions. Preserve attributes on symbols and structured type parameters."
+    },
+    {
+      "finding": "API-INT-008",
+      "status": "author_fixed_pending_independent_review",
+      "repair": "Separate type references from declarations; render accessibility, static/sealed/abstract, record/readonly/ref shape, complete delegate signatures, enum underlying types/values and constant values. Export structured constraints, modifiers, base/interfaces, ref-return kinds and scoped parameters from Roslyn symbols."
+    }
+  ],
+  "author_validation": {
+    "manifest": "verification/public-api/inventory-recovery/attempt-2/summary.json",
+    "passed": true,
+    "assertions": 63,
+    "actual_public_symbols": 1265,
+    "sdk": "11.0.100",
+    "language": "15.0",
+    "checks": [
+      "Exporter compilation: zero warnings/errors.",
+      "Actual TryGet NotNullWhen(true), NativeBuffer sealed, NativeBufferReader<TResult> return/parameters, MissingExport=5.",
+      "Server record/static/abstract and ulong enum, Data readonly ref struct, Query class constraints.",
+      "Synthetic delegate variance, return/parameter attributes, ref readonly return, scoped in and allows ref struct.",
+      "Synthetic class?/struct/unmanaged/notnull/new() constraints, constructed base/interfaces, indexer/tuple/array parameter boundaries, getter return target.",
+      "Signed/unsigned enum and constant values, including UInt64 maximum, strings/chars/null and special floating values.",
+      "Repeated actual export produces byte-identical JSON and Markdown."
+    ],
+    "native_aot_executed": false,
+    "product_operations_executed": false
+  },
+  "inputs_and_outputs": [
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9"
+    },
+    {
+      "path": "verification/public-api/inventory-recovery/attempt-2/summary.json",
+      "sha256": "98134c3acaae449a3c20a46610e3d96ceb10e0c489d639a7e070a695ad496703"
+    }
+  ],
+  "preserved_attempts": [
+    "verification/public-api/inventory-recovery/preflight-1/summary.json",
+    "verification/public-api/inventory-recovery/attempt-1/summary.json",
+    "verification/public-api/inventory-recovery/attempt-2/summary.json"
+  ],
+  "notes": [
+    "Original interop-review-notes.json was not changed; the independent reviewer owns any closure of API-INT-007/008.",
+    "Root docs/api/public-api.json and reference.md were not changed by this author; integration must regenerate them against final domain declarations/policies.",
+    "Record primary constructors and synthesized members remain separate compiler-symbol entries; type headers show their compiler-derived inheritance and modifiers.",
+    "The RefReadOnly return metadata name is normalized because Roslyn aliases it to In; parameter ref kinds keep their parameter meaning.",
+    "All changes are confined to the Design exporter, its validation script, and new author repair/evidence records. No product repository mutation, Delivery execution, staging or commit was performed."
+  ],
+  "archived_evidence": {
+    "index": "verification/public-api/inventory-recovery/archives/archive-manifest.json",
+    "sha256": "d798201df8275fd7a5b1d5d2d6296a9bd84c5d4e594112bcaebcb2a81fdf9e03",
+    "final_archive": "verification/public-api/inventory-recovery/archives/attempt-2.zip",
+    "final_summary_member": "verification/public-api/inventory-recovery/attempt-2/summary.json",
+    "restore": "Extract the archive at repository root to restore original paths used by author_validation; original summary and artifact bytes are unchanged."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-ASYNC-001",
+    "version": "0.4.0",
+    "content_sha256": "e939648f87c5463687ca5ed34b173c0934cb28be528c1401898d0819bc213081"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ASYNC-001.inputs.json",
+    "sha256": "33efbefe2ce6d2bcfc1792752301a7e87e0f8e86e78c49113103e8d31498de8f"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

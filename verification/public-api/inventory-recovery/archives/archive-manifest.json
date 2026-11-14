@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at_utc": "2026-11-14T12:06:27.313269+00:00",
+  "scope": "Deterministic storage of unchanged author exporter validation inputs, logs and outputs",
+  "independent_review": false,
+  "final_author_validation": "attempt-2",
+  "archives": [
+    {
+      "id": "preflight-1",
+      "archive": "verification/public-api/inventory-recovery/archives/preflight-1.zip",
+      "archive_sha256": "dc130e24b15a727fd1e8b602f3de4b8aa75d9d227cef65498687a6431f397ff0",
+      "archive_bytes": 178149,
+      "source_directory": "verification/public-api/inventory-recovery/preflight-1",
+      "preserved_files": 17,
+      "byte_manifest_member": "verification/public-api/inventory-recovery/preflight-1/archive-byte-manifest.json",
+      "byte_manifest_sha256": "5557eafadaf4ca5f01ab13d7b1da2029034e4312c3354be472db5f30a006f0b7",
+      "validation_summary_member": "verification/public-api/inventory-recovery/preflight-1/summary.json",
+      "validation_summary_sha256": "c23a6cdd8abebf1f611ece72440354dbb365b719613b97bb28ec79f2cf2eb3dc",
+      "archive_readback": "Every original member byte hash verified after writing."
+    },
+    {
+      "id": "attempt-1",
+      "archive": "verification/public-api/inventory-recovery/archives/attempt-1.zip",
+      "archive_sha256": "899300a0c5bbea6d3388f6bce65abfc6a5396133d845bbc0aa8bb4452e738832",
+      "archive_bytes": 195018,
+      "source_directory": "verification/public-api/inventory-recovery/attempt-1",
+      "preserved_files": 27,
+      "byte_manifest_member": "verification/public-api/inventory-recovery/attempt-1/archive-byte-manifest.json",
+      "byte_manifest_sha256": "d2028923d909e655fd9dfa38a25ef92ff1a5379c27dcc0f1edb291348de199d8",
+      "validation_summary_member": "verification/public-api/inventory-recovery/attempt-1/summary.json",
+      "validation_summary_sha256": "aea051c5a297c48a9f0107bc520151c7ee1964dab17912751976ba8ce44c80eb",
+      "archive_readback": "Every original member byte hash verified after writing."
+    },
+    {
+      "id": "attempt-2",
+      "archive": "verification/public-api/inventory-recovery/archives/attempt-2.zip",
+      "archive_sha256": "f92e111c391814788b95bb4e808ca33183a86a9492ab2c1cae6dbaaaa6ee53ca",
+      "archive_bytes": 195110,
+      "source_directory": "verification/public-api/inventory-recovery/attempt-2",
+      "preserved_files": 27,
+      "byte_manifest_member": "verification/public-api/inventory-recovery/attempt-2/archive-byte-manifest.json",
+      "byte_manifest_sha256": "8a58e0f1536863e583009fe09391003b9d323c33b4d19a1f78bb224b451210b2",
+      "validation_summary_member": "verification/public-api/inventory-recovery/attempt-2/summary.json",
+      "validation_summary_sha256": "98134c3acaae449a3c20a46610e3d96ceb10e0c489d639a7e070a695ad496703",
+      "archive_readback": "Every original member byte hash verified after writing."
+    }
+  ],
+  "format": {
+    "container": "ZIP",
+    "compression": "DEFLATE level 9",
+    "entry_order": "Ordinal repository-relative paths",
+    "entry_timestamp": "1980-01-01T00:00:00",
+    "unix_mode": "100644",
+    "byte_manifest": "SHA-256 and byte count for every original file; its own hash appears in this index."
+  },
+  "restore": [
+    "Run from the repository root: python3 -m zipfile -e verification/public-api/inventory-recovery/archives/attempt-2.zip .",
+    "Apply the same command to attempt-1.zip or preflight-1.zip to inspect those earlier attempts.",
+    "Validate restored bytes using the extracted archive-byte-manifest.json; the original summary.json remains byte-for-byte unchanged."
+  ],
+  "reproduce_command": "python3 experiments/public-api/NativeWeave.Api.Inventory/verify_exporter.py --dotnet /path/to/dotnet-sdk/dotnet --output /new/unused/evidence/directory",
+  "commit_payload": [
+    "experiments/public-api/NativeWeave.Api.Inventory/Program.cs",
+    "experiments/public-api/NativeWeave.Api.Inventory/verify_exporter.py",
+    "docs/traceability/reviews/public-api-2026-11-14/inventory-recovery-fixes.json",
+    "verification/public-api/inventory-recovery/archives/archive-manifest.json",
+    "verification/public-api/inventory-recovery/archives/preflight-1.zip",
+    "verification/public-api/inventory-recovery/archives/attempt-1.zip",
+    "verification/public-api/inventory-recovery/archives/attempt-2.zip"
+  ],
+  "notes": [
+    "Original preflight-1, attempt-1 and attempt-2 directories remain present locally; no source evidence was removed or rewritten.",
+    "Raw directories are not required as separate Git payloads when these archives and this index are retained. Their full repository-relative paths are preserved inside each ZIP.",
+    "The script uses frozen input copies, compiler-symbol export and comparison assertions. It does not execute product operations or Native AOT.",
+    "A CI wrapper can invoke the script with a new output directory after the regular public-api runner and archive that directory. The exporter validation script does not currently alter run.py or CI itself."
+  ]
+}

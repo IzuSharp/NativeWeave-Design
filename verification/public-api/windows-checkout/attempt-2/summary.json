@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "source_commit": "b1fc960cf33fb7fba183681a371c813b0dc9b264",
+  "workflow_run": 43594911459,
+  "job_id": 132447240689,
+  "url": "https://github.com/IzuSharp/NativeWeave-Design/actions/runs/43594911459/job/132447240689",
+  "platform": "windows-2022",
+  "native_aot_publish_exit_code": 0,
+  "native_aot_execute_exit_code": 0,
+  "generated_reference_diff_exit_code": 0,
+  "overall_job_conclusion": "failure",
+  "failure": "Platform-default Python text decoding interpreted UTF-8 Markdown punctuation differently and produced an incorrect semantic heading anchor.",
+  "repair": "API JSON/Markdown readers use explicit UTF-8; the cross-platform workflow sets PYTHONUTF8=1. Actual Windows CI recheck required.",
+  "log_excerpt_sha256": "b7ed7adc864388ed0aebccf56659d98cbd491f93ec88ee8029f44419a48ee86f",
+  "product_implemented": false
+}

@@ -1,6 +1,18 @@
 # D17 — Static metadata and DTO generation, not a second SQL compiler
 
-Contract: **C-QUERYGEN-001@0.3.0**; design candidate. The registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Existing task D17 and B09/B10/B12/B13 are retained. Source evidence and executed scope: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered probe](../research/source-driven-evidence/README.md). The previous declaration-only LINQ plus generated per-application Rust Entity/dispatcher pipeline is superseded as the ordinary route.
+Contract: **C-QUERYGEN-001@0.4.0**; design candidate. The registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Existing task D17 and B09/B10/B12/B13 are retained. Source evidence and executed scope: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered probe](../research/source-driven-evidence/README.md). The previous declaration-only LINQ plus generated per-application Rust Entity/dispatcher pipeline is superseded as the ordinary route.
+
+## Public API refinement 0.4.0
+
+The exact public declarations and complete native operation inventory are now
+[Database/ORM API 0.4.0](../api/database.md), its
+[coverage matrix](../api/database-coverage.json), and
+[Database.cs](../../experiments/public-api/NativeWeave.Api.Design/Database.cs).
+They replace earlier provisional signature spellings; the lifecycle, native-source
+findings and historical experiment identities below remain normative within that
+explicit scope. Native AOT fixture compilation is separate from product execution.
+Fresh exact-content review is required; prior accepted versions remain immutable.
+
 
 ## 1. Required application experience
 
@@ -22,11 +34,11 @@ Generate directly into the consumer compilation; do not expect to read another g
 
 A minimal descriptor declaration (draft, not compiled product API):
 ```csharp
-[WeaveTable("students")]
+[WeaveTable("students", DescriptorName = "Students")]
 public sealed partial record Student(
-    [property: WeaveKey] long Id,
-    string Name,
-    int Age);
+    [property: WeaveKey, WeaveColumn("id")] long Id,
+    [property: WeaveColumn("name")] string Name,
+    [property: WeaveColumn("age")] int Age);
 ```
 
 Generated shape (illustrative, not executed):
@@ -38,7 +50,13 @@ public static class Students
     public static readonly Projection<Student> Row = /* static constructor mapping */;
 }
 ```
-C# code and model metadata vary; the native binary does not. The exact attribute/API names are provisional. The recovered probe used handwritten static descriptors and DTO constructors, so it is evidence for that path, not for this generator's implementation.
+C# code and model metadata vary; the native binary does not. The exact attribute/API names are fixed by the 0.4.0 declaration fixture; generated output remains an implementation obligation. The recovered probe used handwritten static descriptors and DTO constructors, so it is evidence for that path, not for this generator's implementation.
+
+The default store column name is the exact CLR property symbol name, preserving
+casing. `WeaveColumn` explicitly overrides it without renaming the generated
+typed member. The lowercase names above are therefore deliberate schema mappings,
+not an unspecified naming convention. Generated/handwritten parity must also
+include the same key/concurrency flags, codecs, nullability and projection order.
 
 ## 4. Static materialization and errors
 
@@ -80,9 +98,13 @@ Required evidence: generated-source golden files, incremental cache behavior whe
 
 ## 8. Fixed descriptor and operation rules for Codex
 
-A descriptor's canonical content includes schema-format version, logical metadata
-ID, validated names, scalar codec and nullability, primary/foreign keys, relation
-alias/arity and ordered projection fields. Native capability/ABI versions are
+A table descriptor's canonical content includes schema-format version, logical metadata
+ID, validated names, scalar codec and nullability, primary keys and ordered projection
+fields. Its v1 relations array is reserved empty. An explicit Relation is created
+after both immutable tables; its separate canonical descriptor includes both model
+hashes/table IDs and ordered parent-primary-key/child-foreign-key pairs and child
+nullability. It registers through the source-bound relation ABI in
+`docs/api/database.md` §9.2.1 without rewriting either table hash. Native capability/ABI versions are
 separate from that business metadata hash. A second supported C# entity registers a
 second descriptor; it does not manufacture a new Rust type, rewrite Cargo.lock or
 change native assets. Runtime dynamic filters resolve only declared descriptors.

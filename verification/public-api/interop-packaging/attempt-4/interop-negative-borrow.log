@@ -1,0 +1,1 @@
+InvalidBorrow.cs(2,87): error CS9244: The type 'ReadOnlySpan<byte>' may not be a ref struct or a type parameter allowing ref structs in order to use it as parameter 'TResult' in the generic type or method 'NativeBuffer.Read<TResult>(NativeBufferReader<TResult>)'

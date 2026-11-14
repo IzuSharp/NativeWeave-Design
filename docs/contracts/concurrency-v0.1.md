@@ -1,6 +1,6 @@
 # D09 — Engine-local execution, concurrency and shutdown
 
-Contract **C-CONCURRENCY-001@0.3.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. R12/R09/R29 provide the research inputs. This specifies A08 and the executor boundaries used by A06/A07/B04/B16/B17/B20. Rust owns the required database/server engines; C# owns business handlers and natural async/await. Core has no mandatory Tokio runtime, scheduler thread, global dispatcher or service container.
+Contract **C-CONCURRENCY-001@0.4.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. R12/R09/R29 provide the research inputs. This specifies A08 and the executor boundaries used by A06/A07/B04/B16/B17/B20. Rust owns the required database/server engines; C# owns business handlers and natural async/await. Core has no mandatory Tokio runtime, scheduler thread, global dispatcher or service container.
 
 ## 1. Execution profiles
 
@@ -97,3 +97,10 @@ The protocol and source-derived selection are eligible for acceptance as a resea
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+Every public type declares its concurrency category. Builders are single-threaded snapshots; immutable descriptors/catalog observations may be shared; sessions/transactions/streams/request contexts follow their domain's single-operation and borrow rules. Source/host owners manage independent Engine-local runtimes, and metadata inspection starts none. Loading multiple Engine packages does not authorize a mandatory Core Tokio runtime. A08/A23/B04/B17/B20 must review explicit thread affinity, cancellation/reentrancy and bounded-close behavior along with each public method. No UI/GPU executor API is claimed implemented by the extension template.

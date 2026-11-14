@@ -1,0 +1,16 @@
+{
+  "all_tested_declarations_consumers_and_negative_inputs_match_final_sources": true,
+  "source_matches": {
+    "experiments/public-api/NativeWeave.Api.Design/Database.cs": true,
+    "experiments/public-api/NativeWeave.Api.Design/Interop.cs": true,
+    "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs": true,
+    "experiments/public-api/NativeWeave.Api.Consumers/DatabaseAdvancedExamples.cs": true,
+    "experiments/public-api/abi/nativeweave_api_v1.h": true,
+    "experiments/public-api/negative/DatabaseNullableJoin.cs.txt": true,
+    "experiments/public-api/negative/DatabaseNullableLiftReverse.cs.txt": true,
+    "experiments/public-api/negative/DatabaseNullableLiftRepeat.cs.txt": true
+  },
+  "normative_c_fence_matches_compiled_declarations": true,
+  "final_diff_check_exit_code": 0,
+  "docs_post_check_delta": "Only relation prose clarified distinct owned wrappers, exact arity budget and spacing after the preserved test snapshot; normative C declarations and every tested C# source remain byte-identical. No test snapshot or old log was overwritten."
+}

@@ -1,6 +1,6 @@
 # D18 — Required Rust Server: Handler, Body and resource lifecycle
 
-Contract C-SERVER-001. Design revision **0.3.0 design candidate**. Research inputs R26/R27/R29;
+Contract C-SERVER-001. Design revision **0.4.0 public API refinement**. Research inputs R26/R27/R29;
 cross-contract D02/D04–D09/D13–D15/D19/D20. Acceptance is recorded in the registry
 against this exact content and independent review. API fragments below are design
 pseudocode unless explicitly linked to an executed fixture. No product task is executed.
@@ -52,14 +52,15 @@ than starting additional runtimes. Domain adapters retain private upstream types
 
 ## 3. C# application and native operation surface
 
-Design example (not compiled product API):
+Design example; its exact declarations and compilation witnesses are in
+[the complete Server API](../api/server.md) and `experiments/public-api`. This is not
+a released product API:
 
 ```csharp
-var app = NativeServer.CreateBuilder()
-    .UseRust(options => options.Budget = ServerBudgetOptions.ReferenceSmall)
+await using var app = NativeServer.CreateBuilder()
     .UseJson(ApiJsonContext.Default)
     .Build();
-app.MapGet("/health/ready", static (request, cancel) => Responses.Text("ok"));
+app.MapGet("/health/ready", static () => Results.Text("ok"));
 app.MapPost<CreateItemRequest, CreateItemResponse>("/items", Items.CreateAsync);
 await app.RunAsync(cancellationToken);
 ```
@@ -82,7 +83,11 @@ Fluent registration is valid when it supplies all required metadata without refl
 | `response_finish(trailers)` / `request_abort(reason)` | terminal competition has one winner; native protocol validates trailer legality; later callbacks still retire safely |
 | `server_close(deadline)` | closes admission, drains/aborts operations and reports Stopped or ClosePending; never frees callback roots on timeout |
 
-These names specify implementation semantics, not a second Core ABI. Layout, status,
+The table above retains semantic operation names for explanation. The exact v1
+C exports, payloads, capability bits, typed take operations, cancellation/host-control
+notifications and retirement rules are authoritative in [API section10](../api/server.md#10-exact-native-payloads-operations-and-state)
+and its [canonical C header](../../experiments/public-api/abi/nativeweave_server_api_v1.h). Implement those declarations, not these abbreviated names.
+This is an extension of the existing Core ABI. Layout, status,
 ErrorRecord, opaque-handle ownership, cancellation registration and create/start/take/
 retire are governed by the existing D02/D04–D09 contracts. Domain operation tables have
 size/version/capability negotiation. Native private IDs may carry generations without
@@ -99,31 +104,45 @@ callback return value transfers an owned buffer. These rules follow D05/D06's se
 between notification, result transfer and two-sided retirement.
 
 The managed request provides owned/leased body reads and bounded writes with natural
-ValueTask/async APIs. A PipeReader/PipeWriter compatibility facade may be added only
+Task-returning public async APIs; ValueTask is used only by the inherited BCL Stream
+and IAsyncDisposable contracts. A PipeReader/PipeWriter compatibility facade may be added only
 if it preserves AdvanceTo/Flush lifetime and budgets; it is not the semantic owner.
 One pending read and one pending write per request are the initial contract. DTO
 serialization uses explicit JsonTypeInfo; a raw native pointer cannot back arbitrary
 ReadOnlyMemory across await without a lease. Handler completion, response-body end,
-backing-buffer release and callback retirement are separate events.
+backing-buffer release and callback retirement are separate events. After successful
+ordinary HTTP middleware/handler/result work, one dispatcher tail awaits any unfinished
+CompleteAsync/response_finish before OnCompleted, registered disposals, scope release
+and dispatch_complete. This includes MapRaw, generated void/Task, custom results and
+middleware short circuits; preserve a selected201 or other valid status/headers, and
+use empty200 only for an untouched response. Repeated completion joins one attempt.
+Finalization failure uses the precommit bounded error or postcommit abort path; cleanup
+failure cannot send a second response. gRPC/Allowed MCP await their typed protocol
+terminal operation instead of invoking this raw HTTP completion path.
 
-`ReferenceSmall` is an initial test profile, not a performance promise: 512 connections,
+The finite defaults (historically called `ReferenceSmall` in research notes) are an initial profile, not a performance promise: 512 connections,
 32 HTTP2 streams/connection, 256 active/retiring requests, 128 metadata waiters,
 64MiB managed/native application-payload budgets configured separately, 4MiB/request/side,
 32KiB max chunk and 32KiB headers. JSON cap is 1MiB; larger attachment routes declare
 their own finite limit and stream in chunks. TLS/socket/allocator/GC/protocol buffers
 are separately accounted/observed; the payload cap is not a process RSS bound. The
-1MiB buffered JSON limit fits within the per-request budget with bounded copy/serializer
-headroom; actual allocated capacity is charged. A single allocation/decoded body whose
-required peak exceeds the route's absolute budget fails before enqueueing, rather than
-waiting forever for credit that this request can never receive. Streaming attachment
-total length and concurrently retained bytes are separate limits.
+1MiB buffered JSON wire cap alone does not prove that all decoded graphs fit the
+per-request budget; static DTO metadata and bounded serializer/collection expansion
+must justify the charged peak before admission. Actual allocated capacity is charged. A single allocation/decoded body whose
+required peak exceeds the route's absolute budget fails before enqueueing. Available
+native global and request payload capacity is also an atomic nonwaiting try-grant for
+both reads and writes. Exhaustion returns resource_limit even when a future owner
+release could create capacity; there is no payload-credit waiter or automatic retry.
+Bounded queue/socket flow control may still wait under the operation cancellation
+protocol. Streaming attachment total length and concurrently retained bytes are
+separate limits; retained input owners may cause an immediate output rejection.
 
 ## 4. Normal operation, errors, half-close and cancellation
 
 | Event | Required behavior | Observable acceptance |
 | --- | --- | --- |
 | Request headers received | Parse/authenticate and apply admission by route and identity; obtain a request slot before reading the business body | Excess requests do not create DB sessions or accumulate body data |
-| Normal processing | Pull body chunks with available credit, advance after consumption; continue the response according to flush backpressure | Slow clients do not cause unlimited queued bytes |
+| Normal processing | Pull body chunks after an atomic nonwaiting request/global payload grant; exhausted read/write grants return resource_limit, while queue/socket flow control may wait | Slow clients do not cause unlimited queued bytes; retaining input cannot park an output operation waiting for that handler's cleanup |
 | Body EOF / `poll_frame(None)` | Record EndObserved for that Body; this alone does not establish the exact transport termination reason, peer consumption or release of all byte owners; the handler may continue responding according to known protocol state | Normal upload completion does not cause false cancellation; reset/truncation is verified separately through available transport signals |
 | TCP half-close/stream reset | Determined by the protocol transport; do not treat every socket EOF as normal body completion | HTTP/1 and HTTP/2 verified separately, without affecting unrelated streams |
 | Error before headers are committed | Consistently map to a bounded error response; do not leak internal exceptions, SQL or secrets | Correct status-code/error-code correlation with traces |
@@ -139,10 +158,20 @@ Define `A` as the active-request limit, `Q` as the limit on metadata-only waitin
 
 1. Acquire the corresponding `G` and `Br` credits **before** creating, copying, pinning or retaining any budget-managed buffer; queued waiters hold only metadata with fixed bounds, not bodies. Waiter count is also bounded by `Q`. Reject as early as possible when admission is unavailable, rather than fully buffering the body before rejection.
 2. Credit follows the buffer owner's lifetime; moving from queue to handler does not return it, and transferring ownership does not charge it twice. Clones or nonempty slices that still share an owner retain the charge for the entire backing allocation, without prematurely returning credit based on a slice's visible length; empty slices and deep copies follow their actual ownership relationships. Return credit only after the last owner release/ack. Count queue items, application-payload bytes and native-retained bytes separately.
-3. Across-boundary copying keeps old/new buffers alive simultaneously, and both sides are charged; “the source was submitted for asynchronous writing” does not mean it was released. Reads and writes each reserve temporary credit for one bounded chunk to avoid deadlock from exhausting the global budget while waiting for copy credit; holding half the resources must not allow unbounded waiting for the other half.
-4. FIFO/tenant-fair waiting occurs only in bounded small-metadata queues; cancellation removes waiters and returns every reservation. Operations needing both global and per-request quotas use one coordinator or a rollback-capable try-acquire; cyclic resource holding that causes deadlock is prohibited.
-5. Reject global saturation with 503 and tenant rate/quota exhaustion with 429; provide a bounded Retry-After where applicable. If an HTTP/2 request is identifiable, reject only its stream unless the entire connection violates protocol or connection budget. The pre-accept TCP backlog is an OS resource, configured/measured separately.
-6. After logical admission closes, previously issued queue permits, producers waiting for byte credit and transferred byte owners continue to be accounted for independently. `Receiver::close` does not revoke old permits or automatically cancel their byte-credit waits. The closure coordinator must explicitly cancel/drain those waits; if they remain Pending at the deadline, retain roots, budgets and the module owner rather than report resource retirement solely because the channel is closed or Body EOF occurred.
+3. Across-boundary copying keeps old/new buffers alive simultaneously, and both sides are charged; “the source was submitted for asynchronous writing” does not mean it was released. Both reads and writes try the full native backing-capacity charge against global and request quotas atomically and without waiting. Failure returns resource_limit with no payload allocation, partial grant or automatic retry. After native grant, any framework-managed copy/encoding grant is also nonwaiting; failure returns the native/queue grants. No directional headroom or eventual credit availability is assumed.
+4. FIFO/tenant-fair waiting occurs only in bounded small-metadata queues; transport readiness/flow control may also wait. A writer waiting for a queue slot holds no new payload grant/encoding credit; after that slot is acquired it tries both native byte quotas and releases the slot immediately on failure. A read may await network input after its bounded nonwaiting grant. Cancellation releases all unused reservations. Sequential try-acquire must roll back the first quota if the second fails; it never awaits a quota while holding another.
+5. For ordinary HTTP before commit, reject global saturation with503 and tenant rate/quota exhaustion with429; provide a bounded Retry-After where applicable. After commit abort instead of appending another response. Admitted gRPC uses typed ResourceExhausted and MCP uses its current gate/protocol error layer. If an HTTP/2 request is identifiable, reject only its stream unless the entire connection violates protocol or connection budget. The pre-accept TCP backlog is an OS resource, configured/measured separately.
+6. After logical admission closes, previously issued queue permits, admitted network operations and transferred byte owners remain accounted for independently. `Receiver::close` does not revoke old permits or reclaim externally taken bytes. The closure coordinator explicitly cancels/drains admitted queue/network work; untaken/never-started results return all owners and grants once, while taken chunks remain charged until their last owner releases. The historical byte-wait experiment below proves an older primitive's cancellation seam; selected public API v1 never queues payload-credit waits. Pending retirement retains roots, budgets and the module owner regardless of channel close or Body EOF.
+
+B16/B17/B22 must witness request and global exhaustion independently. In particular,
+retain128 full32KiB chunks under a route admitting at least4MiB, then attempt a positive
+write before releasing them: resource_limit must occur without waiting for a timeout,
+cancel or finally. The next read has the same behavior. Across requests, a full global
+pool rejects both new reads and writes. Exercise queue grant followed by failed byte
+grant, cancellation before/after grant, untaken result and never-started write cleanup,
+and a taken chunk outliving dispatch. Verify full backing-capacity/overlap counters and
+last-owner release, not only visible slice lengths or Task termination. These are
+future implementation obligations, not executions of the historical retained-byte fixture.
 
 Logically, charged payloads satisfy `managed_accounted <= Gm`, `native_accounted <= Gn` and `per_request <= Br` at every instant, with at most `(A + Q)` metadata instances. Charged slots in A include Closing/retirement-pending requests: application Task or Body termination must not prematurely return slots still carrying owner/cleanup metadata. Any future separate retirement queue requires its own explicit finite quota and a corresponding revision of this bound, rather than moving pending-cleanup items out of the ledger. This does not imply an RSS bound: GC heap pages not yet returned, ArrayPool retention, native allocator fragmentation, thread stacks, kernel send/receive buffers, TLS, HTTP/2 windows and log exporters all need independent bounds or observation. Kestrel comparator has unlimited default connections, reinforcing the need for explicit native connection/stream/request limits.
 
@@ -181,7 +210,7 @@ stateDiagram-v2
     Stopped --> Disposed: Release owners
 ```
 
-`StopAsync` is idempotent, with multiple callers waiting for the same shutdown result; this instance does not restart after stopping. Draining first sets readiness=false, then closes application admission and stops new connections/requests, allowing admitted work to finish within the remaining deadline. Request streams, database sessions/transactions, background outbox workers and diagnostic exporters each have explicit owners. Timeout enters Aborting, sends cancellation/reset and waits for release; do not prematurely free a context with a callback in progress to meet the deadline. If native code cannot achieve quiescence, shutdown fails, records unreleased resources and leaves handling to process exit, without reusing their addresses or unloading the dynamic library. Exporters flush last with a separate small budget and cannot prolong business shutdown indefinitely.
+`CloseAsync(timeout, cancellationToken)` coalesces the underlying close transition; each caller retains its own finite waiting budget and Completed/Pending observation. `DisposeAsync` joins that same retirement without a timeout; this instance does not restart after stopping. Draining first sets readiness=false, then closes application admission and stops new connections/requests, allowing admitted work to finish within the remaining deadline. Request streams, database sessions/transactions, background outbox workers and diagnostic exporters each have explicit owners. Timeout enters Aborting, sends cancellation/reset and waits for release; do not prematurely free a context with a callback in progress to meet the deadline. If native code cannot achieve quiescence, shutdown fails, records unreleased resources and leaves handling to process exit, without reusing their addresses or unloading the dynamic library. Exporters flush last with a separate small budget and cannot prolong business shutdown indefinitely.
 
 Each TLS ingress is owned by exactly one layer. Rust host uses native rustls for handshake, certificates, ALPN and close-notify, with its buffers charged to the budget. Proxy termination requires explicit trusted-proxy, forwarded-header and actual-identity boundaries; do not blindly trust arbitrary `X-Forwarded-*`. Certificate reload must not leave dangling references in active handshakes. HTTP/1.1 and HTTP/2 undergo separate profile acceptance; HTTP/3, QUIC and platform-crypto differences are independent capabilities and cannot be inferred from HTTP/2 success.
 
@@ -241,3 +270,41 @@ run manifests, stdout/stderr and source snapshots are retained under
 exact Windows LF-to-CRLF conversion are recorded in
 `verification/server-completion/ci-verification.json`. This extends platform coverage
 for these same distinct cases, not their product/FFI/soak scope or independent review.
+
+
+## Public API refinement 0.4.0
+
+The [Server API specification](../api/server.md), exact C# declarations and coverage
+matrix refine this contract without claiming product execution. Build freezes options
+and services; first Start freezes routes/handlers and checks static metadata before
+native admission. Core callbacks only enqueue bounded notifications. The new control
+notification/initial cancellation snapshot closes pre-take and in-flight cancellation
+races; request_try_retire prevents removing managed ticket state before control
+callbacks retire. BoundAddresses comes from an actual native startup snapshot, including
+port zero. Close Pending retains all outstanding ownership and budget obligations.
+
+B15/B16/B17 implement these signatures and native payloads together with their XML,
+generated reference, minimal/advanced consumers, negative compiler/configuration cases
+and actual Windows/Linux AOT behavior. Historical experiment identities and accepted
+snapshots above remain unchanged; this revision needs fresh exact-content review.
+
+### Final response, cleanup and protocol-gate corrections
+
+API-SRV-001/003/004/005 are resolved in the current public specification's sections4.4,
+5.1 and5.2: final status is200..599; HEAD/204/205/304 have explicit length/body/trailer
+rules; forwarding consumes only aligned X-Forwarded-For/Proto/Host tuples through
+right-to-left exact-peer trust. The original peer and MCP wire Host/Origin remain
+separate from effective application metadata. Completion callbacks run LIFO, followed
+by registered disposables LIFO and then request scope; every cleanup failure is isolated
+and the outer finally still performs the one dispatch completion/retirement join.
+An unexecuted Stream(source) result leaves source ownership with its caller; ownership
+transfers only at successful single-use execution admission. Opening the input inside
+a producer avoids holding an unexecuted resource.
+
+The exact dispatch callback adds a fixed dispatch_kind field. MCP kind2 performs
+pre-parse managed middleware/auth on one request ticket/scope; gate_resume_create
+admits the public native rmcp service only after allow. Optional kind3 business dispatch
+reuses the taken request and cannot bypass or repeat auth. Automatic list methods pass
+the same gate. All nested handlers and the gate operation retire before the single
+outer cleanup and dispatch_complete. See [API section10.4](../api/server.md#104-mcp-pre-parse-gate-and-one-request-lifetime).
+These are design corrections, not newly executed server/product claims.

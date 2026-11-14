@@ -1,0 +1,6 @@
+MSBUILD : error MSB1001: Unknown switch.
+    Full command line: '/workspace/scratch/58d2a6adf1c3/dotnet-sdk/sdk/11.0.100/MSBuild -maxcpucount --verbosity:m -tlp:default=auto --property:RestoreConfigFile=/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NuGet.Offline.Config --property:UseSharedCompilation=false --property:NuGetInteractive=false --property:ArtifactsPath=/workspace/scratch/58d2a6adf1c3/inventory-recovery-20261114/build-1 --property:UseRazorBuildServer=false --restoreProperty:RestoreConfigFile=/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api/NuGet.Offline.Config --restoreProperty:UseSharedCompilation=false --restoreProperty:NuGetInteractive=false --restoreProperty:ArtifactsPath=/workspace/scratch/58d2a6adf1c3/inventory-recovery-20261114/build-1 --restoreProperty:UseRazorBuildServer=false --restoreProperty:EnableDefaultCompileItems=false --restoreProperty:EnableDefaultEmbeddedResourceItems=false --restoreProperty:EnableDefaultNoneItems=false --verbosity:minimal --nologo /nodeReuse:false NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj --locked-mode -consoleloggerparameters:Summary -restore -tlp:DISABLENODEDISPLAY'
+  Switches appended by response files:
+Switch: --locked-mode
+
+For switch syntax, type "MSBuild -help"

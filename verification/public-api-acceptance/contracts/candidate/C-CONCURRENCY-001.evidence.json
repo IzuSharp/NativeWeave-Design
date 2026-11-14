@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-CONCURRENCY-001",
+    "version": "0.4.0",
+    "content_sha256": "f5308445ccd3e9edf76f55ad13fc9e673d857901b90445227f0453da3407e825"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CONCURRENCY-001.inputs.json",
+    "sha256": "34a5e4c674ae7088ddf734b0352a376521a467c1ddd18eaf9395e6497fd2db1a"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/IzuSharp/NativeWeave-Design/schemas/public-api-coverage.schema.json",
+  "title": "Public API feature-family coverage",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "domain",
+    "baseline",
+    "rows"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "baseline": {},
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "feature",
+          "reference_apis",
+          "reference_version",
+          "public_api",
+          "rust_engine",
+          "adapter_operations",
+          "support",
+          "aot",
+          "cost",
+          "limitations",
+          "specification",
+          "tasks"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "feature": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference_apis": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "reference_version": {
+            "type": "string"
+          },
+          "public_api": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rust_engine": {
+            "type": "string"
+          },
+          "adapter_operations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "support": {
+            "enum": [
+              "full",
+              "equivalent",
+              "limited",
+              "planned",
+              "unsupported"
+            ]
+          },
+          "aot": {
+            "type": "string"
+          },
+          "cost": {
+            "type": "string"
+          },
+          "limitations": {
+            "type": "string"
+          },
+          "specification": {
+            "type": "string"
+          },
+          "tasks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[AB][0-9]{2}$"
+            }
+          },
+          "product_implemented": {
+            "const": false
+          },
+          "implementation_status": {
+            "const": "not_implemented_design_only"
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "product_implemented"
+            ]
+          },
+          {
+            "required": [
+              "implementation_status"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": true
+}

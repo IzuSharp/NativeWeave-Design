@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-PERF-001",
+    "version": "0.4.0",
+    "content_sha256": "a628825741ae7ca7a3187ba1d36958f63059e667a48bb57f15c0ee3b1e9af670"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PERF-001.inputs.json",
+    "sha256": "a2b64a4b403c853718fe818b6bc0d89b4bc6d52c43d5ed32bce743f619bf98ac"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

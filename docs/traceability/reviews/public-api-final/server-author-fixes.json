@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "public-api-final-server-author-fixes-attempt-2",
+  "author_id": "/root/recover_server",
+  "role": "Author repair after new independent final review; not reviewer approval",
+  "recorded_at_utc": "2026-11-14T12:23:25.332433+00:00",
+  "state": "author_fixes_complete_pending_independent_recheck",
+  "review_records_not_modified_by_author": true,
+  "review_inputs": [
+    {
+      "path": "docs/traceability/reviews/public-api-final/server-review-notes.json",
+      "sha256": "1d33ccba4089aed9b16db3d13ba23df910e6d18fe1e0675bd6e64f0adc2563ee",
+      "bytes": 13052
+    },
+    {
+      "path": "docs/traceability/reviews/public-api-2026-11-14/server-review-notes.json",
+      "sha256": "1b5b7a67ef0b339a7c0fc261675a36345df7508af19d33793d0f8c04fc963595",
+      "bytes": 48143
+    }
+  ],
+  "previous_author_record": {
+    "path": "docs/traceability/reviews/public-api-2026-11-14/server-fixes.json",
+    "sha256": "f98fa8fa39f31133bcb1b33b44b8310bcffc199582e10c54404a4692c31043e8",
+    "bytes": 9811
+  },
+  "fixes": [
+    {
+      "finding_id": "API-SRV-002",
+      "correction": "Rust Adapter explicitly splits comma-coalesced -bin wire values, trims only edge SP/HTAB, preflights post-split count/bytes/scratch, then performs public Tonic decoding separately for each segment. Empty binary values and per-name repetition/order survive; original HTTP wire block stays unchanged.",
+      "sections": [
+        "docs/api/server.md#102-export-and-typed-operation-inventory",
+        "docs/server/protocols-and-observability.md#2-grpc-adapter-precise-reuse-and-interfaces"
+      ],
+      "required_implementation_witnesses": [
+        "B18/B22: padded/unpadded and comma-coalesced repeated metadata, OWS/empty values, malformed alphabet/interior whitespace/padding, original wire preservation, ordered decoded values.",
+        "B18/B22:200 post-split entries, block/key-prefix byte cap, scratch/copy overlap, no partial publication and exactly-once failure rollback."
+      ],
+      "disposition": "author_fixed_pending_new_independent_recheck"
+    },
+    {
+      "finding_id": "API-SRV-004",
+      "correction": "Every successful HTTP MapRaw, generated void/Task, custom result or middleware short circuit awaits one shared CompleteAsync/response_finish attempt before completion callbacks, disposals, scope release and dispatch_complete. Preserve selected201/headers; untouched output is empty200. Completion failure uses precommit bounded error or postcommit abort, never a second response; protocols await their own typed terminal operation.",
+      "sections": [
+        "docs/api/server.md#5-requestresponse-bodies-results-and-resource-semantics",
+        "docs/server/hosting-and-streaming.md"
+      ],
+      "required_implementation_witnesses": [
+        "B15/B16/B22: MapRaw status-only201, untouched200, generated void/Task, custom result and middleware short circuit completion order.",
+        "B15/B16/B22: repeated/concurrent completion joins one attempt; failure/cancellation cleanup and callback errors never create a second response; native quiescence remains separate."
+      ],
+      "disposition": "author_fixed_pending_new_independent_recheck"
+    },
+    {
+      "finding_id": "API-SRV-006",
+      "correction": "gRPC RequestContext permits bounded request metadata, identity/services/Items/time/cancel/Abort and lifecycle registration, while raw body/trailers/HTTP response state/output/OnStarting are rejected before mutation. Native raw exports independently reject wrong protocol state. Direct/inherited ServerFilter fails freeze. gRPC auth/policy/implicit middleware denial uses typed Unauthenticated16/PermissionDenied7; MCP retains only its explicit AwaitingGate/Denied HTTP denial exception.",
+      "sections": [
+        "docs/api/server.md#7-grpc-precise-typed-surface-and-whole-call-limits",
+        "docs/api/server.md#104-mcp-pre-parse-gate-and-one-request-lifetime"
+      ],
+      "required_implementation_witnesses": [
+        "B18/B22: every forbidden raw body/response member, mutable collection/facade acquisition and OnStarting rejected before state/owner changes; permitted identity/services/lifecycle accesses still work.",
+        "B18/B22: direct/inherited filter freeze rejection; auth16/7 and explicit GrpcException framing with no managed DTO decode/business dispatch after denial.",
+        "B19/B22: MCP AwaitingGate/Denied response exception and Allowed native ownership, no raw body in any phase, same one-ticket scope/retirement."
+      ],
+      "disposition": "author_fixed_pending_new_independent_recheck"
+    },
+    {
+      "finding_id": "API-SRV-010",
+      "correction": "Both native reads and writes use atomic nonwaiting global/request full backing-capacity grants. Insufficient capacity faults resource_limit without payload allocation, quota waiting or hidden retry; queue/partial grants roll back. Bounded queue/network flow-control waits are distinguished, managed overlap grants are also nonwaiting, and taken owner credits survive dispatch/cancel until final release. Historical byte-wait experiments are preserved but their waiting policy is explicitly superseded.",
+      "sections": [
+        "docs/api/server.md#103-operation-semantics-and-ownership-transfers",
+        "docs/server/hosting-and-streaming.md#5-budget-and-backpressure-invariants",
+        "docs/server/body-retirement-protocol.md"
+      ],
+      "required_implementation_witnesses": [
+        "B16/B17/B22:128 retained32KiB chunks at default4MiB then positive read/write fail immediately without timeout/cancellation/finally; independently verify cross-request global saturation.",
+        "B16/B17/B22: queue slot then byte failure and sequential partial-grant rollback; cancellation before/after grant; never-started/untaken result release; taken chunks across dispatch and final-owner release.",
+        "B16/B17/B22: actual backing capacity, slice ownership and cross-side copy overlap; only bounded queue/socket waits remain and are cancelable."
+      ],
+      "disposition": "author_fixed_pending_new_independent_recheck"
+    }
+  ],
+  "final_technical_inputs": [
+    {
+      "path": "docs/api/server.md",
+      "sha256": "d261181235baa436c7d480aa11121f57a02989f89e3a7334cd39f72520250bb1",
+      "bytes": 120130
+    },
+    {
+      "path": "docs/api/server-coverage.json",
+      "sha256": "e7227247075b8d2cc68c107ef3be8c1f5b61e1d63cedb923584ab3d9d90805c4",
+      "bytes": 140450
+    },
+    {
+      "path": "docs/api/server-sources.json",
+      "sha256": "f333f15c7f07b9994c37d265bb9a2e3ebdee981fab37f51edc0cad9fb5e18a68",
+      "bytes": 26505
+    },
+    {
+      "path": "docs/api/server-symbol-policies.json",
+      "sha256": "2cfa139c8c50bf711bf553722b2be06ea6ab5f8bcd04860a37ede0c41802c9eb",
+      "bytes": 54403
+    },
+    {
+      "path": "docs/server/hosting-and-streaming.md",
+      "sha256": "959fdedf623d69ab284cdba685a260f24260e2e34014574fee7d890cbd221d73",
+      "bytes": 35757
+    },
+    {
+      "path": "docs/server/protocols-and-observability.md",
+      "sha256": "34f2aeb124b24d3d22b5ca5ccd9a35a05555ad1c3870edca255a4e7d4228799c",
+      "bytes": 36202
+    },
+    {
+      "path": "docs/server/body-retirement-protocol.md",
+      "sha256": "5c5ecf948138f5a2704673724b7dbc9cb0431bdb0bb33d7ce848f79acbcd2b5f",
+      "bytes": 12776
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+      "sha256": "9dc6cdf033164c3ccf3ecf9b77d28b764d434d1dab9ac1fe9cdff22730f23b81",
+      "bytes": 58423
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/ServerExamples.cs",
+      "sha256": "dc97889bd7abaadaaf6567011bad462284f1cd8780a45e65ccdfe7acb249b07d",
+      "bytes": 8072
+    },
+    {
+      "path": "experiments/public-api/abi/nativeweave_server_api_v1.h",
+      "sha256": "f7316b35bfb8cce5cb4fded82a0907e602626c4e9e54ff18d99fe242f2b4b681",
+      "bytes": 11369
+    }
+  ],
+  "checks": [
+    {
+      "id": "declaration-prototype-xml-source-consistency",
+      "passed": true,
+      "command": [
+        "python",
+        "verification/public-api/server-review-fixes/attempt-2/check_refinement.py"
+      ],
+      "script": {
+        "path": "verification/public-api/server-review-fixes/attempt-2/check_refinement.py",
+        "sha256": "9f4c649967ca33c8b62e08735263d232ae3e6175cbeae73fd8409947731f9ad1",
+        "bytes": 2979
+      },
+      "evidence": {
+        "path": "verification/public-api/server-review-fixes/attempt-2/consistency-results.json",
+        "sha256": "264f7b07715ce3489e55758f3ca9ca02e9d339e64500d7123c3b7a20ca1b2eef",
+        "bytes": 1236
+      },
+      "scope": "C#/C declaration bodies unchanged from frozen Git index except comments;48 exact C prototypes;316 XML groups;65 coverage rows;64 policies; whitespace."
+    },
+    {
+      "id": "pinned-tonic-source-seam",
+      "passed": true,
+      "evidence": {
+        "path": "verification/public-api/server-review-fixes/attempt-2/source-identity.json",
+        "sha256": "bc603b06a2b295dcb3e7b1c9a1ffe3d8025ab4927778b33f0f6f72bfda0a792c",
+        "bytes": 3769
+      },
+      "scope": "Four exact pinned source identities and selected public decode seam inspected; no new Rust execution."
+    }
+  ],
+  "limitations": [
+    "These four findings remain pending a new independent review of the final exact bytes; this author does not close reviewer findings.",
+    "No product Server implementation, HTTP/gRPC/MCP execution, payload coordinator runtime or formal Delivery task was performed.",
+    "No prior successful C/C#/AOT/network probe was rerun or relabeled; declaration token and XML checks justify retaining their original exact-input scopes.",
+    "Queue/network liveness, quota rollback, owned chunk retirement and typed protocol error behavior still require the listed future implementation witnesses.",
+    "Shared inventory, references, contracts, Plan hashes/attestations and CI regeneration belong to root integration after this author snapshot."
+  ]
+}

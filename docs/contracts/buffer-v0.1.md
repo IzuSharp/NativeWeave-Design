@@ -1,6 +1,6 @@
 # D07 — Native buffers, allocation and transfer
 
-**C-BUFFER-001@0.3.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Existing R10/R03/R29 and D07/A04/B06/B07/B16 remain owners. Read [D02](abi-v0.1.md), [D04](lifetime-v0.1.md), [D06](async-v0.1.md), [D08](error-v0.1.md) and [R01 Rust1.100](../research/topics/R01/rust-1.100.md). No SQL/HTTP domain state or mandatory global allocator is added to Core.
+**C-BUFFER-001@0.4.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Existing R10/R03/R29 and D07/A04/B06/B07/B16 remain owners. Read [D02](abi-v0.1.md), [D04](lifetime-v0.1.md), [D06](async-v0.1.md), [D08](error-v0.1.md) and [R01 Rust1.100](../research/topics/R01/rust-1.100.md). No SQL/HTTP domain state or mandatory global allocator is added to Core.
 
 ## 1. Three explicit transfer modes
 
@@ -75,3 +75,10 @@ The sole allocator/release pair for an owned buffer/result must come from the En
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+The [NativeBuffer public surface](../api/interop.md) provides scoped borrowing/copying and safe asynchronous staging. Database typed rows materialize owned CLR values; an explicit batch/stream resource owns native storage until release. Server chunk APIs account allocated capacity and keep byte credit until the final owner is released. No public ReadOnlyMemory points at freed unmanaged storage after disposing a wrapper. Span is synchronous only; Memory accepted across await has an explicit copy/pin/lease policy. A04/B06/B07/B16 document bytes copied, native retention, GC impact and bounds for each operation and include these costs in reference entries.

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "post-run-artifact-readback",
+  "observed_at_utc": "2026-11-14T11:14:29.922853+00:00",
+  "run_summary_sha256": "12d1d1573f25ab5eea8e0668ce5fff25dd4cbc9db998211ed21e2ea32f294fea",
+  "aot_restore_libraries": [
+    "Microsoft.DotNet.ILCompiler/11.0.0",
+    "Microsoft.NET.ILLink.Tasks/11.0.0",
+    "NativeWeave.Design.Probe.BuildAssets/0.0.1-design-probe",
+    "NativeWeave.Design.Probe.Native/0.0.1-design-probe",
+    "NativeWeave.Design.Probe/0.0.1-design-probe",
+    "runtime.linux-x64.Microsoft.DotNet.ILCompiler/11.0.0"
+  ],
+  "package_content_hashes": {
+    "Microsoft.DotNet.ILCompiler/11.0.0": "lw6gUL92db6XPwYsQwaGwrJxgRM0X0qQKl0QkwuZIACMtgH0eFu6jmq6W+/L8qTxQZwggfV/dGjICyMqVHdehg==",
+    "Microsoft.NET.ILLink.Tasks/11.0.0": "gK2aq4XvChj5kvozpPHrkfKkr7zc5Z4xoTrJb4GPZzDEPMlCk0TX632bwY3LsWcX2UVcVRQBBGzsBGC2lq6YhA==",
+    "NativeWeave.Design.Probe/0.0.1-design-probe": "JXcTcsVEsYA/OL9Fm9Eu2yD6R4PHrpC1iXuarYf2TjaOROp/YKxfo7uoyN3EybLFxxjeoa+/ocEg5V1TxN6kxQ==",
+    "NativeWeave.Design.Probe.BuildAssets/0.0.1-design-probe": "YDxfU+pyAtLZsh03CoJIKH7uB8XH5BgSN25y6SGx4Bc3s3jJ65XSRW+QRUf7EaXXwIFZntGLMmLt9wo9teKvig==",
+    "NativeWeave.Design.Probe.Native/0.0.1-design-probe": "Ngo45IoWC2ZEvfFp5b8wEJt9Eu19jGyF67G+bh2uI5dDzW1jAVFvPXkpUUyXMCR9tVIPfnbhf8f3eXhripeh1Q==",
+    "runtime.linux-x64.Microsoft.DotNet.ILCompiler/11.0.0": "HMCCGxJ1Q41NF31M+yWB7h0OAWr0XpiS8ZYMOi/V5IU/864Yi00rLq3M1K3AhE2+q86YJA4V9KZ28NXE+Q/uxA=="
+  },
+  "outputs": {
+    "aot/Consumer": {
+      "sha256": "3f1c41e3903cdb9005dbb553b036a358f6022744cca3e5d9d5b6ca70d793e72e",
+      "bytes": 1353696
+    },
+    "aot/Consumer.dbg": {
+      "sha256": "6b8b54935394f7063dcee6b6b2fc63f0b3f8a164742d759d3b53bc4f133b0343",
+      "bytes": 2834072
+    },
+    "aot/libnw_codec_research.so": {
+      "sha256": "981efa587ec0ec9f19d8bece547dcfe3a36439faf2efcae3d2371c87154695ee",
+      "bytes": 462944
+    }
+  },
+  "additional_input_hashes": {
+    "experiments/public-api/abi/nativeweave_api_v1.h": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+    "experiments/public-api/abi/layout_probe.c": "6a60995ce974477dc7e565b7c8c9a02f146d5b7cce29b31e46922ccef8ecb3f2"
+  },
+  "native_asset_identity_preserved": true
+}

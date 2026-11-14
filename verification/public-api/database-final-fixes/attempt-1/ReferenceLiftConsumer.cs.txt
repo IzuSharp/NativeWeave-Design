@@ -1,0 +1,7 @@
+#nullable enable
+using NativeWeave.Query;
+public static class ReferenceLiftConsumer
+{
+    public static SqlPredicate Compare(SqlExpression<string> key, SqlExpression<string?> foreignKey)
+        => key.AsNullableReference().Equal(foreignKey);
+}

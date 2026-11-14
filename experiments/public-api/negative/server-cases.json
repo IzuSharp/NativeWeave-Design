@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "Design-only negative compiler witnesses; no product or runtime behavior tested.",
+  "cases": [
+    {"source": "server-wrong-response.cs", "expected_diagnostic": "CS0029", "meaning": "Typed JSON handler response is statically checked."},
+    {"source": "server-arbitrary-delegate.cs", "expected_diagnostic": "CS1503", "meaning": "Arbitrary Delegate reflection-binding overload is absent."}
+  ]
+}

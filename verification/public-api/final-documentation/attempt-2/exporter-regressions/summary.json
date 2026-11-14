@@ -1,0 +1,527 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "API-INT-007/008 compiler-symbol exporter author validation",
+  "started_at_utc": "2026-11-14T12:31:33.864269+00:00",
+  "recorded_at_utc": "2026-11-14T12:31:38.687001+00:00",
+  "platform": "Linux",
+  "architecture": "x86_64",
+  "passed": true,
+  "independent_review": false,
+  "product_implemented": false,
+  "product_operations_executed": false,
+  "native_aot_executed": false,
+  "canonical_reference_updated": false,
+  "inputs": [
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/Program.cs",
+      "snapshot": "inputs/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "snapshot": "inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/packages.lock.json",
+      "snapshot": "inputs/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/verify_exporter.py",
+      "snapshot": "inputs/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9"
+    },
+    {
+      "path": "experiments/public-api/Directory.Build.props",
+      "snapshot": "inputs/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b"
+    },
+    {
+      "path": "experiments/public-api/global.json",
+      "snapshot": "inputs/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58"
+    },
+    {
+      "path": "experiments/public-api/NuGet.Offline.Config",
+      "snapshot": "inputs/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+      "snapshot": "inputs/NativeWeave.Api.Design/Database.cs",
+      "sha256": "904816521ba65abe182859d12f5e461fd778ea64e409e8d50f4c4ca390998369"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+      "snapshot": "inputs/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+      "snapshot": "inputs/NativeWeave.Api.Design/Server.cs",
+      "sha256": "1a6d4ab4b53d56d8a7d6cefdf1ab5af7106ed46f60dd828cfc11c4e0335612d6"
+    },
+    {
+      "path": "docs/api/database-symbol-policies.json",
+      "snapshot": "actual/database-symbol-policies.json",
+      "sha256": "a21d78f1c603f7a34c2e0b976075b03d26832a63fd4a7a559f17c9f0d5d7beb7"
+    },
+    {
+      "path": "docs/api/interop-symbol-policies.json",
+      "snapshot": "actual/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c"
+    },
+    {
+      "path": "docs/api/server-symbol-policies.json",
+      "snapshot": "actual/server-symbol-policies.json",
+      "sha256": "2cfa139c8c50bf711bf553722b2be06ea6ab5f8bcd04860a37ede0c41802c9eb"
+    }
+  ],
+  "steps": [
+    {
+      "id": "sdk",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "--version"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 0.022,
+      "log": "sdk.log",
+      "log_sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff"
+    },
+    {
+      "id": "inventory-build",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+        "--configfile",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NuGet.Offline.Config",
+        "-p:RestoreLockedMode=true",
+        "--disable-build-servers",
+        "-p:UseSharedCompilation=false",
+        "--nologo",
+        "-v:minimal",
+        "--artifacts-path",
+        "/tmp/nw-inventory-build-c2yoxyeg"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 2.947,
+      "log": "inventory-build.log",
+      "log_sha256": "5d4321f689b087cd46f789859be8b4b337f40cf444dc9a4323a90b6675a1bd8d"
+    },
+    {
+      "id": "actual-export",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "/tmp/nw-inventory-build-c2yoxyeg/bin/NativeWeave.Api.Inventory/debug/NativeWeave.Api.Inventory.dll",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Design",
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/final-documentation/attempt-2/exporter-regressions/actual"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 0.595,
+      "log": "actual-export.log",
+      "log_sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462"
+    },
+    {
+      "id": "fixture-export",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "/tmp/nw-inventory-build-c2yoxyeg/bin/NativeWeave.Api.Inventory/debug/NativeWeave.Api.Inventory.dll",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture-source",
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/final-documentation/attempt-2/exporter-regressions/fixture"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 0.5,
+      "log": "fixture-export.log",
+      "log_sha256": "52fbcf06db00f76b6e8aa13e46ae0694ef9d5d07f6c75977ad26df5e98420a68"
+    },
+    {
+      "id": "repeat-export",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "/tmp/nw-inventory-build-c2yoxyeg/bin/NativeWeave.Api.Inventory/debug/NativeWeave.Api.Inventory.dll",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/final-documentation/attempt-2/exporter-regressions/inputs/NativeWeave.Api.Design",
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk",
+        "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/verification/public-api/final-documentation/attempt-2/exporter-regressions/determinism"
+      ],
+      "cwd": "/workspace/scratch/58d2a6adf1c3/NativeWeave-Design/experiments/public-api",
+      "exit_code": 0,
+      "duration_seconds": 0.728,
+      "log": "repeat-export.log",
+      "log_sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "sdk-is-pinned",
+      "passed": true
+    },
+    {
+      "id": "tryget-parameter-attribute-metadata",
+      "passed": true
+    },
+    {
+      "id": "tryget-parameter-attribute-rendering",
+      "passed": true
+    },
+    {
+      "id": "nativebuffer-sealed-declaration",
+      "passed": true
+    },
+    {
+      "id": "nativebuffer-sealed-metadata",
+      "passed": true
+    },
+    {
+      "id": "plain-type-reference-metadata",
+      "passed": true
+    },
+    {
+      "id": "generic-delegate-complete-signature",
+      "passed": true
+    },
+    {
+      "id": "generic-delegate-metadata",
+      "passed": true
+    },
+    {
+      "id": "enum-value-metadata-and-rendering",
+      "passed": true
+    },
+    {
+      "id": "enum-underlying-type",
+      "passed": true
+    },
+    {
+      "id": "server-static-declaration",
+      "passed": true
+    },
+    {
+      "id": "server-record-declaration",
+      "passed": true
+    },
+    {
+      "id": "server-abstract-declaration",
+      "passed": true
+    },
+    {
+      "id": "ref-like-readonly-type",
+      "passed": true
+    },
+    {
+      "id": "class-generic-constraints",
+      "passed": true
+    },
+    {
+      "id": "rendered-parameter-attribute:M:NativeWeave.Data.Table`1.TryGetColumn``1(System.String,NativeWeave.Data.ValueCodec{``0},NativeWeave.Data.Column{`0,``0}@):column",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Data.WeaveColumnAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Property, Inherited = false)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Data.WeaveIgnoreAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Property, Inherited = false)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Data.WeaveKeyAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Property, Inherited = false)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Data.WeaveTableAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Class, Inherited = false)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Data.WeaveVersionAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Property, Inherited = false)",
+      "passed": true
+    },
+    {
+      "id": "rendered-parameter-attribute:M:NativeWeave.Database.BulkFailure.TryGetProgress(System.Exception,NativeWeave.Database.BulkProgress@):progress",
+      "passed": true
+    },
+    {
+      "id": "rendered-parameter-attribute:M:NativeWeave.Interop.EngineCatalog.TryGet(System.String,NativeWeave.Interop.EngineDescriptor@):descriptor",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.BodyParameterAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Parameter)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.HeaderParameterAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Parameter)",
+      "passed": true
+    },
+    {
+      "id": "rendered-parameter-attribute:M:NativeWeave.Server.ParameterValues.TryGet``1(System.String,``0@):value",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.QueryParameterAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Parameter)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.RouteParameterAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Parameter)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.ServerCapabilities:System.FlagsAttribute",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.ServerEndpointsAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Class)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.ServerProtocols:System.FlagsAttribute",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.ServerRouteAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Method, AllowMultiple = true)",
+      "passed": true
+    },
+    {
+      "id": "rendered-attribute:T:NativeWeave.Server.ServiceParameterAttribute:System.AttributeUsageAttribute(System.AttributeTargets.Parameter)",
+      "passed": true
+    },
+    {
+      "id": "delegate-return-attribute",
+      "passed": true
+    },
+    {
+      "id": "delegate-variance",
+      "passed": true
+    },
+    {
+      "id": "delegate-generic-constraints",
+      "passed": true
+    },
+    {
+      "id": "delegate-parameter-attributes",
+      "passed": true
+    },
+    {
+      "id": "delegate-ref-readonly-return",
+      "passed": true
+    },
+    {
+      "id": "delegate-ref-like-constraint",
+      "passed": true
+    },
+    {
+      "id": "all-generic-constraint-metadata",
+      "passed": true
+    },
+    {
+      "id": "unmanaged-generic-constraint",
+      "passed": true
+    },
+    {
+      "id": "constructed-base-and-interface",
+      "passed": true
+    },
+    {
+      "id": "method-return-attribute",
+      "passed": true
+    },
+    {
+      "id": "indexer-parameter-attribute",
+      "passed": true
+    },
+    {
+      "id": "getter-return-attribute-target",
+      "passed": true
+    },
+    {
+      "id": "complex-parameter-attribute-boundary",
+      "passed": true
+    },
+    {
+      "id": "method-generic-constraint-metadata",
+      "passed": true
+    },
+    {
+      "id": "unsigned-enum:Highest",
+      "passed": true
+    },
+    {
+      "id": "unsigned-enum:All",
+      "passed": true
+    },
+    {
+      "id": "signed-enum",
+      "passed": true
+    },
+    {
+      "id": "constant:Small",
+      "passed": true
+    },
+    {
+      "id": "constant:Minimum",
+      "passed": true
+    },
+    {
+      "id": "constant:Maximum",
+      "passed": true
+    },
+    {
+      "id": "constant:Amount",
+      "passed": true
+    },
+    {
+      "id": "constant:Text",
+      "passed": true
+    },
+    {
+      "id": "constant:Enabled",
+      "passed": true
+    },
+    {
+      "id": "constant:Quote",
+      "passed": true
+    },
+    {
+      "id": "constant:Missing",
+      "passed": true
+    },
+    {
+      "id": "constant:Infinity",
+      "passed": true
+    },
+    {
+      "id": "constant:NotANumber",
+      "passed": true
+    },
+    {
+      "id": "record-struct-and-class-shapes",
+      "passed": true
+    },
+    {
+      "id": "deterministic-json",
+      "passed": true
+    },
+    {
+      "id": "deterministic-reference",
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "actual/database-symbol-policies.json",
+      "sha256": "a21d78f1c603f7a34c2e0b976075b03d26832a63fd4a7a559f17c9f0d5d7beb7"
+    },
+    {
+      "path": "actual/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c"
+    },
+    {
+      "path": "actual/public-api.json",
+      "sha256": "d3e989c4f8732f2514c66a2c1ecf038b460fc29e3581d0b36855612751e974e4"
+    },
+    {
+      "path": "actual/reference.md",
+      "sha256": "4bf3d37cbc423eacf9a308fe420b7564b4f92548fb3d164c65f53e16c9348b48"
+    },
+    {
+      "path": "actual/server-symbol-policies.json",
+      "sha256": "2cfa139c8c50bf711bf553722b2be06ea6ab5f8bcd04860a37ede0c41802c9eb"
+    },
+    {
+      "path": "actual-export.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462"
+    },
+    {
+      "path": "fixture/database-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16"
+    },
+    {
+      "path": "fixture/interop-symbol-policies.json",
+      "sha256": "2581cd4b4163fb5c7f54c6262d4e9358b383ba97074c28a795271b1c044dc5f6"
+    },
+    {
+      "path": "fixture/public-api.json",
+      "sha256": "7849a80d4ff7a58a00115e3e6a9fe3312ecbc2edd1ea0def354b891686f69bee"
+    },
+    {
+      "path": "fixture/reference.md",
+      "sha256": "d6b262a4b2c5a69bfd3f3e4f47d6c4fb5b330449da59d1a359a17b4121ccc84c"
+    },
+    {
+      "path": "fixture/server-symbol-policies.json",
+      "sha256": "a9a1e937171fc37b2e0d728f93f15418a70f374ab0f67039f622d31f3ef2eb16"
+    },
+    {
+      "path": "fixture-export.log",
+      "sha256": "52fbcf06db00f76b6e8aa13e46ae0694ef9d5d07f6c75977ad26df5e98420a68"
+    },
+    {
+      "path": "fixture-source/Fixture.cs",
+      "sha256": "269451a382995633c9d31842aefc1f96399bfe9d77feb80a0e111f31b2a1b9fa"
+    },
+    {
+      "path": "inputs/Directory.Build.props",
+      "sha256": "965a0fcc4216f0b4c716bc17508c941114d261a884bcf8f990a87a98e3f6766b"
+    },
+    {
+      "path": "inputs/NativeWeave.Api.Design/Database.cs",
+      "sha256": "904816521ba65abe182859d12f5e461fd778ea64e409e8d50f4c4ca390998369"
+    },
+    {
+      "path": "inputs/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208"
+    },
+    {
+      "path": "inputs/NativeWeave.Api.Design/Server.cs",
+      "sha256": "1a6d4ab4b53d56d8a7d6cefdf1ab5af7106ed46f60dd828cfc11c4e0335612d6"
+    },
+    {
+      "path": "inputs/NativeWeave.Api.Inventory/NativeWeave.Api.Inventory.csproj",
+      "sha256": "a5e5fdfbdf8876cad30a60d5970a0ab955ff504a86e7a60486e908e838881ea2"
+    },
+    {
+      "path": "inputs/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "080cca82af9155eabe398b936916b304c99be049d804521c4a2a3434b9bbfac5"
+    },
+    {
+      "path": "inputs/NativeWeave.Api.Inventory/packages.lock.json",
+      "sha256": "b3c5e4a8ca8e8e9b867124355fd997226d6a45ef7924fb06460bf389050392c5"
+    },
+    {
+      "path": "inputs/NativeWeave.Api.Inventory/verify_exporter.py",
+      "sha256": "8a17b2a0534907a265fbb2360dcffde999d8f3a365614c0e039c1353c71a7aa9"
+    },
+    {
+      "path": "inputs/NuGet.Offline.Config",
+      "sha256": "968006766c5f1f40b05e9edd4e9a135f71c0a2a3d26071fa0240e4f41bd7c709"
+    },
+    {
+      "path": "inputs/global.json",
+      "sha256": "bfaf40d1a86baeea39cde6300a5aaa9c55917256d4fade475ac7ffa3bd58bb58"
+    },
+    {
+      "path": "inventory-build.log",
+      "sha256": "5d4321f689b087cd46f789859be8b4b337f40cf444dc9a4323a90b6675a1bd8d"
+    },
+    {
+      "path": "repeat-export.log",
+      "sha256": "07b9d5bc0949b7a26868e1d3454b70886f352857107b9b1e2f544ad3f79a6462"
+    },
+    {
+      "path": "sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff"
+    }
+  ],
+  "limits": [
+    "Source snapshots identify the exact declarations and policies checked; later edits require regeneration.",
+    "This checks compiler-derived declaration metadata and rendering, not runtime product behavior.",
+    "API-INT-007/008 remain subject to independent exact-content review."
+  ]
+}

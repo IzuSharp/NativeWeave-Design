@@ -1,0 +1,1318 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "interop",
+  "baseline": {
+    "dotnet": "11.0.0",
+    "sdk": "11.0.100",
+    "csharp": "15.0"
+  },
+  "support_interpretation": "Support is a design decision, not evidence of a released or implemented product. Runtime execution states remain separate.",
+  "rows": [
+    {
+      "id": "I01",
+      "feature": "Assembly/namespace and independent module organization",
+      "reference_apis": [
+        "System.Runtime namespaces",
+        "Microsoft.Extensions.* modular packages"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeWeave.Interop",
+        "NativeWeave.Interop.Extensibility"
+      ],
+      "rust_engine": "No mandatory Rust runtime",
+      "adapter_operations": [
+        "generated descriptor"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static linked managed facade and descriptors",
+      "cost": "One Core assembly plus only selected Engines",
+      "limitations": "Namespaces are not mandatory separate assemblies",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A02",
+        "A13",
+        "A16",
+        "A24"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I02",
+      "feature": "Explicit descriptor registration and discovery",
+      "reference_apis": [
+        "NativeLibrary",
+        "Assembly"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineCatalog.EngineCatalog",
+        "EngineCatalog.Engines",
+        "EnginePackage.CreateDescriptor"
+      ],
+      "rust_engine": "Engine-specific stateless bootstrap",
+      "adapter_operations": [
+        "CreateDescriptor"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Explicit statically rooted assembly; no scan",
+      "cost": "O(n) snapshot and O(n log n) catalog sort",
+      "limitations": "No automatic assembly/directory discovery",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A02",
+        "A24"
+      ],
+      "sources": [
+        "I-SRC-01"
+      ]
+    },
+    {
+      "id": "I03",
+      "feature": "Try and throwing metadata lookup",
+      "reference_apis": [
+        "IReadOnlyDictionary<TKey,TValue>.TryGetValue"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineCatalog.TryGet",
+        "EngineCatalog.Get"
+      ],
+      "rust_engine": "none",
+      "adapter_operations": [
+        "managed ordinal lookup"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Pure managed static generic code",
+      "cost": "Expected O(1) lookup, no load/FFI",
+      "limitations": "Invalid identifiers still throw; Try does not swallow load failures",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A02"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I04",
+      "feature": "Lazy native loading and startup preflight",
+      "reference_apis": [
+        "NativeLibrary.Load",
+        "NativeLibrary.GetExport",
+        "NativeLibrary.SetDllImportResolver"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineDescriptor.Inspect",
+        "EngineCatalog.Inspect",
+        "EngineLoadOptions"
+      ],
+      "rust_engine": "stateless module adapter",
+      "adapter_operations": [
+        "nw_<engine>_get_abi_v1"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Initial dynamic PInvoke desktop AOT profile",
+      "cost": "Once per module: hash asset + OS load + bootstrap",
+      "limitations": "No domain pool/runtime/listener on Inspect; module resident",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A01",
+        "A02",
+        "A14",
+        "A15"
+      ],
+      "sources": [
+        "I-SRC-01",
+        "I-DOC-02"
+      ]
+    },
+    {
+      "id": "I05",
+      "feature": "ABI version and capability negotiation",
+      "reference_apis": [
+        "NativeLibrary.TryGetExport",
+        "System.Version"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "AbiVersion",
+        "EngineCapability",
+        "EngineInfo.Supports",
+        "EngineInfo.Require"
+      ],
+      "rust_engine": "engine-local generated ABI info",
+      "adapter_operations": [
+        "nw_<engine>_get_abi_v1"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Fixed C scalar/layout and static name mapping",
+      "cost": "Bootstrap once, managed lookup thereafter",
+      "limitations": "NuGet versions remain strings; capabilities must be actually implemented",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A01",
+        "A02",
+        "A22"
+      ],
+      "sources": [
+        "I-SRC-01"
+      ]
+    },
+    {
+      "id": "I06",
+      "feature": "Explicit native asset override",
+      "reference_apis": [
+        "NativeLibrary.Load(string)"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineLoadOptions.NativeAssetPath"
+      ],
+      "rust_engine": "none before load",
+      "adapter_operations": [
+        "manifest path/hash/RID validation"
+      ],
+      "support": "limited",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Absolute matched desktop asset only",
+      "cost": "Cold I/O and hashing",
+      "limitations": "No arbitrary search path, different version or hash bypass",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A02",
+        "A16"
+      ],
+      "sources": [
+        "I-SRC-01",
+        "I-DOC-04"
+      ]
+    },
+    {
+      "id": "I07",
+      "feature": "Library unload and active hot replacement",
+      "reference_apis": [
+        "NativeLibrary.Free",
+        "AssemblyLoadContext.Unload"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [],
+      "rust_engine": "none",
+      "adapter_operations": [
+        "none"
+      ],
+      "support": "unsupported",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "No unload surface",
+      "cost": "Resident module bytes until process exit",
+      "limitations": "Unsafe while callbacks/owners/code execute; upgrade by process restart",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A02",
+        "A22"
+      ],
+      "sources": [
+        "I-SRC-01",
+        "I-DOC-03"
+      ]
+    },
+    {
+      "id": "I08",
+      "feature": "Runtime managed plugin loading",
+      "reference_apis": [
+        "Assembly.LoadFile",
+        "AssemblyLoadContext.LoadFromAssemblyPath"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [],
+      "rust_engine": "none",
+      "adapter_operations": [
+        "none"
+      ],
+      "support": "unsupported",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Incompatible with arbitrary new managed code in existing AOT image",
+      "cost": "No plugin scan or dynamic emit",
+      "limitations": "Native compatible library loading is distinct; compile facade into app",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A16",
+        "A24"
+      ],
+      "sources": [
+        "I-DOC-03"
+      ]
+    },
+    {
+      "id": "I09",
+      "feature": "Safe native owner disposal",
+      "reference_apis": [
+        "SafeHandle",
+        "IDisposable"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeBuffer.Dispose",
+        "NativeBuffer.IsDisposed"
+      ],
+      "rust_engine": "native creator Box/Arc-backed owner",
+      "adapter_operations": [
+        "D04 admission/AddRef",
+        "engine buffer_release_v1"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Private SafeHandle; no runtime code generation",
+      "cost": "One gate/reference lease per access",
+      "limitations": "Dispose closes new admission; admitted work may finish later",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A03",
+        "A04",
+        "A20"
+      ],
+      "sources": [
+        "I-SRC-02"
+      ]
+    },
+    {
+      "id": "I10",
+      "feature": "Synchronous scoped readonly borrow",
+      "reference_apis": [
+        "ReadOnlySpan<T>",
+        "System.Buffers.ReadOnlySpanAction<T,TArg>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeBuffer.Read",
+        "NativeBufferReader",
+        "NativeBufferReader<TResult>"
+      ],
+      "rust_engine": "immutable native allocation",
+      "adapter_operations": [
+        "D04 lease; direct readonly view"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Custom nonescaping span delegate compiles statically",
+      "cost": "No copy; cached static delegate avoids closure allocation",
+      "limitations": "No async span escape; app unsafe misuse not sandboxed",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A03",
+        "A04",
+        "A12"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I11",
+      "feature": "Caller-provided copy and Try pattern",
+      "reference_apis": [
+        "ReadOnlySpan<T>.CopyTo",
+        "ReadOnlySpan<T>.TryCopyTo"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeBuffer.CopyTo",
+        "NativeBuffer.TryCopyTo"
+      ],
+      "rust_engine": "immutable native allocation",
+      "adapter_operations": [
+        "D04 lease; copy"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Span-based sync API",
+      "cost": "O(n) copy, no managed array allocation",
+      "limitations": "Short Try destination untouched; disposal still throws",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A04",
+        "A20"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I12",
+      "feature": "Retained managed data copy",
+      "reference_apis": [
+        "ReadOnlySpan<T>.ToArray"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeBuffer.ToArray"
+      ],
+      "rust_engine": "immutable native owner",
+      "adapter_operations": [
+        "D04 lease; managed copy"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static safe managed array",
+      "cost": "O(n), one independent array except empty",
+      "limitations": "Explicit managed allocation; no zero-copy promise",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A04"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I13",
+      "feature": "Persistent Memory exposure",
+      "reference_apis": [
+        "IMemoryOwner<byte>.Memory",
+        "MemoryManager<byte>.Memory",
+        "ReadOnlyMemory<byte>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeBuffer.Read",
+        "NativeBuffer.ToArray"
+      ],
+      "rust_engine": "immutable native owner",
+      "adapter_operations": [
+        "scoped read/copy only"
+      ],
+      "support": "limited",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Safe default via scoped borrowing",
+      "cost": "Copy when caller needs independent retention",
+      "limitations": "No naked native-backed Memory property; cached views can outlive disposal",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A03",
+        "A04"
+      ],
+      "sources": [
+        "I-SRC-04",
+        "I-SRC-05"
+      ]
+    },
+    {
+      "id": "I14",
+      "feature": "Stream interoperability",
+      "reference_apis": [
+        "Stream.CopyToAsync",
+        "Stream.WriteAsync(ReadOnlyMemory<byte>,CancellationToken)"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeBuffer.CopyToAsync"
+      ],
+      "rust_engine": "native source remains leased",
+      "adapter_operations": [
+        "managed staged copy; no generic Rust executor"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Task plus bounded exact-sized byte-array staging",
+      "cost": "One at most64KiB managed array; one copy per chunk; source leased throughout",
+      "limitations": "Partial destination writes survive cancel/error; destination left open",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A04"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I15",
+      "feature": "64-bit lengths and oversized data",
+      "reference_apis": [
+        "Stream.Length",
+        "Span<T>.Length"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeBuffer.Length"
+      ],
+      "rust_engine": "domain bounded chunks",
+      "adapter_operations": [
+        "checked u64-to-int conversion"
+      ],
+      "support": "limited",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "int-sized native buffer; domain stream for larger data",
+      "cost": "Checks before view or allocation",
+      "limitations": "NativeBuffer <=int.MaxValue and domain cap; no >2GiB CLR span",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A01",
+        "A04",
+        "B06",
+        "B16"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I16",
+      "feature": "Awaitable native I/O",
+      "reference_apis": [
+        "Task<T>",
+        "TaskCompletionSource<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Domain Task-returning methods (database.md/server.md)"
+      ],
+      "rust_engine": "engine-owned async executor",
+      "adapter_operations": [
+        "typed create/start/take_result/try_retire/release"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "TCS RunContinuationsAsynchronously; static UCO",
+      "cost": "Per accepted op context/TCS/GCHandle and bounded input copy",
+      "limitations": "No public universal Execute; result completion not retirement",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A07",
+        "A08"
+      ],
+      "sources": [
+        "I-SRC-09"
+      ]
+    },
+    {
+      "id": "I17",
+      "feature": "ValueTask and async disposal",
+      "reference_apis": [
+        "IAsyncDisposable.DisposeAsync",
+        "ValueTask"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Domain DisposeAsync methods (database.md/server.md)"
+      ],
+      "rust_engine": "engine-specific close/drain",
+      "adapter_operations": [
+        "D06/D09 cleanup promise"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "BCL disposal return shape; no pooled sources v1",
+      "cost": "No extra Task if already drained; underlying promise may allocate",
+      "limitations": "No pooled IValueTaskSource/callback contexts without later proof",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A07",
+        "A08"
+      ],
+      "sources": [
+        "I-SRC-06"
+      ]
+    },
+    {
+      "id": "I18",
+      "feature": "Cancellation token registration and terminal authority",
+      "reference_apis": [
+        "CancellationToken.Register",
+        "UnsafeRegister",
+        "CancellationTokenRegistration.DisposeAsync"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Domain CancellationToken parameters"
+      ],
+      "rust_engine": "engine-specific cancellation",
+      "adapter_operations": [
+        "request_cancel",
+        "external registration drain",
+        "try_retire"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static callback and strong rooted context",
+      "cost": "One registration per accepted operation; coalesced cleanup",
+      "limitations": "Token request does not itself cancel native Task result or undo effects",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A06",
+        "A07",
+        "A20"
+      ],
+      "sources": [
+        "I-SRC-07",
+        "I-SRC-08"
+      ]
+    },
+    {
+      "id": "I19",
+      "feature": "Timeout versus cancellation versus close wait",
+      "reference_apis": [
+        "Task.WaitAsync",
+        "CancellationTokenSource.CancelAfter",
+        "TimeoutException"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Domain timeout options and CloseAsync methods"
+      ],
+      "rust_engine": "engine-specific deadlines",
+      "adapter_operations": [
+        "domain timeout terminal",
+        "caller wait cancellation"
+      ],
+      "support": "limited",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Managed timeout shape and native domain outcome separated",
+      "cost": "Bounded waiter/coordinator slots",
+      "limitations": "No universal Deadline; timed-out wait cannot free active owners",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A07",
+        "A08",
+        "B05",
+        "B20"
+      ],
+      "sources": [
+        "I-SRC-07",
+        "I-SRC-09"
+      ]
+    },
+    {
+      "id": "I20",
+      "feature": "Callbacks and dispatch",
+      "reference_apis": [
+        "UnmanagedCallersOnlyAttribute",
+        "GCHandle",
+        "IAsyncEnumerable<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Domain typed handlers/streams"
+      ],
+      "rust_engine": "engine event producers",
+      "adapter_operations": [
+        "D05 create/start/request_stop/try_retire/release"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Blittable static nongeneric UCO; managed user dispatch",
+      "cost": "Normal GCHandle plus bounded copy/queue budget",
+      "limitations": "No arbitrary user work on native callback; special decision callbacks explicit",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A06",
+        "A07",
+        "A10",
+        "A12"
+      ],
+      "sources": [
+        "I-SRC-03"
+      ]
+    },
+    {
+      "id": "I21",
+      "feature": "Error, exception and Try classification",
+      "reference_apis": [
+        "Exception",
+        "OperationCanceledException",
+        "TimeoutException"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeEngineException",
+        "EngineLoadException",
+        "EngineLoadFailure"
+      ],
+      "rust_engine": "Result/status and contained panic",
+      "adapter_operations": [
+        "D08 ErrorRecord and typed rich-error take"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static exception classes; no serialized Exception across ABI",
+      "cost": "Cold bounded error allocation, no strings on successful path",
+      "limitations": "Pre-native fields null; preserve unknown wire status/domain/effect",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A05"
+      ],
+      "sources": [
+        "I-SRC-09"
+      ]
+    },
+    {
+      "id": "I22",
+      "feature": "Panic and poison observation",
+      "reference_apis": [
+        "Exception.InnerException",
+        "SafeHandle.ReleaseHandle"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeEngineException.StatusCode",
+        "NativeEngineException.ErrorDomain",
+        "NativeEngineException.NativeCode"
+      ],
+      "rust_engine": "Rust catch_unwind at actual entry/poll boundary",
+      "adapter_operations": [
+        "NATIVE_PANIC",
+        "ENGINE_POISONED",
+        "trusted cleanup"
+      ],
+      "support": "limited",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "No unwinding across UCO/PInvoke",
+      "cost": "Failure quarantine can retain unknown panic payloads",
+      "limitations": "Abort/bad memory/illegal ABI/OOM abort not recoverable",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A05",
+        "A07",
+        "A18"
+      ],
+      "sources": [
+        "I-SRC-02"
+      ]
+    },
+    {
+      "id": "I23",
+      "feature": "Thread and reentrancy profiles",
+      "reference_apis": [
+        "SynchronizationContext",
+        "Task",
+        "SafeHandle"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineThreadingModel",
+        "EngineInfo.ThreadingModel"
+      ],
+      "rust_engine": "local runtime/serialized worker/external loop",
+      "adapter_operations": [
+        "D09 admission and owner-thread release"
+      ],
+      "support": "limited",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Desktop sync/async/serialized profiles; future affinity separate",
+      "cost": "No default global runtime or forced Task.Run",
+      "limitations": "Metadata does not grant Send/Sync; NativeBuffer destructor free-threaded only",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A08",
+        "A23",
+        "A24"
+      ],
+      "sources": [
+        "I-SRC-02"
+      ]
+    },
+    {
+      "id": "I24",
+      "feature": "Multiple independent engines",
+      "reference_apis": [
+        "IServiceProvider",
+        "IHostedService"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineCatalog",
+        "EngineDescriptor",
+        "Domain owned factory types"
+      ],
+      "rust_engine": "independent DB/server native closures",
+      "adapter_operations": [
+        "module-specific prefix/bootstrap/close"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Independent statically compiled facades",
+      "cost": "Instance-local runtimes only when needed",
+      "limitations": "One content identity per engine ID per process; no global shutdown",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A08",
+        "A16",
+        "A18"
+      ],
+      "sources": [
+        "I-SRC-11"
+      ]
+    },
+    {
+      "id": "I25",
+      "feature": "Maintainer descriptors and manifests",
+      "reference_apis": [
+        "NativeLibrary",
+        "Assembly"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EnginePackageManifest",
+        "NativeAssetDescriptor",
+        "EngineCapabilityDefinition",
+        "EnginePackage.CreateDescriptor"
+      ],
+      "rust_engine": "engine build manifest",
+      "adapter_operations": [
+        "A24 emitted metadata",
+        "nw_<engine>_get_abi_v1"
+      ],
+      "support": "full",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Explicit statically rooted inputs",
+      "cost": "Bounded one-time validation/snapshot",
+      "limitations": "No authenticity guarantee from digest alone; complete provenance stays release record",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A02",
+        "A13",
+        "A24"
+      ],
+      "sources": [
+        "I-SRC-01"
+      ]
+    },
+    {
+      "id": "I26",
+      "feature": "Maintainer native result adoption",
+      "reference_apis": [
+        "SafeHandle",
+        "MemoryManager<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "NativeBufferFactory.Adopt"
+      ],
+      "rust_engine": "creator-specific immutable free-threaded owner",
+      "adapter_operations": [
+        "typed take_result",
+        "buffer_release_v1"
+      ],
+      "support": "limited",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Explicit trusted extension seam; no reflection",
+      "cost": "No byte copy; one owner wrapper",
+      "limitations": "Failure leaves caller SafeHandle; wrong module/address cannot be made safe by probing",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A03",
+        "A04",
+        "A24"
+      ],
+      "sources": [
+        "I-SRC-02",
+        "I-SRC-04"
+      ]
+    },
+    {
+      "id": "I27",
+      "feature": "Source-generated imports and callbacks",
+      "reference_apis": [
+        "LibraryImportAttribute",
+        "UnmanagedCallersOnlyAttribute"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Internal generated bindings (no application raw API)"
+      ],
+      "rust_engine": "repr(C) engine adapter",
+      "adapter_operations": [
+        "A09 normalized schema",
+        "A10 imports",
+        "A11 exports"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Framework source-generated PInvoke; precompiler/built facade",
+      "cost": "Build-time cost; no runtime reflection emit",
+      "limitations": "Do not depend on peer generator output; private Rust types stay private",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A09",
+        "A10",
+        "A11",
+        "A12"
+      ],
+      "sources": [
+        "I-DOC-02"
+      ]
+    },
+    {
+      "id": "I28",
+      "feature": "Analyzer and nullable contracts",
+      "reference_apis": [
+        "NotNullWhenAttribute",
+        "RequiresDynamicCodeAttribute",
+        "DynamicallyAccessedMembersAttribute"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineCatalog.TryGet",
+        "All annotated public signatures"
+      ],
+      "rust_engine": "none",
+      "adapter_operations": [
+        "A12 diagnostics; static metadata"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "NRT, compile/AOT gates; no global suppression",
+      "cost": "Build/IDE analysis only",
+      "limitations": "Analyzer absence does not prove unsafe lifetime correctness",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A10",
+        "A12"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I29",
+      "feature": "NuGet independent provider install",
+      "reference_apis": [
+        "PackageReference",
+        "runtimes/<rid>/native"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "SqliteDataSource.Create",
+        "PostgreSqlDataSource.Create",
+        "NativeServer.CreateBuilder"
+      ],
+      "rust_engine": "selected native Engine only",
+      "adapter_operations": [
+        "per-provider asset closure"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "RID-free development; explicit-RID AOT",
+      "cost": "Only selected engines; server native contains transparent optional protocol code",
+      "limitations": "No separate NativeWeave.Query package cycle; no auto-Cargo",
+      "specification": "docs/api/nuget-and-consumption.md",
+      "tasks": [
+        "A13",
+        "A16",
+        "B24"
+      ],
+      "sources": [
+        "I-DOC-01",
+        "I-DOC-06",
+        "I-DOC-07"
+      ]
+    },
+    {
+      "id": "I30",
+      "feature": "Dependency injection and manual factory paths",
+      "reference_apis": [
+        "IServiceCollection",
+        "AddSingleton",
+        "AddScoped"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Domain builder/factory APIs",
+        "AddNativeWeaveDatabase",
+        "AddNativeWeaveServer"
+      ],
+      "rust_engine": "same independent native instances",
+      "adapter_operations": [
+        "configuration snapshot; native instance creation"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static factories/registrations",
+      "cost": "One root provider; lazy request scope where needed",
+      "limitations": "Core BCL-only; DB DI optional; Server Extensions required by builder",
+      "specification": "docs/api/nuget-and-consumption.md",
+      "tasks": [
+        "A16",
+        "B15",
+        "B20",
+        "B24"
+      ],
+      "sources": [
+        "I-SRC-10",
+        "I-SRC-11"
+      ]
+    },
+    {
+      "id": "I31",
+      "feature": "Package upgrades and binary compatibility",
+      "reference_apis": [
+        "PackageReference exact ranges",
+        "NuGet lock files"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineLoadException",
+        "EngineInfo.PackageVersion"
+      ],
+      "rust_engine": "new process selects reviewed asset closure",
+      "adapter_operations": [
+        "build closure validator",
+        "bootstrap compatibility"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "No dynamic managed load/re-JIT",
+      "cost": "Restore/build/version validation cold path",
+      "limitations": "Exact owned edges plus hard post-restore checker; no hot replacement",
+      "specification": "docs/api/nuget-and-consumption.md",
+      "tasks": [
+        "A16",
+        "A22",
+        "B24"
+      ],
+      "sources": [
+        "I-DOC-01"
+      ]
+    },
+    {
+      "id": "I32",
+      "feature": "AOT publishing and native tooling",
+      "reference_apis": [
+        "dotnet publish -p:PublishAot=true",
+        "NativeLibrary"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "All public API consumers"
+      ],
+      "rust_engine": "precompiled native assets",
+      "adapter_operations": [
+        "dotnet consumer build/publish"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "net11/C#15 with no Preview requirement",
+      "cost": "AOT build/toolchain cost explicit",
+      "limitations": "No local Rust required; platform AOT linker prerequisites still needed",
+      "specification": "docs/api/nuget-and-consumption.md",
+      "tasks": [
+        "A14",
+        "A15",
+        "A16",
+        "B24"
+      ],
+      "sources": [
+        "I-DOC-02",
+        "I-DOC-03"
+      ]
+    },
+    {
+      "id": "I33",
+      "feature": "Advanced direct imports/static link/single file",
+      "reference_apis": [
+        "DirectPInvoke",
+        "NativeLibrary",
+        "PublishSingleFile"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [],
+      "rust_engine": "future target-specific linker profile",
+      "adapter_operations": [
+        "none in initial profile"
+      ],
+      "support": "planned",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Must independently verify resolver/linker semantics",
+      "cost": "May improve startup/FFI or change extraction cost; unmeasured",
+      "limitations": "Not advertised by current dynamic desktop package design",
+      "specification": "docs/api/nuget-and-consumption.md",
+      "tasks": [
+        "A13",
+        "A14",
+        "A15",
+        "A23"
+      ],
+      "sources": [
+        "I-DOC-02"
+      ]
+    },
+    {
+      "id": "I34",
+      "feature": "Ordinary model/DTO/handler extensions",
+      "reference_apis": [
+        "SourceGenerator",
+        "JsonSerializerContext",
+        "static generic metadata"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Domain Entity/DTO/handler APIs"
+      ],
+      "rust_engine": "precompiled foreign handler and dynamic metadata adapters",
+      "adapter_operations": [
+        "managed-only descriptor updates; unchanged native SHA"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Compile all user types into application",
+      "cost": "Managed compile/descriptor cost; no native rebuild",
+      "limitations": "New native operators/codecs/platforms may need new package",
+      "specification": "docs/api/nuget-and-consumption.md",
+      "tasks": [
+        "A10",
+        "A16",
+        "B10",
+        "B12",
+        "B15",
+        "B24"
+      ],
+      "sources": [
+        "I-DOC-03"
+      ]
+    },
+    {
+      "id": "I35",
+      "feature": "Future GPU/UI/media/synchronous engine extension",
+      "reference_apis": [
+        "SafeHandle",
+        "IAsyncDisposable",
+        "ReadOnlySpan<T>"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EnginePackage",
+        "EngineThreadingModel",
+        "NativeBuffer where eligible"
+      ],
+      "rust_engine": "future domain-specific mature native engine",
+      "adapter_operations": [
+        "select minimal D02-D09 capabilities"
+      ],
+      "support": "planned",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Each platform/thread/fence profile must be certified",
+      "cost": "No requirement for giant Core or global runtime",
+      "limitations": "No GPU/UI/media public domain API implied by generic descriptor support",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A17",
+        "A18",
+        "A23",
+        "A24"
+      ],
+      "sources": [
+        "I-SRC-02",
+        "I-SRC-06"
+      ]
+    },
+    {
+      "id": "I36",
+      "feature": "Public API compatibility and documentation",
+      "reference_apis": [
+        "C# XML documentation",
+        "ApiCompat",
+        "ObsoleteAttribute"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "All Interop.cs public members"
+      ],
+      "rust_engine": "none",
+      "adapter_operations": [
+        "compiled API inventory; XML and examples gates"
+      ],
+      "support": "full",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Reference generation/build-time only",
+      "cost": "No user runtime cost",
+      "limitations": "New API/default/nullability/ownership changes reviewed with engine/task map",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A09",
+        "A10",
+        "A12",
+        "A22",
+        "A24"
+      ],
+      "sources": [
+        "I-SRC-12"
+      ]
+    },
+    {
+      "id": "I37",
+      "feature": "Diagnostics without mandatory logging runtime",
+      "reference_apis": [
+        "Exception",
+        "System.Diagnostics.ActivitySource",
+        "System.Diagnostics.Metrics.Meter"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineInfo",
+        "NativeEngineException.CorrelationId"
+      ],
+      "rust_engine": "engine-local counters and domain instrumentation",
+      "adapter_operations": [
+        "bounded fixed error/metadata records"
+      ],
+      "support": "limited",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static optional diagnostics hooks in domain",
+      "cost": "Successful Core calls need no strings/log framework",
+      "limitations": "No global telemetry service or hard whole-RSS bound",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A05",
+        "A08",
+        "A21",
+        "B20"
+      ],
+      "sources": [
+        "I-SRC-01",
+        "I-SRC-09"
+      ]
+    },
+    {
+      "id": "I38",
+      "feature": "Async stream early exit and resource ownership",
+      "reference_apis": [
+        "IAsyncEnumerable<T>",
+        "IAsyncEnumerator<T>.DisposeAsync"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "Domain streaming APIs (database.md/server.md)"
+      ],
+      "rust_engine": "native cursor/body/retained-byte owners",
+      "adapter_operations": [
+        "typed next chunk; explicit stop/retire/release"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static typed enumerator; one concurrent MoveNext",
+      "cost": "Bounded items plus bytes/waiters/retirement",
+      "limitations": "NativeBuffer is not itself an infinite stream; early break must drain safely",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A07",
+        "B06",
+        "B16",
+        "B17"
+      ],
+      "sources": [
+        "I-SRC-06"
+      ]
+    },
+    {
+      "id": "I39",
+      "feature": "No runtime initialization for unused modules",
+      "reference_apis": [
+        "Lazy<T>",
+        "NativeLibrary"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineDescriptor",
+        "EnginePackage.CreateDescriptor"
+      ],
+      "rust_engine": "none until a used factory loads module",
+      "adapter_operations": [
+        "lazy descriptor; conditional instance runtime"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static lazy initializer; no dynamic code",
+      "cost": "No native runtime/thread merely referencing Core",
+      "limitations": "Descriptor preflight loads library, domain factory owns runtime startup",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A02",
+        "A08",
+        "A16"
+      ],
+      "sources": [
+        "I-SRC-01"
+      ]
+    },
+    {
+      "id": "I40",
+      "feature": "Native loader failure recovery and identity collisions",
+      "reference_apis": [
+        "DllNotFoundException",
+        "BadImageFormatException",
+        "EntryPointNotFoundException"
+      ],
+      "reference_version": ".NET 11.0.0 / C# 15.0; stable documentation observed 2026-11-14",
+      "public_api": [
+        "EngineLoadException",
+        "EngineLoadFailure"
+      ],
+      "rust_engine": "stateless bootstrap",
+      "adapter_operations": [
+        "load/hash/export/ABI checks"
+      ],
+      "support": "equivalent",
+      "support_scope": "design specification only",
+      "product_implemented": false,
+      "aot": "Static typed diagnostics",
+      "cost": "Cold exception path; failed loaded identity remains resident",
+      "limitations": "Preload missing file may retry same install; post-load incompatibility requires restart",
+      "specification": "docs/api/interop.md",
+      "tasks": [
+        "A02",
+        "A05",
+        "A16",
+        "A22"
+      ],
+      "sources": [
+        "I-SRC-01"
+      ]
+    }
+  ]
+}

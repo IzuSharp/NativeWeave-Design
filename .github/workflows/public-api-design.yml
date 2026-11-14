@@ -1,0 +1,43 @@
+name: Verify complete CSharp API design
+on:
+  push:
+    branches: [main, design/public-api-20261114]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+env:
+  PYTHONUTF8: '1'
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  DOTNET_NOLOGO: '1'
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: '1'
+  DOTNET_CLI_USE_MSBUILD_SERVER: '0'
+jobs:
+  api-interface:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1
+        with:
+          dotnet-version: '11.0.100'
+      - name: Compile exact declarations and consumers, reject negative cases, execute Native AOT fixture
+        run: python experiments/public-api/run.py --aot --output artifacts/public-api/current
+      - name: Reject stale generated reference
+        run: git diff --exit-code -- docs/api/public-api.json docs/api/reference.md
+      - name: Check coverage, exact policies and immutable prior evidence
+        run: python tools/verify_public_api.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: public-api-${{ matrix.os }}
+          path: artifacts/public-api/current/
+          retention-days: 90

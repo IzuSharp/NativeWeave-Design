@@ -1,6 +1,18 @@
 # D16 — Native query semantics and typed Fluent contract
 
-Contract: **C-QUERY-001@0.3.0**; design candidate. The registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered AOT probe](../research/source-driven-evidence/README.md), existing R22/R24/R25 reports. This replaces full declaration-only LINQ capture, generic C# predicate compensation and required schema-specific SeaORM generation as the ordinary route. Historical SQL counterexamples remain valid; no arbitrary IQueryable compatibility is promised.
+Contract: **C-QUERY-001@0.4.0**; design candidate. The registry records exact-content independent review and acceptance; product implementation/release gates remain in Delivery. Evidence: [R25](../research/topics/R25/source-driven-seaquery.md), [recovered AOT probe](../research/source-driven-evidence/README.md), existing R22/R24/R25 reports. This replaces full declaration-only LINQ capture, generic C# predicate compensation and required schema-specific SeaORM generation as the ordinary route. Historical SQL counterexamples remain valid; no arbitrary IQueryable compatibility is promised.
+
+## Public API refinement 0.4.0
+
+The exact public declarations and complete native operation inventory are now
+[Database/ORM API 0.4.0](../api/database.md), its
+[coverage matrix](../api/database-coverage.json), and
+[Database.cs](../../experiments/public-api/NativeWeave.Api.Design/Database.cs).
+They replace earlier provisional signature spellings; the lifecycle, native-source
+findings and historical experiment identities below remain normative within that
+explicit scope. Native AOT fixture compilation is separate from product execution.
+Fresh exact-content review is required; prior accepted versions remain immutable.
+
 
 ## 1. Semantic owner and scope
 
@@ -10,20 +22,24 @@ The initial domain includes explicit CRUD, scalar typed values/null, filters, or
 
 ## 2. Typed facade and runtime metadata
 
-A descriptor contains a stable metadata identifier, validated table/column name, codec, nullability and any explicit key/relation information. The C# type `Column<TEntity,TValue>` prevents accidental cross-entity/value use in supported APIs; joined scopes need explicit aliases and typed association, not a general unchecked string field. Dynamic external fields are resolved against an allowlist, and native code validates again. C# type safety alone is not a sandbox for raw ABI input.
+A table descriptor contains a stable metadata identifier, validated table/column name, codec, nullability and explicit primary keys. Independent post-Build Relation descriptors bind two immutable model identities and ordered key pairs through the source-bound registration/load ABI in `docs/api/database.md` §9.2.1; they do not mutate canonical table metadata. The C# type `Column<TEntity,TValue>` prevents accidental cross-entity/value use in supported APIs; joined scopes need explicit aliases and typed association, not a general unchecked string field. Dynamic external fields are resolved against an allowlist, and native code validates again. C# type safety alone is not a sandbox for raw ABI input.
 
-Draft API, **not compiled**:
+Design consumer shape; its exact methods are covered by the declaration fixture:
 ```csharp
 using var q = session.From(Students.Table);
-q.Select(Students.Row)
- .WhereGe(Students.Age, minAge)
+q.WhereGreaterThanOrEqual(Students.Age, minAge)
  .WhereIsNotNull(Students.Email)
- .OrderBy(Students.Id, NullOrder.Last)
+ .OrderBy(Students.Id, nullOrder: NullOrder.Last)
  .Take(100);
-var rows = await q.ToListAsync(ct);
+var rows = await q.SelectAll().ToListAsync(ct);
 ```
 
-A more ergonomic `Where(s => s.Age.Ge(min).And(...))` may execute a normal C# builder delegate against native-backed expression proxies. It must not be marketed as arbitrary `Func<Student,bool>` translation. Expression proxies retain/query-match their native owner; cross-query reuse must either perform a documented native clone or reject, not borrow a dangling mutable object. The compiled research probe only establishes narrower typed-column composition and wrong-entity rejection.
+`Where(row => row.GreaterThanOrEqual(Students.Age, minAge))` executes an ordinary
+synchronous builder delegate over native-backed expression proxies. `WhereIf`
+skips callback/native construction when its condition is false. Neither translates
+arbitrary `Func<Student,bool>`. Cross-query values must follow the documented
+native clone/import route or reject. The earlier compiled research probe remains
+evidence only for its narrower typed-column composition and wrong-entity rejection.
 
 ## 3. Native builder and value lifecycle
 
@@ -90,6 +106,15 @@ loading, prefer generalizing those native algorithms through a controlled upstre
 metadata extension; do not build a C# relationship engine. The initial ordinary
 surface supports explicit native joins/projections and CAS changesets, with no
 transparent lazy loading, hidden tracking or arbitrary graph persistence.
+
+One-parent LoadRelatedAsync uses the separately registered relation owner, exact
+parent key db-wire row and child projection ID to create one native child cursor
+operation. Complete composite PK order, nullable FK compatibility, cache budgets,
+source/engine retention and close/failure paths are fixed by the Public API §9.2.1;
+the C# facade supplies static metadata and materializes bounded rows. Optional-FK
+Fluent ON comparisons use AsNullable/AsNullableReference (unary opcode4) to retain
+the original codec/value while widening result nullability. No COALESCE sentinel
+or downward nullable projection is implicit.
 
 `native_join_aggregate_matches_independent_sql_oracle` checks actual LEFT JOIN,
 COUNT and SUM behavior against separately authored SQL. The changeset fixture

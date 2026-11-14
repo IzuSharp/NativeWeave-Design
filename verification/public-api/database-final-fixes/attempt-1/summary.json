@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0.0",
+  "author": "/root/recover_database",
+  "recorded_at_utc": "2026-11-14T12:20:36.620789+00:00",
+  "scope": "Targeted design-signature consumer compilation and normative C declaration syntax only",
+  "passed": true,
+  "cases": [
+    {
+      "name": "sdk",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "--version"
+      ],
+      "cwd": "/tmp/nativeweave-db-final-fixes-6kz0s9fu",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_diagnostic": null,
+      "passed": true,
+      "log": "sdk.log",
+      "sha256": "ce0ed33fa65d926bf35a4b5fa3e9bd13266a9931237db41d283edcc123ecb9ff"
+    },
+    {
+      "name": "restore",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "restore",
+        "check.csproj",
+        "--configfile",
+        "NuGet.Offline.Config",
+        "--nologo"
+      ],
+      "cwd": "/tmp/nativeweave-db-final-fixes-6kz0s9fu",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_diagnostic": null,
+      "passed": true,
+      "log": "restore.log",
+      "sha256": "22b82e8fed7b85f822bbda6a41d93844a80441375c9bf0aa8ccd1fc7057e38f0"
+    },
+    {
+      "name": "positive-consumers",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "check.csproj",
+        "--no-restore",
+        "--nologo",
+        "-p:UseSharedCompilation=false"
+      ],
+      "cwd": "/tmp/nativeweave-db-final-fixes-6kz0s9fu",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_diagnostic": null,
+      "passed": true,
+      "log": "positive-consumers.log",
+      "sha256": "043c83e812ccc5a562f259044a0322e7c5f2ddac23a9409f369bd1e304e43a23"
+    },
+    {
+      "name": "DatabaseNullableJoin",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "check.csproj",
+        "--no-restore",
+        "--nologo",
+        "-p:UseSharedCompilation=false",
+        "-p:NegativeFile=inputs/DatabaseNullableJoin.cs.txt"
+      ],
+      "cwd": "/tmp/nativeweave-db-final-fixes-6kz0s9fu",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "expected_diagnostic": "CS0029",
+      "passed": true,
+      "log": "DatabaseNullableJoin.log",
+      "sha256": "d474a7a933e808bd9296b5ff1cec9a4ea104345a5b7852fc8f0f7aeb195271f0"
+    },
+    {
+      "name": "DatabaseNullableLiftReverse",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "check.csproj",
+        "--no-restore",
+        "--nologo",
+        "-p:UseSharedCompilation=false",
+        "-p:NegativeFile=inputs/DatabaseNullableLiftReverse.cs.txt"
+      ],
+      "cwd": "/tmp/nativeweave-db-final-fixes-6kz0s9fu",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "expected_diagnostic": "CS0029",
+      "passed": true,
+      "log": "DatabaseNullableLiftReverse.log",
+      "sha256": "d820de506dde4b474f01730c311a3a0c07e4c797dc5d0d0860a01a8145828a79"
+    },
+    {
+      "name": "DatabaseNullableLiftRepeat",
+      "command": [
+        "/workspace/scratch/58d2a6adf1c3/dotnet-sdk/dotnet",
+        "build",
+        "check.csproj",
+        "--no-restore",
+        "--nologo",
+        "-p:UseSharedCompilation=false",
+        "-p:NegativeFile=inputs/DatabaseNullableLiftRepeat.cs.txt"
+      ],
+      "cwd": "/tmp/nativeweave-db-final-fixes-6kz0s9fu",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "expected_diagnostic": "CS0453",
+      "passed": true,
+      "log": "DatabaseNullableLiftRepeat.log",
+      "sha256": "695fb10c6078052731ec0be0c25927bab688f17f9662c3dd29392fd033abd4ce"
+    },
+    {
+      "name": "c-abi-syntax",
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fsyntax-only",
+        "database-abi.c"
+      ],
+      "cwd": "/tmp/nativeweave-db-final-fixes-6kz0s9fu",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "expected_diagnostic": null,
+      "passed": true,
+      "log": "c-abi-syntax.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "coverage-and-policies-json",
+      "passed": true
+    }
+  ],
+  "positive_consumer_coverage": [
+    "Optional long? FK LEFT JOIN with long AsNullable",
+    "Independent post-Build Relation.CreateOptional and LoadRelatedAsync",
+    "Reference AsNullableReference comparison"
+  ],
+  "claims": {
+    "product_database_executed": false,
+    "native_relation_implementation_tested": false,
+    "sql_semantics_executed": false,
+    "aot_published": false,
+    "independent_review": false,
+    "old_native_probes_reexecuted": false
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at_utc": "2026-11-14T11:50:40.629977+00:00",
+  "author": "/root/recover_database",
+  "record_kind": "recovery_delta_and_fix_record",
+  "status": "fixed_pending_final_integration_and_independent_review",
+  "scope": "Incremental fixes after restoring the latest saved and uncommitted Database public API work; no product implementation or repeated upstream/native experiments.",
+  "preserved_review": "docs/traceability/reviews/public-api-2026-11-14/database-review-notes.json",
+  "preserved_review_sha256": "4a5839b6261e97685a3143d3abc2aef616cc3162ee34fb7082185955b69049b8",
+  "findings": [
+    {
+      "id": "API-DB-006",
+      "action": "Complete the remaining guide/consumer concurrency annotation parity. Both model declarations now include WeaveVersion on Version. The prior independent review is preserved unchanged; this author does not independently accept its own edit.",
+      "files": [
+        "docs/api/getting-started.md",
+        "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs"
+      ]
+    },
+    {
+      "id": "API-DB-008",
+      "severity": "medium",
+      "title": "Unspecified generated default column names conflict with claimed handwritten equivalence",
+      "fix": "Preserve the exact CLR property symbol name by default; declare WeaveColumn overrides for every lowercase store column in the Student examples. Keep generated member names unchanged, and explicitly require equivalent key/concurrency/codec/nullability/projection metadata.",
+      "files": [
+        "docs/api/database.md",
+        "docs/api/getting-started.md",
+        "docs/generators/query-generation.md",
+        "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+        "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs"
+      ]
+    },
+    {
+      "id": "API-DB-009",
+      "severity": "high",
+      "title": "Upsert lacks a distinct transport field for explicit conflict-update values",
+      "fix": "Add kind4 field8 for the independent update payload; specify each mutation0..6 required and forbidden field set, cardinality, column rules and outcome. Upsert does not substitute insert/EXCLUDED values for separately supplied Changes. Synchronize type policies and DB-025; correct DB-091 ordinary-update opcode.",
+      "files": [
+        "docs/api/database.md",
+        "docs/api/database-coverage.json",
+        "docs/api/database-symbol-policies.json",
+        "experiments/public-api/NativeWeave.Api.Design/Database.cs"
+      ]
+    },
+    {
+      "id": "API-DB-010",
+      "severity": "medium",
+      "title": "Mutable selection arguments need an explicit nonconsuming path to sealed-plan imports",
+      "fix": "Document source read admission, temporary query clone, seal8, retained import2, clause9/14 and finally release, with source mutability preserved, source/shape checks, snapshot parameters, self-composition gate ordering and bounded retained dependencies on failure. No new ABI operation or managed AST is added.",
+      "files": [
+        "docs/api/database.md",
+        "docs/api/database-coverage.json",
+        "docs/api/database-symbol-policies.json",
+        "experiments/public-api/NativeWeave.Api.Design/Database.cs"
+      ]
+    },
+    {
+      "id": "API-DB-011",
+      "severity": "low",
+      "title": "Coverage wording implies implemented row streaming",
+      "fix": "DB-084 now states row streaming is specified separately; product_implemented remains false.",
+      "files": [
+        "docs/api/database-coverage.json"
+      ]
+    }
+  ],
+  "validation": {
+    "json_parse": "passed for database coverage, symbol policies and unchanged sources",
+    "git_diff_check": "passed",
+    "guide_and_compiled_consumer_model_text": "exact Student declaration equality passed",
+    "explicit_column_names_against_handwritten_mapping": "passed for id/name/age/email/version",
+    "concurrency_marker_parity": "passed",
+    "compile_and_native_aot": "Final aggregate integration pass is required; no new compiler/AOT execution is claimed by this record.",
+    "native_or_upstream_experiments_reexecuted": false,
+    "old_review_rewritten": false,
+    "product_code_changed": false
+  },
+  "inputs_sha256": {
+    "docs/api/database.md": "8720507644ed3945ca9f2476d77925620c522b7b6c5ac994b992fda132676614",
+    "docs/api/database-coverage.json": "830957a9353590c5c817370cc7ed12299aa29c1eecd472d9bb9f7bf84f76e560",
+    "docs/api/database-symbol-policies.json": "f8cd8ddb159934865f94195e9e5e23aa249bbbeebadc3122d0aabf035f6ca5af",
+    "docs/api/getting-started.md": "1a78365da1422d12f793beef06e13e3a543902c2d7ccd84c79cf01bf322affe2",
+    "docs/generators/query-generation.md": "ea92fa2e999b0883266d5e28915227c3adb4c7236ead3df6356dd59be22cdaaf",
+    "experiments/public-api/NativeWeave.Api.Design/Database.cs": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb",
+    "experiments/public-api/NativeWeave.Api.Consumers/DatabaseExamples.cs": "8cecfb5283c879d548b1fa2423610285141915813fa3b8d3902f4823795e8d30"
+  },
+  "final_review_required": "A reviewer who did not author these changes must recheck the final integrated Design/Plan content and exact acceptance bindings."
+}

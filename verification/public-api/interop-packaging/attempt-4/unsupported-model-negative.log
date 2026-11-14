@@ -1,0 +1,11 @@
+CSC : error NWPKGPROBE001: The package probe cannot encode 'global::Example.InvalidModel': unsupported property Payload [<work>/consumer/Consumer.csproj]
+<work>/consumer/Program.cs(2,32): error CS0234: The type or namespace name 'Generated' does not exist in the namespace 'NativeWeave.Design.Probe' (are you missing an assembly reference?) [<work>/consumer/Consumer.csproj]
+
+Build FAILED.
+
+CSC : error NWPKGPROBE001: The package probe cannot encode 'global::Example.InvalidModel': unsupported property Payload [<work>/consumer/Consumer.csproj]
+<work>/consumer/Program.cs(2,32): error CS0234: The type or namespace name 'Generated' does not exist in the namespace 'NativeWeave.Design.Probe' (are you missing an assembly reference?) [<work>/consumer/Consumer.csproj]
+    0 Warning(s)
+    2 Error(s)
+
+Time Elapsed 00:00:01.23

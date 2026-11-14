@@ -1,6 +1,6 @@
 # C-ERROR-001: Status, domain errors, managed exceptions and Rust panic
 
-Version: 0.3.0; D08 / R11. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This file is the sole documentary authority for v1 status values and the base ErrorRecord; generated code comes from the D03 ABI description, and D02 verifies layout. The illustrative snippets in this file have not been compiled separately; see the exact evidence at the end for executed research prototypes. Full product implementation/platform behavior still requires Delivery verification.
+Version: 0.4.0; D08 / R11. Author: interop_design. Status: **Research/design candidate complete; the registry records the exact reviewed version, content hash and acceptance status; product verification remains in Delivery**. This file is the sole documentary authority for v1 status values and the base ErrorRecord; generated code comes from the D03 ABI description, and D02 verifies layout. The illustrative snippets in this file have not been compiled separately; see the exact evidence at the end for executed research prototypes. Full product implementation/platform behavior still requires Delivery verification.
 
 ## 1. Goals
 
@@ -191,3 +191,10 @@ This file remains the sole authority for wire status. Private experimental enums
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+The exact public exception signatures are in [Interop](../api/interop.md) and the declaration inventory. NativeEngineException preserves wire error diagnostics for native failures; pre-native EngineLoadException failures have no fabricated native success/error record, so unavailable wire fields are nullable. Rich native failures populate the documented diagnostic tuple. Database/Server ordinary errors use domain exceptions; argument/disposal/cancellation/timeout follow BCL categories. Expected absence uses explicit cardinality/Try semantics. Neither a generic Result wrapper nor an IsTransient flag permits automatic replay after an unknown transaction effect. A05/A02/B07/B20 own XML exception semantics and secret-redacted diagnostics.

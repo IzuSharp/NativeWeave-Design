@@ -1,0 +1,793 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": {
+    "agent": "/root/server_api",
+    "role": "independent Interop/NuGet and standards reviewer",
+    "independence": "This reviewer authored Server-domain design, not the reviewed Interop/NuGet/Core/probe/standard inputs. Server-domain approval is excluded.",
+    "github_review": false
+  },
+  "observed_at_utc": "2026-11-14T11:57:09.962536+00:00",
+  "review_state": "changes_required: API-INT-007 and API-INT-008 remain blocking; API-INT-005 is nonblocking maintenance",
+  "acceptance_claim": false,
+  "product_acceptance": false,
+  "input_binding": {
+    "kind": "exact working-tree file SHA256",
+    "context_head": "66e67d6a390e8e165caba0df91ab616c393cf9f5",
+    "context_head_is_acceptance_binding": false,
+    "note": "The working tree contains pending integrated edits. Formal acceptance/immutable commit binding is separate. Original pre-fix snippets were observed during this review; no unrecorded pre-fix file hash is invented."
+  },
+  "scope": [
+    "Exact Interop declarations, examples, type policies and 40-row coverage",
+    "Shared five-record C ABI layout/status/callback/bootstrap definitions",
+    "Ownership, async cancellation versus retirement, module identity/cache/resolution and AOT/native extension boundaries",
+    "NativeWeave package closure, transitive build assets, source generator restrictions and output-location record",
+    "Four package probe attempts, raw log hashes, executable inputs, NuGet graph/archive contents and retained native/AOT output",
+    "Binding/platform/release/Engine integration refinements and root API standard, README and adoption templates",
+    "Compiler-symbol exporter and representative Interop generated-reference fidelity under the reviewed documentation standard"
+  ],
+  "inputs": [
+    {
+      "path": "docs/api/interop.md",
+      "sha256": "2b32e5c2dcdfe78dd0b39014949a88bf91d6b2d011f8d75117e00507ecae4b74",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/api/interop-coverage.json",
+      "sha256": "e6e1de9c087158a179e73e74fd30d9b8c3c691e069cac25d3371d7743a8c0aa8",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/api/interop-sources.json",
+      "sha256": "7660f18a73d08accbc0ce8743e764e0eb212393a8d0575e20bda431cd17395a1",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/api/interop-symbol-policies.json",
+      "sha256": "ebd262a177629f6b140493ef2ea9d5405ea4b232a3ad05dea7c3efa716c4088c",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/api/nuget-and-consumption.md",
+      "sha256": "7aab2485a5bfe21042b701bb1eda43b630330fe896b2ca8f80a81f93d3ffced9",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Consumers/InteropExamples.cs",
+      "sha256": "7b1ec450f8a61d21904084ee71ebff6bf179b2e165580511f7e37ca494e4b286",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/abi/nativeweave_api_v1.h",
+      "sha256": "6d79a3d030ec429e4706f6012d4e9f876ddc35307d4b4c814fc18d5100b4c6e2",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/abi/layout_probe.c",
+      "sha256": "6a60995ce974477dc7e565b7c8c9a02f146d5b7cce29b31e46922ccef8ecb3f2",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/generators/binding-pipeline.md",
+      "sha256": "ae3c30c3547b3508a95acbf1ae8f5d2d1a3a9aaf3c6a1f2a4bc317a6c8ccfe4e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/platforms/support-and-aot.md",
+      "sha256": "fc7fa75462cd42f159568eb37342367f3302801745b731fc630f3a730d62ee7e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/platforms/build-package-release.md",
+      "sha256": "4810c05f0af850dadc1c814ca7707ff348e7b448a9fcb792ec2a7aeb2d7c46cc",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/extension/engine-integration.md",
+      "sha256": "7910c717d103088f29ec6e64683b0160398d9c479365328655dd2db9260c749d",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/standards/csharp-public-api-and-documentation.md",
+      "sha256": "e14e02e86d1f13c4fe6d670e3edde219f24e1500ad92d9afb045bdd817a3e7d4",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/api/documentation-system.md",
+      "sha256": "49fa32115777c296c361016f99f6921ad3ce1b0087e4dbd39185c107e0c8c03e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5bce0ed4f045d167cf1c4564a7e613126fe4b2473f6c0b2dffeb2f6e5d404342",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/api/README.md",
+      "sha256": "e9b8a59dcade380d52239f4177e144ab1e16f3353c58038d861741ee4ab55301",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "e4ccc3241f3d1c37bf1c1156fd2591fcc263cf8422c4b1a4f41df057adf22f40",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "templates/public-api/AGENTS.fragment.md",
+      "sha256": "dd903ddc4edcbf2834a178cebd3075b663b8f4024f8200387bc0ac123540b28e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "templates/public-api/adoption-checklist.md",
+      "sha256": "44daf25f07a809e2a523683aedf2960d6ec5b8bb1a32154539ee6c8b0df68dd0",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "templates/public-api/api-change-template.md",
+      "sha256": "94832ff05fd49865bae73158336d1f3e67f343ea86f833e7e2aa2752d00bc264",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/contracts/abi-v0.1.md",
+      "sha256": "d9e8fd60ff33d3c56410cd4cc3a6ad591609c0b49282bd3ccf9ad7b93f06e9f2",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "docs/contracts/async-v0.1.md",
+      "sha256": "e939648f87c5463687ca5ed34b173c0934cb28be528c1401898d0819bc213081",
+      "scope": "section 3 exact operation prototypes and state/cleanup references; existing lifecycle research inherited"
+    },
+    {
+      "path": "docs/contracts/error-v0.1.md",
+      "sha256": "f110fba00ee2479c8a12648ecc1fbb592ca45866e1e25dc31b5445a694b95bd4",
+      "scope": "sections 1-10 fixed statuses, diagnostic capacity, panic/ownership rules"
+    },
+    {
+      "path": "docs/api/database.md",
+      "sha256": "8720507644ed3945ca9f2476d77925620c522b7b6c5ac994b992fda132676614",
+      "scope": "sections 9.1 and buffer ownership paragraphs only; cross-layer ABI consistency, not independent Database approval"
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/Consumer.cs",
+      "sha256": "898bc00334748b792c60dbeb444e7eb4c466fbe3904d986b8b68abec4eb5e391",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/NativeWeave.Design.Probe.BuildAssets.targets",
+      "sha256": "b418faaa1ca203ef14a845e7804dcce596a52bf0f7214036fc29fb5c3fd9dcc9",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/ProbeAttributes.cs",
+      "sha256": "42f085ddd2367b3a072c08ce04462deae08455d9bc5c23e2038b8af77e175d21",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/ProbeGenerator.cs",
+      "sha256": "730432df5110eb50d301560155947c100e6d9d3843318241ddc90599b7101f49",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/README.md",
+      "sha256": "d8d9ead3f1dde6e0538d025de155ff063f297af4dc040db2a87ba1a5101b3f0c",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/packaging-probe/run.py",
+      "sha256": "225884e6dd8fd3b89facd39ef60bfb7ce08403d8abf32d3be81d3e0402c7ce67",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/README.md",
+      "sha256": "53c9d0dbd0ec7200026ee9f7ce7f9896b317f3b566129c84c0c8d8df65b8d95f",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-1/interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-1/interop-negative-borrow.log",
+      "sha256": "6b2092e4bbea877e3585c276348c775a692d40339a2e18cd2df29366bbf02bd0",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-1/sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-1/summary.json",
+      "sha256": "612dec464c97ea7c826898be0ca6f5f6e16fdefe722d70975e152a47664eb466",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-2/c-layout-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-2/c-layout-execute.log",
+      "sha256": "4ed65c5b41881a45822013561d9a8a90533cf5dc3b6e19a854c62aebd17c9247",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-2/generator-compile.log",
+      "sha256": "8c30c6044139f819191fb5798008c17cc8fd643a3731401e9b656856eeb36649",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-2/interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-2/interop-negative-borrow.log",
+      "sha256": "17d1653b079f305a621eae48bc8fa6719bec987f1ee6c5fec09aad2878b7736f",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-2/sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-2/summary.json",
+      "sha256": "9c415c5fd389d6ab3911e011830a111601c1ae0475349c6aeb152fb1d674b31b",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-3/c-layout-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-3/c-layout-execute.log",
+      "sha256": "4ed65c5b41881a45822013561d9a8a90533cf5dc3b6e19a854c62aebd17c9247",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-3/generator-compile.log",
+      "sha256": "4c4195ac7c8e5b825eff0660fb0ea1116ac67537e1d48fcb3f4a19c9b77960e8",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-3/interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-3/interop-negative-borrow.log",
+      "sha256": "17d1653b079f305a621eae48bc8fa6719bec987f1ee6c5fec09aad2878b7736f",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-3/sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-3/summary.json",
+      "sha256": "3842c420862b0cd7653253ec8ae18993e1d9955b1d7ded31fb5d1596dd2d7e4e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/artifact-readback.json",
+      "sha256": "7cea142c263f2308303e6e682cd9ef842d2b7cecd57b1d5cc270a1bdc453d24c",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/c-layout-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/c-layout-execute.log",
+      "sha256": "4ed65c5b41881a45822013561d9a8a90533cf5dc3b6e19a854c62aebd17c9247",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/changed-model-build.log",
+      "sha256": "8daf7b79d453728b386e0708553e8a54832547fbd1a7c69058eaa727fb49ce33",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/changed-model-run.log",
+      "sha256": "5ca45ed983d67c06b0348638b58f431beb0cf6d8d4c4831d3072752244ade078",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/consumer-aot-publish.log",
+      "sha256": "8d4f31cd94c6d5db7ecdde255128834d313904830a2a1072dc05049d2a60a2c1",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/consumer-aot-run.log",
+      "sha256": "cf504cc5d696572cc78ecd7ae74e32bd38fe7337e417414dc52544f4bb4dc51d",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/consumer-build.log",
+      "sha256": "e21618f2c1bc780d8d0459e3a114494bef49896d78f1918ca7163609b9b5c701",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/consumer-publish.log",
+      "sha256": "d9e4f4a76a41fc4e1d210236774ee80dd2748669f5a1a963fa8a986823f8162c",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/consumer-run.log",
+      "sha256": "17d65bc5933e0b35f5e1fc6ce89c6f98c015361e790f1e70c8ec07204026dae0",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/facade-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/generated-example.cs",
+      "sha256": "0b9282251c0d515eba1b549e50b3ccb35f70ae161a04db747e4b09d2b53a512d",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/generator-compile.log",
+      "sha256": "4c4195ac7c8e5b825eff0660fb0ea1116ac67537e1d48fcb3f4a19c9b77960e8",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/interop-declarations.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/interop-negative-borrow.log",
+      "sha256": "17d1653b079f305a621eae48bc8fa6719bec987f1ee6c5fec09aad2878b7736f",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/published-consumer-run.log",
+      "sha256": "5ca45ed983d67c06b0348638b58f431beb0cf6d8d4c4831d3072752244ade078",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/sdk-info.log",
+      "sha256": "7e1f6de1b63ecab28f89f7b4388664388f42b3f73e89c33475e14f5cd3d8c17e",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/summary.json",
+      "sha256": "12d1d1573f25ab5eea8e0668ce5fff25dd4cbc9db998211ed21e2ea32f294fea",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "verification/public-api/interop-packaging/attempt-4/unsupported-model-negative.log",
+      "sha256": "eb9395d16de7f73d1831eb471aad5a66bd3444f446041baca3bd065602a538af",
+      "scope": "full file semantic/source or evidence review"
+    },
+    {
+      "path": "experiments/public-api/NativeWeave.Api.Inventory/Program.cs",
+      "sha256": "cb8da715cd8e8b988a998cffca12e260a75a38b220709f17e8245c2c2148f8c5",
+      "scope": "full exporter source; enforcement of the reviewed documentation standard"
+    },
+    {
+      "path": "docs/api/public-api.json",
+      "sha256": "7e9625dc1bd8e8ce056b96352ef23577116afd74792445b0e42bd6ef0eb99d4c",
+      "scope": "Interop TryGet parameter attributes and named-type declaration rows; not a second full-domain semantic review"
+    },
+    {
+      "path": "docs/api/reference.md",
+      "sha256": "db1152eb8940c01c084c2e8c97c06a1fb6d6031ab1b833d176ad85f7d9451a7e",
+      "scope": "Interop TryGet, NativeBuffer and NativeBufferReader generated entries; exact signature fidelity"
+    }
+  ],
+  "findings": [
+    {
+      "id": "API-INT-001",
+      "severity": "high",
+      "blocking": true,
+      "status": "fixed-rechecked",
+      "title": "Database operation control prototypes disagreed with the fixed Core operation contract",
+      "evidence": [
+        {
+          "path": "docs/api/database.md",
+          "section": "9.1",
+          "observed_before_fix": "request_cancel and try_retire had an extra nw_error_info_v1* argument; operation_release returned nw_status and accepted an error argument."
+        },
+        {
+          "path": "docs/api/interop.md",
+          "section": "6.2",
+          "observation": "Fixed roles require cancel(op), retire(op), and void release(op); C-ASYNC-001 section 3 has the same exact shape."
+        }
+      ],
+      "impact": "Two normative generation inputs would produce incompatible imports and destructor behavior. Release failure did not establish who retained ownership.",
+      "remediation": "The Database author removed the two diagnostic arguments, made operation_release void, and stated OK-only cancellation, OK/PENDING retirement, Created-or-Retired release with no live calls, and no callbacks/unwind/blocking join.",
+      "recheck": {
+        "reviewer": "/root/server_api",
+        "result": "The corrected prototypes and postconditions agree with Core section 6.2 and C-ASYNC-001 section 3.",
+        "files": [
+          "docs/api/database.md",
+          "docs/api/interop.md",
+          "docs/contracts/async-v0.1.md"
+        ]
+      }
+    },
+    {
+      "id": "API-INT-002",
+      "severity": "medium",
+      "blocking": true,
+      "status": "fixed-rechecked",
+      "title": "The NuGet Minimal HTTP journey mapped routes on the wrong stage",
+      "evidence": [
+        {
+          "path": "docs/api/nuget-and-consumption.md",
+          "section": "2",
+          "observed_before_fix": "Builder -> routes -> Build -> Run contradicted the declared NativeServer route extension surface."
+        }
+      ],
+      "impact": "A reader following the package entry guide would try unavailable builder mapping methods.",
+      "remediation": "The NuGet author changed the journey to configure builder -> Build() -> map routes on NativeServer -> RunAsync and documented first-start route freeze.",
+      "recheck": {
+        "reviewer": "/root/server_api",
+        "result": "The current row matches the existing declarations and route-freeze rule. This is a review of the NuGet journey, not self-approval of the Server domain.",
+        "files": [
+          "docs/api/nuget-and-consumption.md"
+        ]
+      }
+    },
+    {
+      "id": "API-INT-003",
+      "severity": "medium",
+      "blocking": true,
+      "status": "fixed-rechecked",
+      "title": "The long-term package rule contradicted the selected Core extension seam",
+      "evidence": [
+        {
+          "path": "docs/standards/csharp-public-api-and-documentation.md",
+          "section": "3",
+          "observed_before_fix": "Maintainer-only contracts were required to have both a separate namespace and a separate package."
+        },
+        {
+          "path": "docs/api/interop.md",
+          "section": "1",
+          "observation": "NativeWeave.Interop.Extensibility is deliberately shipped in NativeWeave.Core; the NuGet graph and policies agree."
+        }
+      ],
+      "impact": "An adopting implementation could unnecessarily split the shared ownership seam or fail its own standard despite following the reviewed package graph.",
+      "remediation": "The standard author required namespace separation, made package separation depend on optional dependencies/tooling, and recorded the BCL-only Core seam rationale and continued SPI compatibility review.",
+      "recheck": {
+        "reviewer": "/root/server_api",
+        "result": "The explicit cost/dependency decision reconciles the standard, package graph and type policies without weakening SPI review.",
+        "files": [
+          "docs/standards/csharp-public-api-and-documentation.md",
+          "docs/api/interop.md",
+          "docs/api/nuget-and-consumption.md",
+          "docs/api/interop-symbol-policies.json"
+        ]
+      }
+    },
+    {
+      "id": "API-INT-004",
+      "severity": "high",
+      "blocking": true,
+      "status": "fixed-rechecked",
+      "title": "Immutable database buffer destruction still has an ambiguous error and ownership shape",
+      "evidence": [
+        {
+          "path": "docs/api/database.md",
+          "section": "9.1",
+          "observation": "nw_db_buffer_release_v1(nw_db_buffer*, nw_error_info_v1*) returns nw_status; the later paragraph says creating-module-only/once but does not define failed release ownership."
+        },
+        {
+          "path": "docs/api/interop.md",
+          "section": "6.1",
+          "observation": "NativeBuffer.Dispose maps to a private SafeHandle invoking buffer_release_v1(owner) exactly once; the destructor must be nonblocking/nonthrowing/free-threaded."
+        }
+      ],
+      "impact": "The owner wrapper cannot infer whether a failed destructor consumed the buffer, may be retried, or leaves retained memory; the exact binding shape is inconsistent across the two normative inputs.",
+      "remediation": "The Database author changed buffer_release and owner_release to void/no-error destructors, reserved cleanup-ledger capacity at owner creation, made valid release consume once without retry/callback/blocking join/unwind, and retained explicit Close as the error-reporting path. NativeBufferFactory accepts only the compatible immutable free-threaded destructor.",
+      "recheck": {
+        "reviewer": "/root/server_api",
+        "result": "Read the revised normative prototypes and ownership postconditions. They agree with Core sections 5 and 6.1; no fallible destructor ownership ambiguity remains. Other Database wire refinements are outside this review.",
+        "files": [
+          "docs/api/database.md",
+          "docs/api/interop.md"
+        ]
+      }
+    },
+    {
+      "id": "API-INT-005",
+      "severity": "low",
+      "blocking": false,
+      "status": "open-maintenance",
+      "title": "The package probe protects its work directory but not an existing evidence directory",
+      "evidence": [
+        {
+          "path": "experiments/public-api/packaging-probe/run.py",
+          "section": "main / save / run",
+          "observation": "A nonempty work-directory is rejected, but output.mkdir(exist_ok=True), summary.write_text and log.write_text can overwrite a previous --output when a caller supplies a different fresh work directory."
+        }
+      ],
+      "impact": "The existing four attempts are separate, intact and hash-verified; a later reproduction could accidentally overwrite historical evidence. This is not a defect in the observed successful run.",
+      "remediation": "Reject a nonempty evidence output directory as well. If repairing now, preserve the exact attempt-4 executable source as a snapshot and label the new guard as unexecuted rather than changing historical input hashes."
+    },
+    {
+      "id": "API-INT-006",
+      "severity": "medium",
+      "blocking": true,
+      "status": "fixed-rechecked",
+      "title": "Several cold metadata and asynchronous argument contracts are not exact",
+      "evidence": [
+        {
+          "path": "docs/api/interop.md",
+          "section": "2 / 5",
+          "observation": "Catalog, manifest and option snapshots are called bounded without a collection limit. Get/TryGet reject malformed engine IDs, but the manifest says only nonempty and the XML says lower-case; no exact grammar/length is assigned."
+        },
+        {
+          "path": "docs/api/interop.md",
+          "section": "3",
+          "observation": "CopyToAsync lists validation/cancellation behavior but not whether argument errors are synchronous or represented by a faulted task; the precedence of pre-cancellation and empty input is not fixed."
+        },
+        {
+          "path": "docs/standards/csharp-public-api-and-documentation.md",
+          "section": "5",
+          "observation": "The normative standard explicitly requires argument-validation delivery and deterministic zero/cancellation behavior."
+        }
+      ],
+      "impact": "Different conforming-looking implementations could accept incompatible descriptor identities or unbounded enumeration, and consumers cannot predict when an invalid async call throws. These are cold/public behavior gaps, not a request for another runtime abstraction.",
+      "remediation": "The Interop author specified one 1-128 byte ASCII engine-ID grammar, catalog<=256, manifest assets/capability definitions<=64 with cumulative UTF-8<=64KiB and per-field limits, options<=64 unique requirements, streaming count/size checks and no partial publication. CopyToAsync now specifies synchronous usage validation/admission, token-associated pre-cancellation before empty success, returned-task error delivery, and full write retirement before lease release. Follow-up corrections retain the exact descriptors parameter name and account for allocation of the canceled Task.",
+      "recheck": {
+        "reviewer": "/root/server_api",
+        "result": "Read both new semantic paragraphs and the follow-up corrections. Counts/grammar/rejection and async ordering are now exact; no declaration change or new native execution claim was made.",
+        "files": [
+          "docs/api/interop.md"
+        ],
+        "sha256": "2b32e5c2dcdfe78dd0b39014949a88bf91d6b2d011f8d75117e00507ecae4b74"
+      }
+    },
+    {
+      "id": "API-INT-007",
+      "severity": "medium",
+      "blocking": true,
+      "status": "open",
+      "title": "Generated reference omits consumption-affecting parameter and return attributes",
+      "evidence": [
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Inventory/Program.cs",
+          "section": "Add / parameter projection",
+          "observation": "Only symbol.GetAttributes() is exported. Parameter.GetAttributes() and method return-type attributes are omitted."
+        },
+        {
+          "path": "docs/api/public-api.json",
+          "section": "M:NativeWeave.Interop.EngineCatalog.TryGet(System.String,NativeWeave.Interop.EngineDescriptor@)",
+          "observation": "The descriptor parameter has nullable/ref metadata but no NotNullWhen(true) attribute. The generated reference also lacks it, although Interop.cs declares it."
+        },
+        {
+          "path": "docs/api/documentation-system.md",
+          "section": "1",
+          "observation": "The inventory explicitly requires attributes affecting consumption."
+        }
+      ],
+      "impact": "Consumers reading the exact reference cannot see the compiler-enforced nullable flow contract. The generated baseline cannot detect changes to that annotation.",
+      "remediation": "Export parameter/return attributes and render consumption-affecting annotations in the reference, regenerate, and compare the known TryGet case against its declaration."
+    },
+    {
+      "id": "API-INT-008",
+      "severity": "medium",
+      "blocking": true,
+      "status": "open",
+      "title": "Generated declarations omit type modifiers, delegate signatures and enum values",
+      "evidence": [
+        {
+          "path": "docs/api/reference.md",
+          "section": "T:NativeWeave.Interop.NativeBuffer",
+          "observation": "The generated declaration is class NativeWeave.Interop.NativeBuffer; public sealed is absent. The JSON has accessibility separately but no sealed/static/abstract field."
+        },
+        {
+          "path": "docs/api/reference.md",
+          "section": "T:NativeWeave.Interop.NativeBufferReader and generic variant",
+          "observation": "The generated declaration contains only delegate and type name, without return type or parameter list."
+        },
+        {
+          "path": "experiments/public-api/NativeWeave.Api.Inventory/Program.cs",
+          "section": "SymbolDisplayFormat / Add",
+          "observation": "Member display flags are insufficient to include named-type modifiers; delegateStyle remains its name-only default."
+        },
+        {
+          "path": "docs/api/public-api.json",
+          "section": "F:NativeWeave.Interop.EngineLoadFailure.MissingExport",
+          "observation": "The row and rendered reference omit the value 5; no ConstantValue or enum underlying type is exported, so a numeric enum change is invisible to this baseline."
+        }
+      ],
+      "impact": "The advertised exact declaration reference misstates inheritance availability and does not present a usable delegate signature, contrary to the complete symbol inventory contract. It also cannot detect changes to the numeric values of managed public enum fields.",
+      "remediation": "Render full named-type accessibility/modifiers and delegate return/parameter signatures, retain exact base/interface/constraint metadata, regenerate and inspect representative class/record/delegate cases. Export enum underlying types and field/const values and render their exact values."
+    }
+  ],
+  "observations": [
+    {
+      "id": "API-INT-OBS-001",
+      "result": "All 31 command-log entries across attempts 1-4 match their recorded SHA256; 15 unique byte contents were read. Failed attempts retain CS0201, CS1701 and the Python tuple/list failure, without being relabeled successful."
+    },
+    {
+      "id": "API-INT-OBS-002",
+      "result": "Attempt 4 summary digest matches artifact-readback. All seven executable source inputs and two additional C header/probe inputs match their recorded SHA256 at review time."
+    },
+    {
+      "id": "API-INT-OBS-003",
+      "result": "Read all three retained nupkg entry lists/nuspecs: only facade is directly referenced; facade has exact native/build-assets dependency ranges; generator exists only under tools with one buildTransitive import; no ProjectReference shortcut or Rust build hook."
+    },
+    {
+      "id": "API-INT-OBS-004",
+      "result": "JIT output, RID-free ordinary publish and explicit-RID AOT native asset all equal the inherited codec SHA256. RID-free ordinary publish correctly retains runtimes/linux-x64/native, whereas AOT output is flattened; no current product loader implementation is claimed.",
+      "native_sha256": "981efa587ec0ec9f19d8bece547dcfe3a36439faf2efcae3d2371c87154695ee"
+    },
+    {
+      "id": "API-INT-OBS-005",
+      "result": "The actual retained AOT executable is an x86-64 ELF, its bytes and .dbg/native bytes match artifact-readback, and independent execution from another working directory with only /usr/bin:/bin on PATH returned exit 0. No native rebuild was performed.",
+      "command": [
+        "<retained-attempt4>/aot/Consumer",
+        "4",
+        "--aot"
+      ],
+      "executable_sha256": "3f1c41e3903cdb9005dbb553b036a358f6022744cca3e5d9d5b6ca70d793e72e",
+      "exit_code": 0,
+      "stdout": "shape_count=4 fingerprint=7ad66cc47c5d89cf5e34ea1fe70ee5f675e9278f107eaefa980727f4a005c087 native_roundtrip=true aot=True\n",
+      "stderr": ""
+    },
+    {
+      "id": "API-INT-OBS-006",
+      "result": "The 12 cached runtime source files match their manifest digests. Critical review rereads covered NativeLibrary.cs 1-115 and 195-245, SafeHandle.cs 85-190 and CancellationTokenRegistration.cs 20-135. Other authored source read scopes are inherited, not falsely reported as new complete source audits."
+    },
+    {
+      "id": "API-INT-OBS-007",
+      "result": "The loader distinguishes one content identity per Engine from separate domain instances, failed post-load residency from retryable pre-load absence, and AOT native loading from unsupported new managed assembly loading. Core starts no domain runtime. Buffer staging counts an exact <=64KiB array; cancellation and Task completion do not retire native owners."
+    },
+    {
+      "id": "API-INT-OBS-008",
+      "result": "Standards retain exact per-symbol semantics, XML/reference ownership, source/default/nullability compatibility review, independently pinned adoption and task-scoped real AOT/consumer evidence. Templates do not authorize product implementation or silently inherit across repositories."
+    }
+  ],
+  "upstream_identity_readback": [
+    {
+      "source_id": "I-SRC-01",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/NativeLibrary.cs",
+      "sha256": "f2f4d61861a2464f1162aac17aa215d576f12cfbee8477f849e8ac34bd7c071e",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-02",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/SafeHandle.cs",
+      "sha256": "eddb5e1ad53377a5d60b7fdfeecb03a771b45406ec34802e5dbf068b71a117fd",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-03",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/GCHandle.cs",
+      "sha256": "cdb4e0d0b76ecf665fd16ef5d0b1560230cf8a57be980b39427196fbd69efa89",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-04",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Buffers/MemoryManager.cs",
+      "sha256": "57e39ed19ae5cfba73856d875ac124cf19ee033917d8f26c5c860f16ad3005e0",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-05",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Buffers/IMemoryOwner.cs",
+      "sha256": "fc846de74cb8f7ab653cbfc3ff6380a5620bdbf59435ef7bec0047ae658d6700",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-06",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/IAsyncDisposable.cs",
+      "sha256": "7d590f4f940af702f8d3797655412cdc64435a0cc6454985685e415ee5fe817f",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-07",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "sha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-08",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+      "sha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-09",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource_T.cs",
+      "sha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-10",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceCollectionServiceExtensions.cs",
+      "sha256": "d8723a24ce14b4718608cacea0d88097d3bfd31d971b811529df07d09a9b0d85",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-11",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/IHostedService.cs",
+      "sha256": "0ba1cdee122a9e62e9dbd61b475db4778241c2529429d654906d0a76d39adf1b",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    },
+    {
+      "source_id": "I-SRC-12",
+      "commit": "deae2e32bf0e018e09d64597b7c59b62b73bb3ce",
+      "path": "src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e",
+      "matches_manifest": true,
+      "review_scope": "file identity readback; inherited authored read_ranges retained, not reclassified as new upstream test execution"
+    }
+  ],
+  "limits": [
+    "This note is not GitHub approval or formal contract acceptance.",
+    "The package generator emits limited static shape metadata, not production ORM mapping or Server dispatch.",
+    "Actual AOT execution covers the retained Linux research codec/package-flow slice only; Windows/product execution is not inferred.",
+    "No pristine host-image claim is made; the effective consumer PATH and no-Rust invocation are the demonstrated boundary.",
+    "Production package closure enforcement, output-location loader, signing, all IDE hosts and complete product behavior remain assigned Delivery obligations.",
+    "The review did not rerun upstream Rust/.NET suites or replace preserved source research."
+  ],
+  "input_rechecks": [
+    {
+      "observed_at_utc": "2026-11-14T11:57:09.962536+00:00",
+      "reviewer": "/root/server_api",
+      "changes": [
+        {
+          "path": "docs/api/interop.md",
+          "previous_sha256": "bd469798337bf9881d37c2cb2c17313153fff9c988f6a741678a4c86fd82eff6",
+          "current_sha256": "2b32e5c2dcdfe78dd0b39014949a88bf91d6b2d011f8d75117e00507ecae4b74",
+          "scope": "Rechecked identified Interop semantic repairs or Database section9.1 destructor/control repairs only; unrelated Database changes remain another reviewer's scope."
+        },
+        {
+          "path": "docs/api/database.md",
+          "previous_sha256": "9d22797685966d571ea4d56449e0825e48777dfda62fb126362e1b001e5f48c6",
+          "current_sha256": "8720507644ed3945ca9f2476d77925620c522b7b6c5ac994b992fda132676614",
+          "scope": "Rechecked identified Interop semantic repairs or Database section9.1 destructor/control repairs only; unrelated Database changes remain another reviewer's scope."
+        }
+      ]
+    }
+  ],
+  "finding_summary": {
+    "total": 8,
+    "fixed_rechecked": 5,
+    "open_blocking": [
+      "API-INT-007",
+      "API-INT-008"
+    ],
+    "open_nonblocking": [
+      "API-INT-005"
+    ]
+  }
+}

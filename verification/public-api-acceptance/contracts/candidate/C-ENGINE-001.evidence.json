@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "is_template": false,
+  "subject": {
+    "kind": "contract",
+    "id": "C-ENGINE-001",
+    "version": "0.4.0",
+    "content_sha256": "7910c717d103088f29ec6e64683b0160398d9c479365328655dd2db9260c749d"
+  },
+  "status": "passed",
+  "kind": "design_analysis",
+  "producer": "/root",
+  "recorded_at": "2026-11-14T12:46:34.884617+00:00",
+  "artifact": {
+    "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ENGINE-001.inputs.json",
+    "sha256": "c477a73aa23afca4c8f0e75763e443e543afe48f589b48fb34cc31564defc360"
+  },
+  "scope": "Exact committed inputs, preserved source/finite experiment records and actual independent scoped review; no new native run or product result."
+}

@@ -1,6 +1,6 @@
 # D13 — Performance, memory and developer-cost methodology
 
-Contract: C-PERF-001@0.3.0, research/design specification. Author: `/root`.
+Contract: C-PERF-001@0.4.0, research/design specification. Author: `/root`.
 Status: review-ready; registry carries the exact reviewed version and acceptance state.
 Evidence: [R17](../research/topics/R17/report.md), [R10](../research/topics/R10/report.md),
 [R18](../research/topics/R18/report.md); implementation tasks A21, B23 and acceptance B22/B24.
@@ -120,3 +120,10 @@ B23 consumes actual AOT reference applications and direct native/managed compara
 fault/soak oracles, B24 binds final release profiles. Store immutable input/run/artifact hashes and
 independent analysis in the existing ledger. D13 can be design-accepted before these products exist.
 No throughput, superiority, whole-memory bound or production long-load result is asserted here.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+Public API cost review now records each façade path's FFI crossings, managed/native allocations, copied/pinned/retained bytes, serialization, queueing, runtime instances and complexity. Measure minimal versus advanced/DI paths; disabled logging; first use versus steady state; typed parameters versus raw SQL; query construction versus execution/materialization; Stream versus explicit chunks; and optional protocol binary size versus configured runtime state. V1 Server native closure contains HTTP/TLS/Tonic/rmcp code, while managed protocol facades/configured state remain optional; report this cost instead of claiming absent native code. Count developer setup steps, repeated registrations, project rebuild scope, generated diagnostics and time from empty project to useful call. No performance improvement is accepted from signature compilation. A21/B23/B24 own product measurements.

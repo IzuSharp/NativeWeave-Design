@@ -1,0 +1,1443 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "database",
+  "inheritance": "Every member inherits its type policy plus the more specific member family and opcode table in database.md. Constructors/properties that only describe values perform no native call until consumed. This is design mapping, not implemented product behavior.",
+  "types": {
+    "NativeWeave.Data.DatabaseErrorKind": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#3-universal-semantics-for-every-database-member",
+      "native_operations": [
+        "nw_db_operation_take_error_v1",
+        "Managed-only exception/category construction from Core status and database reason code"
+      ],
+      "tasks": [
+        "B01",
+        "B07"
+      ],
+      "capability": "Any admitted database operation; errors are owned managed values",
+      "cost_profile": "Bounded error-path strings/object allocation; no parameter/credential payload by default"
+    },
+    "NativeWeave.Data.DatabaseException": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#3-universal-semantics-for-every-database-member",
+      "native_operations": [
+        "nw_db_operation_take_error_v1",
+        "Managed-only exception/category construction from Core status and database reason code"
+      ],
+      "tasks": [
+        "B01",
+        "B07"
+      ],
+      "capability": "Any admitted database operation; errors are owned managed values",
+      "cost_profile": "Bounded error-path strings/object allocation; no parameter/credential payload by default"
+    },
+    "NativeWeave.Data.ConcurrencyConflictException": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "nw_db_mutation_create_v1 mutation3/5",
+        "SQLx affected-row count -> managed expected/actual result"
+      ],
+      "tasks": [
+        "B14"
+      ],
+      "capability": "db.metadata.v1 + db.transactions.v1; exact key/version predicate",
+      "cost_profile": "One native mutation; no read-before-write; conflict allocates a typed exception"
+    },
+    "NativeWeave.Data.DatabaseCapabilityException": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#3-universal-semantics-for-every-database-member",
+      "native_operations": [
+        "nw_db_operation_take_error_v1",
+        "Managed-only exception/category construction from Core status and database reason code"
+      ],
+      "tasks": [
+        "B01",
+        "B07"
+      ],
+      "capability": "Any admitted database operation; errors are owned managed values",
+      "cost_profile": "Bounded error-path strings/object allocation; no parameter/credential payload by default"
+    },
+    "NativeWeave.Data.ValueCodec": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "nw_db_codec_register_v1",
+        "Managed-only typed CLR/db-wire scalar conversion"
+      ],
+      "tasks": [
+        "B01",
+        "B07"
+      ],
+      "capability": "db.scalar-codecs.v1; explicit JSON/decimal/fixed-money profile bits",
+      "cost_profile": "Immutable codec tokens/configuration; once-per-source binding cache; scalar copy/JSON serialization costs explicit"
+    },
+    "NativeWeave.Data.Codecs": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "nw_db_codec_register_v1",
+        "Managed-only typed CLR/db-wire scalar conversion"
+      ],
+      "tasks": [
+        "B01",
+        "B07"
+      ],
+      "capability": "db.scalar-codecs.v1; explicit JSON/decimal/fixed-money profile bits",
+      "cost_profile": "Immutable codec tokens/configuration; once-per-source binding cache; scalar copy/JSON serialization costs explicit"
+    },
+    "NativeWeave.Data.RowMaterializer": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only static reader/writer/constructor delegates",
+        "nw_db_cursor_fetch_create_v1 + db-wire/1 exact projection validation"
+      ],
+      "tasks": [
+        "B01",
+        "B06",
+        "B12"
+      ],
+      "capability": "db.scalar-codecs.v1; projection codec/capability agreement",
+      "cost_profile": "O(projected fields) conversion, owned string/array/DTO allocation; ref-struct readers/writers never escape synchronous callbacks"
+    },
+    "NativeWeave.Data.EntityWriter": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only static reader/writer/constructor delegates",
+        "nw_db_cursor_fetch_create_v1 + db-wire/1 exact projection validation"
+      ],
+      "tasks": [
+        "B01",
+        "B06",
+        "B12"
+      ],
+      "capability": "db.scalar-codecs.v1; projection codec/capability agreement",
+      "cost_profile": "O(projected fields) conversion, owned string/array/DTO allocation; ref-struct readers/writers never escape synchronous callbacks"
+    },
+    "NativeWeave.Data.RowReader": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only static reader/writer/constructor delegates",
+        "nw_db_cursor_fetch_create_v1 + db-wire/1 exact projection validation"
+      ],
+      "tasks": [
+        "B01",
+        "B06",
+        "B12"
+      ],
+      "capability": "db.scalar-codecs.v1; projection codec/capability agreement",
+      "cost_profile": "O(projected fields) conversion, owned string/array/DTO allocation; ref-struct readers/writers never escape synchronous callbacks"
+    },
+    "NativeWeave.Data.RowWriter": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only static reader/writer/constructor delegates",
+        "nw_db_cursor_fetch_create_v1 + db-wire/1 exact projection validation"
+      ],
+      "tasks": [
+        "B01",
+        "B06",
+        "B12"
+      ],
+      "capability": "db.scalar-codecs.v1; projection codec/capability agreement",
+      "cost_profile": "O(projected fields) conversion, owned string/array/DTO allocation; ref-struct readers/writers never escape synchronous callbacks"
+    },
+    "NativeWeave.Data.ResultColumn": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only static reader/writer/constructor delegates",
+        "nw_db_cursor_fetch_create_v1 + db-wire/1 exact projection validation"
+      ],
+      "tasks": [
+        "B01",
+        "B06",
+        "B12"
+      ],
+      "capability": "db.scalar-codecs.v1; projection codec/capability agreement",
+      "cost_profile": "O(projected fields) conversion, owned string/array/DTO allocation; ref-struct readers/writers never escape synchronous callbacks"
+    },
+    "NativeWeave.Data.ColumnOptions": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only typed immutable descriptors/startup builder",
+        "nw_db_metadata_register_v1",
+        "nw_db_codec_register_v1"
+      ],
+      "tasks": [
+        "B01",
+        "B09",
+        "B10"
+      ],
+      "capability": "db.metadata.v1; source and metadata schema version match",
+      "cost_profile": "O(columns) bounded startup construction and canonical bytes; once-per-source registration; no per-entity native compilation"
+    },
+    "NativeWeave.Data.Column": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only typed immutable descriptors/startup builder",
+        "nw_db_metadata_register_v1",
+        "nw_db_codec_register_v1"
+      ],
+      "tasks": [
+        "B01",
+        "B09",
+        "B10"
+      ],
+      "capability": "db.metadata.v1; source and metadata schema version match",
+      "cost_profile": "O(columns) bounded startup construction and canonical bytes; once-per-source registration; no per-entity native compilation"
+    },
+    "NativeWeave.Data.TableBuilder": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only typed immutable descriptors/startup builder",
+        "nw_db_metadata_register_v1",
+        "nw_db_codec_register_v1"
+      ],
+      "tasks": [
+        "B01",
+        "B09",
+        "B10"
+      ],
+      "capability": "db.metadata.v1; source and metadata schema version match",
+      "cost_profile": "O(columns) bounded startup construction and canonical bytes; once-per-source registration; no per-entity native compilation"
+    },
+    "NativeWeave.Data.Table": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only typed immutable descriptors/startup builder",
+        "nw_db_metadata_register_v1",
+        "nw_db_codec_register_v1"
+      ],
+      "tasks": [
+        "B01",
+        "B09",
+        "B10"
+      ],
+      "capability": "db.metadata.v1; source and metadata schema version match",
+      "cost_profile": "O(columns) bounded startup construction and canonical bytes; once-per-source registration; no per-entity native compilation"
+    },
+    "NativeWeave.Data.EntityKey": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Managed-only typed value snapshot",
+        "nw_db_mutation_create_v1 mutation2..6",
+        "nw_db_query_clause_v1 clause17 for set-based changes"
+      ],
+      "tasks": [
+        "B01",
+        "B14"
+      ],
+      "capability": "Registered compatible table/key/codecs; no tracking state",
+      "cost_profile": "O(assigned/key/check fields) snapshot bytes; no CLR property discovery or read-before-write"
+    },
+    "NativeWeave.Data.Projection": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only static reader/writer/constructor delegates",
+        "nw_db_cursor_fetch_create_v1 + db-wire/1 exact projection validation",
+        "Projection.Register / nw_db_projection_register_v1; kind13/22 source-bound shape for raw SQL and mutation RETURNING"
+      ],
+      "tasks": [
+        "B01",
+        "B06",
+        "B12"
+      ],
+      "capability": "db.scalar-codecs.v1; projection codec/capability agreement",
+      "cost_profile": "O(projected fields) conversion, owned string/array/DTO allocation; ref-struct readers/writers never escape synchronous callbacks"
+    },
+    "NativeWeave.Data.ResultField": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only static reader/writer/constructor delegates",
+        "nw_db_cursor_fetch_create_v1 + db-wire/1 exact projection validation"
+      ],
+      "tasks": [
+        "B01",
+        "B06",
+        "B12"
+      ],
+      "capability": "db.scalar-codecs.v1; projection codec/capability agreement",
+      "cost_profile": "O(projected fields) conversion, owned string/array/DTO allocation; ref-struct readers/writers never escape synchronous callbacks"
+    },
+    "NativeWeave.Data.Changes": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Managed-only typed value snapshot",
+        "nw_db_mutation_create_v1 mutation2..6",
+        "nw_db_query_clause_v1 clause17 for set-based changes"
+      ],
+      "tasks": [
+        "B01",
+        "B14"
+      ],
+      "capability": "Registered compatible table/key/codecs; no tracking state",
+      "cost_profile": "O(assigned/key/check fields) snapshot bytes; no CLR property discovery or read-before-write"
+    },
+    "NativeWeave.Data.ConcurrencyCheck": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Managed-only typed value snapshot",
+        "nw_db_mutation_create_v1 mutation2..6",
+        "nw_db_query_clause_v1 clause17 for set-based changes"
+      ],
+      "tasks": [
+        "B01",
+        "B14"
+      ],
+      "capability": "Registered compatible table/key/codecs; no tracking state",
+      "cost_profile": "O(assigned/key/check fields) snapshot bytes; no CLR property discovery or read-before-write"
+    },
+    "NativeWeave.Data.SqlParameters": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Managed-only immutable command/value snapshot",
+        "nw_db_sql_create_v1",
+        "nw_db_execute_create_v1"
+      ],
+      "tasks": [
+        "B01",
+        "B04",
+        "B07"
+      ],
+      "capability": "db.sql.expert.v1; trusted SQL boundary, explicit mutation category",
+      "cost_profile": "Typed parameters avoid object-array mapping; optional FormattableString boxes; UTF-8 and value copy costs charged"
+    },
+    "NativeWeave.Data.Relation": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Managed-only immutable typed relation descriptor",
+        "nw_db_metadata_register_v1",
+        "Relation.Load -> native FK predicates + Query.Seal/Execute"
+      ],
+      "tasks": [
+        "B09",
+        "B14"
+      ],
+      "capability": "db.relationships.explicit.v1; ordered parent/child codecs and optional FK nullability",
+      "cost_profile": "O(key arity) descriptor; native bounded child query; no lazy loading/identity map/N+1 loop hidden by facade"
+    },
+    "NativeWeave.Data.SqlCommandKind": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Managed-only immutable command/value snapshot",
+        "nw_db_sql_create_v1",
+        "nw_db_execute_create_v1"
+      ],
+      "tasks": [
+        "B01",
+        "B04",
+        "B07"
+      ],
+      "capability": "db.sql.expert.v1; trusted SQL boundary, explicit mutation category",
+      "cost_profile": "Typed parameters avoid object-array mapping; optional FormattableString boxes; UTF-8 and value copy costs charged"
+    },
+    "NativeWeave.Data.SqlCommand": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Managed-only immutable command/value snapshot",
+        "nw_db_sql_create_v1",
+        "nw_db_execute_create_v1",
+        "Sql.Create / nw_db_sql_create_v1 with kind20 deadline/result class and kind21 parameter name binding"
+      ],
+      "tasks": [
+        "B01",
+        "B04",
+        "B07"
+      ],
+      "capability": "db.sql.expert.v1; trusted SQL boundary, explicit mutation category",
+      "cost_profile": "Typed parameters avoid object-array mapping; optional FormattableString boxes; UTF-8 and value copy costs charged"
+    },
+    "NativeWeave.Data.WeaveTableAttribute": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only build-time Roslyn metadata input; no FFI call",
+        "Generated static Table/Column/Projection consumed by Metadata.Register"
+      ],
+      "tasks": [
+        "B10"
+      ],
+      "capability": "Supported static model types/codecs; diagnostic NWQ0101..0107",
+      "cost_profile": "Build-time semantic analysis and generated C# size; no runtime reflection, Cargo, network or per-model native build"
+    },
+    "NativeWeave.Data.WeaveColumnAttribute": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only build-time Roslyn metadata input; no FFI call",
+        "Generated static Table/Column/Projection consumed by Metadata.Register",
+        "Generated store name defaults to exact CLR property name/casing; explicit attribute override changes store identity only"
+      ],
+      "tasks": [
+        "B10"
+      ],
+      "capability": "Supported static model types/codecs; diagnostic NWQ0101..0107",
+      "cost_profile": "Build-time semantic analysis and generated C# size; no runtime reflection, Cargo, network or per-model native build"
+    },
+    "NativeWeave.Data.WeaveKeyAttribute": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only build-time Roslyn metadata input; no FFI call",
+        "Generated static Table/Column/Projection consumed by Metadata.Register"
+      ],
+      "tasks": [
+        "B10"
+      ],
+      "capability": "Supported static model types/codecs; diagnostic NWQ0101..0107",
+      "cost_profile": "Build-time semantic analysis and generated C# size; no runtime reflection, Cargo, network or per-model native build"
+    },
+    "NativeWeave.Data.WeaveVersionAttribute": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only build-time Roslyn metadata input; no FFI call",
+        "Generated static Table/Column/Projection consumed by Metadata.Register"
+      ],
+      "tasks": [
+        "B10"
+      ],
+      "capability": "Supported static model types/codecs; diagnostic NWQ0101..0107",
+      "cost_profile": "Build-time semantic analysis and generated C# size; no runtime reflection, Cargo, network or per-model native build"
+    },
+    "NativeWeave.Data.WeaveIgnoreAttribute": {
+      "package": "NativeWeave.Data",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "Managed-only build-time Roslyn metadata input; no FFI call",
+        "Generated static Table/Column/Projection consumed by Metadata.Register"
+      ],
+      "tasks": [
+        "B10"
+      ],
+      "capability": "Supported static model types/codecs; diagnostic NWQ0101..0107",
+      "cost_profile": "Build-time semantic analysis and generated C# size; no runtime reflection, Cargo, network or per-model native build"
+    },
+    "NativeWeave.Database.DatabaseProvider": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Source.Create / nw_db_source_create_v1",
+        "Managed-only options snapshot and capability-name inspection"
+      ],
+      "tasks": [
+        "B01",
+        "B04"
+      ],
+      "capability": "Selected provider package and supported RID; package and provider masks intersect",
+      "cost_profile": "Bounded startup options allocation; one native source create; no connection opened by Build"
+    },
+    "NativeWeave.Database.TransactionOutcome": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.TransactionState": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.ConnectionDisposition": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.CleanupStatus": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.DatabaseCloseResult": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.TransactionOptions": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.DatabaseLimits": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Source.Create / nw_db_source_create_v1",
+        "Managed-only options snapshot and capability-name inspection"
+      ],
+      "tasks": [
+        "B01",
+        "B04"
+      ],
+      "capability": "Selected provider package and supported RID; package and provider masks intersect",
+      "cost_profile": "Bounded startup options allocation; one native source create; no connection opened by Build"
+    },
+    "NativeWeave.Database.DatabaseCapabilities": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Source.Create / nw_db_source_create_v1",
+        "Managed-only options snapshot and capability-name inspection"
+      ],
+      "tasks": [
+        "B01",
+        "B04"
+      ],
+      "capability": "Selected provider package and supported RID; package and provider masks intersect",
+      "cost_profile": "Bounded startup options allocation; one native source create; no connection opened by Build"
+    },
+    "NativeWeave.Database.DataSourceBuilder": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Source.Create / nw_db_source_create_v1",
+        "Managed-only options snapshot and capability-name inspection"
+      ],
+      "tasks": [
+        "B01",
+        "B04"
+      ],
+      "capability": "Selected provider package and supported RID; package and provider masks intersect",
+      "cost_profile": "Bounded startup options allocation; one native source create; no connection opened by Build"
+    },
+    "NativeWeave.Database.DataSource": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Source.Create",
+        "Session.Open / nw_db_session_open_create_v1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1",
+        "nw_db_owner_release_v1"
+      ],
+      "tasks": [
+        "B04"
+      ],
+      "capability": "Selected provider and db.transactions.v1/db.streaming.v1 as operations require",
+      "cost_profile": "One engine-local runtime/pool and finite admission budgets; opens/closures retain native owners until retirement"
+    },
+    "NativeWeave.Database.DataSession": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Session.Open",
+        "nw_db_sql_create_v1",
+        "nw_db_execute_create_v1",
+        "nw_db_mutation_create_v1",
+        "nw_db_tx_begin_create_v1",
+        "nw_db_query_create_v1",
+        "nw_db_close_create_v1",
+        "mutation6 kind4 field2 insert values plus field8 separate conflict-update values; required/forbidden field table"
+      ],
+      "tasks": [
+        "B04",
+        "B05",
+        "B06",
+        "B14"
+      ],
+      "capability": "db.query.v1/db.sql.expert.v1/db.transactions.v1 and operation-specific capabilities",
+      "cost_profile": "One physical connection lease; one admitted user operation at a time; owned bounded rows/DTOs and explicit UTF-8 copies"
+    },
+    "NativeWeave.Database.DataTransaction": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.Savepoint": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_savepoint_create_v1",
+        "nw_db_savepoint_action_create_v1 action0/1"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.savepoints.v1; current transaction generation and LIFO top",
+      "cost_profile": "One tracked native nested transaction/savepoint scope; safe generated name, rollback/release I/O; never outer commit"
+    },
+    "NativeWeave.Database.CommitOutcomeUnknownException": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.DatabaseCleanupException": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#6-transactions-savepoints-and-cleanup-b05",
+      "native_operations": [
+        "nw_db_tx_begin_create_v1",
+        "nw_db_tx_finish_create_v1 action0/1",
+        "nw_db_close_create_v1",
+        "nw_db_snapshot_v1 kind7"
+      ],
+      "tasks": [
+        "B05"
+      ],
+      "capability": "db.transactions.v1; exact provider isolation/read-only modes",
+      "cost_profile": "Single connection and retained cleanup ledger; independent commit/cleanup deadline; outcome snapshot survives disposal without keeping raw handles public"
+    },
+    "NativeWeave.Database.BulkAtomicity": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Bulk.Insert -> nw_db_mutation_create_v1 mutation0 plus native transaction lifecycle",
+        "nw_db_operation_take_error_v1 with control kind15",
+        "Managed-only BulkFailure.TryGetProgress reads immutable Exception.Data entry"
+      ],
+      "tasks": [
+        "B14"
+      ],
+      "capability": "db.bulk-batches.v1; All or explicit PerBatch semantics",
+      "cost_profile": "Bounded row/byte batch, caller input enumerated incrementally; error-path progress object; no success-path progress event stream"
+    },
+    "NativeWeave.Database.BulkOptions": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Bulk.Insert -> nw_db_mutation_create_v1 mutation0 plus native transaction lifecycle",
+        "nw_db_operation_take_error_v1 with control kind15",
+        "Managed-only BulkFailure.TryGetProgress reads immutable Exception.Data entry"
+      ],
+      "tasks": [
+        "B14"
+      ],
+      "capability": "db.bulk-batches.v1; All or explicit PerBatch semantics",
+      "cost_profile": "Bounded row/byte batch, caller input enumerated incrementally; error-path progress object; no success-path progress event stream"
+    },
+    "NativeWeave.Database.BulkResult": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Bulk.Insert -> nw_db_mutation_create_v1 mutation0 plus native transaction lifecycle",
+        "nw_db_operation_take_error_v1 with control kind15",
+        "Managed-only BulkFailure.TryGetProgress reads immutable Exception.Data entry"
+      ],
+      "tasks": [
+        "B14"
+      ],
+      "capability": "db.bulk-batches.v1; All or explicit PerBatch semantics",
+      "cost_profile": "Bounded row/byte batch, caller input enumerated incrementally; error-path progress object; no success-path progress event stream"
+    },
+    "NativeWeave.Database.BulkProgress": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Bulk.Insert -> nw_db_mutation_create_v1 mutation0 plus native transaction lifecycle",
+        "nw_db_operation_take_error_v1 with control kind15",
+        "Managed-only BulkFailure.TryGetProgress reads immutable Exception.Data entry"
+      ],
+      "tasks": [
+        "B14"
+      ],
+      "capability": "db.bulk-batches.v1; All or explicit PerBatch semantics",
+      "cost_profile": "Bounded row/byte batch, caller input enumerated incrementally; error-path progress object; no success-path progress event stream"
+    },
+    "NativeWeave.Database.BulkFailure": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Bulk.Insert -> nw_db_mutation_create_v1 mutation0 plus native transaction lifecycle",
+        "nw_db_operation_take_error_v1 with control kind15",
+        "Managed-only BulkFailure.TryGetProgress reads immutable Exception.Data entry"
+      ],
+      "tasks": [
+        "B14"
+      ],
+      "capability": "db.bulk-batches.v1; All or explicit PerBatch semantics",
+      "cost_profile": "Bounded row/byte batch, caller input enumerated incrementally; error-path progress object; no success-path progress event stream"
+    },
+    "NativeWeave.Database.ConflictTarget": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "native_operations": [
+        "Managed-only immutable typed conflict-target snapshot",
+        "nw_db_mutation_create_v1 mutation6 -> SeaQuery OnConflict + SQLx",
+        "mutation6 exactly one selector: field5 ordered conflict columns or field6 PostgreSQL constraint name"
+      ],
+      "tasks": [
+        "B14"
+      ],
+      "capability": "db.upsert.v1; database validates actual unique constraint, named constraint PostgreSQL-only",
+      "cost_profile": "O(target columns) descriptor; one atomic upsert, no exists-then-write query"
+    },
+    "NativeWeave.Database.MigrationTransactionMode": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.Migration": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.MigrationBundle": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.MigrationOptions": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.MigrationStatus": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.MigrationReport": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.SchemaColumn": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.SchemaTable": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.DatabaseAdministration": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#8-administration-and-intentionally-bounded-scope-b08",
+      "native_operations": [
+        "nw_db_admin_create_v1 action0..3",
+        "SQLx Migrator and provider catalog queries"
+      ],
+      "tasks": [
+        "B08"
+      ],
+      "capability": "db.migrations.v1/db.schema.read.v1; explicit PG nontransactional profile, SQLite tracked IMMEDIATE transaction",
+      "cost_profile": "Dedicated administrative connection; bounded bundle/status/schema snapshots, SQL/checksum bytes; no startup schema scan/diff"
+    },
+    "NativeWeave.Database.Sqlite.SqliteOpenMode": {
+      "package": "NativeWeave.Database.Sqlite",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind9 provider options",
+        "SQLx SqlitePoolOptions/SqliteConnectOptions"
+      ],
+      "tasks": [
+        "B03",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.Sqlite RID asset and SQLite capability profile",
+      "cost_profile": "One source-local bounded pool; SQLx dedicated worker/channel per connection; no Task.Run layer"
+    },
+    "NativeWeave.Database.Sqlite.SqliteJournalMode": {
+      "package": "NativeWeave.Database.Sqlite",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind9 provider options",
+        "SQLx SqlitePoolOptions/SqliteConnectOptions"
+      ],
+      "tasks": [
+        "B03",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.Sqlite RID asset and SQLite capability profile",
+      "cost_profile": "One source-local bounded pool; SQLx dedicated worker/channel per connection; no Task.Run layer"
+    },
+    "NativeWeave.Database.Sqlite.SqliteBeginMode": {
+      "package": "NativeWeave.Database.Sqlite",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind9 provider options",
+        "SQLx SqlitePoolOptions/SqliteConnectOptions"
+      ],
+      "tasks": [
+        "B03",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.Sqlite RID asset and SQLite capability profile",
+      "cost_profile": "One source-local bounded pool; SQLx dedicated worker/channel per connection; no Task.Run layer"
+    },
+    "NativeWeave.Database.Sqlite.SqliteSynchronousMode": {
+      "package": "NativeWeave.Database.Sqlite",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind9 provider options",
+        "SQLx SqlitePoolOptions/SqliteConnectOptions"
+      ],
+      "tasks": [
+        "B03",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.Sqlite RID asset and SQLite capability profile",
+      "cost_profile": "One source-local bounded pool; SQLx dedicated worker/channel per connection; no Task.Run layer"
+    },
+    "NativeWeave.Database.Sqlite.SqliteOptions": {
+      "package": "NativeWeave.Database.Sqlite",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind9 provider options",
+        "SQLx SqlitePoolOptions/SqliteConnectOptions"
+      ],
+      "tasks": [
+        "B03",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.Sqlite RID asset and SQLite capability profile",
+      "cost_profile": "One source-local bounded pool; SQLx dedicated worker/channel per connection; no Task.Run layer"
+    },
+    "NativeWeave.Database.Sqlite.SqliteDataSource": {
+      "package": "NativeWeave.Database.Sqlite",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind9 provider options",
+        "SQLx SqlitePoolOptions/SqliteConnectOptions"
+      ],
+      "tasks": [
+        "B03",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.Sqlite RID asset and SQLite capability profile",
+      "cost_profile": "One source-local bounded pool; SQLx dedicated worker/channel per connection; no Task.Run layer"
+    },
+    "NativeWeave.Database.Sqlite.SqliteDataSourceBuilderExtensions": {
+      "package": "NativeWeave.Database.Sqlite",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind9 provider options",
+        "SQLx SqlitePoolOptions/SqliteConnectOptions"
+      ],
+      "tasks": [
+        "B03",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.Sqlite RID asset and SQLite capability profile",
+      "cost_profile": "One source-local bounded pool; SQLx dedicated worker/channel per connection; no Task.Run layer"
+    },
+    "NativeWeave.Database.PostgreSql.PostgreSqlTlsMode": {
+      "package": "NativeWeave.Database.PostgreSql",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind8 provider options",
+        "SQLx PgPoolOptions/PgConnectOptions"
+      ],
+      "tasks": [
+        "B02",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.PostgreSql RID asset; VerifyFull default, explicit local plaintext mode",
+      "cost_profile": "One source-local bounded pool/runtime; native TLS and network buffers; configuration strings excluded from diagnostics"
+    },
+    "NativeWeave.Database.PostgreSql.PostgreSqlOptions": {
+      "package": "NativeWeave.Database.PostgreSql",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind8 provider options",
+        "SQLx PgPoolOptions/PgConnectOptions"
+      ],
+      "tasks": [
+        "B02",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.PostgreSql RID asset; VerifyFull default, explicit local plaintext mode",
+      "cost_profile": "One source-local bounded pool/runtime; native TLS and network buffers; configuration strings excluded from diagnostics"
+    },
+    "NativeWeave.Database.PostgreSql.PostgreSqlDataSource": {
+      "package": "NativeWeave.Database.PostgreSql",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind8 provider options",
+        "SQLx PgPoolOptions/PgConnectOptions"
+      ],
+      "tasks": [
+        "B02",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.PostgreSql RID asset; VerifyFull default, explicit local plaintext mode",
+      "cost_profile": "One source-local bounded pool/runtime; native TLS and network buffers; configuration strings excluded from diagnostics"
+    },
+    "NativeWeave.Database.PostgreSql.PostgreSqlDataSourceBuilderExtensions": {
+      "package": "NativeWeave.Database.PostgreSql",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Source.Create with kind8 provider options",
+        "SQLx PgPoolOptions/PgConnectOptions"
+      ],
+      "tasks": [
+        "B02",
+        "B04"
+      ],
+      "capability": "NativeWeave.Database.PostgreSql RID asset; VerifyFull default, explicit local plaintext mode",
+      "cost_profile": "One source-local bounded pool/runtime; native TLS and network buffers; configuration strings excluded from diagnostics"
+    },
+    "NativeWeave.Query.SortDirection": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses3/9/11/12"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; set/window/row-lock bits when requested; SQLite lock clause rejects",
+      "cost_profile": "Small managed enum values serialized to explicit versioned wire codes, never upstream discriminants"
+    },
+    "NativeWeave.Query.NullOrder": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses3/9/11/12"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; set/window/row-lock bits when requested; SQLite lock clause rejects",
+      "cost_profile": "Small managed enum values serialized to explicit versioned wire codes, never upstream discriminants"
+    },
+    "NativeWeave.Query.SetOperation": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses3/9/11/12"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; set/window/row-lock bits when requested; SQLite lock clause rejects",
+      "cost_profile": "Small managed enum values serialized to explicit versioned wire codes, never upstream discriminants"
+    },
+    "NativeWeave.Query.FrameBoundary": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses3/9/11/12"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; set/window/row-lock bits when requested; SQLite lock clause rejects",
+      "cost_profile": "Small managed enum values serialized to explicit versioned wire codes, never upstream discriminants"
+    },
+    "NativeWeave.Query.RowLockMode": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses3/9/11/12"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; set/window/row-lock bits when requested; SQLite lock clause rejects",
+      "cost_profile": "Small managed enum values serialized to explicit versioned wire codes, never upstream discriminants"
+    },
+    "NativeWeave.Query.LockWait": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses3/9/11/12"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; set/window/row-lock bits when requested; SQLite lock clause rejects",
+      "cost_profile": "Small managed enum values serialized to explicit versioned wire codes, never upstream discriminants"
+    },
+    "NativeWeave.Query.SqlPredicate": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_column_v1",
+        "nw_db_expr_value_v1",
+        "nw_db_expr_binary_v1 codes1..14",
+        "nw_db_expr_unary_v1 codes1..3",
+        "nw_db_expr_list_v1 codes1..3",
+        "nw_db_query_clause_v1 clauses7/13/14/16"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
+      "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.SqlExpression": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_column_v1",
+        "nw_db_expr_value_v1",
+        "nw_db_expr_binary_v1 codes1..14",
+        "nw_db_expr_unary_v1 codes1..3",
+        "nw_db_expr_list_v1 codes1..3",
+        "nw_db_query_clause_v1 clauses7/13/14/16",
+        "clause21 OVER; configured codec result retained"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
+      "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.SqlArithmeticExtensions": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_column_v1",
+        "nw_db_expr_value_v1",
+        "nw_db_expr_binary_v1 codes1..14",
+        "nw_db_expr_unary_v1 codes1..3",
+        "nw_db_expr_list_v1 codes1..3",
+        "nw_db_query_clause_v1 clauses7/13/14/16"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
+      "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.SqlStringExtensions": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_column_v1",
+        "nw_db_expr_value_v1",
+        "nw_db_expr_binary_v1 codes1..14",
+        "nw_db_expr_unary_v1 codes1..3",
+        "nw_db_expr_list_v1 codes1..3",
+        "nw_db_query_clause_v1 clauses7/13/14/16"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
+      "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.QueryRow": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_column_v1",
+        "nw_db_expr_value_v1",
+        "nw_db_expr_binary_v1 codes1..14",
+        "nw_db_expr_unary_v1 codes1..3",
+        "nw_db_expr_list_v1 codes1..3",
+        "nw_db_query_clause_v1 clauses7/13/14/16"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
+      "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.JoinPredicate": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_column_v1",
+        "nw_db_expr_value_v1",
+        "nw_db_expr_binary_v1 codes1..14",
+        "nw_db_expr_unary_v1 codes1..3",
+        "nw_db_expr_list_v1 codes1..3",
+        "nw_db_query_clause_v1 clauses7/13/14/16",
+        "clause18 provisional alias -> expression_column -> clause7 commit; clause19 abort; clause20 left-join match marker"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
+      "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.JoinedTable": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_column_v1",
+        "nw_db_expr_value_v1",
+        "nw_db_expr_binary_v1 codes1..14",
+        "nw_db_expr_unary_v1 codes1..3",
+        "nw_db_expr_list_v1 codes1..3",
+        "nw_db_query_clause_v1 clauses7/13/14/16",
+        "clause18 provisional alias -> expression_column -> clause7 commit; clause19 abort; clause20 left-join match marker"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
+      "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.LeftJoinedTable": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_column_v1",
+        "nw_db_expr_value_v1",
+        "nw_db_expr_binary_v1 codes1..14",
+        "nw_db_expr_unary_v1 codes1..3",
+        "nw_db_expr_list_v1 codes1..3",
+        "nw_db_query_clause_v1 clauses7/13/14/16",
+        "clause18 provisional alias -> expression_column -> clause7 commit; clause19 abort; clause20 left-join match marker"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
+      "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.QueryParameter": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_parameter_v1",
+        "nw_db_execute_create_v1 with immutable typed parameter snapshot"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.prepared-shape.v1 and compatible shape/source/codec identity",
+      "cost_profile": "Bounded named parameters copied once per execution; no global cache or native recompilation"
+    },
+    "NativeWeave.Query.QueryParameters": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_expr_parameter_v1",
+        "nw_db_execute_create_v1 with immutable typed parameter snapshot"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.prepared-shape.v1 and compatible shape/source/codec identity",
+      "cost_profile": "Bounded named parameters copied once per execution; no global cache or native recompilation"
+    },
+    "NativeWeave.Query.ProjectionBuilder": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#4-metadata-codecs-entities-and-projections-b01b07b10b12",
+      "native_operations": [
+        "nw_db_query_clause_v1 clause6",
+        "Managed-only static RowMaterializer constructor"
+      ],
+      "tasks": [
+        "B12",
+        "B13"
+      ],
+      "capability": "db.query.v1 and exact expression/result-field codec/nullability",
+      "cost_profile": "O(projected columns) managed/native descriptor state; result ordinals constant-time; no reflection mapper"
+    },
+    "NativeWeave.Query.Query": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_create_v1",
+        "nw_db_expr_column/value/parameter_v1",
+        "nw_db_query_clause_v1 clauses1..17",
+        "nw_db_query_import_v1",
+        "nw_db_query_seal_v1 terminals0..8",
+        "nw_db_query_clone_v1",
+        "nw_db_execute_create_v1",
+        "nw_db_owner_release_v1",
+        "clauses18/7/19 JOIN reserve/commit/abort; clause20 HasMatch; clause22 WithTimeout",
+        "Exists/In selection import: query_clone(source) -> seal8 -> import2 -> clause14; source remains mutable, temporary owners finally-released"
+      ],
+      "tasks": [
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; per-clause CTE/window/set/lock/codec bits checked before side effects",
+      "cost_profile": "One native mutable arena with single-writer admission; each ordinary fluent call forwards directly; finite node/depth/parameter budgets; explicit native Clone only"
+    },
+    "NativeWeave.Query.UpdateSetters": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clause17",
+        "nw_db_query_seal_v1 terminal6 -> SeaQuery UpdateStatement"
+      ],
+      "tasks": [
+        "B11",
+        "B13",
+        "B14"
+      ],
+      "capability": "db.query.v1; root-only supported mutation shape, no key/generated assignments",
+      "cost_profile": "Synchronous delegate appends native assignments; no managed SQL tree or implicit entity tracking"
+    },
+    "NativeWeave.Query.QuerySelection": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses6/9",
+        "nw_db_query_seal_v1 terminals0..8",
+        "nw_db_execute_create_v1",
+        "nw_db_cursor_fetch_create_v1",
+        "nw_db_query_render_v1",
+        "Combine: query_clone(other) -> seal8 -> import2 -> clause9; temporary owners finally-released after dependency retention"
+      ],
+      "tasks": [
+        "B06",
+        "B11",
+        "B12",
+        "B13"
+      ],
+      "capability": "db.query.v1/db.streaming.v1/db.prepared-shape.v1 as selected",
+      "cost_profile": "Borrowed view of query owner; bounded list/array or one-shot owned batches; static DTO construction; no hidden materialization on streams"
+    },
+    "NativeWeave.Query.PreparedQuery": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_seal_v1 terminal8",
+        "nw_db_execute_create_v1",
+        "nw_db_cursor_fetch_create_v1",
+        "nw_db_owner_release_v1"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.prepared-shape.v1; independent sessions from same source only",
+      "cost_profile": "Immutable native shape under bounded cache; per-execution values/cursor; SQLx statement caches remain per connection"
+    },
+    "NativeWeave.Query.CommonTable": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_import_v1 kind3",
+        "nw_db_query_clause_v1 clause10",
+        "nw_db_cte_create_v1 -> query_import(kind3) -> clause10 CTE ATTACH -> owner_release"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.cte.v1; db.recursive-cte.v1 for validated recursive subset",
+      "cost_profile": "Bounded native body clone and declared metadata; owner retained by importing query; no physical schema creation"
+    },
+    "NativeWeave.Query.WindowDefinition": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses11/13/15",
+        "nw_db_expr_binary_v1 code14 (coalesce)",
+        "clause11 actions0=create,1=partition,2=order,3=rows; clause21 Over snapshots native window"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.window.v1 for windows; scalar/aggregate codec profile and result conversion",
+      "cost_profile": "Native expression/window nodes under query arena; empty-input NULL and provider numeric/collation semantics preserved"
+    },
+    "NativeWeave.Query.SqlFunctions": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#7-native-fluent-query-semantics-b09b11b13",
+      "native_operations": [
+        "nw_db_query_clause_v1 clauses11/13/15",
+        "nw_db_expr_binary_v1 code14 (coalesce)",
+        "clause13 AGGREGATE then clause21 OVER for Rank/RowNumber"
+      ],
+      "tasks": [
+        "B11",
+        "B13"
+      ],
+      "capability": "db.window.v1 for windows; scalar/aggregate codec profile and result conversion",
+      "cost_profile": "Native expression/window nodes under query arena; empty-input NULL and provider numeric/collation semantics preserved"
+    },
+    "Microsoft.Extensions.DependencyInjection.NativeWeaveDatabaseServiceCollectionExtensions": {
+      "package": "NativeWeave.Database.DependencyInjection",
+      "semantic_section": "docs/api/database.md#2-installation-namespaces-and-assembly-boundaries",
+      "native_operations": [
+        "Managed-only IServiceCollection singleton registration",
+        "Source.Create once on service activation"
+      ],
+      "tasks": [
+        "A16",
+        "B04"
+      ],
+      "capability": "Optional NativeWeave.Database.DependencyInjection package; same source capability negotiation",
+      "cost_profile": "One owned singleton source per explicit key; no implicit scoped session, duplicate pool or reload mutation"
+    }
+  }
+}

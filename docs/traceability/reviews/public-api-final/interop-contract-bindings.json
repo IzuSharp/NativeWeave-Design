@@ -1,0 +1,540 @@
+{
+  "schema_version": "1.0.0",
+  "reviewer": "/root/final_architecture_review",
+  "attested_at_utc": "2026-11-14T12:51:06.657558+00:00",
+  "verdict": "accepted",
+  "blocking_findings": [],
+  "scope": "Personal attestation of exactly fourteen prepared contract evidence/review bindings to my actual independent final technical review. This file applies no registry status, performs no product execution and creates no GitHub approval.",
+  "observed_index_state": "prepared_not_accepted",
+  "design_source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+  "technical_review": {
+    "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+    "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+  },
+  "subjects": [
+    {
+      "kind": "contract",
+      "id": "C-PLATFORM-001",
+      "evidence_sha256": [
+        "4d32ebab15cedf9c4a9d2b0215ae1a0294484cd1a148bfde0b20eb545fa077a1"
+      ],
+      "review_sha256": [
+        "cd96bc9d09e1a72191b87911c3bde360ed89f665d5f3b0ef6689454578bee743"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ABI-001",
+      "evidence_sha256": [
+        "1d4d2d9d01f9f7914a0525dfe9f30786f5185e8eaac2f6129f36d7390b199f31"
+      ],
+      "review_sha256": [
+        "dba8598260610edbe0f20ff4b58c4b30bb398af83dc818c900095a82cb4aa7fd"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-BINDING-001",
+      "evidence_sha256": [
+        "a5b4d1a7bb6c9a09cee1e48e0ba94775e1186fdcccd89e99cacb501bd1dfa99a"
+      ],
+      "review_sha256": [
+        "4b84e2cac9b0641d91ff45a25b10715b73cfb333b72a6650b4a11a65a178cb72"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-LIFETIME-001",
+      "evidence_sha256": [
+        "0c97af74382b3874d73640c97053bd8e3695ff66ca35254685063b5e5b277f22"
+      ],
+      "review_sha256": [
+        "d4ba6602920a6b7c5f3673a08674f038b5214db679c1116acc444dacd5009e5b"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-CALLBACK-001",
+      "evidence_sha256": [
+        "6ebef3abdda5718cb148fd54cfb85488e191b3ebbaa877aecb196282135d2000"
+      ],
+      "review_sha256": [
+        "1cfb6cf203e9ccf374e61abcdbfbc5940a86478b4f1809a1f62b3992bd291347"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ASYNC-001",
+      "evidence_sha256": [
+        "59cbd6ef6ebdcdc2df1ab7d835e58ddbd1749cd86a2f9245a2f8be140640c55c"
+      ],
+      "review_sha256": [
+        "c895bfd40fd07e46d565a7e2729eb3d9ff7c1d0e94ae4a6dfed3ee9a2040475b"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-BUFFER-001",
+      "evidence_sha256": [
+        "1ae9104709fa16ff9ad4f1936eae8831f6c7ba7817a633fbf6a109417e94b3a3"
+      ],
+      "review_sha256": [
+        "28f13375a3f896dec8dffe67b2f73bbf68a50d1a4efec11ac6554b78fe4802b3"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ERROR-001",
+      "evidence_sha256": [
+        "6c924907bb5ae9ed81b9ae3ac341265455d710caf412a75d76f883cce59ed4b3"
+      ],
+      "review_sha256": [
+        "110d3664600120049ae93c92ef40534ca19cbbd63fc7e205f1ba7c8a9772569e"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-CONCURRENCY-001",
+      "evidence_sha256": [
+        "1031157bdadafd76ad6e9a92259527047de195b9c6514022973fb84f7126cc19"
+      ],
+      "review_sha256": [
+        "40e974e11423d2a4d622acb39aa0c9362dca8055718947f83ca1bf52632d1a9b"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-BUILD-001",
+      "evidence_sha256": [
+        "0da16913af23e941dad29ba68fad4cf00f13f19e2b0e576e17b15af86deb505f"
+      ],
+      "review_sha256": [
+        "a047564e848ca783ce1a6b196b64dc7d230ee805f931cdf540a653762bef8612"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-ENGINE-001",
+      "evidence_sha256": [
+        "137071fab7f63c1465a2fd0012fab71a280ebf80143f2602290e2a2ad469b328"
+      ],
+      "review_sha256": [
+        "b1ff60d434bd7ae86d4711ce9399d7c0aa9c2634116f6a137bfa9f7ccba84eb1"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-VERIFY-001",
+      "evidence_sha256": [
+        "f6c7f2a8d2c0fb2db7efc2d5693063f6f517664e228c38397d48c24816122dad"
+      ],
+      "review_sha256": [
+        "1f6929164c2254d394ba35494b4d4a362d1b0a594f1e4741a9784c621e3f4206"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-PERF-001",
+      "evidence_sha256": [
+        "4de0c4ee0e2d19e7bce04e57611b181b7c7d6a8057345110afc88b42e8dcec78"
+      ],
+      "review_sha256": [
+        "5c132c85687ded082f5760d0f870f2e5acb6995b6f45b9507319d66197c8fad1"
+      ]
+    },
+    {
+      "kind": "contract",
+      "id": "C-EXTENSION-001",
+      "evidence_sha256": [
+        "02269b813906cf1d06e2892efda15691c3faebd7118c46c1029e1b504983cddd"
+      ],
+      "review_sha256": [
+        "3117657dce6429a79fb6bffd2e1aa2255ba126a3917bdf742203d45a69f3861f"
+      ]
+    }
+  ],
+  "reviewed_records": [
+    {
+      "id": "C-PLATFORM-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PLATFORM-001.inputs.json",
+        "sha256": "13c40f47be38f23fbcfaf8f246812b62ac4e84451b0d179dc5684abac8afe0a5"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PLATFORM-001.evidence.json",
+        "sha256": "4d32ebab15cedf9c4a9d2b0215ae1a0294484cd1a148bfde0b20eb545fa077a1"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PLATFORM-001.review.json",
+        "sha256": "cd96bc9d09e1a72191b87911c3bde360ed89f665d5f3b0ef6689454578bee743"
+      },
+      "input_entries": 28,
+      "dependency_subjects": [],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-ABI-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ABI-001.inputs.json",
+        "sha256": "2bd078a7f9e882b7286d79d055b9ee6dd05bbbef623ce60a9b46361dd3219145"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ABI-001.evidence.json",
+        "sha256": "1d4d2d9d01f9f7914a0525dfe9f30786f5185e8eaac2f6129f36d7390b199f31"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ABI-001.review.json",
+        "sha256": "dba8598260610edbe0f20ff4b58c4b30bb398af83dc818c900095a82cb4aa7fd"
+      },
+      "input_entries": 26,
+      "dependency_subjects": [
+        "C-PLATFORM-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-BINDING-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BINDING-001.inputs.json",
+        "sha256": "500f47e6caa26f5aeddcce999b7cbb0e5ea1da3e0860186ddcc16a75d32d51c7"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BINDING-001.evidence.json",
+        "sha256": "a5b4d1a7bb6c9a09cee1e48e0ba94775e1186fdcccd89e99cacb501bd1dfa99a"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BINDING-001.review.json",
+        "sha256": "4b84e2cac9b0641d91ff45a25b10715b73cfb333b72a6650b4a11a65a178cb72"
+      },
+      "input_entries": 419,
+      "dependency_subjects": [
+        "C-ABI-001@0.4.0",
+        "C-ERROR-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-LIFETIME-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-LIFETIME-001.inputs.json",
+        "sha256": "206219793bf0b089e659a59305281d5f0ae695d6a2ff73aa29a0c7428cb4039a"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-LIFETIME-001.evidence.json",
+        "sha256": "0c97af74382b3874d73640c97053bd8e3695ff66ca35254685063b5e5b277f22"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-LIFETIME-001.review.json",
+        "sha256": "d4ba6602920a6b7c5f3673a08674f038b5214db679c1116acc444dacd5009e5b"
+      },
+      "input_entries": 29,
+      "dependency_subjects": [
+        "C-ABI-001@0.4.0",
+        "C-ERROR-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-CALLBACK-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CALLBACK-001.inputs.json",
+        "sha256": "479cc8ded1ec4a7ea3dbef8816fb3baf58ac9b762016fbdfdd0321514975cc0e"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CALLBACK-001.evidence.json",
+        "sha256": "6ebef3abdda5718cb148fd54cfb85488e191b3ebbaa877aecb196282135d2000"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CALLBACK-001.review.json",
+        "sha256": "1cfb6cf203e9ccf374e61abcdbfbc5940a86478b4f1809a1f62b3992bd291347"
+      },
+      "input_entries": 29,
+      "dependency_subjects": [
+        "C-ERROR-001@0.4.0",
+        "C-LIFETIME-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-ASYNC-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ASYNC-001.inputs.json",
+        "sha256": "33efbefe2ce6d2bcfc1792752301a7e87e0f8e86e78c49113103e8d31498de8f"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ASYNC-001.evidence.json",
+        "sha256": "59cbd6ef6ebdcdc2df1ab7d835e58ddbd1749cd86a2f9245a2f8be140640c55c"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ASYNC-001.review.json",
+        "sha256": "c895bfd40fd07e46d565a7e2729eb3d9ff7c1d0e94ae4a6dfed3ee9a2040475b"
+      },
+      "input_entries": 30,
+      "dependency_subjects": [
+        "C-BUFFER-001@0.4.0",
+        "C-CALLBACK-001@0.4.0",
+        "C-ERROR-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-BUFFER-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUFFER-001.inputs.json",
+        "sha256": "1218098d26e670b0acbe34f156c3e7442ab4d36bbb687a72e0e329e1457e13eb"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUFFER-001.evidence.json",
+        "sha256": "1ae9104709fa16ff9ad4f1936eae8831f6c7ba7817a633fbf6a109417e94b3a3"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUFFER-001.review.json",
+        "sha256": "28f13375a3f896dec8dffe67b2f73bbf68a50d1a4efec11ac6554b78fe4802b3"
+      },
+      "input_entries": 30,
+      "dependency_subjects": [
+        "C-ERROR-001@0.4.0",
+        "C-LIFETIME-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-ERROR-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ERROR-001.inputs.json",
+        "sha256": "fd63cee59f8f9adb7b19de9d7e1646a0acc6a773f1b345055c41bfd54aea84a2"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ERROR-001.evidence.json",
+        "sha256": "6c924907bb5ae9ed81b9ae3ac341265455d710caf412a75d76f883cce59ed4b3"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ERROR-001.review.json",
+        "sha256": "110d3664600120049ae93c92ef40534ca19cbbd63fc7e205f1ba7c8a9772569e"
+      },
+      "input_entries": 25,
+      "dependency_subjects": [
+        "C-ABI-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-CONCURRENCY-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CONCURRENCY-001.inputs.json",
+        "sha256": "34a5e4c674ae7088ddf734b0352a376521a467c1ddd18eaf9395e6497fd2db1a"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CONCURRENCY-001.evidence.json",
+        "sha256": "1031157bdadafd76ad6e9a92259527047de195b9c6514022973fb84f7126cc19"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-CONCURRENCY-001.review.json",
+        "sha256": "40e974e11423d2a4d622acb39aa0c9362dca8055718947f83ca1bf52632d1a9b"
+      },
+      "input_entries": 29,
+      "dependency_subjects": [
+        "C-ASYNC-001@0.4.0",
+        "C-LIFETIME-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-BUILD-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUILD-001.inputs.json",
+        "sha256": "eac40ba64990d8c9490bfb13fc9b2e33391151d63f4dbb62d0f8a29d6d99e822"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUILD-001.evidence.json",
+        "sha256": "0da16913af23e941dad29ba68fad4cf00f13f19e2b0e576e17b15af86deb505f"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-BUILD-001.review.json",
+        "sha256": "a047564e848ca783ce1a6b196b64dc7d230ee805f931cdf540a653762bef8612"
+      },
+      "input_entries": 45,
+      "dependency_subjects": [
+        "C-ABI-001@0.4.0",
+        "C-BINDING-001@0.4.0",
+        "C-PLATFORM-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-ENGINE-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ENGINE-001.inputs.json",
+        "sha256": "c477a73aa23afca4c8f0e75763e443e543afe48f589b48fb34cc31564defc360"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ENGINE-001.evidence.json",
+        "sha256": "137071fab7f63c1465a2fd0012fab71a280ebf80143f2602290e2a2ad469b328"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-ENGINE-001.review.json",
+        "sha256": "b1ff60d434bd7ae86d4711ce9399d7c0aa9c2634116f6a137bfa9f7ccba84eb1"
+      },
+      "input_entries": 31,
+      "dependency_subjects": [
+        "C-ABI-001@0.4.0",
+        "C-BUFFER-001@0.4.0",
+        "C-ERROR-001@0.4.0",
+        "C-LIFETIME-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-VERIFY-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-VERIFY-001.inputs.json",
+        "sha256": "a0ad0f306eca79421fd0014b48a982d751f1c66759066e92e840c75084f733d2"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-VERIFY-001.evidence.json",
+        "sha256": "f6c7f2a8d2c0fb2db7efc2d5693063f6f517664e228c38397d48c24816122dad"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-VERIFY-001.review.json",
+        "sha256": "1f6929164c2254d394ba35494b4d4a362d1b0a594f1e4741a9784c621e3f4206"
+      },
+      "input_entries": 47,
+      "dependency_subjects": [
+        "C-ASYNC-001@0.4.0",
+        "C-BUFFER-001@0.4.0",
+        "C-CALLBACK-001@0.4.0",
+        "C-ERROR-001@0.4.0",
+        "C-LIFETIME-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-PERF-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PERF-001.inputs.json",
+        "sha256": "a2b64a4b403c853718fe818b6bc0d89b4bc6d52c43d5ed32bce743f619bf98ac"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PERF-001.evidence.json",
+        "sha256": "4de0c4ee0e2d19e7bce04e57611b181b7c7d6a8057345110afc88b42e8dcec78"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-PERF-001.review.json",
+        "sha256": "5c132c85687ded082f5760d0f870f2e5acb6995b6f45b9507319d66197c8fad1"
+      },
+      "input_entries": 44,
+      "dependency_subjects": [
+        "C-BUFFER-001@0.4.0",
+        "C-CONCURRENCY-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    },
+    {
+      "id": "C-EXTENSION-001",
+      "snapshot": {
+        "path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-EXTENSION-001.inputs.json",
+        "sha256": "04ff878657c26ee3f584fb45d815ccccd637bf9fbe8b9989a24e91466fe123e0"
+      },
+      "evidence": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-EXTENSION-001.evidence.json",
+        "sha256": "02269b813906cf1d06e2892efda15691c3faebd7118c46c1029e1b504983cddd"
+      },
+      "review": {
+        "manifest_path": "NativeWeave-Design:verification/public-api-acceptance/contracts/candidate/C-EXTENSION-001.review.json",
+        "sha256": "3117657dce6429a79fb6bffd2e1aa2255ba126a3917bdf742203d45a69f3861f"
+      },
+      "input_entries": 45,
+      "dependency_subjects": [
+        "C-BUILD-001@0.4.0",
+        "C-CONCURRENCY-001@0.4.0",
+        "C-ENGINE-001@0.4.0"
+      ],
+      "independent_report": {
+        "path": "NativeWeave-Design:docs/traceability/reviews/public-api-final/interop-review.json",
+        "sha256": "323bb9d5fae1f8ac98e1a6b71b8afcc759be044e8077c4f8cb0928bff5992e80"
+      }
+    }
+  ],
+  "actual_inspection": {
+    "contract_subjects": 14,
+    "snapshot_input_entries": 857,
+    "unique_snapshot_input_paths": 501,
+    "all_current_bytes_match_review_pins_and_frozen_Git_blobs": true,
+    "exact_required_paths_sets": true,
+    "all_dependency_snapshots_match_current_prepared_subjects": true,
+    "all_wrappers_attributable_to_actual_report_and_reviewer": true,
+    "global_prepared_verifier_checked_subjects": 21,
+    "global_prepared_verifier_errors": []
+  },
+  "supplemental_ci_recheck": {
+    "manifest": {
+      "path": "NativeWeave-Design:verification/public-api-ci/43595766652/manifest.json",
+      "sha256": "22198a91710afaf2faf4a52347c31a141d013aaf5419d8c2d0335a99aee1727e"
+    },
+    "scope": "Post-source actual CI outputs inspected as supplemental evidence, outside the frozen normative input set. Original archive/member bytes were not rewritten; no native binaries were rerun by this reviewer.",
+    "source_commit": "ece3bad38760ab2c56ea9df0207e96c27b3593ba",
+    "run_id": 43595766652,
+    "windows": {
+      "archive_sha256": "3cfdd53771c3bd2c4762578563be60f6844c595175cc7ed68e3b45277863ffc3",
+      "member_hashes_verified": 48,
+      "input_hashes_equal_frozen_source": 44,
+      "successful_step_logs_verified": 10,
+      "negative_diagnostic_cases": 9,
+      "exporter_assertions": 63,
+      "native_executable_sha256": "4325597dfdcbe3a280bc4d0ad9a4691282ea3d3d2f60547ce538d8209c772c14"
+    },
+    "linux": {
+      "archive_sha256": "f3876d9bd8668dd360d5e59589ac4eb33e7839e3e7ff605f2dd400215858c703",
+      "member_hashes_verified": 48,
+      "input_hashes_equal_frozen_source": 44,
+      "successful_step_logs_verified": 10,
+      "negative_diagnostic_cases": 9,
+      "exporter_assertions": 63,
+      "native_executable_sha256": "ff30f0496d3a76e2e5fa91dca5853c77aca2e996af71da313a79acdf88c9d74b"
+    },
+    "export_comparison": "Both parsed inventories equal the frozen canonical JSON and Reference bytes are identical. Windows raw JSON keeps its original CRLF serialization and raw artifact hash; byte normalization was not used to rewrite evidence.",
+    "execution_boundary": "Read actual native publish/execute logs and binary hash bindings. The native programs print design-only evidence and explicitly state product operations are unimplemented. This does not accept Database/Server runtime implementation, pristine-machine consumption or a product release."
+  },
+  "later_gate_not_yet_executed": "After the integrator accepts the complete actual contract index with all scoped attestations, I must independently recheck verify_contract_acceptance against those actual records and the in-memory stale-input/report/attestation negative cases. No early pass of that later phase is claimed here.",
+  "github_approval_identity_claimed": false,
+  "product_implementation_authorized": false
+}

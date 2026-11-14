@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "observed_at_utc": "2026-11-14T11:20:41.513896+00:00",
+  "continued_branches": [
+    "IzuSharp/NativeWeave-Design:design/public-api-20261114",
+    "IzuSharp/Plan:design/public-api-20261114"
+  ],
+  "observed_remote_heads": {
+    "NativeWeave-Design": "d404610e8a57a15f4a196d8ee5987486d589bd7e",
+    "Plan": "6adf5b894b81df91b750bf43788d94b62fa8e98f"
+  },
+  "observed_mains": {
+    "NativeWeave-Design": "a0f6bca1f55ddf456fe931886da8be19e94a1413",
+    "Plan": "352bd56dad9804dab1b3de358c404987c26f3e4f",
+    "NativeWeave": "658ed6a410783de356a7b9b2cd6601336fff5148"
+  },
+  "recovered_commits": [
+    {
+      "interrupted_local": "6bce7d2453d97db63e944b4c267d2ffea3a830e3",
+      "remote": "1131d73e3d0203813b7e063aa8ec4e573e811a0c"
+    },
+    {
+      "interrupted_local": "2d46c206df18d2ca36954f9f05f94c02fdf1d479",
+      "remote": "beb255f742453f6b9d545bfc63e344205c3d3885"
+    },
+    {
+      "interrupted_local": "98f96e06021e6939aad2f74643cb697cfc09ee17",
+      "remote": "66e67d6a390e8e165caba0df91ab616c393cf9f5"
+    }
+  ],
+  "recovery_integrity": "Every recovered blob SHA matched; final recovered remote tree equalled interrupted local tree before resuming. Original worktrees retained. Direct Git push had no credential; authenticated Git data API preserved content and normal fast-forward branch updates.",
+  "recovered_uncommitted_scopes": [
+    "wt-db database specification, coverage, source manifest, declarations and consumers",
+    "wt-server specification, coverage, source manifest and latest declaration changes",
+    "Plan prepare_acceptance.py/render_packets.py/review_bindings.py/refine_public_api.py"
+  ],
+  "product_implementation_authorized": false,
+  "product_repository_written": false,
+  "pr_policy": "One final PR per repository only after independent review; Design then Plan merge."
+}

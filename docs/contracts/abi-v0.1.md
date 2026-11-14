@@ -1,6 +1,6 @@
 # D02 — Stable C boundary and layout contract
 
-**C-ABI-001@0.3.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Existing R03/R04, D02, A01/A02/A09–A12 remain the work IDs. Consumes [D01](../platforms/support-and-aot.md), [D04](lifetime-v0.1.md), [D08](error-v0.1.md) and [D07](buffer-v0.1.md). D08 is the sole authority for status values; this document does not invent a competing error enum.
+**C-ABI-001@0.4.0**. Complete research/design candidate; the registry records the exact reviewed version/hash and acceptance. Product verification remains in Delivery. Existing R03/R04, D02, A01/A02/A09–A12 remain the work IDs. Consumes [D01](../platforms/support-and-aot.md), [D04](lifetime-v0.1.md), [D08](error-v0.1.md) and [D07](buffer-v0.1.md). D08 is the sole authority for status values; this document does not invent a competing error enum.
 
 ## 1. Scope and evidence
 
@@ -88,3 +88,10 @@ The isolated [invalid UCO experiment](../../verification/interop-completion/uco-
 ### Committed target evidence
 
 The [CI readback](../../verification/interop-completion/ci-evidence-read.json) verifies source `7ea84e11ee19e6dad4503a5872eb27c6c7f44e80`, run `43388468172`: actual Windows/Linux normal and Native AOT main interop execution (10,528/10,529 assertions respectively), Roslyn generation checks and static metadata restrictions. This supports the stated research slice; product conformance remains separately assigned. Supplemental panic/invalid-UCO/generator comparison runs are Linux-only.
+
+
+## Public API refinement, revision 0.4.0
+
+The [C# Public API and Documentation Standard](../standards/csharp-public-api-and-documentation.md), [exact API declarations and reference](../api/README.md), and the domain specification are normative consumers of this contract. This revision adds public surface and documentation obligations; it does not change the v1 C wire representation merely because the document version increments. Historical 0.3.0 acceptance remains bound to its original bytes and review. Current acceptance requires the new exact content and independent review.
+
+Application code sees typed domain APIs, never ABI records or raw handles. [Interop mappings](../api/interop.md) identify the bootstrap and common envelope; Database/Server operation catalogs specify each concrete domain operation and payload. A01/A02/A09–A12 must keep generated declarations, C/Rust/C# layout, function calling convention, reserved fields, size/capacity negotiation and documentation inventory consistent. Public API package versions and native ABI versions remain independent. Unknown operation/capability must fail before side effects and ownership transfer. The interface fixture's C layout probe is not product ABI execution.
