@@ -1,5 +1,9 @@
-
+# Evidence and source pins describe exact Git blob bytes on every checkout.
+# Preserve raw historical streams without platform newline conversion.
+* -text
 verification/native-slices/** -text
-
-# Preserve raw evidence bytes, including Windows CRLF logs, on every checkout.
 verification/** -text -whitespace
+# These generated declaration inputs/outputs have a canonical LF text format.
+experiments/public-api/NativeWeave.Api.Design/*.cs text eol=lf
+docs/api/public-api.json text eol=lf
+docs/api/reference.md text eol=lf

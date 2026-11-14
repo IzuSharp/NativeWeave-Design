@@ -176,7 +176,12 @@ nw_status NW_CDECL nw_db_operation_take_cursor(nw_db_operation* operation,
 Each output pointer is initialized to null; ownership transfers only on success.
 Metadata input is borrowed for the call and copied/validated into bounded native
 metadata before return. Registration is all-or-nothing and checks duplicate IDs,
-names, codec/null/key/relation shape and capability profile. Query creation retains
+names, codec/null/key shape and capability profile. Post-Build relations register
+independently through `nw_db_relation_register_v1`, with both source-bound model
+owners and control kind23; `nw_db_relation_load_create_v1` takes the registered
+relation, parent key payload and child projection ID. The normative Public API
+§9.2.1 fixes both-model identity, ordered pairs, nullable compatibility, bounded
+cache/retention and one-child-query lifecycle without mutating table hashes. Query creation retains
 metadata and its logical parent. A sealed plan is immutable; mutation cannot race
 sealing. Execution owns a parameter snapshot and a session lease. The cursor returned
 by successful take_result is an independent result owner; operation retirement may

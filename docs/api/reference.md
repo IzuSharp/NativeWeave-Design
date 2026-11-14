@@ -772,13 +772,13 @@ Semantics and native mapping: [NativeWeave.Data.Projection](database.md#4-metada
 public sealed class NativeWeave.Data.Relation<TParent, TChild> where TParent : class where TChild : class
 ```
 
-Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-session-sql-and-crud-b01b04b06b08b14). Documentation ID: `T:NativeWeave.Data.Relation`2`. Design declaration; not an implemented product operation.
+Semantics and native mapping: [NativeWeave.Data.Relation](database.md#921-independent-relation-registration-and-one-parent-loading). Documentation ID: `T:NativeWeave.Data.Relation`2`. Design declaration; not an implemented product operation.
 
-Package: `NativeWeave.Data`. Owning tasks: B09, B14.
+Package: `NativeWeave.Data`. Owning tasks: B01, B07, B09, B14.
 
-Availability: db.relationships.explicit.v1; ordered parent/child codecs and optional FK nullability
+Availability: db.metadata.v1 + db.scalar-codecs.v1 + db.query.v1 + db.streaming.v1 + db.relationships.explicit.v1; complete non-null parent PK and exact underlying child codecs/configuration/collation
 
-Cost policy: O(key arity) descriptor; native bounded child query; no lazy loading/identity map/N+1 loop hidden by facade
+Cost policy: O(key arity) immutable descriptor and source-local registration; bounded shared metadata/projection/relation cache; one native child SELECT and bounded cursor materialization; independent dependency retention until quiescence
 
 ### M:NativeWeave.Data.Relation\`2.AndOptionalReference\`\`1(NativeWeave.Data.Column{\`0,\`\`0},NativeWeave.Data.Column{\`1,\`\`0})
 
@@ -786,7 +786,7 @@ Cost policy: O(key arity) descriptor; native bounded child query; no lazy loadin
 public NativeWeave.Data.Relation<TParent, TChild> NativeWeave.Data.Relation<TParent, TChild>.AndOptionalReference<T>(NativeWeave.Data.Column<TParent, T> parentKey, NativeWeave.Data.Column<TChild, T?> foreignKey) where T : class
 ```
 
-Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-session-sql-and-crud-b01b04b06b08b14). Documentation ID: `M:NativeWeave.Data.Relation`2.AndOptionalReference``1(NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Column{`1,``0})`. Design declaration; not an implemented product operation.
+Semantics and native mapping: [NativeWeave.Data.Relation](database.md#921-independent-relation-registration-and-one-parent-loading). Documentation ID: `M:NativeWeave.Data.Relation`2.AndOptionalReference``1(NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Column{`1,``0})`. Design declaration; not an implemented product operation.
 
 ### M:NativeWeave.Data.Relation\`2.AndOptional\`\`1(NativeWeave.Data.Column{\`0,\`\`0},NativeWeave.Data.Column{\`1,System.Nullable{\`\`0}})
 
@@ -794,7 +794,7 @@ Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-s
 public NativeWeave.Data.Relation<TParent, TChild> NativeWeave.Data.Relation<TParent, TChild>.AndOptional<T>(NativeWeave.Data.Column<TParent, T> parentKey, NativeWeave.Data.Column<TChild, T?> foreignKey) where T : struct
 ```
 
-Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-session-sql-and-crud-b01b04b06b08b14). Documentation ID: `M:NativeWeave.Data.Relation`2.AndOptional``1(NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Column{`1,System.Nullable{``0}})`. Design declaration; not an implemented product operation.
+Semantics and native mapping: [NativeWeave.Data.Relation](database.md#921-independent-relation-registration-and-one-parent-loading). Documentation ID: `M:NativeWeave.Data.Relation`2.AndOptional``1(NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Column{`1,System.Nullable{``0}})`. Design declaration; not an implemented product operation.
 
 ### M:NativeWeave.Data.Relation\`2.And\`\`1(NativeWeave.Data.Column{\`0,\`\`0},NativeWeave.Data.Column{\`1,\`\`0})
 
@@ -802,7 +802,7 @@ Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-s
 public NativeWeave.Data.Relation<TParent, TChild> NativeWeave.Data.Relation<TParent, TChild>.And<T>(NativeWeave.Data.Column<TParent, T> parentKey, NativeWeave.Data.Column<TChild, T> foreignKey)
 ```
 
-Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-session-sql-and-crud-b01b04b06b08b14). Documentation ID: `M:NativeWeave.Data.Relation`2.And``1(NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Column{`1,``0})`. Design declaration; not an implemented product operation.
+Semantics and native mapping: [NativeWeave.Data.Relation](database.md#921-independent-relation-registration-and-one-parent-loading). Documentation ID: `M:NativeWeave.Data.Relation`2.And``1(NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Column{`1,``0})`. Design declaration; not an implemented product operation.
 
 ### M:NativeWeave.Data.Relation\`2.CreateOptionalReference\`\`1(NativeWeave.Data.Table{\`0},NativeWeave.Data.Column{\`0,\`\`0},NativeWeave.Data.Table{\`1},NativeWeave.Data.Column{\`1,\`\`0})
 
@@ -810,7 +810,7 @@ Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-s
 public static NativeWeave.Data.Relation<TParent, TChild> NativeWeave.Data.Relation<TParent, TChild>.CreateOptionalReference<T>(NativeWeave.Data.Table<TParent> parent, NativeWeave.Data.Column<TParent, T> parentKey, NativeWeave.Data.Table<TChild> child, NativeWeave.Data.Column<TChild, T?> foreignKey) where T : class
 ```
 
-Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-session-sql-and-crud-b01b04b06b08b14). Documentation ID: `M:NativeWeave.Data.Relation`2.CreateOptionalReference``1(NativeWeave.Data.Table{`0},NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Table{`1},NativeWeave.Data.Column{`1,``0})`. Design declaration; not an implemented product operation.
+Semantics and native mapping: [NativeWeave.Data.Relation](database.md#921-independent-relation-registration-and-one-parent-loading). Documentation ID: `M:NativeWeave.Data.Relation`2.CreateOptionalReference``1(NativeWeave.Data.Table{`0},NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Table{`1},NativeWeave.Data.Column{`1,``0})`. Design declaration; not an implemented product operation.
 
 ### M:NativeWeave.Data.Relation\`2.CreateOptional\`\`1(NativeWeave.Data.Table{\`0},NativeWeave.Data.Column{\`0,\`\`0},NativeWeave.Data.Table{\`1},NativeWeave.Data.Column{\`1,System.Nullable{\`\`0}})
 
@@ -818,7 +818,7 @@ Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-s
 public static NativeWeave.Data.Relation<TParent, TChild> NativeWeave.Data.Relation<TParent, TChild>.CreateOptional<T>(NativeWeave.Data.Table<TParent> parent, NativeWeave.Data.Column<TParent, T> parentKey, NativeWeave.Data.Table<TChild> child, NativeWeave.Data.Column<TChild, T?> foreignKey) where T : struct
 ```
 
-Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-session-sql-and-crud-b01b04b06b08b14). Documentation ID: `M:NativeWeave.Data.Relation`2.CreateOptional``1(NativeWeave.Data.Table{`0},NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Table{`1},NativeWeave.Data.Column{`1,System.Nullable{``0}})`. Design declaration; not an implemented product operation.
+Semantics and native mapping: [NativeWeave.Data.Relation](database.md#921-independent-relation-registration-and-one-parent-loading). Documentation ID: `M:NativeWeave.Data.Relation`2.CreateOptional``1(NativeWeave.Data.Table{`0},NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Table{`1},NativeWeave.Data.Column{`1,System.Nullable{``0}})`. Design declaration; not an implemented product operation.
 
 ### M:NativeWeave.Data.Relation\`2.Create\`\`1(NativeWeave.Data.Table{\`0},NativeWeave.Data.Column{\`0,\`\`0},NativeWeave.Data.Table{\`1},NativeWeave.Data.Column{\`1,\`\`0})
 
@@ -826,7 +826,7 @@ Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-s
 public static NativeWeave.Data.Relation<TParent, TChild> NativeWeave.Data.Relation<TParent, TChild>.Create<T>(NativeWeave.Data.Table<TParent> parent, NativeWeave.Data.Column<TParent, T> parentKey, NativeWeave.Data.Table<TChild> child, NativeWeave.Data.Column<TChild, T> foreignKey)
 ```
 
-Semantics and native mapping: [NativeWeave.Data.Relation](database.md#5-source-session-sql-and-crud-b01b04b06b08b14). Documentation ID: `M:NativeWeave.Data.Relation`2.Create``1(NativeWeave.Data.Table{`0},NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Table{`1},NativeWeave.Data.Column{`1,``0})`. Design declaration; not an implemented product operation.
+Semantics and native mapping: [NativeWeave.Data.Relation](database.md#921-independent-relation-registration-and-one-parent-loading). Documentation ID: `M:NativeWeave.Data.Relation`2.Create``1(NativeWeave.Data.Table{`0},NativeWeave.Data.Column{`0,``0},NativeWeave.Data.Table{`1},NativeWeave.Data.Column{`1,``0})`. Design declaration; not an implemented product operation.
 
 ## NativeWeave.Data.ResultColumn<T>
 
@@ -2485,7 +2485,7 @@ public sealed class NativeWeave.Database.DataSession : System.IDisposable, Syste
 
 Semantics and native mapping: [NativeWeave.Database.DataSession](database.md#5-source-session-sql-and-crud-b01b04b06b08b14). Documentation ID: `T:NativeWeave.Database.DataSession`. Design declaration; not an implemented product operation.
 
-Package: `NativeWeave.Database`. Owning tasks: B04, B05, B06, B14.
+Package: `NativeWeave.Database`. Owning tasks: B04, B05, B06, B09, B14.
 
 Availability: db.query.v1/db.sql.expert.v1/db.transactions.v1 and operation-specific capabilities
 
@@ -7379,6 +7379,36 @@ public static NativeWeave.Query.SqlExpression<double?> NativeWeave.Query.SqlFunc
 
 Semantics and native mapping: [NativeWeave.Query.SqlFunctions](database.md#7-native-fluent-query-semantics-b09b11b13). Documentation ID: `M:NativeWeave.Query.SqlFunctions.Sum(NativeWeave.Query.SqlExpression{System.Single})`. Design declaration; not an implemented product operation.
 
+## NativeWeave.Query.SqlNullabilityExtensions
+
+```csharp
+public static class NativeWeave.Query.SqlNullabilityExtensions
+```
+
+Semantics and native mapping: [NativeWeave.Query.SqlNullabilityExtensions](database.md#71-owner-model-and-everyday-expressions). Documentation ID: `T:NativeWeave.Query.SqlNullabilityExtensions`. Design declaration; not an implemented product operation.
+
+Package: `NativeWeave.Database`. Owning tasks: B07, B09, B11, B13.
+
+Availability: db.query.v1; admitted non-null scalar input, exact source-bound codec retained; no nullable-to-non-null conversion
+
+Cost policy: One native call and a charged arena token; no SQL CAST/COALESCE, extra parameter, independent owner or managed SQL tree
+
+### M:NativeWeave.Query.SqlNullabilityExtensions.AsNullableReference\`\`1(NativeWeave.Query.SqlExpression{\`\`0})
+
+```csharp
+public static NativeWeave.Query.SqlExpression<T?> NativeWeave.Query.SqlNullabilityExtensions.AsNullableReference<T>(this NativeWeave.Query.SqlExpression<T> expression) where T : class
+```
+
+Semantics and native mapping: [NativeWeave.Query.SqlNullabilityExtensions](database.md#71-owner-model-and-everyday-expressions). Documentation ID: `M:NativeWeave.Query.SqlNullabilityExtensions.AsNullableReference``1(NativeWeave.Query.SqlExpression{``0})`. Design declaration; not an implemented product operation.
+
+### M:NativeWeave.Query.SqlNullabilityExtensions.AsNullable\`\`1(NativeWeave.Query.SqlExpression{\`\`0})
+
+```csharp
+public static NativeWeave.Query.SqlExpression<T?> NativeWeave.Query.SqlNullabilityExtensions.AsNullable<T>(this NativeWeave.Query.SqlExpression<T> expression) where T : struct
+```
+
+Semantics and native mapping: [NativeWeave.Query.SqlNullabilityExtensions](database.md#71-owner-model-and-everyday-expressions). Documentation ID: `M:NativeWeave.Query.SqlNullabilityExtensions.AsNullable``1(NativeWeave.Query.SqlExpression{``0})`. Design declaration; not an implemented product operation.
+
 ## NativeWeave.Query.SqlPredicate
 
 ```csharp
@@ -7575,9 +7605,9 @@ Semantics and native mapping: [NativeWeave.Server.Grpc.GrpcCallContext](server.m
 
 Package: `NativeWeave.Server.Grpc`. Owning tasks: B18, B22.
 
-Availability: grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.
+Availability: grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses. RequestContext admits metadata/services/identity/Items/cancellation/Abort, lifecycle hooks; raw body/trailers/output/OnStarting are INVALID_STATE/InvalidOperationException. Typed gRPC metadata/messages/status exclusively own protocol output.
 
-Cost policy: Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact.
+Cost policy: Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact. Rust Adapter bounds post-split binary metadata at200 entries/MaxHeaderBytes, splits comma fields and trims SP/HTAB before public Tonic decoding per segment, preserving empty values and per-name order with charged scratch/overlap.
 
 ### M:NativeWeave.Server.Grpc.GrpcCallContext.WriteResponseHeadersAsync(NativeWeave.Server.Grpc.GrpcMetadata,System.Threading.CancellationToken)
 
@@ -7647,7 +7677,7 @@ Package: `NativeWeave.Server.Grpc`. Owning tasks: B18, A10, A12.
 
 Availability: Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.
 
-Cost policy: Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset.
+Cost policy: Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait.
 
 Base type: `System.MulticastDelegate`.
 
@@ -7695,7 +7725,7 @@ Package: `NativeWeave.Server.Grpc`. Owning tasks: B18, A10, A12.
 
 Availability: Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.
 
-Cost policy: Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset.
+Cost policy: Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait.
 
 Base type: `System.MulticastDelegate`.
 
@@ -7741,7 +7771,7 @@ Semantics and native mapping: [NativeWeave.Server.Grpc.GrpcEndpointExtensions](s
 
 Package: `NativeWeave.Server.Grpc`. Owning tasks: B18, A10, A12.
 
-Availability: Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.
+Availability: Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport. Reject direct or inherited HTTP ServerFilter at freeze. Auth/policy/middleware denial uses typed gRPC status; await typed terminal production before scope cleanup.
 
 Cost policy: Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset.
 
@@ -7837,7 +7867,7 @@ Package: `NativeWeave.Server.Grpc`. Owning tasks: B18, A10, A12.
 
 Availability: Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.
 
-Cost policy: Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset.
+Cost policy: Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait.
 
 ### M:NativeWeave.Server.Grpc.GrpcMarshaller\`1.#ctor(NativeWeave.Server.Grpc.GrpcEncoder{\`0},NativeWeave.Server.Grpc.GrpcDecoder{\`0})
 
@@ -7859,7 +7889,7 @@ Package: `NativeWeave.Server.Grpc`. Owning tasks: B18, B22.
 
 Availability: grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.
 
-Cost policy: Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact.
+Cost policy: Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact. Rust Adapter bounds post-split binary metadata at200 entries/MaxHeaderBytes, splits comma fields and trims SP/HTAB before public Tonic decoding per segment, preserving empty values and per-name order with charged scratch/overlap.
 
 ### M:NativeWeave.Server.Grpc.GrpcMetadata.#ctor
 
@@ -8247,7 +8277,7 @@ Semantics and native mapping: [NativeWeave.Server.Mcp.McpCallContext](server.md#
 
 Package: `NativeWeave.Server.Mcp`. Owning tasks: B19, B22.
 
-Availability: mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.
+Availability: mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion. Raw request body is forbidden in every phase; after Allowed raw response access/OnStarting is forbidden, while lifecycle hooks remain. AwaitingGate/Denied alone admits managed HTTP denial output; endpoint/inherited ServerFilter fails freeze.
 
 Cost policy: Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter.
 
@@ -8829,7 +8859,7 @@ Semantics and native mapping: [NativeWeave.Server.BodyChunk](server.md#5-request
 
 Package: `NativeWeave.Server`. Owning tasks: B16, B17.
 
-Availability: Owned native chunk; synchronous leased copy; no escaping native Span/Memory.
+Availability: Owned native chunk; synchronous leased copy; no escaping native Span/Memory. Retained input remains charged across dispatch; further native reads/writes fail resource_limit immediately when request/global backing-capacity credit is exhausted.
 
 Cost policy: CopyTo O(bytes) with caller memory; ToArray allocates/charges overlap then transfers; full backing allocation stays charged until final native owner dies.
 
@@ -9013,7 +9043,7 @@ Semantics and native mapping: [NativeWeave.Server.IServerAuthenticator](server.m
 
 Package: `NativeWeave.Server`. Owning tasks: B15, B17.
 
-Availability: Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.
+Availability: Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. Admitted gRPC denial uses Tonic Unauthenticated16/PermissionDenied7 framing; ordinary HTTP and MCP pre-parse denial use401/403.
 
 Cost policy: Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost.
 
@@ -9486,7 +9516,7 @@ Semantics and native mapping: [NativeWeave.Server.RequestContext](server.md#3-se
 
 Package: `NativeWeave.Server`. Owning tasks: B15, B17, B20.
 
-Availability: Borrowed request lifecycle; available cancellation signal, not exact upstream H2 reset certification.
+Availability: Borrowed request lifecycle; available cancellation signal, not exact upstream H2 reset certification. gRPC permits metadata/services/identity/Items/cancel/Abort and lifecycle hooks only; raw body/output and OnStarting are rejected. MCP has only its pre-parse HTTP denial exception.
 
 Cost policy: Lazy scope/Items (<=128 entries); sticky bounded control notification; TimeRemaining is monotonic; no escaped context after dispatch.
 
@@ -9670,7 +9700,7 @@ Package: `NativeWeave.Server`. Owning tasks: B15, B16, B17.
 
 Availability: Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.
 
-Cost policy: Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded.
+Cost policy: Bounded metadata-only native queue wait followed by nonwaiting request/global payload grant and rollback before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded.
 
 ### M:NativeWeave.Server.Results.Bytes(System.ReadOnlySpan{System.Byte},System.String)
 
@@ -9794,7 +9824,7 @@ Semantics and native mapping: [NativeWeave.Server.RouteGroupBuilder](server.md#4
 
 Package: `NativeWeave.Server`. Owning tasks: B15, B17.
 
-Availability: HTTP1/HTTP2 route subset; frozen registries, no hot route mutation.
+Availability: HTTP1/HTTP2 route subset; frozen registries, no hot route mutation. A gRPC/MCP endpoint with a local or inherited ServerFilter is rejected at route freeze before listening.
 
 Cost policy: O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata.
 
@@ -9865,11 +9895,11 @@ public sealed class NativeWeave.Server.ServerBudgetOptions
 
 Semantics and native mapping: [NativeWeave.Server.ServerBudgetOptions](server.md#2-developer-path-and-startup-defaults). Documentation ID: `T:NativeWeave.Server.ServerBudgetOptions`. Design declaration; not an implemented product operation.
 
-Package: `NativeWeave.Server`. Owning tasks: B15, B17.
+Package: `NativeWeave.Server`. Owning tasks: B15, B17, B16.
 
 Availability: Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.
 
-Cost policy: Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime.
+Cost policy: Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime. Native global/request payload grants are atomic and nonwaiting for both reads and writes; queue/network waits are separate, full backing capacity/overlap is charged, and all partial grants roll back without automatic retry.
 
 ### M:NativeWeave.Server.ServerBudgetOptions.#ctor
 
@@ -10202,7 +10232,7 @@ Semantics and native mapping: [NativeWeave.Server.ServerEndpointBuilder](server.
 
 Package: `NativeWeave.Server`. Owning tasks: B15, B17.
 
-Availability: HTTP1/HTTP2 route subset; frozen registries, no hot route mutation.
+Availability: HTTP1/HTTP2 route subset; frozen registries, no hot route mutation. A gRPC/MCP endpoint with a local or inherited ServerFilter is rejected at route freeze before listening.
 
 Cost policy: O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata.
 
@@ -10473,7 +10503,7 @@ Semantics and native mapping: [NativeWeave.Server.ServerFilter](server.md#44-mid
 
 Package: `NativeWeave.Server`. Owning tasks: B15, B17.
 
-Availability: Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.
+Availability: Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. HTTP ServerResult pipeline only; gRPC/MCP endpoint filters, including inherited group filters, fail route freeze.
 
 Cost policy: Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost.
 
@@ -10567,7 +10597,7 @@ Semantics and native mapping: [NativeWeave.Server.ServerMiddleware](server.md#44
 
 Package: `NativeWeave.Server`. Owning tasks: B15, B17.
 
-Availability: Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.
+Availability: Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. gRPC middleware uses restricted RequestContext; short circuit without explicit GrpcException maps to Unauthenticated16/PermissionDenied7, never raw HTTP.
 
 Cost policy: Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost.
 
@@ -10766,9 +10796,9 @@ Semantics and native mapping: [NativeWeave.Server.ServerRequest](server.md#42-ty
 
 Package: `NativeWeave.Server`. Owning tasks: B15, B16.
 
-Availability: Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF.
+Availability: Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF. Raw Body/ReadChunk/ReadJson/GetTrailers are rejected for gRPC/MCP before consumption or owner movement.
 
-Cost policy: Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser.
+Cost policy: Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser. Native read payload grant is a nonwaiting request/global try; failure returns resource_limit before new payload allocation/retention.
 
 ### M:NativeWeave.Server.ServerRequest.GetTrailers
 
@@ -10908,9 +10938,9 @@ Semantics and native mapping: [NativeWeave.Server.ServerResponse](server.md#5-re
 
 Package: `NativeWeave.Server`. Owning tasks: B15, B16, B17.
 
-Availability: Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.
+Availability: Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership. Every successful HTTP MapRaw/generated void/custom result/middleware path awaits one CompleteAsync/response_finish before lifecycle cleanup; preserve selected status/headers, untouched200. gRPC/Allowed MCP permit only lifecycle hooks on this facade.
 
-Cost policy: Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded.
+Cost policy: Bounded metadata-only queue admission may wait; native request/global payload grant and managed overlap grant are nonwaiting with all-or-none rollback. Serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded. Payload-free completion uses reserved control metadata.
 
 ### M:NativeWeave.Server.ServerResponse.CompleteAsync(System.Threading.CancellationToken)
 
@@ -11044,7 +11074,7 @@ Package: `NativeWeave.Server`. Owning tasks: B15, B16, B17.
 
 Availability: Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.
 
-Cost policy: Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded.
+Cost policy: Bounded metadata-only native queue wait followed by nonwaiting request/global payload grant and rollback before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded.
 
 ### M:NativeWeave.Server.ServerResult.#ctor
 

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "author": "/root",
+  "recorded_at_utc": "2026-11-14T12:24:59.010822+00:00",
+  "state": "author_fixes_pending_independent_recheck",
+  "inputs_sha256": {
+    "NativeWeave-Design:tools/verify_contract_acceptance.py": "5c9848696b9b53a30adce1216058498c84eb3397dcec7ff6ecd930aeffa8ffe2",
+    "NativeWeave-Design:tools/contract_acceptance_checks.py": "b9d16a1c2bd3fae28543a34e5d938de791ddaee648b0d405222782666e1831a0",
+    "NativeWeave-Design:tools/verify_public_api.py": "89c26ba1369114bc95f12d9029c465abf2494df58f48b858c84c2518a02de472",
+    "NativeWeave-Design:.gitattributes": "1565b43c76a7f32d49ce4d4ee72a60b805496c48280770e0b4377e0f22ca7432",
+    "NativeWeave-Design:.github/workflows/english-translation.yml": "2c96978ebe50cc34e983a73ebf67bd5532415090abae55c4a56cb15325276375",
+    "NativeWeave-Design:experiments/public-api/run.py": "f9b1fd6ca9825ccdc405cf9da45baf2b85a0beee6c02a2c3aafeb814bd7cb0be",
+    "NativeWeave-Design:experiments/public-api/NativeWeave.Api.Design/Database.cs": "904816521ba65abe182859d12f5e461fd778ea64e409e8d50f4c4ca390998369",
+    "Plan:tools/review_bindings.py": "64eb48c082fafeecdae2ef6bd55c456f3f276eb759a86b55d491ff07512715c6",
+    "Plan:tools/prepare_acceptance.py": "c054163a8945d6759f293d3c165f703e513790b843be8e1434d57aae197372b9",
+    "Plan:tools/verify_completion.py": "a7720fba13a4f919064dfda5712a4dfac026899a1eeeee30b116b51a1b466840",
+    "Plan:tools/refine_public_api.py": "5292c07bcc1b2f4dab5e87fd81fd556898cb78bed4884f652d975e11d2f5f956",
+    "Plan:tools/verify_public_api_plan.py": "b8ead35183f275e996002c999b1487fe35d29957f0952d4bc4fd150706ae2a16",
+    "Plan:tools/validate_graphs.py": "25bba231342c876ea7ad9ddd044aee342c91241565566815cd0340b8d6c230e5",
+    "Plan:tools/binding_attestation_checks.py": "a18d30360a8c066af092119c9a2ec49f0fd2a4b317e377a39f219985ff705021",
+    "Plan:schemas/graph-v1.schema.json": "995e97229363c7873589114e0c24ef8083465a2a4194f961168f999031312a29",
+    "Plan:.github/workflows/native-slices-final-check.yml": "0c25f28d1afb2d1c0677a0d45b9ad89657b5a2c626f609f3702796e3564d3434"
+  },
+  "findings": [
+    {
+      "id": "API-FINAL-ARCH-001",
+      "repair": "Accepted-state preparation verification, explicit acceptance and completion share exact attributable attestation validation; merged-source rebinding invokes it before archiving or replacing prior records.",
+      "validation": "Seven isolated malformed-attestation cases rejected; independent reviewer separately exercised twelve negative cases. No actual acceptance is claimed here."
+    },
+    {
+      "id": "API-FINAL-ARCH-002",
+      "repair": "Graph public_api_standard_version is derived from the actual pinned normative standard1.0.0, separate from API refinement0.4.0; wrong-version negative and schema validation added."
+    },
+    {
+      "id": "API-FINAL-ARCH-003",
+      "repair": "Design standalone acceptance validates full current/Git-source input bytes, dependency snapshots, exact independent report hash/decision/pins and attributable binding attestations. Design CI runs in-memory stale semantic/report/attestation mutations against the actual accepted bindings.",
+      "validation_boundary": "The actual accepted-record mutation suite must run after independent wrappers/attestations exist; no early pass is asserted."
+    },
+    {
+      "id": "API-FINAL-CI-001",
+      "repair": "Preserve exact Git blob bytes on Windows; retain original verification raw-byte/whitespace rules and canonical LF source/reference paths.",
+      "prior_result": "Windows Native AOT publish/execute passed; the complete job correctly failed the reference-source hash gate after CRLF checkout. Next exact candidate CI must verify the repair.",
+      "evidence": "verification/public-api/windows-checkout/attempt-1/summary.json"
+    },
+    {
+      "id": "API-FINAL-DOC-001",
+      "repair": "Deduplicate five Database XML summary groups, describe nullable lifting correctly and retain the numeric-operator summary on SqlArithmeticExtensions.",
+      "non_documentation_sha256": "5709450bb3691ce2cf2d639e039c3dd9359070ad81397a3fda1dde73f15f048c",
+      "prior_tested_source": "verification/public-api/database-final-fixes/attempt-1/inputs/Database.cs",
+      "non_documentation_bytes_identical": true,
+      "fresh_validation": "verification/public-api/final-documentation/attempt-1/summary.json"
+    },
+    {
+      "id": "API-FINAL-EVIDENCE-001",
+      "repair": "Full declaration harness refuses any nonempty output directory before writes, including incomplete prior runs without a summary.",
+      "validation": "verification/public-api/harness-guards/attempt-2/summary.json"
+    },
+    {
+      "id": "API-FINAL-TRACE-001",
+      "repair": "D31 explicitly owns exact traceability/gate/CI/schema inputs; D32 has a new neutral current readiness input preserving the historical D32. Candidate indices explicitly state review_ready_not_accepted after preserving prior accepted snapshots."
+    }
+  ],
+  "product_implementation_authorized": false,
+  "github_approval_identity_claimed": false
+}

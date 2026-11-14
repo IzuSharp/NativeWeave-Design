@@ -17,7 +17,7 @@
         "B16",
         "B17"
       ],
-      "capability": "Owned native chunk; synchronous leased copy; no escaping native Span/Memory.",
+      "capability": "Owned native chunk; synchronous leased copy; no escaping native Span/Memory. Retained input remains charged across dispatch; further native reads/writes fail resource_limit immediately when request/global backing-capacity credit is exhausted.",
       "cost_profile": "CopyTo O(bytes) with caller memory; ToArray allocates/charges overlap then transfers; full backing allocation stays charged until final native owner dies."
     },
     "NativeWeave.Server.BodyParameterAttribute": {
@@ -51,8 +51,8 @@
         "B18",
         "B22"
       ],
-      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
-      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact."
+      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses. RequestContext admits metadata/services/identity/Items/cancellation/Abort, lifecycle hooks; raw body/trailers/output/OnStarting are INVALID_STATE/InvalidOperationException. Typed gRPC metadata/messages/status exclusively own protocol output.",
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact. Rust Adapter bounds post-split binary metadata at200 entries/MaxHeaderBytes, splits comma fields and trims SP/HTAB before public Tonic decoding per segment, preserving empty values and per-name order with charged scratch/overlap."
     },
     "NativeWeave.Server.Grpc.GrpcDecoder": {
       "package": "NativeWeave.Server.Grpc",
@@ -70,7 +70,7 @@
         "A12"
       ],
       "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
-      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
     },
     "NativeWeave.Server.Grpc.GrpcEncoder": {
       "package": "NativeWeave.Server.Grpc",
@@ -88,7 +88,7 @@
         "A12"
       ],
       "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
-      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
     },
     "NativeWeave.Server.Grpc.GrpcEndpointExtensions": {
       "package": "NativeWeave.Server.Grpc",
@@ -105,7 +105,7 @@
         "A10",
         "A12"
       ],
-      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
+      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport. Reject direct or inherited HTTP ServerFilter at freeze. Auth/policy/middleware denial uses typed gRPC status; await typed terminal production before scope cleanup.",
       "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
     },
     "NativeWeave.Server.Grpc.GrpcException": {
@@ -141,7 +141,7 @@
         "A12"
       ],
       "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
-      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
     },
     "NativeWeave.Server.Grpc.GrpcMetadata": {
       "package": "NativeWeave.Server.Grpc",
@@ -159,7 +159,7 @@
         "B22"
       ],
       "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
-      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact."
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact. Rust Adapter bounds post-split binary metadata at200 entries/MaxHeaderBytes, splits comma fields and trims SP/HTAB before public Tonic decoding per segment, preserving empty values and per-name order with charged scratch/overlap."
     },
     "NativeWeave.Server.Grpc.GrpcMethod": {
       "package": "NativeWeave.Server.Grpc",
@@ -307,7 +307,7 @@
         "B15",
         "B17"
       ],
-      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. Admitted gRPC denial uses Tonic Unauthenticated16/PermissionDenied7 framing; ordinary HTTP and MCP pre-parse denial use401/403.",
       "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
     },
     "NativeWeave.Server.IServerAuthorizer": {
@@ -373,7 +373,7 @@
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion. Raw request body is forbidden in every phase; after Allowed raw response access/OnStarting is forbidden, while lifecycle hooks remain. AwaitingGate/Denied alone admits managed HTTP denial output; endpoint/inherited ServerFilter fails freeze.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpEndpointExtensions": {
@@ -639,7 +639,7 @@
         "B17",
         "B20"
       ],
-      "capability": "Borrowed request lifecycle; available cancellation signal, not exact upstream H2 reset certification.",
+      "capability": "Borrowed request lifecycle; available cancellation signal, not exact upstream H2 reset certification. gRPC permits metadata/services/identity/Items/cancel/Abort and lifecycle hooks only; raw body/output and OnStarting are rejected. MCP has only its pre-parse HTTP denial exception.",
       "cost_profile": "Lazy scope/Items (<=128 entries); sticky bounded control notification; TimeRemaining is monotonic; no escaped context after dispatch."
     },
     "NativeWeave.Server.RequestHandler": {
@@ -691,7 +691,7 @@
         "B17"
       ],
       "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
-      "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
+      "cost_profile": "Bounded metadata-only native queue wait followed by nonwaiting request/global payload grant and rollback before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
     },
     "NativeWeave.Server.RouteGroupBuilder": {
       "package": "NativeWeave.Server",
@@ -704,7 +704,7 @@
         "B15",
         "B17"
       ],
-      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation.",
+      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation. A gRPC/MCP endpoint with a local or inherited ServerFilter is rejected at route freeze before listening.",
       "cost_profile": "O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata."
     },
     "NativeWeave.Server.RouteParameterAttribute": {
@@ -732,10 +732,11 @@
       ],
       "tasks": [
         "B15",
-        "B17"
+        "B17",
+        "B16"
       ],
       "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
-      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime. Native global/request payload grants are atomic and nonwaiting for both reads and writes; queue/network waits are separate, full backing capacity/overlap is charged, and all partial grants roll back without automatic retry."
     },
     "NativeWeave.Server.ServerCapabilities": {
       "package": "NativeWeave.Server",
@@ -804,7 +805,7 @@
         "B15",
         "B17"
       ],
-      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation.",
+      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation. A gRPC/MCP endpoint with a local or inherited ServerFilter is rejected at route freeze before listening.",
       "cost_profile": "O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata."
     },
     "NativeWeave.Server.ServerEndpointsAttribute": {
@@ -865,7 +866,7 @@
         "B15",
         "B17"
       ],
-      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. HTTP ServerResult pipeline only; gRPC/MCP endpoint filters, including inherited group filters, fail route freeze.",
       "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
     },
     "NativeWeave.Server.ServerListenOptions": {
@@ -894,7 +895,7 @@
         "B15",
         "B17"
       ],
-      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. gRPC middleware uses restricted RequestContext; short circuit without explicit GrpcException maps to Unauthenticated16/PermissionDenied7, never raw HTTP.",
       "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
     },
     "NativeWeave.Server.ServerOptions": {
@@ -938,8 +939,8 @@
         "B15",
         "B16"
       ],
-      "capability": "Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF.",
-      "cost_profile": "Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser."
+      "capability": "Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF. Raw Body/ReadChunk/ReadJson/GetTrailers are rejected for gRPC/MCP before consumption or owner movement.",
+      "cost_profile": "Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser. Native read payload grant is a nonwaiting request/global try; failure returns resource_limit before new payload allocation/retention."
     },
     "NativeWeave.Server.ServerResponse": {
       "package": "NativeWeave.Server",
@@ -957,8 +958,8 @@
         "B16",
         "B17"
       ],
-      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
-      "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
+      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership. Every successful HTTP MapRaw/generated void/custom result/middleware path awaits one CompleteAsync/response_finish before lifecycle cleanup; preserve selected status/headers, untouched200. gRPC/Allowed MCP permit only lifecycle hooks on this facade.",
+      "cost_profile": "Bounded metadata-only queue admission may wait; native request/global payload grant and managed overlap grant are nonwaiting with all-or-none rollback. Serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded. Payload-free completion uses reserved control metadata."
     },
     "NativeWeave.Server.ServerResult": {
       "package": "NativeWeave.Server",
@@ -977,7 +978,7 @@
         "B17"
       ],
       "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
-      "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
+      "cost_profile": "Bounded metadata-only native queue wait followed by nonwaiting request/global payload grant and rollback before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
     },
     "NativeWeave.Server.ServerRouteAttribute": {
       "package": "NativeWeave.Server",

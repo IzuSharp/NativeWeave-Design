@@ -1,0 +1,57 @@
+2026-11-14T12:16:29.5219565Z dotnet-install: .NET Core SDK with version '11.0.100' is already installed.
+2026-11-14T12:16:29.6093821Z ##[group]Run python experiments/public-api/run.py --aot --output artifacts/public-api/current
+2026-11-14T12:16:29.6094624Z [36;1mpython experiments/public-api/run.py --aot --output artifacts/public-api/current[0m
+2026-11-14T12:16:29.6193779Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-14T12:16:29.6194154Z env:
+2026-11-14T12:16:29.6194367Z   DOTNET_CLI_TELEMETRY_OPTOUT: 1
+2026-11-14T12:16:29.6194618Z   DOTNET_NOLOGO: 1
+2026-11-14T12:16:29.6194833Z   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+2026-11-14T12:16:29.6195094Z   DOTNET_CLI_USE_MSBUILD_SERVER: 0
+2026-11-14T12:16:29.6195342Z   DOTNET_ROOT: C:\Program Files\dotnet
+2026-11-14T12:16:29.6195586Z ##[endgroup]
+2026-11-14T12:16:32.0504666Z sdk: exit 0
+2026-11-14T12:16:53.7404688Z consumer-build: exit 0
+2026-11-14T12:16:53.8162116Z consumer-execute: exit 0
+2026-11-14T12:16:57.2999488Z inventory-build: exit 0
+2026-11-14T12:17:00.2812419Z checks-build: exit 0
+2026-11-14T12:17:01.7880305Z inventory: exit 0
+2026-11-14T12:17:03.2351673Z negative-consumers: exit 0
+2026-11-14T12:17:09.1885871Z exporter-regressions: exit 0
+2026-11-14T12:17:36.8377083Z native-aot-publish: exit 0
+2026-11-14T12:17:36.8573729Z native-aot-execute: exit 0
+2026-11-14T12:17:36.9815083Z ##[group]Run git diff --exit-code -- docs/api/public-api.json docs/api/reference.md
+2026-11-14T12:17:36.9815765Z [36;1mgit diff --exit-code -- docs/api/public-api.json docs/api/reference.md[0m
+2026-11-14T12:17:36.9854072Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-14T12:17:36.9854447Z env:
+2026-11-14T12:17:36.9854676Z   DOTNET_CLI_TELEMETRY_OPTOUT: 1
+2026-11-14T12:17:36.9854934Z   DOTNET_NOLOGO: 1
+2026-11-14T12:17:36.9855176Z   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+2026-11-14T12:17:36.9855455Z   DOTNET_CLI_USE_MSBUILD_SERVER: 0
+2026-11-14T12:17:36.9855730Z   DOTNET_ROOT: C:\Program Files\dotnet
+2026-11-14T12:17:36.9856008Z ##[endgroup]
+2026-11-14T12:17:37.2820173Z warning: in the working copy of 'docs/api/public-api.json', LF will be replaced by CRLF the next time Git touches it
+2026-11-14T12:17:37.2893682Z warning: in the working copy of 'docs/api/reference.md', LF will be replaced by CRLF the next time Git touches it
+2026-11-14T12:17:37.3212912Z diff --git a/docs/api/public-api.json b/docs/api/public-api.json
+2026-11-14T12:17:37.3213977Z index a695fd1..6fc7a4e 100644
+2026-11-14T12:17:37.3214401Z --- a/docs/api/public-api.json
+2026-11-14T12:17:37.3214869Z +++ b/docs/api/public-api.json
+2026-11-14T12:17:37.3215224Z @@ -8,15 +8,15 @@
+2026-11-14T12:17:37.3215574Z    "declaration_sources": [
+2026-11-14T12:17:37.3215891Z      {
+2026-11-14T12:17:37.3216408Z        "path": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
+2026-11-14T12:17:37.3217271Z -      "sha256": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb"
+2026-11-14T12:17:37.3218334Z +      "sha256": "019b159a8963108b5f275c9f4b5bb487ff0831c5934aee1f15588da782b2c4ec"
+2026-11-14T12:17:37.3218906Z      },
+2026-11-14T12:17:37.3219182Z      {
+2026-11-14T12:17:37.3219705Z        "path": "experiments/public-api/NativeWeave.Api.Design/Interop.cs",
+2026-11-14T12:17:37.3220560Z -      "sha256": "aa806f2a24914363031dc0466adc446313e1e69b5464d6fb2f8c953114de0208"
+2026-11-14T12:17:37.3221452Z +      "sha256": "b4d751bf9c551a33d02e4f2616b86b0c9f9c688f094f217be86becf842bfff98"
+2026-11-14T12:17:37.3222025Z      },
+2026-11-14T12:17:37.3222280Z      {
+2026-11-14T12:17:37.3222765Z        "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
+2026-11-14T12:17:37.3223572Z -      "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe"
+2026-11-14T12:17:37.3224461Z +      "sha256": "bbe037594b3bfc8419be0d5f1c07d8faaa7a22d06b5ec7c52b94f53e61017fec"
+2026-11-14T12:17:37.3225066Z      }
+2026-11-14T12:17:37.3225323Z    ],
+2026-11-14T12:17:37.3225644Z    "semantic_policies": {
+2026-11-14T12:17:37.5862303Z ##[error]Process completed with exit code 1.

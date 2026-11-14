@@ -1,0 +1,10 @@
+// Intentionally invalid design consumer: an explicit lift must not allow a reverse conversion.
+#nullable enable
+using NativeWeave.Query;
+public static class DatabaseNullableLiftReverse
+{
+    public static void Reject(SqlExpression<long> key)
+    {
+        SqlExpression<long> invalid = key.AsNullable();
+    }
+}

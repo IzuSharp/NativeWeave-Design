@@ -63,6 +63,7 @@ public static class ServerExamples
                 FileShare.None, 32_768, FileOptions.Asynchronous);
             await context.Request.Body.CopyToAsync(file, 32_768, token);
             context.Response.StatusCode = 201;
+            // Successful dispatch awaits CompleteAsync before cleanup and preserves this201.
         }).WithMaxRequestBodyBytes(67_108_864).WithTimeout(TimeSpan.FromMinutes(2));
         app.MapGet("/events", static context => Results.ServerSentEvents(Events(context.RequestAborted)));
         await app.StartAsync(cancellationToken);

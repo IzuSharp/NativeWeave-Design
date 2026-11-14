@@ -494,6 +494,97 @@
       "git_blob_sha": "3ea21d9b3e3b40cdece6199f531eda6047aee6b0",
       "url": "https://github.com/dotnet/runtime/blob/deae2e32bf0e018e09d64597b7c59b62b73bb3ce/src/libraries/System.Text.Json/src/System/Text/Json/Schema/JsonSchemaExporterContext.cs",
       "limitations": "Exporter nullability/root transform source inspected; static-metadata witness records local BCL execution. No NativeWeave MCP runtime or upstream test-suite execution."
+    },
+    {
+      "id": "SERVER-RUST-GRPC-MAP",
+      "repository": "grpc/grpc-rust",
+      "version": "tonic0.14.9",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/metadata/map.rs",
+      "symbols": [
+        "MetadataMap::from_headers",
+        "MetadataMap::get_bin"
+      ],
+      "read_ranges": [
+        [
+          262,
+          270
+        ],
+        [
+          523,
+          532
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "7924d2b25c6e5dc8d655890409052c77282b39743b788501a8734cf108fd4acc",
+      "git_blob_sha": "66d00071c4bc8db148e3ede10ed4c6c68df84d2a",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/metadata/map.rs",
+      "limitations": "Selected public seam read and exact cached-file/GitHub blob identity checked. Split/coalescing is NativeWeave Adapter policy, not Tonic behavior. No new native runtime experiment."
+    },
+    {
+      "id": "SERVER-RUST-GRPC-VALUE",
+      "repository": "grpc/grpc-rust",
+      "version": "tonic0.14.9",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/metadata/value.rs",
+      "symbols": [
+        "MetadataValue::to_bytes"
+      ],
+      "read_ranges": [
+        [
+          152,
+          157
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "dd5e473e1cf930c123cf30aa58054353828f7732b1a39e9500311eac3a19b830",
+      "git_blob_sha": "4d332d1b9f086da2672b20961f3daffced3344ad",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/metadata/value.rs",
+      "limitations": "Selected public seam read and exact cached-file/GitHub blob identity checked. Split/coalescing is NativeWeave Adapter policy, not Tonic behavior. No new native runtime experiment."
+    },
+    {
+      "id": "SERVER-RUST-GRPC-ENCODING",
+      "repository": "grpc/grpc-rust",
+      "version": "tonic0.14.9",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/metadata/encoding.rs",
+      "symbols": [
+        "Binary::from_bytes",
+        "Binary::decode"
+      ],
+      "read_ranges": [
+        [
+          152,
+          180
+        ]
+      ],
+      "read_state": "scoped_source_read",
+      "sha256": "cf919a9d5605002d58cb395987c68df47d93099ce08e7c38e83e052debc271ff",
+      "git_blob_sha": "e6a7db1f2fb2cb7f5ec4102e2490cf342c4ac89b",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/metadata/encoding.rs",
+      "limitations": "Selected public seam read and exact cached-file/GitHub blob identity checked. Split/coalescing is NativeWeave Adapter policy, not Tonic behavior. No new native runtime experiment."
+    },
+    {
+      "id": "SERVER-RUST-GRPC-BASE64-CONFIG",
+      "repository": "grpc/grpc-rust",
+      "version": "tonic0.14.9",
+      "commit": "4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70",
+      "path": "tonic/src/util.rs",
+      "symbols": [
+        "base64::STANDARD",
+        "DecodePaddingMode::Indifferent"
+      ],
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "read_state": "full_file_read",
+      "sha256": "29c4ed803264300017be99346ae573ae3a074e7fcc6aed9b4805ffd3cebd9f75",
+      "git_blob_sha": "91f7de54b888254e8fd501f4f2789ee7dd486523",
+      "url": "https://github.com/grpc/grpc-rust/blob/4c0f455c264fe2ec9f9ab5d0cc7fd2824d5daf70/tonic/src/util.rs",
+      "limitations": "Private configuration inspected only to establish public to_bytes padding behavior; Adapter does not call private utilities. No new runtime execution."
     }
   ],
   "reused_evidence": [
@@ -542,6 +633,14 @@
     {
       "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
       "scope": "RFC9110 immutable June2022 specification, sections8.6,9.3.2,15.2,15.3.5,15.3.6,15.4.5; reviewed2026-11-14 for final/interim status, HEAD,204/205/304 body and Content-Length review correction. NativeWeave early validation/producer policy is a design decision, not an upstream implementation claim."
+    },
+    {
+      "url": "https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md",
+      "observed_date": "2026-11-14",
+      "sections": [
+        "Requests: Custom-Metadata/Binary-Header"
+      ],
+      "observation": "The protocol requires splitting comma-joined binary fields before base64 decode, accepting padded/unpadded standard base64, and preserving repeated-name value order. This official protocol page is not claimed to be the pinned Tonic implementation."
     }
   ],
   "evidence_boundary": "Design/source research and declaration compilation only. Do not label prior experiments as this public API runtime or product execution."

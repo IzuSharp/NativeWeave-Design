@@ -22,7 +22,7 @@ The initial domain includes explicit CRUD, scalar typed values/null, filters, or
 
 ## 2. Typed facade and runtime metadata
 
-A descriptor contains a stable metadata identifier, validated table/column name, codec, nullability and any explicit key/relation information. The C# type `Column<TEntity,TValue>` prevents accidental cross-entity/value use in supported APIs; joined scopes need explicit aliases and typed association, not a general unchecked string field. Dynamic external fields are resolved against an allowlist, and native code validates again. C# type safety alone is not a sandbox for raw ABI input.
+A table descriptor contains a stable metadata identifier, validated table/column name, codec, nullability and explicit primary keys. Independent post-Build Relation descriptors bind two immutable model identities and ordered key pairs through the source-bound registration/load ABI in `docs/api/database.md` §9.2.1; they do not mutate canonical table metadata. The C# type `Column<TEntity,TValue>` prevents accidental cross-entity/value use in supported APIs; joined scopes need explicit aliases and typed association, not a general unchecked string field. Dynamic external fields are resolved against an allowlist, and native code validates again. C# type safety alone is not a sandbox for raw ABI input.
 
 Design consumer shape; its exact methods are covered by the declaration fixture:
 ```csharp
@@ -106,6 +106,15 @@ loading, prefer generalizing those native algorithms through a controlled upstre
 metadata extension; do not build a C# relationship engine. The initial ordinary
 surface supports explicit native joins/projections and CAS changesets, with no
 transparent lazy loading, hidden tracking or arbitrary graph persistence.
+
+One-parent LoadRelatedAsync uses the separately registered relation owner, exact
+parent key db-wire row and child projection ID to create one native child cursor
+operation. Complete composite PK order, nullable FK compatibility, cache budgets,
+source/engine retention and close/failure paths are fixed by the Public API §9.2.1;
+the C# facade supplies static metadata and materializes bounded rows. Optional-FK
+Fluent ON comparisons use AsNullable/AsNullableReference (unary opcode4) to retain
+the original codec/value while widening result nullability. No COALESCE sentinel
+or downward nullable projection is implicit.
 
 `native_join_aggregate_matches_independent_sql_oracle` checks actual LEFT JOIN,
 COUNT and SUM behavior against separately authored SQL. The changeset fixture

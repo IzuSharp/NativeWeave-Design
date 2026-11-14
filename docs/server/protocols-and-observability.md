@@ -48,10 +48,20 @@ This is required language-boundary DTO mapping, not a managed gRPC stack.
 HTTP wire headers and decoded gRPC metadata are distinct snapshots under the same
 request metadata owner. The exact nw_server_metadata_grpc_headers projection returns
 raw binary values for -bin fields and ASCII text for other metadata; metadata_headers
-retains the original HTTP wire text. Tonic performs wire base64 handling. Both bounded
-blocks, entry descriptors and decode scratch are reserved before allocation, and
-managed copies charge overlap. Wrong owner kind returns INVALID_STATE with an empty
-view. This closes API-SRV-002; a single UTF-8 header view cannot stand for both forms.
+retains the original HTTP wire text. The Rust Adapter explicitly splits every -bin
+wire field on ASCII comma, trims only surrounding SP/HTAB per segment, preserves
+per-name repeated-field/segment order, and passes each segment through public
+HeaderValue/HeaderMap -> MetadataMap::from_headers -> get_bin(name).to_bytes().
+Tonic decodes one segment; its map/value APIs do not perform that split. Empty segments
+produce distinct empty binary values; invalid alphabet/interior whitespace/padding
+fails the entire unpublished projection. Padded and unpadded standard base64 are
+accepted. Preflight the post-split200-entry limit and both MaxHeaderBytes block caps,
+including repeated key bytes/prefixes. Reserve fixed offset descriptors and one
+segment's HeaderMap/decode scratch plus copy overlap before allocation; release the
+temporary before the next decode and all owners on any failure. No managed base64
+decode or partial publication is admitted. Wrong owner kind returns INVALID_STATE
+with an empty view. API-SRV-002 requires these Adapter steps; a single UTF-8 header
+view cannot stand for both forms.
 
 The native HTTP route selects a validated `/package.Service/Method` descriptor and
 constructs one of four adapters: `UnaryService<Bytes>`, `ServerStreamingService<Bytes>`,
@@ -72,6 +82,30 @@ code belong to the C# build; runtime schema compilation and arbitrary assembly l
 are excluded. Deserialization failure releases the taken message buffer before
 returning the selected protocol error. Method metadata and serializers may change
 with an application build while the precompiled native module stays identical.
+
+GrpcCallContext.RequestContext is a restricted view of that same request/scope, not
+raw HTTP transport authority. Metadata, Services/User/Items, correlation/time/cancel,
+Abort and OnCompleted/RegisterForDisposeAsync remain
+available. Request.Body/ReadChunkAsync/ReadJsonAsync/GetTrailers and all raw response
+status/header/trailer/body/HasStarted access, Start/Write/WriteJson/Flush/Complete and OnStarting
+are rejected before state mutation; only typed gRPC messages, response metadata and
+status/trailers may reach Tonic. The native raw HTTP exports independently reject the
+gRPC request kind with INVALID_STATE. Endpoint or inherited group ServerFilter fails
+route freeze before listening. Middleware can inspect permitted metadata, await next
+and register lifecycle work; a short circuit without an explicit GrpcException uses
+Unauthenticated(16) for an unauthenticated identity or PermissionDenied(7) otherwise.
+Authentication/policy denial uses that same trailers-only/status path before managed
+message decoding/business dispatch, never an HTTP401/403 or JSON body. Unexpected
+application failure is redacted Internal(13). Await the typed terminal operation and
+both direction leases before common completion/disposal/scope cleanup. MCP's
+AwaitingGate/Denied HTTP response path is the explicit exception in its own protocol;
+after Allow, rmcp owns output and only permitted metadata/lifecycle access remains.
+
+Protocol payload allocations follow D18 and server.md section10.3: global/request
+native credit and any managed overlap are nonwaiting all-or-none grants. Message or
+bridge admission failure returns resource_limit (gRPC ResourceExhausted), with full
+partial-grant rollback. Only bounded queue/network flow control waits; no protocol
+adapter may reintroduce an awaited payload-credit semaphore behind the typed facade.
 
 | Native adapter operation | C# semantic API | Ownership/ordering |
 |---|---|---|

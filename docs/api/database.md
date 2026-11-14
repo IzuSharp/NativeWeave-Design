@@ -363,7 +363,7 @@ readable after disposal; other disposed operations reject.
 | `UpdateAsync` / `DeleteAsync` | Key-bound native mutation; return 0/1 rows. Multirow result for a declared primary key is schema/constraint error. No read-before-write. |
 | `UpdateCheckedAsync` / `DeleteCheckedAsync` | Key + explicit concurrency values in one native mutation; exactly one affected row required, otherwise `ConcurrencyConflictException` with expected/actual counts. Do not read client state or overwrite a changed row. |
 | `UpsertAsync` | Explicit conflict target and changes, native `ON CONFLICT`; affected count is provider result. Target columns must identify an existing database primary/unique constraint; constraint-name target is PostgreSQL-only, columns are portable. No exists-then-write race, no SeaORM `save` equivalence. The typed `ConflictTarget.Columns(...).And(...)` declares the target; the provider validates its actual uniqueness atomically and reports a constraint error for missing/incompatible constraints. This does not require a second managed schema model. |
-| `LoadRelatedAsync` | One parent's complete key plus explicit Relation maps to native FK SELECT/projection; bounded result list, no tracking or automatic recursive loading. Composite relation components are ordered and validated. CreateOptional/CreateOptionalReference and AndOptional variants explicitly lift the child foreign-key nullability; a NULL foreign key matches no parent. Relation.And variants return new immutable descriptors, so existing registered relations are not mutated. |
+| `LoadRelatedAsync` | One parent's complete non-null primary key plus an independently registered Relation maps to one native child FK SELECT/projection (§9.2.1); bounded result list, no tracking or automatic recursive loading. Ordered parent components cover the complete primary key; CreateOptional/CreateOptionalReference and AndOptional variants allow declared nullable child FK components. A NULL FK component matches no parent. And variants return new immutable descriptors without changing either Table.MetadataHash. There is no parent-existence SELECT or implicit child ordering. |
 | `InsertManyAsync` | Pulls the input `IAsyncEnumerable` with cancellation; snapshots each entity before next MoveNext, bounds rows/bytes per native batch. `BulkAtomicity.All` default owns a transaction if none exists; inside a caller transaction it owns an internal savepoint and never commits the outer transaction. `PerBatch` is explicitly non-atomic across batches and is rejected inside an active caller transaction. No unbounded materialization or invisible COPY fast path. |
 
 Bulk exceptions preserve the original error and transaction outcome; Unknown commit
@@ -516,11 +516,33 @@ invariant generic wrapper. `Collate` only selects an allowlisted provider collat
 There is no culture-sensitive CLR fallback. `SqlFunctions.Coalesce` and
 `CoalesceReference` explicitly choose a non-null result type.
 
+`SqlNullabilityExtensions.AsNullable<T>(SqlExpression<T>) where T:struct` and
+`AsNullableReference<T>(SqlExpression<T>) where T:class` explicitly lift a declared
+non-null expression to `SqlExpression<T?>`. This is a one-way type/metadata lift:
+the native unary opcode4 creates a fresh scalar token in the same query arena,
+keeps the exact logical and source-bound codec/configuration, value expression,
+collation and alias dependencies, and sets only the result's nullable flag. It
+does not mutate the original token, emit CAST/COALESCE, bind a new parameter or
+substitute a sentinel. Its extra arena slot is charged to MaxQueryNodes; it has no
+independent owner or release. Normal admission/generation checks apply, and
+already-nullable/default/non-scalar/expired tokens reject before query mutation.
+Reference nullability annotations alone do not authorize a native metadata change.
+
+After lifting, ordinary same-type Equal/NotEqual/ordering/NullSafeEqual overloads
+remain available with the same codec/profile and owner checks. For example,
+`on.Left(Students.Id).AsNullable().Equal(on.Right(OptionalEnrollments.StudentId))`
+compares a `long` primary key with a `long?` foreign key without losing SQL NULL.
+Ordinary Equal still returns UNKNOWN when the FK is NULL, so that row does not
+match JOIN ON. No implicit nullable-to-non-null conversion is added: projecting a
+`SqlExpression<long?>` as `SqlExpression<long>` still fails C# compilation, and
+native result-shape checks remain authoritative even if annotations are bypassed.
+
 ### 7.2 Joins and projection
 
 `InnerJoin` and `LeftJoin` use an explicit table, unique alias and synchronous ON
-builder over `JoinPredicate<TLeft,TRight>`. The callback sees non-null declared
-columns for ON evaluation. The returned aliases differ in type: `JoinedTable<T>`
+builder over `JoinPredicate<TLeft,TRight>`. The callback sees each column's declared
+nullability for ON evaluation; nullable FK columns remain nullable. A non-null
+opposite expression may use the explicit lift above. The returned aliases differ in type: `JoinedTable<T>`
 allows ordinary Column reads; `LeftJoinedTable<T>` requires NullableValue or
 NullableReference for projected/right-filtered columns. A non-null column cannot
 silently become a non-null LEFT JOIN result. `HasMatch` uses a native explicit
@@ -713,6 +735,8 @@ nw_status NW_CDECL nw_db_session_open_create_v1(nw_db_ref source, nw_db_ref* op,
 nw_status NW_CDECL nw_db_codec_register_v1(nw_db_ref source, uint32_t logical_codec, nw_bytes_view_v1 configuration, uint32_t* bound_codec_id, nw_error_info_v1* error);
 nw_status NW_CDECL nw_db_metadata_register_v1(nw_db_ref source, nw_bytes_view_v1 metadata, nw_db_ref* model, nw_error_info_v1* error);
 nw_status NW_CDECL nw_db_projection_register_v1(nw_db_ref source, nw_bytes_view_v1 projection, uint32_t* projection_id, nw_error_info_v1* error);
+nw_status NW_CDECL nw_db_relation_register_v1(nw_db_ref source, nw_db_ref parent_model, nw_db_ref child_model, nw_bytes_view_v1 definition, nw_db_ref* relation, nw_error_info_v1* error);
+nw_status NW_CDECL nw_db_relation_load_create_v1(nw_db_ref session, nw_db_ref relation, nw_bytes_view_v1 parent_key, uint32_t child_projection_id, nw_db_ref* op, nw_error_info_v1* error);
 nw_status NW_CDECL nw_db_query_create_v1(nw_db_ref session, nw_db_ref model, uint32_t table_id, nw_db_ref* query, nw_error_info_v1* error);
 nw_status NW_CDECL nw_db_expr_column_v1(nw_db_ref query, nw_db_token alias, uint32_t column_id, nw_db_token* expr, nw_error_info_v1* error);
 nw_status NW_CDECL nw_db_expr_value_v1(nw_db_ref query, nw_bytes_view_v1 one_cell, nw_db_token* expr, nw_error_info_v1* error);
@@ -862,18 +886,18 @@ Table and column IDs are the first four SHA-256 digest bytes interpreted as a
 little-endian u32 of these canonical JSON arrays respectively:
 `["NWDB-TABLE-ID-v1",logical_id,schema,table]` and
 `["NWDB-COLUMN-ID-v1",logical_id,schema,table,column_name]`.
-Schema null is JSON null, not an empty string. Relation IDs hash
-`["NWDB-RELATION-ID-v1",parent_logical_id,child_logical_id,parent_column_ids,child_column_ids]`
-with the same rule and ordered numeric arrays. Zero IDs and different complete
+Schema null is JSON null, not an empty string. Zero IDs and different complete
 identities with the same ID are rejected (generator NWQ0110; handwritten mapping
 ArgumentException); never probe/reassign IDs according to registration order.
 The native registry repeats full-identity/hash/collision validation. This fixes
 stable nonzero u32 values without a platform-specific string hash; projection ordinals follow the ordered projection
 array, not hash-map order. `key_ordinal` is null for nonkeys, otherwise contiguous
 0-based primary-key component order; builder declaration order determines it.
-`max_length` is a positive byte capacity or null. A relation record is
-`{id,child_logical_id,parent_columns:[ids],child_columns:[ids]}` with equal positive
-arity, and arrays of columns/relations are sorted by ID. Generated constructor
+`max_length` is a positive byte capacity or null. The table's `relations` property
+is reserved and must be the empty array in schema v1; nonempty values reject.
+Post-Build Relation descriptors have their own canonical identity and registration
+(§9.2.1), so constructing or extending one never changes immutable table bytes/hash.
+The columns array is sorted by ID. Generated constructor
 parameter order is recorded by projection, independently of descriptor ordering.
 
 `Projection<T>.Create` serializes a descriptor with ordered
@@ -889,7 +913,7 @@ After resolving configured codecs, kind13 carries the bound descriptor and this
 logical hash; native reconstructs logical codecs/configurations and verifies it.
 `projection_register` atomically interns that complete shape in the source and
 returns a positive source-bound ID, reused only for byte-equivalent logical shapes.
-The source owns it until close; the combined metadata/projection registry is bounded
+The source owns it until close; the combined metadata/projection/relation registry is bounded
 by MaxQueryNodes entries and MaxParameterBytes encoded bytes. Registration that
 would exceed either bound fails before publication, never evicts an in-use binding.
 Raw Query/Stream and mutation returning register their projection before creating
@@ -919,6 +943,7 @@ Nested control records use the envelope already defined, with these exact kinds:
 | 20 raw command options | 1 command kind u32(0 Query,1 Mutation,2 SessionMutating),2 result kind u32(0 affected-count,1 scalar,2 buffered rows,3 stream),3 resolved finite timeout ns,4 registered projection ID u32(0 only for affected-count),5 parameter definitions binary count/length sequence of kind21,6 template kind u32(0 named SQL UTF8,1 interpolated segment sequence) |
 | 21 named parameter definition | 1 parameter ID u32 positive,2 name UTF8 without @,3 bound-codec u32,4 nullable u32(0/1); definitions ordered by parameter ID, names/IDs unique and exactly matched to db-wire descriptors |
 | 22 projection field | 1 ordinal u32,2 alias UTF8,3 bound-codec u32,4 nullable u32(0/1); optional5 arena expression token u64 only for inline query projection |
+| 23 relation definition | 1 parent table ID u32,2 parent model SHA-256 binary32,3 child table ID u32,4 child model SHA-256 binary32,5 ordered parent-column IDs u32vector,6 corresponding child-column IDs u32vector,7 child-nullable flags u32vector(0/1),8 relation SHA-256 binary32; all fields required, equal positive vector lengths, exact canonical identity and validation in §9.2.1 |
 
 
 Migration entry field5 is the adapter's SHA-256 identity of immutable SQL bytes;
@@ -1059,10 +1084,12 @@ never authorizes a pointer access or substitutes for the complete shape hash.
 | `Codec.Register` | logical ID/config -> source-bound validated native codec | codec ID; no new native code accepted |
 | `Metadata.Register` | canonical model -> runtime metadata registry and native codec profile | immutable model owner; all-or-nothing |
 | `Projection.Register` | kind13 with kind22 fields -> source-bound exact logical shape/codec binding | positive projection ID; atomic bounded interning, no CLR delegate crosses ABI |
+| `Relation.Register` / relation_register | source + parent/child model owners + kind23 -> independent immutable native relation descriptor | same-source owned relation reference; retains both models, validates complete ordered primary/FK pairs; bounded atomic interning (§9.2.1) |
 | `Expression.Column/Value/Parameter` | typed metadata ID or one db-wire cell; parameter ID/name/bound-codec/nullability | arena expr token -> SeaQuery Expr/Value; named prepared-parameter schema is retained natively; no CLR object pointer |
 | `Expression.Binary` codes 1..6 | Equal,NotEqual,Greater,GreaterOrEqual,Less,LessOrEqual(left,right) | SeaQuery ExprTrait comparison methods |
 | binary codes 7..14 | Add,Subtract,Multiply,Divide,And,Or,NullSafeEqual,Coalesce | ExprTrait arithmetic/Condition/native null operator; codec/backend gate |
 | unary codes 1..3 | IsNull,IsNotNull,Not(input) | native unary condition |
+| unary code 4 | NullableLift(input): admitted non-null scalar expression token | fresh same-arena token, identical native value/codec/configuration/collation/dependencies, nullable result flag; no SQL cast or replacement value (§7.1) |
 | list codes 1..3 | In,NotIn,Between(input,cells); Between exactly 2 cells | SeaQuery is_in/is_not_in/between; empty membership explicit constants |
 | clause 1/2 | WHERE/HAVING: field1 token:u64 | SelectStatement::and_where / having |
 | clause 3 | ORDER: field1 token, field2 direction:u32(0 asc/1 desc), field3 null_order:u32(0 first/1 last), field4 replace:u32 | order_by_expr_with_nulls; no silent null order |
@@ -1095,7 +1122,7 @@ never authorizes a pointer access or substitutes for the complete shape hash.
 | `Savepoint.Action` 0/1 | rollback-to/release of top generation -> tracked native savepoint | snapshot; outer transaction never committed |
 | mutation 0..6 | insert,insert-returning,update,update-checked,delete,delete-checked,upsert; record fields validated | native SeaQuery Insert/Update/Delete/OnConflict + SQLx; counts/row |
 | admin 0..3 | migrate,status,validate,tables | SQLx Migrator or bounded native catalog query; owned static snapshot |
-| `Relation.Load` | metadata relation expands native FK predicate and child projection, then ordinary Query.Seal/Execute | no separate C# relation algorithm or copied SeaORM state manager |
+| `Relation.Load` / relation_load_create | session + registered relation owner + parent kind4 db-wire key + child projection ID -> Rust SeaQuery child SELECT with every ordered FK=bound-parent-value predicate ANDed; SQLx execution | Created read operation; success transfers kind2 cursor, then ordinary bounded fetch/close; no parent lookup, managed SQL construction or SeaORM state manager (§9.2.1) |
 | `Entity.Find` | Query.Create; Expression.Column/Value and Binary.Equal for every ordered key component; WHERE; SELECT root projection; Seal terminal1(cursor); Execute/Fetch with max_rows2 | adapter returns null only for zero rows and fails on a second key-shaped row, then always retires cursor; no nonexistent Mutation.KeyQuery operation |
 | `Bulk.Insert` | native bounded batch of mutation0 records; transaction ownership explicit | same execute/tx lifecycle; no extra universal batch ABI |
 
@@ -1198,6 +1225,127 @@ failure progress reuses take_error's owned payload plus the exact kind15 record.
 ordinary scalar expressions reject before render. This is a semantic check beyond
 what its generic type can prove.
 
+### 9.2.1 Independent relation registration and one-parent loading
+
+`Relation<TParent,TChild>` is immutable managed metadata over two already-built
+tables, not a mutable part of either table or a native handle. Create starts at
+parent primary-key ordinal0; And appends exactly the next ordinal. Each pair must
+refer to the supplied parent/child table identities, use distinct parent and child
+column IDs, and have the same logical scalar codec, canonical configuration and
+declared collation. Parent columns must be non-null primary-key components.
+Create/And require non-null child columns; the Optional variants require nullable
+child columns of the same underlying scalar codec. C# generic compatibility does
+not replace these metadata checks, including for reference nullability. A partial
+ordered prefix is legal while constructing a composite descriptor, but loading
+and native registration require the complete parent primary key. Alternate unique
+keys and inferred relationships are outside this v1 operation. Local descriptor
+errors throw ArgumentException without loading native code. And returns a new
+descriptor; registration of an older descriptor remains unchanged.
+
+The canonical relation identity is the UTF-8 JSON object below, with the exact
+key order and string/number rules of §9.1.1. `parent_model` and `child_model` are
+the complete tables' lowercase hexadecimal SHA-256 metadata hashes; the symbolic
+strings below must be replaced by the actual 64 hexadecimal characters. Column and
+flag arrays preserve the corresponding parent key-ordinal order, never sorted by
+column ID. The SHA-256 of these bytes is control kind23 field8. There is no separate
+u32 relation ID or relation embedded inside the table hash.
+
+```json
+{"version":1,"parent_model":"PARENT_MODEL_SHA256","parent_table":1,"child_model":"CHILD_MODEL_SHA256","child_table":2,"parent_columns":[3],"child_columns":[4],"child_nullable":[true]}
+```
+
+Both actual table IDs and column IDs come from the ordinary canonical metadata;
+the illustrative 1..4 above are not allocated IDs. Kind23 fields2/4 are the same
+hashes as raw 32 bytes; field7 carries each JSON Boolean as u32 zero/one. Native
+reconstructs the canonical identity from the record and admitted model owners,
+verifies field8, and compares the complete identity on cache hits, rejecting a
+hash collision instead of aliasing descriptors. Changing either model's schema,
+key order, pair order or optionality creates a different relation identity.
+
+The exact adapter sequence is:
+
+1. Validate the immutable descriptor and complete `EntityKey<TParent>`, including
+   the same parent table metadata identity. Observe already-canceled admission
+   before registering or allocating operation state. Register both table models
+   with `nw_db_metadata_register_v1` in this session's source and bind their codecs.
+   Register the child Table.Row projection with `nw_db_projection_register_v1`.
+   These calls do not open a connection or execute SQL.
+2. Under source admission, call `nw_db_relation_register_v1(source,parent_model,
+   child_model,kind23,&relation,error)`. It is synchronous and atomic: both model
+   owners must be admitted from that source generation/profile, record hashes and
+   table IDs must match them, all ordered pairs must meet the rules above, and
+   logical plus bound codec/configuration identity must match across each pair.
+   The output is an owned relation reference only on success. No partial relation
+   cache entry or leaked retained model is published on error.
+3. Snapshot the parent key as one db-wire kind4 row, with the **parent** model hash,
+   parent table entity_id, and exactly the parent key column IDs in relation order.
+   Every descriptor and cell is non-null; source-bound codec IDs/configurations
+   must match the parent model. Omitted, extra, duplicate, reordered or nullable
+   key components reject, even if their scalar values happen to be equal. This
+   snapshot is bounded by MaxParameters/MaxParameterBytes/MaxFieldBytes.
+4. Admit one session command and call `nw_db_relation_load_create_v1(session,
+   relation,parent_key,child_projection_id,&op,error)`. Native verifies the same
+   source generation/profile, key bytes, and a projection ID equal in complete
+   shape to the child Table.Row declaration. It copies the borrowed key bytes
+   before return and retains session/transaction, relation and projection state.
+   The source CommandTimeout becomes a finite monotonic deadline at this command
+   admission, covering execution and cursor consumption. Start uses the existing
+   Core callback/retirement protocol; no provider statement runs before start.
+5. Rust builds one SeaQuery SelectStatement over the child's declared table,
+   selects the exact child projection and ANDs `child_fk[i] = parameter[i]` for
+   each ordered pair. Parameters use fallible SQLx codec binding in that same
+   order. These are ordinary SQL equalities, not NULL-safe equalities: a NULL in
+   any child FK component excludes that row. Native validates query-node/depth
+   limits before executing the SQLx read on the admitted session/transaction.
+   There is no parent-table read or existence check, so matching child rows can
+   be returned even if an unenforced FK has no current parent row. The result has
+   no implicit order; use an explicit Fluent query for application ordering or
+   additional tenant/security predicates. The helper does not infer such filters.
+6. On successful start completion, `operation_take_owner(expected_kind=2)` transfers
+   the child cursor. The facade uses ordinary cursor_fetch/max-row/max-byte limits,
+   verifies the child projection and materializes a bounded IReadOnlyList. Exceeding
+   the buffered-row/byte limit fails instead of returning a silent truncated list.
+   Cursor close/release, batch release and operation retirement occur in finally
+   paths for success, cancellation, decoding failure and disposal. An untaken
+   cursor remains owned by its operation. Operation retirement cannot destroy a
+   transferred cursor; that cursor retains all native plan/dependency/session
+   leases until its own quiescence.
+
+The managed first-use cache key is `(source generation, complete relation hash)`;
+the same managed Relation can be used by independent sources through separate
+registrations. Concurrent identical registrations intern one native immutable
+entry atomically and each successful call returns a distinct owned wrapper
+reference to that entry; losing managed-cache candidates release their returned
+wrappers once. An entry's internal sharing never authorizes a second release of
+the same wrapper pointer. The combined
+source metadata/projection/relation registry has MaxQueryNodes entries and
+MaxParameterBytes encoded bytes; every entry and full descriptor is charged before
+publication. Duplicate identical hits do not charge new entries. Resource-limit
+failure leaves existing entries usable. Relation arity must also be at most
+MaxParameters, and the dependent native query must fit MaxQueryNodes/MaxQueryDepth;
+this is not an unbounded process-global cache.
+
+Each native relation reference retains both immutable model states and the creating
+source/engine lease. Load operations and transferred cursors retain the relation
+and child projection independently of the managed cache. The public data-only
+Relation has no Dispose; its source-private native wrapper uses
+`nw_db_owner_release_v1` once. Source close first prevents new registrations/loads,
+drains/releases managed cache references and native registry roots, then joins
+outstanding dependency/operation leases under the existing bounded cleanup ledger.
+Registry roots are dropped before waiting, so they cannot create a source-close
+reference cycle. Closing a cache wrapper cannot invalidate an admitted load.
+
+Registration/load require `db.metadata.v1`, `db.scalar-codecs.v1`, `db.query.v1`,
+`db.streaming.v1` and `db.relationships.explicit.v1` from the intersected package/
+provider profile; no prepared-shape capability or SeaORM static entity is required.
+Missing capability rejects before statement dispatch. Native malformed/shape or
+metadata mismatch, stale/mixed source, and budget failures use the existing reasons
+4/11,13,6 respectively, with output pointers still zero and no business effect.
+An already closed managed owner throws ObjectDisposedException; session concurrency
+uses ConcurrentUse. Post-start read/cancellation/materializer failures retire the
+cursor and apply the normal session/transaction cleanup rules, without changing a
+preexisting transaction Unknown outcome or inventing a successful partial list.
+
 ### 9.3 Capability allocation and error mapping
 
 The database module's 64-bit capability mask is engine-local. Public
@@ -1265,9 +1413,10 @@ separate evidence levels.
 | B05 | Commit admission race, lost ack Unknown, failed-tx commit rejection, rollback unconfirmed, savepoint ordering, finite close retaining roots, no connection reentry before proven cleanup |
 | B06/B12 | Actual async enumeration, early break, second enumeration, concurrent MoveNext rejection, constructor exception, first/single extra-row cleanup, memory limits across SQLx/wire/DTO layers |
 | B08 | PG advisory-lock failure/close; SQLite tracked IMMEDIATE outer transaction; checksum and crash/restart; explicit nontransactional boundaries; no startup migration |
-| B09/B11/B13 | Every operation table row paired with direct Rust SQL+ordered-parameter oracle and real PG/SQLite result/error oracle; cross-query alias/default-token/LEFT JOIN nullability; advanced clause rejection before panic/ignored SQL |
+| B09/B11/B13 | Every operation table row paired with direct Rust SQL+ordered-parameter oracle and real PG/SQLite result/error oracle; cross-query alias/default-token/LEFT JOIN nullability; unary4 value/reference lift preserves codec/configuration/alias dependencies and NULL semantics; optional-FK JOIN includes parent key0 versus NULL FK; reverse nullable projection and wrong-owner negatives; advanced clause rejection before panic/ignored SQL |
 | B10 | Incremental stable output, unsupported codec/constructor diagnostics with spans, new entity no Cargo/no asset hash change, actual generated and handwritten parity |
-| B14 | Key/tenant predicates, explicit null vs unset, CAS 0/1 row behavior, native conflict target, relationship key order, partial bulk outcome and caller-owned transaction |
+| B09/B14 | Independent relation kind23 canonical bytes/hash and both-model identities; post-Build registration leaves table hashes unchanged; composite PK order/codec/configuration/optional-FK negatives; exactly one child query with key payload/child projection; cache deduplication/budget/source-close and in-flight retention; bounded fetch/materializer/cancellation cleanup; no parent-existence or inferred tenant filter |
+| B14 | Key/tenant predicates, explicit null vs unset, CAS 0/1 row behavior, native conflict target, partial bulk outcome and caller-owned transaction |
 | A13/A16/B21–B24 | Separate packages without cycles/unrelated engines, RID-free build/run and explicit RID AOT, clean no-Rust consumer, real application operations, allocation/copy/FFI measurements versus same Rust stack, source/API/XML-doc/example consistency |
 
 Compile-negative consumers cover wrong entity/value, struct entity constraints,

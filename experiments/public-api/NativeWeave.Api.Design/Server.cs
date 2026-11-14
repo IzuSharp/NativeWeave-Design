@@ -91,9 +91,9 @@ namespace NativeWeave.Server
         public int MaxQueuedRequests { get; set; } = 128;
         /// <summary>Gets or sets managed payload credit, default 64 MiB.</summary>
         public long ManagedPayloadBytes { get; set; } = 67_108_864;
-        /// <summary>Gets or sets native payload credit, default 64 MiB.</summary>
+        /// <summary>Gets or sets native payload credit, default 64 MiB; read/write grants never wait for payload bytes and exhaustion is resource_limit.</summary>
         public long NativePayloadBytes { get; set; } = 67_108_864;
-        /// <summary>Gets or sets each request's per-side retained-byte limit, default 4 MiB.</summary>
+        /// <summary>Gets or sets each request's per-side full backing-capacity limit, default 4 MiB; retained input can immediately reject another read or write.</summary>
         public long RetainedBytesPerRequest { get; set; } = 4_194_304;
         /// <summary>Gets or sets maximum body chunk capacity, default 32 KiB.</summary>
         public int MaxChunkBytes { get; set; } = 32_768;
@@ -221,22 +221,22 @@ namespace NativeWeave.Server
         public ServerEndpointBuilder MapMethods(string pattern, IReadOnlyList<string> methods, ResponseHandler handler) => throw new NotSupportedException();
         /// <summary>Maps a typed JSON body/result for explicitly listed methods.</summary>
         public ServerEndpointBuilder MapJson<TRequest, TResponse>(string pattern, IReadOnlyList<string> methods, JsonRequestHandler<TRequest, TResponse> handler, JsonTypeInfo<TRequest>? requestTypeInfo = null, JsonTypeInfo<TResponse>? responseTypeInfo = null) => throw new NotSupportedException();
-        /// <summary>Maps a low-level handler that writes the response directly.</summary>
+        /// <summary>Maps a direct HTTP handler; successful return automatically awaits unfinished response completion before lifecycle cleanup.</summary>
         public ServerEndpointBuilder MapRaw(string pattern, IReadOnlyList<string> methods, RequestHandler handler) => throw new NotSupportedException();
         /// <summary>Creates a prefix group; policy metadata is frozen with its routes.</summary>
         public RouteGroupBuilder MapGroup(string prefix) => throw new NotSupportedException();
     }
     /// <summary>Returns one result for execution within the current request lifetime.</summary>
     public delegate Task<ServerResult> ResponseHandler(RequestContext context, CancellationToken cancellationToken);
-    /// <summary>Writes a response directly; completion ends application dispatch.</summary>
+    /// <summary>Writes a response directly; successful return is followed by the shared HTTP completion tail before dispatch cleanup.</summary>
     public delegate Task RequestHandler(RequestContext context, CancellationToken cancellationToken);
     /// <summary>Processes one typed JSON request and response without dynamic binding.</summary>
     public delegate Task<TResponse> JsonRequestHandler<TRequest, TResponse>(TRequest request, RequestContext context, CancellationToken cancellationToken);
     /// <summary>Processes one typed JSON request and chooses an HTTP result.</summary>
     public delegate Task<ServerResult> JsonResultHandler<TRequest>(TRequest request, RequestContext context, CancellationToken cancellationToken);
-    /// <summary>Composes asynchronous application middleware; next is single-invocation.</summary>
+    /// <summary>Composes asynchronous middleware; next is single-invocation and protocol contexts forbid raw HTTP body/output access.</summary>
     public delegate Task ServerMiddleware(RequestContext context, RequestHandler next, CancellationToken cancellationToken);
-    /// <summary>Composes result filters without object-array argument boxing.</summary>
+    /// <summary>Composes HTTP result filters without object-array boxing; gRPC/MCP endpoints and inherited protocol filters are rejected at route freeze.</summary>
     public delegate Task<ServerResult> ServerFilter(RequestContext context, ResponseHandler next, CancellationToken cancellationToken);
 
     /// <summary>Owns one Rust host instance, immutable routing and optional owned services.</summary>
@@ -284,7 +284,7 @@ namespace NativeWeave.Server
         public ServerEndpointBuilder RequireAuthorization(string policy) => throw new NotSupportedException();
         /// <summary>Explicitly removes inherited authorization requirements.</summary>
         public ServerEndpointBuilder AllowAnonymous() => throw new NotSupportedException();
-        /// <summary>Adds a result filter, executed in registration order.</summary>
+        /// <summary>Adds an HTTP result filter in registration order; gRPC/MCP endpoints reject it at route freeze.</summary>
         public ServerEndpointBuilder AddFilter(ServerFilter filter) => throw new NotSupportedException();
         /// <summary>Declares a statically serializable response shape for documentation.</summary>
         public ServerEndpointBuilder Produces<T>(int statusCode = 200, JsonTypeInfo<T>? typeInfo = null, string contentType = "application/json") => throw new NotSupportedException();
@@ -297,7 +297,7 @@ namespace NativeWeave.Server
         public RouteGroupBuilder RequireAuthorization(string policy) => throw new NotSupportedException();
         /// <summary>Adds inherited documentation tags.</summary>
         public RouteGroupBuilder WithTags(params string[] tags) => throw new NotSupportedException();
-        /// <summary>Adds a group result filter.</summary>
+        /// <summary>Adds an inherited HTTP result filter; any descendant gRPC/MCP endpoint causes route-freeze rejection.</summary>
         public RouteGroupBuilder AddFilter(ServerFilter filter) => throw new NotSupportedException();
     }
 
@@ -305,9 +305,9 @@ namespace NativeWeave.Server
     public sealed class RequestContext
     {
         internal RequestContext() { }
-        /// <summary>Gets the immutable parsed request and its single-reader body.</summary>
+        /// <summary>Gets immutable request metadata; raw body access is available only for ordinary HTTP, not gRPC/MCP.</summary>
         public ServerRequest Request => throw new NotSupportedException();
-        /// <summary>Gets the single-writer response.</summary>
+        /// <summary>Gets the response facade; gRPC/Allowed MCP permit only lifecycle completion/disposal registration.</summary>
         public ServerResponse Response => throw new NotSupportedException();
         /// <summary>Gets a lazily created per-request service scope.</summary>
         public IServiceProvider Services => throw new NotSupportedException();
@@ -352,13 +352,13 @@ namespace NativeWeave.Server
         public string? ContentType => throw new NotSupportedException();
         /// <summary>Gets the direct native peer address, unaffected by forwarding.</summary>
         public IPEndPoint? RemoteEndPoint => throw new NotSupportedException();
-        /// <summary>Gets an async-only, nonseekable request-owned body stream.</summary>
+        /// <summary>Gets an async-only HTTP request stream; gRPC/MCP reject this property before body-mode selection.</summary>
         public Stream Body => throw new NotSupportedException();
-        /// <summary>Reads one owned bounded native chunk; null denotes observed body EOF.</summary>
+        /// <summary>Reads one owned HTTP chunk; null denotes EOF, payload exhaustion fails without waiting, and gRPC/MCP raw reads are rejected.</summary>
         public Task<BodyChunk?> ReadChunkAsync(CancellationToken cancellationToken = default) => throw new NotSupportedException();
-        /// <summary>Reads bounded JSON with explicit static metadata; a JSON null root is returned as null for reference types.</summary>
+        /// <summary>Reads HTTP JSON with static metadata; a JSON null root is returned as null for reference types; gRPC/MCP reject raw JSON reads.</summary>
         public Task<T?> ReadJsonAsync<T>(JsonTypeInfo<T> typeInfo, CancellationToken cancellationToken = default) => throw new NotSupportedException();
-        /// <summary>Gets validated trailers after body EOF; before EOF this throws InvalidOperationException.</summary>
+        /// <summary>Gets validated HTTP trailers after EOF; before EOF or for gRPC/MCP this throws InvalidOperationException.</summary>
         public HeaderCollection GetTrailers() => throw new NotSupportedException();
     }
     /// <summary>Header collection preserving repeated values; request instances are read-only.</summary>
@@ -401,12 +401,12 @@ namespace NativeWeave.Server
         public int Length => throw new NotSupportedException();
         /// <summary>Copies all bytes synchronously into a sufficiently large destination.</summary>
         public void CopyTo(Span<byte> destination) => throw new NotSupportedException();
-        /// <summary>Creates a caller-owned managed copy charged during overlap.</summary>
+        /// <summary>Creates a caller-owned managed copy charged during overlap; failed nonwaiting credit admission transfers nothing.</summary>
         public byte[] ToArray() => throw new NotSupportedException();
         /// <summary>Releases the native owner exactly once and returns its retained-byte credit.</summary>
         public void Dispose() => throw new NotSupportedException();
     }
-    /// <summary>Mutable until headers start; supports one pending body write.</summary>
+    /// <summary>HTTP output mutable until headers start; gRPC/Allowed MCP reject raw members except lifecycle registrations.</summary>
     public sealed class ServerResponse
     {
         internal ServerResponse() { }
@@ -420,23 +420,23 @@ namespace NativeWeave.Server
         public string? ContentType { get => throw new NotSupportedException(); set => throw new NotSupportedException(); }
         /// <summary>Gets or sets a fixed body length; mismatches terminate the response.</summary>
         public long? ContentLength { get => throw new NotSupportedException(); set => throw new NotSupportedException(); }
-        /// <summary>Gets whether response headers have been committed.</summary>
+        /// <summary>Gets whether HTTP response headers have been committed; gRPC and Allowed MCP reject this raw-state observation.</summary>
         public bool HasStarted => throw new NotSupportedException();
         /// <summary>Gets an async-only, nonseekable request-owned output stream.</summary>
         public Stream Body => throw new NotSupportedException();
         /// <summary>Commits headers exactly once after starting callbacks.</summary>
         public Task StartAsync(CancellationToken cancellationToken = default) => throw new NotSupportedException();
-        /// <summary>Writes bounded input; input must remain unchanged until terminal completion.</summary>
+        /// <summary>Writes bounded HTTP input; payload credit exhaustion fails without waiting, while bounded queue/network flow control may wait.</summary>
         public Task WriteAsync(ReadOnlyMemory<byte> data, CancellationToken cancellationToken = default) => throw new NotSupportedException();
         /// <summary>Flushes to the native flow-controlled body, not proof of peer consumption.</summary>
         public Task FlushAsync(CancellationToken cancellationToken = default) => throw new NotSupportedException();
         /// <summary>Writes statically serialized JSON under the route's total and peak limits.</summary>
         public Task WriteJsonAsync<T>(T value, JsonTypeInfo<T> typeInfo, CancellationToken cancellationToken = default) => throw new NotSupportedException();
-        /// <summary>Closes response output with validated trailers; idempotent after successful completion.</summary>
+        /// <summary>Joins one HTTP completion attempt with validated trailers; dispatcher awaits it after successful work, preserving status and headers.</summary>
         public Task CompleteAsync(CancellationToken cancellationToken = default) => throw new NotSupportedException();
-        /// <summary>Registers a bounded callback before headers commit; callbacks run in reverse registration order.</summary>
+        /// <summary>Registers a LIFO HTTP starting callback; gRPC and Allowed MCP reject registration before modifying state.</summary>
         public void OnStarting(Func<CancellationToken, Task> callback) => throw new NotSupportedException();
-        /// <summary>Registers LIFO completion work; all callbacks run despite earlier cleanup failures, before disposables and scope release.</summary>
+        /// <summary>Registers LIFO work after the response terminal attempt; valid for HTTP/gRPC/MCP, before failure-isolated disposables and scope release.</summary>
         public void OnCompleted(Func<Task> callback) => throw new NotSupportedException();
         /// <summary>Transfers a managed asynchronous disposable on successful registration; duplicate identity is rejected and cleanup runs once in LIFO order.</summary>
         public void RegisterForDisposeAsync(IAsyncDisposable resource) => throw new NotSupportedException();
@@ -648,7 +648,7 @@ namespace NativeWeave.Server.Grpc
     public sealed class GrpcCallContext
     {
         internal GrpcCallContext() { }
-        /// <summary>Gets the underlying request services and authenticated identity.</summary>
+        /// <summary>Gets the same request metadata, identity, services and lifecycle hooks; raw HTTP body/output and OnStarting are forbidden.</summary>
         public NativeWeave.Server.RequestContext RequestContext => throw new NotSupportedException();
         /// <summary>Gets canonical method path.</summary>
         public string Method => throw new NotSupportedException();
@@ -656,7 +656,7 @@ namespace NativeWeave.Server.Grpc
         public CancellationToken CancellationToken => throw new NotSupportedException();
         /// <summary>Gets remaining monotonic deadline.</summary>
         public TimeSpan TimeRemaining => throw new NotSupportedException();
-        /// <summary>Gets a distinct decoded gRPC metadata projection; underlying HTTP headers retain wire text.</summary>
+        /// <summary>Gets decoded gRPC metadata after bounded native comma splitting and per-segment Tonic decoding; HTTP headers retain wire text.</summary>
         public GrpcMetadata RequestHeaders => throw new NotSupportedException();
         /// <summary>Gets mutable trailing metadata until terminal completion.</summary>
         public GrpcMetadata ResponseTrailers => throw new NotSupportedException();
@@ -739,7 +739,7 @@ namespace NativeWeave.Server.Mcp
     public sealed class McpCallContext
     {
         internal McpCallContext() { }
-        /// <summary>Gets request identity and services without creating protocol sessions.</summary>
+        /// <summary>Gets identity, services and lifecycle hooks; raw body and admitted-protocol HTTP output access are forbidden.</summary>
         public NativeWeave.Server.RequestContext RequestContext => throw new NotSupportedException();
         /// <summary>Gets the current tool/resource/prompt name.</summary>
         public string Name => throw new NotSupportedException();

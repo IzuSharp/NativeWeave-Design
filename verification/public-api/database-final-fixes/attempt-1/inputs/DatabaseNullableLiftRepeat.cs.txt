@@ -1,0 +1,10 @@
+// Intentionally invalid design consumer: a nullable value is not a non-null lift input.
+#nullable enable
+using NativeWeave.Query;
+public static class DatabaseNullableLiftRepeat
+{
+    public static void Reject(SqlExpression<long?> key)
+    {
+        _ = key.AsNullable();
+    }
+}

@@ -1,0 +1,268 @@
+{
+  "schema_version": "1.0.0",
+  "domain": "interop",
+  "inheritance": "Members inherit their declaring-type policy, with exact per-member exceptions in the linked semantic table. Generic and nongeneric NativeBufferReader share the same scoped-borrow policy.",
+  "types": {
+    "NativeWeave.Interop.AbiVersion": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#2-member-semantics-identity-descriptors-and-preflight",
+      "native_operations": [
+        "managed-only validated immutable value; no native call"
+      ],
+      "tasks": [
+        "A01",
+        "A02",
+        "A24"
+      ],
+      "capability": "none until used by an engine descriptor",
+      "cost_profile": "Constant-size scalar/string value; constructor validation only; no runtime or native allocation"
+    },
+    "NativeWeave.Interop.EngineCapability": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#2-member-semantics-identity-descriptors-and-preflight",
+      "native_operations": [
+        "managed-only validated immutable value; no native call"
+      ],
+      "tasks": [
+        "A01",
+        "A02",
+        "A24"
+      ],
+      "capability": "none until used by an engine descriptor",
+      "cost_profile": "Constant-size scalar/string value; constructor validation only; no runtime or native allocation"
+    },
+    "NativeWeave.Interop.EngineThreadingModel": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#2-member-semantics-identity-descriptors-and-preflight",
+      "native_operations": [
+        "managed-only validated immutable value; no native call"
+      ],
+      "tasks": [
+        "A01",
+        "A02",
+        "A24"
+      ],
+      "capability": "none until used by an engine descriptor",
+      "cost_profile": "Constant-size scalar/string value; constructor validation only; no runtime or native allocation"
+    },
+    "NativeWeave.Interop.EngineInfo": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#2-member-semantics-identity-descriptors-and-preflight",
+      "native_operations": [
+        "managed-only immutable validated bootstrap metadata; Supports/Require use named capability map"
+      ],
+      "tasks": [
+        "A02",
+        "A05"
+      ],
+      "capability": "Only actual advertised engine-local bits are public support",
+      "cost_profile": "Expected O(1) named lookup after one module bootstrap; no success-path allocation"
+    },
+    "NativeWeave.Interop.EngineDescriptor": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#2-member-semantics-identity-descriptors-and-preflight",
+      "native_operations": [
+        "managed-only descriptor/catalog metadata lookup",
+        "nw_database_sqlite_get_abi_v1",
+        "nw_database_postgresql_get_abi_v1",
+        "nw_server_get_abi_v1"
+      ],
+      "tasks": [
+        "A01",
+        "A02",
+        "A16",
+        "A24"
+      ],
+      "capability": "Loader requires matching ABI major/minimum minor and explicit capabilities; no domain instance starts",
+      "cost_profile": "Catalog O(n log n) construction/O(1) lookup; first Inspect O(asset bytes) hash and one bootstrap, module resident"
+    },
+    "NativeWeave.Interop.EngineCatalog": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#2-member-semantics-identity-descriptors-and-preflight",
+      "native_operations": [
+        "managed-only descriptor/catalog metadata lookup",
+        "nw_database_sqlite_get_abi_v1",
+        "nw_database_postgresql_get_abi_v1",
+        "nw_server_get_abi_v1"
+      ],
+      "tasks": [
+        "A01",
+        "A02",
+        "A16",
+        "A24"
+      ],
+      "capability": "Loader requires matching ABI major/minimum minor and explicit capabilities; no domain instance starts",
+      "cost_profile": "Catalog O(n log n) construction/O(1) lookup; first Inspect O(asset bytes) hash and one bootstrap, module resident"
+    },
+    "NativeWeave.Interop.EngineLoadOptions": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#2-member-semantics-identity-descriptors-and-preflight",
+      "native_operations": [
+        "managed-only validated snapshot consumed by EngineDescriptor.Inspect"
+      ],
+      "tasks": [
+        "A02",
+        "A16",
+        "A22"
+      ],
+      "capability": "Same-content asset override only; required capabilities checked before domain creation",
+      "cost_profile": "One cold configuration object and bounded requirement snapshot; no domain runtime"
+    },
+    "NativeWeave.Interop.NativeBufferReader": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#3-member-semantics-buffers",
+      "native_operations": [
+        "managed-only synchronous scoped span callback under existing creator-owner lease"
+      ],
+      "tasks": [
+        "A03",
+        "A04"
+      ],
+      "capability": "Immutable address-stable free-threaded native buffer profile",
+      "cost_profile": "Static delegate can avoid per-call delegate allocation; synchronous callback runs outside admission locks"
+    },
+    "NativeWeave.Interop.NativeBuffer": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#3-member-semantics-buffers",
+      "native_operations": [
+        "nw_db_buffer_view_v1",
+        "nw_db_buffer_release_v1",
+        "nw_server_buffer_release",
+        "managed-only scoped read/copy and bounded Stream writes; exact owner destructor selected by creating domain"
+      ],
+      "tasks": [
+        "A03",
+        "A04",
+        "B07",
+        "B16"
+      ],
+      "capability": "Immutable native bytes, <= Int32.MaxValue and engine result limit; free-threaded nonblocking release",
+      "cost_profile": "Read no copy; ToArray one O(n) copy; async one min(length,64KiB) staging array and one source lease for full operation"
+    },
+    "NativeWeave.Interop.NativeEngineException": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#4-member-semantics-failures",
+      "native_operations": [
+        "managed-only exact status/error snapshot and classified exception construction; no new ABI call"
+      ],
+      "tasks": [
+        "A02",
+        "A05",
+        "A07"
+      ],
+      "capability": "Status/capability failures never imply public support or native retirement",
+      "cost_profile": "Cold error path only; bounded redacted detail, no success-path formatting"
+    },
+    "NativeWeave.Interop.EngineLoadFailure": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#4-member-semantics-failures",
+      "native_operations": [
+        "managed-only exact status/error snapshot and classified exception construction; no new ABI call"
+      ],
+      "tasks": [
+        "A02",
+        "A05",
+        "A07"
+      ],
+      "capability": "Status/capability failures never imply public support or native retirement",
+      "cost_profile": "Cold error path only; bounded redacted detail, no success-path formatting"
+    },
+    "NativeWeave.Interop.EngineLoadException": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#4-member-semantics-failures",
+      "native_operations": [
+        "managed-only exact status/error snapshot and classified exception construction; no new ABI call"
+      ],
+      "tasks": [
+        "A02",
+        "A05",
+        "A07"
+      ],
+      "capability": "Status/capability failures never imply public support or native retirement",
+      "cost_profile": "Cold error path only; bounded redacted detail, no success-path formatting"
+    },
+    "NativeWeave.Interop.Extensibility.NativeAssetDescriptor": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#5-exact-maintainer-extension-members",
+      "native_operations": [
+        "managed-only static manifest validation/snapshot and descriptor construction; native loading deferred to Inspect"
+      ],
+      "tasks": [
+        "A02",
+        "A09",
+        "A10",
+        "A13",
+        "A16",
+        "A24"
+      ],
+      "capability": "Engine-author seam; explicit static assembly, no arbitrary managed assembly loading",
+      "cost_profile": "O(assets+capabilities) cold setup; no native runtime, scan, worker or SQL/network logic"
+    },
+    "NativeWeave.Interop.Extensibility.EngineCapabilityDefinition": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#5-exact-maintainer-extension-members",
+      "native_operations": [
+        "managed-only static manifest validation/snapshot and descriptor construction; native loading deferred to Inspect"
+      ],
+      "tasks": [
+        "A02",
+        "A09",
+        "A10",
+        "A13",
+        "A16",
+        "A24"
+      ],
+      "capability": "Engine-author seam; explicit static assembly, no arbitrary managed assembly loading",
+      "cost_profile": "O(assets+capabilities) cold setup; no native runtime, scan, worker or SQL/network logic"
+    },
+    "NativeWeave.Interop.Extensibility.EnginePackageManifest": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#5-exact-maintainer-extension-members",
+      "native_operations": [
+        "managed-only static manifest validation/snapshot and descriptor construction; native loading deferred to Inspect"
+      ],
+      "tasks": [
+        "A02",
+        "A09",
+        "A10",
+        "A13",
+        "A16",
+        "A24"
+      ],
+      "capability": "Engine-author seam; explicit static assembly, no arbitrary managed assembly loading",
+      "cost_profile": "O(assets+capabilities) cold setup; no native runtime, scan, worker or SQL/network logic"
+    },
+    "NativeWeave.Interop.Extensibility.EnginePackage": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#5-exact-maintainer-extension-members",
+      "native_operations": [
+        "managed-only static manifest validation/snapshot and descriptor construction; native loading deferred to Inspect"
+      ],
+      "tasks": [
+        "A02",
+        "A09",
+        "A10",
+        "A13",
+        "A16",
+        "A24"
+      ],
+      "capability": "Engine-author seam; explicit static assembly, no arbitrary managed assembly loading",
+      "cost_profile": "O(assets+capabilities) cold setup; no native runtime, scan, worker or SQL/network logic"
+    },
+    "NativeWeave.Interop.Extensibility.NativeBufferFactory": {
+      "package": "NativeWeave.Core",
+      "semantic_section": "docs/api/interop.md#5-exact-maintainer-extension-members",
+      "native_operations": [
+        "managed-only failure-atomic adoption of creator SafeHandle; destructor remains selected by domain take/release inventory"
+      ],
+      "tasks": [
+        "A03",
+        "A04",
+        "A10",
+        "A24"
+      ],
+      "capability": "Trusted engine-author seam; immutable stable pointer and nonblocking free-threaded creator destructor required",
+      "cost_profile": "One wrapper/admission gate, no byte copy or new native allocation; transfer only after success"
+    }
+  }
+}

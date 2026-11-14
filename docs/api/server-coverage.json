@@ -172,7 +172,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Static bounded configuration binder and immutable snapshot at Build.",
-      "limitations": "No implicit file/env/secrets scans or live options reload; typed listener/callback configuration.",
+      "limitations": "No implicit file/env/secrets scans or live options reload; typed listener/callback configuration. Native payload quotas use atomic nonwaiting request/global grants on reads and writes; saturation is resource_limit, separate from queue/network flow control.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
@@ -666,7 +666,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Group prefix/policy flattening at freeze, no per-request group allocation.",
-      "limitations": "Static groups only; AND authorization and explicit AllowAnonymous.",
+      "limitations": "Static groups only; AND authorization and explicit AllowAnonymous. gRPC/MCP endpoints reject inherited HTTP ServerFilter at route freeze.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
@@ -846,7 +846,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Generated wrappers/static metadata; no runtime expression compilation.",
-      "limitations": "Finite whitelist; no ref/out/span/open generic/async void/arbitrary Delegate; product generator still future.",
+      "limitations": "Finite whitelist; no ref/out/span/open generic/async void/arbitrary Delegate; product generator still future. Generated void/Task handlers join unfinished HTTP completion before lifecycle cleanup, preserving an explicitly selected status.",
       "specification": "docs/api/server.md",
       "tasks": [
         "A10",
@@ -896,7 +896,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Managed delegate chain only when configured; no native callback executes user code.",
-      "limitations": "next exactly once and awaited; not binary ASP.NET middleware compatible.",
+      "limitations": "next exactly once and awaited; not binary ASP.NET middleware compatible. Successful HTTP middleware short circuits join the common response completion tail. gRPC middleware has restricted context access and typed denial framing; MCP pre-parse denial is the explicit raw HTTP exception.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
@@ -940,7 +940,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "No object[] argument list; typed binding inside filter scope.",
-      "limitations": "Filters inspect context/catch binding errors; not arbitrary boxed argument rewriting.",
+      "limitations": "Filters inspect context/catch binding errors; not arbitrary boxed argument rewriting. ServerFilter is HTTP-only; direct/inherited filters on gRPC/MCP fail route freeze.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15"
@@ -987,7 +987,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "One borrowed wrapper; Items/scope lazy, metadata bounded.",
-      "limitations": "Cannot escape request; cancellation not proof of side-effect rollback.",
+      "limitations": "Cannot escape request; cancellation not proof of side-effect rollback. Protocol context preserves metadata/identity/services/Items/cancel/Abort/lifecycle access but cannot bypass native protocol body/output ownership.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
@@ -1160,7 +1160,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "One bounded copy/chunk and one read at a time, no whole-body materialization.",
-      "limitations": "Async-only nonseekable stream; total and retained-byte caps separate.",
+      "limitations": "Async-only nonseekable stream; total and retained-byte caps separate. Raw body APIs reject gRPC/MCP. Native read payload credit never waits; exhaustion fails resource_limit before allocation/retention.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
@@ -1216,7 +1216,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Native owned Bytes until Dispose; explicit CopyTo/ToArray cost.",
-      "limitations": "No escaping native memory; this is an owner API rather than direct Pipelines compatibility.",
+      "limitations": "No escaping native memory; this is an owner API rather than direct Pipelines compatibility. Taken chunks retain full backing-capacity credit across dispatch; filling request/global quotas makes subsequent reads/writes immediately fail resource_limit, and only final owner release returns credit.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B16"
@@ -1265,7 +1265,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Static metadata + conservative materialization budget.",
-      "limitations": "Explicit JsonTypeInfo; nullable reference root returned; mode exclusive with raw/chunk reads.",
+      "limitations": "Explicit JsonTypeInfo; nullable reference root returned; mode exclusive with raw/chunk reads. Raw ReadJson rejects gRPC/MCP; native and managed overlap grants are nonwaiting with rollback.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
@@ -1321,7 +1321,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bounded synchronous ABI copy per chunk, native retained-owner credit.",
-      "limitations": "One writer; acknowledgment not peer receipt; input Memory unchanged until terminal Task.",
+      "limitations": "One writer; acknowledgment not peer receipt; input Memory unchanged until terminal Task. Dispatcher awaits unfinished HTTP CompleteAsync/response_finish before callbacks/disposals, including MapRaw/custom results/middleware short circuits; preserve201 and default untouched200. Payload quota never waits, while bounded queue/network flow control may wait.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B16",
@@ -1373,7 +1373,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bounded native header owner and copied wrapper.",
-      "limitations": "Negotiated capability/protocol; input only after EndObserved; forbidden trailer fields rejected.",
+      "limitations": "Negotiated capability/protocol; input only after EndObserved; forbidden trailer fields rejected. Raw GetTrailers/response trailer access is forbidden on gRPC/MCP protocol-owned paths; use admitted typed protocol metadata.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B16",
@@ -1427,7 +1427,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "At most32 callbacks/resources of each type per request; optional lists.",
-      "limitations": "Completion callbacks LIFO, registered disposables LIFO, then scope; each failure isolated; exactly one dispatch_complete and retirement join in outer finally. OnCompleted is not native retirement.",
+      "limitations": "Completion callbacks LIFO, registered disposables LIFO, then scope; each failure isolated; exactly one dispatch_complete and retirement join in outer finally. OnCompleted is not native retirement. One response terminal attempt precedes OnCompleted/disposals/scope/dispatch_complete. gRPC and Allowed MCP permit OnCompleted/disposal but reject OnStarting; no cleanup failure creates a second response.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
@@ -1720,7 +1720,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "User-configured managed auth logic; lazy services; no transport rewrite.",
-      "limitations": "No automatic JWT/OAuth/cookie validator; named policy required; principal/policy lifecycle provided. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope.",
+      "limitations": "No automatic JWT/OAuth/cookie validator; named policy required; principal/policy lifecycle provided. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope. gRPC authentication/policy or implicit middleware denial uses Unauthenticated16/PermissionDenied7 framing before managed message decode/business work; HTTP/MCP pre-parse denial remains401/403.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B15",
@@ -1858,7 +1858,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bounded metadata queues, active/retiring slots and dual-side byte reservations.",
-      "limitations": "Concurrency/resource admission only; no complete tenant/token-bucket rate-limit product.",
+      "limitations": "Concurrency/resource admission only; no complete tenant/token-bucket rate-limit product. Both native read/write grants atomically try full request/global backing capacities without waiting; queue/partial grants roll back on failure and no hidden retry loop masks retained-owner exhaustion.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B16",
@@ -1974,7 +1974,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "One complete-message codec copy each direction and typed DTO.",
-      "limitations": "HTTP2 only; generated descriptor registration, no reflection service scan.",
+      "limitations": "HTTP2 only; generated descriptor registration, no reflection service scan. RequestContext forbids raw HTTP body/output/OnStarting; direct/inherited filters fail freeze; only typed protocol metadata/messages/status own transport.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B18"
@@ -2024,7 +2024,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "One awaited output message; bounded whole-stream total.",
-      "limitations": "Single-use enumerable; deadline persists after response head.",
+      "limitations": "Single-use enumerable; deadline persists after response head. Native payload grants are nonwaiting; typed protocol terminal production and both direction leases precede lifecycle cleanup.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B18"
@@ -2074,7 +2074,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "One read message/DTO at a time.",
-      "limitations": "Early break drains/cancels via native policy; no concurrent MoveNext.",
+      "limitations": "Early break drains/cancels via native policy; no concurrent MoveNext. Raw HTTP body APIs cannot consume Tonic input; native message/managed DTO overlap requires nonwaiting grants.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B18"
@@ -2123,7 +2123,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "One read and one write simultaneously; independent bounded directions.",
-      "limitations": "One-call context/scope retained through both directions and handler cleanup.",
+      "limitations": "One-call context/scope retained through both directions and handler cleanup. Retained input does not block a byte-credit wait on output: insufficient request/global payload capacity immediately fails with typed ResourceExhausted; bounded queue/network waits remain cancelable.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B18",
@@ -2175,7 +2175,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bounded IBufferWriter growth and span-call borrowing; generated code rooted.",
-      "limitations": "No per-service Cargo; codec fixture compilation is not protobuf interoperability execution.",
+      "limitations": "No per-service Cargo; codec fixture compilation is not protobuf interoperability execution. Complete-message capacity/codec overlap uses nonwaiting grants with rollback, not an awaited native/managed quota cycle.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B18",
@@ -2232,7 +2232,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "Bounded copied metadata, separate encoded/decoded caps.",
-      "limitations": "Strict timeout grammar; raw status preserved; native errors and protocol status separate. Separate decoded binary projection preserves HTTP wire headers; both metadata blocks and overlap are bounded/charged.",
+      "limitations": "Strict timeout grammar; raw status preserved; native errors and protocol status separate. Separate decoded binary projection preserves HTTP wire headers; both metadata blocks and overlap are bounded/charged. Rust Adapter splits comma-coalesced -bin fields, trims only edge SP/HTAB, preserves empty and repeated values in per-name order, and asks Tonic to decode each segment; full post-split200-entry/bytes/scratch/overlap admission precedes publication.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B18",
@@ -2240,7 +2240,12 @@
       ],
       "source_evidence": {
         "source_manifest": "docs/api/server-sources.json",
-        "source_ids": [],
+        "source_ids": [
+          "SERVER-RUST-GRPC-MAP",
+          "SERVER-RUST-GRPC-VALUE",
+          "SERVER-RUST-GRPC-ENCODING",
+          "SERVER-RUST-GRPC-BASE64-CONFIG"
+        ],
         "reused_source_records": [
           {
             "manifest": "docs/research/topics/R28/coverage.json",
@@ -2451,7 +2456,7 @@
       "product_implemented": false,
       "aot": "Static/generic surface; exact .NET11/C#15 fixture compilation required; actual product AOT remains owning-task acceptance.",
       "cost": "One native service on existing host; finite preparse peak reserves.",
-      "limitations": "Only2026-07-28 stateless/no event store; strict Host/Origin/metadata; no legacy fallback. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope.",
+      "limitations": "Only2026-07-28 stateless/no event store; strict Host/Origin/metadata; no legacy fallback. All MCP methods, including native automatic lists, pass one pre-parse endpoint authorization gate and share one request scope. MCP AwaitingGate/Denied alone permits raw HTTP denial output; raw body is always forbidden and Allowed output/OnStarting remain native-owned. Direct/inherited ServerFilter fails freeze.",
       "specification": "docs/api/server.md",
       "tasks": [
         "B19",

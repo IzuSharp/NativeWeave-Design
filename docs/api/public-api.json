@@ -8,7 +8,7 @@
   "declaration_sources": [
     {
       "path": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
-      "sha256": "47deafd5a63dfe93ba7b16628ba3f1b06aac316eea78894331a7f782b76589bb"
+      "sha256": "904816521ba65abe182859d12f5e461fd778ea64e409e8d50f4c4ca390998369"
     },
     {
       "path": "experiments/public-api/NativeWeave.Api.Design/Interop.cs",
@@ -16,7 +16,7 @@
     },
     {
       "path": "experiments/public-api/NativeWeave.Api.Design/Server.cs",
-      "sha256": "ca09791a2ff20d8d521525392439d0461ef5f6ff0a73891c7e0c0eae05128ebe"
+      "sha256": "9dc6cdf033164c3ccf3ecf9b77d28b764d434d1dab9ac1fe9cdff22730f23b81"
     }
   ],
   "semantic_policies": {
@@ -336,18 +336,23 @@
     },
     "NativeWeave.Data.Relation": {
       "package": "NativeWeave.Data",
-      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "semantic_section": "docs/api/database.md#921-independent-relation-registration-and-one-parent-loading",
       "native_operations": [
-        "Managed-only immutable typed relation descriptor",
-        "nw_db_metadata_register_v1",
-        "Relation.Load -\u003E native FK predicates \u002B Query.Seal/Execute"
+        "Managed-only immutable ordered descriptor; Table.MetadataHash unchanged",
+        "nw_db_metadata_register_v1 for both parent/child source-bound models",
+        "nw_db_projection_register_v1 for exact child Table.Row",
+        "nw_db_relation_register_v1 kind23 with both model hashes/table IDs/ordered key pairs/nullable flags/relation hash",
+        "nw_db_relation_load_create_v1 with parent kind4 db-wire key and child projection ID",
+        "nw_db_operation_take_owner_v1 kind2; nw_db_cursor_fetch_create_v1; creating-module close/retire/owner_release"
       ],
       "tasks": [
+        "B01",
+        "B07",
         "B09",
         "B14"
       ],
-      "capability": "db.relationships.explicit.v1; ordered parent/child codecs and optional FK nullability",
-      "cost_profile": "O(key arity) descriptor; native bounded child query; no lazy loading/identity map/N\u002B1 loop hidden by facade"
+      "capability": "db.metadata.v1 \u002B db.scalar-codecs.v1 \u002B db.query.v1 \u002B db.streaming.v1 \u002B db.relationships.explicit.v1; complete non-null parent PK and exact underlying child codecs/configuration/collation",
+      "cost_profile": "O(key arity) immutable descriptor and source-local registration; bounded shared metadata/projection/relation cache; one native child SELECT and bounded cursor materialization; independent dependency retention until quiescence"
     },
     "NativeWeave.Data.SqlCommandKind": {
       "package": "NativeWeave.Data",
@@ -621,12 +626,15 @@
         "nw_db_tx_begin_create_v1",
         "nw_db_query_create_v1",
         "nw_db_close_create_v1",
-        "mutation6 kind4 field2 insert values plus field8 separate conflict-update values; required/forbidden field table"
+        "mutation6 kind4 field2 insert values plus field8 separate conflict-update values; required/forbidden field table",
+        "nw_db_relation_register_v1 source-bound kind23 descriptor",
+        "nw_db_relation_load_create_v1 parent key \u002B child projection -\u003E kind2 cursor"
       ],
       "tasks": [
         "B04",
         "B05",
         "B06",
+        "B09",
         "B14"
       ],
       "capability": "db.query.v1/db.sql.expert.v1/db.transactions.v1 and operation-specific capabilities",
@@ -1152,7 +1160,8 @@
         "nw_db_expr_unary_v1 codes1..3",
         "nw_db_expr_list_v1 codes1..3",
         "nw_db_query_clause_v1 clauses7/13/14/16",
-        "clause21 OVER; configured codec result retained"
+        "clause21 OVER; configured codec result retained",
+        "SqlNullabilityExtensions -\u003E nw_db_expr_unary_v1 code4 for non-null/nullable same-codec comparisons"
       ],
       "tasks": [
         "B09",
@@ -1161,6 +1170,21 @@
       ],
       "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
       "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.SqlNullabilityExtensions": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#71-owner-model-and-everyday-expressions",
+      "native_operations": [
+        "nw_db_expr_unary_v1 code4 NullableLift; same arena, codec/configuration/collation/alias dependencies and SQL value; nullable result flag only"
+      ],
+      "tasks": [
+        "B07",
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; admitted non-null scalar input, exact source-bound codec retained; no nullable-to-non-null conversion",
+      "cost_profile": "One native call and a charged arena token; no SQL CAST/COALESCE, extra parameter, independent owner or managed SQL tree"
     },
     "NativeWeave.Query.SqlArithmeticExtensions": {
       "package": "NativeWeave.Database",
@@ -1229,7 +1253,8 @@
         "nw_db_expr_unary_v1 codes1..3",
         "nw_db_expr_list_v1 codes1..3",
         "nw_db_query_clause_v1 clauses7/13/14/16",
-        "clause18 provisional alias -\u003E expression_column -\u003E clause7 commit; clause19 abort; clause20 left-join match marker"
+        "clause18 provisional alias -\u003E expression_column -\u003E clause7 commit; clause19 abort; clause20 left-join match marker",
+        "SqlNullabilityExtensions -\u003E nw_db_expr_unary_v1 code4 for non-null/nullable same-codec comparisons"
       ],
       "tasks": [
         "B09",
@@ -1470,7 +1495,7 @@
         "B16",
         "B17"
       ],
-      "capability": "Owned native chunk; synchronous leased copy; no escaping native Span/Memory.",
+      "capability": "Owned native chunk; synchronous leased copy; no escaping native Span/Memory. Retained input remains charged across dispatch; further native reads/writes fail resource_limit immediately when request/global backing-capacity credit is exhausted.",
       "cost_profile": "CopyTo O(bytes) with caller memory; ToArray allocates/charges overlap then transfers; full backing allocation stays charged until final native owner dies."
     },
     "NativeWeave.Server.BodyParameterAttribute": {
@@ -1504,8 +1529,8 @@
         "B18",
         "B22"
       ],
-      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
-      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact."
+      "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses. RequestContext admits metadata/services/identity/Items/cancellation/Abort, lifecycle hooks; raw body/trailers/output/OnStarting are INVALID_STATE/InvalidOperationException. Typed gRPC metadata/messages/status exclusively own protocol output.",
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact. Rust Adapter bounds post-split binary metadata at200 entries/MaxHeaderBytes, splits comma fields and trims SP/HTAB before public Tonic decoding per segment, preserving empty values and per-name order with charged scratch/overlap."
     },
     "NativeWeave.Server.Grpc.GrpcDecoder": {
       "package": "NativeWeave.Server.Grpc",
@@ -1523,7 +1548,7 @@
         "A12"
       ],
       "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
-      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
     },
     "NativeWeave.Server.Grpc.GrpcEncoder": {
       "package": "NativeWeave.Server.Grpc",
@@ -1541,7 +1566,7 @@
         "A12"
       ],
       "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
-      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
     },
     "NativeWeave.Server.Grpc.GrpcEndpointExtensions": {
       "package": "NativeWeave.Server.Grpc",
@@ -1558,7 +1583,7 @@
         "A10",
         "A12"
       ],
-      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
+      "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport. Reject direct or inherited HTTP ServerFilter at freeze. Auth/policy/middleware denial uses typed gRPC status; await typed terminal production before scope cleanup.",
       "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
     },
     "NativeWeave.Server.Grpc.GrpcException": {
@@ -1594,7 +1619,7 @@
         "A12"
       ],
       "capability": "Four exact gRPC method cardinalities; statically rooted protobuf codecs; native Tonic framing/transport.",
-      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset."
+      "cost_profile": "Managed DTO codec and complete-message copies; budgeted IBufferWriter; one inbound and one outbound operation may overlap; ordinary service edits reuse native asset. Native message capacity and managed codec overlap use nonwaiting request/global grants; rollback on exhaustion, with typed ResourceExhausted rather than a payload-byte wait."
     },
     "NativeWeave.Server.Grpc.GrpcMetadata": {
       "package": "NativeWeave.Server.Grpc",
@@ -1612,7 +1637,7 @@
         "B22"
       ],
       "capability": "grpc bit4 and configured HTTP2 listener; identity compression; strict whole-call deadline and statuses.",
-      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact."
+      "cost_profile": "Finite metadata copies, 1MiB encoded/decoded defaults, 64MiB stream default; borrowed context through both directions; no unbounded read-ahead. Decoded binary metadata has a distinct bounded owner-backed projection; original HTTP wire values remain intact. Rust Adapter bounds post-split binary metadata at200 entries/MaxHeaderBytes, splits comma fields and trims SP/HTAB before public Tonic decoding per segment, preserving empty values and per-name order with charged scratch/overlap."
     },
     "NativeWeave.Server.Grpc.GrpcMethod": {
       "package": "NativeWeave.Server.Grpc",
@@ -1760,7 +1785,7 @@
         "B15",
         "B17"
       ],
-      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. Admitted gRPC denial uses Tonic Unauthenticated16/PermissionDenied7 framing; ordinary HTTP and MCP pre-parse denial use401/403.",
       "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
     },
     "NativeWeave.Server.IServerAuthorizer": {
@@ -1826,7 +1851,7 @@
         "B19",
         "B22"
       ],
-      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion.",
+      "capability": "mcp bit5; exact 2026-07-28 stateless POST/no replay; typed finite tool schema, fixed text resources and text prompts. Every native method passes the pre-parse endpoint auth gate; one context/scope and one final dispatch completion. Raw request body is forbidden in every phase; after Allowed raw response access/OnStarting is forbidden, while lifecycle hooks remain. AwaitingGate/Denied alone admits managed HTTP denial output; endpoint/inherited ServerFilter fails freeze.",
       "cost_profile": "Registration/schema once; bounded native preflight/tree/UTF-8/managed DTO overlap; exact copy/encoding peak required; no per-tool native compile or unbounded schema exporter."
     },
     "NativeWeave.Server.Mcp.McpEndpointExtensions": {
@@ -2092,7 +2117,7 @@
         "B17",
         "B20"
       ],
-      "capability": "Borrowed request lifecycle; available cancellation signal, not exact upstream H2 reset certification.",
+      "capability": "Borrowed request lifecycle; available cancellation signal, not exact upstream H2 reset certification. gRPC permits metadata/services/identity/Items/cancel/Abort and lifecycle hooks only; raw body/output and OnStarting are rejected. MCP has only its pre-parse HTTP denial exception.",
       "cost_profile": "Lazy scope/Items (\u003C=128 entries); sticky bounded control notification; TimeRemaining is monotonic; no escaped context after dispatch."
     },
     "NativeWeave.Server.RequestHandler": {
@@ -2144,7 +2169,7 @@
         "B17"
       ],
       "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
-      "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
+      "cost_profile": "Bounded metadata-only native queue wait followed by nonwaiting request/global payload grant and rollback before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
     },
     "NativeWeave.Server.RouteGroupBuilder": {
       "package": "NativeWeave.Server",
@@ -2157,7 +2182,7 @@
         "B15",
         "B17"
       ],
-      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation.",
+      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation. A gRPC/MCP endpoint with a local or inherited ServerFilter is rejected at route freeze before listening.",
       "cost_profile": "O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata."
     },
     "NativeWeave.Server.RouteParameterAttribute": {
@@ -2185,10 +2210,11 @@
       ],
       "tasks": [
         "B15",
-        "B17"
+        "B17",
+        "B16"
       ],
       "capability": "Initial Windows/Linux x64 package; base http1/http2/tls/trailers module bits; requested listener capabilities checked at Build.",
-      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime."
+      "cost_profile": "Single-threaded bounded startup snapshots; O(config bytes); options/services freeze at Build, routes separately freeze at first Start; no default global runtime. Native global/request payload grants are atomic and nonwaiting for both reads and writes; queue/network waits are separate, full backing capacity/overlap is charged, and all partial grants roll back without automatic retry."
     },
     "NativeWeave.Server.ServerCapabilities": {
       "package": "NativeWeave.Server",
@@ -2257,7 +2283,7 @@
         "B15",
         "B17"
       ],
-      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation.",
+      "capability": "HTTP1/HTTP2 route subset; frozen registries, no hot route mutation. A gRPC/MCP endpoint with a local or inherited ServerFilter is rejected at route freeze before listening.",
       "cost_profile": "O(registration bytes) once; native Axum matching; groups/policies flattened before serving; bounded immutable metadata."
     },
     "NativeWeave.Server.ServerEndpointsAttribute": {
@@ -2318,7 +2344,7 @@
         "B15",
         "B17"
       ],
-      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. HTTP ServerResult pipeline only; gRPC/MCP endpoint filters, including inherited group filters, fail route freeze.",
       "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
     },
     "NativeWeave.Server.ServerListenOptions": {
@@ -2347,7 +2373,7 @@
         "B15",
         "B17"
       ],
-      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack.",
+      "capability": "Explicit caller-owned thread-safe auth SPI; application policy, no built-in JWT/session stack. gRPC middleware uses restricted RequestContext; short circuit without explicit GrpcException maps to Unauthenticated16/PermissionDenied7, never raw HTTP.",
       "cost_profile": "Bounded registered callbacks; next single-use; exceptions redacted and classified before/after response commit; application service work remains caller cost."
     },
     "NativeWeave.Server.ServerOptions": {
@@ -2391,8 +2417,8 @@
         "B15",
         "B16"
       ],
-      "capability": "Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF.",
-      "cost_profile": "Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser."
+      "capability": "Static IParsable/JsonTypeInfo and native validated metadata; request collections readonly; trailers bit3 after EOF. Raw Body/ReadChunk/ReadJson/GetTrailers are rejected for gRPC/MCP before consumption or owner movement.",
+      "cost_profile": "Bounded lazy UTF-8 decoding and optional owned snapshots; repeated values preserved; one body mode/reader; no managed HTTP parser. Native read payload grant is a nonwaiting request/global try; failure returns resource_limit before new payload allocation/retention."
     },
     "NativeWeave.Server.ServerResponse": {
       "package": "NativeWeave.Server",
@@ -2410,8 +2436,8 @@
         "B16",
         "B17"
       ],
-      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
-      "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
+      "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership. Every successful HTTP MapRaw/generated void/custom result/middleware path awaits one CompleteAsync/response_finish before lifecycle cleanup; preserve selected status/headers, untouched200. gRPC/Allowed MCP permit only lifecycle hooks on this facade.",
+      "cost_profile": "Bounded metadata-only queue admission may wait; native request/global payload grant and managed overlap grant are nonwaiting with all-or-none rollback. Serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded. Payload-free completion uses reserved control metadata."
     },
     "NativeWeave.Server.ServerResult": {
       "package": "NativeWeave.Server",
@@ -2430,7 +2456,7 @@
         "B17"
       ],
       "capability": "Single output writer; static codecs; direct Pipelines/static-file/range policies outside initial profile. Final status200..599, explicit HEAD/204/205/304 suppression/framing; LIFO failure-isolated cleanup and execution-admission stream ownership.",
-      "cost_profile": "Async bounded native queue/byte reservation before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
+      "cost_profile": "Bounded metadata-only native queue wait followed by nonwaiting request/global payload grant and rollback before copy; serialized output chunks; results delay I/O until execution; streams/enumerables single-use; metadata callbacks bounded."
     },
     "NativeWeave.Server.ServerRouteAttribute": {
       "package": "NativeWeave.Server",
@@ -43538,6 +43564,180 @@
         {
           "name": "expression",
           "type": "NativeWeave.Query.SqlExpression\u003Cfloat\u003E",
+          "nullable": "NotAnnotated",
+          "attributes": [],
+          "ref_kind": "None",
+          "scoped_kind": "None",
+          "optional": false,
+          "params": false,
+          "has_explicit_default_value": false,
+          "default_value": null
+        }
+      ],
+      "design_only": true,
+      "product_implemented": false
+    },
+    {
+      "id": "T:NativeWeave.Query.SqlNullabilityExtensions",
+      "name": "SqlNullabilityExtensions",
+      "namespace": "NativeWeave.Query",
+      "containing_type": null,
+      "kind": "NamedType",
+      "signature": "public static class NativeWeave.Query.SqlNullabilityExtensions",
+      "domain": "database",
+      "specification": "docs/api/database.md",
+      "implicit_member": false,
+      "accessibility": "Public",
+      "attributes": [],
+      "type_kind": "Class",
+      "modifiers": [
+        "public",
+        "static"
+      ],
+      "is_static": true,
+      "is_abstract": false,
+      "is_sealed": false,
+      "is_record": false,
+      "is_readonly": false,
+      "is_ref_like": false,
+      "return_or_value_type": null,
+      "return_ref_kind": "None",
+      "return_attributes": [],
+      "base_type": "object",
+      "interfaces": [],
+      "enum_underlying_type": null,
+      "is_const": null,
+      "has_constant_value": false,
+      "constant_value": null,
+      "constant_value_type": null,
+      "generic_constraints": [],
+      "type_parameters": [],
+      "semantic_policy": "NativeWeave.Query.SqlNullabilityExtensions",
+      "parameters": [],
+      "design_only": true,
+      "product_implemented": false
+    },
+    {
+      "id": "M:NativeWeave.Query.SqlNullabilityExtensions.AsNullableReference\u0060\u00601(NativeWeave.Query.SqlExpression{\u0060\u00600})",
+      "name": "AsNullableReference",
+      "namespace": "NativeWeave.Query",
+      "containing_type": "NativeWeave.Query.SqlNullabilityExtensions",
+      "kind": "Method",
+      "signature": "public static NativeWeave.Query.SqlExpression\u003CT?\u003E NativeWeave.Query.SqlNullabilityExtensions.AsNullableReference\u003CT\u003E(this NativeWeave.Query.SqlExpression\u003CT\u003E expression) where T : class",
+      "domain": "database",
+      "specification": "docs/api/database.md",
+      "implicit_member": false,
+      "accessibility": "Public",
+      "attributes": [],
+      "type_kind": null,
+      "modifiers": [],
+      "is_static": true,
+      "is_abstract": false,
+      "is_sealed": false,
+      "is_record": null,
+      "is_readonly": null,
+      "is_ref_like": null,
+      "return_or_value_type": "NativeWeave.Query.SqlExpression\u003CT?\u003E",
+      "return_ref_kind": "None",
+      "return_attributes": [],
+      "base_type": null,
+      "interfaces": [],
+      "enum_underlying_type": null,
+      "is_const": null,
+      "has_constant_value": false,
+      "constant_value": null,
+      "constant_value_type": null,
+      "generic_constraints": [
+        "where T : class"
+      ],
+      "type_parameters": [
+        {
+          "name": "T",
+          "ordinal": 0,
+          "variance": "None",
+          "attributes": [],
+          "has_reference_type_constraint": true,
+          "reference_type_constraint_nullable": "NotAnnotated",
+          "has_value_type_constraint": false,
+          "has_unmanaged_type_constraint": false,
+          "has_notnull_constraint": false,
+          "has_constructor_constraint": false,
+          "allows_ref_like_type": false,
+          "constraint_types": []
+        }
+      ],
+      "semantic_policy": "NativeWeave.Query.SqlNullabilityExtensions",
+      "parameters": [
+        {
+          "name": "expression",
+          "type": "NativeWeave.Query.SqlExpression\u003CT\u003E",
+          "nullable": "NotAnnotated",
+          "attributes": [],
+          "ref_kind": "None",
+          "scoped_kind": "None",
+          "optional": false,
+          "params": false,
+          "has_explicit_default_value": false,
+          "default_value": null
+        }
+      ],
+      "design_only": true,
+      "product_implemented": false
+    },
+    {
+      "id": "M:NativeWeave.Query.SqlNullabilityExtensions.AsNullable\u0060\u00601(NativeWeave.Query.SqlExpression{\u0060\u00600})",
+      "name": "AsNullable",
+      "namespace": "NativeWeave.Query",
+      "containing_type": "NativeWeave.Query.SqlNullabilityExtensions",
+      "kind": "Method",
+      "signature": "public static NativeWeave.Query.SqlExpression\u003CT?\u003E NativeWeave.Query.SqlNullabilityExtensions.AsNullable\u003CT\u003E(this NativeWeave.Query.SqlExpression\u003CT\u003E expression) where T : struct",
+      "domain": "database",
+      "specification": "docs/api/database.md",
+      "implicit_member": false,
+      "accessibility": "Public",
+      "attributes": [],
+      "type_kind": null,
+      "modifiers": [],
+      "is_static": true,
+      "is_abstract": false,
+      "is_sealed": false,
+      "is_record": null,
+      "is_readonly": null,
+      "is_ref_like": null,
+      "return_or_value_type": "NativeWeave.Query.SqlExpression\u003CT?\u003E",
+      "return_ref_kind": "None",
+      "return_attributes": [],
+      "base_type": null,
+      "interfaces": [],
+      "enum_underlying_type": null,
+      "is_const": null,
+      "has_constant_value": false,
+      "constant_value": null,
+      "constant_value_type": null,
+      "generic_constraints": [
+        "where T : struct"
+      ],
+      "type_parameters": [
+        {
+          "name": "T",
+          "ordinal": 0,
+          "variance": "None",
+          "attributes": [],
+          "has_reference_type_constraint": false,
+          "reference_type_constraint_nullable": "None",
+          "has_value_type_constraint": true,
+          "has_unmanaged_type_constraint": false,
+          "has_notnull_constraint": false,
+          "has_constructor_constraint": false,
+          "allows_ref_like_type": false,
+          "constraint_types": []
+        }
+      ],
+      "semantic_policy": "NativeWeave.Query.SqlNullabilityExtensions",
+      "parameters": [
+        {
+          "name": "expression",
+          "type": "NativeWeave.Query.SqlExpression\u003CT\u003E",
           "nullable": "NotAnnotated",
           "attributes": [],
           "ref_kind": "None",

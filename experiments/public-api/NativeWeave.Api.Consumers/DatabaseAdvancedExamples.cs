@@ -20,6 +20,19 @@ public static class AdultStudents
 }
 public static class DatabaseAdvancedExamples
 {
+    public static async Task<IReadOnlyList<StudentCredits>> OptionalForeignKeyJoinAsync(DataSession session, CancellationToken token)
+    {
+        using var query = session.From(Students.Table);
+        var enrollment = query.LeftJoin(OptionalEnrollments.Table, "optional_enrollment",
+            on => on.Left(Students.Id).AsNullable().Equal(on.Right(OptionalEnrollments.StudentId)));
+        var id = query.Column(Students.Id);
+        var count = SqlFunctions.Count(query.NullableValue(enrollment, OptionalEnrollments.Id));
+        query.GroupBy(id).OrderBy(Students.Id);
+        return await query.Select(id, count, static (studentId, enrollmentCount) => new StudentCredits(studentId, enrollmentCount)).ToListAsync(token);
+    }
+    public static Task<IReadOnlyList<OptionalEnrollment>> RelatedAsync(DataSession session, long studentId, CancellationToken token)
+        => session.LoadRelatedAsync(Students.Table.Key(Students.Id, studentId), OptionalEnrollments.StudentRelation, token);
+
     public static Task<IReadOnlyList<Student>> DynamicAsync(DataSession session, Query<Student> query, int? minimumAge, string? email, CancellationToken token)
     {
         // Ordinary control flow and native-backed proxies; no expression compilation.

@@ -237,14 +237,13 @@ namespace NativeWeave.Data
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public SqlParameters Add<T>(string name, T value, ValueCodec<T> codec) => throw new NotSupportedException();
     }
-    /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
-    /// <summary>An explicit native relationship over registered metadata; no lazy loading or identity map.</summary>
+    /// <summary>Immutable ordered primary-key/foreign-key metadata, registered independently of both tables on first use in each source; no lazy loading or identity map.</summary>
     public sealed class Relation<TParent, TChild> where TParent : class where TChild : class
     {
         private Relation() { }
-        /// <summary>Creates an ordered parent-key/child-foreign-key relation.</summary>
+        /// <summary>Starts a relation at parent primary-key ordinal zero with a non-null, codec-compatible child foreign key; loading requires every parent key component.</summary>
         public static Relation<TParent, TChild> Create<T>(Table<TParent> parent, Column<TParent, T> parentKey, Table<TChild> child, Column<TChild, T> foreignKey) => throw new NotSupportedException();
-        /// <summary>Returns a new immutable relation with one corresponding key component appended.</summary>
+        /// <summary>Returns a new immutable relation with the next parent primary-key component and a compatible non-null child foreign key appended.</summary>
         public Relation<TParent, TChild> And<T>(Column<TParent, T> parentKey, Column<TChild, T> foreignKey) => throw new NotSupportedException();
         /// <summary>Creates a relation from a non-null parent value key to an optional child foreign key.</summary>
         public static Relation<TParent, TChild> CreateOptional<T>(Table<TParent> parent, Column<TParent, T> parentKey, Table<TChild> child, Column<TChild, T?> foreignKey) where T : struct => throw new NotSupportedException();
@@ -436,8 +435,7 @@ namespace NativeWeave.Database
         public Task<DataTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default) => throw new NotSupportedException();
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public Task<DataTransaction> BeginTransactionAsync(TransactionOptions options, CancellationToken cancellationToken = default) => throw new NotSupportedException();
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
-        /// <summary>Loads bounded related rows through a native relation query; never tracks them.</summary>
+        /// <summary>Registers the independent relation in this source, snapshots the complete non-null parent key, and executes one bounded native child query; no parent existence query, tracking or implicit ordering.</summary>
         public Task<IReadOnlyList<TChild>> LoadRelatedAsync<TParent, TChild>(EntityKey<TParent> parentKey, Relation<TParent, TChild> relation, CancellationToken cancellationToken = default) where TParent : class where TChild : class => throw new NotSupportedException();
         public Task<TEntity?> FindAsync<TEntity>(Table<TEntity> table, EntityKey<TEntity> key, CancellationToken cancellationToken = default) where TEntity : class => throw new NotSupportedException();
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
@@ -738,14 +736,16 @@ namespace NativeWeave.Query
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public SqlPredicate In(QuerySelection<T> subquery) => throw new NotSupportedException();
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public SqlExpression<T> Over(WindowDefinition window) => throw new NotSupportedException();
     }
-    /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
+    /// <summary>Explicit same-owner SQL expression lifts from non-null to nullable metadata without changing SQL values or codecs.</summary>
+    public static class SqlNullabilityExtensions
+    {
+        /// <summary>Returns a same-owner native expression with nullable result metadata and the identical scalar codec/configuration and SQL value; no cast, coalesce or reverse conversion.</summary>
+        public static SqlExpression<T?> AsNullable<T>(this SqlExpression<T> expression) where T : struct => throw new NotSupportedException();
+        /// <summary>Returns a same-owner reference expression with nullable metadata and the identical codec/configuration; a non-null input expression is required.</summary>
+        public static SqlExpression<T?> AsNullableReference<T>(this SqlExpression<T> expression) where T : class => throw new NotSupportedException();
+    }
     /// <summary>Typed numeric operators; Rust owns overflow and provider semantics.</summary>
     public static class SqlArithmeticExtensions
     {
@@ -1052,7 +1052,6 @@ namespace NativeWeave.Query
         public static SqlExpression<string?> MinText(SqlExpression<string> expression) => throw new NotSupportedException();
         /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         public static SqlExpression<string?> MaxText(SqlExpression<string> expression) => throw new NotSupportedException();
-        /// <summary>Design declaration; normative behavior, ownership, errors, availability, and costs are specified in docs/api/database.md.</summary>
         /// <summary>Uses the documented provider numeric result conversion and preserves empty-set NULL.</summary>
         public static SqlExpression<double?> Sum(SqlExpression<float> expression) => throw new NotSupportedException();
         /// <summary>Uses the documented provider numeric result conversion and preserves empty-set NULL.</summary>

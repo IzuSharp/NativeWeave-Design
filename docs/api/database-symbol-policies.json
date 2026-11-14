@@ -319,18 +319,23 @@
     },
     "NativeWeave.Data.Relation": {
       "package": "NativeWeave.Data",
-      "semantic_section": "docs/api/database.md#5-source-session-sql-and-crud-b01b04b06b08b14",
+      "semantic_section": "docs/api/database.md#921-independent-relation-registration-and-one-parent-loading",
       "native_operations": [
-        "Managed-only immutable typed relation descriptor",
-        "nw_db_metadata_register_v1",
-        "Relation.Load -> native FK predicates + Query.Seal/Execute"
+        "Managed-only immutable ordered descriptor; Table.MetadataHash unchanged",
+        "nw_db_metadata_register_v1 for both parent/child source-bound models",
+        "nw_db_projection_register_v1 for exact child Table.Row",
+        "nw_db_relation_register_v1 kind23 with both model hashes/table IDs/ordered key pairs/nullable flags/relation hash",
+        "nw_db_relation_load_create_v1 with parent kind4 db-wire key and child projection ID",
+        "nw_db_operation_take_owner_v1 kind2; nw_db_cursor_fetch_create_v1; creating-module close/retire/owner_release"
       ],
       "tasks": [
+        "B01",
+        "B07",
         "B09",
         "B14"
       ],
-      "capability": "db.relationships.explicit.v1; ordered parent/child codecs and optional FK nullability",
-      "cost_profile": "O(key arity) descriptor; native bounded child query; no lazy loading/identity map/N+1 loop hidden by facade"
+      "capability": "db.metadata.v1 + db.scalar-codecs.v1 + db.query.v1 + db.streaming.v1 + db.relationships.explicit.v1; complete non-null parent PK and exact underlying child codecs/configuration/collation",
+      "cost_profile": "O(key arity) immutable descriptor and source-local registration; bounded shared metadata/projection/relation cache; one native child SELECT and bounded cursor materialization; independent dependency retention until quiescence"
     },
     "NativeWeave.Data.SqlCommandKind": {
       "package": "NativeWeave.Data",
@@ -604,12 +609,15 @@
         "nw_db_tx_begin_create_v1",
         "nw_db_query_create_v1",
         "nw_db_close_create_v1",
-        "mutation6 kind4 field2 insert values plus field8 separate conflict-update values; required/forbidden field table"
+        "mutation6 kind4 field2 insert values plus field8 separate conflict-update values; required/forbidden field table",
+        "nw_db_relation_register_v1 source-bound kind23 descriptor",
+        "nw_db_relation_load_create_v1 parent key + child projection -> kind2 cursor"
       ],
       "tasks": [
         "B04",
         "B05",
         "B06",
+        "B09",
         "B14"
       ],
       "capability": "db.query.v1/db.sql.expert.v1/db.transactions.v1 and operation-specific capabilities",
@@ -1135,7 +1143,8 @@
         "nw_db_expr_unary_v1 codes1..3",
         "nw_db_expr_list_v1 codes1..3",
         "nw_db_query_clause_v1 clauses7/13/14/16",
-        "clause21 OVER; configured codec result retained"
+        "clause21 OVER; configured codec result retained",
+        "SqlNullabilityExtensions -> nw_db_expr_unary_v1 code4 for non-null/nullable same-codec comparisons"
       ],
       "tasks": [
         "B09",
@@ -1144,6 +1153,21 @@
       ],
       "capability": "db.query.v1 and codec/operator/profile compatibility; query-owner generation mandatory",
       "cost_profile": "Opaque value tokens plus direct FFI/native AST nodes; immediate snapshot; no managed expression tree, client evaluation or expression compiler"
+    },
+    "NativeWeave.Query.SqlNullabilityExtensions": {
+      "package": "NativeWeave.Database",
+      "semantic_section": "docs/api/database.md#71-owner-model-and-everyday-expressions",
+      "native_operations": [
+        "nw_db_expr_unary_v1 code4 NullableLift; same arena, codec/configuration/collation/alias dependencies and SQL value; nullable result flag only"
+      ],
+      "tasks": [
+        "B07",
+        "B09",
+        "B11",
+        "B13"
+      ],
+      "capability": "db.query.v1; admitted non-null scalar input, exact source-bound codec retained; no nullable-to-non-null conversion",
+      "cost_profile": "One native call and a charged arena token; no SQL CAST/COALESCE, extra parameter, independent owner or managed SQL tree"
     },
     "NativeWeave.Query.SqlArithmeticExtensions": {
       "package": "NativeWeave.Database",
@@ -1212,7 +1236,8 @@
         "nw_db_expr_unary_v1 codes1..3",
         "nw_db_expr_list_v1 codes1..3",
         "nw_db_query_clause_v1 clauses7/13/14/16",
-        "clause18 provisional alias -> expression_column -> clause7 commit; clause19 abort; clause20 left-join match marker"
+        "clause18 provisional alias -> expression_column -> clause7 commit; clause19 abort; clause20 left-join match marker",
+        "SqlNullabilityExtensions -> nw_db_expr_unary_v1 code4 for non-null/nullable same-codec comparisons"
       ],
       "tasks": [
         "B09",

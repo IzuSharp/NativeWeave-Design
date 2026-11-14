@@ -17,4 +17,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Verify frozen English acceptance and current reviewed API refinement
-        run: python3 tools/verify_public_api.py --history --require-acceptance
+        run: |
+          python3 tools/verify_public_api.py --history --require-acceptance
+          python3 tools/contract_acceptance_checks.py

@@ -84,8 +84,8 @@ generated names share one uniqueness check. Names are <=128 UTF-8 bytes.
 | Aggregate headers | 32 KiB | 1–1024 KiB; max 200 fields, each name <=256 bytes |
 | Connections / h2 streams per connection | 512 / 32 | Positive finite integer; actual protocol limits may be lower |
 | Active and retiring requests / metadata waiters | 256 / 128 | Active positive; waiters may be zero; no queued body allocation |
-| Managed / native application payload credit | 64 MiB each | Positive, separately accounted; not a whole-process/RSS bound |
-| Retained bytes per request per side / chunk | 4 MiB / 32 KiB | Positive; chunk <= per-request cap; checked cross-side peak reserve |
+| Managed / native application payload credit | 64 MiB each | Positive, separately accounted; atomic nonwaiting payload grants; exhaustion is resource_limit, not a byte-credit waiter; not a whole-process/RSS bound |
+| Retained bytes per request per side / chunk | 4 MiB / 32 KiB | Positive; chunk <= per-request cap; charge full backing capacity and checked cross-side overlap; no reserved directional headroom is promised |
 | TLS concurrent handshakes / timeout | 64 / 10 s | Separate finite limits, no implicit certificate trust bypass |
 | Diagnostics | No sinks/exporters/listeners | Correctness counters remain active; Debug alone does not enable payload logging |
 
@@ -241,7 +241,7 @@ The whitelist is explicit:
 | `[ServiceParameter] T` | Statically call GetRequiredService<T> on lazy request scope; registration checked at startup where possible; no automatic arbitrary-type DI inference |
 | ServerResult or Task<ServerResult> | Execute returned result once; null result is a handler contract error500 |
 | T or Task<T> with statically declared JsonTypeInfo | Serialize through registered codec; no runtime serializer generation |
-| void or Task | Valid only with RequestContext and direct response writing; framework completes an unstarted empty200 response |
+| void or Task | Valid only with RequestContext and direct response writing; dispatcher awaits any unfinished HTTP CompleteAsync before cleanup, preserving selected status/headers; untouched response is empty200 |
 
 No ref/out/in/span/ref-struct arguments, open generic handlers, async void, object[]
 argument binder, arbitrary delegates, synchronous I/O, unannotated service inference,
@@ -262,11 +262,18 @@ RequestBindingException and emit a custom400 without object[] argument allocatio
 This deliberately addresses the .NET11 binding-failure observability scenario through
 an explicit exception contract. Middleware/filter next is single-call, cannot escape
 the request and must be awaited; a second/concurrent invocation fails InvalidOperationException.
-Short circuiting by writing a result is allowed; returning another result after headers
-start is rejected. No automatic buffering to support replay/rewind.
+For HTTP, short circuiting by writing a result is allowed; returning another result
+after headers start is rejected. The common successful HTTP tail in section5 finishes
+even a short circuit that only selected a status. gRPC and MCP use the restricted
+RequestContext capabilities in sections7 and10.4; a ServerFilter on either protocol,
+including any filter inherited from a route group, fails route freeze before listening.
+No automatic buffering to support replay/rewind.
 
 IServerAuthenticator null means no usable credentials; a returned principal determines
-context.User. A denied policy yields401 for unauthenticated callers and403 otherwise.
+context.User. For HTTP and the MCP pre-parse denial path, a denied policy yields401 for
+unauthenticated callers and403 otherwise. Once a gRPC descriptor is admitted, the same
+decision uses typed Unauthenticated(16) or PermissionDenied(7) through Tonic status
+framing, with no raw HTTP/JSON denial; section7 fixes middleware short-circuit behavior.
 There is no implicit cookie/session, bearer JWT validator, OAuth server, anti-forgery
 system or trust in X-Forwarded-* headers. Applications can integrate an AOT-compatible
 mature authenticator through the SPI; it owns credential validation. The framework
@@ -310,10 +317,12 @@ to rmcp or relaxes either allowlist. A reverse proxy must preserve an allowed wi
 authority or the application must explicitly allow its forwarded wire authority;
 application use of effective Request.Host does not bypass that ingress boundary.
 
-The outer exception barrier converts RequestBindingException to400; pre-body media/
+For ordinary HTTP, the outer exception barrier converts RequestBindingException to400; pre-body media/
 limit/admission failures use415/413/503, explicit Results/GrpcException/tool results
 preserve their domain semantics, and unexpected user exceptions use redacted500 before
-headers. After headers start, failures terminate the stream/connection and log a safe
+headers. gRPC failures use typed protocol status and MCP failures use the current
+gate/protocol error layer, never an HTTP body after native protocol admission.
+After headers start, failures terminate the stream/connection and log a safe
 correlation; no second JSON body is appended. The public ServerException.Code is stable
 (e.g. `listener_bind_failed`, `body_limit_exceeded`, `binding_failed`,
 `response_already_started`, `transport_failure`). Native panic/poison/contract failures
@@ -330,10 +339,17 @@ A result callback receives a borrowed output Stream and must not dispose/store i
 
 A request chooses exactly one body consumption mode on first use: Stream, ReadChunkAsync,
 or ReadJsonAsync. Mixing modes is an InvalidOperationException; merely reading the
-Body property does not select the mode. One pending read; each ReadChunkAsync yields
+Body property does not select the mode for HTTP; gRPC/MCP reject raw-body access before
+mode selection under their protocol capability rules. One pending read; each ReadChunkAsync yields
 one positive-length BodyChunk or null for **EndObserved**. Outstanding chunk owners
 may outlive the next read only within request/global credits; request completion may
-retain those owners safely, but the application must release them. Early handler exit
+retain those owners safely, but the application must release them. Every read and
+write tries native per-request/global payload credit atomically without waiting;
+insufficient free backing-capacity credit faults with resource_limit before any new
+payload allocation/retention. Retaining earlier chunks can therefore reject another
+read or a response write immediately, never park that operation waiting for the
+handler's finally to release its chunks. Queue/socket flow control is separate;
+section10.3 defines the grant order and rollback. Early handler exit
 initiates bounded native discard or transport close; it never drains an unbounded body.
 GetTrailers is available only after EndObserved and requires the negotiated capability.
 EOF does not establish the precise reset reason or peer consumption.
@@ -354,7 +370,8 @@ makes a bounded managed snapshot; copying does not extend the request lifetime.
 Response writes serialize through one writer; concurrent writes throw InvalidOperationException
 rather than silently buffering. WriteAsync may accept a larger ReadOnlyMemory but walks
 it in bounded chunks, retaining the caller's managed memory until the Task terminal
-state. The managed adapter first awaits a metadata-only native write reservation, then each
+state. The managed adapter first awaits a metadata-only queue reservation whose native
+payload grant is a nonwaiting try, then each
 C ABI write_create copies only one bounded chunk synchronously; no native pointer into
 that managed memory survives the call. Waiting for a reservation retains managed input
 by its ordinary GC root, never by a native pointer or unbounded hidden staging copy. At most one managed-to-native
@@ -363,8 +380,28 @@ remain charged after the write Task completes. FlushAsync acknowledges local nat
 flow-controlled progress, never remote receipt. CompleteAsync commits trailers/end
 once and is idempotent after success; writes afterward fail. OnStarting callbacks run
 LIFO before the first irreversible header commit; a failed callback fails the response.
-OnCompleted runs after application/result/body production ends, before request scope
-release, and does not certify native quiescence. Callbacks and disposal registrations
+Every successful ordinary HTTP dispatch has one common finalization tail after all
+awaited middleware, handler and result work. This includes MapRaw, generated void/Task,
+user-authored ServerResult and middleware short circuits. If the response is not yet
+successfully complete, the dispatcher awaits the same idempotent CompleteAsync and
+its response_finish operation before any OnCompleted callback, registered disposal,
+scope release or dispatch_complete. It preserves status, headers, trailers and already
+written bytes; selecting201 and returning yields an empty201, while a wholly untouched
+response yields empty200. An unstarted response first runs OnStarting and commits its
+head. Concurrent/repeated completion joins the existing terminal attempt; it never
+creates a second response_finish, and a failed attempt is not retried as a new response.
+
+If automatic completion fails, retain that response failure and enter the existing
+precommit redacted error or postcommit abort path before cleanup. A precommit fallback
+uses the reserved bounded error-head/control allowance; failure to produce it aborts,
+without retry loops or a second body after commit. A cleanup failure after response
+completion cannot initiate another response. gRPC and Allowed MCP do not enter this
+HTTP tail: their typed status/reply/gate terminal operation is awaited before the same
+lifecycle cleanup. MCP Denied remains an ordinary HTTP response under section10.4.
+
+OnCompleted runs after application/result/body production and the response terminal
+attempt end, before request scope release, and does not certify native quiescence.
+Callbacks and disposal registrations
 are capped at32 each; no unbounded callback list grows from request input. The cleanup
 sequence is fixed: freeze registrations, invoke every OnCompleted callback once in
 reverse registration order, dispose every RegisterForDisposeAsync resource once in
@@ -579,7 +616,32 @@ read-only despite the same concrete collection type: Add/AddBinary throw for bor
 request instances. Response headers are copied at WriteResponseHeadersAsync admission,
 commit once; trailers remain mutable until terminal commit. Initial success/output EOF
 does not imply trailing status delivered. GrpcCallContext is borrowed through the
-entire call. Its RequestContext exposes the same lazy service scope and principal.
+entire call. Its RequestContext exposes the same lazy service scope and principal,
+with the following fixed protocol capability boundary. The wrapper checks this
+boundary before choosing a body mode, returning a mutable collection, registering a
+callback or creating a native operation; violations throw InvalidOperationException
+without moving owners or modifying transport state. Native raw HTTP operations also
+reject a gRPC request kind with INVALID_STATE, so the ABI cannot bypass the wrapper.
+
+| gRPC RequestContext access | Admitted behavior |
+| --- | --- |
+| Request method/path/host/scheme/query/route/header/content metadata and native peer; Services, User, Items, TraceIdentifier, TimeRemaining, RequestAborted | Read/use the existing bounded request metadata, identity and lazy scope; HTTP headers still contain wire text, and GrpcCallContext.RequestHeaders provides decoded gRPC metadata |
+| Abort; Response.OnCompleted; Response.RegisterForDisposeAsync | Cancellation intent and the ordinary bounded lifecycle registrations remain available |
+| Request.Body, ReadChunkAsync, ReadJsonAsync, GetTrailers | Rejected, including acquisition of the raw Body facade; Tonic and the typed message enumerable exclusively own request consumption |
+| Response.StatusCode, Headers, Trailers, ContentType, ContentLength, HasStarted, Body; StartAsync, WriteAsync, WriteJsonAsync, FlushAsync, CompleteAsync, OnStarting | Raw HTTP response access/mutation is rejected; no mutable raw collection or stream escapes. Use GrpcCallContext.WriteResponseHeadersAsync/ResponseTrailers, typed handler messages and GrpcException/status completion instead |
+| Endpoint or inherited ServerFilter | Rejected when the route graph freezes; a gRPC result is not a ServerResult and no boxed surrogate is introduced |
+
+Global middleware may inspect the permitted metadata, await next exactly once and
+register completion/disposal work. A gRPC middleware short circuit that does not
+invoke next and supplies no explicit GrpcException is treated as authorization denial:
+Unauthenticated(16) when context.User has no authenticated identity, PermissionDenied(7)
+otherwise. Authentication/policy denial uses the same typed status path; an explicit
+GrpcException preserves its admitted status, and unexpected application failures use
+redacted Internal(13). Tonic emits valid trailers-only/status framing. No handler DTO
+is decoded or business callback invoked after denial. After native response commitment,
+terminal status/abort follows the protocol state; no raw HTTP error is appended.
+These restrictions apply throughout gRPC middleware and business execution. The
+MCP AwaitingGate/Denied HTTP denial exception in section10.4 does not apply to gRPC.
 
 Inbound enumerable is single-use and single-MoveNext; execution begins on first
 MoveNext and retains the call lease until enumeration disposal. Ordinary DTO elements
@@ -944,15 +1006,40 @@ header text, including original base64 text for gRPC -bin wire fields. They neve
 contain decoded binary payloads. A gRPC request metadata owner additionally owns a
 separate immutable decoded entry block, exposed only by metadata_grpc_headers. Its
 length-prefixed values are raw bytes for lowercase names ending in -bin and validated
-ASCII text otherwise; Tonic owns wire decoding/encoding. Repeated wire binary values
-(including comma-coalesced values accepted by Tonic) are projected into distinct decoded
-entries in original order. No managed base64 decoding is applied to this projection.
+ASCII text otherwise. The Rust Adapter, not Tonic's MetadataMap::from_headers or
+MetadataValue::to_bytes, splits each -bin HTTP field value at every ASCII comma. It
+trims only SP(0x20) and HTAB(0x09) at each segment's two ends. Interior whitespace,
+non-ASCII bytes, non-base64 alphabet characters or malformed padding fail admission;
+there is no Unicode trim, percent decode or quoted-string interpretation. Both padded
+and unpadded standard-base64 segments are accepted. An empty field/segment represents
+one zero-length binary value, counts as an entry and is never silently dropped.
+
+The Adapter preserves repeated values in HTTP HeaderMap order for each name and
+segment order within each field; order across distinct header names is not promised.
+It preflights the complete split count and encoded-size upper bounds before creating
+any per-segment allocation. For each admitted segment it uses public http HeaderValue
+and HeaderMap APIs to form a bounded single-entry HeaderMap, wraps that through
+tonic::metadata::MetadataMap::from_headers, and invokes get_bin(name).to_bytes() once.
+This delegates actual base64 validation/decode to Tonic for each already-split segment;
+MetadataValue::from_bytes is not used on wire text because it encodes raw bytes.
+The resulting decoded entries are copied into the distinct ABI block. No managed
+base64 decoding is applied, and the original HTTP block is never normalized or split.
 The same request owner/lease retains both blocks; metadata_read transfers neither.
 
 The decoded block has its own MaxHeaderBytes encoded-block cap and200-entry cap,
-including its count/length prefixes. Header admission reserves space for both bounded
-blocks and decoded scratch before constructing either (at most2*MaxHeaderBytes plus
-fixed entry descriptors and the bounded decoder scratch, checked). Wire fields remain
+including its count/length prefixes and repeated key bytes. The200 limit applies after
+binary splitting, jointly with all other projected metadata entries; a short field
+containing many commas cannot evade it. Header admission atomically reserves space
+for both bounded blocks, at most200 fixed segment descriptors, and one segment's
+HeaderValue/HeaderMap and decoded temporary capacity before constructing either
+projection (at most2*MaxHeaderBytes plus fixed descriptors and the explicit bounded
+split/decode scratch, checked). Segment descriptors borrow offsets in the bounded wire
+snapshot; no array/string is allocated for every split before count admission. The
+scratch reserve covers actual temporary backing capacities and decoded-block copy
+overlap; the segment temporary is released before the next decode. Validate actual
+decoded block size as entries are appended. Any malformed segment or count/byte/scratch
+failure releases all unpublished owners/reservations exactly once, exposes no partial
+projection and admits no managed business work. Wire fields remain
 subject to the ordinary HTTP header cap. These are explicit native metadata credits,
 not uncounted payload copies. Managed lazy text/binary copies charge their overlap;
 GetBinaryValues transfers owned byte arrays and never exposes the borrowed block.
@@ -989,12 +1076,12 @@ creates an owner or changes the metadata owner's lifetime.
 | request notification/take | Native reserves request/header/dispatch/control capacity; on_request only queues ticket/kind; dispatch_kind0=HTTP,1=gRPC,2=MCP pre-parse gate,3=MCP business continuation | Ticket is a generation-checked ID, not a pointer. Kinds0/1/2 establish one entry and one request_take; kind3 reuses its taken MCP entry and never transfers a second owner. Duplicate/expired/out-of-sequence events fail closed. Native cleans rejected/untaken initial tickets exactly once; section10.4 fixes MCP continuation ordering. |
 | control notification | event_kind1=request cancellation,2=host fatal failure; request event status is CANCELED/TIMEOUT and host event uses non-OK/non-PENDING status | Fixed notification fields only; request_ticket identifies the previously admitted ticket (zero for host). Copy borrowed error while callback is on-stack. Sticky per-ticket/host latches and reserved control capacity prevent loss; no user CTS callback executes in the raw FFI frame. |
 | metadata | Immutable native snapshots; wrappers lazily decode under owner lease | read views never outlive lease. Native peer and protocol stay authoritative; no arbitrary HttpContext object crosses ABI. |
-| read/take_chunk | One pending read. Frame kind0=Data,1=EndObserved. Data positive length <=max_bytes; End has null data and optional trailers owner | Prepare wrapper before take. Success moves data/trailer owner(s) once. Failed take leaves native ownership; result release frees untaken buffers. A second take ->INVALID_STATE. Read EOF is not exact reset-cause certification. |
-| response begin | Only NotStarted; final status200..599; freeze validated head and transition to Started at irreversible enqueue | Header copy admitted before start; native independently checks HEAD/204/205/304 length/body/trailer rules in section5.1. Failure before commit permits error response, after commit only abort. |
-| managed credit | acquire is a bounded nonwaiting try-reservation against native-coordinated managed global/request counters; capacity positive and checked | Before framework-owned managed allocation, reserve its full capacity. Failure transfers nothing and reports resource_limit; caller unwinds or retries after releasing partial reservations. Release only after the allocation is no longer framework-retained, including temporary overlap; user-owned allocations are explicitly outside this ledger. |
-| write reserve/take | kind0=raw body,1=gRPC message,2=SSE,3=MCP reply. Reserve bounded waiter metadata first, then atomically grant queue position and native capacity through an async Core operation; one pending write-side admission per request | No payload pointer is passed or retained while waiting. On success typed take transfers one request/kind-bound reservation. Cancellation/untaken-result release returns every reservation. Too-large request fails before waiting. |
+| read/take_chunk | One pending read. Atomically try native global/request backing-capacity credit before materializing/retaining payload; exhaustion terminates resource_limit without a byte waiter. Frame kind0=Data,1=EndObserved. Data positive length <=max_bytes; End has null data and optional trailers owner | Prepare wrapper before take. Success moves data/trailer owner(s) once. Failed take leaves native ownership; cancellation/result release frees untaken buffers and all unused grants. A second take ->INVALID_STATE. Raw body_read rejects gRPC/MCP request kinds; typed grpc_read follows the same nonwaiting payload rule. Read EOF is not exact reset-cause certification. |
+| response begin | Only ordinary HTTP or Denied MCP, NotStarted; final status200..599; freeze validated head and transition to Started at irreversible enqueue | Header copy admitted before start; native independently checks HEAD/204/205/304 length/body/trailer rules in section5.1. gRPC/Allowed MCP raw output is INVALID_STATE. Failure before commit permits error response, after commit only abort. |
+| managed credit | acquire is a bounded nonwaiting try-reservation against native-coordinated managed global/request counters; capacity positive and checked | Before framework-owned managed allocation, reserve its full capacity. Failure transfers nothing and reports resource_limit; unwind all partial grants with no automatic retry loop. Release only after the allocation is no longer framework-retained, including temporary overlap; user-owned allocations are explicitly outside this ledger. |
+| write reserve/take | kind0=raw body,1=gRPC message,2=SSE,3=MCP reply, validated against request kind/phase. Reserve bounded waiter metadata; queue admission may wait with no new payload grant, then try native global/request backing-capacity credit atomically and without waiting; one pending write-side admission per request | No payload pointer is passed or retained while waiting. Payload exhaustion returns resource_limit and releases any queue/partial grant immediately, without requeue/retry. Success typed take transfers one request/kind-bound reservation. Cancellation/untaken-result release returns every reservation. Too-large request fails before waiting. |
 | response write/flush | Started (implicit begin by managed wrapper), one outstanding writer, chunk <=max_chunk | write_create accepts a matching granted reservation, copies bounded input before return and transfers the reservation to the operation on success only; accepted native Bytes keep the charge until their final owner dies. Task acknowledgment does not release retained credit. Flush carries no payload. |
-| response finish | First transition to Finishing then EndObserved/Failed; native validates trailers and Content-Length | take_void reports terminal production result. Body/socket/byte retirement remains distinct. No write/second headers afterward. Wrapper makes repeated successful CompleteAsync idempotent. |
+| response finish | First transition to Finishing then EndObserved/Failed; native validates trailers and Content-Length; raw HTTP/Denied MCP only | take_void reports terminal production result. Every successful HTTP dispatch awaits this shared finalization attempt before lifecycle cleanup even when the application omitted CompleteAsync. Body/socket/byte retirement remains distinct. No write/second headers afterward. Repeated/concurrent CompleteAsync joins one terminal attempt; no new finish after failure. |
 | sse write | Requires sse capability and Started SSE response; one event/chunk in flight | Reservation kind2 covers the conservative expanded encoded capacity; copies validated metadata, uses Axum Event builder once per field, charges expanded formatting buffer. Invalid CR/LF/NUL is INVALID_ARGUMENT before any panic-capable upstream method. |
 | grpc read/write/status | Requires grpc capability and matching method kind. read returns take_chunk complete message or End; one read and one write concurrent | Message writes consume kind1 reservations for full encoded-message capacity. Tonic owns frame/compression/status; no transport-byte chunk handed to managed decoder. Unary cardinality enforced. status field0–16 (0 success), terminal trailers once; invalid after terminal ->INVALID_STATE. |
 | MCP gate | decision0=deny,1=allow; commit only on operation_start while AwaitingGate | No parsing before allow; denial leaves the managed HTTP response path available; allow operation takes void after native protocol response production. Duplicate/late decision fails without replacing the first; section10.4 controls one shared scope and nested dispatch. |
@@ -1005,11 +1092,42 @@ creates an owner or changes the metadata owner's lifetime.
 | close/try_retire | Closes new admission, requests graceful stop, waits finite duration; result includes Completed/Pending | Pending preserves callback roots/owners/credits. server_try_retire returns OK only when no future dispatch/control callbacks/work can reach instance state; PENDING is a polling result, never an asynchronous terminal status. Physical library stays loaded. |
 | tls reload | Listener exists and tls capability configured; complete new snapshot parsed first | Operation holds old/new temporary owners; publish atomically or retain old on failure. Existing connections hold old snapshot. |
 
-The reservation coordinator grants queue and byte capacity atomically. A writer may
-await native capacity only while it holds no framework-owned managed-credit reservation
-for a new encoding/copy. After native grant, managed_credit_acquire is nonwaiting; if
-it fails, release the native reservation before returning resource_limit or retrying.
-This rule prevents a native-to-managed credit cycle. Caller-provided ReadOnlyMemory is
+Native payload capacity has no waiter queue. For both reads and writes, the coordinator
+tries the required native global and per-request capacities as one all-or-none grant
+before a new payload backing allocation, copy or retention. It charges the allocation's
+full backing capacity, including any shared-owner slice's backing allocation, not only
+visible bytes. A bounded allocator/slab class or conservative proven capacity upper
+bound must be selected before the grant; an allocation whose capacity is unknown or
+can exceed the reservation is not an admitted payload path. Insufficient request or
+global space returns resource_limit immediately at that admission attempt. A sequential
+try-acquire implementation must roll back its first quota if the second fails; it may
+not hold one quota and await another. There is no sleep, credit wait, implicit retry or
+deadline-based claim of progress.
+
+The async operation may await a bounded queue slot or transport readiness/flow control.
+These waits are not payload-credit waits. A writer waiting for a queue slot holds only
+its fixed metadata, no new framework-managed encoding reservation and no new native
+payload grant. Once the slot is available it tries both native quotas; failure releases
+the slot and terminates that operation with resource_limit instead of requeueing. A
+read may await network data after a successful bounded payload grant; that reservation
+and any accepted frame remain charged while live. Existing application-retained chunks
+or earlier accepted output owners are never silently released to admit another operation.
+Queue/network cancellation releases unused grants and reaches terminal/retirement through
+C-ASYNC-001; it does not revoke a successfully taken caller-owned chunk.
+
+After a native grant, managed_credit_acquire is also nonwaiting. If it fails, release
+the native and queue reservations before returning resource_limit. This order removes
+both cross-side quota waits and the retained-input/output-wait cycle: for example,128
+retained32KiB chunks occupying the default4MiB request cap make the next positive read
+or write fail immediately, including when only that handler's finally can free them.
+Global saturation across different requests has the same rule. A caller may explicitly
+release owned chunks and submit a new operation; the framework never hides such a retry.
+Payload-free finish/abort/control uses its separately admitted bounded metadata and
+does not need to acquire payload bytes. HTTP precommit resource_limit maps to the
+bounded503 response policy, postcommit to abort; gRPC maps it to ResourceExhausted(8),
+and MCP retains its pre-parse/JSON-RPC/tool-layer error distinction.
+
+Caller-provided ReadOnlyMemory is
 already application-owned and is not falsely counted as a framework allocation; every
 additional framework encoding/copy is reserved. For BodyChunk.ToArray after request dispatch has ended, buffer_managed_credit_acquire
 uses the buffer's independently retained request credit anchor instead of the released
@@ -1151,11 +1269,17 @@ serialize all work for a ticket behind the unfinished gate await.
 Automatic methods publish no kind3. They still use the authenticated endpoint policy;
 policy is endpoint-wide in v1, with no unimplemented per-item filtering claim. Unknown
 method/schema/parser failures may finish the allowed operation with a native protocol
-response without business dispatch. Result filters on an MCP endpoint are rejected
+response without business dispatch. Result filters on an MCP endpoint, including
+inherited route-group filters, are rejected
 at route freeze because the typed MCP result is not a ServerResult; global middleware
 and authorization still apply. This avoids invoking an HTTP filter through an invented
-boxed protocol result. Raw Request.Response writes/body reads are prohibited after
-Allowed; native protocol framing owns the output, while completion/disposal hooks
+boxed protocol result. Raw Request.Body/ReadChunkAsync/ReadJsonAsync/GetTrailers are
+prohibited for MCP in every phase. While AwaitingGate, the bounded HTTP response
+status/header/OnStarting path may select Denied as specified above; this is the explicit
+MCP denial exception, not a gRPC capability. After Allowed, raw Response status/header/
+trailer/body/HasStarted access, Start/Write/WriteJson/Flush/Complete and OnStarting
+registration are prohibited; native protocol framing owns the output. Only
+completion/disposal hooks
 remain available until cleanup freezes. Global middleware may inspect safe metadata
 on unwind but cannot append a second response.
 
@@ -1248,10 +1372,10 @@ unknown capability, unsupported protocol on listener and illegal metadata mutati
 
 | Existing task | Required implementation/API/documentation acceptance |
 | --- | --- |
-| B15 | All HTTP application declarations and static binder signatures; minimal/DI/typed CRUD/stream consumers; generated handler positive/negative cases; XML docs and API symbol inventory; no reflection fallback; compatibility baseline |
-| B16 | Stream override conformance; raw/chunk/JSON exclusive consumption; one-reader/writer races; early break/cancel/dispose; charge retained and copied bytes; slow-client and oversized element cases |
+| B15 | All HTTP application declarations and static binder signatures; minimal/DI/typed CRUD/stream consumers; generated handler positive/negative cases; automatic completion for MapRaw201, untouched200, generated void/Task, custom result and middleware short circuit before all lifecycle cleanup; completion failure never emits a second response; XML docs and API symbol inventory; no reflection fallback; compatibility baseline |
+| B16 | Stream override conformance; raw/chunk/JSON exclusive consumption; one-reader/writer races; early break/cancel/dispose; full backing-capacity/overlap accounting; retained128x32KiB input then positive write/read must fail resource_limit without a timeout; cross-request global saturation; queue grant then failed byte grant rollback; cancel/untaken/never-started cleanup; taken chunks across dispatch and final-owner release; only queue/network flow-control waits; slow-client and oversized element cases |
 | B17 | Every section10 payload/export layout and operation mapping; actual HTTP1/2/TLS Windows/Linux AOT; start/close/partial-bind/late-callback/close-Pending safety; no unnecessary engine/package dependency |
-| B18 | Four gRPC kinds, malformed length/decompression/cardinality, metadata/binary fields, strict timeout covering stream, status/trailers, generated codecs, independent gRPC client interoperability |
+| B18 | Four gRPC kinds, malformed length/decompression/cardinality; Adapter comma splitting/OWS/empty/padded/unpadded binary metadata, malformed/count/byte/scratch rejection and per-name order; raw HTTP body/output/OnStarting rejection before mutation, direct/inherited filter freeze rejection, typed auth16/7 framing and terminal-before-cleanup; nonwaiting message credit exhaustion; strict whole-call timeout, status/trailers, generated codecs, independent gRPC client interoperability |
 | B19 | Actual typed tools/resources/prompts and exact modern profile; schema/serializer agreement, Host/Origin/auth before parse, bounded JSON peak formula and negative hostile graphs, correct HTTP/JSON-RPC/tool-error distinction |
 | B20 | XML diagnostics reference, stable event/source/metric names, disabled/default/explicit costs, cross-language context, redaction and exporter-failure/close behavior |
 | B21/B22 | Common application paths plus durable-side-effect/Unknown distinctions, concurrent streaming/DI cleanup and actual end-to-end fault/soak requirements |
@@ -1279,4 +1403,4 @@ not an independent approval. Final acceptance requires another reviewer of exact
 | SR-API-004 | Existing D18/D19 still named old pseudo APIs and overstated independent native protocol binaries | Old surface replaced/referenced to exact declarations; one precompiled native closure with independently selectable managed facades documented | Package dependency/size inspection and no Kestrel/runtime substitution |
 | SR-API-005 | Coverage rows inherited ASP.NET version for gRPC/MCP references | Domain-specific fixed reference versions recorded | Source-manifest/version consistency |
 | SR-API-007 | A strict native query contract could accidentally rely on an upstream lossy decoder | Pinned form_urlencoded/percent-encoding sources inspected; strict escape/UTF-8 preflight specified before upstream pairing | Malformed escapes, invalid decoded UTF-8, repeats, plus, encoded separators and bounded scratch |
-| SR-API-006 | Synchronous borrowed write copying had no bounded wait-for-capacity path; native snapshots lacked managed-credit provenance | Metadata-only async write reservations plus explicit nonwaiting managed-credit tokens and atomic/rollback ordering specified | Saturated credits, canceled/untaken reservations, allocation failure, async copies and final-owner release |
+| SR-API-006 | Synchronous borrowed write copying lacked bounded queue admission; native snapshots lacked managed-credit provenance | Metadata-only queue waits plus nonwaiting native/managed payload grants and atomic/rollback ordering; API-SRV-010 removes the older byte-wait policy | Saturated credits fail without waiting, canceled/untaken reservations, allocation failure, async copies and final-owner release |

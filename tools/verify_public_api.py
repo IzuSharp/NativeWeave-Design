@@ -99,19 +99,13 @@ def verify(history=False, require_acceptance=False):
     registry=read(ROOT/'docs/contracts/registry.json')
     assert len(registry['contracts'])==21
     if require_acceptance:
-        index=read(ROOT/'docs/contracts/acceptance-index.json')
-        assert index['state']=='accepted_research_and_detailed_design'
-        assert index['product_implementation_authorized'] is False
-        for c in registry['contracts']:
-            assert c['version']=='0.4.0' and c['status']=='accepted',c['id']
-            assert c['content_sha256']==digest(ROOT/c['spec_path']),c['id']
-            for ref in c['evidence']+c['reviews']:
-                repository,path=ref['manifest_path'].split(':',1)
-                assert repository=='NativeWeave-Design' and digest(ROOT/path)==ref['sha256'],path
+        from verify_contract_acceptance import verify as verify_contracts
+        acceptance=verify_contracts(ROOT)
     result={'passed':True,'coverage_rows':coverage,'public_symbols':len(symbols),
             'public_type_policy_keys':len(policies),'historical_files_preserved':len(immutable),
             'historical_english_gate_executed':history,'accepted_contracts_required':require_acceptance,
             'product_implementation_authorized':False}
+    if require_acceptance:result['exact_contract_acceptance']=acceptance
     print(json.dumps(result,indent=2))
     return result
 

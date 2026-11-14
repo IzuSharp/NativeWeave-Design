@@ -1,0 +1,117 @@
+{
+  "scope": "design-only negative consumer compilation",
+  "sdk": "11.0.100",
+  "language": "15.0",
+  "passed": true,
+  "product_execution": false,
+  "cases": [
+    {
+      "id": "typed-column-value",
+      "passed": true,
+      "expected_diagnostic_ids": [
+        "CS0411",
+        "CS1503"
+      ],
+      "diagnostics": [
+        {
+          "id": "CS0411",
+          "severity": "Error",
+          "message": "The type arguments for method \u0027Changes\u003CStudent\u003E.Set\u003CT\u003E(Column\u003CStudent, T\u003E, T)\u0027 cannot be inferred from the usage. Try specifying the type arguments explicitly."
+        }
+      ]
+    },
+    {
+      "id": "entity-column-owner",
+      "passed": true,
+      "expected_diagnostic_ids": [
+        "CS0411",
+        "CS1503"
+      ],
+      "diagnostics": [
+        {
+          "id": "CS1503",
+          "severity": "Error",
+          "message": "Argument 1: cannot convert from \u0027NativeWeave.Data.Column\u003CEnrollment, int\u003E\u0027 to \u0027NativeWeave.Data.Column\u003CStudent, int\u003E\u0027"
+        }
+      ]
+    },
+    {
+      "id": "nullable-reference",
+      "passed": true,
+      "expected_diagnostic_ids": [
+        "CS8625"
+      ],
+      "diagnostics": [
+        {
+          "id": "CS8625",
+          "severity": "Warning",
+          "message": "Cannot convert null literal to non-nullable reference type."
+        }
+      ]
+    },
+    {
+      "id": "aggregate-scalar-type",
+      "passed": true,
+      "expected_diagnostic_ids": [
+        "CS1503"
+      ],
+      "diagnostics": [
+        {
+          "id": "CS1503",
+          "severity": "Error",
+          "message": "Argument 1: cannot convert from \u0027NativeWeave.Query.SqlExpression\u003Cstring\u003E\u0027 to \u0027NativeWeave.Query.SqlExpression\u003Cint\u003E\u0027"
+        }
+      ]
+    },
+    {
+      "id": "handler-return-type",
+      "passed": true,
+      "expected_diagnostic_ids": [
+        "CS0029",
+        "CS1662",
+        "CS1503"
+      ],
+      "diagnostics": [
+        {
+          "id": "CS0029",
+          "severity": "Error",
+          "message": "Cannot implicitly convert type \u0027int\u0027 to \u0027NativeWeave.Server.ServerResult\u0027"
+        },
+        {
+          "id": "CS1662",
+          "severity": "Error",
+          "message": "Cannot convert lambda expression to intended delegate type because some of the return types in the block are not implicitly convertible to the delegate return type"
+        }
+      ]
+    },
+    {
+      "id": "span-capture",
+      "passed": true,
+      "expected_diagnostic_ids": [
+        "CS9108",
+        "CS8175"
+      ],
+      "diagnostics": [
+        {
+          "id": "CS9108",
+          "severity": "Error",
+          "message": "Cannot use parameter \u0027span\u0027 that has ref-like type inside an anonymous method, lambda expression, query expression, or local function"
+        }
+      ]
+    },
+    {
+      "id": "resource-not-copyable-value",
+      "passed": true,
+      "expected_diagnostic_ids": [
+        "CS0453"
+      ],
+      "diagnostics": [
+        {
+          "id": "CS0453",
+          "severity": "Error",
+          "message": "The type \u0027NativeBuffer\u0027 must be a non-nullable value type in order to use it as parameter \u0027T\u0027 in the generic type or method \u0027Case.Value\u003CT\u003E(T)\u0027"
+        }
+      ]
+    }
+  ]
+}

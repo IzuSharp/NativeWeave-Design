@@ -20,6 +20,7 @@ public sealed partial record Student(
     [property: WeaveColumn("email")] string? Email,
     [property: WeaveVersion, WeaveColumn("version")] long Version);
 public sealed record Enrollment(long Id, long StudentId, int Credits);
+public sealed record OptionalEnrollment(long Id, long? StudentId, int Credits);
 public sealed record StudentCredits(long StudentId, long EnrollmentCount);
 
 // Explicit handwritten equivalent of the specified generator output. This does not claim a generator ran.
@@ -91,4 +92,18 @@ public static class DatabaseExamples
     }
     public static IServiceCollection Register(IServiceCollection services)
         => services.AddNativeWeaveDatabase(builder => builder.UseSqlite("students.db").ConfigureLimits(new DatabaseLimits { MaxConnections = 4 }));
+}
+
+// Handwritten static metadata: a nullable FK remains nullable in JOIN ON and result shapes.
+public static class OptionalEnrollments
+{
+    private static readonly TableBuilder<OptionalEnrollment> Builder = new("optional_enrollments");
+    public static readonly Column<OptionalEnrollment, long> Id = Builder.Column("id", Codecs.Int64, new ColumnOptions { IsPrimaryKey = true });
+    public static readonly Column<OptionalEnrollment, long?> StudentId = Builder.Column("student_id", Codecs.Nullable(Codecs.Int64));
+    public static readonly Column<OptionalEnrollment, int> Credits = Builder.Column("credits", Codecs.Int32);
+    public static readonly Table<OptionalEnrollment> Table = Builder.Build(
+        static row => new OptionalEnrollment(row.Get(Id), row.Get(StudentId), row.Get(Credits)),
+        static (row, value) => { row.Set(Id, value.Id); row.Set(StudentId, value.StudentId); row.Set(Credits, value.Credits); });
+    public static readonly Relation<Student, OptionalEnrollment> StudentRelation =
+        Relation<Student, OptionalEnrollment>.CreateOptional(Students.Table, Students.Id, Table, StudentId);
 }

@@ -98,9 +98,13 @@ Required evidence: generated-source golden files, incremental cache behavior whe
 
 ## 8. Fixed descriptor and operation rules for Codex
 
-A descriptor's canonical content includes schema-format version, logical metadata
-ID, validated names, scalar codec and nullability, primary/foreign keys, relation
-alias/arity and ordered projection fields. Native capability/ABI versions are
+A table descriptor's canonical content includes schema-format version, logical metadata
+ID, validated names, scalar codec and nullability, primary keys and ordered projection
+fields. Its v1 relations array is reserved empty. An explicit Relation is created
+after both immutable tables; its separate canonical descriptor includes both model
+hashes/table IDs and ordered parent-primary-key/child-foreign-key pairs and child
+nullability. It registers through the source-bound relation ABI in
+`docs/api/database.md` §9.2.1 without rewriting either table hash. Native capability/ABI versions are
 separate from that business metadata hash. A second supported C# entity registers a
 second descriptor; it does not manufacture a new Rust type, rewrite Cargo.lock or
 change native assets. Runtime dynamic filters resolve only declared descriptors.

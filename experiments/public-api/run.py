@@ -32,9 +32,9 @@ def main():
     dotnet = str(Path(args.dotnet).resolve())
     runtime_root = Path(dotnet).parent
     out = Path(args.output).resolve()
-    out.mkdir(parents=True, exist_ok=True)
-    if (out/'summary.json').exists():
+    if out.exists() and any(out.iterdir()):
         raise RuntimeError('Use a new evidence directory; earlier attempts must remain available.')
+    out.mkdir(parents=True, exist_ok=True)
     env = dict(os.environ, DOTNET_CLI_TELEMETRY_OPTOUT='1', DOTNET_NOLOGO='1',
                DOTNET_SKIP_FIRST_TIME_EXPERIENCE='1', DOTNET_CLI_USE_MSBUILD_SERVER='0')
     steps = []

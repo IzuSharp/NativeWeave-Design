@@ -1282,21 +1282,25 @@
       "public_api": [
         "NativeWeave.Query.SqlExpression<T>.IsNull",
         "NativeWeave.Query.SqlExpression<T>.IsNotNull",
-        "NativeWeave.Query.SqlExpression<T>.NullSafeEqual"
+        "NativeWeave.Query.SqlExpression<T>.NullSafeEqual",
+        "NativeWeave.Query.SqlNullabilityExtensions.AsNullable",
+        "NativeWeave.Query.SqlNullabilityExtensions.AsNullableReference"
       ],
       "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
       "adapter_operations": [
         "Expression.Unary",
-        "Expression.Binary"
+        "Expression.Binary",
+        "nw_db_expr_unary_v1 code4 NullableLift"
       ],
       "support": "equivalent",
       "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
       "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
-      "limitations": "Ordinary equality with NULL yields UNKNOWN; NullSafeEqual codec/collation capability-bound.",
+      "limitations": "Ordinary equality with NULL yields UNKNOWN; NullSafeEqual codec/collation capability-bound. Explicit one-way lift retains codec/configuration/owner and emits no SQL conversion or sentinel; nullable-to-non-null projection remains invalid.",
       "specification": "docs/api/database.md",
       "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
       "tasks": [
         "B07",
+        "B09",
         "B11",
         "B13"
       ],
@@ -1472,19 +1476,21 @@
       "public_api": [
         "NativeWeave.Query.Query<TEntity>.InnerJoin",
         "NativeWeave.Query.JoinedTable<TEntity>",
-        "NativeWeave.Query.JoinPredicate<TLeft,TRight>"
+        "NativeWeave.Query.JoinPredicate<TLeft,TRight>",
+        "NativeWeave.Query.SqlNullabilityExtensions.AsNullable"
       ],
       "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
       "adapter_operations": [
         "query_import(model)",
         "clause18 JOIN RESERVE",
         "expr_column/binary ON",
-        "clause7 JOIN COMMIT; clause19 JOIN ABORT on failure"
+        "clause7 JOIN COMMIT; clause19 JOIN ABORT on failure",
+        "nw_db_expr_unary_v1 code4 for optional-FK ON comparison"
       ],
       "support": "equivalent",
       "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
       "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
-      "limitations": "Explicit typed alias/ON; cross-owner tokens reject; self joins retain separate aliases.",
+      "limitations": "Explicit typed alias/ON; cross-owner tokens reject; self joins retain separate aliases. ON preserves declared FK nullability; explicit key lift keeps SQL UNKNOWN for NULL FK, including when a parent key is zero.",
       "specification": "docs/api/database.md",
       "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
       "tasks": [
@@ -1513,7 +1519,8 @@
         "NativeWeave.Query.LeftJoinedTable<TEntity>",
         "NativeWeave.Query.Query<TEntity>.NullableValue",
         "NativeWeave.Query.Query<TEntity>.NullableReference",
-        "NativeWeave.Query.Query<TEntity>.HasMatch"
+        "NativeWeave.Query.Query<TEntity>.HasMatch",
+        "NativeWeave.Query.SqlNullabilityExtensions.AsNullable"
       ],
       "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
       "adapter_operations": [
@@ -1521,12 +1528,13 @@
         "clause18 JOIN RESERVE",
         "expr_column/binary ON",
         "clause7 JOIN COMMIT; clause19 JOIN ABORT on failure",
-        "clause20 JOIN MATCH"
+        "clause20 JOIN MATCH",
+        "nw_db_expr_unary_v1 code4 for optional-FK ON comparison"
       ],
       "support": "equivalent",
       "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
       "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
-      "limitations": "Right-side projected scalars nullable; match marker distinct from null data; ON not moved to WHERE.",
+      "limitations": "Right-side projected scalars nullable; match marker distinct from null data; ON not moved to WHERE. ON preserves declared FK nullability; explicit key lift keeps SQL UNKNOWN for NULL FK, including when a parent key is zero.",
       "specification": "docs/api/database.md",
       "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
       "tasks": [
@@ -1588,15 +1596,22 @@
       ],
       "rust_engine": "SeaQuery 1.0.2 + SQLx 0.9.0",
       "adapter_operations": [
-        "Relation.Load"
+        "nw_db_metadata_register_v1 parent and child",
+        "nw_db_projection_register_v1 child Table.Row",
+        "nw_db_relation_register_v1 source + parent_model + child_model + kind23",
+        "nw_db_relation_load_create_v1 session + relation + parent kind4 db-wire key + child_projection_id",
+        "nw_db_operation_take_owner_v1 kind2; cursor_fetch; close/retire/release"
       ],
       "support": "limited",
       "aot": "Statically typed/generator-compatible design; actual product Windows/Linux Native AOT evidence required.",
-      "cost": "One thin managed call and native operation; input UTF-8/value copies and owned result allocations are counted.",
-      "limitations": "Explicit one-parent bounded FK query/composite metadata; no recursive Include/identity fix-up or hidden N+1.",
+      "cost": "One source-local immutable relation registration on cache miss; one child SELECT with ordered key parameters, then bounded cursor batches and owned child DTOs; both-model/projection leases retained until quiescence.",
+      "limitations": "Independent post-Build relation identity leaves both table hashes unchanged; complete ordered non-null parent PK, exact child codec/configuration/collation and declared nullable FK flags; no parent-existence query, implicit ordering/tenant filters, recursive Include, identity fix-up or hidden N+1. Source generation/cache budgets/retention are explicit in database.md section9.2.1.",
       "specification": "docs/api/database.md",
       "signature_source": "experiments/public-api/NativeWeave.Api.Design/Database.cs",
       "tasks": [
+        "B01",
+        "B07",
+        "B09",
         "B14"
       ],
       "implementation_status": "not_implemented_design_only",

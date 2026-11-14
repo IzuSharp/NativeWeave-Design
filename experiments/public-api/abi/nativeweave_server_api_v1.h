@@ -121,9 +121,14 @@ void NW_CDECL nw_server_request_release(nw_server_request *);
 
 uint32_t NW_CDECL nw_server_managed_credit_acquire(nw_server_request *, uint64_t capacity, nw_server_managed_credit **out_credit, nw_error_info_v1 *);
 void NW_CDECL nw_server_managed_credit_release(nw_server_managed_credit *);
+/* Queue admission may wait without new payload credit. Native global/request payload
+   capacity is one nonwaiting all-or-none try; resource_limit releases queue/partial
+   grants without retry. Charge full backing capacity, not a visible slice length. */
 uint32_t NW_CDECL nw_server_write_reserve_create(nw_server_request *, uint32_t kind, uint64_t native_capacity, nw_server_operation **out_op, nw_error_info_v1 *);
 void NW_CDECL nw_server_write_reservation_release(nw_server_write_reservation *);
 
+/* Ordinary HTTP only; gRPC/MCP raw reads return INVALID_STATE. Read payload grants
+   are nonwaiting like writes; cancellation/result release cleans untaken owners. */
 uint32_t NW_CDECL nw_server_body_read_create(nw_server_request *, uint32_t max_bytes, nw_server_operation **out_op, nw_error_info_v1 *);
 uint32_t NW_CDECL nw_server_operation_take_chunk(nw_server_operation *, uint32_t *out_frame_kind, nw_server_buffer **out_buffer, nw_server_metadata **out_trailers, nw_error_info_v1 *);
 uint32_t NW_CDECL nw_server_buffer_length(nw_server_buffer *, uint64_t *out_length, nw_error_info_v1 *);
@@ -131,9 +136,12 @@ uint32_t NW_CDECL nw_server_buffer_copy(nw_server_buffer *, uint8_t *destination
 uint32_t NW_CDECL nw_server_buffer_managed_credit_acquire(nw_server_buffer *, uint64_t capacity, nw_server_managed_credit **out_credit, nw_error_info_v1 *);
 void NW_CDECL nw_server_buffer_release(nw_server_buffer *);
 
+/* Raw response operations: ordinary HTTP or MCP Denied only, never gRPC/MCP Allowed. */
 uint32_t NW_CDECL nw_server_response_begin_create(nw_server_request *, uint32_t http_status, nw_bytes_view_v1 headers, nw_server_operation **out_op, nw_error_info_v1 *);
 uint32_t NW_CDECL nw_server_response_write_create(nw_server_request *, nw_server_write_reservation *, nw_bytes_view_v1 bytes, nw_server_operation **out_op, nw_error_info_v1 *);
 uint32_t NW_CDECL nw_server_response_flush_create(nw_server_request *, nw_server_operation **out_op, nw_error_info_v1 *);
+/* Successful HTTP dispatch must await this shared completion attempt before managed
+   OnCompleted/disposal/scope/dispatch_complete, even if the handler omitted it. */
 uint32_t NW_CDECL nw_server_response_finish_create(nw_server_request *, nw_bytes_view_v1 trailers, nw_server_operation **out_op, nw_error_info_v1 *);
 uint32_t NW_CDECL nw_server_sse_write_create(nw_server_request *, nw_server_write_reservation *, const nw_server_sse_event_v1 *, nw_server_operation **out_op, nw_error_info_v1 *);
 
@@ -146,6 +154,9 @@ uint32_t NW_CDECL nw_server_mcp_call_take(nw_server_request *, uint32_t *out_cal
 uint32_t NW_CDECL nw_server_mcp_reply_create(nw_server_request *, nw_server_write_reservation *, uint32_t reply_kind, nw_bytes_view_v1 result_json, nw_server_operation **out_op, nw_error_info_v1 *);
 
 uint32_t NW_CDECL nw_server_metadata_headers(nw_server_metadata *, nw_bytes_view_v1 *out_headers, nw_error_info_v1 *);
+/* Separate borrowed decoded block. Rust Adapter splits -bin commas, trims only SP/HTAB
+   at segment ends, preflights post-split count/bytes/scratch, and invokes Tonic decode
+   per segment. Empty segments remain empty values; original HTTP text stays intact. */
 uint32_t NW_CDECL nw_server_metadata_grpc_headers(nw_server_metadata *, nw_bytes_view_v1 *out_metadata, nw_error_info_v1 *);
 
 #ifdef __cplusplus
