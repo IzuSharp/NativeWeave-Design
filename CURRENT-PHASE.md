@@ -1,5 +1,16 @@
 # Current design and outcome boundaries
 
+## Independent proposed direction
+
+[Korda-Orm-01](docs/korda-orm/README.md) studies a new pure C# SQL framework derived
+from jOOQ semantics, with independent rendering and mature .NET driver execution.
+Its research probes and proposed contracts are separate from the existing product
+below. Design review does not authorize implementation, cutover, deletion or merge.
+The [Plan handoff](https://github.com/IzuSharp/Plan/blob/task/Korda-Orm-01-linux/ledger/evidence/batches/Korda-Orm-01/handoff-linux.md)
+owns progress and the independent implementation graph.
+
+## Existing product
+
 Korda's current product boundary is a C# Fluent ORM for PostgreSQL and SQLite,
 with Native AOT, C++20/libpq/sqlite3 execution and independent provider packages.
 [ADR-0006](docs/decisions/ADR-0006-database-cpp-native.md),

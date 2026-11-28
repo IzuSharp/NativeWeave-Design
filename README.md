@@ -8,6 +8,11 @@ and final delivery conclusions.
 
 ## Start here
 
+The independent [Korda.Orm architecture study](docs/korda-orm/README.md) proposes a
+jOOQ-derived pure C# SQL language with mature .NET execution and Native AOT.
+It is under review and is not the currently implemented C++ product. Its design,
+contracts and implementation plan do not inherit historical task dependencies.
+
 | Document | Purpose |
 | --- | --- |
 | [Current phase](CURRENT-PHASE.md) | Current design and measured experiment boundaries |
